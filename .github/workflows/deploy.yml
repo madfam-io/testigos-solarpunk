@@ -178,7 +178,7 @@ jobs:
           path: ./dist
       
       - name: Subir reportes como artefactos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-reports
           path: |
