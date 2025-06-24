@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   formatDate,
   slugify,
@@ -83,7 +83,8 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
     });
 
     it('should remove code blocks', () => {
-      const markdown = 'Text before\n```js\nconst code = true;\n```\nText after';
+      const markdown =
+        'Text before\n```js\nconst code = true;\n```\nText after';
       const excerpt = generateExcerpt(markdown);
       expect(excerpt).toBe('Text before Text after');
     });
@@ -109,7 +110,8 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
 
     it('should handle empty strings', () => {
       expect(capitalize('')).toBe('');
-      expect(capitalize(null as any)).toBe('');
+      // @ts-expect-error Testing null input
+      expect(capitalize(null)).toBe('');
     });
 
     it('should handle single character', () => {
@@ -118,7 +120,8 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
     });
 
     it('should handle undefined', () => {
-      expect(capitalize(undefined as any)).toBe('');
+      // @ts-expect-error Testing undefined input
+      expect(capitalize(undefined)).toBe('');
     });
 
     it('should handle numbers at start', () => {
@@ -278,7 +281,7 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
   });
 
   describe('debounce', () => {
-    it('should debounce function calls', async () => {
+    it('should debounce function calls', () => {
       vi.useFakeTimers();
       const mockFn = vi.fn();
       const debouncedFn = debounce(mockFn, 100);
@@ -324,35 +327,61 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
   describe('getURLParam', () => {
     it('should get URL parameters', () => {
       // Mock window.location.search
-      delete (window as any).location;
-      window.location = { search: '?param1=value1&param2=value2' } as any;
+      const windowLocation = window.location;
+      // @ts-expect-error Mocking window.location
+      delete window.location;
+      window.location = {
+        ...windowLocation,
+        search: '?param1=value1&param2=value2',
+      };
 
       expect(getURLParam('param1')).toBe('value1');
       expect(getURLParam('param2')).toBe('value2');
       expect(getURLParam('nonexistent')).toBe(null);
+
+      // Restore
+      window.location = windowLocation;
     });
 
     it('should handle empty search params', () => {
-      window.location = { search: '' } as any;
+      const windowLocation = window.location;
+      // @ts-expect-error Mocking window.location
+      delete window.location;
+      window.location = { ...windowLocation, search: '' };
+
       expect(getURLParam('any')).toBe(null);
+
+      // Restore
+      window.location = windowLocation;
     });
   });
 
   describe('lazyLoadImage', () => {
     it('should load image successfully', async () => {
-      const mockImage = {
-        onload: null as any,
-        onerror: null as any,
+      interface MockImage {
+        onload: ((this: GlobalEventHandlers, ev: Event) => unknown) | null;
+        onerror:
+          | ((this: GlobalEventHandlers, ev: Event | string) => unknown)
+          | null;
+        src: string;
+      }
+
+      const mockImage: MockImage = {
+        onload: null,
+        onerror: null,
         src: '',
       };
 
-      global.Image = vi.fn(() => mockImage) as any;
+      // @ts-expect-error Mocking global Image
+      global.Image = vi.fn(() => mockImage);
 
       const promise = lazyLoadImage('/test.jpg');
 
       // Simulate image load
       setTimeout(() => {
-        if (mockImage.onload) mockImage.onload();
+        if (mockImage.onload !== null) {
+          mockImage.onload.call(mockImage, new Event('load'));
+        }
       }, 0);
 
       const result = await promise;
@@ -361,32 +390,52 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
     });
 
     it('should handle image load error', async () => {
-      const mockImage = {
-        onload: null as any,
-        onerror: null as any,
+      interface MockImage {
+        onload: ((this: GlobalEventHandlers, ev: Event) => unknown) | null;
+        onerror:
+          | ((this: GlobalEventHandlers, ev: Event | string) => unknown)
+          | null;
+        src: string;
+      }
+
+      const mockImage: MockImage = {
+        onload: null,
+        onerror: null,
         src: '',
       };
 
-      global.Image = vi.fn(() => mockImage) as any;
+      // @ts-expect-error Mocking global Image
+      global.Image = vi.fn(() => mockImage);
 
       const promise = lazyLoadImage('/error.jpg');
 
       // Simulate image error
       setTimeout(() => {
-        if (mockImage.onerror) mockImage.onerror(new Error('Load failed'));
+        if (mockImage.onerror !== null) {
+          mockImage.onerror.call(mockImage, new Error('Load failed'));
+        }
       }, 0);
 
       await expect(promise).rejects.toThrow();
     });
 
     it('should use placeholder while loading', async () => {
-      const mockImage = {
-        onload: null as any,
-        onerror: null as any,
+      interface MockImage {
+        onload: ((this: GlobalEventHandlers, ev: Event) => unknown) | null;
+        onerror:
+          | ((this: GlobalEventHandlers, ev: Event | string) => unknown)
+          | null;
+        src: string;
+      }
+
+      const mockImage: MockImage = {
+        onload: null,
+        onerror: null,
         src: '',
       };
 
-      global.Image = vi.fn(() => mockImage) as any;
+      // @ts-expect-error Mocking global Image
+      global.Image = vi.fn(() => mockImage);
 
       const promise = lazyLoadImage('/test.jpg', '/placeholder.jpg');
 
@@ -394,13 +443,15 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
       expect(mockImage.src).toBe('/placeholder.jpg');
 
       // Wait for next tick
-      await new Promise(resolve => setTimeout(resolve, 1));
+      await new Promise((resolve) => setTimeout(resolve, 1));
 
       // Check actual image is loaded
       expect(mockImage.src).toBe('/test.jpg');
 
       // Simulate image load
-      if (mockImage.onload) mockImage.onload();
+      if (mockImage.onload !== null) {
+        mockImage.onload.call(mockImage, new Event('load'));
+      }
 
       await promise;
     });

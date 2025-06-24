@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { extractTextContent, hasClass, countTags, parseAttributes, getInnerHTML } from '../../helpers/astro-test-utils';
+import {
+  extractTextContent,
+  hasClass,
+  countTags,
+  parseAttributes,
+  getInnerHTML,
+} from '../../helpers/astro-test-utils';
 
 /**
  * Since Astro components compile to HTML at build time,
@@ -16,9 +22,9 @@ describe('CharacterCard Component', () => {
     ocupacion: string;
     imagen?: string;
     descripcionBreve: string;
-  }) => {
-    const imagenUrl = props.imagen || '/images/characters/placeholder.jpg';
-    
+  }): string => {
+    const imagenUrl = props.imagen ?? '/images/characters/placeholder.jpg';
+
     return `
       <article class="character-card card">
         <div class="character-image">
@@ -45,7 +51,8 @@ describe('CharacterCard Component', () => {
         rol: 'Protagonista',
         edad: 28,
         ocupacion: 'Evangelista Solar',
-        descripcionBreve: 'Carismática líder del movimiento Testigos de Solarpunk',
+        descripcionBreve:
+          'Carismática líder del movimiento Testigos de Solarpunk',
       };
 
       const html = mockCharacterCardHTML(props);
@@ -216,7 +223,7 @@ describe('CharacterCard Component', () => {
 
       // Article for card container
       expect(html).toContain('<article');
-      
+
       // Heading for character name
       expect(html).toContain('<h3>');
     });

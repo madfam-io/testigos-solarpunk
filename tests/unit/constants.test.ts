@@ -30,7 +30,9 @@ describe('Constants', () => {
   describe('Site Information', () => {
     it('should have correct site information', () => {
       expect(SITE_TITLE).toBe('Testigos de Solarpunk');
-      expect(SITE_DESCRIPTION).toBe('Universo narrativo evangelista ecológico que combina humor, sostenibilidad y esperanza');
+      expect(SITE_DESCRIPTION).toBe(
+        'Universo narrativo evangelista ecológico que combina humor, sostenibilidad y esperanza'
+      );
       expect(SITE_URL).toBe('https://madfam-io.github.io/testigos-solarpunk');
       expect(SITE_AUTHOR).toBe('MADFAM');
       expect(SITE_LANG).toBe('es-MX');
@@ -43,7 +45,10 @@ describe('Constants', () => {
       expect(SOCIAL_LINKS).toHaveProperty('youtube', '@TestigosSolarpunk');
       expect(SOCIAL_LINKS).toHaveProperty('instagram', '@testigos.solarpunk');
       expect(SOCIAL_LINKS).toHaveProperty('twitter', '@TestigosSolar');
-      expect(SOCIAL_LINKS).toHaveProperty('github', 'https://github.com/madfam-io/testigos-solarpunk');
+      expect(SOCIAL_LINKS).toHaveProperty(
+        'github',
+        'https://github.com/madfam-io/testigos-solarpunk'
+      );
     });
 
     it('should be constant object', () => {
@@ -131,7 +136,9 @@ describe('Constants', () => {
   describe('SEO Defaults', () => {
     it('should have correct SEO configuration', () => {
       expect(SEO_DEFAULTS.titleTemplate).toBe('%s | Testigos de Solarpunk');
-      expect(SEO_DEFAULTS.defaultTitle).toBe('Testigos de Solarpunk - Universo Narrativo Eco-Evangelista');
+      expect(SEO_DEFAULTS.defaultTitle).toBe(
+        'Testigos de Solarpunk - Universo Narrativo Eco-Evangelista'
+      );
       expect(SEO_DEFAULTS.defaultImage).toBe('/og-image.jpg');
       expect(SEO_DEFAULTS.twitterHandle).toBe('@TestigosSolar');
     });
@@ -225,21 +232,35 @@ describe('Constants', () => {
 
   describe('Messages', () => {
     it('should have error messages', () => {
-      expect(MESSAGES.error.notFound).toBe('¡Hermano, esta página se ha extraviado en el camino verde!');
-      expect(MESSAGES.error.loadFailed).toBe('¡Oh no! El milagro de carga ha fallado. Intenta de nuevo.');
-      expect(MESSAGES.error.formInvalid).toBe('Por favor, revisa los campos marcados con el espíritu rojo.');
+      expect(MESSAGES.error.notFound).toBe(
+        '¡Hermano, esta página se ha extraviado en el camino verde!'
+      );
+      expect(MESSAGES.error.loadFailed).toBe(
+        '¡Oh no! El milagro de carga ha fallado. Intenta de nuevo.'
+      );
+      expect(MESSAGES.error.formInvalid).toBe(
+        'Por favor, revisa los campos marcados con el espíritu rojo.'
+      );
     });
 
     it('should have success messages', () => {
-      expect(MESSAGES.success.subscribed).toBe('¡Aleluya! Te has unido a la congregación verde.');
-      expect(MESSAGES.success.shared).toBe('¡Amén! Has compartido la buena nueva solar.');
-      expect(MESSAGES.success.saved).toBe('¡Gloria! Tus cambios han sido bendecidos y guardados.');
+      expect(MESSAGES.success.subscribed).toBe(
+        '¡Aleluya! Te has unido a la congregación verde.'
+      );
+      expect(MESSAGES.success.shared).toBe(
+        '¡Amén! Has compartido la buena nueva solar.'
+      );
+      expect(MESSAGES.success.saved).toBe(
+        '¡Gloria! Tus cambios han sido bendecidos y guardados.'
+      );
     });
 
     it('should have loading messages', () => {
       expect(MESSAGES.loading.default).toBe('Cargando milagros verdes...');
       expect(MESSAGES.loading.characters).toBe('Convocando a los testigos...');
-      expect(MESSAGES.loading.scripts).toBe('Desenrollando los pergaminos sagrados...');
+      expect(MESSAGES.loading.scripts).toBe(
+        'Desenrollando los pergaminos sagrados...'
+      );
     });
   });
 
@@ -260,9 +281,9 @@ describe('Constants', () => {
       // Instead, we verify the fallback behavior
       expect(API_CONFIG.baseURL).toBeDefined();
       expect(typeof API_CONFIG.baseURL).toBe('string');
-      
+
       // If API_URL is not set, it should default to '/api'
-      if (!process.env.API_URL || process.env.API_URL === '') {
+      if (process.env.API_URL === undefined || process.env.API_URL === '') {
         expect(API_CONFIG.baseURL).toBe('/api');
       }
     });
