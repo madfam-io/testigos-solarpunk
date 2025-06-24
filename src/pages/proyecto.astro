@@ -1,0 +1,482 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+---
+
+<BaseLayout
+  title="El Proyecto"
+  description="Conectar, Concientizar y Crear Comunidad a través del humor y la sostenibilidad"
+>
+  <section class="hero-proyecto">
+    <div class="container">
+      <h1 class="hero-title animate-fade-in">
+        Conectar, Concientizar y Crear Comunidad
+      </h1>
+      <p class="tagline animate-fade-in">Instruir desde el humor</p>
+
+      <div class="mision-vision">
+        <div class="mision-card">
+          <h3>🎯 Nuestra Misión</h3>
+          <p>
+            Transformar la percepción sobre la sostenibilidad a través del
+            humor, creando contenido que conecte, eduque y construya una
+            comunidad comprometida con el futuro del planeta.
+          </p>
+        </div>
+        <div class="vision-card">
+          <h3>🌟 Visión Solarpunk</h3>
+          <p>
+            Un mundo donde la tecnología y la naturaleza coexisten en armonía,
+            donde cada persona es un agente de cambio positivo, y donde el
+            futuro es brillante, sostenible y lleno de esperanza.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fases-section">
+    <div class="container">
+      <h2 class="section-title">Estrategia de 3 Fases</h2>
+      <p class="section-intro">
+        Un viaje de transformación que comienza con una sonrisa y termina con
+        acción real
+      </p>
+
+      <div class="fases-grid">
+        <div class="fase-card" data-fase="1">
+          <span class="fase-number">01</span>
+          <span class="fase-icon">🎭</span>
+          <h3>Testigos de Solarpunk</h3>
+          <p class="fase-descripcion">
+            Sketches de comedia con contenido relevante para reflexionar sobre
+            hábitos y ciencia cotidiana
+          </p>
+          <div class="fase-meta">
+            <span class="status active">En Producción</span>
+            <span class="formato">60-90 segundos</span>
+          </div>
+          <ul class="fase-features">
+            <li>Contenido viral para redes sociales</li>
+            <li>Humor que rompe barreras culturales</li>
+            <li>Tips prácticos de sostenibilidad</li>
+          </ul>
+          <a href={`${basePath}/contenido/sketches`} class="btn btn-primary">
+            Ver Sketches
+          </a>
+        </div>
+
+        <div class="fase-card" data-fase="2">
+          <span class="fase-number">02</span>
+          <span class="fase-icon">🎙️</span>
+          <h3>MADFAM Podcast</h3>
+          <p class="fase-descripcion">
+            Contenido de profundidad media sobre ciencia, tecnología y calidad
+            de vida con expertos invitados
+          </p>
+          <div class="fase-meta">
+            <span class="status upcoming">Próximamente</span>
+            <span class="formato">20-30 minutos</span>
+          </div>
+          <ul class="fase-features">
+            <li>Conversaciones profundas con expertos</li>
+            <li>Temas de actualidad ambiental</li>
+            <li>Soluciones prácticas y escalables</li>
+          </ul>
+          <a href={`${basePath}/contenido/podcast`} class="btn btn-secondary">
+            Saber Más
+          </a>
+        </div>
+
+        <div class="fase-card" data-fase="3">
+          <span class="fase-number">03</span>
+          <span class="fase-icon">🔬</span>
+          <h3>MADLAB</h3>
+          <p class="fase-descripcion">
+            Eventos, experiencias y activaciones en escuelas con apoyo de
+            patrocinadores para impacto directo
+          </p>
+          <div class="fase-meta">
+            <span class="status development">En Desarrollo</span>
+            <span class="formato">Eventos presenciales</span>
+          </div>
+          <ul class="fase-features">
+            <li>Experiencias educativas inmersivas</li>
+            <li>Laboratorios de innovación</li>
+            <li>Impacto directo en comunidades</li>
+          </ul>
+          <a href={`${basePath}/contenido/madlab`} class="btn btn-secondary">
+            Descubrir
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proceso-section">
+    <div class="container">
+      <h2>Nuestro Proceso Creativo</h2>
+      <div class="proceso-timeline">
+        <div class="proceso-step">
+          <div class="step-number">1</div>
+          <h4>Investigación</h4>
+          <p>Identificamos pain points y barreras culturales</p>
+        </div>
+        <div class="proceso-step">
+          <div class="step-number">2</div>
+          <h4>Diseño</h4>
+          <p>Creamos contenido que conecta y educa</p>
+        </div>
+        <div class="proceso-step">
+          <div class="step-number">3</div>
+          <h4>Producción</h4>
+          <p>Grabamos con calidad MADFAM</p>
+        </div>
+        <div class="proceso-step">
+          <div class="step-number">4</div>
+          <h4>Distribución</h4>
+          <p>Alcanzamos audiencias en múltiples plataformas</p>
+        </div>
+        <div class="proceso-step">
+          <div class="step-number">5</div>
+          <h4>Impacto</h4>
+          <p>Medimos y optimizamos resultados</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-proyecto">
+    <div class="container text-center">
+      <h2>¿Listo para ser parte del cambio?</h2>
+      <p class="cta-subtitle">Únete a la revolución del humor sostenible</p>
+      <div class="cta-actions">
+        <a href={`${basePath}/comunidad`} class="btn btn-primary">
+          🤝 Únete a la Comunidad
+        </a>
+        <a href={`${basePath}/contenido/sketches`} class="btn btn-secondary">
+          🎬 Ver Contenido
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-proyecto {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--amarillo-solar) 0%,
+      var(--verde-sostenible) 100%
+    );
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-proyecto::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('/images/patterns/solar-rays.svg') no-repeat center;
+    opacity: 0.1;
+    transform: rotate(45deg);
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: var(--espacio-md);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: var(--espacio-xl);
+    opacity: 0.9;
+  }
+
+  .mision-vision {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mision-card,
+  .vision-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: var(--espacio-xl);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .mision-card h3,
+  .vision-card h3 {
+    color: white;
+    margin-bottom: var(--espacio-md);
+  }
+
+  /* Sección de Fases */
+  .fases-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-md);
+    color: var(--texto-primario);
+  }
+
+  .section-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .fases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .fase-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--espacio-xl);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .fase-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--amarillo-solar);
+  }
+
+  .fase-card[data-fase='1']::before {
+    background: var(--amarillo-solar);
+  }
+
+  .fase-card[data-fase='2']::before {
+    background: var(--purpura-creativo);
+  }
+
+  .fase-card[data-fase='3']::before {
+    background: var(--verde-sostenible);
+  }
+
+  .fase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .fase-number {
+    position: absolute;
+    top: var(--espacio-md);
+    right: var(--espacio-md);
+    font-size: 3rem;
+    font-weight: 900;
+    opacity: 0.1;
+    color: var(--texto-primario);
+  }
+
+  .fase-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .fase-card h3 {
+    margin-bottom: var(--espacio-sm);
+    color: var(--texto-primario);
+  }
+
+  .fase-descripcion {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .fase-meta {
+    display: flex;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .status.active {
+    background: var(--verde-sostenible);
+    color: white;
+  }
+
+  .status.upcoming {
+    background: var(--azul-tecnologico);
+    color: white;
+  }
+
+  .status.development {
+    background: var(--naranja-comunidad);
+    color: white;
+  }
+
+  .formato {
+    padding: 4px 12px;
+    background: var(--fondo-secundario);
+    border-radius: 20px;
+    font-size: 0.875rem;
+  }
+
+  .fase-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .fase-features li {
+    padding: var(--espacio-sm) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .fase-features li:last-child {
+    border-bottom: none;
+  }
+
+  .fase-features li::before {
+    content: '✓';
+    color: var(--verde-sostenible);
+    font-weight: bold;
+    margin-right: var(--espacio-sm);
+  }
+
+  /* Proceso Timeline */
+  .proceso-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .proceso-timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: var(--espacio-xl);
+    padding: 0 var(--espacio-md);
+  }
+
+  .proceso-timeline::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      var(--amarillo-solar),
+      var(--verde-sostenible)
+    );
+    z-index: 0;
+  }
+
+  .proceso-step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: 3px solid var(--amarillo-solar);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--espacio-md);
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--amarillo-solar);
+  }
+
+  .proceso-step h4 {
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .proceso-step p {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+  }
+
+  /* CTA Section */
+  .cta-proyecto {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      rgba(255, 193, 7, 0.05) 100%
+    );
+  }
+
+  .cta-subtitle {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--espacio-md);
+    justify-content: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .proceso-timeline {
+      flex-direction: column;
+      gap: var(--espacio-xl);
+    }
+
+    .proceso-timeline::before {
+      display: none;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

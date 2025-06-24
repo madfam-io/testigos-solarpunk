@@ -1,0 +1,483 @@
+/* Content Strategy Styles - MADFAM 3-Phase Integration */
+
+:root {
+  /* Phase Colors */
+  --fase-1-primary: #ffc107; /* Amarillo Solar - Atracción */
+  --fase-1-secondary: #ffd54f;
+  --fase-1-accent: #ffa000;
+
+  --fase-2-primary: #663399; /* Púrpura - Conexión */
+  --fase-2-secondary: #7e57c2;
+  --fase-2-accent: #512da8;
+
+  --fase-3-primary: #4caf50; /* Verde - Conversión */
+  --fase-3-secondary: #66bb6a;
+  --fase-3-accent: #388e3c;
+
+  /* Visual Elements from PDF */
+  --gradient-solar: radial-gradient(
+    circle at 30% 30%,
+    var(--fase-1-primary) 0%,
+    transparent 70%
+  );
+  --gradient-purple: radial-gradient(
+    circle at 70% 70%,
+    var(--fase-2-primary) 0%,
+    transparent 70%
+  );
+  --gradient-green: radial-gradient(
+    circle at 50% 50%,
+    var(--fase-3-primary) 0%,
+    transparent 70%
+  );
+
+  /* Status Colors */
+  --status-active: #4caf50;
+  --status-upcoming: #2196f3;
+  --status-development: #ff6b35;
+
+  /* Spacing for Content */
+  --content-gap: 2rem;
+  --card-padding: 2rem;
+}
+
+/* Solar Rays Pattern Background */
+.pattern-solar-rays {
+  background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 193, 7, 0.03) 10px,
+      rgba(255, 193, 7, 0.03) 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 193, 7, 0.03) 10px,
+      rgba(255, 193, 7, 0.03) 20px
+    );
+}
+
+/* Geometric Pattern Background */
+.pattern-geometric {
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 50px,
+      rgba(102, 51, 153, 0.02) 50px,
+      rgba(102, 51, 153, 0.02) 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      rgba(102, 51, 153, 0.02) 50px,
+      rgba(102, 51, 153, 0.02) 51px
+    );
+}
+
+/* Phase Card Styles */
+.fase-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--madfam-white);
+  border-radius: 1rem;
+  padding: var(--card-padding);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.fase-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--pattern-geometric);
+  opacity: 0.05;
+  transform: rotate(45deg);
+  transition: opacity 0.3s ease;
+}
+
+.fase-card:hover::before {
+  opacity: 0.1;
+}
+
+.fase-card[data-fase='1'] {
+  border-top: 4px solid var(--fase-1-primary);
+}
+
+.fase-card[data-fase='1']:hover {
+  box-shadow:
+    0 20px 25px -5px rgba(255, 193, 7, 0.2),
+    0 10px 10px -5px rgba(255, 193, 7, 0.04);
+}
+
+.fase-card[data-fase='2'] {
+  border-top: 4px solid var(--fase-2-primary);
+}
+
+.fase-card[data-fase='2']:hover {
+  box-shadow:
+    0 20px 25px -5px rgba(102, 51, 153, 0.2),
+    0 10px 10px -5px rgba(102, 51, 153, 0.04);
+}
+
+.fase-card[data-fase='3'] {
+  border-top: 4px solid var(--fase-3-primary);
+}
+
+.fase-card[data-fase='3']:hover {
+  box-shadow:
+    0 20px 25px -5px rgba(76, 175, 80, 0.2),
+    0 10px 10px -5px rgba(76, 175, 80, 0.04);
+}
+
+/* Animated Number Counter */
+.metric-value[data-count] {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.metric-value.animate {
+  animation: countUp 0.6s ease-out forwards;
+}
+
+/* Sketch Card Hover Effects */
+.sketch-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sketch-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sketch-card:hover::after {
+  opacity: 1;
+}
+
+/* Play Button Animation */
+.play-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.play-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.6s ease,
+    height 0.6s ease;
+}
+
+.play-btn:hover::before {
+  width: 100px;
+  height: 100px;
+}
+
+/* Floating Animation for Icons */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse Animation for CTAs */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+}
+
+.btn-primary:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* Status Badge Styles */
+.status {
+  position: relative;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.status::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.status.active {
+  background: rgba(76, 175, 80, 0.1);
+  color: var(--status-active);
+}
+
+.status.active::before {
+  background: var(--status-active);
+}
+
+.status.upcoming {
+  background: rgba(33, 150, 243, 0.1);
+  color: var(--status-upcoming);
+}
+
+.status.upcoming::before {
+  background: var(--status-upcoming);
+}
+
+.status.development {
+  background: rgba(255, 107, 53, 0.1);
+  color: var(--status-development);
+}
+
+.status.development::before {
+  background: var(--status-development);
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Gradient Text Effect */
+.text-gradient-solar {
+  background: linear-gradient(
+    135deg,
+    var(--fase-1-primary) 0%,
+    var(--fase-1-accent) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(
+    135deg,
+    var(--fase-2-primary) 0%,
+    var(--fase-2-accent) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-green {
+  background: linear-gradient(
+    135deg,
+    var(--fase-3-primary) 0%,
+    var(--fase-3-accent) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Retro-Futuristic Elements */
+.retro-border {
+  position: relative;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(
+        45deg,
+        var(--fase-1-primary),
+        var(--fase-2-primary),
+        var(--fase-3-primary)
+      )
+      border-box;
+  border-radius: 1rem;
+}
+
+/* Collage Style Image Container */
+.collage-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  transform: rotate(-2deg);
+}
+
+.collage-container > * {
+  transform: rotate(2deg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.collage-container > *:hover {
+  transform: rotate(0deg) scale(1.05);
+  z-index: 10;
+}
+
+/* Typography Styles from PDF */
+.headline-bold {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.headline-playful {
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.headline-playful::after {
+  content: '';
+  position: absolute;
+  bottom: -0.1em;
+  left: 0;
+  right: 0;
+  height: 0.3em;
+  background: var(--fase-1-primary);
+  transform: skew(-15deg);
+  z-index: -1;
+}
+
+/* Interactive Elements */
+.interactive-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.interactive-card:active {
+  transform: scale(0.98);
+}
+
+/* Loading Animation for Content */
+@keyframes contentLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-animate {
+  animation: contentLoad 0.6s ease-out forwards;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  :root {
+    --content-gap: 1rem;
+    --card-padding: 1.5rem;
+  }
+
+  .fase-card {
+    padding: var(--card-padding);
+  }
+
+  .collage-container {
+    grid-template-columns: repeat(2, 1fr);
+    transform: none;
+  }
+
+  .collage-container > * {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .pattern-solar-rays,
+  .pattern-geometric {
+    background: none;
+  }
+
+  .fase-card {
+    box-shadow: none;
+    border: 1px solid #e5e5e5;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .fase-card {
+    background: var(--madfam-black);
+    color: var(--madfam-white);
+  }
+
+  .status {
+    filter: brightness(0.8);
+  }
+}

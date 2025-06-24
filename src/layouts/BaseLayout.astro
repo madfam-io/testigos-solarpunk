@@ -237,45 +237,33 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
         <ul class="nav-menu">
           <li>
             <a
+              href={`${basePath}/proyecto`}
+              class:list={currentPath.startsWith('/proyecto') ? 'active' : ''}
+              >El Proyecto</a
+            >
+          </li>
+          <li class="nav-dropdown">
+            <a
+              href={`${basePath}/contenido/sketches`}
+              class:list={currentPath.startsWith('/contenido') ? 'active' : ''}
+              >Contenido</a
+            >
+          </li>
+          <li class="nav-dropdown">
+            <a
               href={`${basePath}/personajes`}
-              class:list={currentPath.startsWith('/personajes') ? 'active' : ''}
-              >Personajes</a
-            >
-          </li>
-          <li>
-            <a
-              href={`${basePath}/guiones`}
-              class:list={currentPath.startsWith('/guiones') ? 'active' : ''}
-              >Guiones</a
-            >
-          </li>
-          <li>
-            <a
-              href={`${basePath}/mundo`}
-              class:list={currentPath.startsWith('/mundo') ? 'active' : ''}
-              >Mundo</a
-            >
-          </li>
-          <li>
-            <a
-              href={`${basePath}/formatos`}
-              class:list={currentPath.startsWith('/formatos') ? 'active' : ''}
-              >Formatos</a
-            >
-          </li>
-          <li>
-            <a
-              href={`${basePath}/filosofia`}
-              class:list={currentPath.startsWith('/filosofia') ? 'active' : ''}
-              >Filosofía</a
-            >
-          </li>
-          <li>
-            <a
-              href={`${basePath}/guia-visual`}
-              class:list={currentPath.startsWith('/guia-visual')
+              class:list={currentPath.startsWith('/personajes') ||
+              currentPath.startsWith('/mundo') ||
+              currentPath.startsWith('/guiones')
                 ? 'active'
-                : ''}>Guía Visual</a
+                : ''}>Universo</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${basePath}/comunidad`}
+              class:list={currentPath.startsWith('/comunidad') ? 'active' : ''}
+              >Comunidad</a
             >
           </li>
           <li>
@@ -287,9 +275,9 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
           </li>
           <li>
             <a
-              href={`${basePath}/recursos`}
-              class:list={currentPath.startsWith('/recursos') ? 'active' : ''}
-              >Recursos</a
+              href={`${basePath}/impacto`}
+              class:list={currentPath.startsWith('/impacto') ? 'active' : ''}
+              >Impacto</a
             >
           </li>
         </ul>

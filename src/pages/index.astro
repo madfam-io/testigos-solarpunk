@@ -14,54 +14,65 @@ const basePath =
       <div class="hero-content">
         <h1 class="hero-title animate-fade-in">Testigos de Solarpunk</h1>
         <p class="hero-subtitle animate-fade-in">
-          Un universo narrativo donde la esperanza, la tecnología sostenible y
-          la comunidad construyen el futuro
+          Conectar, Concientizar y Crear Comunidad a través del humor sostenible
         </p>
         <div class="hero-actions animate-fade-in">
-          <a href={`${basePath}/personajes`} class="btn btn-primary"
-            >Explorar Personajes</a
+          <a href={`${basePath}/contenido/sketches`} class="btn btn-primary"
+            >🎬 Ver Sketches</a
           >
-          <a href={`${basePath}/guiones`} class="btn btn-secondary"
-            >Ver Guiones</a
+          <a href={`${basePath}/proyecto`} class="btn btn-secondary"
+            >Conocer el Proyecto</a
           >
         </div>
       </div>
     </div>
   </section>
 
-  <section class="container mt-4">
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>🌱 Personajes Vivos</h3>
-        <p>
-          Conoce a los habitantes de Neo-Cuernavaca, desde ingenieros solares
-          hasta guardianes de semillas ancestrales.
-        </p>
-        <a href={`${basePath}/personajes`} class="btn btn-primary mt-2"
-          >Conocer Personajes</a
-        >
-      </div>
+  <section class="fases-home">
+    <div class="container">
+      <h2 class="text-center">Nuestra Estrategia de Impacto</h2>
+      <div class="grid grid-3">
+        <div class="fase-card-home" data-fase="1">
+          <span class="fase-icon">🎭</span>
+          <h3>Fase 1: Atracción</h3>
+          <p>
+            Sketches de comedia viral que rompen barreras culturales sobre
+            sostenibilidad
+          </p>
+          <span class="fase-status active">En Producción</span>
+          <a
+            href={`${basePath}/contenido/sketches`}
+            class="btn btn-primary mt-2">Ver Sketches</a
+          >
+        </div>
 
-      <div class="card">
-        <h3>📜 Guiones Multiplatforma</h3>
-        <p>
-          Episodios diseñados para TikTok, Instagram Reels y YouTube, cada uno
-          optimizado para su audiencia.
-        </p>
-        <a href={`${basePath}/guiones`} class="btn btn-primary mt-2"
-          >Leer Guiones</a
-        >
-      </div>
+        <div class="fase-card-home" data-fase="2">
+          <span class="fase-icon">🎙️</span>
+          <h3>Fase 2: Conexión</h3>
+          <p>
+            Podcast con expertos para profundizar en soluciones prácticas y
+            escalables
+          </p>
+          <span class="fase-status upcoming">Próximamente</span>
+          <a
+            href={`${basePath}/contenido/podcast`}
+            class="btn btn-secondary mt-2">Saber Más</a
+          >
+        </div>
 
-      <div class="card">
-        <h3>🌍 Mundo Detallado</h3>
-        <p>
-          Explora las ubicaciones, tecnologías y culturas que dan vida a este
-          futuro esperanzador.
-        </p>
-        <a href={`${basePath}/mundo`} class="btn btn-primary mt-2"
-          >Explorar Mundo</a
-        >
+        <div class="fase-card-home" data-fase="3">
+          <span class="fase-icon">🔬</span>
+          <h3>Fase 3: Conversión</h3>
+          <p>
+            MADLAB: Eventos y experiencias educativas que transforman
+            comunidades escolares
+          </p>
+          <span class="fase-status development">En Desarrollo</span>
+          <a
+            href={`${basePath}/contenido/madlab`}
+            class="btn btn-secondary mt-2">Descubrir</a
+          >
+        </div>
       </div>
     </div>
   </section>
@@ -141,18 +152,16 @@ const basePath =
 
   <section class="cta-section">
     <div class="container text-center">
-      <h2>¿Listo para ser parte del cambio?</h2>
+      <h2>¿Listo para cambiar el mundo con humor?</h2>
       <p class="text-muted mb-3">
-        Únete a creadores, actores y defensores del solarpunk en la construcción
-        de historias que importan
+        Únete a los Testigos de Solarpunk y sé parte del movimiento
       </p>
       <div class="cta-actions">
-        <a href={`${basePath}/recursos`} class="btn btn-primary"
-          >Para Creadores</a
+        <a href={`${basePath}/comunidad`} class="btn btn-primary"
+          >🤝 Únete a la Comunidad</a
         >
-        <a
-          href={`${basePath}/recursos#patrocinadores`}
-          class="btn btn-secondary">Para Patrocinadores</a
+        <a href={`${basePath}/impacto`} class="btn btn-secondary"
+          >📊 Ver Nuestro Impacto</a
         >
       </div>
     </div>
@@ -275,6 +284,85 @@ const basePath =
     display: flex;
     gap: var(--espacio-md);
     justify-content: center;
+  }
+
+  /* Fases Home Section */
+  .fases-home {
+    padding: var(--espacio-xxl) 0;
+    background: var(--fondo-secundario);
+  }
+
+  .fases-home h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .fase-card-home {
+    background: white;
+    padding: var(--espacio-xl);
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .fase-card-home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--amarillo-solar);
+  }
+
+  .fase-card-home[data-fase='1']::before {
+    background: var(--amarillo-solar);
+  }
+
+  .fase-card-home[data-fase='2']::before {
+    background: var(--purpura-creativo);
+  }
+
+  .fase-card-home[data-fase='3']::before {
+    background: var(--verde-sostenible);
+  }
+
+  .fase-card-home:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .fase-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .fase-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .fase-status.active {
+    background: var(--verde-sostenible);
+    color: white;
+  }
+
+  .fase-status.upcoming {
+    background: var(--azul-tecnologico);
+    color: white;
+  }
+
+  .fase-status.development {
+    background: var(--naranja-comunidad);
+    color: white;
   }
 
   @media (max-width: 768px) {

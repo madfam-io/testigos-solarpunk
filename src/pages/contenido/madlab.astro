@@ -1,0 +1,645 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+---
+
+<BaseLayout
+  title="MADLAB - Fase 3"
+  description="Eventos y experiencias educativas que transforman comunidades"
+>
+  <section class="hero-madlab">
+    <div class="container">
+      <span class="fase-label">Fase 3: Conversión</span>
+      <h1>MADLAB</h1>
+      <p class="hero-description">
+        Laboratorios de innovación sostenible: eventos, experiencias y
+        activaciones en escuelas que generan impacto real
+      </p>
+
+      <div class="madlab-preview">
+        <div class="preview-stats">
+          <div class="stat">
+            <span class="stat-icon">🏫</span>
+            <span class="stat-value">10</span>
+            <span class="stat-label">Escuelas objetivo</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">👥</span>
+            <span class="stat-value">5,000+</span>
+            <span class="stat-label">Estudiantes</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">🌱</span>
+            <span class="stat-value">100%</span>
+            <span class="stat-label">Impacto directo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="madlab-concept">
+    <div class="container">
+      <h2>¿Qué es MADLAB?</h2>
+      <div class="concept-grid">
+        <div class="concept-text">
+          <p class="lead">
+            MADLAB es la evolución natural de nuestro proyecto: después de
+            atraer con humor y conectar con contenido profundo, es hora de
+            generar acción real.
+          </p>
+          <p>
+            A través de experiencias educativas inmersivas, talleres prácticos y
+            activaciones en escuelas, llevamos la sostenibilidad del mundo
+            digital a la vida real.
+          </p>
+          <ul class="concept-list">
+            <li>Talleres de energía solar</li>
+            <li>Huertos urbanos escolares</li>
+            <li>Hackathons de soluciones verdes</li>
+            <li>Ferias de ciencia sostenible</li>
+          </ul>
+        </div>
+        <div class="concept-visual">
+          <div class="visual-placeholder">
+            <span class="visual-icon">🔬</span>
+            <p>Experiencias que transforman</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="madlab-programs">
+    <div class="container">
+      <h2>Programas MADLAB</h2>
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-header">
+            <span class="program-icon">☀️</span>
+            <h3>Solar Lab</h3>
+          </div>
+          <p>
+            Talleres prácticos donde los estudiantes construyen sus propios
+            paneles solares y sistemas de energía renovable
+          </p>
+          <ul class="program-features">
+            <li>Duración: 1 día completo</li>
+            <li>Edad: 12-18 años</li>
+            <li>Materiales incluidos</li>
+          </ul>
+        </div>
+
+        <div class="program-card">
+          <div class="program-header">
+            <span class="program-icon">🌿</span>
+            <h3>Green Hackers</h3>
+          </div>
+          <p>
+            Hackathon escolar donde equipos desarrollan soluciones tecnológicas
+            para problemas ambientales locales
+          </p>
+          <ul class="program-features">
+            <li>Duración: 2 días</li>
+            <li>Edad: 15-18 años</li>
+            <li>Premios para ganadores</li>
+          </ul>
+        </div>
+
+        <div class="program-card">
+          <div class="program-header">
+            <span class="program-icon">🌱</span>
+            <h3>Huerto Futuro</h3>
+          </div>
+          <p>
+            Creación de huertos escolares con tecnología IoT para monitoreo y
+            sistemas de riego inteligente
+          </p>
+          <ul class="program-features">
+            <li>Duración: 3 meses</li>
+            <li>Edad: 10-16 años</li>
+            <li>Seguimiento continuo</li>
+          </ul>
+        </div>
+
+        <div class="program-card">
+          <div class="program-header">
+            <span class="program-icon">♻️</span>
+            <h3>Circular School</h3>
+          </div>
+          <p>
+            Transformación completa del sistema de residuos escolar hacia un
+            modelo de economía circular
+          </p>
+          <ul class="program-features">
+            <li>Duración: 6 meses</li>
+            <li>Toda la escuela</li>
+            <li>Certificación verde</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="madlab-impact">
+    <div class="container">
+      <h2>Impacto Esperado</h2>
+      <div class="impact-visual">
+        <div class="impact-timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker">1</div>
+            <h4>Mes 1-3</h4>
+            <p>Primeras activaciones piloto en 3 escuelas</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">2</div>
+            <h4>Mes 4-6</h4>
+            <p>Expansión a 10 escuelas con programas completos</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">3</div>
+            <h4>Mes 7-12</h4>
+            <p>Red de escuelas sostenibles interconectadas</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">4</div>
+            <h4>Año 2+</h4>
+            <p>Modelo replicable en todo México</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="madlab-sponsors">
+    <div class="container">
+      <h2>Patrocinadores</h2>
+      <p class="sponsors-intro">
+        MADLAB es posible gracias al apoyo de empresas comprometidas con la
+        educación y la sostenibilidad
+      </p>
+      <div class="sponsors-benefits">
+        <h3>Beneficios para Patrocinadores</h3>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <span class="benefit-icon">🎯</span>
+            <h4>Impacto Directo</h4>
+            <p>Conexión real con comunidades escolares</p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">📊</span>
+            <h4>Métricas Claras</h4>
+            <p>Reportes detallados de impacto y alcance</p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🏆</span>
+            <h4>Reconocimiento</h4>
+            <p>Visibilidad como líder en sostenibilidad</p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🤝</span>
+            <h4>Co-creación</h4>
+            <p>Participación en diseño de programas</p>
+          </div>
+        </div>
+      </div>
+      <div class="sponsor-cta">
+        <a href={`${basePath}/recursos#patrocinadores`} class="btn btn-primary">
+          Ser Patrocinador
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="madlab-cta">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="cta-card">
+          <h3>Para Escuelas</h3>
+          <p>¿Quieres llevar MADLAB a tu escuela?</p>
+          <button class="btn btn-secondary">Solicitar Información</button>
+        </div>
+        <div class="cta-card">
+          <h3>Para Voluntarios</h3>
+          <p>Únete como facilitador o mentor</p>
+          <a href={`${basePath}/comunidad`} class="btn btn-secondary">
+            Aplicar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-madlab {
+    background: linear-gradient(
+      135deg,
+      var(--verde-sostenible) 0%,
+      rgba(76, 175, 80, 0.2) 100%
+    );
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-madlab::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 70%
+    );
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.3;
+    }
+  }
+
+  .fase-label {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: var(--espacio-md);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-madlab h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: var(--espacio-md);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto var(--espacio-xl);
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+  }
+
+  .madlab-preview {
+    margin-top: var(--espacio-xl);
+    position: relative;
+    z-index: 1;
+  }
+
+  .preview-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--espacio-xxl);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  /* Concept Section */
+  .madlab-concept {
+    padding: var(--espacio-xxl) 0;
+    background: var(--fondo-secundario);
+  }
+
+  .madlab-concept h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espacio-xxl);
+    align-items: center;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .concept-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--espacio-lg);
+  }
+
+  .concept-list li {
+    padding: var(--espacio-sm) 0;
+    padding-left: 30px;
+    position: relative;
+  }
+
+  .concept-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--verde-sostenible);
+    font-weight: bold;
+  }
+
+  .visual-placeholder {
+    background: linear-gradient(
+      135deg,
+      var(--verde-sostenible) 0%,
+      var(--verde-brillante) 100%
+    );
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .visual-icon {
+    font-size: 6rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  /* Programs */
+  .madlab-programs {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .madlab-programs h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacio-xl);
+  }
+
+  .program-card {
+    background: white;
+    padding: var(--espacio-xl);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--verde-sostenible);
+  }
+
+  .program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .program-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .program-icon {
+    font-size: 2.5rem;
+  }
+
+  .program-header h3 {
+    color: var(--verde-sostenible);
+  }
+
+  .program-features {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--espacio-md);
+    border-top: 1px solid var(--borde-claro);
+    padding-top: var(--espacio-md);
+  }
+
+  .program-features li {
+    padding: var(--espacio-xs) 0;
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+  }
+
+  /* Impact Timeline */
+  .madlab-impact {
+    padding: var(--espacio-xxl) 0;
+    background: var(--fondo-secundario);
+  }
+
+  .madlab-impact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .impact-timeline {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .impact-timeline::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      var(--verde-sostenible),
+      var(--verde-brillante)
+    );
+  }
+
+  .timeline-item {
+    text-align: center;
+    position: relative;
+    flex: 1;
+  }
+
+  .timeline-marker {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: 3px solid var(--verde-sostenible);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--espacio-md);
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--verde-sostenible);
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-item h4 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  /* Sponsors */
+  .madlab-sponsors {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .madlab-sponsors h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .sponsors-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-xxl);
+  }
+
+  .sponsors-benefits {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-xl);
+    border-radius: 16px;
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .sponsors-benefits h3 {
+    text-align: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--verde-sostenible);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .benefit-item {
+    text-align: center;
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .benefit-item h4 {
+    margin-bottom: var(--espacio-xs);
+  }
+
+  .sponsor-cta {
+    text-align: center;
+  }
+
+  /* CTA Section */
+  .madlab-cta {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      rgba(76, 175, 80, 0.05) 100%
+    );
+  }
+
+  .cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-card {
+    background: white;
+    padding: var(--espacio-xl);
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .cta-card h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .cta-card p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  @media (max-width: 768px) {
+    .hero-madlab h1 {
+      font-size: 2.5rem;
+    }
+
+    .preview-stats {
+      flex-direction: column;
+      gap: var(--espacio-lg);
+    }
+
+    .concept-grid {
+      grid-template-columns: 1fr;
+      gap: var(--espacio-xl);
+    }
+
+    .impact-timeline {
+      flex-direction: column;
+      gap: var(--espacio-xl);
+    }
+
+    .impact-timeline::before {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,713 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Buyer Personas
+const personas = [
+  {
+    id: 'gaby',
+    nombre: 'Gaby Godínez',
+    apodo: 'La ecoestresada',
+    edad: 33,
+    ocupacion: 'Diseñadora gráfica freelance',
+    descripcion:
+      'Quiere ser sostenible pero se siente abrumada por toda la información contradictoria',
+    dolor: 'Saturación de contenido y culpa ambiental',
+    sketch: 'Día 237 intentando ser sostenible',
+    imagen: '/images/personas/gaby.jpg',
+  },
+  {
+    id: 'carlos',
+    nombre: 'Carlos Mendoza',
+    apodo: 'El escéptico pragmático',
+    edad: 45,
+    ocupacion: 'Gerente de ventas',
+    descripcion:
+      'Cree que la sostenibilidad es una moda cara para millennials privilegiados',
+    dolor: 'Percibe lo eco como elitista y poco práctico',
+    sketch: 'El panel solar que pagó la universidad',
+    imagen: '/images/personas/carlos.jpg',
+  },
+  {
+    id: 'sofia',
+    nombre: 'Sofía Ramírez',
+    apodo: 'La influencer consciente',
+    edad: 26,
+    ocupacion: 'Content creator',
+    descripcion:
+      'Busca contenido auténtico sobre sostenibilidad que conecte con su audiencia',
+    dolor: 'Miedo al greenwashing y pérdida de credibilidad',
+    sketch: 'La app que salva el mundo... o no',
+    imagen: '/images/personas/sofia.jpg',
+  },
+  {
+    id: 'miguel',
+    nombre: 'Miguel Ángel Torres',
+    apodo: 'El maker curioso',
+    edad: 19,
+    ocupacion: 'Estudiante de ingeniería',
+    descripcion:
+      'Le encanta crear y experimentar, busca proyectos DIY sostenibles',
+    dolor: 'Falta de recursos y guías accesibles',
+    sketch: 'Hackeando el futuro solar',
+    imagen: '/images/personas/miguel.jpg',
+  },
+  {
+    id: 'laura',
+    nombre: 'Laura Hernández',
+    apodo: 'La mamá activista',
+    edad: 38,
+    ocupacion: 'Maestra y madre de dos',
+    descripcion:
+      'Quiere enseñar valores sostenibles a sus hijos sin sonar sermoneadora',
+    dolor: 'Cómo hacer la sostenibilidad divertida para niños',
+    sketch: 'El huerto que se volvió jungla',
+    imagen: '/images/personas/laura.jpg',
+  },
+];
+
+// Pain Points
+const painPoints = [
+  {
+    tipo: 'economica',
+    titulo: 'Barrera Económica',
+    creencia: '"Ser sostenible es caro"',
+    solucion: 'Sketches mostrando alternativas accesibles y DIY',
+    icon: '💰',
+  },
+  {
+    tipo: 'educativa',
+    titulo: 'Barrera Educativa',
+    creencia: '"Es muy complicado entender"',
+    solucion: 'Humor que simplifica conceptos complejos',
+    icon: '📚',
+  },
+  {
+    tipo: 'cultural',
+    titulo: 'Barrera Cultural',
+    creencia: '"Los ecologistas son aburridos"',
+    solucion: 'Comedia que conecta con la cultura pop',
+    icon: '🎭',
+  },
+  {
+    tipo: 'tiempo',
+    titulo: 'Barrera de Tiempo',
+    creencia: '"No tengo tiempo para esto"',
+    solucion: 'Tips rápidos en sketches de 60 segundos',
+    icon: '⏱️',
+  },
+];
+---
+
+<BaseLayout
+  title="Comunidad"
+  description="Únete a la comunidad de Testigos de Solarpunk"
+>
+  <section class="hero-comunidad">
+    <div class="container">
+      <h1>Únete al Movimiento</h1>
+      <p class="hero-description">
+        Una comunidad diversa unida por el humor y la esperanza de un futuro
+        sostenible
+      </p>
+    </div>
+  </section>
+
+  <section class="personas-section">
+    <div class="container">
+      <h2>¿Te identificas con alguno?</h2>
+      <p class="section-intro">
+        Conoce a los personajes reales que inspiran nuestros sketches
+      </p>
+
+      <div class="personas-grid">
+        {
+          personas.map((persona) => (
+            <article class="persona-card">
+              <div class="persona-header">
+                <div class="persona-avatar">
+                  <img
+                    src={`${basePath}${persona.imagen}`}
+                    alt={persona.nombre}
+                  />
+                </div>
+                <div class="persona-info">
+                  <h3>{persona.nombre}</h3>
+                  <p class="persona-apodo">"{persona.apodo}"</p>
+                  <p class="persona-edad">
+                    {persona.edad} años • {persona.ocupacion}
+                  </p>
+                </div>
+              </div>
+
+              <div class="persona-content">
+                <p class="persona-descripcion">{persona.descripcion}</p>
+
+                <div class="persona-dolor">
+                  <span class="dolor-label">Su dolor:</span>
+                  <p>{persona.dolor}</p>
+                </div>
+
+                <div class="persona-sketch">
+                  <span class="sketch-label">Sketch relacionado:</span>
+                  <a
+                    href={`${basePath}/contenido/sketches`}
+                    class="sketch-link"
+                  >
+                    🎬 {persona.sketch}
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="pain-points-section">
+    <div class="container">
+      <h2>Entendemos las Barreras</h2>
+      <p class="section-intro">
+        Sabemos que la sostenibilidad puede parecer complicada. Por eso usamos
+        el humor para derribar estos mitos:
+      </p>
+
+      <div class="barriers-grid">
+        {
+          painPoints.map((point) => (
+            <div class="barrier-card" data-tipo={point.tipo}>
+              <span class="barrier-icon">{point.icon}</span>
+              <h3>{point.titulo}</h3>
+              <p class="barrier-creencia">{point.creencia}</p>
+              <div class="barrier-solution">
+                <span class="solution-label">Nuestra respuesta:</span>
+                <p>{point.solucion}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="community-values">
+    <div class="container">
+      <h2>Nuestros Valores</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <span class="value-icon">🤝</span>
+          <h3>Inclusión</h3>
+          <p>Todos son bienvenidos, sin importar su nivel de conocimiento</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">😄</span>
+          <h3>Humor</h3>
+          <p>Reírnos juntos mientras aprendemos y crecemos</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">🌱</span>
+          <h3>Acción</h3>
+          <p>Pequeños pasos que generan grandes cambios</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">💡</span>
+          <h3>Creatividad</h3>
+          <p>Soluciones innovadoras para problemas complejos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="join-community">
+    <div class="container">
+      <h2>Formas de Participar</h2>
+      <div class="join-options">
+        <div class="join-card">
+          <h3>🎬 Crea Contenido</h3>
+          <p>Comparte tus propios sketches y experiencias sostenibles</p>
+          <button class="btn btn-secondary">Crear</button>
+        </div>
+        <div class="join-card">
+          <h3>📤 Comparte</h3>
+          <p>Difunde el mensaje en tus redes sociales</p>
+          <button class="btn btn-secondary">Compartir</button>
+        </div>
+        <div class="join-card">
+          <h3>🤝 Colabora</h3>
+          <p>Únete como voluntario en eventos MADLAB</p>
+          <button class="btn btn-secondary">Voluntariado</button>
+        </div>
+        <div class="join-card">
+          <h3>💚 Patrocina</h3>
+          <p>Apoya el proyecto como empresa sostenible</p>
+          <a
+            href={`${basePath}/recursos#patrocinadores`}
+            class="btn btn-secondary"
+          >
+            Patrocinar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="community-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para cambiar el mundo con una sonrisa?</h2>
+        <p>Únete a miles de Testigos de Solarpunk en todo México</p>
+
+        <div class="social-links">
+          <a
+            href="https://instagram.com/testigosdesolarpunk"
+            class="social-link"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>📷</span>
+          </a>
+          <a
+            href="https://tiktok.com/@testigosdesolarpunk"
+            class="social-link"
+            aria-label="TikTok"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>🎵</span>
+          </a>
+          <a
+            href="https://youtube.com/@testigosdesolarpunk"
+            class="social-link"
+            aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>📺</span>
+          </a>
+          <a
+            href="https://twitter.com/testigossolarpk"
+            class="social-link"
+            aria-label="Twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>🐦</span>
+          </a>
+        </div>
+
+        <div class="newsletter-form">
+          <h3>Recibe nuestro newsletter</h3>
+          <form>
+            <input
+              type="email"
+              placeholder="tu@email.com"
+              class="email-input"
+              required
+            />
+            <button type="submit" class="btn btn-primary"> Suscribirme </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-comunidad {
+    background: linear-gradient(
+      135deg,
+      var(--naranja-comunidad) 0%,
+      rgba(255, 111, 53, 0.2) 100%
+    );
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-comunidad h1 {
+    font-size: 3rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+
+  /* Personas Section */
+  .personas-section {
+    padding: var(--espacio-xxl) 0;
+    background: var(--fondo-secundario);
+  }
+
+  .personas-section h2,
+  .pain-points-section h2,
+  .community-values h2,
+  .join-community h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .personas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--espacio-xl);
+  }
+
+  .persona-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--espacio-xl);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .persona-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .persona-header {
+    display: flex;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .persona-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--fondo-secundario);
+    flex-shrink: 0;
+  }
+
+  .persona-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .persona-info h3 {
+    margin-bottom: var(--espacio-xs);
+    color: var(--texto-primario);
+  }
+
+  .persona-apodo {
+    color: var(--naranja-comunidad);
+    font-style: italic;
+    margin-bottom: var(--espacio-xs);
+  }
+
+  .persona-edad {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+  }
+
+  .persona-descripcion {
+    margin-bottom: var(--espacio-md);
+    line-height: 1.6;
+  }
+
+  .persona-dolor,
+  .persona-sketch {
+    padding: var(--espacio-md);
+    background: var(--fondo-secundario);
+    border-radius: 8px;
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .dolor-label,
+  .sketch-label {
+    font-weight: 600;
+    color: var(--texto-primario);
+    display: block;
+    margin-bottom: var(--espacio-xs);
+  }
+
+  .sketch-link {
+    color: var(--amarillo-solar);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .sketch-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Pain Points */
+  .pain-points-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .barriers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacio-xl);
+  }
+
+  .barrier-card {
+    background: white;
+    padding: var(--espacio-xl);
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .barrier-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--naranja-comunidad);
+  }
+
+  .barrier-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .barrier-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .barrier-card h3 {
+    color: var(--texto-primario);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .barrier-creencia {
+    font-size: 1.1rem;
+    color: var(--texto-secundario);
+    font-style: italic;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .barrier-solution {
+    padding-top: var(--espacio-md);
+    border-top: 1px solid var(--borde-claro);
+  }
+
+  .solution-label {
+    font-weight: 600;
+    color: var(--verde-sostenible);
+    display: block;
+    margin-bottom: var(--espacio-xs);
+  }
+
+  /* Values */
+  .community-values {
+    padding: var(--espacio-xxl) 0;
+    background: var(--fondo-secundario);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-xl);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .value-card {
+    text-align: center;
+  }
+
+  .value-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .value-card h3 {
+    color: var(--naranja-comunidad);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  /* Join Options */
+  .join-community {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .join-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-xl);
+  }
+
+  .join-card {
+    background: white;
+    padding: var(--espacio-xl);
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .join-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .join-card h3 {
+    color: var(--naranja-comunidad);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .join-card p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  /* CTA Section */
+  .community-cta {
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      rgba(255, 111, 53, 0.05) 100%
+    );
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .community-cta .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .community-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .community-cta p {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .social-link {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .newsletter-form {
+    background: white;
+    padding: var(--espacio-xl);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .newsletter-form h3 {
+    margin-bottom: var(--espacio-lg);
+    color: var(--naranja-comunidad);
+  }
+
+  .newsletter-form form {
+    display: flex;
+    gap: var(--espacio-md);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .email-input {
+    flex: 1;
+    padding: var(--espacio-md);
+    border: 2px solid var(--borde-claro);
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  .email-input:focus {
+    outline: none;
+    border-color: var(--naranja-comunidad);
+  }
+
+  @media (max-width: 768px) {
+    .hero-comunidad h1 {
+      font-size: 2rem;
+    }
+
+    .personas-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .persona-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .persona-avatar {
+      margin: 0 auto;
+    }
+
+    .newsletter-form form {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  // Handle newsletter form
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector(
+      '.newsletter-form form'
+    ) as HTMLFormElement;
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const emailInput = form.querySelector(
+          '.email-input'
+        ) as HTMLInputElement;
+        if (emailInput) {
+          const email = emailInput.value;
+          alert(`¡Gracias por unirte! Te enviaremos contenido a ${email}`);
+          form.reset();
+        }
+      });
+    }
+  });
+</script>
