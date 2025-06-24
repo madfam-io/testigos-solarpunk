@@ -78,7 +78,33 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const report = fs.readFileSync('audit-report.md', 'utf8');
+            const fullReport = fs.readFileSync('audit-report.md', 'utf8');
+
+            // Truncate report if it's too long (GitHub limit is 65536 chars)
+            const maxLength = 60000;
+            let report = fullReport;
+            if (fullReport.length > maxLength) {
+              report = fullReport.substring(0, maxLength) + '\n\n... [Reporte truncado - ver artefactos del workflow para el reporte completo]';
+            }
+
+            // Extract just the vulnerability summary for a cleaner issue
+            const lines = fullReport.split('\n');
+            const vulnerabilitySection = [];
+            let inVulnSection = false;
+
+            for (const line of lines) {
+              if (line.includes('vulnerabilidades:') || line.includes('vulnerability found')) {
+                inVulnSection = true;
+              }
+              if (inVulnSection && (line.includes('## 📦') || line.includes('## 📄'))) {
+                break;
+              }
+              if (inVulnSection) {
+                vulnerabilitySection.push(line);
+              }
+            }
+
+            const summary = vulnerabilitySection.join('\n') || 'Se encontraron vulnerabilidades. Ver el reporte completo.';
 
             // Buscar si ya existe un issue abierto
             const issues = await github.rest.issues.listForRepo({
@@ -88,12 +114,14 @@ jobs:
               state: 'open'
             });
 
+            const issueBody = `## 🔒 Resumen de Vulnerabilidades\n\n${summary}\n\n### Detalles\n\nPara ver el reporte completo, consulta los [artefactos del workflow](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}).\n\n---\n\n<details>\n<summary>Reporte detallado (puede estar truncado)</summary>\n\n${report}\n\n</details>`;
+
             if (issues.data.length === 0) {
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 title: '🔒 Vulnerabilidades de seguridad detectadas',
-                body: report,
+                body: issueBody,
                 labels: ['security', 'dependencies', 'high-priority']
               });
             } else {
@@ -102,7 +130,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issues.data[0].number,
-                body: `## Actualización de auditoría\n\n${report}`
+                body: `## Actualización de auditoría - ${new Date().toISOString().split('T')[0]}\n\n${issueBody}`
               });
             }
 
