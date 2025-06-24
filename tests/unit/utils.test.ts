@@ -1,27 +1,5 @@
 import { describe, it, expect } from 'vitest';
-
-// Funciones de utilidad de ejemplo que crearemos después
-const formatDate = (date: Date): string => {
-  return new Intl.DateTimeFormat('es-MX', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }).format(date);
-};
-
-const slugify = (text: string): string => {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-};
-
-const truncateText = (text: string, maxLength: number): string => {
-  if (text.length <= maxLength) return text;
-  return `${text.slice(0, maxLength).trim()}...`;
-};
+import { formatDate, slugify, truncateText } from '../../src/lib/utils';
 
 describe('Utility Functions', () => {
   describe('formatDate', () => {
