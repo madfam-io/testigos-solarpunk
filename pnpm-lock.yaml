@@ -11,9 +11,6 @@ dependencies:
   astro:
     specifier: ^5.10.1
     version: 5.10.1(@types/node@20.19.0)(lightningcss@1.25.1)(terser@5.31.3)(typescript@5.8.3)
-  sharp:
-    specifier: ^0.33.5
-    version: 0.33.5
 
 devDependencies:
   '@astrojs/check':
@@ -5916,6 +5913,7 @@ packages:
       '@img/sharp-wasm32': 0.33.5
       '@img/sharp-win32-ia32': 0.33.5
       '@img/sharp-win32-x64': 0.33.5
+    optional: true
 
   /shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==}

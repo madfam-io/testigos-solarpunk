@@ -25,29 +25,29 @@ export default defineConfig({
     }),
   ],
 
-  // Build configuration
+  // Build configuration (simplified to reduce bundle size)
   build: {
     // Optimize asset file names
     assets: '_assets',
-    // Automatically inline critical styles
-    inlineStylesheets: 'auto',
+    // Disable inline stylesheets to reduce bundle size
+    inlineStylesheets: 'never',
   },
 
-  // Image optimization configuration
-  image: {
-    service: {
-      entrypoint: 'astro/assets/services/sharp',
-      config: {
-        limitInputPixels: false,
-      },
-    },
-  },
+  // Image optimization configuration (disabled to reduce bundle size)
+  // image: {
+  //   service: {
+  //     entrypoint: 'astro/assets/services/sharp',
+  //     config: {
+  //       limitInputPixels: false,
+  //     },
+  //   },
+  // },
 
   // Vite configuration
   vite: {
     build: {
-      // Enable CSS code splitting for better performance
-      cssCodeSplit: true,
+      // Disable CSS code splitting to reduce bundle size
+      cssCodeSplit: false,
       // Configure manual chunks for better caching
       rollupOptions: {
         output: {
@@ -61,10 +61,12 @@ export default defineConfig({
         },
       },
     },
-    // SSR configuration
+    // SSR configuration (disabled for static build)
     ssr: {
       // Exclude problematic dependencies from SSR
-      external: ['@resvg/resvg-js'],
+      external: ['@resvg/resvg-js', 'sharp'],
+      // Disable SSR for static builds
+      noExternal: [],
     },
   },
 
@@ -86,11 +88,11 @@ export default defineConfig({
     },
   },
 
-  // Prefetch configuration for better performance
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: 'viewport',
-  },
+  // Prefetch configuration for better performance (disabled to reduce bundle size)
+  // prefetch: {
+  //   prefetchAll: true,
+  //   defaultStrategy: 'viewport',
+  // },
 
   // Output configuration
   output: 'static',
