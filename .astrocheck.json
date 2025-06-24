@@ -1,0 +1,12 @@
+{
+  "typescript": {
+    "enabled": true
+  },
+  "exclude": [
+    "node_modules/**/*",
+    "dist/**/*",
+    ".astro/**/*",
+    "scripts/**/*",
+    "tests/**/*"
+  ]
+}

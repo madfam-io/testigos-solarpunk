@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 const basePath =
   import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
-const scripts = await getCollection('scripts');
-const scriptsByPlatform = {
+const scripts: CollectionEntry<'scripts'>[] = await getCollection('scripts');
+const scriptsByPlatform: Record<string, CollectionEntry<'scripts'>[]> = {
   TikTok: scripts.filter((s) => s.data.plataforma === 'TikTok'),
   Instagram: scripts.filter((s) => s.data.plataforma === 'Instagram'),
   YouTube: scripts.filter((s) => s.data.plataforma === 'YouTube'),
@@ -82,7 +82,7 @@ const platformColors: Record<string, string> = {
                         </span>
                       </div>
                       <div class="script-tags">
-                        {script.data.temas.map((tema) => {
+                        {script.data.temas.map((tema: string) => {
                           return <span class="tag">#{tema}</span>;
                         })}
                       </div>

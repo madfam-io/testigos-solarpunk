@@ -14,7 +14,7 @@
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "type-check": "NODE_OPTIONS='--max-old-space-size=8192' astro check && tsc --noEmit",
+    "type-check": "node scripts/type-check.js",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
