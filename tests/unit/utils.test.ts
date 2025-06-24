@@ -327,32 +327,49 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
   describe('getURLParam', () => {
     it('should get URL parameters', () => {
       // Mock window.location.search
-      const windowLocation = window.location;
-      // @ts-expect-error Mocking window.location
-      delete window.location;
-      window.location = {
-        ...windowLocation,
-        search: '?param1=value1&param2=value2',
-      };
+      const originalSearch = window.location.search;
+      Object.defineProperty(window, 'location', {
+        value: {
+          ...window.location,
+          search: '?param1=value1&param2=value2',
+        },
+        writable: true,
+      });
 
       expect(getURLParam('param1')).toBe('value1');
       expect(getURLParam('param2')).toBe('value2');
       expect(getURLParam('nonexistent')).toBe(null);
 
       // Restore
-      window.location = windowLocation;
+      Object.defineProperty(window, 'location', {
+        value: {
+          ...window.location,
+          search: originalSearch,
+        },
+        writable: true,
+      });
     });
 
     it('should handle empty search params', () => {
-      const windowLocation = window.location;
-      // @ts-expect-error Mocking window.location
-      delete window.location;
-      window.location = { ...windowLocation, search: '' };
+      const originalSearch = window.location.search;
+      Object.defineProperty(window, 'location', {
+        value: {
+          ...window.location,
+          search: '',
+        },
+        writable: true,
+      });
 
       expect(getURLParam('any')).toBe(null);
 
       // Restore
-      window.location = windowLocation;
+      Object.defineProperty(window, 'location', {
+        value: {
+          ...window.location,
+          search: originalSearch,
+        },
+        writable: true,
+      });
     });
   });
 
@@ -380,6 +397,7 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
       // Simulate image load
       setTimeout(() => {
         if (mockImage.onload !== null) {
+          // @ts-expect-error Testing mock behavior
           mockImage.onload.call(mockImage, new Event('load'));
         }
       }, 0);
@@ -412,6 +430,7 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
       // Simulate image error
       setTimeout(() => {
         if (mockImage.onerror !== null) {
+          // @ts-expect-error Testing mock behavior
           mockImage.onerror.call(mockImage, new Error('Load failed'));
         }
       }, 0);
@@ -450,6 +469,7 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
 
       // Simulate image load
       if (mockImage.onload !== null) {
+        // @ts-expect-error Testing mock behavior
         mockImage.onload.call(mockImage, new Event('load'));
       }
 

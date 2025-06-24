@@ -77,13 +77,15 @@ describe('CharacterCard Component', () => {
 
       const html = mockCharacterCardHTML(props);
 
-      expect(hasClass(html, 'character-card')).toBe(true);
-      expect(hasClass(html, 'card')).toBe(true);
-      expect(hasClass(html, 'character-image')).toBe(true);
-      expect(hasClass(html, 'character-info')).toBe(true);
-      expect(hasClass(html, 'character-role')).toBe(true);
-      expect(hasClass(html, 'character-meta')).toBe(true);
-      expect(hasClass(html, 'character-description')).toBe(true);
+      expect(hasClass(html, 'article', 'character-card')).toBe(true);
+      expect(hasClass(html, 'article', 'card')).toBe(true);
+      expect(hasClass(html, '.character-image', 'character-image')).toBe(true);
+      expect(hasClass(html, '.character-info', 'character-info')).toBe(true);
+      expect(hasClass(html, '.character-role', 'character-role')).toBe(true);
+      expect(hasClass(html, '.character-meta', 'character-meta')).toBe(true);
+      expect(
+        hasClass(html, '.character-description', 'character-description')
+      ).toBe(true);
     });
   });
 
