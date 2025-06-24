@@ -1,0 +1,41 @@
+# Build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Test reports
+tests/reports/
+
+# Cache
+.cache/
+
+# Scripts (temporary - should be fixed later)
+scripts/
+
+# Public assets
+public/
+
+# Config files
+*.config.js
+*.config.mjs
+*.config.ts
+
+# Environment
+.env*
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
