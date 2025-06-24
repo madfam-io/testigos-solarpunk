@@ -173,7 +173,7 @@ jobs:
           find dist -type f -exec ls -lh {} \; | awk '{print $9 ": " $5}' >> bundle-report.md
 
       - name: Subir artefacto de build
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
