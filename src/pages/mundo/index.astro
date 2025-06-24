@@ -74,9 +74,11 @@ const locations: CollectionEntry<'locations'>[] =
               <div class="location-features">
                 <h4>Características:</h4>
                 <ul>
-                  {location.data.caracteristicas.slice(0, 3).map((feat: string) => (
-                    <li>{feat}</li>
-                  ))}
+                  {location.data.caracteristicas
+                    .slice(0, 3)
+                    .map((feat: string) => (
+                      <li>{feat}</li>
+                    ))}
                 </ul>
               </div>
               <a href={`/mundo/${location.id}`} class="btn btn-primary">
