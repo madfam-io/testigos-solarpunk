@@ -1,15 +1,16 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-// import compress from 'astro-compress'; // Temporarily disabled due to build errors
 
 // https://astro.build/config
 export default defineConfig({
+  // GitHub Pages deployment configuration
   site: 'https://madfam-io.github.io',
   base: '/testigos-solarpunk',
 
+  // Integrations
   integrations: [
-    // Generar sitemap automático
+    // Generate automatic sitemap
     sitemap({
       filter: (page) => !page.includes('404'),
       changefreq: 'weekly',
@@ -22,36 +23,18 @@ export default defineConfig({
         },
       },
     }),
-
-    // Compresión de assets - disabled due to build errors
-    // compress({
-    //   CSS: true,
-    //   HTML: {
-    //     'html-minifier-terser': {
-    //       removeAttributeQuotes: false,
-    //       removeComments: true,
-    //       removeRedundantAttributes: true,
-    //       removeScriptTypeAttributes: true,
-    //       removeStyleLinkTypeAttributes: true,
-    //       sortAttributes: true,
-    //       sortClassName: true,
-    //     },
-    //   },
-    //   JavaScript: true,
-    //   Image: false, // Manejaremos imágenes con Sharp
-    //   SVG: true,
-    // }),
   ],
 
+  // Build configuration
   build: {
-    // Optimizar nombres de archivos
+    // Optimize asset file names
     assets: '_assets',
-    // Inline estilos críticos automáticamente
+    // Automatically inline critical styles
     inlineStylesheets: 'auto',
   },
 
+  // Image optimization configuration
   image: {
-    // Configurar servicio de optimización de imágenes
     service: {
       entrypoint: 'astro/assets/services/sharp',
       config: {
@@ -60,39 +43,65 @@ export default defineConfig({
     },
   },
 
+  // Vite configuration
   vite: {
     build: {
-      // Mejorar code splitting
+      // Enable CSS code splitting for better performance
       cssCodeSplit: true,
-      // Configurar chunks manuales para mejor caching
+      // Configure manual chunks for better caching
       rollupOptions: {
         output: {
           assetFileNames: '_assets/[name].[hash][extname]',
           chunkFileNames: '_assets/chunks/[name].[hash].js',
           entryFileNames: '_assets/[name].[hash].js',
           manualChunks: {
-            // Agrupar utilidades
+            // Group utilities for better caching
             utils: ['./src/lib/utils', './src/lib/constants'],
           },
         },
       },
     },
-    // Optimizaciones adicionales
-    optimizeDeps: {
-      // Removed astro:content as it causes warnings
-    },
+    // SSR configuration
     ssr: {
-      // Excluir dependencias problemáticas del SSR
+      // Exclude problematic dependencies from SSR
       external: ['@resvg/resvg-js'],
     },
   },
 
-  // Experimental: Optimizaciones adicionales
-  experimental: {
-    // Options available in Astro 5
+  // Server configuration for development
+  server: {
+    port: 4321,
+    host: true,
   },
 
-  // Para dominio personalizado:
+  // Markdown configuration
+  markdown: {
+    // Enable GitHub-flavored markdown
+    gfm: true,
+    // Configure syntax highlighting with Shiki
+    syntaxHighlight: 'shiki',
+    shikiConfig: {
+      theme: 'github-dark',
+      wrap: true,
+    },
+  },
+
+  // Prefetch configuration for better performance
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
+  },
+
+  // Output configuration
+  output: 'static',
+
+  // Enable trailing slash for GitHub Pages compatibility
+  trailingSlash: 'always',
+
+  // Compression is disabled (was causing 404 errors)
+  // Use astro-compress when the issues are resolved
+
+  // Future custom domain configuration:
   // site: 'https://universo.testigosdesolarpunk.mx',
   // base: '/',
 });
