@@ -1,6 +1,6 @@
 nombre: El Profeta del Sol
 rol: Figura Mítica Fundadora
-edad: Eterno
+edad: 9999
 pronombres: él/ellos/la luz
 ocupacion: Visionario y Fundador del Movimiento
 rasgos:
@@ -33,6 +33,15 @@ relaciones:
   - personaje: lucia-solar
     tipo: Futura profetisa
     descripcion: Destinada a liderar la siguiente generación
+episodios_destacados:
+  - "La Primera Aparición"
+  - "El Milagro de los Panes Solares"
+  - "La Transfiguración Fotovoltaica"
+  - "El Sermón de la Montaña de Compost"
+evolucion:
+  temporada1: "Apariciones misteriosas y proféticas"
+  temporada2: "Revelación de su identidad como fundador del movimiento"
+  temporada3: "Ascensión a la dimensión renovable"
 profecias_principales:
   - "El día del Gran Apagón llegará, pero los preparados brillarán"
   - "Siete paneles y siete semillas salvarán a siete mil"
