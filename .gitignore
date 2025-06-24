@@ -32,3 +32,8 @@ pnpm-debug.log*
 
 # OS files
 Thumbs.db
+
+# Test coverage and reports
+coverage/
+tests/reports/
+.lighthouseci/

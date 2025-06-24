@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "skipLibCheck": true,
-    "checkJs": false
-  },
-  "include": ["src/**/*", ".astro/types.d.ts"],
-  "exclude": ["dist", "node_modules", "scripts", "tests"]
-}
