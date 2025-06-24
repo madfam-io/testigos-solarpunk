@@ -1,0 +1,52 @@
+nombre: Hermana Panelia
+rol: Evangelista Principal
+edad: 35
+pronombres: ella/she
+ocupacion: Predicadora de Energía Solar
+rasgos:
+  - Ferviente predicadora ambulante
+  - Viaja siempre en bicicleta eléctrica
+  - Lleva folletos reciclados hechos a mano
+  - Usa gabardina de lona solar
+  - Mochila llena de semillas orgánicas
+  - Voz melodiosa y convincente
+  - Memoria fotográfica para citas solares
+historia: |
+  Antes del despertar solar, Panelia trabajaba en una oficina gris, 
+  consumiendo energía sin pensar en el mañana. Un día, durante un 
+  apagón masivo, tuvo una epifanía: vio al Profeta del Sol en un 
+  sueño, quien le mostró un mundo donde cada techo era un jardín 
+  y cada ventana un panel solar. Desde entonces, abandonó su vida 
+  anterior y se dedicó a predicar la buena nueva del compostaje 
+  comunitario y la energía renovable. Es conocida por aparecer en 
+  las puertas justo cuando más se necesita esperanza ecológica.
+relaciones:
+  - personaje: hermano-compostino
+    tipo: Compañero de misión
+    descripcion: Juntos forman el dúo evangelizador más efectivo del movimiento
+  - personaje: profeta-del-sol
+    tipo: Guía espiritual
+    descripcion: Recibe visiones y mensajes del Profeta en sus meditaciones solares
+  - personaje: lucia-solar
+    tipo: Conversa potencial
+    descripcion: Ve en Lucía el potencial para ser una gran evangelista
+episodios_destacados:
+  - EP002-TT
+  - EP004-IG
+  - EP008-YT
+  - EP011-TT
+  - EP016-IG
+evolucion:
+  temporada1: Comienza sus misiones puerta a puerta con timidez
+  temporada2: Desarrolla técnicas avanzadas de conversión ecológica
+  temporada3: Se convierte en la líder carismática del movimiento
+frases_emblematicas:
+  - "¿Ha escuchado la buena noticia del compostaje comunitario?"
+  - "Hermano, ¿está usted preparado para el colapso energético?"
+  - "La salvación no está en los cielos, está en el tejado... ¡con paneles solares!"
+  - "Cada semilla plantada es una oración al futuro"
+  - "¿Conoce usted el evangelio de las tres R: Reducir, Reutilizar, Revolucionar?"
+referencias_visuales:
+  - /images/characters/hermana-panelia-principal.jpg
+  - /images/characters/hermana-panelia-predicando.jpg
+  - /images/mood/estetica-evangelista-solar.jpg

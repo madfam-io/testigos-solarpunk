@@ -1,0 +1,401 @@
+---
+export interface Props {
+  id: string;
+  nombre: string;
+  rol: string;
+  edad: number | string;
+  ocupacion: string;
+  imagen?: string;
+  descripcionBreve: string;
+  colorTema?: 'verde' | 'solar' | 'tierra' | 'mistico';
+  frases?: string[];
+}
+
+const { 
+  id, 
+  nombre, 
+  rol, 
+  edad, 
+  ocupacion, 
+  imagen, 
+  descripcionBreve,
+  colorTema = 'verde',
+  frases = []
+} = Astro.props;
+
+const imagenUrl = imagen || '/images/characters/placeholder.jpg';
+
+const colorClasses = {
+  verde: 'tema-verde',
+  solar: 'tema-solar',
+  tierra: 'tema-tierra',
+  mistico: 'tema-mistico'
+};
+
+const colorClass = colorClasses[colorTema];
+
+// Seleccionar una frase aleatoria si hay frases disponibles
+const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * frases.length)] : null;
+---
+
+<article class={`animated-character-card card ${colorClass}`}>
+  <div class="character-aura"></div>
+  
+  <div class="character-image-container">
+    <img src={imagenUrl} alt={nombre} loading="lazy" class="character-image" />
+    <div class="character-halo"></div>
+    <span class="character-badge">{rol}</span>
+  </div>
+  
+  <div class="character-info">
+    <h3 class="character-name">{nombre}</h3>
+    <div class="character-meta">
+      <span class="meta-item">
+        <i class="fas fa-birthday-cake"></i>
+        {edad === 'Eterno' ? edad : `${edad} años`}
+      </span>
+      <span class="meta-separator">•</span>
+      <span class="meta-item">
+        <i class="fas fa-briefcase"></i>
+        {ocupacion}
+      </span>
+    </div>
+    
+    <p class="character-description">{descripcionBreve}</p>
+    
+    {fraseAleatoria && (
+      <div class="character-quote">
+        <i class="fas fa-quote-left quote-icon"></i>
+        <p class="quote-text">{fraseAleatoria}</p>
+      </div>
+    )}
+    
+    <a href={`/personajes/${id}`} class="character-link">
+      <span>Conocer más</span>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</article>
+
+<style>
+  .animated-character-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    animation: float-animation 3s ease-in-out infinite;
+  }
+
+  @keyframes float-animation {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .character-aura {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .animated-character-card:hover .character-aura {
+    opacity: 1;
+  }
+
+  .character-image-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    margin: calc(-1 * var(--espacio-lg)) calc(-1 * var(--espacio-lg)) var(--espacio-lg);
+  }
+
+  .character-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .animated-character-card:hover .character-image {
+    transform: scale(1.1);
+  }
+
+  .character-halo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .animated-character-card:hover .character-halo {
+    opacity: 0.5;
+    animation: pulse-glow 2s infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+
+  .character-badge {
+    position: absolute;
+    top: var(--espacio-md);
+    right: var(--espacio-md);
+    padding: var(--espacio-xs) var(--espacio-md);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .character-name {
+    font-size: 1.5rem;
+    margin-bottom: var(--espacio-sm);
+    font-weight: 700;
+  }
+
+  .character-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    margin-bottom: var(--espacio-md);
+    font-size: 0.875rem;
+    color: var(--texto-secundario);
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+  }
+
+  .meta-item i {
+    font-size: 0.75rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .character-description {
+    line-height: 1.6;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .character-quote {
+    position: relative;
+    padding: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    border-radius: 8px;
+    font-style: italic;
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    font-size: 1.5rem;
+    opacity: 0.3;
+  }
+
+  .quote-text {
+    margin: 0;
+    padding-left: var(--espacio-lg);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .character-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-sm) var(--espacio-lg);
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .character-link:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Temas de color */
+  .tema-verde {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(0, 255, 127, 0.1));
+  }
+
+  .tema-verde .character-badge {
+    background: var(--verde-sostenible);
+    color: white;
+  }
+
+  .tema-verde .character-aura {
+    background: radial-gradient(circle, rgba(0, 255, 127, 0.3) 0%, transparent 70%);
+  }
+
+  .tema-verde .character-halo {
+    background: radial-gradient(circle, rgba(0, 255, 127, 0.5) 0%, transparent 70%);
+  }
+
+  .tema-verde .character-name {
+    color: var(--verde-sostenible);
+  }
+
+  .tema-verde .character-quote {
+    background: rgba(0, 255, 127, 0.1);
+    border-left: 3px solid var(--verde-sostenible);
+  }
+
+  .tema-verde .quote-icon {
+    color: var(--verde-sostenible);
+  }
+
+  .tema-verde .character-link {
+    background: var(--verde-sostenible);
+    color: white;
+  }
+
+  .tema-solar {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(255, 215, 0, 0.1));
+  }
+
+  .tema-solar .character-badge {
+    background: var(--amarillo-solar);
+    color: black;
+  }
+
+  .tema-solar .character-aura {
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  }
+
+  .tema-solar .character-halo {
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, transparent 70%);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  }
+
+  .tema-solar .character-name {
+    color: var(--amarillo-solar);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+
+  .tema-solar .character-quote {
+    background: rgba(255, 215, 0, 0.1);
+    border-left: 3px solid var(--amarillo-solar);
+  }
+
+  .tema-solar .quote-icon {
+    color: var(--amarillo-solar);
+  }
+
+  .tema-solar .character-link {
+    background: var(--amarillo-solar);
+    color: black;
+  }
+
+  .tema-tierra {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(139, 69, 19, 0.1));
+  }
+
+  .tema-tierra .character-badge {
+    background: var(--tierra-cafe);
+    color: white;
+  }
+
+  .tema-tierra .character-aura {
+    background: radial-gradient(circle, rgba(139, 69, 19, 0.3) 0%, transparent 70%);
+  }
+
+  .tema-tierra .character-halo {
+    background: radial-gradient(circle, rgba(139, 69, 19, 0.5) 0%, transparent 70%);
+  }
+
+  .tema-tierra .character-name {
+    color: var(--tierra-cafe);
+  }
+
+  .tema-tierra .character-quote {
+    background: rgba(139, 69, 19, 0.1);
+    border-left: 3px solid var(--tierra-cafe);
+  }
+
+  .tema-tierra .quote-icon {
+    color: var(--tierra-cafe);
+  }
+
+  .tema-tierra .character-link {
+    background: var(--tierra-cafe);
+    color: white;
+  }
+
+  .tema-mistico {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(102, 51, 153, 0.1));
+  }
+
+  .tema-mistico .character-badge {
+    background: linear-gradient(135deg, var(--purpura-creativo), var(--amarillo-solar));
+    color: white;
+  }
+
+  .tema-mistico .character-aura {
+    background: radial-gradient(circle, rgba(102, 51, 153, 0.3) 0%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+    animation: rotate-slow 20s linear infinite;
+  }
+
+  @keyframes rotate-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .tema-mistico .character-halo {
+    background: radial-gradient(circle, rgba(102, 51, 153, 0.5) 0%, rgba(255, 215, 0, 0.3) 70%);
+    box-shadow: 0 0 40px rgba(102, 51, 153, 0.5);
+  }
+
+  .tema-mistico .character-name {
+    background: linear-gradient(135deg, var(--purpura-creativo), var(--amarillo-solar));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tema-mistico .character-quote {
+    background: linear-gradient(135deg, rgba(102, 51, 153, 0.1), rgba(255, 215, 0, 0.1));
+    border-left: 3px solid var(--purpura-creativo);
+  }
+
+  .tema-mistico .quote-icon {
+    color: var(--purpura-creativo);
+  }
+
+  .tema-mistico .character-link {
+    background: linear-gradient(135deg, var(--purpura-creativo), var(--amarillo-solar));
+    color: white;
+  }
+</style>

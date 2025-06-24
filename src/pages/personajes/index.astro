@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
+import AnimatedCharacterCard from '../../components/AnimatedCharacterCard.astro';
 import { getCollection } from 'astro:content';
 
 const characters = await getCollection('characters');
+const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'];
 ---
 
 <BaseLayout title="Personajes">
@@ -31,16 +33,29 @@ const characters = await getCollection('characters');
   <section class="characters-section">
     <div class="container">
       <div class="grid grid-3" id="characters-grid">
-        {characters.map((character) => (
-          <CharacterCard
-            id={character.id}
-            nombre={character.data.nombre}
-            rol={character.data.rol}
-            edad={character.data.edad}
-            ocupacion={character.data.ocupacion}
-            descripcionBreve={character.data.historia.substring(0, 150) + '...'}
-          />
-        ))}
+        {characters.map((character) => {
+          const isEvangelista = evangelistas.includes(character.id);
+          return isEvangelista ? (
+            <AnimatedCharacterCard
+              id={character.id}
+              nombre={character.data.nombre}
+              rol={character.data.rol}
+              edad={character.data.edad}
+              ocupacion={character.data.ocupacion}
+              descripcionBreve={character.data.historia.substring(0, 150) + '...'}
+              isEvangelista={true}
+            />
+          ) : (
+            <CharacterCard
+              id={character.id}
+              nombre={character.data.nombre}
+              rol={character.data.rol}
+              edad={character.data.edad}
+              ocupacion={character.data.ocupacion}
+              descripcionBreve={character.data.historia.substring(0, 150) + '...'}
+            />
+          );
+        })}
       </div>
     </div>
   </section>

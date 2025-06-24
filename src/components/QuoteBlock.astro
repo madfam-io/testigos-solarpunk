@@ -1,0 +1,164 @@
+---
+export interface Props {
+  quote: string;
+  author?: string;
+  variant?: 'solar' | 'earth' | 'mystical' | 'default';
+}
+
+const { quote, author, variant = 'default' } = Astro.props;
+
+const variantClasses = {
+  solar: 'quote-solar',
+  earth: 'quote-earth',
+  mystical: 'quote-mystical',
+  default: 'quote-default'
+};
+
+const variantClass = variantClasses[variant];
+---
+
+<blockquote class={`quote-block ${variantClass}`}>
+  <div class="quote-content">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">{quote}</p>
+  </div>
+  {author && (
+    <cite class="quote-author">— {author}</cite>
+  )}
+</blockquote>
+
+<style>
+  .quote-block {
+    position: relative;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .quote-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+  }
+
+  .quote-content {
+    position: relative;
+  }
+
+  .quote-mark {
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    font-size: 4rem;
+    opacity: 0.3;
+    font-family: serif;
+  }
+
+  .quote-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .quote-author {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-style: normal;
+    opacity: 0.8;
+  }
+
+  /* Variantes */
+  .quote-default {
+    background: rgba(76, 175, 80, 0.05);
+    border-left: 4px solid var(--verde-sostenible);
+  }
+
+  .quote-default::before {
+    background: var(--verde-sostenible);
+  }
+
+  .quote-default .quote-mark {
+    color: var(--verde-sostenible);
+  }
+
+  .quote-solar {
+    background: rgba(255, 193, 7, 0.05);
+    border-left: 4px solid var(--amarillo-solar);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.1);
+  }
+
+  .quote-solar::before {
+    background: var(--amarillo-solar);
+  }
+
+  .quote-solar .quote-mark {
+    color: var(--amarillo-solar);
+  }
+
+  .quote-solar .quote-text {
+    color: var(--amarillo-solar);
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+  }
+
+  .quote-earth {
+    background: rgba(139, 69, 19, 0.05);
+    border-left: 4px solid var(--tierra-cafe);
+  }
+
+  .quote-earth::before {
+    background: var(--tierra-cafe);
+  }
+
+  .quote-earth .quote-mark {
+    color: var(--tierra-cafe);
+  }
+
+  .quote-mystical {
+    background: linear-gradient(135deg, rgba(102, 51, 153, 0.05), rgba(255, 193, 7, 0.05));
+    border-left: 4px solid var(--purpura-creativo);
+    position: relative;
+  }
+
+  .quote-mystical::before {
+    background: linear-gradient(to bottom, var(--purpura-creativo), var(--amarillo-solar));
+  }
+
+  .quote-mystical .quote-mark {
+    background: linear-gradient(135deg, var(--purpura-creativo), var(--amarillo-solar));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .quote-mystical .quote-text {
+    background: linear-gradient(135deg, var(--purpura-creativo), var(--amarillo-solar));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animación al hover */
+  .quote-block:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+  }
+
+  .quote-solar:hover {
+    animation: pulse-glow 2s ease-in-out;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(255, 193, 7, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(255, 193, 7, 0.3);
+    }
+  }
+</style>

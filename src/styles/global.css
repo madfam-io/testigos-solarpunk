@@ -15,6 +15,13 @@
   --agua-clara: #00CED1;
   --naranja-comunidad: #FF6B35;
   
+  /* Paleta Evangelista */
+  --verde-brillante: #00FF7F;
+  --dorado-solar: #FFD700;
+  --marron-tierra: #D2691E;
+  --blanco-divino: #FFFAFA;
+  --purpura-mistico: #9370DB;
+  
   /* Colores de UI */
   --fondo-primario: #FAFAFA;
   --fondo-secundario: #F5F5F5;
@@ -294,8 +301,49 @@ footer a {
   }
 }
 
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4),
+                0 0 40px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6),
+                0 0 60px rgba(255, 215, 0, 0.3);
+  }
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.float-animation {
+  animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.rotate-slow {
+  animation: rotateGlow 20s linear infinite;
 }
 
 /* Efectos Solarpunk */
@@ -312,4 +360,72 @@ footer a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Estilos Evangelistas */
+.gradient-evangelista {
+  background: linear-gradient(135deg, var(--dorado-solar) 0%, var(--verde-brillante) 50%, var(--purpura-mistico) 100%);
+}
+
+.card-evangelista {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 255, 127, 0.1) 100%);
+  border: 2px solid var(--dorado-solar);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-evangelista::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  animation: rotateGlow 15s linear infinite;
+}
+
+.quote-block {
+  background-color: var(--blanco-divino);
+  border-left: 4px solid var(--dorado-solar);
+  padding: var(--espacio-lg);
+  margin: var(--espacio-xl) 0;
+  font-style: italic;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+}
+
+.quote-block::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--dorado-solar);
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  opacity: 0.3;
+}
+
+.evangelista-title {
+  background: linear-gradient(45deg, var(--dorado-solar), var(--verde-brillante));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.halo-effect {
+  position: relative;
+}
+
+.halo-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 60%);
+  z-index: -1;
+  animation: pulseGlow 3s ease-in-out infinite;
 }

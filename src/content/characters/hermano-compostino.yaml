@@ -1,0 +1,59 @@
+nombre: Hermano Compostino
+rol: Evangelista Ecológico
+edad: 42
+pronombres: él/he
+ocupacion: Especialista en Conversiones Tecnológicas
+rasgos:
+  - Lentes de VR hechos de bambú
+  - Estilo postapocalíptico-ecológico
+  - Barba cultivada con abono orgánico
+  - Chaleco con bolsillos llenos de gadgets solares
+  - Siempre carga una tablet de cartón reciclado
+  - Habla en parábolas tecnológicas
+  - Experto en biodigestores caseros
+historia: |
+  Compostino era un desarrollador de software que vivía pegado a sus 
+  dispositivos, hasta que un día su ciudad sufrió un hackeo masivo 
+  que colapsó toda la infraestructura digital. En medio del caos, 
+  encontró paz en un huerto comunitario donde conoció a los primeros 
+  Testigos de Solar Punk. Ahí aprendió que la verdadera tecnología 
+  es la que trabaja con la naturaleza, no contra ella. Ahora usa sus 
+  habilidades técnicas para diseñar soluciones low-tech que cualquiera 
+  puede replicar. Su misión: demostrar que el futuro es analógico y digital, 
+  orgánico y tecnológico, todo al mismo tiempo.
+relaciones:
+  - personaje: hermana-panelia
+    tipo: Compañera de misión
+    descripcion: Complementan perfectamente sus estilos de predicación
+  - personaje: profeta-del-sol
+    tipo: Inspiración divina
+    descripcion: Interpreta los códigos binarios del Profeta en mensajes ecológicos
+  - personaje: marco-tierra
+    tipo: Alumno prometedor
+    descripcion: Ve en Marco un futuro evangelista de la permacultura
+episodios_destacados:
+  - EP002-TT
+  - EP006-IG
+  - EP009-YT
+  - EP013-TT
+  - EP017-IG
+evolucion:
+  temporada1: Adapta su conocimiento tech a soluciones verdes
+  temporada2: Crea la primera app de evangelización solar offline
+  temporada3: Funda el primer hackerspace sagrado solarpunk
+frases_emblematicas:
+  - "¿Conoce usted el camino de la composta eterna?"
+  - "El WiFi del futuro crece en los árboles, hermano"
+  - "Debuggear el código es fácil, debuggear el planeta requiere fe"
+  - "¿Ha considerado hacer backup de sus semillas?"
+  - "La nube más confiable es la que produce lluvia"
+  - "Control+Alt+Suprimir el capitalismo, Enter la sustentabilidad"
+gadgets_sagrados:
+  - Rosario de LEDs solares
+  - Biblia digital en e-ink reciclado
+  - Incienso de circuitos quemados
+  - Agua bendita con minerales conductores
+referencias_visuales:
+  - /images/characters/hermano-compostino-principal.jpg
+  - /images/characters/hermano-compostino-gadgets.jpg
+  - /images/mood/tech-evangelista-aesthetic.jpg

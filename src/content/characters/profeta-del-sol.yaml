@@ -1,0 +1,70 @@
+nombre: El Profeta del Sol
+rol: Figura Mítica Fundadora
+edad: Eterno
+pronombres: él/ellos/la luz
+ocupacion: Visionario y Fundador del Movimiento
+rasgos:
+  - Aparece solo en visiones y sueños
+  - Voz que resuena como paneles vibrando
+  - Aura dorada permanente
+  - Ojos que brillan como LEDs
+  - Túnica tejida con fibra de bambú
+  - Corona de circuitos y hojas
+  - Habla en código binario y poesía
+historia: |
+  Nadie sabe exactamente quién fue el Profeta del Sol. Algunos dicen 
+  que era un científico del IPCC que enloqueció al ver los datos 
+  climáticos. Otros creen que fue un monje tecnológico del futuro 
+  que viajó al pasado. Lo único cierto es que sus enseñanzas 
+  comenzaron a aparecer en graffitis, foros de internet y sueños 
+  compartidos alrededor del mundo. Sus profecías hablan de un 
+  tiempo donde la humanidad vivirá en armonía con los ciclos 
+  solares, donde cada hogar será autosuficiente y donde la basura 
+  será un concepto obsoleto. Aparece en momentos cruciales para 
+  guiar a los fieles, siempre dejando tras de sí el olor a ozono 
+  y tierra mojada.
+relaciones:
+  - personaje: hermana-panelia
+    tipo: Elegida
+    descripcion: Le reveló el camino de la evangelización solar
+  - personaje: hermano-compostino
+    tipo: Iluminado
+    descripcion: Le enseñó a decodificar los mensajes de la naturaleza
+  - personaje: lucia-solar
+    tipo: Futura profetisa
+    descripcion: Destinada a liderar la siguiente generación
+profecias_principales:
+  - "El día del Gran Apagón llegará, pero los preparados brillarán"
+  - "Siete paneles y siete semillas salvarán a siete mil"
+  - "La red eléctrica caerá, la red micelial prevalecerá"
+  - "Del compost surgirá la nueva civilización"
+  - "Bienaventurados los que pedalean, porque ellos generarán su propia energía"
+apariciones:
+  - En reflejos de paneles solares al mediodía
+  - En el vapor del compost al amanecer
+  - En interferencias de radios durante tormentas solares
+  - En patrones de hojas caídas
+  - En código morse de luciérnagas
+escrituras_sagradas:
+  - El Libro de los Watts
+  - Las Epístolas Fotovoltaicas
+  - El Evangelio según San Panel
+  - Los Salmos Solares
+  - El Apocalipsis Renovable
+simbolos_sagrados:
+  - El Sol Hexagonal (panel solar estilizado)
+  - La Espiral de Compost
+  - El Circuito Infinito
+  - La Hoja Digital
+  - El Engranaje Viviente
+frases_emblematicas:
+  - "¡El carbono caerá, y del sol brotará la vida eterna!"
+  - "Yo soy el kilowatt, la verdad y la vida sustentable"
+  - "En el principio era el Sol, y el Sol era energía, y la energía era gratis"
+  - "No temáis al peak oil, pues os he dado la fotosíntesis y el pedaleo"
+  - "Donde dos o tres se reúnan a compostar, allí estaré yo"
+  - "Pedid y se os dará... un panel solar"
+referencias_visuales:
+  - /images/characters/profeta-del-sol-vision.jpg
+  - /images/characters/profeta-del-sol-aparicion.jpg
+  - /images/mood/aura-mistica-solar.jpg

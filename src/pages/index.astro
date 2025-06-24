@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteBlock from '../components/QuoteBlock.astro';
 ---
 
 <BaseLayout title="Inicio">
@@ -40,26 +41,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <section class="evangelista-section">
+    <div class="container">
+      <h2 class="text-center evangelista-title">El Evangelio Solar</h2>
+      <QuoteBlock 
+        quote="Hermanos, el Sol nos ama y quiere vernos iluminados. Cada panel es una oración al astro rey."
+        author="Hermana Panelia"
+        variant="solar"
+      />
+      <div class="evangelista-grid">
+        <div class="evangelista-card halo-effect">
+          <h3>🌟 Los Evangelistas</h3>
+          <p>Tres misioneros dedicados a predicar la salvación ecológica y la redención energética de la humanidad.</p>
+          <a href="/personajes" class="btn btn-primary">Conocer Evangelistas</a>
+        </div>
+        <div class="evangelista-card halo-effect">
+          <h3>📖 El Mensaje</h3>
+          <p>Transformación espiritual a través de la tecnología sostenible y la reconexión con los ciclos naturales.</p>
+          <a href="/filosofia" class="btn btn-primary">Leer Filosofía</a>
+        </div>
+        <div class="evangelista-card halo-effect">
+          <h3>🎬 Los Formatos</h3>
+          <p>Múltiples maneras de llevar la luz solar a cada hogar: videos, podcasts, sketches y más.</p>
+          <a href="/formatos" class="btn btn-primary">Ver Formatos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="vision-section">
     <div class="container">
       <h2 class="text-center">Nuestra Visión</h2>
       <div class="vision-grid">
-        <div class="vision-item">
+        <div class="vision-item float-animation">
           <span class="vision-icon">☀️</span>
           <h4>Energía Limpia</h4>
           <p>Un mundo impulsado por el sol, el viento y la creatividad humana</p>
         </div>
-        <div class="vision-item">
+        <div class="vision-item float-animation" style="animation-delay: 0.2s">
           <span class="vision-icon">🤝</span>
           <h4>Comunidad Fuerte</h4>
           <p>Las soluciones nacen de la colaboración y el apoyo mutuo</p>
         </div>
-        <div class="vision-item">
+        <div class="vision-item float-animation" style="animation-delay: 0.4s">
           <span class="vision-icon">🌺</span>
           <h4>Armonía Natural</h4>
           <p>La tecnología y la naturaleza coexisten en equilibrio</p>
         </div>
-        <div class="vision-item">
+        <div class="vision-item float-animation" style="animation-delay: 0.6s">
           <span class="vision-icon">🎭</span>
           <h4>Historias que Inspiran</h4>
           <p>Narrativas que muestran futuros posibles y deseables</p>
@@ -128,10 +157,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     justify-content: center;
   }
   
+  .evangelista-section {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(135deg, var(--fondo-primario) 0%, rgba(255, 215, 0, 0.05) 100%);
+  }
+  
+  .evangelista-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+  
+  .evangelista-card {
+    background: white;
+    padding: var(--espacio-xl);
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid var(--dorado-solar);
+    transition: all var(--transicion-normal);
+  }
+  
+  .evangelista-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+  }
+  
+  .evangelista-card h3 {
+    color: var(--dorado-solar);
+    margin-bottom: var(--espacio-md);
+  }
+  
+  .evangelista-card .btn {
+    margin-top: var(--espacio-md);
+  }
+  
   .vision-section {
     background-color: var(--fondo-secundario);
     padding: var(--espacio-xxl) 0;
-    margin-top: var(--espacio-xxl);
+    margin-top: 0;
   }
   
   .vision-grid {
