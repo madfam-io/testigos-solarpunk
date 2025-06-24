@@ -33,6 +33,7 @@ tests/
 ### What Was Tested
 
 #### 1. **Utility Functions** (`src/lib/utils.ts`)
+
 - ✅ `formatDate` - Date formatting in Spanish
 - ✅ `slugify` - URL slug generation
 - ✅ `truncateText` - Text truncation
@@ -50,6 +51,7 @@ tests/
 - ✅ `lazyLoadImage` - Image lazy loading with placeholder
 
 #### 2. **Constants** (`src/lib/constants.ts`)
+
 - ✅ Site information and metadata
 - ✅ Social media links
 - ✅ Platform configurations
@@ -68,6 +70,7 @@ tests/
 - ✅ TypeScript type exports
 
 #### 3. **Component Testing**
+
 - ✅ CharacterCard component structure validation
 - ✅ Props handling
 - ✅ Image handling (custom and placeholder)
@@ -76,6 +79,7 @@ tests/
 - ✅ CSS class validation
 
 #### 4. **Integration Testing**
+
 - ✅ Content schema validation
 - ✅ Character and location data structures
 - ✅ Content relationships
