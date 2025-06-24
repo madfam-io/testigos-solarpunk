@@ -7,6 +7,10 @@
     "dist/**/*",
     ".astro/**/*",
     "scripts/**/*",
-    "tests/**/*"
+    "tests/**/*",
+    "public/**/*",
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.cjs"
   ]
 }

@@ -71,8 +71,6 @@ export default defineConfig({
           chunkFileNames: '_assets/chunks/[name].[hash].js',
           entryFileNames: '_assets/[name].[hash].js',
           manualChunks: {
-            // Separar vendor code
-            vendor: ['astro:content'],
             // Agrupar utilidades
             utils: ['./src/lib/utils', './src/lib/constants'],
           },
@@ -81,7 +79,7 @@ export default defineConfig({
     },
     // Optimizaciones adicionales
     optimizeDeps: {
-      include: ['astro:content'],
+      // Removed astro:content as it causes warnings
     },
     ssr: {
       // Excluir dependencias problemáticas del SSR
