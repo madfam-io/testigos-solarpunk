@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import compress from 'astro-compress';
+// import compress from 'astro-compress'; // Temporarily disabled due to build errors
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,24 +23,24 @@ export default defineConfig({
       },
     }),
 
-    // Compresión de assets
-    compress({
-      CSS: true,
-      HTML: {
-        'html-minifier-terser': {
-          removeAttributeQuotes: false,
-          removeComments: true,
-          removeRedundantAttributes: true,
-          removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          sortAttributes: true,
-          sortClassName: true,
-        },
-      },
-      JavaScript: true,
-      Image: false, // Manejaremos imágenes con Sharp
-      SVG: true,
-    }),
+    // Compresión de assets - disabled due to build errors
+    // compress({
+    //   CSS: true,
+    //   HTML: {
+    //     'html-minifier-terser': {
+    //       removeAttributeQuotes: false,
+    //       removeComments: true,
+    //       removeRedundantAttributes: true,
+    //       removeScriptTypeAttributes: true,
+    //       removeStyleLinkTypeAttributes: true,
+    //       sortAttributes: true,
+    //       sortClassName: true,
+    //     },
+    //   },
+    //   JavaScript: true,
+    //   Image: false, // Manejaremos imágenes con Sharp
+    //   SVG: true,
+    // }),
   ],
 
   build: {
