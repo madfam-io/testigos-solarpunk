@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Service Worker para Testigos de Solarpunk
  * Implementa cache-first strategy con actualizaciones en segundo plano
@@ -30,9 +32,10 @@ const CACHE_PATTERNS = {
 // Instalación del Service Worker
 self.addEventListener('install', (event) => {
   console.log('[SW] Instalando Service Worker...');
-  
+
   event.waitUntil(
-    caches.open(CACHE_NAME)
+    caches
+      .open(CACHE_NAME)
       .then((cache) => {
         console.log('[SW] Cacheando archivos estáticos');
         return cache.addAll(STATIC_CACHE_URLS);
@@ -50,9 +53,10 @@ self.addEventListener('install', (event) => {
 // Activación del Service Worker
 self.addEventListener('activate', (event) => {
   console.log('[SW] Activando Service Worker...');
-  
+
   event.waitUntil(
-    caches.keys()
+    caches
+      .keys()
       .then((cacheNames) => {
         return Promise.all(
           cacheNames
@@ -90,15 +94,14 @@ self.addEventListener('fetch', (event) => {
   // Estrategia para archivos estáticos (cache-first)
   if (isStaticAsset(url.pathname)) {
     event.respondWith(
-      caches.match(request)
-        .then((cachedResponse) => {
-          if (cachedResponse) {
-            // Actualizar cache en segundo plano
-            fetchAndCache(request, CACHE_NAME);
-            return cachedResponse;
-          }
-          return fetchAndCache(request, CACHE_NAME);
-        })
+      caches.match(request).then((cachedResponse) => {
+        if (cachedResponse) {
+          // Actualizar cache en segundo plano
+          fetchAndCache(request, CACHE_NAME);
+          return cachedResponse;
+        }
+        return fetchAndCache(request, CACHE_NAME);
+      })
     );
     return;
   }
@@ -107,23 +110,21 @@ self.addEventListener('fetch', (event) => {
   if (request.headers.get('accept')?.includes('text/html')) {
     event.respondWith(
       fetch(request)
-        .then((response) => {
+        .then(async (response) => {
           if (response.ok) {
             const responseClone = response.clone();
-            caches.open(RUNTIME_CACHE)
-              .then((cache) => cache.put(request, responseClone));
+            const cache = await caches.open(RUNTIME_CACHE);
+            await cache.put(request, responseClone);
           }
           return response;
         })
-        .catch(() => {
-          return caches.match(request)
-            .then((cachedResponse) => {
-              if (cachedResponse) {
-                return cachedResponse;
-              }
-              // Página offline de fallback
-              return caches.match('/testigos-solarpunk/404.html');
-            });
+        .catch(async () => {
+          const cachedResponse = await caches.match(request);
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          // Página offline de fallback
+          return caches.match('/testigos-solarpunk/404.html');
         })
     );
     return;
@@ -135,7 +136,8 @@ self.addEventListener('fetch', (event) => {
       .then((response) => {
         if (response.ok) {
           const responseClone = response.clone();
-          caches.open(RUNTIME_CACHE)
+          caches
+            .open(RUNTIME_CACHE)
             .then((cache) => cache.put(request, responseClone));
         }
         return response;
@@ -151,7 +153,8 @@ self.addEventListener('message', (event) => {
   }
 
   if (event.data && event.data.type === 'CLEAR_CACHE') {
-    caches.keys()
+    caches
+      .keys()
       .then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => caches.delete(cacheName))
@@ -181,7 +184,7 @@ self.addEventListener('push', (event) => {
       vibrate: [200, 100, 200],
       data: {
         dateOfArrival: Date.now(),
-        primaryKey: 1
+        primaryKey: 1,
       },
       actions: [
         {
@@ -191,8 +194,8 @@ self.addEventListener('push', (event) => {
         {
           action: 'close',
           title: 'Cerrar',
-        }
-      ]
+        },
+      ],
     };
 
     event.waitUntil(
@@ -209,27 +212,27 @@ self.addEventListener('notificationclick', (event) => {
   event.notification.close();
 
   if (event.action === 'explore') {
-    event.waitUntil(
-      clients.openWindow('/testigos-solarpunk/')
-    );
+    event.waitUntil(clients.openWindow('/testigos-solarpunk/'));
   }
 });
 
 // Funciones auxiliares
 function isStaticAsset(pathname) {
-  return Object.values(CACHE_PATTERNS).some(pattern => pattern.test(pathname));
+  return Object.values(CACHE_PATTERNS).some((pattern) =>
+    pattern.test(pathname)
+  );
 }
 
 async function fetchAndCache(request, cacheName) {
   try {
     const response = await fetch(request);
-    
+
     if (response.ok) {
       const responseClone = response.clone();
       const cache = await caches.open(cacheName);
       cache.put(request, responseClone);
     }
-    
+
     return response;
   } catch (error) {
     console.error('[SW] Error fetching:', error);
@@ -245,7 +248,7 @@ async function updateContent() {
   try {
     const cache = await caches.open(CACHE_NAME);
     const requests = await cache.keys();
-    
+
     const updatePromises = requests.map(async (request) => {
       try {
         const response = await fetch(request);
@@ -256,7 +259,7 @@ async function updateContent() {
         console.error('[SW] Error actualizando:', request.url);
       }
     });
-    
+
     await Promise.all(updatePromises);
     console.log('[SW] Contenido actualizado');
   } catch (error) {

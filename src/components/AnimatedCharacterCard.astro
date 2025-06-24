@@ -9,44 +9,47 @@ export interface Props {
   descripcionBreve: string;
   colorTema?: 'verde' | 'solar' | 'tierra' | 'mistico';
   frases?: string[];
+  isEvangelista?: boolean;
 }
 
-const { 
-  id, 
-  nombre, 
-  rol, 
-  edad, 
-  ocupacion, 
-  imagen, 
+const {
+  id,
+  nombre,
+  rol,
+  edad,
+  ocupacion,
+  imagen,
   descripcionBreve,
   colorTema = 'verde',
-  frases = []
+  frases = [],
+  isEvangelista: _isEvangelista = false,
 } = Astro.props;
 
-const imagenUrl = imagen || '/images/characters/placeholder.jpg';
+const imagenUrl = imagen ?? '/images/characters/placeholder.jpg';
 
 const colorClasses = {
   verde: 'tema-verde',
   solar: 'tema-solar',
   tierra: 'tema-tierra',
-  mistico: 'tema-mistico'
+  mistico: 'tema-mistico',
 };
 
 const colorClass = colorClasses[colorTema];
 
 // Seleccionar una frase aleatoria si hay frases disponibles
-const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * frases.length)] : null;
+const fraseAleatoria =
+  frases.length > 0 ? frases[Math.floor(Math.random() * frases.length)] : null;
 ---
 
-<article class={`animated-character-card card ${colorClass}`}>
+<article class:list={`animated-character-card card ${colorClass}`}>
   <div class="character-aura"></div>
-  
+
   <div class="character-image-container">
     <img src={imagenUrl} alt={nombre} loading="lazy" class="character-image" />
     <div class="character-halo"></div>
     <span class="character-badge">{rol}</span>
   </div>
-  
+
   <div class="character-info">
     <h3 class="character-name">{nombre}</h3>
     <div class="character-meta">
@@ -60,16 +63,18 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
         {ocupacion}
       </span>
     </div>
-    
+
     <p class="character-description">{descripcionBreve}</p>
-    
-    {fraseAleatoria && (
-      <div class="character-quote">
-        <i class="fas fa-quote-left quote-icon"></i>
-        <p class="quote-text">{fraseAleatoria}</p>
-      </div>
-    )}
-    
+
+    {
+      fraseAleatoria !== null && (
+        <div class="character-quote">
+          <i class="fas fa-quote-left quote-icon" />
+          <p class="quote-text">{fraseAleatoria}</p>
+        </div>
+      )
+    }
+
     <a href={`/personajes/${id}`} class="character-link">
       <span>Conocer más</span>
       <i class="fas fa-arrow-right"></i>
@@ -89,7 +94,8 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
   }
 
   @keyframes float-animation {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -116,7 +122,8 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
     position: relative;
     height: 250px;
     overflow: hidden;
-    margin: calc(-1 * var(--espacio-lg)) calc(-1 * var(--espacio-lg)) var(--espacio-lg);
+    margin: calc(-1 * var(--espacio-lg)) calc(-1 * var(--espacio-lg))
+      var(--espacio-lg);
   }
 
   .character-image {
@@ -149,7 +156,8 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
   }
 
   @keyframes pulse-glow {
-    0%, 100% {
+    0%,
+    100% {
       transform: translate(-50%, -50%) scale(1);
     }
     50% {
@@ -244,7 +252,11 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
 
   /* Temas de color */
   .tema-verde {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(0, 255, 127, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(26, 26, 26, 0.9),
+      rgba(0, 255, 127, 0.1)
+    );
   }
 
   .tema-verde .character-badge {
@@ -253,11 +265,19 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
   }
 
   .tema-verde .character-aura {
-    background: radial-gradient(circle, rgba(0, 255, 127, 0.3) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(0, 255, 127, 0.3) 0%,
+      transparent 70%
+    );
   }
 
   .tema-verde .character-halo {
-    background: radial-gradient(circle, rgba(0, 255, 127, 0.5) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(0, 255, 127, 0.5) 0%,
+      transparent 70%
+    );
   }
 
   .tema-verde .character-name {
@@ -279,7 +299,11 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
   }
 
   .tema-solar {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(255, 215, 0, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(26, 26, 26, 0.9),
+      rgba(255, 215, 0, 0.1)
+    );
   }
 
   .tema-solar .character-badge {
@@ -288,11 +312,19 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
   }
 
   .tema-solar .character-aura {
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 215, 0, 0.3) 0%,
+      transparent 70%
+    );
   }
 
   .tema-solar .character-halo {
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 215, 0, 0.5) 0%,
+      transparent 70%
+    );
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
   }
 
@@ -316,7 +348,11 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
   }
 
   .tema-tierra {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(139, 69, 19, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(26, 26, 26, 0.9),
+      rgba(139, 69, 19, 0.1)
+    );
   }
 
   .tema-tierra .character-badge {
@@ -325,11 +361,19 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
   }
 
   .tema-tierra .character-aura {
-    background: radial-gradient(circle, rgba(139, 69, 19, 0.3) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(139, 69, 19, 0.3) 0%,
+      transparent 70%
+    );
   }
 
   .tema-tierra .character-halo {
-    background: radial-gradient(circle, rgba(139, 69, 19, 0.5) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(139, 69, 19, 0.5) 0%,
+      transparent 70%
+    );
   }
 
   .tema-tierra .character-name {
@@ -351,16 +395,29 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
   }
 
   .tema-mistico {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(102, 51, 153, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(26, 26, 26, 0.9),
+      rgba(102, 51, 153, 0.1)
+    );
   }
 
   .tema-mistico .character-badge {
-    background: linear-gradient(135deg, var(--purpura-creativo), var(--amarillo-solar));
+    background: linear-gradient(
+      135deg,
+      var(--purpura-creativo),
+      var(--amarillo-solar)
+    );
     color: white;
   }
 
   .tema-mistico .character-aura {
-    background: radial-gradient(circle, rgba(102, 51, 153, 0.3) 0%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(102, 51, 153, 0.3) 0%,
+      rgba(255, 215, 0, 0.1) 50%,
+      transparent 70%
+    );
     animation: rotate-slow 20s linear infinite;
   }
 
@@ -374,19 +431,31 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
   }
 
   .tema-mistico .character-halo {
-    background: radial-gradient(circle, rgba(102, 51, 153, 0.5) 0%, rgba(255, 215, 0, 0.3) 70%);
+    background: radial-gradient(
+      circle,
+      rgba(102, 51, 153, 0.5) 0%,
+      rgba(255, 215, 0, 0.3) 70%
+    );
     box-shadow: 0 0 40px rgba(102, 51, 153, 0.5);
   }
 
   .tema-mistico .character-name {
-    background: linear-gradient(135deg, var(--purpura-creativo), var(--amarillo-solar));
+    background: linear-gradient(
+      135deg,
+      var(--purpura-creativo),
+      var(--amarillo-solar)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .tema-mistico .character-quote {
-    background: linear-gradient(135deg, rgba(102, 51, 153, 0.1), rgba(255, 215, 0, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(102, 51, 153, 0.1),
+      rgba(255, 215, 0, 0.1)
+    );
     border-left: 3px solid var(--purpura-creativo);
   }
 
@@ -395,7 +464,11 @@ const fraseAleatoria = frases.length > 0 ? frases[Math.floor(Math.random() * fra
   }
 
   .tema-mistico .character-link {
-    background: linear-gradient(135deg, var(--purpura-creativo), var(--amarillo-solar));
+    background: linear-gradient(
+      135deg,
+      var(--purpura-creativo),
+      var(--amarillo-solar)
+    );
     color: white;
   }
 </style>

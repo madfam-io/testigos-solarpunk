@@ -2,8 +2,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import compress from 'astro-compress';
-import critters from 'astro-critters';
-import purgecss from 'astro-purgecss';
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,45 +23,23 @@ export default defineConfig({
       },
     }),
     
-    // Critical CSS inlining para mejor performance
-    critters(),
-    
-    // Eliminar CSS no utilizado
-    purgecss({
-      keyframes: true,
-      safelist: {
-        standard: [/^is-/, /^has-/, /^js-/],
-        deep: [/^character--/, /^role-/],
-      },
-    }),
-    
     // Compresión de assets
     compress({
       CSS: true,
       HTML: {
-        removeAttributeQuotes: false,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        sortAttributes: true,
-        sortClassName: true,
+        'html-minifier-terser': {
+          removeAttributeQuotes: false,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          sortAttributes: true,
+          sortClassName: true,
+        },
       },
       JavaScript: true,
       Image: false, // Manejaremos imágenes con Sharp
-      SVG: {
-        multipass: true,
-        plugins: [
-          {
-            name: 'preset-default',
-            params: {
-              overrides: {
-                removeViewBox: false,
-              },
-            },
-          },
-        ],
-      },
+      SVG: true,
     }),
   ],
   
@@ -118,7 +94,7 @@ export default defineConfig({
   
   // Experimental: Optimizaciones adicionales
   experimental: {
-    optimizeHoistedScript: true,
+    // Options available in Astro 5
   },
   
   // Para dominio personalizado:

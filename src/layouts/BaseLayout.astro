@@ -8,60 +8,130 @@ export interface Props {
   noindex?: boolean;
 }
 
-const { 
-  title, 
-  description = "Testigos de Solarpunk - Universo narrativo evangelista ecológico que combina humor, sostenibilidad y esperanza",
-  image = "/og-image.svg",
-  noindex = false
+const {
+  title,
+  description = 'Testigos de Solarpunk - Universo narrativo evangelista ecológico que combina humor, sostenibilidad y esperanza',
+  image = '/og-image.svg',
+  noindex = false,
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
-const baseUrl = import.meta.env.SITE || 'https://madfam-io.github.io';
-const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
+const baseUrl =
+  import.meta.env.SITE !== ''
+    ? import.meta.env.SITE
+    : 'https://madfam-io.github.io';
+const basePath =
+  import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
 const fullUrl = `${baseUrl}${basePath}${currentPath}`;
 const imageUrl = `${baseUrl}${basePath}${image}`;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es-MX">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, nofollow' : 'index, follow'}
+    />
     <meta name="author" content="MADFAM" />
-    <meta name="keywords" content="solarpunk, evangelista ecológico, sostenibilidad, humor verde, MADFAM, narrativa esperanzadora" />
-    
+    <meta
+      name="keywords"
+      content="solarpunk, evangelista ecológico, sostenibilidad, humor verde, MADFAM, narrativa esperanzadora"
+    />
+
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#FFC107" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <meta name="apple-mobile-web-app-title" content="Testigos" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="Testigos de Solarpunk" />
     <meta name="msapplication-TileColor" content="#FFC107" />
-    <meta name="msapplication-config" content={`${basePath}/browserconfig.xml`} />
-    
+    <meta
+      name="msapplication-config"
+      content={`${basePath}/browserconfig.xml`}
+    />
+
     <!-- PWA Manifest -->
     <link rel="manifest" href={`${basePath}/manifest.json`} />
-    
+
     <!-- iOS Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href={`${basePath}/apple-touch-icon.png`} />
-    <link rel="apple-touch-icon" sizes="152x152" href={`${basePath}/icon-152.png`} />
-    <link rel="apple-touch-icon" sizes="144x144" href={`${basePath}/icon-144.png`} />
-    <link rel="apple-touch-icon" sizes="120x120" href={`${basePath}/icon-120.png`} />
-    <link rel="apple-touch-icon" sizes="114x114" href={`${basePath}/icon-114.png`} />
-    <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/icon-76.png`} />
-    <link rel="apple-touch-icon" sizes="72x72" href={`${basePath}/icon-72.png`} />
-    <link rel="apple-touch-icon" sizes="60x60" href={`${basePath}/icon-60.png`} />
-    <link rel="apple-touch-icon" sizes="57x57" href={`${basePath}/icon-57.png`} />
-    
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href={`${basePath}/apple-touch-icon.png`}
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href={`${basePath}/icon-152.png`}
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href={`${basePath}/icon-144.png`}
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href={`${basePath}/icon-120.png`}
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href={`${basePath}/icon-114.png`}
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href={`${basePath}/icon-76.png`}
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href={`${basePath}/icon-72.png`}
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href={`${basePath}/icon-60.png`}
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href={`${basePath}/icon-57.png`}
+    />
+
     <!-- Splash Screens iOS -->
-    <link rel="apple-touch-startup-image" href={`${basePath}/splash-2048x2732.png`} media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" />
-    <link rel="apple-touch-startup-image" href={`${basePath}/splash-1668x2388.png`} media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" />
-    <link rel="apple-touch-startup-image" href={`${basePath}/splash-1536x2048.png`} media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" />
-    <link rel="apple-touch-startup-image" href={`${basePath}/splash-1125x2436.png`} media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" />
-    
+    <link
+      rel="apple-touch-startup-image"
+      href={`${basePath}/splash-2048x2732.png`}
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href={`${basePath}/splash-1668x2388.png`}
+      media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href={`${basePath}/splash-1536x2048.png`}
+      media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href={`${basePath}/splash-1125x2436.png`}
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+    />
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content={`${title} | Testigos de Solarpunk`} />
     <meta property="og:description" content={description} />
@@ -72,7 +142,7 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Testigos de Solarpunk" />
     <meta property="og:locale" content="es_MX" />
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@TestigosSolar" />
@@ -80,51 +150,69 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
     <meta name="twitter:title" content={`${title} | Testigos de Solarpunk`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href={fullUrl} />
-    
+
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href={`${basePath}/favicon.svg`} />
-    <link rel="icon" type="image/png" sizes="32x32" href={`${basePath}/favicon-32x32.png`} />
-    <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/favicon-16x16.png`} />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href={`${basePath}/favicon-32x32.png`}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href={`${basePath}/favicon-16x16.png`}
+    />
     <link rel="shortcut icon" href={`${basePath}/favicon.ico`} />
-    
+
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    
+
     <!-- Preload critical resources -->
-    <link rel="preload" href={`${basePath}/fonts/poppins-v20-latin-regular.woff2`} as="font" type="font/woff2" crossorigin />
-    
+    <link
+      rel="preload"
+      href={`${basePath}/fonts/poppins-v20-latin-regular.woff2`}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Testigos de Solarpunk",
-        "alternateName": "Testigos",
-        "url": fullUrl,
-        "description": description,
-        "publisher": {
-          "@type": "Organization",
-          "name": "MADFAM",
-          "logo": {
-            "@type": "ImageObject",
-            "url": `${baseUrl}${basePath}/icon-512.png`
-          }
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Testigos de Solarpunk',
+        alternateName: 'Testigos',
+        url: fullUrl,
+        description,
+        publisher: {
+          '@type': 'Organization',
+          name: 'MADFAM',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${baseUrl}${basePath}/icon-512.png`,
+          },
         },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": `${baseUrl}${basePath}/buscar?q={search_term_string}`,
-          "query-input": "required name=search_term_string"
-        }
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${baseUrl}${basePath}/buscar?q={search_term_string}`,
+          'query-input': 'required name=search_term_string',
+        },
       })}
-    </script>
-    
+    />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title} | Testigos de Solarpunk - MADFAM</title>
   </head>
@@ -133,34 +221,90 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
       <div class="container">
         <ul>
           <li>
-            <a href={`${basePath}/`} class={currentPath === "/" ? "active" : ""}>
+            <a
+              href={`${basePath}/`}
+              class:list={currentPath === '/' ? 'active' : ''}
+            >
               <strong class="text-gradient">Testigos de Solarpunk</strong>
             </a>
           </li>
-          <li><a href={`${basePath}/personajes`} class={currentPath.startsWith("/personajes") ? "active" : ""}>Personajes</a></li>
-          <li><a href={`${basePath}/guiones`} class={currentPath.startsWith("/guiones") ? "active" : ""}>Guiones</a></li>
-          <li><a href={`${basePath}/mundo`} class={currentPath.startsWith("/mundo") ? "active" : ""}>Mundo</a></li>
-          <li><a href={`${basePath}/formatos`} class={currentPath.startsWith("/formatos") ? "active" : ""}>Formatos</a></li>
-          <li><a href={`${basePath}/filosofia`} class={currentPath.startsWith("/filosofia") ? "active" : ""}>Filosofía</a></li>
-          <li><a href={`${basePath}/guia-visual`} class={currentPath.startsWith("/guia-visual") ? "active" : ""}>Guía Visual</a></li>
-          <li><a href={`${basePath}/produccion`} class={currentPath.startsWith("/produccion") ? "active" : ""}>Producción</a></li>
-          <li><a href={`${basePath}/recursos`} class={currentPath.startsWith("/recursos") ? "active" : ""}>Recursos</a></li>
+          <li>
+            <a
+              href={`${basePath}/personajes`}
+              class:list={currentPath.startsWith('/personajes') ? 'active' : ''}
+              >Personajes</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${basePath}/guiones`}
+              class:list={currentPath.startsWith('/guiones') ? 'active' : ''}
+              >Guiones</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${basePath}/mundo`}
+              class:list={currentPath.startsWith('/mundo') ? 'active' : ''}
+              >Mundo</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${basePath}/formatos`}
+              class:list={currentPath.startsWith('/formatos') ? 'active' : ''}
+              >Formatos</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${basePath}/filosofia`}
+              class:list={currentPath.startsWith('/filosofia') ? 'active' : ''}
+              >Filosofía</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${basePath}/guia-visual`}
+              class:list={currentPath.startsWith('/guia-visual')
+                ? 'active'
+                : ''}>Guía Visual</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${basePath}/produccion`}
+              class:list={currentPath.startsWith('/produccion') ? 'active' : ''}
+              >Producción</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${basePath}/recursos`}
+              class:list={currentPath.startsWith('/recursos') ? 'active' : ''}
+              >Recursos</a
+            >
+          </li>
         </ul>
       </div>
     </nav>
-    
+
     <main>
       <slot />
     </main>
-    
+
     <footer>
       <div class="container">
         <div class="grid grid-3">
           <div>
             <h4>Universo Creativo</h4>
             <ul>
-              <li><a href={`${basePath}/personajes`}>Biblia de Personajes</a></li>
-              <li><a href={`${basePath}/guiones`}>Repositorio de Guiones</a></li>
+              <li>
+                <a href={`${basePath}/personajes`}>Biblia de Personajes</a>
+              </li>
+              <li>
+                <a href={`${basePath}/guiones`}>Repositorio de Guiones</a>
+              </li>
               <li><a href={`${basePath}/mundo`}>Construcción del Mundo</a></li>
             </ul>
           </div>
@@ -169,8 +313,12 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
             <ul>
               <li><a href={`${basePath}/recursos`}>Guías y Plantillas</a></li>
               <li><a href={`${basePath}/produccion`}>Guía de Estilo</a></li>
-              <li><a href={`${basePath}/filosofia`}>Filosofía del Proyecto</a></li>
-              <li><a href={`${basePath}/formatos`}>Formatos de Contenido</a></li>
+              <li>
+                <a href={`${basePath}/filosofia`}>Filosofía del Proyecto</a>
+              </li>
+              <li>
+                <a href={`${basePath}/formatos`}>Formatos de Contenido</a>
+              </li>
             </ul>
           </div>
           <div>
@@ -178,7 +326,12 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
             <ul>
               <li><a href={`${basePath}/recursos`}>Para Patrocinadores</a></li>
               <li><a href={`${basePath}/guiones`}>Últimos Episodios</a></li>
-              <li><a href="https://github.com/madfam-io/testigos-solarpunk" target="_blank">GitHub</a></li>
+              <li>
+                <a
+                  href="https://github.com/madfam-io/testigos-solarpunk"
+                  target="_blank">GitHub</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -187,23 +340,23 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
         </div>
       </div>
     </footer>
-    
+
     <PWAInstaller />
   </body>
 </html>
 
 <style is:global>
   @import '../styles/global.css';
-  
+
   footer ul {
     list-style: none;
     padding: 0;
   }
-  
+
   footer li {
     margin-bottom: var(--espacio-sm);
   }
-  
+
   footer h4 {
     color: var(--amarillo-solar);
     margin-bottom: var(--espacio-md);
