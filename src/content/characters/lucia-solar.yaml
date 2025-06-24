@@ -1,0 +1,44 @@
+nombre: Lucía Solar
+rol: Protagonista
+edad: 28
+pronombres: ella/she
+ocupacion: Ingeniera de Energías Renovables
+rasgos:
+  - Optimista incurable
+  - Innovadora pragmática
+  - Líder comunitaria
+  - Curiosa por naturaleza
+  - Conectora de personas
+historia: |
+  Creció en los techos verdes de Neo-Cuernavaca, donde su abuela
+  le enseñó a combinar tecnología ancestral con innovación solar.
+  Desde niña, Lucía soñaba con un mundo donde cada superficie
+  capturara energía limpia. Estudió ingeniería en la Universidad
+  Autónoma del Estado de Morelos, especializándose en sistemas
+  fotovoltaicos comunitarios. Su proyecto de tesis sobre
+  "Microrredes Solares Autogestionadas" se convirtió en el
+  modelo para la transformación energética de su barrio.
+relaciones:
+  - personaje: marco-tierra
+    tipo: Mejor amigo
+    descripcion: Compañeros desde la universidad, comparten la visión de un futuro sostenible
+  - personaje: sofia-viento
+    tipo: Mentora
+    descripcion: Le enseñó sobre permacultura urbana y la importancia de la comunidad
+  - personaje: diego-semilla
+    tipo: Interés romántico
+    descripcion: Se conocieron en un taller de agricultura vertical
+episodios_destacados:
+  - EP001-TT
+  - EP003-IG
+  - EP007-YT
+  - EP012-TT
+  - EP015-IG
+evolucion:
+  temporada1: Descubre su vocación y empieza a implementar paneles solares en su comunidad
+  temporada2: Enfrenta dilemas éticos cuando corporaciones quieren comprar su tecnología
+  temporada3: Lidera el movimiento de energía distribuida en todo Neo-Cuernavaca
+referencias_visuales:
+  - /images/characters/lucia-solar-principal.jpg
+  - /images/characters/lucia-solar-vestuario.jpg
+  - /images/mood/estetica-ingeniera-solar.jpg

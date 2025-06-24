@@ -1,0 +1,88 @@
+---
+export interface Props {
+  id: string;
+  nombre: string;
+  rol: string;
+  edad: number;
+  ocupacion: string;
+  imagen?: string;
+  descripcionBreve: string;
+}
+
+const { id, nombre, rol, edad, ocupacion, imagen, descripcionBreve } = Astro.props;
+const imagenUrl = imagen || '/images/characters/placeholder.jpg';
+---
+
+<article class="character-card card">
+  <div class="character-image">
+    <img src={imagenUrl} alt={nombre} loading="lazy" />
+    <span class="character-role">{rol}</span>
+  </div>
+  
+  <div class="character-info">
+    <h3>{nombre}</h3>
+    <p class="character-meta">
+      <span>{edad} años</span> • <span>{ocupacion}</span>
+    </p>
+    <p class="character-description">{descripcionBreve}</p>
+    <a href={`/personajes/${id}`} class="btn btn-primary">Ver Perfil Completo</a>
+  </div>
+</article>
+
+<style>
+  .character-card {
+    overflow: hidden;
+    transition: all var(--transicion-normal);
+  }
+  
+  .character-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    margin: calc(-1 * var(--espacio-lg)) calc(-1 * var(--espacio-lg)) var(--espacio-md);
+  }
+  
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transicion-normal);
+  }
+  
+  .character-card:hover .character-image img {
+    transform: scale(1.05);
+  }
+  
+  .character-role {
+    position: absolute;
+    top: var(--espacio-md);
+    right: var(--espacio-md);
+    background-color: var(--verde-sostenible);
+    color: white;
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .character-info h3 {
+    color: var(--purpura-creativo);
+    margin-bottom: var(--espacio-sm);
+  }
+  
+  .character-meta {
+    color: var(--texto-secundario);
+    font-size: 0.875rem;
+    margin-bottom: var(--espacio-md);
+  }
+  
+  .character-description {
+    margin-bottom: var(--espacio-lg);
+    line-height: 1.5;
+  }
+  
+  .character-card .btn {
+    width: 100%;
+    text-align: center;
+  }
+</style>

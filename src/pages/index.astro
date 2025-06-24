@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Inicio">
+  <section class="hero gradient-solarpunk">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title animate-fade-in">Testigos de Solarpunk</h1>
+        <p class="hero-subtitle animate-fade-in">
+          Un universo narrativo donde la esperanza, la tecnología sostenible y la comunidad construyen el futuro
+        </p>
+        <div class="hero-actions animate-fade-in">
+          <a href="/personajes" class="btn btn-primary">Explorar Personajes</a>
+          <a href="/guiones" class="btn btn-secondary">Ver Guiones</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mt-4">
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>🌱 Personajes Vivos</h3>
+        <p>Conoce a los habitantes de Neo-Cuernavaca, desde ingenieros solares hasta guardianes de semillas ancestrales.</p>
+        <a href="/personajes" class="btn btn-primary mt-2">Conocer Personajes</a>
+      </div>
+      
+      <div class="card">
+        <h3>📜 Guiones Multiplatforma</h3>
+        <p>Episodios diseñados para TikTok, Instagram Reels y YouTube, cada uno optimizado para su audiencia.</p>
+        <a href="/guiones" class="btn btn-primary mt-2">Leer Guiones</a>
+      </div>
+      
+      <div class="card">
+        <h3>🌍 Mundo Detallado</h3>
+        <p>Explora las ubicaciones, tecnologías y culturas que dan vida a este futuro esperanzador.</p>
+        <a href="/mundo" class="btn btn-primary mt-2">Explorar Mundo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="vision-section">
+    <div class="container">
+      <h2 class="text-center">Nuestra Visión</h2>
+      <div class="vision-grid">
+        <div class="vision-item">
+          <span class="vision-icon">☀️</span>
+          <h4>Energía Limpia</h4>
+          <p>Un mundo impulsado por el sol, el viento y la creatividad humana</p>
+        </div>
+        <div class="vision-item">
+          <span class="vision-icon">🤝</span>
+          <h4>Comunidad Fuerte</h4>
+          <p>Las soluciones nacen de la colaboración y el apoyo mutuo</p>
+        </div>
+        <div class="vision-item">
+          <span class="vision-icon">🌺</span>
+          <h4>Armonía Natural</h4>
+          <p>La tecnología y la naturaleza coexisten en equilibrio</p>
+        </div>
+        <div class="vision-item">
+          <span class="vision-icon">🎭</span>
+          <h4>Historias que Inspiran</h4>
+          <p>Narrativas que muestran futuros posibles y deseables</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container text-center">
+      <h2>¿Listo para ser parte del cambio?</h2>
+      <p class="text-muted mb-3">
+        Únete a creadores, actores y defensores del solarpunk en la construcción de historias que importan
+      </p>
+      <div class="cta-actions">
+        <a href="/recursos" class="btn btn-primary">Para Creadores</a>
+        <a href="/recursos#patrocinadores" class="btn btn-secondary">Para Patrocinadores</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    margin-bottom: var(--espacio-lg);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: var(--espacio-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-actions {
+    display: flex;
+    gap: var(--espacio-md);
+    justify-content: center;
+  }
+  
+  .vision-section {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-xxl) 0;
+    margin-top: var(--espacio-xxl);
+  }
+  
+  .vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+  
+  .vision-item {
+    text-align: center;
+  }
+  
+  .vision-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--espacio-md);
+  }
+  
+  .cta-section {
+    padding: var(--espacio-xxl) 0;
+  }
+  
+  .cta-actions {
+    display: flex;
+    gap: var(--espacio-md);
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+    }
+    
+    .hero-actions,
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

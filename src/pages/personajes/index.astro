@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CharacterCard from '../../components/CharacterCard.astro';
+import { getCollection } from 'astro:content';
+
+const characters = await getCollection('characters');
+---
+
+<BaseLayout title="Personajes">
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="text-gradient">Personajes del Universo</h1>
+      <p class="lead">
+        Conoce a los habitantes de Neo-Cuernavaca y otros rincones del mundo solarpunk.
+        Cada personaje representa una faceta de la esperanza y la innovación sostenible.
+      </p>
+    </div>
+  </section>
+
+  <section class="filters-section">
+    <div class="container">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="protagonista">Protagonistas</button>
+        <button class="filter-btn" data-filter="apoyo">Apoyo</button>
+        <button class="filter-btn" data-filter="comunidad">Comunidad</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="characters-section">
+    <div class="container">
+      <div class="grid grid-3" id="characters-grid">
+        {characters.map((character) => (
+          <CharacterCard
+            id={character.id}
+            nombre={character.data.nombre}
+            rol={character.data.rol}
+            edad={character.data.edad}
+            ocupacion={character.data.ocupacion}
+            descripcionBreve={character.data.historia.substring(0, 150) + '...'}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container text-center">
+      <h2>¿Quieres conocer más sobre estos personajes?</h2>
+      <p class="text-muted mb-3">
+        Explora los guiones para ver a estos personajes en acción
+      </p>
+      <a href="/guiones" class="btn btn-primary">Ver Guiones</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+  }
+  
+  .lead {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--texto-secundario);
+  }
+  
+  .filters-section {
+    padding: var(--espacio-xl) 0;
+    background-color: var(--fondo-primario);
+    position: sticky;
+    top: 60px;
+    z-index: 50;
+    box-shadow: 0 2px 4px var(--sombra-suave);
+  }
+  
+  .filter-buttons {
+    display: flex;
+    gap: var(--espacio-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .filter-btn {
+    background-color: transparent;
+    border: 2px solid var(--borde-claro);
+    padding: var(--espacio-sm) var(--espacio-lg);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all var(--transicion-rapida);
+    font-weight: 500;
+    color: var(--texto-primario);
+  }
+  
+  .filter-btn:hover {
+    border-color: var(--verde-sostenible);
+    color: var(--verde-sostenible);
+  }
+  
+  .filter-btn.active {
+    background-color: var(--verde-sostenible);
+    border-color: var(--verde-sostenible);
+    color: white;
+  }
+  
+  .characters-section {
+    padding: var(--espacio-xxl) 0;
+  }
+  
+  .cta-section {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-xxl) 0;
+  }
+</style>
+
+<script>
+  // Simple filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active state
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Filter logic would go here
+        // For now, just showing the UI interaction
+      });
+    });
+  });
+</script>

@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 - Página no encontrada">
+  <section class="error-section">
+    <div class="container text-center">
+      <h1 class="error-code">404</h1>
+      <h2 class="error-title">Página no encontrada</h2>
+      <p class="error-message">
+        Parece que esta página se perdió en el multiverso solarpunk.
+        Tal vez fue absorbida por un panel solar experimental.
+      </p>
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">Volver al Inicio</a>
+        <a href="/personajes" class="btn btn-secondary">Explorar Personajes</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .error-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--espacio-xxl) 0;
+  }
+  
+  .error-code {
+    font-size: 8rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--verde-sostenible) 0%, var(--amarillo-solar) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--espacio-md);
+  }
+  
+  .error-title {
+    color: var(--texto-primario);
+    margin-bottom: var(--espacio-lg);
+  }
+  
+  .error-message {
+    color: var(--texto-secundario);
+    font-size: 1.25rem;
+    max-width: 500px;
+    margin: 0 auto var(--espacio-xl);
+  }
+  
+  .error-actions {
+    display: flex;
+    gap: var(--espacio-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 768px) {
+    .error-code {
+      font-size: 5rem;
+    }
+    
+    .error-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .error-actions .btn {
+      width: 200px;
+    }
+  }
+</style>

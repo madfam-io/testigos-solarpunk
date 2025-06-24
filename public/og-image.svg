@@ -1,0 +1,15 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="url(#gradient)"/>
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="white">
+    Testigos de Solarpunk
+  </text>
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="32" text-anchor="middle" fill="white" opacity="0.9">
+    Un universo narrativo de esperanza y sostenibilidad
+  </text>
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4CAF50"/>
+      <stop offset="1" stop-color="#FFC107"/>
+    </linearGradient>
+  </defs>
+</svg>

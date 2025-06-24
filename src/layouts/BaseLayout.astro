@@ -1,0 +1,127 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { 
+  title, 
+  description = "Testigos de Solarpunk - Universo narrativo de ciencia ficción esperanzadora donde la tecnología y la naturaleza coexisten en armonía",
+  image = "/og-image.svg"
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const baseUrl = import.meta.env.SITE || 'https://madfam-io.github.io';
+const fullUrl = `${baseUrl}${import.meta.env.BASE_URL || '/testigos-solarpunk'}${currentPath}`;
+const imageUrl = `${baseUrl}${import.meta.env.BASE_URL || '/testigos-solarpunk'}${image}`;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="MADFAM" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content={`${title} - Testigos de Solarpunk`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={fullUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:site_name" content="Testigos de Solarpunk" />
+    <meta property="og:locale" content="es_MX" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} - Testigos de Solarpunk`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={fullUrl} />
+    
+    <!-- Favicon with correct base path -->
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL || '/testigos-solarpunk'}/favicon.svg`} />
+    
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Testigos de Solarpunk</title>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <ul>
+          <li>
+            <a href="/" class={currentPath === "/" ? "active" : ""}>
+              <strong class="text-gradient">Testigos de Solarpunk</strong>
+            </a>
+          </li>
+          <li><a href="/personajes" class={currentPath.startsWith("/personajes") ? "active" : ""}>Personajes</a></li>
+          <li><a href="/guiones" class={currentPath.startsWith("/guiones") ? "active" : ""}>Guiones</a></li>
+          <li><a href="/mundo" class={currentPath.startsWith("/mundo") ? "active" : ""}>Mundo</a></li>
+          <li><a href="/produccion" class={currentPath.startsWith("/produccion") ? "active" : ""}>Producción</a></li>
+          <li><a href="/recursos" class={currentPath.startsWith("/recursos") ? "active" : ""}>Recursos</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <main>
+      <slot />
+    </main>
+    
+    <footer>
+      <div class="container">
+        <div class="grid grid-3">
+          <div>
+            <h4>Universo Creativo</h4>
+            <ul>
+              <li><a href="/personajes">Biblia de Personajes</a></li>
+              <li><a href="/guiones">Repositorio de Guiones</a></li>
+              <li><a href="/mundo">Construcción del Mundo</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Para Creadores</h4>
+            <ul>
+              <li><a href="/recursos">Guías y Plantillas</a></li>
+              <li><a href="/produccion">Guía de Estilo</a></li>
+              <li><a href="/recursos#filosofia">Filosofía Solarpunk</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Conecta</h4>
+            <ul>
+              <li><a href="/recursos">Para Patrocinadores</a></li>
+              <li><a href="/guiones">Últimos Episodios</a></li>
+              <li><a href="https://github.com/madfam-io/testigos-solarpunk" target="_blank">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-center mt-4 text-muted">
+          <p>&copy; 2025 Testigos de Solarpunk - Un proyecto MADFAM</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  footer li {
+    margin-bottom: var(--espacio-sm);
+  }
+  
+  footer h4 {
+    color: var(--amarillo-solar);
+    margin-bottom: var(--espacio-md);
+  }
+</style>

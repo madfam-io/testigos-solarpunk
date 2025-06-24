@@ -1,0 +1,315 @@
+/* Global Styles - Testigos de Solarpunk */
+
+:root {
+  /* Paleta Principal MADFAM */
+  --amarillo-solar: #FFC107;
+  --verde-sostenible: #4CAF50;
+  --purpura-creativo: #663399;
+  --azul-tecnologico: #2196F3;
+  --negro-profundo: #212121;
+  
+  /* Paleta Extendida del Universo */
+  --bio-luminiscente: #7FFF00;
+  --cielo-esperanza: #87CEEB;
+  --tierra-cafe: #8B4513;
+  --agua-clara: #00CED1;
+  --naranja-comunidad: #FF6B35;
+  
+  /* Colores de UI */
+  --fondo-primario: #FAFAFA;
+  --fondo-secundario: #F5F5F5;
+  --texto-primario: #212121;
+  --texto-secundario: #757575;
+  --borde-claro: #E0E0E0;
+  --sombra-suave: rgba(0, 0, 0, 0.1);
+  
+  /* Espaciado */
+  --espacio-xs: 0.25rem;
+  --espacio-sm: 0.5rem;
+  --espacio-md: 1rem;
+  --espacio-lg: 1.5rem;
+  --espacio-xl: 2rem;
+  --espacio-xxl: 3rem;
+  
+  /* Tipografía */
+  --fuente-principal: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --fuente-mono: 'Courier New', Courier, monospace;
+  
+  /* Transiciones */
+  --transicion-rapida: 150ms ease-in-out;
+  --transicion-normal: 300ms ease-in-out;
+}
+
+/* Modo Oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo-primario: #1A1A1A;
+    --fondo-secundario: #2A2A2A;
+    --texto-primario: #F5F5F5;
+    --texto-secundario: #B0B0B0;
+    --borde-claro: #3A3A3A;
+    --sombra-suave: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Reset y Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  color: var(--texto-primario);
+  background-color: var(--fondo-primario);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Enlaces */
+a {
+  color: var(--azul-tecnologico);
+  text-decoration: none;
+  transition: color var(--transicion-rapida);
+}
+
+a:hover {
+  color: var(--purpura-creativo);
+  text-decoration: underline;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-bottom: var(--espacio-md);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--negro-profundo);
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--verde-sostenible);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+/* Párrafos */
+p {
+  margin-bottom: var(--espacio-md);
+}
+
+/* Imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Contenedor Principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--espacio-md);
+}
+
+/* Utilidades */
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--texto-secundario);
+}
+
+.mt-1 { margin-top: var(--espacio-sm); }
+.mt-2 { margin-top: var(--espacio-md); }
+.mt-3 { margin-top: var(--espacio-lg); }
+.mt-4 { margin-top: var(--espacio-xl); }
+
+.mb-1 { margin-bottom: var(--espacio-sm); }
+.mb-2 { margin-bottom: var(--espacio-md); }
+.mb-3 { margin-bottom: var(--espacio-lg); }
+.mb-4 { margin-bottom: var(--espacio-xl); }
+
+.p-1 { padding: var(--espacio-sm); }
+.p-2 { padding: var(--espacio-md); }
+.p-3 { padding: var(--espacio-lg); }
+.p-4 { padding: var(--espacio-xl); }
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: var(--espacio-lg);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  padding: var(--espacio-sm) var(--espacio-lg);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transicion-normal);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--verde-sostenible);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #388E3C;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--sombra-suave);
+}
+
+.btn-secondary {
+  background-color: var(--azul-tecnologico);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #1976D2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--sombra-suave);
+}
+
+/* Tarjetas */
+.card {
+  background-color: var(--fondo-secundario);
+  border-radius: 8px;
+  padding: var(--espacio-lg);
+  box-shadow: 0 2px 4px var(--sombra-suave);
+  transition: transform var(--transicion-normal), box-shadow var(--transicion-normal);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px var(--sombra-suave);
+}
+
+/* Navegación */
+nav {
+  background-color: var(--fondo-secundario);
+  padding: var(--espacio-md) 0;
+  box-shadow: 0 2px 4px var(--sombra-suave);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--espacio-lg);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-weight: 500;
+  color: var(--texto-primario);
+  padding: var(--espacio-sm) var(--espacio-md);
+  border-radius: 4px;
+  transition: background-color var(--transicion-rapida);
+}
+
+nav a:hover {
+  background-color: var(--sombra-suave);
+  text-decoration: none;
+}
+
+nav a.active {
+  background-color: var(--verde-sostenible);
+  color: white;
+}
+
+/* Footer */
+footer {
+  background-color: var(--negro-profundo);
+  color: white;
+  padding: var(--espacio-xxl) 0;
+  margin-top: var(--espacio-xxl);
+}
+
+footer a {
+  color: var(--amarillo-solar);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  
+  .container {
+    padding: 0 var(--espacio-sm);
+  }
+  
+  nav ul {
+    justify-content: center;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Efectos Solarpunk */
+.glow-solar {
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+}
+
+.gradient-solarpunk {
+  background: linear-gradient(135deg, var(--verde-sostenible) 0%, var(--amarillo-solar) 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--verde-sostenible) 0%, var(--azul-tecnologico) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

@@ -1,0 +1,35 @@
+nombre: Azotea Verde de Neo-Cuernavaca
+tipo: Residencial Sostenible
+distrito: Centro Histórico Renovado
+descripcion: |
+  Una red de azoteas interconectadas que forman el jardín
+  comunitario más grande de la ciudad. Paneles solares de
+  última generación conviven armoniosamente con huertos
+  urbanos, creando un oasis productivo en el corazón de
+  Neo-Cuernavaca. Los vecinos han transformado lo que antes
+  eran techos vacíos en un ecosistema vibrante que produce
+  energía, alimentos y comunidad.
+caracteristicas:
+  - Paneles solares bifaciales de alta eficiencia
+  - Sistema de captación de agua de lluvia con filtración natural
+  - Huertos verticales automatizados con riego por goteo
+  - Espacios comunitarios techados con pérgolas solares
+  - Colmenas urbanas manejadas por apicultores locales
+  - Composteras comunitarias con biodigestores
+  - Sistema de iluminación LED alimentado por energía solar
+importancia: |
+  Lugar de nacimiento del movimiento solar comunitario.
+  Aquí Lucía Solar dio su primera charla sobre energía
+  distribuida, inspirando a cientos de vecinos a transformar
+  sus propios techos. Es el corazón simbólico y práctico
+  de la revolución energética de Neo-Cuernavaca.
+aparece_en:
+  - EP001-TT
+  - EP005-IG
+  - EP012-YT
+  - EP018-TT
+  - EP023-IG
+referencias_visuales:
+  - /images/locations/azotea-verde-dia.jpg
+  - /images/locations/azotea-verde-noche.jpg
+  - /images/concepts/layout-jardin-azotea.png
