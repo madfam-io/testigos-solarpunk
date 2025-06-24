@@ -1,20 +1,95 @@
 {
-  "name": "testigos-solarpunk-universe",
+  "name": "testigos-solarpunk",
+  "version": "2.0.0",
+  "description": "Universo narrativo Testigos de Solarpunk - MADFAM Gold Standard",
+  "author": "MADFAM",
+  "license": "CC-BY-SA-4.0",
   "type": "module",
-  "version": "0.0.1",
-  "description": "Sitio web del universo creativo de Testigos de Solarpunk",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "astro dev --host",
+    "build": "npm run check:all && astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "deploy": "pnpm build && gh-pages -d dist",
-    "deploy:custom": "echo 'universo.testigosdesolarpunk.mx' > dist/CNAME && gh-pages -d dist"
+    "check:all": "npm run lint && npm run type-check && npm run test",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.astro",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "astro check && tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "analyze": "astro build && source-map-explorer dist/**/*.js",
+    "lighthouse": "lhci autorun",
+    "update-deps": "npm-check-updates -u",
+    "clean": "rm -rf dist .astro node_modules",
+    "deploy": "npm run build && gh-pages -d dist",
+    "deploy:custom": "npm run build && echo 'universo.testigosdesolarpunk.mx' > dist/CNAME && gh-pages -d dist",
+    "prepare": "husky install",
+    "optimize:images": "node scripts/optimize-images.js",
+    "generate:icons": "node scripts/generate-icons.js",
+    "new:character": "node scripts/new-character.js",
+    "new:script": "echo 'Script para crear guiones pendiente de implementar'",
+    "check:links": "echo 'Verificador de links pendiente de implementar'",
+    "analyze:bundle": "astro build && source-map-explorer 'dist/**/*.js'"
   },
   "dependencies": {
-    "astro": "^5.10.1"
+    "astro": "^5.10.1",
+    "@astrojs/sitemap": "^3.2.1",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
-  }
+    "@types/node": "^20.11.5",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
+    "@vitest/coverage-v8": "^1.2.2",
+    "@vitest/ui": "^1.2.2",
+    "astro-compress": "^2.3.1",
+    "astro-critters": "^2.1.2",
+    "astro-purgecss": "^4.6.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^0.31.4",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "gh-pages": "^6.1.1",
+    "husky": "^9.0.10",
+    "jsdom": "^24.0.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4",
+    "prettier-plugin-astro": "^0.13.0",
+    "source-map-explorer": "^2.5.3",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2",
+    "web-vitals": "^3.5.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,astro}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,md,json,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madfam-io/testigos-solarpunk.git"
+  },
+  "keywords": [
+    "solarpunk",
+    "narrative",
+    "universe",
+    "madfam",
+    "astro",
+    "static-site",
+    "storytelling"
+  ],
+  "bugs": {
+    "url": "https://github.com/madfam-io/testigos-solarpunk/issues"
+  },
+  "homepage": "https://madfam-io.github.io/testigos-solarpunk"
 }

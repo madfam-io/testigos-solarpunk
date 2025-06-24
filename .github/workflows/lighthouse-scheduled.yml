@@ -1,0 +1,176 @@
+name: Lighthouse Performance Monitor
+
+on:
+  schedule:
+    # Ejecutar diariamente a las 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL a analizar (opcional)'
+        required: false
+        default: 'https://madfam-io.github.io/testigos-solarpunk/'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  lighthouse:
+    name: Performance Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+      
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Instalar Lighthouse CI
+        run: npm install -g @lhci/cli
+      
+      - name: Ejecutar Lighthouse
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          URL="${{ github.event.inputs.url || 'https://madfam-io.github.io/testigos-solarpunk/' }}"
+          
+          # Configurar Lighthouse
+          cat > lighthouserc.js << EOF
+          module.exports = {
+            ci: {
+              collect: {
+                url: ['$URL'],
+                numberOfRuns: 3,
+                settings: {
+                  preset: 'desktop',
+                  throttling: {
+                    cpuSlowdownMultiplier: 1,
+                  },
+                },
+              },
+              assert: {
+                assertions: {
+                  'categories:performance': ['warn', {minScore: 0.9}],
+                  'categories:accessibility': ['error', {minScore: 0.9}],
+                  'categories:best-practices': ['warn', {minScore: 0.9}],
+                  'categories:seo': ['warn', {minScore: 0.9}],
+                  'categories:pwa': ['warn', {minScore: 0.9}],
+                  
+                  // Métricas específicas
+                  'first-contentful-paint': ['warn', {maxNumericValue: 2000}],
+                  'largest-contentful-paint': ['warn', {maxNumericValue: 2500}],
+                  'cumulative-layout-shift': ['warn', {maxNumericValue: 0.1}],
+                  'total-blocking-time': ['warn', {maxNumericValue: 300}],
+                  
+                  // Tamaño de recursos
+                  'resource-summary:script:size': ['warn', {maxNumericValue: 200000}],
+                  'resource-summary:stylesheet:size': ['warn', {maxNumericValue: 100000}],
+                  'resource-summary:image:size': ['warn', {maxNumericValue: 500000}],
+                },
+              },
+              upload: {
+                target: 'temporary-public-storage',
+              },
+            },
+          };
+          EOF
+          
+          # Ejecutar Lighthouse
+          lhci autorun || LIGHTHOUSE_FAILED=1
+          
+          # Generar reporte
+          echo "# 🚦 Reporte de Performance - Lighthouse" > performance-report.md
+          echo "**URL analizada:** $URL" >> performance-report.md
+          echo "**Fecha:** $(date)" >> performance-report.md
+          echo "" >> performance-report.md
+          
+          # Extraer métricas del último resultado
+          if [ -f ".lighthouseci/lhr-*.json" ]; then
+            LATEST_REPORT=$(ls -t .lighthouseci/lhr-*.json | head -1)
+            
+            # Usar jq para extraer métricas (si está disponible)
+            if command -v jq &> /dev/null; then
+              echo "## Puntuaciones" >> performance-report.md
+              echo "- **Performance:** $(jq '.categories.performance.score * 100' $LATEST_REPORT)%" >> performance-report.md
+              echo "- **Accessibility:** $(jq '.categories.accessibility.score * 100' $LATEST_REPORT)%" >> performance-report.md
+              echo "- **Best Practices:** $(jq '.categories["best-practices"].score * 100' $LATEST_REPORT)%" >> performance-report.md
+              echo "- **SEO:** $(jq '.categories.seo.score * 100' $LATEST_REPORT)%" >> performance-report.md
+              echo "- **PWA:** $(jq '.categories.pwa.score * 100' $LATEST_REPORT)%" >> performance-report.md
+              
+              echo "" >> performance-report.md
+              echo "## Métricas Core Web Vitals" >> performance-report.md
+              echo "- **FCP:** $(jq '.audits["first-contentful-paint"].numericValue' $LATEST_REPORT)ms" >> performance-report.md
+              echo "- **LCP:** $(jq '.audits["largest-contentful-paint"].numericValue' $LATEST_REPORT)ms" >> performance-report.md
+              echo "- **CLS:** $(jq '.audits["cumulative-layout-shift"].numericValue' $LATEST_REPORT)" >> performance-report.md
+              echo "- **TBT:** $(jq '.audits["total-blocking-time"].numericValue' $LATEST_REPORT)ms" >> performance-report.md
+            fi
+          fi
+          
+          # Verificar si falló
+          if [ "$LIGHTHOUSE_FAILED" = "1" ]; then
+            echo "" >> performance-report.md
+            echo "⚠️ **Algunas métricas no cumplieron con los objetivos**" >> performance-report.md
+            exit 1
+          fi
+      
+      - name: Subir reportes
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: lighthouse-reports
+          path: |
+            .lighthouseci/
+            performance-report.md
+            lighthouserc.js
+      
+      - name: Crear issue si hay degradación
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            let report = 'No se pudo generar el reporte';
+            
+            try {
+              report = fs.readFileSync('performance-report.md', 'utf8');
+            } catch (e) {
+              console.error('Error leyendo reporte:', e);
+            }
+            
+            // Buscar issues existentes
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'performance,automated',
+              state: 'open'
+            });
+            
+            const title = '🚦 Degradación de performance detectada';
+            const body = `Se detectó una degradación en las métricas de performance.\n\n${report}\n\n[Ver workflow](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`;
+            
+            if (issues.data.length === 0) {
+              // Crear nuevo issue
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body,
+                labels: ['performance', 'automated', 'high-priority']
+              });
+            } else {
+              // Comentar en issue existente
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues.data[0].number,
+                body: `## Nueva verificación de performance\n\n${body}`
+              });
+            }
+      
+      - name: Notificar éxito
+        if: success()
+        run: |
+          echo "✅ Todas las métricas de performance cumplen con los objetivos!"

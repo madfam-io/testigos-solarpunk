@@ -1,0 +1,122 @@
+name: Dependency Security Audit
+
+on:
+  schedule:
+    # Ejecutar todos los lunes a las 9 AM UTC
+    - cron: '0 9 * * 1'
+  push:
+    paths:
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+      
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Configurar pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Instalar dependencias
+        run: pnpm install --frozen-lockfile
+      
+      - name: Ejecutar auditoría de seguridad
+        id: audit
+        run: |
+          echo "## 🔒 Reporte de Seguridad" > audit-report.md
+          echo "Fecha: $(date)" >> audit-report.md
+          echo "" >> audit-report.md
+          
+          # Ejecutar auditoría y capturar resultado
+          if pnpm audit --audit-level=moderate > audit-output.txt 2>&1; then
+            echo "✅ No se encontraron vulnerabilidades" >> audit-report.md
+            VULNERABILITIES=0
+          else
+            echo "⚠️ Se encontraron vulnerabilidades:" >> audit-report.md
+            cat audit-output.txt >> audit-report.md
+            VULNERABILITIES=1
+          fi
+          
+          echo "VULNERABILITIES=$VULNERABILITIES" >> $GITHUB_OUTPUT
+      
+      - name: Verificar dependencias desactualizadas
+        run: |
+          echo "" >> audit-report.md
+          echo "## 📦 Dependencias Desactualizadas" >> audit-report.md
+          npx npm-check-updates >> audit-report.md || true
+      
+      - name: Verificar licencias
+        run: |
+          echo "" >> audit-report.md
+          echo "## 📄 Licencias de Dependencias" >> audit-report.md
+          pnpm licenses list >> audit-report.md || true
+      
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v3
+        with:
+          name: security-audit-report
+          path: audit-report.md
+      
+      - name: Crear issue si hay vulnerabilidades críticas
+        if: steps.audit.outputs.VULNERABILITIES == '1'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('audit-report.md', 'utf8');
+            
+            // Buscar si ya existe un issue abierto
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'security,dependencies',
+              state: 'open'
+            });
+            
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '🔒 Vulnerabilidades de seguridad detectadas',
+                body: report,
+                labels: ['security', 'dependencies', 'high-priority']
+              });
+            } else {
+              // Actualizar el issue existente
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues.data[0].number,
+                body: `## Actualización de auditoría\n\n${report}`
+              });
+            }
+
+  dependency-review:
+    name: Dependency Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+      
+      - name: Revisión de dependencias
+        uses: actions/dependency-review-action@v3
+        with:
+          fail-on-severity: moderate
+          deny-licenses: GPL-3.0, AGPL-3.0
+          comment-summary-in-pr: true

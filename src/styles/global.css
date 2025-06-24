@@ -1,50 +1,50 @@
 /* Global Styles - Testigos de Solarpunk */
 
+/* Importar design tokens MADFAM */
+@import './madfam-tokens.css';
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
 :root {
-  /* Paleta Principal MADFAM */
-  --amarillo-solar: #FFC107;
-  --verde-sostenible: #4CAF50;
-  --purpura-creativo: #663399;
-  --azul-tecnologico: #2196F3;
-  --negro-profundo: #212121;
+  /* Mantener compatibilidad con nombres existentes */
+  --amarillo-solar: var(--madfam-yellow);
+  --verde-sostenible: var(--madfam-green);
+  --purpura-creativo: var(--madfam-purple);
+  --azul-tecnologico: var(--madfam-blue);
+  --negro-profundo: var(--madfam-black);
   
-  /* Paleta Extendida del Universo */
-  --bio-luminiscente: #7FFF00;
-  --cielo-esperanza: #87CEEB;
-  --tierra-cafe: #8B4513;
-  --agua-clara: #00CED1;
-  --naranja-comunidad: #FF6B35;
+  --bio-luminiscente: var(--sp-bio-glow);
+  --cielo-esperanza: var(--sp-sky-hope);
+  --tierra-cafe: var(--sp-earth);
+  --agua-clara: var(--sp-water);
+  --naranja-comunidad: var(--sp-community);
   
-  /* Paleta Evangelista */
   --verde-brillante: #00FF7F;
-  --dorado-solar: #FFD700;
+  --dorado-solar: var(--sp-solar-gold);
   --marron-tierra: #D2691E;
   --blanco-divino: #FFFAFA;
   --purpura-mistico: #9370DB;
   
-  /* Colores de UI */
-  --fondo-primario: #FAFAFA;
-  --fondo-secundario: #F5F5F5;
-  --texto-primario: #212121;
-  --texto-secundario: #757575;
-  --borde-claro: #E0E0E0;
-  --sombra-suave: rgba(0, 0, 0, 0.1);
+  --fondo-primario: var(--color-background);
+  --fondo-secundario: var(--color-surface-variant);
+  --texto-primario: var(--color-text-primary);
+  --texto-secundario: var(--color-text-secondary);
+  --borde-claro: var(--color-border);
+  --sombra-suave: var(--shadow-sm);
   
-  /* Espaciado */
-  --espacio-xs: 0.25rem;
-  --espacio-sm: 0.5rem;
-  --espacio-md: 1rem;
-  --espacio-lg: 1.5rem;
-  --espacio-xl: 2rem;
-  --espacio-xxl: 3rem;
+  --espacio-xs: var(--space-xs);
+  --espacio-sm: var(--space-sm);
+  --espacio-md: var(--space-md);
+  --espacio-lg: var(--space-lg);
+  --espacio-xl: var(--space-xl);
+  --espacio-xxl: var(--space-2xl);
   
-  /* Tipografía */
-  --fuente-principal: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --fuente-mono: 'Courier New', Courier, monospace;
+  --fuente-principal: var(--font-primary);
+  --fuente-mono: var(--font-mono);
   
-  /* Transiciones */
-  --transicion-rapida: 150ms ease-in-out;
-  --transicion-normal: 300ms ease-in-out;
+  --transicion-rapida: var(--transition-fast);
+  --transicion-normal: var(--transition-base);
 }
 
 /* Modo Oscuro */

@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Ejecutar lint-staged para verificar y formatear código
+npx lint-staged
+
+# Verificar tipos de TypeScript
+echo "🔍 Verificando tipos de TypeScript..."
+npm run type-check
+if [ $? -ne 0 ]; then
+  echo "❌ Error en verificación de tipos. Por favor, corrige los errores antes de hacer commit."
+  exit 1
+fi
+
+# Ejecutar tests
+echo "🧪 Ejecutando tests..."
+npm test
+if [ $? -ne 0 ]; then
+  echo "❌ Los tests fallaron. Por favor, corrige los errores antes de hacer commit."
+  exit 1
+fi
+
+echo "✅ Todas las verificaciones pasaron!"

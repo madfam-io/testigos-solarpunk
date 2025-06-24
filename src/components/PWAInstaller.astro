@@ -1,0 +1,217 @@
+---
+// Componente para manejar la instalación de PWA
+---
+
+<div id="pwa-installer" class="pwa-installer" hidden>
+  <div class="pwa-installer__content">
+    <h3>¡Instala Testigos de Solarpunk!</h3>
+    <p>Accede rápidamente al evangelio verde desde tu dispositivo</p>
+    <div class="pwa-installer__buttons">
+      <button id="pwa-install-btn" class="btn btn--primary">
+        Instalar App
+      </button>
+      <button id="pwa-dismiss-btn" class="btn btn--secondary">
+        Ahora no
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .pwa-installer {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--madfam-black, #212121);
+    color: var(--madfam-white, #FFFFFF);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 90vw;
+    width: 400px;
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .pwa-installer__content h3 {
+    margin: 0 0 0.5rem;
+    color: var(--madfam-yellow, #FFC107);
+    font-size: 1.25rem;
+  }
+
+  .pwa-installer__content p {
+    margin: 0 0 1rem;
+    opacity: 0.9;
+  }
+
+  .pwa-installer__buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: var(--font-primary, sans-serif);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn--primary {
+    background: var(--madfam-yellow, #FFC107);
+    color: var(--madfam-black, #212121);
+  }
+
+  .btn--secondary {
+    background: transparent;
+    color: var(--madfam-white, #FFFFFF);
+    border: 1px solid var(--madfam-white, #FFFFFF);
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateX(-50%) translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .pwa-installer {
+      bottom: 1rem;
+      padding: 1rem;
+    }
+
+    .pwa-installer__buttons {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Registrar Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+      try {
+        const registration = await navigator.serviceWorker.register('/testigos-solarpunk/sw.js', {
+          scope: '/testigos-solarpunk/',
+        });
+        
+        console.log('Service Worker registrado:', registration);
+
+        // Verificar actualizaciones periódicamente
+        setInterval(() => {
+          registration.update();
+        }, 60 * 60 * 1000); // Cada hora
+
+        // Manejar actualizaciones
+        registration.addEventListener('updatefound', () => {
+          const newWorker = registration.installing;
+          
+          newWorker?.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              // Nuevo contenido disponible
+              console.log('Nueva versión disponible');
+              // Aquí podrías mostrar un banner de actualización
+            }
+          });
+        });
+      } catch (error) {
+        console.error('Error registrando Service Worker:', error);
+      }
+    });
+  }
+
+  // Manejar instalación de PWA
+  let deferredPrompt: any;
+  const installer = document.getElementById('pwa-installer');
+  const installBtn = document.getElementById('pwa-install-btn');
+  const dismissBtn = document.getElementById('pwa-dismiss-btn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevenir el prompt automático
+    e.preventDefault();
+    deferredPrompt = e;
+    
+    // Mostrar nuestro propio prompt
+    if (installer && !localStorage.getItem('pwa-dismissed')) {
+      installer.hidden = false;
+    }
+  });
+
+  installBtn?.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    
+    // Mostrar el prompt de instalación
+    deferredPrompt.prompt();
+    
+    // Esperar la respuesta del usuario
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`Usuario eligió: ${outcome}`);
+    
+    // Limpiar
+    deferredPrompt = null;
+    if (installer) installer.hidden = true;
+  });
+
+  dismissBtn?.addEventListener('click', () => {
+    if (installer) installer.hidden = true;
+    localStorage.setItem('pwa-dismissed', 'true');
+    
+    // Permitir mostrar de nuevo después de 7 días
+    setTimeout(() => {
+      localStorage.removeItem('pwa-dismissed');
+    }, 7 * 24 * 60 * 60 * 1000);
+  });
+
+  // Detectar si ya está instalada
+  window.addEventListener('appinstalled', () => {
+    console.log('PWA instalada exitosamente');
+    if (installer) installer.hidden = true;
+    
+    // Mostrar mensaje de éxito
+    const message = document.createElement('div');
+    message.className = 'success-message';
+    message.textContent = '¡Aleluya! La app ha sido instalada';
+    message.style.cssText = `
+      position: fixed;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--madfam-green, #4CAF50);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      animation: slideDown 0.3s ease-out;
+    `;
+    
+    document.body.appendChild(message);
+    
+    setTimeout(() => {
+      message.remove();
+    }, 5000);
+  });
+
+  // Detectar modo standalone
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    console.log('App ejecutándose en modo standalone');
+    // Aquí podrías ajustar la UI para modo app
+  }
+</script>

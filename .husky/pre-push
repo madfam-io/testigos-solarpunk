@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🚀 Ejecutando verificaciones antes del push..."
+
+# Ejecutar build para asegurar que compila correctamente
+echo "🏗️ Construyendo el proyecto..."
+npm run build
+if [ $? -ne 0 ]; then
+  echo "❌ Error al construir el proyecto. Por favor, corrige los errores antes de hacer push."
+  exit 1
+fi
+
+# Verificar tamaño del bundle
+echo "📦 Verificando tamaño del bundle..."
+MAX_SIZE=200000 # 200KB
+BUNDLE_SIZE=$(find dist -name "*.js" -exec cat {} + 2>/dev/null | wc -c | tr -d ' ')
+
+if [ "$BUNDLE_SIZE" -gt "$MAX_SIZE" ]; then
+  echo "❌ El tamaño del bundle ($BUNDLE_SIZE bytes) excede el límite máximo ($MAX_SIZE bytes)"
+  echo "Por favor, optimiza el código antes de hacer push."
+  exit 1
+fi
+
+echo "✅ Bundle size: $BUNDLE_SIZE bytes (límite: $MAX_SIZE bytes)"
+echo "✅ Todas las verificaciones pre-push pasaron!"
