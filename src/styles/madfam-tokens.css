@@ -10,92 +10,92 @@
   /* =================================================================
    * Colores MADFAM
    * ================================================================= */
-  
+
   /* Colores principales de marca */
-  --madfam-yellow: #FFC107;
-  --madfam-yellow-light: #FFD54F;
-  --madfam-yellow-dark: #FFA000;
+  --madfam-yellow: #ffc107;
+  --madfam-yellow-light: #ffd54f;
+  --madfam-yellow-dark: #ffa000;
   --madfam-yellow-rgb: 255, 193, 7;
-  
-  --madfam-green: #4CAF50;
-  --madfam-green-light: #81C784;
-  --madfam-green-dark: #388E3C;
+
+  --madfam-green: #4caf50;
+  --madfam-green-light: #81c784;
+  --madfam-green-dark: #388e3c;
   --madfam-green-rgb: 76, 175, 80;
-  
+
   --madfam-purple: #663399;
-  --madfam-purple-light: #9575CD;
-  --madfam-purple-dark: #4527A0;
+  --madfam-purple-light: #9575cd;
+  --madfam-purple-dark: #4527a0;
   --madfam-purple-rgb: 102, 51, 153;
-  
-  --madfam-blue: #2196F3;
-  --madfam-blue-light: #64B5F6;
-  --madfam-blue-dark: #1976D2;
+
+  --madfam-blue: #2196f3;
+  --madfam-blue-light: #64b5f6;
+  --madfam-blue-dark: #1976d2;
   --madfam-blue-rgb: 33, 150, 243;
-  
+
   --madfam-black: #212121;
   --madfam-gray-900: #424242;
   --madfam-gray-800: #616161;
   --madfam-gray-700: #757575;
-  --madfam-gray-600: #9E9E9E;
-  --madfam-gray-500: #BDBDBD;
-  --madfam-gray-400: #E0E0E0;
-  --madfam-gray-300: #EEEEEE;
-  --madfam-gray-200: #F5F5F5;
-  --madfam-gray-100: #FAFAFA;
-  --madfam-white: #FFFFFF;
-  
+  --madfam-gray-600: #9e9e9e;
+  --madfam-gray-500: #bdbdbd;
+  --madfam-gray-400: #e0e0e0;
+  --madfam-gray-300: #eeeeee;
+  --madfam-gray-200: #f5f5f5;
+  --madfam-gray-100: #fafafa;
+  --madfam-white: #ffffff;
+
   /* =================================================================
    * Colores Solarpunk Extendidos
    * ================================================================= */
-  
-  --sp-bio-glow: #7FFF00;
-  --sp-bio-glow-dark: #6ACC00;
-  --sp-sky-hope: #87CEEB;
-  --sp-sky-hope-dark: #5BA0C3;
-  --sp-earth: #8B4513;
-  --sp-earth-light: #A0522D;
-  --sp-water: #00CED1;
-  --sp-water-dark: #00A8AA;
-  --sp-community: #FF6B35;
-  --sp-community-dark: #E55100;
-  --sp-solar-gold: #FFD700;
-  --sp-leaf-green: #228B22;
-  --sp-compost-brown: #8B4513;
-  
+
+  --sp-bio-glow: #7fff00;
+  --sp-bio-glow-dark: #6acc00;
+  --sp-sky-hope: #87ceeb;
+  --sp-sky-hope-dark: #5ba0c3;
+  --sp-earth: #8b4513;
+  --sp-earth-light: #a0522d;
+  --sp-water: #00ced1;
+  --sp-water-dark: #00a8aa;
+  --sp-community: #ff6b35;
+  --sp-community-dark: #e55100;
+  --sp-solar-gold: #ffd700;
+  --sp-leaf-green: #228b22;
+  --sp-compost-brown: #8b4513;
+
   /* =================================================================
    * Colores Semánticos
    * ================================================================= */
-  
+
   --color-primary: var(--madfam-yellow);
   --color-primary-hover: var(--madfam-yellow-dark);
   --color-primary-active: var(--madfam-yellow-dark);
-  
+
   --color-secondary: var(--madfam-purple);
   --color-secondary-hover: var(--madfam-purple-dark);
   --color-secondary-active: var(--madfam-purple-dark);
-  
+
   --color-success: var(--madfam-green);
   --color-success-light: var(--madfam-green-light);
   --color-success-dark: var(--madfam-green-dark);
-  
+
   --color-info: var(--madfam-blue);
   --color-info-light: var(--madfam-blue-light);
   --color-info-dark: var(--madfam-blue-dark);
-  
+
   --color-warning: var(--madfam-yellow);
   --color-warning-light: var(--madfam-yellow-light);
   --color-warning-dark: var(--madfam-yellow-dark);
-  
-  --color-error: #F44336;
-  --color-error-light: #EF5350;
-  --color-error-dark: #D32F2F;
-  
+
+  --color-error: #f44336;
+  --color-error-light: #ef5350;
+  --color-error-dark: #d32f2f;
+
   /* Colores de superficie y fondo */
   --color-background: var(--madfam-white);
   --color-surface: var(--madfam-white);
   --color-surface-variant: var(--madfam-gray-100);
   --color-overlay: rgba(0, 0, 0, 0.5);
-  
+
   /* Colores de texto */
   --color-text-primary: var(--madfam-black);
   --color-text-secondary: var(--madfam-gray-700);
@@ -103,32 +103,34 @@
   --color-text-hint: var(--madfam-gray-600);
   --color-text-on-primary: var(--madfam-black);
   --color-text-on-secondary: var(--madfam-white);
-  
+
   /* Bordes y divisores */
   --color-border: var(--madfam-gray-300);
   --color-border-hover: var(--madfam-gray-400);
   --color-divider: var(--madfam-gray-300);
-  
+
   /* =================================================================
    * Tipografía
    * ================================================================= */
-  
+
   /* Familias tipográficas */
-  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
   --font-mono: 'Space Mono', 'SF Mono', Consolas, 'Courier New', monospace;
-  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
+  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+
   /* Tamaños de fuente - Sistema modular (1.25 ratio) */
-  --font-size-xs: 0.64rem;     /* 10.24px */
-  --font-size-sm: 0.8rem;      /* 12.8px */
-  --font-size-base: 1rem;      /* 16px */
-  --font-size-md: 1.25rem;     /* 20px */
-  --font-size-lg: 1.563rem;    /* 25px */
-  --font-size-xl: 1.953rem;    /* 31.25px */
-  --font-size-2xl: 2.441rem;   /* 39px */
-  --font-size-3xl: 3.052rem;   /* 48.8px */
-  --font-size-4xl: 3.815rem;   /* 61px */
-  
+  --font-size-xs: 0.64rem; /* 10.24px */
+  --font-size-sm: 0.8rem; /* 12.8px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-md: 1.25rem; /* 20px */
+  --font-size-lg: 1.563rem; /* 25px */
+  --font-size-xl: 1.953rem; /* 31.25px */
+  --font-size-2xl: 2.441rem; /* 39px */
+  --font-size-3xl: 3.052rem; /* 48.8px */
+  --font-size-4xl: 3.815rem; /* 61px */
+
   /* Pesos de fuente */
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -136,39 +138,39 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-black: 900;
-  
+
   /* Altura de línea */
   --line-height-tight: 1.2;
   --line-height-snug: 1.4;
   --line-height-normal: 1.6;
   --line-height-relaxed: 1.8;
   --line-height-loose: 2;
-  
+
   /* Espaciado de letras */
   --letter-spacing-tight: -0.02em;
   --letter-spacing-normal: 0;
   --letter-spacing-wide: 0.02em;
   --letter-spacing-wider: 0.04em;
   --letter-spacing-widest: 0.08em;
-  
+
   /* =================================================================
    * Espaciado - Sistema de 8 puntos
    * ================================================================= */
-  
+
   --space-0: 0;
-  --space-1: 0.125rem;   /* 2px */
-  --space-2: 0.25rem;    /* 4px */
-  --space-3: 0.5rem;     /* 8px */
-  --space-4: 0.75rem;    /* 12px */
-  --space-5: 1rem;       /* 16px */
-  --space-6: 1.5rem;     /* 24px */
-  --space-7: 2rem;       /* 32px */
-  --space-8: 2.5rem;     /* 40px */
-  --space-9: 3rem;       /* 48px */
-  --space-10: 4rem;      /* 64px */
-  --space-11: 6rem;      /* 96px */
-  --space-12: 8rem;      /* 128px */
-  
+  --space-1: 0.125rem; /* 2px */
+  --space-2: 0.25rem; /* 4px */
+  --space-3: 0.5rem; /* 8px */
+  --space-4: 0.75rem; /* 12px */
+  --space-5: 1rem; /* 16px */
+  --space-6: 1.5rem; /* 24px */
+  --space-7: 2rem; /* 32px */
+  --space-8: 2.5rem; /* 40px */
+  --space-9: 3rem; /* 48px */
+  --space-10: 4rem; /* 64px */
+  --space-11: 6rem; /* 96px */
+  --space-12: 8rem; /* 128px */
+
   /* Aliases semánticos */
   --space-xs: var(--space-2);
   --space-sm: var(--space-3);
@@ -176,52 +178,52 @@
   --space-lg: var(--space-7);
   --space-xl: var(--space-9);
   --space-2xl: var(--space-11);
-  
+
   /* =================================================================
    * Tamaños y dimensiones
    * ================================================================= */
-  
+
   /* Anchos máximos */
-  --max-width-xs: 20rem;     /* 320px */
-  --max-width-sm: 30rem;     /* 480px */
-  --max-width-md: 48rem;     /* 768px */
-  --max-width-lg: 64rem;     /* 1024px */
-  --max-width-xl: 80rem;     /* 1280px */
-  --max-width-2xl: 96rem;    /* 1536px */
+  --max-width-xs: 20rem; /* 320px */
+  --max-width-sm: 30rem; /* 480px */
+  --max-width-md: 48rem; /* 768px */
+  --max-width-lg: 64rem; /* 1024px */
+  --max-width-xl: 80rem; /* 1280px */
+  --max-width-2xl: 96rem; /* 1536px */
   --max-width-full: 100%;
-  
+
   /* Alturas comunes */
-  --height-header: 4rem;      /* 64px */
-  --height-footer: 20rem;     /* 320px */
-  --height-button: 2.5rem;    /* 40px */
-  --height-input: 2.5rem;     /* 40px */
-  
+  --height-header: 4rem; /* 64px */
+  --height-footer: 20rem; /* 320px */
+  --height-button: 2.5rem; /* 40px */
+  --height-input: 2.5rem; /* 40px */
+
   /* =================================================================
    * Bordes y esquinas
    * ================================================================= */
-  
+
   /* Radio de borde */
   --radius-none: 0;
-  --radius-sm: 0.125rem;     /* 2px */
-  --radius-base: 0.25rem;    /* 4px */
-  --radius-md: 0.375rem;     /* 6px */
-  --radius-lg: 0.5rem;       /* 8px */
-  --radius-xl: 0.75rem;      /* 12px */
-  --radius-2xl: 1rem;        /* 16px */
-  --radius-3xl: 1.5rem;      /* 24px */
+  --radius-sm: 0.125rem; /* 2px */
+  --radius-base: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-3xl: 1.5rem; /* 24px */
   --radius-full: 9999px;
-  
+
   /* Ancho de borde */
   --border-width-none: 0;
   --border-width-thin: 1px;
   --border-width-base: 2px;
   --border-width-thick: 4px;
   --border-width-heavy: 8px;
-  
+
   /* =================================================================
    * Sombras
    * ================================================================= */
-  
+
   /* Sombras de elevación */
   --shadow-none: none;
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -231,20 +233,20 @@
   --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
   --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.2);
-  
+
   /* Sombras de color */
   --shadow-glow-yellow: 0 0 20px rgba(var(--madfam-yellow-rgb), 0.5);
   --shadow-glow-green: 0 0 20px rgba(var(--madfam-green-rgb), 0.5);
   --shadow-glow-purple: 0 0 20px rgba(var(--madfam-purple-rgb), 0.5);
   --shadow-glow-blue: 0 0 20px rgba(var(--madfam-blue-rgb), 0.5);
-  
+
   /* Sombra interna */
   --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-  
+
   /* =================================================================
    * Animaciones y transiciones
    * ================================================================= */
-  
+
   /* Duraciones */
   --duration-instant: 0ms;
   --duration-fast: 150ms;
@@ -252,23 +254,23 @@
   --duration-slow: 350ms;
   --duration-slower: 500ms;
   --duration-slowest: 1000ms;
-  
+
   /* Funciones de temporización */
   --ease-linear: linear;
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  
+
   /* Transiciones predefinidas */
   --transition-fast: all var(--duration-fast) var(--ease-in-out);
   --transition-base: all var(--duration-base) var(--ease-in-out);
   --transition-slow: all var(--duration-slow) var(--ease-in-out);
-  
+
   /* =================================================================
    * Z-index
    * ================================================================= */
-  
+
   --z-below: -1;
   --z-base: 0;
   --z-dropdown: 1000;
@@ -279,11 +281,11 @@
   --z-popover: 1500;
   --z-tooltip: 1600;
   --z-notification: 1700;
-  
+
   /* =================================================================
    * Breakpoints
    * ================================================================= */
-  
+
   --breakpoint-xs: 320px;
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
@@ -302,18 +304,18 @@
     --color-background: var(--madfam-black);
     --color-surface: var(--madfam-gray-900);
     --color-surface-variant: var(--madfam-gray-800);
-    
+
     /* Ajustar colores de texto */
     --color-text-primary: var(--madfam-white);
     --color-text-secondary: var(--madfam-gray-300);
     --color-text-disabled: var(--madfam-gray-600);
     --color-text-hint: var(--madfam-gray-500);
-    
+
     /* Ajustar bordes */
     --color-border: var(--madfam-gray-700);
     --color-border-hover: var(--madfam-gray-600);
     --color-divider: var(--madfam-gray-700);
-    
+
     /* Ajustar sombras para modo oscuro */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
     --shadow-base: 0 4px 6px rgba(0, 0, 0, 0.25);
@@ -337,17 +339,37 @@
 }
 
 /* Clases de color rápidas */
-.bg-primary { background-color: var(--color-primary); }
-.bg-secondary { background-color: var(--color-secondary); }
-.bg-success { background-color: var(--color-success); }
-.bg-warning { background-color: var(--color-warning); }
-.bg-error { background-color: var(--color-error); }
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.bg-success {
+  background-color: var(--color-success);
+}
+.bg-warning {
+  background-color: var(--color-warning);
+}
+.bg-error {
+  background-color: var(--color-error);
+}
 
-.text-primary { color: var(--color-primary); }
-.text-secondary { color: var(--color-secondary); }
-.text-success { color: var(--color-success); }
-.text-warning { color: var(--color-warning); }
-.text-error { color: var(--color-error); }
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.text-success {
+  color: var(--color-success);
+}
+.text-warning {
+  color: var(--color-warning);
+}
+.text-error {
+  color: var(--color-error);
+}
 
 /* Animación de brillo solarpunk */
 @keyframes solar-glow {
@@ -355,8 +377,9 @@
     box-shadow: 0 0 5px rgba(var(--madfam-yellow-rgb), 0.5);
   }
   50% {
-    box-shadow: 0 0 20px rgba(var(--madfam-yellow-rgb), 0.8),
-                0 0 40px rgba(var(--madfam-yellow-rgb), 0.4);
+    box-shadow:
+      0 0 20px rgba(var(--madfam-yellow-rgb), 0.8),
+      0 0 40px rgba(var(--madfam-yellow-rgb), 0.4);
   }
   100% {
     box-shadow: 0 0 5px rgba(var(--madfam-yellow-rgb), 0.5);

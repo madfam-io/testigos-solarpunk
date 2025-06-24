@@ -42,3 +42,7 @@ Thumbs.db
 # Specific files to ignore
 public/vendor/
 public/lib/
+
+# Problematic documentation files with code examples
+.claude/conventions.md
+.claude/prompts/optimize-performance.md

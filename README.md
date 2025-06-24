@@ -46,10 +46,12 @@ testigos-solarpunk/
 ## 🛠️ Instalación y Desarrollo
 
 ### Prerrequisitos
+
 - Node.js 18 o superior
 - pnpm (recomendado) o npm
 
 ### Instalación
+
 ```bash
 # Clonar el repositorio
 git clone https://github.com/madfam-io/testigos-solarpunk.git
@@ -64,12 +66,12 @@ npm install
 
 ### Comandos de Desarrollo
 
-| Comando | Acción |
-| :--- | :--- |
-| `pnpm dev` | Inicia servidor de desarrollo en `localhost:4321` |
-| `pnpm build` | Construye el sitio para producción en `./dist/` |
-| `pnpm preview` | Vista previa del build de producción |
-| `pnpm deploy` | Construye y despliega a GitHub Pages |
+| Comando        | Acción                                            |
+| :------------- | :------------------------------------------------ |
+| `pnpm dev`     | Inicia servidor de desarrollo en `localhost:4321` |
+| `pnpm build`   | Construye el sitio para producción en `./dist/`   |
+| `pnpm preview` | Vista previa del build de producción              |
+| `pnpm deploy`  | Construye y despliega a GitHub Pages              |
 
 ## 🌐 Deployment
 
@@ -79,6 +81,7 @@ El sitio se despliega automáticamente a GitHub Pages cuando se hace push a la r
 - **Dominio Personalizado** (opcional): https://universo.testigosdesolarpunk.mx
 
 ### Deployment Manual
+
 ```bash
 # Construir y desplegar manualmente
 pnpm deploy
@@ -87,7 +90,9 @@ pnpm deploy
 ## 📝 Añadir Contenido
 
 ### Nuevo Personaje
+
 Crear archivo en `src/content/characters/nombre-personaje.yaml`:
+
 ```yaml
 nombre: Nombre del Personaje
 rol: Protagonista/Apoyo/Comunidad
@@ -102,11 +107,13 @@ historia: |
 ```
 
 ### Nuevo Guión
+
 Crear archivo en `src/content/scripts/EP00X-PLATAFORMA.md`:
+
 ```markdown
 ---
 episodio: EP00X-TT
-titulo: "Título del Episodio"
+titulo: 'Título del Episodio'
 plataforma: TikTok
 duracion: 45s
 personajes: [personaje-1, personaje-2]
@@ -114,15 +121,19 @@ estado: borrador
 ---
 
 ## Visual
+
 Descripción de elementos visuales...
 
 ## Diálogo
-**PERSONAJE**: 
+
+**PERSONAJE**:
 Línea de diálogo...
 ```
 
 ### Nueva Ubicación
+
 Crear archivo en `src/content/locations/nombre-ubicacion.yaml`:
+
 ```yaml
 nombre: Nombre de la Ubicación
 tipo: Tipo de lugar
@@ -139,20 +150,21 @@ caracteristicas:
 El sitio utiliza el sistema de diseño MADFAM con extensiones solarpunk:
 
 ### Paleta de Colores
+
 ```css
 /* Paleta Principal MADFAM */
---amarillo-solar: #FFC107;
---verde-sostenible: #4CAF50;
+--amarillo-solar: #ffc107;
+--verde-sostenible: #4caf50;
 --purpura-creativo: #663399;
---azul-tecnologico: #2196F3;
+--azul-tecnologico: #2196f3;
 --negro-profundo: #212121;
 
 /* Paleta Extendida Solarpunk */
---bio-luminiscente: #7FFF00;
---cielo-esperanza: #87CEEB;
---tierra-cafe: #8B4513;
---agua-clara: #00CED1;
---naranja-comunidad: #FF6B35;
+--bio-luminiscente: #7fff00;
+--cielo-esperanza: #87ceeb;
+--tierra-cafe: #8b4513;
+--agua-clara: #00ced1;
+--naranja-comunidad: #ff6b35;
 ```
 
 ## 🤝 Contribuir

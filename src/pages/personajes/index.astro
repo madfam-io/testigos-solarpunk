@@ -2,11 +2,19 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
 import AnimatedCharacterCard from '../../components/AnimatedCharacterCard.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
-const characters = await getCollection('characters');
-const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'];
+const basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+const characters: CollectionEntry<'characters'>[] =
+  await getCollection('characters');
+const evangelistas = [
+  'hermana-panelia',
+  'hermano-compostino',
+  'profeta-del-sol',
+];
 ---
 
 <BaseLayout title="Personajes">
@@ -14,8 +22,9 @@ const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'
     <div class="container">
       <h1 class="text-gradient">Personajes del Universo</h1>
       <p class="lead">
-        Conoce a los habitantes de Neo-Cuernavaca y otros rincones del mundo solarpunk.
-        Cada personaje representa una faceta de la esperanza y la innovación sostenible.
+        Conoce a los habitantes de Neo-Cuernavaca y otros rincones del mundo
+        solarpunk. Cada personaje representa una faceta de la esperanza y la
+        innovación sostenible.
       </p>
     </div>
   </section>
@@ -24,7 +33,9 @@ const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'
     <div class="container">
       <div class="filter-buttons">
         <button class="filter-btn active" data-filter="todos">Todos</button>
-        <button class="filter-btn" data-filter="protagonista">Protagonistas</button>
+        <button class="filter-btn" data-filter="protagonista"
+          >Protagonistas</button
+        >
         <button class="filter-btn" data-filter="apoyo">Apoyo</button>
         <button class="filter-btn" data-filter="comunidad">Comunidad</button>
       </div>
@@ -34,29 +45,31 @@ const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'
   <section class="characters-section">
     <div class="container">
       <div class="grid grid-3" id="characters-grid">
-        {characters.map((character) => {
-          const isEvangelista = evangelistas.includes(character.id);
-          return isEvangelista ? (
-            <AnimatedCharacterCard
-              id={character.id}
-              nombre={character.data.nombre}
-              rol={character.data.rol}
-              edad={character.data.edad}
-              ocupacion={character.data.ocupacion}
-              descripcionBreve={character.data.historia.substring(0, 150) + '...'}
-              isEvangelista={true}
-            />
-          ) : (
-            <CharacterCard
-              id={character.id}
-              nombre={character.data.nombre}
-              rol={character.data.rol}
-              edad={character.data.edad}
-              ocupacion={character.data.ocupacion}
-              descripcionBreve={character.data.historia.substring(0, 150) + '...'}
-            />
-          );
-        })}
+        {
+          characters.map((character) => {
+            const isEvangelista = evangelistas.includes(character.id);
+            return isEvangelista ? (
+              <AnimatedCharacterCard
+                id={character.id}
+                nombre={character.data.nombre}
+                rol={character.data.rol}
+                edad={character.data.edad}
+                ocupacion={character.data.ocupacion}
+                descripcionBreve={`${character.data.historia.substring(0, 150)}...`}
+                isEvangelista={true}
+              />
+            ) : (
+              <CharacterCard
+                id={character.id}
+                nombre={character.data.nombre}
+                rol={character.data.rol}
+                edad={character.data.edad}
+                ocupacion={character.data.ocupacion}
+                descripcionBreve={`${character.data.historia.substring(0, 150)}...`}
+              />
+            );
+          })
+        }
       </div>
     </div>
   </section>
@@ -78,14 +91,14 @@ const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'
     padding: var(--espacio-xxl) 0;
     text-align: center;
   }
-  
+
   .lead {
     font-size: 1.25rem;
     max-width: 700px;
     margin: 0 auto;
     color: var(--texto-secundario);
   }
-  
+
   .filters-section {
     padding: var(--espacio-xl) 0;
     background-color: var(--fondo-primario);
@@ -94,14 +107,14 @@ const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'
     z-index: 50;
     box-shadow: 0 2px 4px var(--sombra-suave);
   }
-  
+
   .filter-buttons {
     display: flex;
     gap: var(--espacio-md);
     justify-content: center;
     flex-wrap: wrap;
   }
-  
+
   .filter-btn {
     background-color: transparent;
     border: 2px solid var(--borde-claro);
@@ -112,22 +125,22 @@ const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'
     font-weight: 500;
     color: var(--texto-primario);
   }
-  
+
   .filter-btn:hover {
     border-color: var(--verde-sostenible);
     color: var(--verde-sostenible);
   }
-  
+
   .filter-btn.active {
     background-color: var(--verde-sostenible);
     border-color: var(--verde-sostenible);
     color: white;
   }
-  
+
   .characters-section {
     padding: var(--espacio-xxl) 0;
   }
-  
+
   .cta-section {
     background-color: var(--fondo-secundario);
     padding: var(--espacio-xxl) 0;
@@ -138,13 +151,13 @@ const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'
   // Simple filter functionality
   document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(btn => {
+
+    filterButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
         // Update active state
-        filterButtons.forEach(b => b.classList.remove('active'));
+        filterButtons.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
-        
+
         // Filter logic would go here
         // For now, just showing the UI interaction
       });

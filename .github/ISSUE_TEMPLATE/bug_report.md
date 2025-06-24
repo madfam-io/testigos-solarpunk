@@ -57,4 +57,5 @@ assignees: ''
 <!-- Si tienes alguna idea de cómo resolver el bug, compártela aquí -->
 
 ---
-*¡Gracias por ayudarnos a hacer Testigos de Solarpunk mejor! ¡Aleluya Solar! 🌞*
+
+_¡Gracias por ayudarnos a hacer Testigos de Solarpunk mejor! ¡Aleluya Solar! 🌞_

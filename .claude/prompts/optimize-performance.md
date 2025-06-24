@@ -41,8 +41,8 @@ Verificar:
 - [ ] Srcset para responsive
 
 #### CSS
-```css
-/* Critical CSS inline */
+
+Critical CSS inline:
 <style>
   /* Solo estilos above-the-fold */
   :root { /* tokens */ }
@@ -50,7 +50,7 @@ Verificar:
   .header { /* navegación visible */ }
 </style>
 
-/* Resto del CSS diferido */
+<!-- Resto del CSS diferido -->
 <link rel="preload" href="/styles.css" as="style">
 <link rel="stylesheet" href="/styles.css" media="print" onload="this.media='all'">
 ```
@@ -225,24 +225,24 @@ const {
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL(image, Astro.site)} />
   
+  <!-- prettier-ignore-start -->
   <!-- JSON-LD -->
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Testigos de Solarpunk",
-      "url": Astro.site,
-      "description": description,
-      "publisher": {
-        "@type": "Organization",
-        "name": "MADFAM",
-        "logo": {
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Testigos de Solarpunk",
+    "url": Astro.site,
+    "description": description,
+    "publisher": {
+      "@type": "Organization",
+      "name": "MADFAM",
+      "logo": {
           "@type": "ImageObject",
           "url": new URL('/logo.png', Astro.site)
         }
       }
-    })}
-  </script>
+  })} />
+  <!-- prettier-ignore-end -->
 </head>
 ```
 

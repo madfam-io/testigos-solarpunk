@@ -11,20 +11,22 @@ const variantClasses = {
   solar: 'quote-solar',
   earth: 'quote-earth',
   mystical: 'quote-mystical',
-  default: 'quote-default'
+  default: 'quote-default',
 };
 
 const variantClass = variantClasses[variant];
 ---
 
-<blockquote class={`quote-block ${variantClass}`}>
+<blockquote class:list={['quote-block', variantClass]}>
   <div class="quote-content">
     <span class="quote-mark">"</span>
     <p class="quote-text">{quote}</p>
   </div>
-  {author && (
-    <cite class="quote-author">— {author}</cite>
-  )}
+  {
+    author != null && author !== '' && (
+      <cite class="quote-author">— {author}</cite>
+    )
+  }
 </blockquote>
 
 <style>
@@ -120,24 +122,40 @@ const variantClass = variantClasses[variant];
   }
 
   .quote-mystical {
-    background: linear-gradient(135deg, rgba(102, 51, 153, 0.05), rgba(255, 193, 7, 0.05));
+    background: linear-gradient(
+      135deg,
+      rgba(102, 51, 153, 0.05),
+      rgba(255, 193, 7, 0.05)
+    );
     border-left: 4px solid var(--purpura-creativo);
     position: relative;
   }
 
   .quote-mystical::before {
-    background: linear-gradient(to bottom, var(--purpura-creativo), var(--amarillo-solar));
+    background: linear-gradient(
+      to bottom,
+      var(--purpura-creativo),
+      var(--amarillo-solar)
+    );
   }
 
   .quote-mystical .quote-mark {
-    background: linear-gradient(135deg, var(--purpura-creativo), var(--amarillo-solar));
+    background: linear-gradient(
+      135deg,
+      var(--purpura-creativo),
+      var(--amarillo-solar)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .quote-mystical .quote-text {
-    background: linear-gradient(135deg, var(--purpura-creativo), var(--amarillo-solar));
+    background: linear-gradient(
+      135deg,
+      var(--purpura-creativo),
+      var(--amarillo-solar)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -154,7 +172,8 @@ const variantClass = variantClasses[variant];
   }
 
   @keyframes pulse-glow {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow: 0 0 20px rgba(255, 193, 7, 0.1);
     }
     50% {

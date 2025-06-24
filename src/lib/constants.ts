@@ -4,7 +4,8 @@
 
 // Información del sitio
 export const SITE_TITLE = 'Testigos de Solarpunk';
-export const SITE_DESCRIPTION = 'Universo narrativo evangelista ecológico que combina humor, sostenibilidad y esperanza';
+export const SITE_DESCRIPTION =
+  'Universo narrativo evangelista ecológico que combina humor, sostenibilidad y esperanza';
 export const SITE_URL = 'https://madfam-io.github.io/testigos-solarpunk';
 export const SITE_AUTHOR = 'MADFAM';
 export const SITE_LANG = 'es-MX';
@@ -119,7 +120,8 @@ export const MIRACLE_TYPES = {
 export const SEO_DEFAULTS = {
   titleTemplate: '%s | Testigos de Solarpunk',
   defaultTitle: 'Testigos de Solarpunk - Universo Narrativo Eco-Evangelista',
-  defaultDescription: 'Descubre el universo de los Testigos de Solarpunk, donde la fe en un futuro sostenible se encuentra con el humor evangelista',
+  defaultDescription:
+    'Descubre el universo de los Testigos de Solarpunk, donde la fe en un futuro sostenible se encuentra con el humor evangelista',
   defaultImage: '/og-image.jpg',
   twitterHandle: '@TestigosSolar',
 } as const;
@@ -236,7 +238,10 @@ export const MESSAGES = {
 
 // Configuración de API (si se necesita en el futuro)
 export const API_CONFIG = {
-  baseURL: process.env.API_URL || '/api',
+  baseURL:
+    process.env.API_URL != null && process.env.API_URL !== ''
+      ? process.env.API_URL
+      : '/api',
   timeout: 10000,
   retries: 3,
   headers: {
@@ -249,4 +254,5 @@ export const API_CONFIG = {
 export type Platform = keyof typeof PLATFORMS;
 export type CharacterRole = keyof typeof CHARACTER_ROLES;
 export type MiracleType = keyof typeof MIRACLE_TYPES;
-export type ContentTag = typeof CONTENT_TAGS[keyof typeof CONTENT_TAGS][number];
+export type ContentTag =
+  (typeof CONTENT_TAGS)[keyof typeof CONTENT_TAGS][number];

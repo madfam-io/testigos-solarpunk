@@ -24,7 +24,7 @@
     left: 50%;
     transform: translateX(-50%);
     background: var(--madfam-black, #212121);
-    color: var(--madfam-white, #FFFFFF);
+    color: var(--madfam-white, #ffffff);
     padding: 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -36,7 +36,7 @@
 
   .pwa-installer__content h3 {
     margin: 0 0 0.5rem;
-    color: var(--madfam-yellow, #FFC107);
+    color: var(--madfam-yellow, #ffc107);
     font-size: 1.25rem;
   }
 
@@ -56,7 +56,9 @@
     border-radius: 0.25rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
     font-family: var(--font-primary, sans-serif);
   }
 
@@ -66,14 +68,14 @@
   }
 
   .btn--primary {
-    background: var(--madfam-yellow, #FFC107);
+    background: var(--madfam-yellow, #ffc107);
     color: var(--madfam-black, #212121);
   }
 
   .btn--secondary {
     background: transparent;
-    color: var(--madfam-white, #FFFFFF);
-    border: 1px solid var(--madfam-white, #FFFFFF);
+    color: var(--madfam-white, #ffffff);
+    border: 1px solid var(--madfam-white, #ffffff);
   }
 
   @keyframes slideUp {
@@ -108,23 +110,32 @@
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', async () => {
       try {
-        const registration = await navigator.serviceWorker.register('/testigos-solarpunk/sw.js', {
-          scope: '/testigos-solarpunk/',
-        });
-        
+        const registration = await navigator.serviceWorker.register(
+          '/testigos-solarpunk/sw.js',
+          {
+            scope: '/testigos-solarpunk/',
+          }
+        );
+
         console.log('Service Worker registrado:', registration);
 
         // Verificar actualizaciones periódicamente
-        setInterval(() => {
-          registration.update();
-        }, 60 * 60 * 1000); // Cada hora
+        setInterval(
+          () => {
+            registration.update();
+          },
+          60 * 60 * 1000
+        ); // Cada hora
 
         // Manejar actualizaciones
         registration.addEventListener('updatefound', () => {
           const newWorker = registration.installing;
-          
+
           newWorker?.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            if (
+              newWorker.state === 'installed' &&
+              navigator.serviceWorker.controller
+            ) {
               // Nuevo contenido disponible
               console.log('Nueva versión disponible');
               // Aquí podrías mostrar un banner de actualización
@@ -147,7 +158,7 @@
     // Prevenir el prompt automático
     e.preventDefault();
     deferredPrompt = e;
-    
+
     // Mostrar nuestro propio prompt
     if (installer && !localStorage.getItem('pwa-dismissed')) {
       installer.hidden = false;
@@ -156,14 +167,14 @@
 
   installBtn?.addEventListener('click', async () => {
     if (!deferredPrompt) return;
-    
+
     // Mostrar el prompt de instalación
     deferredPrompt.prompt();
-    
+
     // Esperar la respuesta del usuario
     const { outcome } = await deferredPrompt.userChoice;
     console.log(`Usuario eligió: ${outcome}`);
-    
+
     // Limpiar
     deferredPrompt = null;
     if (installer) installer.hidden = true;
@@ -172,18 +183,21 @@
   dismissBtn?.addEventListener('click', () => {
     if (installer) installer.hidden = true;
     localStorage.setItem('pwa-dismissed', 'true');
-    
+
     // Permitir mostrar de nuevo después de 7 días
-    setTimeout(() => {
-      localStorage.removeItem('pwa-dismissed');
-    }, 7 * 24 * 60 * 60 * 1000);
+    setTimeout(
+      () => {
+        localStorage.removeItem('pwa-dismissed');
+      },
+      7 * 24 * 60 * 60 * 1000
+    );
   });
 
   // Detectar si ya está instalada
   window.addEventListener('appinstalled', () => {
     console.log('PWA instalada exitosamente');
     if (installer) installer.hidden = true;
-    
+
     // Mostrar mensaje de éxito
     const message = document.createElement('div');
     message.className = 'success-message';
@@ -201,9 +215,9 @@
       z-index: 1001;
       animation: slideDown 0.3s ease-out;
     `;
-    
+
     document.body.appendChild(message);
-    
+
     setTimeout(() => {
       message.remove();
     }, 5000);

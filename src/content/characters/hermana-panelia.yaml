@@ -41,11 +41,11 @@ evolucion:
   temporada2: Desarrolla técnicas avanzadas de conversión ecológica
   temporada3: Se convierte en la líder carismática del movimiento
 frases_emblematicas:
-  - "¿Ha escuchado la buena noticia del compostaje comunitario?"
-  - "Hermano, ¿está usted preparado para el colapso energético?"
-  - "La salvación no está en los cielos, está en el tejado... ¡con paneles solares!"
-  - "Cada semilla plantada es una oración al futuro"
-  - "¿Conoce usted el evangelio de las tres R: Reducir, Reutilizar, Revolucionar?"
+  - '¿Ha escuchado la buena noticia del compostaje comunitario?'
+  - 'Hermano, ¿está usted preparado para el colapso energético?'
+  - 'La salvación no está en los cielos, está en el tejado... ¡con paneles solares!'
+  - 'Cada semilla plantada es una oración al futuro'
+  - '¿Conoce usted el evangelio de las tres R: Reducir, Reutilizar, Revolucionar?'
 referencias_visuales:
   - /images/characters/hermana-panelia-principal.jpg
   - /images/characters/hermana-panelia-predicando.jpg

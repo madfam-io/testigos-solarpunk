@@ -10,19 +10,21 @@ const charactersCollection = defineCollection({
     ocupacion: z.string(),
     rasgos: z.array(z.string()),
     historia: z.string(),
-    relaciones: z.array(z.object({
-      personaje: z.string(),
-      tipo: z.string(),
-      descripcion: z.string()
-    })),
+    relaciones: z.array(
+      z.object({
+        personaje: z.string(),
+        tipo: z.string(),
+        descripcion: z.string(),
+      })
+    ),
     episodios_destacados: z.array(z.string()),
     evolucion: z.object({
       temporada1: z.string().optional(),
       temporada2: z.string().optional(),
-      temporada3: z.string().optional()
+      temporada3: z.string().optional(),
     }),
-    referencias_visuales: z.array(z.string()).optional()
-  })
+    referencias_visuales: z.array(z.string()).optional(),
+  }),
 });
 
 const scriptsCollection = defineCollection({
@@ -36,8 +38,8 @@ const scriptsCollection = defineCollection({
     temas: z.array(z.string()),
     ubicacion: z.string(),
     fecha: z.date(),
-    estado: z.enum(['borrador', 'revision', 'aprobado', 'filmado'])
-  })
+    estado: z.enum(['borrador', 'revision', 'aprobado', 'filmado']),
+  }),
 });
 
 const locationsCollection = defineCollection({
@@ -50,8 +52,8 @@ const locationsCollection = defineCollection({
     caracteristicas: z.array(z.string()),
     importancia: z.string(),
     aparece_en: z.array(z.string()),
-    referencias_visuales: z.array(z.string()).optional()
-  })
+    referencias_visuales: z.array(z.string()).optional(),
+  }),
 });
 
 const resourcesCollection = defineCollection({
@@ -60,13 +62,13 @@ const resourcesCollection = defineCollection({
     titulo: z.string(),
     categoria: z.enum(['guia', 'plantilla', 'referencia', 'filosofia']),
     descripcion: z.string(),
-    archivo_descarga: z.string().optional()
-  })
+    archivo_descarga: z.string().optional(),
+  }),
 });
 
 export const collections = {
   characters: charactersCollection,
   scripts: scriptsCollection,
   locations: locationsCollection,
-  resources: resourcesCollection
+  resources: resourcesCollection,
 };

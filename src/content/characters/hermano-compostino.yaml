@@ -42,12 +42,12 @@ evolucion:
   temporada2: Crea la primera app de evangelización solar offline
   temporada3: Funda el primer hackerspace sagrado solarpunk
 frases_emblematicas:
-  - "¿Conoce usted el camino de la composta eterna?"
-  - "El WiFi del futuro crece en los árboles, hermano"
-  - "Debuggear el código es fácil, debuggear el planeta requiere fe"
-  - "¿Ha considerado hacer backup de sus semillas?"
-  - "La nube más confiable es la que produce lluvia"
-  - "Control+Alt+Suprimir el capitalismo, Enter la sustentabilidad"
+  - '¿Conoce usted el camino de la composta eterna?'
+  - 'El WiFi del futuro crece en los árboles, hermano'
+  - 'Debuggear el código es fácil, debuggear el planeta requiere fe'
+  - '¿Ha considerado hacer backup de sus semillas?'
+  - 'La nube más confiable es la que produce lluvia'
+  - 'Control+Alt+Suprimir el capitalismo, Enter la sustentabilidad'
 gadgets_sagrados:
   - Rosario de LEDs solares
   - Biblia digital en e-ink reciclado

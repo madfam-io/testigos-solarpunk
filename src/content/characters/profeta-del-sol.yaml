@@ -34,20 +34,20 @@ relaciones:
     tipo: Futura profetisa
     descripcion: Destinada a liderar la siguiente generación
 episodios_destacados:
-  - "La Primera Aparición"
-  - "El Milagro de los Panes Solares"
-  - "La Transfiguración Fotovoltaica"
-  - "El Sermón de la Montaña de Compost"
+  - 'La Primera Aparición'
+  - 'El Milagro de los Panes Solares'
+  - 'La Transfiguración Fotovoltaica'
+  - 'El Sermón de la Montaña de Compost'
 evolucion:
-  temporada1: "Apariciones misteriosas y proféticas"
-  temporada2: "Revelación de su identidad como fundador del movimiento"
-  temporada3: "Ascensión a la dimensión renovable"
+  temporada1: 'Apariciones misteriosas y proféticas'
+  temporada2: 'Revelación de su identidad como fundador del movimiento'
+  temporada3: 'Ascensión a la dimensión renovable'
 profecias_principales:
-  - "El día del Gran Apagón llegará, pero los preparados brillarán"
-  - "Siete paneles y siete semillas salvarán a siete mil"
-  - "La red eléctrica caerá, la red micelial prevalecerá"
-  - "Del compost surgirá la nueva civilización"
-  - "Bienaventurados los que pedalean, porque ellos generarán su propia energía"
+  - 'El día del Gran Apagón llegará, pero los preparados brillarán'
+  - 'Siete paneles y siete semillas salvarán a siete mil'
+  - 'La red eléctrica caerá, la red micelial prevalecerá'
+  - 'Del compost surgirá la nueva civilización'
+  - 'Bienaventurados los que pedalean, porque ellos generarán su propia energía'
 apariciones:
   - En reflejos de paneles solares al mediodía
   - En el vapor del compost al amanecer
@@ -67,12 +67,12 @@ simbolos_sagrados:
   - La Hoja Digital
   - El Engranaje Viviente
 frases_emblematicas:
-  - "¡El carbono caerá, y del sol brotará la vida eterna!"
-  - "Yo soy el kilowatt, la verdad y la vida sustentable"
-  - "En el principio era el Sol, y el Sol era energía, y la energía era gratis"
-  - "No temáis al peak oil, pues os he dado la fotosíntesis y el pedaleo"
-  - "Donde dos o tres se reúnan a compostar, allí estaré yo"
-  - "Pedid y se os dará... un panel solar"
+  - '¡El carbono caerá, y del sol brotará la vida eterna!'
+  - 'Yo soy el kilowatt, la verdad y la vida sustentable'
+  - 'En el principio era el Sol, y el Sol era energía, y la energía era gratis'
+  - 'No temáis al peak oil, pues os he dado la fotosíntesis y el pedaleo'
+  - 'Donde dos o tres se reúnan a compostar, allí estaré yo'
+  - 'Pedid y se os dará... un panel solar'
 referencias_visuales:
   - /images/characters/profeta-del-sol-vision.jpg
   - /images/characters/profeta-del-sol-aparicion.jpg

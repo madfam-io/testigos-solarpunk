@@ -23,7 +23,8 @@ const rl = readline.createInterface({
 });
 
 // Promisificar readline
-const question = (query) => new Promise((resolve) => rl.question(query, resolve));
+const question = (query) =>
+  new Promise((resolve) => rl.question(query, resolve));
 
 // Plantilla de personaje
 function generateCharacterTemplate(data) {
@@ -126,43 +127,53 @@ const TITULOS_SUGERIDOS = [
 
 async function main() {
   console.log('🌟 Creador de Personajes - Testigos de Solarpunk 🌟\n');
-  console.log('Este asistente te ayudará a crear un nuevo personaje evangelista ecológico.\n');
-  
+  console.log(
+    'Este asistente te ayudará a crear un nuevo personaje evangelista ecológico.\n'
+  );
+
   try {
     // Recopilar información
     const data = {};
-    
+
     // Información básica
     console.log('=== INFORMACIÓN BÁSICA ===\n');
     data.nombre = await question('Nombre completo del personaje: ');
-    
+
     console.log('\nSugerencias de títulos:');
-    TITULOS_SUGERIDOS.forEach((titulo, i) => console.log(`  ${i + 1}. ${titulo}`));
-    data.titulo = await question('\nTítulo evangelista (ej: La Profeta de los Paneles Sagrados): ');
-    
+    TITULOS_SUGERIDOS.forEach((titulo, i) =>
+      console.log(`  ${i + 1}. ${titulo}`)
+    );
+    data.titulo = await question(
+      '\nTítulo evangelista (ej: La Profeta de los Paneles Sagrados): '
+    );
+
     data.slug = slugify(data.nombre);
     console.log(`Slug generado: ${data.slug}`);
-    
+
     data.descripcion_corta = await question('Descripción corta (una línea): ');
-    
+
     console.log('\nRoles disponibles:');
     ROLES.forEach((rol, i) => console.log(`  ${i + 1}. ${rol}`));
     const rolIndex = await question('Selecciona el rol (1-4): ');
     data.rol_principal = ROLES[parseInt(rolIndex) - 1] || 'Secundario';
-    
+
     data.edad = await question('Edad: ');
     data.ocupacion = await question('Ocupación (con toque evangelista): ');
-    
+
     // Apariencia
     console.log('\n=== APARIENCIA ===\n');
     data.estatura = await question('Estatura (ej: Alta, Media, Baja): ');
-    data.complexion = await question('Complexión (ej: Delgada, Atlética, Robusta): ');
+    data.complexion = await question(
+      'Complexión (ej: Delgada, Atlética, Robusta): '
+    );
     data.cabello = await question('Cabello: ');
     data.ojos = await question('Ojos: ');
     data.rasgos_distintivos = await question('Rasgos distintivos: ');
     data.vestimenta = await question('Vestimenta eco-evangelista: ');
-    data.gadget_sagrado = await question('Gadget sagrado (herramienta tecnológica-espiritual): ');
-    
+    data.gadget_sagrado = await question(
+      'Gadget sagrado (herramienta tecnológica-espiritual): '
+    );
+
     // Personalidad
     console.log('\n=== PERSONALIDAD ===\n');
     data.rasgo1 = await question('Rasgo de personalidad 1: ');
@@ -172,7 +183,7 @@ async function main() {
     data.motivacion2 = await question('Motivación secundaria: ');
     data.miedo1 = await question('Miedo principal: ');
     data.miedo2 = await question('Miedo secundario: ');
-    
+
     // Habilidades
     console.log('\n=== HABILIDADES Y VALORES ===\n');
     data.habilidad1 = await question('Habilidad 1 (técnica/ecológica): ');
@@ -180,10 +191,12 @@ async function main() {
     data.habilidad3 = await question('Habilidad 3 (única/signature): ');
     data.valor1 = await question('Valor principal: ');
     data.valor2 = await question('Valor secundario: ');
-    
+
     // Elementos evangelistas
     console.log('\n=== ELEMENTOS EVANGELISTAS PARÓDICOS ===\n');
-    data.cita_biblica = await question('Cita bíblica paródica (adaptación ecológica): ');
+    data.cita_biblica = await question(
+      'Cita bíblica paródica (adaptación ecológica): '
+    );
     console.log('Sermón ecológico (termina con línea vacía):');
     let sermon = '';
     let line;
@@ -191,9 +204,9 @@ async function main() {
       sermon += '  ' + line + '\n';
     }
     data.sermon_ecologico = sermon.trim();
-    
+
     data.milagro_verde = await question('Milagro verde signature: ');
-    
+
     // Historia
     console.log('\n=== HISTORIA DE ORIGEN ===\n');
     console.log('Historia de origen (termina con línea vacía):');
@@ -202,32 +215,38 @@ async function main() {
       historia += '  ' + line + '\n';
     }
     data.historia_origen = historia.trim();
-    
-    data.momento_conversion = await question('Momento de conversión ecológica: ');
-    
+
+    data.momento_conversion = await question(
+      'Momento de conversión ecológica: '
+    );
+
     // Contenido viral
     console.log('\n=== CONTENIDO VIRAL ===\n');
     data.frase1 = await question('Frase icónica 1: ');
     data.frase2 = await question('Frase icónica 2: ');
     data.frase3 = await question('Frase icónica 3: ');
     data.momento_viral = await question('Momento viral signature: ');
-    
+
     // Metadata
     console.log('\n=== METADATA ===\n');
     data.tag1 = await question('Tag 1: ');
     data.tag2 = await question('Tag 2: ');
     data.tag3 = await question('Tag 3: ');
-    data.seo_description = await question('Descripción SEO (máx 160 caracteres): ');
-    
+    data.seo_description = await question(
+      'Descripción SEO (máx 160 caracteres): '
+    );
+
     // Generar archivo
     const yamlContent = generateCharacterTemplate(data);
     const fileName = `${data.slug}.yaml`;
     const filePath = path.join(CHARACTERS_DIR, fileName);
-    
+
     // Verificar si existe
     try {
       await fs.access(filePath);
-      const overwrite = await question(`\n⚠️  El archivo ${fileName} ya existe. ¿Sobrescribir? (s/n): `);
+      const overwrite = await question(
+        `\n⚠️  El archivo ${fileName} ya existe. ¿Sobrescribir? (s/n): `
+      );
       if (overwrite.toLowerCase() !== 's') {
         console.log('Operación cancelada.');
         rl.close();
@@ -236,17 +255,16 @@ async function main() {
     } catch {
       // El archivo no existe, continuar
     }
-    
+
     // Guardar archivo
     await fs.writeFile(filePath, yamlContent, 'utf8');
-    
+
     console.log('\n' + '='.repeat(60));
     console.log('✅ ¡Personaje creado exitosamente!');
     console.log('='.repeat(60));
     console.log(`📁 Archivo: ${filePath}`);
     console.log(`🌟 ${data.nombre} - ${data.titulo}`);
     console.log('\n¡Aleluya Solar! El nuevo testigo ha sido registrado.\n');
-    
   } catch (error) {
     console.error('\n❌ Error:', error.message);
   } finally {

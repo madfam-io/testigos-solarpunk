@@ -1,7 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
+const basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
 ---
 
 <BaseLayout title="Recursos">
@@ -9,7 +12,8 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     <div class="container">
       <h1 class="hero-title">Centro de Recursos</h1>
       <p class="hero-subtitle">
-        Herramientas, guías y materiales para creadores, patrocinadores y defensores del solarpunk
+        Herramientas, guías y materiales para creadores, patrocinadores y
+        defensores del solarpunk
       </p>
     </div>
   </section>
@@ -20,24 +24,35 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
         <div class="resource-category">
           <div class="category-header">
             <h2>🎬 Para Creadores</h2>
-            <p>Todo lo que necesitas para crear contenido en nuestro universo</p>
+            <p>
+              Todo lo que necesitas para crear contenido en nuestro universo
+            </p>
           </div>
           <div class="resource-list">
-            <a href={`${basePath}/recursos/creadores/plantillas`} class="resource-item">
+            <a
+              href={`${basePath}/recursos/creadores/plantillas`}
+              class="resource-item"
+            >
               <span class="resource-icon">📝</span>
               <div>
                 <h3>Plantillas de Guiones</h3>
                 <p>Formatos optimizados para cada plataforma</p>
               </div>
             </a>
-            <a href={`${basePath}/recursos/creadores/personajes`} class="resource-item">
+            <a
+              href={`${basePath}/recursos/creadores/personajes`}
+              class="resource-item"
+            >
               <span class="resource-icon">👥</span>
               <div>
                 <h3>Fichas de Personajes</h3>
                 <p>Perfiles detallados para desarrollo narrativo</p>
               </div>
             </a>
-            <a href={`${basePath}/recursos/creadores/worldbuilding`} class="resource-item">
+            <a
+              href={`${basePath}/recursos/creadores/worldbuilding`}
+              class="resource-item"
+            >
               <span class="resource-icon">🌍</span>
               <div>
                 <h3>Guía de Construcción del Mundo</h3>
@@ -53,21 +68,30 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
             <p>Recursos para dar vida a los personajes</p>
           </div>
           <div class="resource-list">
-            <a href={`${basePath}/recursos/actores/personajes`} class="resource-item">
+            <a
+              href={`${basePath}/recursos/actores/personajes`}
+              class="resource-item"
+            >
               <span class="resource-icon">🎯</span>
               <div>
                 <h3>Análisis de Personajes</h3>
                 <p>Motivaciones, historias y arcos narrativos</p>
               </div>
             </a>
-            <a href={`${basePath}/recursos/actores/dialogo`} class="resource-item">
+            <a
+              href={`${basePath}/recursos/actores/dialogo`}
+              class="resource-item"
+            >
               <span class="resource-icon">💬</span>
               <div>
                 <h3>Guías de Diálogo</h3>
                 <p>Tono, ritmo y estilo de cada personaje</p>
               </div>
             </a>
-            <a href={`${basePath}/recursos/actores/movimiento`} class="resource-item">
+            <a
+              href={`${basePath}/recursos/actores/movimiento`}
+              class="resource-item"
+            >
               <span class="resource-icon">🚶</span>
               <div>
                 <h3>Referencias de Movimiento</h3>
@@ -83,21 +107,30 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
             <p>Oportunidades de colaboración e impacto</p>
           </div>
           <div class="resource-list">
-            <a href={`${basePath}/recursos/patrocinadores/impacto`} class="resource-item">
+            <a
+              href={`${basePath}/recursos/patrocinadores/impacto`}
+              class="resource-item"
+            >
               <span class="resource-icon">📊</span>
               <div>
                 <h3>Reporte de Impacto</h3>
                 <p>Métricas de alcance y engagement</p>
               </div>
             </a>
-            <a href={`${basePath}/recursos/patrocinadores/integracion`} class="resource-item">
+            <a
+              href={`${basePath}/recursos/patrocinadores/integracion`}
+              class="resource-item"
+            >
               <span class="resource-icon">🤝</span>
               <div>
                 <h3>Oportunidades de Integración</h3>
                 <p>Formas orgánicas de participar en las historias</p>
               </div>
             </a>
-            <a href={`${basePath}/recursos/patrocinadores/valores`} class="resource-item">
+            <a
+              href={`${basePath}/recursos/patrocinadores/valores`}
+              class="resource-item"
+            >
               <span class="resource-icon">🌱</span>
               <div>
                 <h3>Alineación de Valores</h3>
@@ -116,19 +149,30 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
       <div class="philosophy-grid">
         <div class="philosophy-card">
           <h3>Optimismo Radical</h3>
-          <p>Creemos que un futuro mejor no solo es posible, sino inevitable si trabajamos juntos.</p>
+          <p>
+            Creemos que un futuro mejor no solo es posible, sino inevitable si
+            trabajamos juntos.
+          </p>
         </div>
         <div class="philosophy-card">
           <h3>Acción Local</h3>
-          <p>Los cambios globales comienzan con transformaciones en nuestras comunidades.</p>
+          <p>
+            Los cambios globales comienzan con transformaciones en nuestras
+            comunidades.
+          </p>
         </div>
         <div class="philosophy-card">
           <h3>Tecnología Apropiada</h3>
-          <p>La mejor tecnología es la que resuelve problemas reales respetando el entorno.</p>
+          <p>
+            La mejor tecnología es la que resuelve problemas reales respetando
+            el entorno.
+          </p>
         </div>
         <div class="philosophy-card">
           <h3>Diversidad Regenerativa</h3>
-          <p>La fortaleza viene de la diversidad de voces, culturas y soluciones.</p>
+          <p>
+            La fortaleza viene de la diversidad de voces, culturas y soluciones.
+          </p>
         </div>
       </div>
     </div>
@@ -137,11 +181,12 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
   <section class="download-section">
     <div class="container text-center">
       <h2>Descargas Rápidas</h2>
-      <p class="text-muted mb-4">
-        Accede a los recursos más utilizados
-      </p>
+      <p class="text-muted mb-4">Accede a los recursos más utilizados</p>
       <div class="download-grid">
-        <a href={`${basePath}/downloads/biblia-personajes.pdf`} class="download-card">
+        <a
+          href={`${basePath}/downloads/biblia-personajes.pdf`}
+          class="download-card"
+        >
           <span class="download-icon">📚</span>
           <h4>Biblia de Personajes</h4>
           <p>PDF - 2.5 MB</p>
@@ -156,7 +201,10 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
           <h4>Kit de Prensa</h4>
           <p>ZIP - 15 MB</p>
         </a>
-        <a href={`${basePath}/downloads/assets-visuales.zip`} class="download-card">
+        <a
+          href={`${basePath}/downloads/assets-visuales.zip`}
+          class="download-card"
+        >
           <span class="download-icon">🎨</span>
           <h4>Assets Visuales</h4>
           <p>ZIP - 45 MB</p>
@@ -172,45 +220,45 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     text-align: center;
     color: white;
   }
-  
+
   .hero-title {
     font-size: 3rem;
     margin-bottom: var(--espacio-lg);
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-  
+
   .hero-subtitle {
     font-size: 1.25rem;
     max-width: 700px;
     margin: 0 auto;
   }
-  
+
   .resources-section {
     padding: var(--espacio-xxl) 0;
   }
-  
+
   .resource-categories {
     display: flex;
     flex-direction: column;
     gap: var(--espacio-xxl);
   }
-  
+
   .category-header h2 {
     color: var(--verde-sostenible);
     margin-bottom: var(--espacio-sm);
   }
-  
+
   .category-header p {
     color: var(--texto-secundario);
     margin-bottom: var(--espacio-lg);
   }
-  
+
   .resource-list {
     display: grid;
     gap: var(--espacio-md);
   }
-  
+
   .resource-item {
     display: flex;
     gap: var(--espacio-lg);
@@ -221,62 +269,62 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     color: inherit;
     transition: all var(--transicion-normal);
   }
-  
+
   .resource-item:hover {
     transform: translateX(8px);
     box-shadow: 0 4px 12px var(--sombra-suave);
   }
-  
+
   .resource-icon {
     font-size: 2.5rem;
     flex-shrink: 0;
   }
-  
+
   .resource-item h3 {
     color: var(--azul-tecnologico);
     margin-bottom: var(--espacio-xs);
   }
-  
+
   .resource-item p {
     color: var(--texto-secundario);
     margin: 0;
   }
-  
+
   .philosophy-section {
     background-color: var(--fondo-secundario);
     padding: var(--espacio-xxl) 0;
   }
-  
+
   .philosophy-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--espacio-lg);
     margin-top: var(--espacio-xl);
   }
-  
+
   .philosophy-card {
     background-color: white;
     padding: var(--espacio-lg);
     border-radius: 8px;
     text-align: center;
   }
-  
+
   .philosophy-card h3 {
     color: var(--purpura-creativo);
     margin-bottom: var(--espacio-md);
   }
-  
+
   .download-section {
     padding: var(--espacio-xxl) 0;
   }
-  
+
   .download-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--espacio-lg);
     margin-top: var(--espacio-xl);
   }
-  
+
   .download-card {
     background-color: var(--fondo-secundario);
     padding: var(--espacio-lg);
@@ -286,34 +334,34 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     color: inherit;
     transition: all var(--transicion-normal);
   }
-  
+
   .download-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px var(--sombra-suave);
   }
-  
+
   .download-icon {
     font-size: 3rem;
     display: block;
     margin-bottom: var(--espacio-md);
   }
-  
+
   .download-card h4 {
     color: var(--verde-sostenible);
     margin-bottom: var(--espacio-sm);
   }
-  
+
   .download-card p {
     color: var(--texto-secundario);
     margin: 0;
     font-size: 0.875rem;
   }
-  
+
   @media (max-width: 768px) {
     .hero-title {
       font-size: 2rem;
     }
-    
+
     .resource-item {
       flex-direction: column;
       text-align: center;

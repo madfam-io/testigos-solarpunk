@@ -1,84 +1,92 @@
 # Prompt: Crear Nuevo Guión
 
 ## Objetivo
+
 Escribir un nuevo guión para el universo Testigos de Solarpunk optimizado para viralidad.
 
 ## Pasos a Seguir
 
 1. **Crear archivo** en `src/content/scripts/EP[XXX]-[PLATAFORMA].md`
+
    - Formato: `EP001-TT.md` (TikTok), `EP002-YT.md` (YouTube), etc.
 
 2. **Estructura del frontmatter**:
+
 ```yaml
 ---
-titulo: "[Título llamativo del episodio]"
+titulo: '[Título llamativo del episodio]'
 episodio: [número]
 temporada: [número]
-plataforma: "[TT|YT|IG|FB]"
+plataforma: '[TT|YT|IG|FB]'
 duracion: [segundos]
 fecha_publicacion: YYYY-MM-DD
 
-sinopsis: "[Resumen de 1-2 líneas]"
+sinopsis: '[Resumen de 1-2 líneas]'
 
 personajes_principales:
-  - "[Nombre Personaje 1]"
-  - "[Nombre Personaje 2]"
+  - '[Nombre Personaje 1]'
+  - '[Nombre Personaje 2]'
 
 ubicaciones:
-  - "[Locación principal]"
-  - "[Locación secundaria]"
+  - '[Locación principal]'
+  - '[Locación secundaria]'
 
 props_requeridos:
-  - "[Prop evangelista 1]"
-  - "[Prop técnico 2]"
+  - '[Prop evangelista 1]'
+  - '[Prop técnico 2]'
 
 momentos_virales:
-  - timestamp: "[00:15]"
-    descripcion: "[Qué sucede]"
-  - timestamp: "[00:45]"
-    descripcion: "[Momento clave]"
+  - timestamp: '[00:15]'
+    descripcion: '[Qué sucede]'
+  - timestamp: '[00:45]'
+    descripcion: '[Momento clave]'
 
 hashtags:
-  - "#TestigosDeSolarpunk"
-  - "#MilagroVerde"
-  - "#[HashtagEspecífico]"
+  - '#TestigosDeSolarpunk'
+  - '#MilagroVerde'
+  - '#[HashtagEspecífico]'
 
-llamado_accion: "[CTA específico]"
+llamado_accion: '[CTA específico]'
 ---
 ```
 
 3. **Estructura del guión según plataforma**:
 
 ### Para TikTok (60-180 segundos)
+
 ```markdown
 # [TÍTULO DEL EPISODIO]
 
 ## GANCHO (00:00-00:03)
+
 [Ubicación: Lugar específico]
 [Música: Tipo de música/sonido]
 
 **PERSONAJE**: "¡[Frase de gancho impactante]!"
 
-*[Acción visual llamativa]*
+_[Acción visual llamativa]_
 
 ## DESARROLLO (00:03-00:50)
 
 ### Problema (00:03-00:10)
+
 **PERSONAJE**: "[Presentación del problema ecológico]"
 
-*[Mostrar evidencia visual del problema]*
+_[Mostrar evidencia visual del problema]_
 
 ### Revelación (00:10-00:30)
+
 **PERSONAJE**: "¡Pero hermanos, he recibido una visión!"
 
-*[Transición dramática]*
+_[Transición dramática]_
 
 [EFECTO ESPECIAL: Luz divina, sonido angelical]
 
 **PERSONAJE**: "[Explicación de la solución verde]"
 
 ### Demostración (00:30-00:50)
-*[Personaje realiza el "milagro verde"]*
+
+_[Personaje realiza el "milagro verde"]_
 
 **PERSONAJE**: "¡Observen el poder de [tecnología]!"
 
@@ -87,7 +95,7 @@ llamado_accion: "[CTA específico]"
 ## CLÍMAX VIRAL (00:50-00:55)
 
 [MOMENTO VIRAL #1]
-*[Acción inesperada o resultado sorprendente]*
+_[Acción inesperada o resultado sorprendente]_
 
 **PERSONAJE**: "¡[Exclamación memorable]!"
 
@@ -97,97 +105,111 @@ llamado_accion: "[CTA específico]"
 
 **PERSONAJE**: "¡Sígueme para más milagros verdes!"
 
-*[Pose signature del personaje]*
+_[Pose signature del personaje]_
 
 [TEXTO EN PANTALLA: @TestigosDeSolarpunk]
 ```
 
 ### Para YouTube (5-15 minutos)
+
 ```markdown
 # [TÍTULO DEL EPISODIO]
 
 ## COLD OPEN (00:00-00:15)
+
 [Ubicación: Establecer escenario]
 [Sin música, sonido ambiente]
 
-*[Teaser del milagro que verán]*
+_[Teaser del milagro que verán]_
 
 **PERSONAJE**: "Lo que están a punto de presenciar cambiará sus vidas..."
 
 [CORTE A TÍTULO]
 
 ## INTRO EVANGELISTA (00:15-00:45)
+
 [Música: Himno solarpunk característico]
 
 **PERSONAJE**: "¡Aleluya solar, hermanos verdes! Soy [nombre] y hoy..."
 
-*[Resumen energético del episodio]*
+_[Resumen energético del episodio]_
 
 ## ACTO 1: ESTABLECIMIENTO (00:45-03:00)
 
 ### Introducción del Problema
+
 [Ubicación: Lugar afectado]
 
 **PERSONAJE**: "[Explicación dramática del problema ambiental]"
 
-*[Mostrar evidencia, incluir datos reales]*
+_[Mostrar evidencia, incluir datos reales]_
 
 ### Testimonio de Afectado
+
 **CONVERSO**: "Yo era un pecador del plástico hasta que..."
 
-*[Historia personal emotiva]*
+_[Historia personal emotiva]_
 
 ## ACTO 2: ENSEÑANZA (03:00-08:00)
 
 ### Parábola Ecológica
+
 **PERSONAJE**: "Les contaré la parábola de [título creativo]"
 
-*[Narración visual de la parábola con actuación]*
+_[Narración visual de la parábola con actuación]_
 
 ### Explicación Técnica Disfrazada
+
 **PERSONAJE**: "El espíritu santo solar me reveló que..."
 
-*[Demostración paso a paso del proceso ecológico]*
+_[Demostración paso a paso del proceso ecológico]_
 
 [GRÁFICOS: Explicación visual simplificada]
 
 ## ACTO 3: TRANSFORMACIÓN (08:00-12:00)
 
 ### Preparación del Milagro
-*[Montaje de preparación con música ascendente]*
+
+_[Montaje de preparación con música ascendente]_
 
 **PERSONAJE**: "¡Hermanos, unamos nuestras energías verdes!"
 
 ### El Milagro Verde
+
 [MOMENTO VIRAL PRINCIPAL]
 
-*[Transformación espectacular con efectos]*
+_[Transformación espectacular con efectos]_
 
 **TODOS**: "¡ALELUYA SOLAR!"
 
 ### Reacciones y Testimonios
+
 **CONVERSO 1**: "¡No puedo creerlo! ¡Es un milagro!"
 **CONVERSO 2**: "¡Mi vida ha cambiado para siempre!"
 
 ## CIERRE (12:00-15:00)
 
 ### Mensaje Final
+
 **PERSONAJE**: "[Resumen inspirador del aprendizaje]"
 
 ### Tarea Verde
+
 **PERSONAJE**: "Su misión esta semana es..."
 
-*[Acción específica que la audiencia puede hacer]*
+_[Acción específica que la audiencia puede hacer]_
 
 ### Adelanto
-*[Teaser del próximo episodio]*
+
+_[Teaser del próximo episodio]_
 
 **PERSONAJE**: "La próxima semana: ¡[título intrigante]!"
 
 ### Despedida Signature
+
 **PERSONAJE**: "Recuerden: ¡El sol brilla para todos!"
 
-*[Pose final con efecto de luz]*
+_[Pose final con efecto de luz]_
 
 [OUTRO: Música, links a redes, suscripción]
 ```
@@ -195,6 +217,7 @@ llamado_accion: "[CTA específico]"
 4. **Elementos clave para incluir**:
 
 ### Frases Evangelistas Recurrentes
+
 - "¡Aleluya solar!"
 - "¿Pueden decir 'amén verde'?"
 - "¡Testifiquen, hermanos!"
@@ -202,6 +225,7 @@ llamado_accion: "[CTA específico]"
 - "¡Bendito sea el compost!"
 
 ### Momentos Virales Típicos
+
 - Transformación instantánea dramática
 - Reacción exagerada a algo ecológico
 - Parodia de sanación/milagro
@@ -209,6 +233,7 @@ llamado_accion: "[CTA específico]"
 - Fail gracioso que termina bien
 
 ### Elementos de Producción
+
 ```markdown
 [MÚSICA: Descripción del tipo]
 [SFX: Efecto de sonido específico]
@@ -232,18 +257,21 @@ llamado_accion: "[CTA específico]"
 ## Plantillas de Episodios por Tema
 
 ### Conversión Energética
+
 - Gancho: "¡Este techo pecador será salvado!"
 - Desarrollo: Instalación dramática de paneles
 - Viral: Techo "resucita" con luces LED
 - CTA: "¡Convierte tu techo en templo solar!"
 
 ### Milagro del Compost
+
 - Gancho: "¡Resucitaré esta basura!"
 - Desarrollo: Ritual de compostaje
 - Viral: Time-lapse de transformación
 - CTA: "¡Únete al ejército del compost!"
 
 ### Bautismo de Huerto
+
 - Gancho: "¡Bendeciré esta tierra estéril!"
 - Desarrollo: Plantación ceremonial
 - Viral: Plantas crecen "milagrosamente"
@@ -252,6 +280,7 @@ llamado_accion: "[CTA específico]"
 ## Métricas de Éxito
 
 ### Indicadores a Monitorear
+
 - Views en primeras 24 horas
 - Ratio de retención completa
 - Compartidos orgánicos
@@ -262,11 +291,13 @@ llamado_accion: "[CTA específico]"
 ## Recursos Adicionales
 
 ### Bancos de Música Sugeridos
+
 - Himnos electrónicos
 - Música épica libre de copyright
 - Sonidos de naturaleza mezclados
 
 ### Efectos de Sonido Clave
+
 - Aleluya con reverb
 - Campanadas solares
 - Sonidos de transformación

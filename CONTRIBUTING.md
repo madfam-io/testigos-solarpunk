@@ -14,11 +14,13 @@
 ## 🤝 Código de Conducta
 
 Este proyecto sigue los valores MADFAM:
+
 - **Innovación**: Propuestas creativas y soluciones originales
 - **Sostenibilidad**: Código eficiente y mantenible
 - **Comunidad**: Colaboración respetuosa e inclusiva
 
 Esperamos que todos los contribuyentes:
+
 - Sean respetuosos y constructivos
 - Acepten críticas constructivas
 - Se enfoquen en lo mejor para la comunidad
@@ -27,24 +29,28 @@ Esperamos que todos los contribuyentes:
 ## 🎯 ¿Cómo puedo contribuir?
 
 ### 🐛 Reportando Bugs
+
 - Usa la plantilla de issue para bugs
 - Incluye pasos detallados para reproducir
 - Añade capturas de pantalla si es relevante
 - Menciona tu entorno (OS, navegador, etc.)
 
 ### ✨ Sugiriendo Mejoras
+
 - Usa la plantilla de feature request
 - Explica el problema que resuelve
 - Describe la solución propuesta
 - Considera alternativas
 
 ### 🌱 Añadiendo Contenido
+
 - Personajes nuevos
 - Guiones y episodios
 - Locaciones del universo
 - Recursos de producción
 
 ### 💻 Contribuyendo Código
+
 - Correcciones de bugs
 - Nuevas características
 - Mejoras de rendimiento
@@ -53,6 +59,7 @@ Esperamos que todos los contribuyentes:
 ## 🔄 Proceso de Desarrollo
 
 ### 1. Fork y Clone
+
 ```bash
 # Fork el repositorio en GitHub
 # Luego clona tu fork
@@ -64,6 +71,7 @@ git remote add upstream https://github.com/madfam-io/testigos-solarpunk.git
 ```
 
 ### 2. Crear una Rama
+
 ```bash
 # Actualiza tu main
 git checkout main
@@ -76,6 +84,7 @@ git checkout -b fix/descripcion-del-bug
 ```
 
 ### 3. Instalar Dependencias
+
 ```bash
 npm install
 # o si prefieres pnpm
@@ -83,6 +92,7 @@ pnpm install
 ```
 
 ### 4. Desarrollo
+
 ```bash
 # Iniciar servidor de desarrollo
 npm run dev
@@ -93,6 +103,7 @@ npm run type-check
 ```
 
 ### 5. Testing
+
 ```bash
 # Ejecutar tests
 npm test
@@ -102,6 +113,7 @@ npm run test:coverage
 ```
 
 ### 6. Commit
+
 Seguimos [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```bash
@@ -125,6 +137,7 @@ git commit -m "perf(images): implement lazy loading"
 ## 📐 Estándares de Código
 
 ### TypeScript/JavaScript
+
 - Usa TypeScript cuando sea posible
 - Tipos explícitos para funciones públicas
 - Evita `any`, usa tipos específicos
@@ -143,6 +156,7 @@ export function calculateSolarOutput(watts: number, hours: number): number {
 ```
 
 ### Componentes Astro
+
 - Un componente por archivo
 - Props tipadas con interfaces
 - Nombres descriptivos en PascalCase
@@ -163,6 +177,7 @@ const { character, showDetails = false } = Astro.props;
 ```
 
 ### CSS
+
 - Usa design tokens de `madfam-tokens.css`
 - BEM para nombrado de clases
 - Mobile-first responsive design
@@ -190,18 +205,21 @@ const { character, showDetails = false } = Astro.props;
 ## 📝 Guía de Contenido
 
 ### Personajes
+
 - Nombres temáticos evangelista-ecológicos
 - Historia de conversión verde
 - Milagro signature único
 - Al menos 3 frases icónicas
 
 ### Guiones
+
 - Formato específico por plataforma
 - Momentos virales marcados
 - Duración apropiada
 - Hashtags estratégicos
 
 ### Tono y Estilo
+
 - Humor respetuoso, nunca ofensivo
 - Parodia afectuosa del evangelismo
 - Mensaje ecológico positivo
@@ -210,6 +228,7 @@ const { character, showDetails = false } = Astro.props;
 ## 🚀 Proceso de Pull Request
 
 ### Antes de Enviar
+
 - [ ] Ejecuta `npm run check:all`
 - [ ] Todos los tests pasan
 - [ ] El código está formateado
@@ -217,7 +236,9 @@ const { character, showDetails = false } = Astro.props;
 - [ ] La documentación está actualizada
 
 ### Creando el PR
+
 1. Push a tu fork:
+
 ```bash
 git push origin feature/tu-rama
 ```
@@ -228,6 +249,7 @@ git push origin feature/tu-rama
 5. Enlaza issues relacionados
 
 ### Review Process
+
 - Un maintainer revisará tu PR
 - Pueden pedir cambios o mejoras
 - Una vez aprobado, será mergeado
@@ -236,11 +258,13 @@ git push origin feature/tu-rama
 ## 🎨 Recursos Útiles
 
 ### Herramientas
+
 - [Astro Docs](https://docs.astro.build)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 - [MDN Web Docs](https://developer.mozilla.org/)
 
 ### Scripts Útiles
+
 ```bash
 # Crear nuevo personaje
 npm run new:character
@@ -256,6 +280,7 @@ npm run analyze:bundle
 ```
 
 ### Documentación del Proyecto
+
 - `.claude/README.md` - Guía para AI
 - `.claude/architecture.md` - Arquitectura técnica
 - `.claude/conventions.md` - Convenciones de código
@@ -270,6 +295,7 @@ npm run analyze:bundle
 ---
 
 Si tienes preguntas, no dudes en:
+
 - Abrir un issue
 - Contactar a los maintainers
 - Unirte a la discusión en GitHub Discussions

@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-const locations = await getCollection('locations');
+const locations: CollectionEntry<'locations'>[] =
+  await getCollection('locations');
 ---
 
 <BaseLayout title="Mundo">
@@ -10,8 +11,8 @@ const locations = await getCollection('locations');
     <div class="container">
       <h1 class="hero-title">El Mundo de Testigos de Solarpunk</h1>
       <p class="hero-subtitle">
-        Un futuro cercano donde la humanidad ha aprendido a vivir en armonía
-        con la naturaleza, combinando tecnología avanzada con prácticas ancestrales.
+        Un futuro cercano donde la humanidad ha aprendido a vivir en armonía con
+        la naturaleza, combinando tecnología avanzada con prácticas ancestrales.
       </p>
     </div>
   </section>
@@ -31,14 +32,19 @@ const locations = await getCollection('locations');
           <div class="timeline-date">2030</div>
           <div class="timeline-content">
             <h3>La Transición</h3>
-            <p>Neo-Cuernavaca se convierte en la primera ciudad carbono-negativa de México</p>
+            <p>
+              Neo-Cuernavaca se convierte en la primera ciudad carbono-negativa
+              de México
+            </p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-date">2035</div>
           <div class="timeline-content">
             <h3>La Expansión</h3>
-            <p>El modelo solarpunk se replica en ciudades de todo el continente</p>
+            <p>
+              El modelo solarpunk se replica en ciudades de todo el continente
+            </p>
           </div>
         </div>
         <div class="timeline-item">
@@ -56,27 +62,29 @@ const locations = await getCollection('locations');
     <div class="container">
       <h2>Ubicaciones Principales</h2>
       <div class="locations-grid">
-        {locations.map((location) => (
-          <article class="location-card card">
-            <div class="location-type">{location.data.tipo}</div>
-            <h3>{location.data.nombre}</h3>
-            <p class="location-district">📍 {location.data.distrito}</p>
-            <p class="location-description">
-              {location.data.descripcion.substring(0, 200)}...
-            </p>
-            <div class="location-features">
-              <h4>Características:</h4>
-              <ul>
-                {location.data.caracteristicas.slice(0, 3).map(feat => (
-                  <li>{feat}</li>
-                ))}
-              </ul>
-            </div>
-            <a href={`/mundo/${location.id}`} class="btn btn-primary">
-              Explorar Ubicación
-            </a>
-          </article>
-        ))}
+        {
+          locations.map((location) => (
+            <article class="location-card card">
+              <div class="location-type">{location.data.tipo}</div>
+              <h3>{location.data.nombre}</h3>
+              <p class="location-district">📍 {location.data.distrito}</p>
+              <p class="location-description">
+                {location.data.descripcion.substring(0, 200)}...
+              </p>
+              <div class="location-features">
+                <h4>Características:</h4>
+                <ul>
+                  {location.data.caracteristicas.slice(0, 3).map((feat) => (
+                    <li>{feat}</li>
+                  ))}
+                </ul>
+              </div>
+              <a href={`/mundo/${location.id}`} class="btn btn-primary">
+                Explorar Ubicación
+              </a>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -103,7 +111,9 @@ const locations = await getCollection('locations');
         <div class="tech-card">
           <span class="tech-icon">🔋</span>
           <h3>Baterías de Sal</h3>
-          <p>Almacenamiento de energía usando materiales abundantes y no tóxicos</p>
+          <p>
+            Almacenamiento de energía usando materiales abundantes y no tóxicos
+          </p>
         </div>
         <div class="tech-card">
           <span class="tech-icon">🏗️</span>
@@ -126,29 +136,29 @@ const locations = await getCollection('locations');
         <div class="society-card">
           <h3>Economía Circular</h3>
           <p>
-            Los desechos de un proceso se convierten en recursos para otro.
-            La basura es un concepto obsoleto en el mundo solarpunk.
+            Los desechos de un proceso se convierten en recursos para otro. La
+            basura es un concepto obsoleto en el mundo solarpunk.
           </p>
         </div>
         <div class="society-card">
           <h3>Gobernanza Participativa</h3>
           <p>
-            Las decisiones comunitarias se toman mediante asambleas locales
-            y plataformas digitales de democracia directa.
+            Las decisiones comunitarias se toman mediante asambleas locales y
+            plataformas digitales de democracia directa.
           </p>
         </div>
         <div class="society-card">
           <h3>Educación Holística</h3>
           <p>
-            El aprendizaje combina conocimiento técnico con sabiduría
-            ancestral, enfocándose en la resolución creativa de problemas.
+            El aprendizaje combina conocimiento técnico con sabiduría ancestral,
+            enfocándose en la resolución creativa de problemas.
           </p>
         </div>
         <div class="society-card">
           <h3>Tiempo de Calidad</h3>
           <p>
-            La semana laboral de 25 horas permite más tiempo para
-            la familia, el arte y el desarrollo personal.
+            La semana laboral de 25 horas permite más tiempo para la familia, el
+            arte y el desarrollo personal.
           </p>
         </div>
       </div>
@@ -162,31 +172,31 @@ const locations = await getCollection('locations');
     text-align: center;
     color: white;
   }
-  
+
   .hero-title {
     font-size: 3rem;
     margin-bottom: var(--espacio-lg);
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-  
+
   .hero-subtitle {
     font-size: 1.25rem;
     max-width: 700px;
     margin: 0 auto;
   }
-  
+
   .timeline-section {
     padding: var(--espacio-xxl) 0;
     background-color: var(--fondo-secundario);
   }
-  
+
   .timeline {
     position: relative;
     max-width: 800px;
     margin: var(--espacio-xl) auto;
   }
-  
+
   .timeline::before {
     content: '';
     position: absolute;
@@ -197,18 +207,18 @@ const locations = await getCollection('locations');
     background-color: var(--verde-sostenible);
     transform: translateX(-50%);
   }
-  
+
   .timeline-item {
     position: relative;
     margin-bottom: var(--espacio-xl);
     display: flex;
     align-items: center;
   }
-  
+
   .timeline-item:nth-child(odd) {
     flex-direction: row-reverse;
   }
-  
+
   .timeline-date {
     flex: 0 0 100px;
     text-align: center;
@@ -216,7 +226,7 @@ const locations = await getCollection('locations');
     color: var(--verde-sostenible);
     font-size: 1.25rem;
   }
-  
+
   .timeline-content {
     flex: 1;
     background-color: white;
@@ -225,22 +235,22 @@ const locations = await getCollection('locations');
     box-shadow: 0 2px 8px var(--sombra-suave);
     margin: 0 var(--espacio-lg);
   }
-  
+
   .locations-section {
     padding: var(--espacio-xxl) 0;
   }
-  
+
   .locations-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: var(--espacio-lg);
     margin-top: var(--espacio-xl);
   }
-  
+
   .location-card {
     position: relative;
   }
-  
+
   .location-type {
     position: absolute;
     top: var(--espacio-md);
@@ -252,55 +262,55 @@ const locations = await getCollection('locations');
     font-size: 0.75rem;
     font-weight: 500;
   }
-  
+
   .location-district {
     color: var(--texto-secundario);
     font-size: 0.875rem;
     margin-bottom: var(--espacio-md);
   }
-  
+
   .location-description {
     margin-bottom: var(--espacio-md);
   }
-  
+
   .location-features h4 {
     font-size: 0.875rem;
     color: var(--verde-sostenible);
     margin-bottom: var(--espacio-sm);
   }
-  
+
   .location-features ul {
     list-style: none;
     padding: 0;
     margin-bottom: var(--espacio-lg);
   }
-  
+
   .location-features li {
     font-size: 0.875rem;
     color: var(--texto-secundario);
     padding-left: var(--espacio-md);
     position: relative;
   }
-  
+
   .location-features li::before {
     content: '•';
     position: absolute;
     left: 0;
     color: var(--verde-sostenible);
   }
-  
+
   .technology-section {
     padding: var(--espacio-xxl) 0;
     background-color: var(--fondo-secundario);
   }
-  
+
   .tech-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--espacio-lg);
     margin-top: var(--espacio-xl);
   }
-  
+
   .tech-card {
     background-color: white;
     padding: var(--espacio-lg);
@@ -308,66 +318,66 @@ const locations = await getCollection('locations');
     text-align: center;
     transition: transform var(--transicion-normal);
   }
-  
+
   .tech-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px var(--sombra-suave);
   }
-  
+
   .tech-icon {
     font-size: 2.5rem;
     display: block;
     margin-bottom: var(--espacio-md);
   }
-  
+
   .tech-card h3 {
     font-size: 1.125rem;
     margin-bottom: var(--espacio-sm);
     color: var(--azul-tecnologico);
   }
-  
+
   .society-section {
     padding: var(--espacio-xxl) 0;
   }
-  
+
   .society-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--espacio-lg);
     margin-top: var(--espacio-xl);
   }
-  
+
   .society-card {
     background-color: var(--fondo-secundario);
     padding: var(--espacio-lg);
     border-radius: 8px;
     border-left: 4px solid var(--verde-sostenible);
   }
-  
+
   .society-card h3 {
     color: var(--verde-sostenible);
     margin-bottom: var(--espacio-md);
   }
-  
+
   @media (max-width: 768px) {
     .timeline::before {
       left: 20px;
     }
-    
+
     .timeline-item {
       flex-direction: column !important;
       align-items: flex-start !important;
       padding-left: 40px;
     }
-    
+
     .timeline-date {
       margin-bottom: var(--espacio-sm);
     }
-    
+
     .timeline-content {
       margin: 0;
     }
-    
+
     .hero-title {
       font-size: 2rem;
     }

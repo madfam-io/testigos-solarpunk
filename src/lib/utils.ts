@@ -13,7 +13,7 @@ export function formatDate(
   options?: Intl.DateTimeFormatOptions
 ): string {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
-  
+
   return new Intl.DateTimeFormat('es-MX', {
     year: 'numeric',
     month: 'long',
@@ -44,7 +44,7 @@ export function slugify(text: string): string {
  */
 export function truncateText(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
-  return text.slice(0, maxLength).trim() + '...';
+  return `${text.slice(0, maxLength).trim()}...`;
 }
 
 /**
@@ -56,7 +56,7 @@ export function truncateText(text: string, maxLength: number): string {
 export function generateExcerpt(content: string, maxLength = 160): string {
   // Eliminar frontmatter YAML
   const withoutFrontmatter = content.replace(/^---[\s\S]*?---\n/, '');
-  
+
   // Eliminar sintaxis Markdown básica
   const plainText = withoutFrontmatter
     .replace(/#{1,6}\s+/g, '') // Headers
@@ -67,7 +67,7 @@ export function generateExcerpt(content: string, maxLength = 160): string {
     .replace(/`([^`]+)`/g, '$1') // Inline code
     .replace(/\n+/g, ' ') // Newlines
     .trim();
-  
+
   return truncateText(plainText, maxLength);
 }
 
@@ -77,7 +77,7 @@ export function generateExcerpt(content: string, maxLength = 160): string {
  * @returns Texto con primera letra en mayúscula
  */
 export function capitalize(text: string): string {
-  if (!text) return '';
+  if (text == null || text === '') return '';
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
@@ -99,12 +99,12 @@ export function formatDuration(seconds: number): string {
  */
 export function getPlatformIcon(platform: string): string {
   const icons: Record<string, string> = {
-    'TT': '📱', // TikTok
-    'YT': '📺', // YouTube
-    'IG': '📷', // Instagram
-    'FB': '👥', // Facebook
+    TT: '📱', // TikTok
+    YT: '📺', // YouTube
+    IG: '📷', // Instagram
+    FB: '👥', // Facebook
   };
-  return icons[platform] || '🌐';
+  return icons[platform] ?? '🌐';
 }
 
 /**
@@ -117,12 +117,12 @@ export function stringToColor(str: string): string {
   for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
-  
+
   const hue = hash % 360;
   // Usar colores MADFAM como base
   const saturation = 70; // Saturación vibrante
   const lightness = 50; // Brillo balanceado
-  
+
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
@@ -132,13 +132,13 @@ export function stringToColor(str: string): string {
  * @param dateField - Campo de fecha a usar
  * @returns Array ordenado
  */
-export function sortByDate<T extends Record<string, any>>(
+export function sortByDate<T extends Record<string, unknown>>(
   items: T[],
   dateField = 'fecha_publicacion'
 ): T[] {
   return [...items].sort((a, b) => {
-    const dateA = new Date(a[dateField]);
-    const dateB = new Date(b[dateField]);
+    const dateA = new Date(a[dateField] as string);
+    const dateB = new Date(b[dateField] as string);
     return dateB.getTime() - dateA.getTime();
   });
 }
@@ -149,18 +149,21 @@ export function sortByDate<T extends Record<string, any>>(
  * @param key - Clave para agrupar
  * @returns Objeto con elementos agrupados
  */
-export function groupBy<T extends Record<string, any>>(
+export function groupBy<T extends Record<string, unknown>>(
   items: T[],
   key: keyof T
 ): Record<string, T[]> {
-  return items.reduce((groups, item) => {
-    const group = String(item[key]);
-    if (!groups[group]) {
-      groups[group] = [];
-    }
-    groups[group].push(item);
-    return groups;
-  }, {} as Record<string, T[]>);
+  return items.reduce(
+    (groups, item) => {
+      const group = String(item[key]);
+      if (groups[group] == null) {
+        groups[group] = [];
+      }
+      groups[group].push(item);
+      return groups;
+    },
+    {} as Record<string, T[]>
+  );
 }
 
 /**
@@ -180,10 +183,28 @@ export function generateSEOMeta({
   image?: string;
   url: string;
   type?: string;
-}) {
+}): {
+  title: string;
+  description: string;
+  canonical: string;
+  openGraph: {
+    title: string;
+    description: string;
+    image: string;
+    url: string;
+    type: string;
+    siteName: string;
+  };
+  twitter: {
+    card: string;
+    title: string;
+    description: string;
+    image: string;
+  };
+} {
   const siteName = 'Testigos de Solarpunk';
   const defaultImage = '/og-image.jpg';
-  
+
   return {
     title: `${title} | ${siteName}`,
     description: truncateText(description, 160),
@@ -191,7 +212,7 @@ export function generateSEOMeta({
     openGraph: {
       title,
       description,
-      image: image || defaultImage,
+      image: image != null && image !== '' ? image : defaultImage,
       url,
       type,
       siteName,
@@ -200,7 +221,7 @@ export function generateSEOMeta({
       card: 'summary_large_image',
       title,
       description,
-      image: image || defaultImage,
+      image: image != null && image !== '' ? image : defaultImage,
     },
   };
 }
@@ -211,18 +232,18 @@ export function generateSEOMeta({
  * @param wait - Tiempo de espera en ms
  * @returns Función con debounce
  */
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
   let timeout: NodeJS.Timeout;
-  
-  return function executedFunction(...args: Parameters<T>) {
-    const later = () => {
+
+  return function executedFunction(...args: Parameters<T>): void {
+    const later = (): void => {
       clearTimeout(timeout);
       func(...args);
     };
-    
+
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
   };
@@ -243,7 +264,7 @@ export function isBrowser(): boolean {
  */
 export function getURLParam(param: string): string | null {
   if (!isBrowser()) return null;
-  
+
   const params = new URLSearchParams(window.location.search);
   return params.get(param);
 }
@@ -260,12 +281,12 @@ export function lazyLoadImage(
 ): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const img = new Image();
-    
+
     img.onload = () => resolve(img);
     img.onerror = reject;
-    
+
     // Si hay placeholder, usarlo mientras carga
-    if (placeholder) {
+    if (placeholder != null && placeholder !== '') {
       img.src = placeholder;
       // Cargar imagen real después
       setTimeout(() => {

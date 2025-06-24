@@ -25,7 +25,7 @@ const ICON_SIZES = [
   { size: 192, name: 'icon-192.png' },
   { size: 384, name: 'icon-384.png' },
   { size: 512, name: 'icon-512.png' },
-  
+
   // Apple Touch Icons
   { size: 57, name: 'icon-57.png' },
   { size: 60, name: 'icon-60.png' },
@@ -33,11 +33,11 @@ const ICON_SIZES = [
   { size: 114, name: 'icon-114.png' },
   { size: 120, name: 'icon-120.png' },
   { size: 180, name: 'apple-touch-icon.png' },
-  
+
   // Favicon
   { size: 16, name: 'favicon-16x16.png' },
   { size: 32, name: 'favicon-32x32.png' },
-  
+
   // Windows
   { size: 144, name: 'ms-icon-144x144.png' },
   { size: 150, name: 'ms-icon-150x150.png' },
@@ -51,8 +51,8 @@ const SPLASH_SCREENS = [
   { width: 1536, height: 2048, name: 'splash-1536x2048.png' }, // iPad Air
   { width: 1125, height: 2436, name: 'splash-1125x2436.png' }, // iPhone X/XS
   { width: 1242, height: 2688, name: 'splash-1242x2688.png' }, // iPhone XS Max
-  { width: 750, height: 1334, name: 'splash-750x1334.png' },   // iPhone 8
-  { width: 828, height: 1792, name: 'splash-828x1792.png' },   // iPhone XR
+  { width: 750, height: 1334, name: 'splash-750x1334.png' }, // iPhone 8
+  { width: 828, height: 1792, name: 'splash-828x1792.png' }, // iPhone XR
 ];
 
 // Colores MADFAM
@@ -91,7 +91,7 @@ async function generateIconFromSVG() {
       <!-- Rayos de sol -->
       <g transform="translate(256, 180)">
         ${Array.from({ length: 8 }, (_, i) => {
-          const angle = (i * 45) * Math.PI / 180;
+          const angle = (i * 45 * Math.PI) / 180;
           const x1 = Math.cos(angle) * 90;
           const y1 = Math.sin(angle) * 90;
           const x2 = Math.cos(angle) * 120;
@@ -117,7 +117,7 @@ async function generateIconFromSVG() {
             text-anchor="middle" fill="${MADFAM_COLORS.white}">TESTIGOS</text>
     </svg>
   `;
-  
+
   return Buffer.from(svgContent);
 }
 
@@ -135,28 +135,28 @@ async function generateSplashScreen(width, height) {
       <rect width="${width}" height="${height}" fill="url(#bgGradient)"/>
       
       <!-- Sol central -->
-      <circle cx="${width/2}" cy="${height/2 - 100}" r="120" fill="${MADFAM_COLORS.yellow}" opacity="0.9"/>
+      <circle cx="${width / 2}" cy="${height / 2 - 100}" r="120" fill="${MADFAM_COLORS.yellow}" opacity="0.9"/>
       
       <!-- Título -->
-      <text x="${width/2}" y="${height/2 + 50}" font-family="Arial, sans-serif" font-size="72" 
+      <text x="${width / 2}" y="${height / 2 + 50}" font-family="Arial, sans-serif" font-size="72" 
             font-weight="bold" text-anchor="middle" fill="${MADFAM_COLORS.white}">
         Testigos de Solarpunk
       </text>
       
       <!-- Subtítulo -->
-      <text x="${width/2}" y="${height/2 + 120}" font-family="Arial, sans-serif" font-size="36" 
+      <text x="${width / 2}" y="${height / 2 + 120}" font-family="Arial, sans-serif" font-size="36" 
             text-anchor="middle" fill="${MADFAM_COLORS.yellow}" opacity="0.8">
         ¡Aleluya Solar!
       </text>
       
       <!-- Logo MADFAM -->
-      <text x="${width/2}" y="${height - 100}" font-family="Arial, sans-serif" font-size="24" 
+      <text x="${width / 2}" y="${height - 100}" font-family="Arial, sans-serif" font-size="24" 
             text-anchor="middle" fill="${MADFAM_COLORS.white}" opacity="0.5">
         Un proyecto MADFAM
       </text>
     </svg>
   `;
-  
+
   return Buffer.from(svgContent);
 }
 
@@ -170,10 +170,10 @@ async function ensureDirectoryExists(dirPath) {
 
 async function main() {
   console.log('🎨 Generador de Iconos - Testigos de Solarpunk\n');
-  
+
   const publicDir = path.join(ROOT_DIR, 'public');
   await ensureDirectoryExists(publicDir);
-  
+
   try {
     // Verificar si existe un icono base
     let sourceBuffer;
@@ -182,7 +182,7 @@ async function main() {
       path.join(publicDir, 'icon-source.svg'),
       path.join(publicDir, 'favicon.svg'),
     ];
-    
+
     let sourceFound = false;
     for (const sourcePath of possibleSources) {
       try {
@@ -194,53 +194,56 @@ async function main() {
         // Continuar buscando
       }
     }
-    
+
     if (!sourceFound) {
-      console.log('⚠️  No se encontró imagen fuente, generando icono SVG predeterminado...');
+      console.log(
+        '⚠️  No se encontró imagen fuente, generando icono SVG predeterminado...'
+      );
       sourceBuffer = await generateIconFromSVG();
     }
-    
+
     // Generar iconos
     console.log('\n📱 Generando iconos de aplicación...');
-    
+
     for (const icon of ICON_SIZES) {
       const outputPath = path.join(publicDir, icon.name);
-      
+
       await sharp(sourceBuffer)
         .resize(icon.size, icon.size, {
           fit: 'cover',
-          background: { r: 33, g: 33, b: 33, alpha: 1 } // MADFAM black
+          background: { r: 33, g: 33, b: 33, alpha: 1 }, // MADFAM black
         })
         .png()
         .toFile(outputPath);
-      
+
       console.log(`   ✅ ${icon.name} (${icon.size}x${icon.size})`);
     }
-    
+
     // Generar favicon.ico
     console.log('\n🌟 Generando favicon.ico...');
     await sharp(sourceBuffer)
       .resize(32, 32)
       .toFile(path.join(publicDir, 'favicon.ico'));
     console.log('   ✅ favicon.ico');
-    
+
     // Generar splash screens
     console.log('\n💦 Generando splash screens...');
-    
+
     for (const splash of SPLASH_SCREENS) {
-      const splashBuffer = await generateSplashScreen(splash.width, splash.height);
+      const splashBuffer = await generateSplashScreen(
+        splash.width,
+        splash.height
+      );
       const outputPath = path.join(publicDir, splash.name);
-      
-      await sharp(splashBuffer)
-        .png()
-        .toFile(outputPath);
-      
+
+      await sharp(splashBuffer).png().toFile(outputPath);
+
       console.log(`   ✅ ${splash.name} (${splash.width}x${splash.height})`);
     }
-    
+
     // Generar otros archivos necesarios
     console.log('\n📄 Generando archivos adicionales...');
-    
+
     // browserconfig.xml para Windows
     const browserConfig = `<?xml version="1.0" encoding="utf-8"?>
 <browserconfig>
@@ -253,13 +256,13 @@ async function main() {
     </tile>
   </msapplication>
 </browserconfig>`;
-    
+
     await fs.writeFile(
       path.join(publicDir, 'browserconfig.xml'),
       browserConfig
     );
     console.log('   ✅ browserconfig.xml');
-    
+
     // Resumen
     console.log('\n' + '='.repeat(50));
     console.log('✨ ¡Generación completada!');
@@ -267,7 +270,6 @@ async function main() {
     console.log(`Total de iconos generados: ${ICON_SIZES.length}`);
     console.log(`Total de splash screens: ${SPLASH_SCREENS.length}`);
     console.log('\n🌞 ¡Aleluya Solar! Los iconos están listos.\n');
-    
   } catch (error) {
     console.error('❌ Error:', error.message);
     process.exit(1);

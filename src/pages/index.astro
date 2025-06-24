@@ -2,7 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteBlock from '../components/QuoteBlock.astro';
 
-const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
+const basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
 ---
 
 <BaseLayout title="Inicio">
@@ -11,11 +14,16 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
       <div class="hero-content">
         <h1 class="hero-title animate-fade-in">Testigos de Solarpunk</h1>
         <p class="hero-subtitle animate-fade-in">
-          Un universo narrativo donde la esperanza, la tecnología sostenible y la comunidad construyen el futuro
+          Un universo narrativo donde la esperanza, la tecnología sostenible y
+          la comunidad construyen el futuro
         </p>
         <div class="hero-actions animate-fade-in">
-          <a href={`${basePath}/personajes`} class="btn btn-primary">Explorar Personajes</a>
-          <a href={`${basePath}/guiones`} class="btn btn-secondary">Ver Guiones</a>
+          <a href={`${basePath}/personajes`} class="btn btn-primary"
+            >Explorar Personajes</a
+          >
+          <a href={`${basePath}/guiones`} class="btn btn-secondary"
+            >Ver Guiones</a
+          >
         </div>
       </div>
     </div>
@@ -25,20 +33,35 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     <div class="grid grid-3">
       <div class="card">
         <h3>🌱 Personajes Vivos</h3>
-        <p>Conoce a los habitantes de Neo-Cuernavaca, desde ingenieros solares hasta guardianes de semillas ancestrales.</p>
-        <a href={`${basePath}/personajes`} class="btn btn-primary mt-2">Conocer Personajes</a>
+        <p>
+          Conoce a los habitantes de Neo-Cuernavaca, desde ingenieros solares
+          hasta guardianes de semillas ancestrales.
+        </p>
+        <a href={`${basePath}/personajes`} class="btn btn-primary mt-2"
+          >Conocer Personajes</a
+        >
       </div>
-      
+
       <div class="card">
         <h3>📜 Guiones Multiplatforma</h3>
-        <p>Episodios diseñados para TikTok, Instagram Reels y YouTube, cada uno optimizado para su audiencia.</p>
-        <a href={`${basePath}/guiones`} class="btn btn-primary mt-2">Leer Guiones</a>
+        <p>
+          Episodios diseñados para TikTok, Instagram Reels y YouTube, cada uno
+          optimizado para su audiencia.
+        </p>
+        <a href={`${basePath}/guiones`} class="btn btn-primary mt-2"
+          >Leer Guiones</a
+        >
       </div>
-      
+
       <div class="card">
         <h3>🌍 Mundo Detallado</h3>
-        <p>Explora las ubicaciones, tecnologías y culturas que dan vida a este futuro esperanzador.</p>
-        <a href={`${basePath}/mundo`} class="btn btn-primary mt-2">Explorar Mundo</a>
+        <p>
+          Explora las ubicaciones, tecnologías y culturas que dan vida a este
+          futuro esperanzador.
+        </p>
+        <a href={`${basePath}/mundo`} class="btn btn-primary mt-2"
+          >Explorar Mundo</a
+        >
       </div>
     </div>
   </section>
@@ -46,7 +69,7 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
   <section class="evangelista-section">
     <div class="container">
       <h2 class="text-center evangelista-title">El Evangelio Solar</h2>
-      <QuoteBlock 
+      <QuoteBlock
         quote="Hermanos, el Sol nos ama y quiere vernos iluminados. Cada panel es una oración al astro rey."
         author="Hermana Panelia"
         variant="solar"
@@ -54,18 +77,33 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
       <div class="evangelista-grid">
         <div class="evangelista-card halo-effect">
           <h3>🌟 Los Evangelistas</h3>
-          <p>Tres misioneros dedicados a predicar la salvación ecológica y la redención energética de la humanidad.</p>
-          <a href={`${basePath}/personajes`} class="btn btn-primary">Conocer Evangelistas</a>
+          <p>
+            Tres misioneros dedicados a predicar la salvación ecológica y la
+            redención energética de la humanidad.
+          </p>
+          <a href={`${basePath}/personajes`} class="btn btn-primary"
+            >Conocer Evangelistas</a
+          >
         </div>
         <div class="evangelista-card halo-effect">
           <h3>📖 El Mensaje</h3>
-          <p>Transformación espiritual a través de la tecnología sostenible y la reconexión con los ciclos naturales.</p>
-          <a href={`${basePath}/filosofia`} class="btn btn-primary">Leer Filosofía</a>
+          <p>
+            Transformación espiritual a través de la tecnología sostenible y la
+            reconexión con los ciclos naturales.
+          </p>
+          <a href={`${basePath}/filosofia`} class="btn btn-primary"
+            >Leer Filosofía</a
+          >
         </div>
         <div class="evangelista-card halo-effect">
           <h3>🎬 Los Formatos</h3>
-          <p>Múltiples maneras de llevar la luz solar a cada hogar: videos, podcasts, sketches y más.</p>
-          <a href={`${basePath}/formatos`} class="btn btn-primary">Ver Formatos</a>
+          <p>
+            Múltiples maneras de llevar la luz solar a cada hogar: videos,
+            podcasts, sketches y más.
+          </p>
+          <a href={`${basePath}/formatos`} class="btn btn-primary"
+            >Ver Formatos</a
+          >
         </div>
       </div>
     </div>
@@ -78,7 +116,9 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
         <div class="vision-item float-animation">
           <span class="vision-icon">☀️</span>
           <h4>Energía Limpia</h4>
-          <p>Un mundo impulsado por el sol, el viento y la creatividad humana</p>
+          <p>
+            Un mundo impulsado por el sol, el viento y la creatividad humana
+          </p>
         </div>
         <div class="vision-item float-animation" style="animation-delay: 0.2s">
           <span class="vision-icon">🤝</span>
@@ -103,11 +143,17 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     <div class="container text-center">
       <h2>¿Listo para ser parte del cambio?</h2>
       <p class="text-muted mb-3">
-        Únete a creadores, actores y defensores del solarpunk en la construcción de historias que importan
+        Únete a creadores, actores y defensores del solarpunk en la construcción
+        de historias que importan
       </p>
       <div class="cta-actions">
-        <a href={`${basePath}/recursos`} class="btn btn-primary">Para Creadores</a>
-        <a href={`${basePath}/recursos#patrocinadores`} class="btn btn-secondary">Para Patrocinadores</a>
+        <a href={`${basePath}/recursos`} class="btn btn-primary"
+          >Para Creadores</a
+        >
+        <a
+          href={`${basePath}/recursos#patrocinadores`}
+          class="btn btn-secondary">Para Patrocinadores</a
+        >
       </div>
     </div>
   </section>
@@ -121,7 +167,7 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     position: relative;
     overflow: hidden;
   }
-  
+
   .hero::before {
     content: '';
     position: absolute;
@@ -132,19 +178,19 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     background: rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
-  
+
   .hero-content {
     position: relative;
     z-index: 2;
   }
-  
+
   .hero-title {
     font-size: 3.5rem;
     margin-bottom: var(--espacio-lg);
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-  
+
   .hero-subtitle {
     font-size: 1.5rem;
     margin-bottom: var(--espacio-xl);
@@ -152,25 +198,29 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .hero-actions {
     display: flex;
     gap: var(--espacio-md);
     justify-content: center;
   }
-  
+
   .evangelista-section {
     padding: var(--espacio-xxl) 0;
-    background: linear-gradient(135deg, var(--fondo-primario) 0%, rgba(255, 215, 0, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      rgba(255, 215, 0, 0.05) 100%
+    );
   }
-  
+
   .evangelista-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--espacio-xl);
     margin-top: var(--espacio-xl);
   }
-  
+
   .evangelista-card {
     background: white;
     padding: var(--espacio-xl);
@@ -179,63 +229,63 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     border: 2px solid var(--dorado-solar);
     transition: all var(--transicion-normal);
   }
-  
+
   .evangelista-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
   }
-  
+
   .evangelista-card h3 {
     color: var(--dorado-solar);
     margin-bottom: var(--espacio-md);
   }
-  
+
   .evangelista-card .btn {
     margin-top: var(--espacio-md);
   }
-  
+
   .vision-section {
     background-color: var(--fondo-secundario);
     padding: var(--espacio-xxl) 0;
     margin-top: 0;
   }
-  
+
   .vision-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--espacio-xl);
     margin-top: var(--espacio-xl);
   }
-  
+
   .vision-item {
     text-align: center;
   }
-  
+
   .vision-icon {
     font-size: 3rem;
     display: block;
     margin-bottom: var(--espacio-md);
   }
-  
+
   .cta-section {
     padding: var(--espacio-xxl) 0;
   }
-  
+
   .cta-actions {
     display: flex;
     gap: var(--espacio-md);
     justify-content: center;
   }
-  
+
   @media (max-width: 768px) {
     .hero-title {
       font-size: 2.5rem;
     }
-    
+
     .hero-subtitle {
       font-size: 1.25rem;
     }
-    
+
     .hero-actions,
     .cta-actions {
       flex-direction: column;

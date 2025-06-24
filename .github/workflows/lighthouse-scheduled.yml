@@ -22,21 +22,21 @@ jobs:
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
-      
+
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
+
       - name: Instalar Lighthouse CI
         run: npm install -g @lhci/cli
-      
+
       - name: Ejecutar Lighthouse
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           URL="${{ github.event.inputs.url || 'https://madfam-io.github.io/testigos-solarpunk/' }}"
-          
+
           # Configurar Lighthouse
           cat > lighthouserc.js << EOF
           module.exports = {
@@ -77,16 +77,16 @@ jobs:
             },
           };
           EOF
-          
+
           # Ejecutar Lighthouse
           lhci autorun || LIGHTHOUSE_FAILED=1
-          
+
           # Generar reporte
           echo "# 🚦 Reporte de Performance - Lighthouse" > performance-report.md
           echo "**URL analizada:** $URL" >> performance-report.md
           echo "**Fecha:** $(date)" >> performance-report.md
           echo "" >> performance-report.md
-          
+
           # Extraer métricas del último resultado
           if [ -f ".lighthouseci/lhr-*.json" ]; then
             LATEST_REPORT=$(ls -t .lighthouseci/lhr-*.json | head -1)
@@ -108,14 +108,14 @@ jobs:
               echo "- **TBT:** $(jq '.audits["total-blocking-time"].numericValue' $LATEST_REPORT)ms" >> performance-report.md
             fi
           fi
-          
+
           # Verificar si falló
           if [ "$LIGHTHOUSE_FAILED" = "1" ]; then
             echo "" >> performance-report.md
             echo "⚠️ **Algunas métricas no cumplieron con los objetivos**" >> performance-report.md
             exit 1
           fi
-      
+
       - name: Subir reportes
         if: always()
         uses: actions/upload-artifact@v3
@@ -125,7 +125,7 @@ jobs:
             .lighthouseci/
             performance-report.md
             lighthouserc.js
-      
+
       - name: Crear issue si hay degradación
         if: failure()
         uses: actions/github-script@v6
@@ -133,13 +133,13 @@ jobs:
           script: |
             const fs = require('fs');
             let report = 'No se pudo generar el reporte';
-            
+
             try {
               report = fs.readFileSync('performance-report.md', 'utf8');
             } catch (e) {
               console.error('Error leyendo reporte:', e);
             }
-            
+
             // Buscar issues existentes
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
@@ -147,10 +147,10 @@ jobs:
               labels: 'performance,automated',
               state: 'open'
             });
-            
+
             const title = '🚦 Degradación de performance detectada';
             const body = `Se detectó una degradación en las métricas de performance.\n\n${report}\n\n[Ver workflow](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`;
-            
+
             if (issues.data.length === 0) {
               // Crear nuevo issue
               await github.rest.issues.create({
@@ -169,7 +169,7 @@ jobs:
                 body: `## Nueva verificación de performance\n\n${body}`
               });
             }
-      
+
       - name: Notificar éxito
         if: success()
         run: |

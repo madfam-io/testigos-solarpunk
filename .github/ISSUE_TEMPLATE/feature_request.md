@@ -24,15 +24,15 @@ assignees: ''
 - [ ] Mejora el rendimiento
 - [ ] Facilita el mantenimiento
 - [ ] Añade valor al contenido
-- [ ] Otro: 
+- [ ] Otro:
 
 ## 🎯 Criterios de aceptación
 
 <!-- ¿Cómo sabremos que esta característica está completa? -->
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## 🖼️ Mockups o ejemplos
 
@@ -51,4 +51,5 @@ assignees: ''
 <!-- ¿Cómo esta característica apoya los valores de sostenibilidad y comunidad del proyecto? -->
 
 ---
-*¡Gracias por contribuir al evangelio verde! ¡El sol brilla para todos! ☀️🌱*
+
+_¡Gracias por contribuir al evangelio verde! ¡El sol brilla para todos! ☀️🌱_

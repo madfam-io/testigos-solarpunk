@@ -17,23 +17,27 @@
 ## 📋 Checklist
 
 ### General
+
 - [ ] Mi código sigue las convenciones del proyecto
 - [ ] He ejecutado `npm run check:all` y pasa sin errores
 - [ ] He actualizado la documentación si es necesario
 - [ ] Mis cambios no rompen funcionalidad existente
 
 ### Calidad
+
 - [ ] El código está formateado con Prettier
 - [ ] No hay errores de ESLint
 - [ ] Los tests pasan (si aplica)
 - [ ] He verificado en diferentes navegadores
 
 ### Performance
+
 - [ ] No he añadido dependencias innecesarias
 - [ ] Las imágenes están optimizadas
 - [ ] El bundle size no ha aumentado significativamente
 
 ### Contenido (si aplica)
+
 - [ ] El contenido sigue la guía de estilo evangelista paródica
 - [ ] Los archivos YAML son válidos
 - [ ] Las imágenes tienen texto alternativo
@@ -45,6 +49,7 @@
 ## 🔗 Issues relacionados
 
 <!-- Menciona los issues que este PR resuelve -->
+
 Closes #
 
 ## 💬 Notas adicionales

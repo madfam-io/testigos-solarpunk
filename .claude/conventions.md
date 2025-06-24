@@ -87,6 +87,8 @@ function getCharacterClass(role: string) {
 }
 ---
 
+<!-- prettier-ignore-start -->
+```astro
 <!-- 6. Template -->
 <article class={`character ${getCharacterClass(character.role)}`}>
   <h2>{character.name}</h2>
@@ -96,6 +98,8 @@ function getCharacterClass(role: string) {
     </div>
   )}
 </article>
+```
+<!-- prettier-ignore-end -->
 
 <style>
   /* 7. Estilos scopeados */

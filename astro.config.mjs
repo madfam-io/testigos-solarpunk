@@ -7,7 +7,7 @@ import compress from 'astro-compress';
 export default defineConfig({
   site: 'https://madfam-io.github.io',
   base: '/testigos-solarpunk',
-  
+
   integrations: [
     // Generar sitemap automático
     sitemap({
@@ -22,7 +22,7 @@ export default defineConfig({
         },
       },
     }),
-    
+
     // Compresión de assets
     compress({
       CSS: true,
@@ -42,14 +42,14 @@ export default defineConfig({
       SVG: true,
     }),
   ],
-  
+
   build: {
     // Optimizar nombres de archivos
     assets: '_assets',
     // Inline estilos críticos automáticamente
     inlineStylesheets: 'auto',
   },
-  
+
   image: {
     // Configurar servicio de optimización de imágenes
     service: {
@@ -59,7 +59,7 @@ export default defineConfig({
       },
     },
   },
-  
+
   vite: {
     build: {
       // Mejorar code splitting
@@ -72,12 +72,9 @@ export default defineConfig({
           entryFileNames: '_assets/[name].[hash].js',
           manualChunks: {
             // Separar vendor code
-            'vendor': ['astro:content'],
+            vendor: ['astro:content'],
             // Agrupar utilidades
-            'utils': [
-              './src/lib/utils',
-              './src/lib/constants',
-            ],
+            utils: ['./src/lib/utils', './src/lib/constants'],
           },
         },
       },
@@ -91,12 +88,12 @@ export default defineConfig({
       external: ['@resvg/resvg-js'],
     },
   },
-  
+
   // Experimental: Optimizaciones adicionales
   experimental: {
     // Options available in Astro 5
   },
-  
+
   // Para dominio personalizado:
   // site: 'https://universo.testigosdesolarpunk.mx',
   // base: '/',

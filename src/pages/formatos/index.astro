@@ -2,14 +2,20 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import QuoteBlock from '../../components/QuoteBlock.astro';
 
-const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
+const basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
 ---
 
 <BaseLayout title="Formatos de Contenido">
   <section class="hero-section gradient-evangelista">
     <div class="container">
       <div class="float-animation">
-        <i class="fas fa-film icon-glow" style="font-size: 4rem; color: var(--blanco-divino); margin-bottom: 1rem; display: block;"></i>
+        <i
+          class="fas fa-film icon-glow"
+          style="font-size: 4rem; color: var(--blanco-divino); margin-bottom: 1rem; display: block;"
+        ></i>
       </div>
       <h1 class="hero-title evangelista-title">Formatos de Evangelización</h1>
       <p class="hero-subtitle">
@@ -38,8 +44,8 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
             <li><i class="fas fa-camera"></i> Estilo mockumentary</li>
             <li><i class="fas fa-laugh"></i> Humor absurdo ecológico</li>
           </ul>
-          <QuoteBlock 
-            quote="¿Ha escuchado la buena noticia del compostaje comunitario?" 
+          <QuoteBlock
+            quote="¿Ha escuchado la buena noticia del compostaje comunitario?"
             author="Hermana Panelia"
             variant="solar"
           />
@@ -48,7 +54,8 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
         <!-- Minidocumental -->
         <div class="format-card card-evangelista halo-effect">
           <div class="format-icon pulse-glow">
-            <i class="fas fa-play-circle" style="color: var(--dorado-solar);"></i>
+            <i class="fas fa-play-circle" style="color: var(--dorado-solar);"
+            ></i>
           </div>
           <h3>Los Archivos Solares</h3>
           <div class="format-platforms">
@@ -57,7 +64,9 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
           </div>
           <ul class="format-features">
             <li><i class="fas fa-clock"></i> 8-10 minutos de duración</li>
-            <li><i class="fas fa-file-archive"></i> Documentos "secretos" del movimiento</li>
+            <li>
+              <i class="fas fa-file-archive"></i> Documentos "secretos" del movimiento
+            </li>
             <li><i class="fas fa-users"></i> Testimonios de conversos</li>
             <li><i class="fas fa-eye"></i> Apariciones del Profeta del Sol</li>
           </ul>
@@ -70,7 +79,8 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
         <!-- Folletería Digital -->
         <div class="format-card card-evangelista halo-effect">
           <div class="format-icon pulse-glow">
-            <i class="fas fa-newspaper" style="color: var(--marron-tierra);"></i>
+            <i class="fas fa-newspaper" style="color: var(--marron-tierra);"
+            ></i>
           </div>
           <h3>Folletería Sagrada Digital</h3>
           <div class="format-platforms">
@@ -86,8 +96,8 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
               <li>"Del Compost a la Vida Eterna"</li>
             </ul>
           </div>
-          <QuoteBlock 
-            quote="¡El día del colapso vendrá como ladrón en la noche... pero usted puede tener su propia bioestufa!" 
+          <QuoteBlock
+            quote="¡El día del colapso vendrá como ladrón en la noche... pero usted puede tener su propia bioestufa!"
             variant="earth"
           />
         </div>
@@ -95,7 +105,8 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
         <!-- Podcast -->
         <div class="format-card card-evangelista halo-effect">
           <div class="format-icon pulse-glow">
-            <i class="fas fa-podcast" style="color: var(--purpura-mistico);"></i>
+            <i class="fas fa-podcast" style="color: var(--purpura-mistico);"
+            ></i>
           </div>
           <h3>"Voces del Sol" - Podcast</h3>
           <div class="format-platforms">
@@ -105,13 +116,19 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
           <div class="format-content">
             <h4>Segmentos regulares:</h4>
             <ul class="podcast-segments">
-              <li><i class="fas fa-book"></i> Lectura de textos sagrados solarpunk</li>
-              <li><i class="fas fa-microphone-alt"></i> Testimonios de conversión</li>
+              <li>
+                <i class="fas fa-book"></i> Lectura de textos sagrados solarpunk
+              </li>
+              <li>
+                <i class="fas fa-microphone-alt"></i> Testimonios de conversión
+              </li>
               <li><i class="fas fa-flask"></i> Recetas de kombucha comunal</li>
               <li><i class="fas fa-seedling"></i> Sermones del huerto</li>
             </ul>
           </div>
-          <p class="format-note">Transmisiones especiales durante eclipses y solsticios</p>
+          <p class="format-note">
+            Transmisiones especiales durante eclipses y solsticios
+          </p>
         </div>
 
         <!-- Merchandising -->
@@ -147,7 +164,8 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
         <!-- Videos TikTok/Reels -->
         <div class="format-card card-evangelista halo-effect">
           <div class="format-icon pulse-glow">
-            <i class="fas fa-mobile-alt" style="color: var(--dorado-solar);"></i>
+            <i class="fas fa-mobile-alt" style="color: var(--dorado-solar);"
+            ></i>
           </div>
           <h3>Micro-Sermones Virales</h3>
           <div class="format-platforms">
@@ -170,8 +188,10 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 
   <section class="distribution-section">
     <div class="container">
-      <h2 class="text-center evangelista-title">Estrategia de Distribución Divina</h2>
-      
+      <h2 class="text-center evangelista-title">
+        Estrategia de Distribución Divina
+      </h2>
+
       <div class="timeline-container">
         <div class="timeline-item">
           <div class="timeline-marker pulse-glow">1</div>
@@ -181,7 +201,7 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
             <span class="timeline-date">Mes 1</span>
           </div>
         </div>
-        
+
         <div class="timeline-item">
           <div class="timeline-marker pulse-glow">2</div>
           <div class="timeline-content">
@@ -190,7 +210,7 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
             <span class="timeline-date">Mes 2-3</span>
           </div>
         </div>
-        
+
         <div class="timeline-item">
           <div class="timeline-marker pulse-glow">3</div>
           <div class="timeline-content">
@@ -199,7 +219,7 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
             <span class="timeline-date">Mes 4-5</span>
           </div>
         </div>
-        
+
         <div class="timeline-item">
           <div class="timeline-marker pulse-glow">4</div>
           <div class="timeline-content">
@@ -215,11 +235,19 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
   <section class="cta-section gradient-evangelista">
     <div class="container text-center">
       <div class="float-animation">
-        <i class="fas fa-broadcast-tower" style="font-size: 3rem; color: var(--blanco-divino); margin-bottom: 1rem; display: block;"></i>
+        <i
+          class="fas fa-broadcast-tower"
+          style="font-size: 3rem; color: var(--blanco-divino); margin-bottom: 1rem; display: block;"
+        ></i>
       </div>
-      <h2 style="color: var(--blanco-divino);">¿Listo para Difundir la Palabra Solar?</h2>
-      <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.25rem; margin-bottom: 2rem;">
-        Únete al movimiento de creadores que están evangelizando el futuro sostenible
+      <h2 style="color: var(--blanco-divino);">
+        ¿Listo para Difundir la Palabra Solar?
+      </h2>
+      <p
+        style="color: rgba(255, 255, 255, 0.9); font-size: 1.25rem; margin-bottom: 2rem;"
+      >
+        Únete al movimiento de creadores que están evangelizando el futuro
+        sostenible
       </p>
       <div class="cta-buttons">
         <a href={`${basePath}/recursos`} class="btn btn-evangelista">
@@ -299,7 +327,11 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     justify-content: center;
     font-size: 2.5rem;
     margin: 0 auto var(--espacio-lg);
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(0, 255, 127, 0.2));
+    background: linear-gradient(
+      135deg,
+      rgba(255, 215, 0, 0.2),
+      rgba(0, 255, 127, 0.2)
+    );
   }
 
   .format-card h3 {
@@ -326,27 +358,27 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
   }
 
   .platform-tag.tiktok {
-    background: #FF0050;
+    background: #ff0050;
     color: white;
   }
 
   .platform-tag.instagram {
-    background: #E4405F;
+    background: #e4405f;
     color: white;
   }
 
   .platform-tag.youtube {
-    background: #FF0000;
+    background: #ff0000;
     color: white;
   }
 
   .platform-tag.vimeo {
-    background: #1AB7EA;
+    background: #1ab7ea;
     color: white;
   }
 
   .platform-tag.spotify {
-    background: #1DB954;
+    background: #1db954;
     color: white;
   }
 

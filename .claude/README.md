@@ -5,6 +5,7 @@
 Este es el sitio web del universo narrativo "Testigos de Solarpunk", una iniciativa de MADFAM que documenta personajes, guiones y el mundo de una narrativa solarpunk evangelista paródica para creadores de contenido, actores y patrocinadores.
 
 ### Filosofía del Proyecto
+
 - **Tema**: Parodia evangelista mezclada con valores solarpunk
 - **Tono**: Humorístico pero respetuoso, esperanzador y comunitario
 - **Propósito**: Crear contenido viral que promueva la sostenibilidad
@@ -77,12 +78,14 @@ npm run lint:fix     # Corregir problemas de linting
 ## Características Especiales
 
 ### Elementos Evangelistas Paródicos
+
 - **Personajes**: Tienen títulos como "Hermana/Hermano"
 - **Citas**: Parodias de textos bíblicos con temas solarpunk
 - **Sermones**: Mensajes ecológicos en formato predicación
 - **Milagros Verdes**: Transformaciones ecológicas presentadas como milagros
 
 ### Integración MADFAM
+
 - **Colores**: Amarillo (#FFC107), Verde (#4CAF50), Púrpura (#663399)
 - **Tipografía**: Poppins (principal), Space Mono (código)
 - **Valores**: Innovación, Sostenibilidad, Comunidad

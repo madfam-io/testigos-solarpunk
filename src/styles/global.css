@@ -13,36 +13,36 @@
   --purpura-creativo: var(--madfam-purple);
   --azul-tecnologico: var(--madfam-blue);
   --negro-profundo: var(--madfam-black);
-  
+
   --bio-luminiscente: var(--sp-bio-glow);
   --cielo-esperanza: var(--sp-sky-hope);
   --tierra-cafe: var(--sp-earth);
   --agua-clara: var(--sp-water);
   --naranja-comunidad: var(--sp-community);
-  
-  --verde-brillante: #00FF7F;
+
+  --verde-brillante: #00ff7f;
   --dorado-solar: var(--sp-solar-gold);
-  --marron-tierra: #D2691E;
-  --blanco-divino: #FFFAFA;
-  --purpura-mistico: #9370DB;
-  
+  --marron-tierra: #d2691e;
+  --blanco-divino: #fffafa;
+  --purpura-mistico: #9370db;
+
   --fondo-primario: var(--color-background);
   --fondo-secundario: var(--color-surface-variant);
   --texto-primario: var(--color-text-primary);
   --texto-secundario: var(--color-text-secondary);
   --borde-claro: var(--color-border);
   --sombra-suave: var(--shadow-sm);
-  
+
   --espacio-xs: var(--space-xs);
   --espacio-sm: var(--space-sm);
   --espacio-md: var(--space-md);
   --espacio-lg: var(--space-lg);
   --espacio-xl: var(--space-xl);
   --espacio-xxl: var(--space-2xl);
-  
+
   --fuente-principal: var(--font-primary);
   --fuente-mono: var(--font-mono);
-  
+
   --transicion-rapida: var(--transition-fast);
   --transicion-normal: var(--transition-base);
 }
@@ -50,11 +50,11 @@
 /* Modo Oscuro */
 @media (prefers-color-scheme: dark) {
   :root {
-    --fondo-primario: #1A1A1A;
-    --fondo-secundario: #2A2A2A;
-    --texto-primario: #F5F5F5;
-    --texto-secundario: #B0B0B0;
-    --borde-claro: #3A3A3A;
+    --fondo-primario: #1a1a1a;
+    --fondo-secundario: #2a2a2a;
+    --texto-primario: #f5f5f5;
+    --texto-secundario: #b0b0b0;
+    --borde-claro: #3a3a3a;
     --sombra-suave: rgba(0, 0, 0, 0.3);
   }
 }
@@ -92,7 +92,12 @@ a:hover {
 }
 
 /* Encabezados */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2;
   margin-bottom: var(--espacio-md);
   font-weight: 600;
@@ -144,20 +149,44 @@ img {
   color: var(--texto-secundario);
 }
 
-.mt-1 { margin-top: var(--espacio-sm); }
-.mt-2 { margin-top: var(--espacio-md); }
-.mt-3 { margin-top: var(--espacio-lg); }
-.mt-4 { margin-top: var(--espacio-xl); }
+.mt-1 {
+  margin-top: var(--espacio-sm);
+}
+.mt-2 {
+  margin-top: var(--espacio-md);
+}
+.mt-3 {
+  margin-top: var(--espacio-lg);
+}
+.mt-4 {
+  margin-top: var(--espacio-xl);
+}
 
-.mb-1 { margin-bottom: var(--espacio-sm); }
-.mb-2 { margin-bottom: var(--espacio-md); }
-.mb-3 { margin-bottom: var(--espacio-lg); }
-.mb-4 { margin-bottom: var(--espacio-xl); }
+.mb-1 {
+  margin-bottom: var(--espacio-sm);
+}
+.mb-2 {
+  margin-bottom: var(--espacio-md);
+}
+.mb-3 {
+  margin-bottom: var(--espacio-lg);
+}
+.mb-4 {
+  margin-bottom: var(--espacio-xl);
+}
 
-.p-1 { padding: var(--espacio-sm); }
-.p-2 { padding: var(--espacio-md); }
-.p-3 { padding: var(--espacio-lg); }
-.p-4 { padding: var(--espacio-xl); }
+.p-1 {
+  padding: var(--espacio-sm);
+}
+.p-2 {
+  padding: var(--espacio-md);
+}
+.p-3 {
+  padding: var(--espacio-lg);
+}
+.p-4 {
+  padding: var(--espacio-xl);
+}
 
 /* Grid System */
 .grid {
@@ -196,7 +225,7 @@ img {
 }
 
 .btn-primary:hover {
-  background-color: #388E3C;
+  background-color: #388e3c;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px var(--sombra-suave);
 }
@@ -207,7 +236,7 @@ img {
 }
 
 .btn-secondary:hover {
-  background-color: #1976D2;
+  background-color: #1976d2;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px var(--sombra-suave);
 }
@@ -218,7 +247,9 @@ img {
   border-radius: 8px;
   padding: var(--espacio-lg);
   box-shadow: 0 2px 4px var(--sombra-suave);
-  transition: transform var(--transicion-normal), box-shadow var(--transicion-normal);
+  transition:
+    transform var(--transicion-normal),
+    box-shadow var(--transicion-normal);
 }
 
 .card:hover {
@@ -276,14 +307,20 @@ footer a {
 
 /* Responsive */
 @media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
-  
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+
   .container {
     padding: 0 var(--espacio-sm);
   }
-  
+
   nav ul {
     justify-content: center;
   }
@@ -302,18 +339,22 @@ footer a {
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4),
-                0 0 40px rgba(255, 215, 0, 0.2);
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(255, 215, 0, 0.4),
+      0 0 40px rgba(255, 215, 0, 0.2);
   }
   50% {
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6),
-                0 0 60px rgba(255, 215, 0, 0.3);
+    box-shadow:
+      0 0 30px rgba(255, 215, 0, 0.6),
+      0 0 60px rgba(255, 215, 0, 0.3);
   }
 }
 
 @keyframes floatAnimation {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -352,11 +393,19 @@ footer a {
 }
 
 .gradient-solarpunk {
-  background: linear-gradient(135deg, var(--verde-sostenible) 0%, var(--amarillo-solar) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--verde-sostenible) 0%,
+    var(--amarillo-solar) 100%
+  );
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--verde-sostenible) 0%, var(--azul-tecnologico) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--verde-sostenible) 0%,
+    var(--azul-tecnologico) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -364,11 +413,20 @@ footer a {
 
 /* Estilos Evangelistas */
 .gradient-evangelista {
-  background: linear-gradient(135deg, var(--dorado-solar) 0%, var(--verde-brillante) 50%, var(--purpura-mistico) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--dorado-solar) 0%,
+    var(--verde-brillante) 50%,
+    var(--purpura-mistico) 100%
+  );
 }
 
 .card-evangelista {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 255, 127, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1) 0%,
+    rgba(0, 255, 127, 0.1) 100%
+  );
   border: 2px solid var(--dorado-solar);
   position: relative;
   overflow: hidden;
@@ -381,7 +439,11 @@ footer a {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.1) 0%,
+    transparent 70%
+  );
   animation: rotateGlow 15s linear infinite;
 }
 
@@ -406,7 +468,11 @@ footer a {
 }
 
 .evangelista-title {
-  background: linear-gradient(45deg, var(--dorado-solar), var(--verde-brillante));
+  background: linear-gradient(
+    45deg,
+    var(--dorado-solar),
+    var(--verde-brillante)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -425,7 +491,11 @@ footer a {
   transform: translate(-50%, -50%);
   width: 120%;
   height: 120%;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 60%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.2) 0%,
+    transparent 60%
+  );
   z-index: -1;
   animation: pulseGlow 3s ease-in-out infinite;
 }

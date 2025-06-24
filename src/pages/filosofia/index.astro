@@ -2,7 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import QuoteBlock from '../../components/QuoteBlock.astro';
 
-const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
+const basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
 ---
 
 <BaseLayout title="Filosofía del Proyecto">
@@ -10,12 +13,16 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     <div class="container">
       <div class="hero-content">
         <div class="float-animation">
-          <i class="fas fa-sun icon-glow" style="font-size: 5rem; color: var(--dorado-solar); margin-bottom: 2rem; display: block;"></i>
+          <i
+            class="fas fa-sun icon-glow"
+            style="font-size: 5rem; color: var(--dorado-solar); margin-bottom: 2rem; display: block;"
+          ></i>
         </div>
         <h1 class="hero-title evangelista-title">La Visión Evangelizadora</h1>
         <p class="hero-subtitle">
-          Testigos de Solar Punk es una parodia que imita el estilo de los Testigos de Jehová,
-          pero predicando la salvación ecotecnológica y el futuro sostenible
+          Testigos de Solar Punk es una parodia que imita el estilo de los
+          Testigos de Jehová, pero predicando la salvación ecotecnológica y el
+          futuro sostenible
         </p>
       </div>
     </div>
@@ -26,9 +33,9 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
       <div class="concept-card card-evangelista">
         <h2 class="text-center mb-4">Concepto Central</h2>
         <p class="concept-text">
-          Los <strong>Testigos de Solar Punk</strong> anuncian la inminente crisis climática 
-          y ofrecen la salvación a través de la tecnología verde, la vida comunitaria y las 
-          prácticas sustentables. Es una sátira que combina:
+          Los <strong>Testigos de Solar Punk</strong> anuncian la inminente crisis
+          climática y ofrecen la salvación a través de la tecnología verde, la vida
+          comunitaria y las prácticas sustentables. Es una sátira que combina:
         </p>
         <div class="concept-grid">
           <div class="concept-item">
@@ -59,7 +66,7 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
   <section class="objectives-section">
     <div class="container">
       <h2 class="section-title">Objetivos del Proyecto</h2>
-      
+
       <div class="objectives-grid">
         <div class="objective-card halo-effect">
           <div class="objective-icon pulse-glow">
@@ -67,8 +74,9 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
           </div>
           <h3>Satirizar</h3>
           <p>
-            Burlarnos con cariño de la desesperación apocalíptica y las soluciones 
-            milagrosas del mercado, mientras proponemos alternativas reales
+            Burlarnos con cariño de la desesperación apocalíptica y las
+            soluciones milagrosas del mercado, mientras proponemos alternativas
+            reales
           </p>
         </div>
 
@@ -78,8 +86,8 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
           </div>
           <h3>Difundir</h3>
           <p>
-            Compartir conocimientos sobre el movimiento solarpunk de forma ligera, 
-            viral y accesible para todas las audiencias
+            Compartir conocimientos sobre el movimiento solarpunk de forma
+            ligera, viral y accesible para todas las audiencias
           </p>
         </div>
 
@@ -89,8 +97,8 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
           </div>
           <h3>Fomentar</h3>
           <p>
-            Crear comunidad alrededor de la cultura maker, el pensamiento crítico 
-            ecológico y las soluciones colectivas
+            Crear comunidad alrededor de la cultura maker, el pensamiento
+            crítico ecológico y las soluciones colectivas
           </p>
         </div>
 
@@ -100,8 +108,8 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
           </div>
           <h3>Viralizar</h3>
           <p>
-            Propagar una nueva filosofía basada en la fe en lo colectivo, 
-            lo sostenible y lo bello como respuesta al caos
+            Propagar una nueva filosofía basada en la fe en lo colectivo, lo
+            sostenible y lo bello como respuesta al caos
           </p>
         </div>
       </div>
@@ -110,10 +118,13 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 
   <section class="commandments-section gradient-evangelista">
     <div class="container">
-      <h2 class="text-center" style="color: var(--blanco-divino); margin-bottom: 3rem;">
+      <h2
+        class="text-center"
+        style="color: var(--blanco-divino); margin-bottom: 3rem;"
+      >
         Los Mandamientos Solarpunk
       </h2>
-      
+
       <div class="commandments-grid">
         <div class="commandment-card">
           <span class="commandment-number">I</span>
@@ -162,28 +173,28 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
   <section class="quotes-section">
     <div class="container">
       <h2 class="section-title">Palabras de los Profetas</h2>
-      
+
       <div class="quotes-carousel">
-        <QuoteBlock 
-          quote="El carbono caerá, y del sol brotará la vida eterna. ¡Prepárense, hermanos, para la cosecha solar!" 
+        <QuoteBlock
+          quote="El carbono caerá, y del sol brotará la vida eterna. ¡Prepárense, hermanos, para la cosecha solar!"
           author="El Profeta del Sol"
           variant="mystical"
         />
-        
-        <QuoteBlock 
-          quote="¿Ha escuchado la buena noticia del compostaje comunitario? Es el camino hacia la salvación del suelo" 
+
+        <QuoteBlock
+          quote="¿Ha escuchado la buena noticia del compostaje comunitario? Es el camino hacia la salvación del suelo"
           author="Hermana Panelia"
           variant="solar"
         />
-        
-        <QuoteBlock 
-          quote="La nube más confiable es la que produce lluvia. El WiFi del futuro crece en los árboles" 
+
+        <QuoteBlock
+          quote="La nube más confiable es la que produce lluvia. El WiFi del futuro crece en los árboles"
           author="Hermano Compostino"
           variant="earth"
         />
-        
-        <QuoteBlock 
-          quote="Donde dos o tres se reúnan a compostar, allí estaré yo. Pedid y se os dará... un panel solar" 
+
+        <QuoteBlock
+          quote="Donde dos o tres se reúnan a compostar, allí estaré yo. Pedid y se os dará... un panel solar"
           author="El Profeta del Sol"
           variant="mystical"
         />
@@ -194,7 +205,7 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
   <section class="roadmap-section">
     <div class="container">
       <h2 class="section-title">Hoja de Ruta de la Evangelización</h2>
-      
+
       <div class="roadmap-container">
         <div class="roadmap-phase">
           <div class="phase-header">
@@ -258,7 +269,7 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
   <section class="references-section">
     <div class="container">
       <h2 class="section-title">Referencias Creativas</h2>
-      
+
       <div class="references-grid">
         <div class="reference-card">
           <i class="fas fa-mask reference-icon"></i>
@@ -298,12 +309,16 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
     <div class="container text-center">
       <div class="cta-content card-evangelista halo-effect">
         <div class="float-animation">
-          <i class="fas fa-hands-helping" style="font-size: 4rem; color: var(--dorado-solar); margin-bottom: 1rem; display: block;"></i>
+          <i
+            class="fas fa-hands-helping"
+            style="font-size: 4rem; color: var(--dorado-solar); margin-bottom: 1rem; display: block;"
+          ></i>
         </div>
         <h2 class="evangelista-title">¿Listo para Unirte a la Misión?</h2>
         <p class="cta-text">
-          El futuro sostenible necesita evangelistas. Únete al movimiento que está 
-          cambiando el mundo una puerta, un panel solar y una composta a la vez.
+          El futuro sostenible necesita evangelistas. Únete al movimiento que
+          está cambiando el mundo una puerta, un panel solar y una composta a la
+          vez.
         </p>
         <div class="cta-buttons">
           <a href={`${basePath}/recursos`} class="btn btn-primary">
@@ -321,7 +336,11 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 
 <style>
   .hero-section {
-    background: linear-gradient(135deg, var(--fondo-secundario) 0%, rgba(255, 215, 0, 0.1) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--fondo-secundario) 0%,
+      rgba(255, 215, 0, 0.1) 100%
+    );
     padding: var(--espacio-xxl) 0;
     text-align: center;
     position: relative;
@@ -534,7 +553,11 @@ const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
   }
 
   .phase-header {
-    background: linear-gradient(135deg, var(--verde-sostenible), var(--amarillo-solar));
+    background: linear-gradient(
+      135deg,
+      var(--verde-sostenible),
+      var(--amarillo-solar)
+    );
     padding: var(--espacio-lg);
     color: white;
     text-align: center;

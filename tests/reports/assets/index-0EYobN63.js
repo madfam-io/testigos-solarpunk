@@ -31908,32 +31908,30 @@ function Idt({ center: t, config: e, graph: r, selection: o }) {
 }
 function Fdt({ config: t, center: e, graph: r, selection: o }) {
   o == null ||
-    o
-      .select('.link__label')
-      .attr('transform', (s) =>
-        s.source.x === void 0 ||
-        s.source.y === void 0 ||
-        s.target.x === void 0 ||
-        s.target.y === void 0
-          ? 'translate(0, 0)'
-          : s.source.id === s.target.id
-            ? es.reflexive.labelTransform({
+    o.select('.link__label').attr('transform', (s) =>
+      s.source.x === void 0 ||
+      s.source.y === void 0 ||
+      s.target.x === void 0 ||
+      s.target.y === void 0
+        ? 'translate(0, 0)'
+        : s.source.id === s.target.id
+          ? es.reflexive.labelTransform({
+              config: t,
+              node: s.source,
+              center: e,
+            })
+          : Bb(r, s.source, s.target)
+            ? es.arc.labelTransform({
                 config: t,
-                node: s.source,
-                center: e,
+                source: s.source,
+                target: s.target,
               })
-            : Bb(r, s.source, s.target)
-              ? es.arc.labelTransform({
-                  config: t,
-                  source: s.source,
-                  target: s.target,
-                })
-              : es.line.labelTransform({
-                  config: t,
-                  source: s.source,
-                  target: s.target,
-                })
-      );
+            : es.line.labelTransform({
+                config: t,
+                source: s.source,
+                target: s.target,
+              })
+    );
 }
 function Bb(t, e, r) {
   return (
