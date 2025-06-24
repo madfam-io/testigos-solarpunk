@@ -219,15 +219,22 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
   <body>
     <nav>
       <div class="container">
-        <ul>
-          <li>
-            <a
-              href={`${basePath}/`}
-              class:list={currentPath === '/' ? 'active' : ''}
-            >
-              <strong class="text-gradient">Testigos de Solarpunk</strong>
-            </a>
-          </li>
+        <div class="nav-brand">
+          <a
+            href={`${basePath}/`}
+            class:list={currentPath === '/' ? 'active' : ''}
+          >
+            <strong class="text-gradient">Testigos de Solarpunk</strong>
+          </a>
+        </div>
+
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu">
           <li>
             <a
               href={`${basePath}/personajes`}
@@ -292,6 +299,41 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
     <main>
       <slot />
     </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileMenuToggle && navMenu) {
+          mobileMenuToggle.addEventListener('click', function () {
+            mobileMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+          });
+
+          // Close menu when clicking on a link
+          const navLinks = navMenu.querySelectorAll('a');
+          navLinks.forEach((link) => {
+            link.addEventListener('click', function () {
+              mobileMenuToggle.classList.remove('active');
+              navMenu.classList.remove('active');
+            });
+          });
+
+          // Close menu when clicking outside
+          document.addEventListener('click', function (event) {
+            if (
+              event.target &&
+              'closest' in event.target &&
+              !(event.target as Element).closest('nav')
+            ) {
+              mobileMenuToggle.classList.remove('active');
+              navMenu.classList.remove('active');
+            }
+          });
+        }
+      });
+    </script>
 
     <footer>
       <div class="container">
