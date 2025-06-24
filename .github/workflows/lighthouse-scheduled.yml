@@ -118,7 +118,7 @@ jobs:
 
       - name: Subir reportes
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lighthouse-reports
           path: |
@@ -128,7 +128,7 @@ jobs:
 
       - name: Crear issue si hay degradación
         if: failure()
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
