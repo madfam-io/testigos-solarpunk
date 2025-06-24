@@ -8,6 +8,7 @@ export interface Props {
 }
 
 const { episodio, titulo, plataforma, duracion, contenido } = Astro.props;
+const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 
 const platformColors = {
   TikTok: '#FF0050',
@@ -42,7 +43,7 @@ const platformIcons = {
     <button class="btn btn-secondary" onclick="window.print()">
       📄 Imprimir
     </button>
-    <a href={`/guiones/${episodio.toLowerCase()}.pdf`} class="btn btn-secondary" download>
+    <a href={`${basePath}/guiones/${episodio.toLowerCase()}.pdf`} class="btn btn-secondary" download>
       ⬇️ Descargar PDF
     </a>
   </footer>

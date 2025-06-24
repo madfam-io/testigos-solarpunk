@@ -4,6 +4,7 @@ import CharacterCard from '../../components/CharacterCard.astro';
 import AnimatedCharacterCard from '../../components/AnimatedCharacterCard.astro';
 import { getCollection } from 'astro:content';
 
+const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 const characters = await getCollection('characters');
 const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'];
 ---
@@ -66,7 +67,7 @@ const evangelistas = ['hermana-panelia', 'hermano-compostino', 'profeta-del-sol'
       <p class="text-muted mb-3">
         Explora los guiones para ver a estos personajes en acción
       </p>
-      <a href="/guiones" class="btn btn-primary">Ver Guiones</a>
+      <a href={`${basePath}/guiones`} class="btn btn-primary">Ver Guiones</a>
     </div>
   </section>
 </BaseLayout>

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
+const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 const scripts = await getCollection('scripts');
 const scriptsByPlatform = {
   TikTok: scripts.filter(s => s.data.plataforma === 'TikTok'),
@@ -76,7 +77,7 @@ const platformColors = {
                     <span class="tag">#{tema}</span>
                   ))}
                 </div>
-                <a href={`/guiones/${script.id}`} class="btn btn-primary">
+                <a href={`${basePath}/guiones/${script.id}`} class="btn btn-primary">
                   Leer Guión
                 </a>
               </article>
@@ -94,13 +95,13 @@ const platformColors = {
         Descarga plantillas y guías para crear tus propios episodios
       </p>
       <div class="download-buttons">
-        <a href="/downloads/plantilla-tiktok.pdf" class="btn btn-secondary" download>
+        <a href={`${basePath}/downloads/plantilla-tiktok.pdf`} class="btn btn-secondary" download>
           📄 Plantilla TikTok
         </a>
-        <a href="/downloads/plantilla-instagram.pdf" class="btn btn-secondary" download>
+        <a href={`${basePath}/downloads/plantilla-instagram.pdf`} class="btn btn-secondary" download>
           📄 Plantilla Instagram
         </a>
-        <a href="/downloads/guia-escritura.pdf" class="btn btn-secondary" download>
+        <a href={`${basePath}/downloads/guia-escritura.pdf`} class="btn btn-secondary" download>
           📚 Guía de Escritura
         </a>
       </div>

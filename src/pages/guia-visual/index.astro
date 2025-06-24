@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 ---
 
 <BaseLayout title="Guía de Estilo Visual">
@@ -309,22 +311,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         Descarga los assets y guías para mantener la coherencia visual
       </p>
       <div class="download-grid">
-        <a href="/downloads/paleta-colores.ase" class="download-card">
+        <a href={`${basePath}/downloads/paleta-colores.ase`} class="download-card">
           <i class="fas fa-palette"></i>
           <h4>Paleta de Colores</h4>
           <p>Adobe Swatch Exchange</p>
         </a>
-        <a href="/downloads/iconos-evangelistas.svg" class="download-card">
+        <a href={`${basePath}/downloads/iconos-evangelistas.svg`} class="download-card">
           <i class="fas fa-icons"></i>
           <h4>Pack de Iconos</h4>
           <p>SVG Vectoriales</p>
         </a>
-        <a href="/downloads/plantillas-ui.fig" class="download-card">
+        <a href={`${basePath}/downloads/plantillas-ui.fig`} class="download-card">
           <i class="fas fa-object-group"></i>
           <h4>UI Kit Figma</h4>
           <p>Componentes listos</p>
         </a>
-        <a href="/downloads/guia-visual.pdf" class="download-card">
+        <a href={`${basePath}/downloads/guia-visual.pdf`} class="download-card">
           <i class="fas fa-book"></i>
           <h4>Manual Completo</h4>
           <p>PDF - 120 páginas</p>

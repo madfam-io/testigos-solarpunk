@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import QuoteBlock from '../../components/QuoteBlock.astro';
+
+const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 ---
 
 <BaseLayout title="Filosofía del Proyecto">
@@ -304,10 +306,10 @@ import QuoteBlock from '../../components/QuoteBlock.astro';
           cambiando el mundo una puerta, un panel solar y una composta a la vez.
         </p>
         <div class="cta-buttons">
-          <a href="/recursos" class="btn btn-primary">
+          <a href={`${basePath}/recursos`} class="btn btn-primary">
             <i class="fas fa-book"></i> Estudiar las Escrituras
           </a>
-          <a href="/personajes" class="btn btn-secondary">
+          <a href={`${basePath}/personajes`} class="btn btn-secondary">
             <i class="fas fa-users"></i> Conocer a los Profetas
           </a>
         </div>

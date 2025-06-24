@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import QuoteBlock from '../../components/QuoteBlock.astro';
+
+const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 ---
 
 <BaseLayout title="Formatos de Contenido">
@@ -220,10 +222,10 @@ import QuoteBlock from '../../components/QuoteBlock.astro';
         Únete al movimiento de creadores que están evangelizando el futuro sostenible
       </p>
       <div class="cta-buttons">
-        <a href="/recursos" class="btn btn-evangelista">
+        <a href={`${basePath}/recursos`} class="btn btn-evangelista">
           <i class="fas fa-download"></i> Descargar Kit de Evangelización
         </a>
-        <a href="/filosofia" class="btn btn-evangelista-outline">
+        <a href={`${basePath}/filosofia`} class="btn btn-evangelista-outline">
           <i class="fas fa-book-open"></i> Leer las Escrituras Solares
         </a>
       </div>

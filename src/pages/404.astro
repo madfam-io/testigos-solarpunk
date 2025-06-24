@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 ---
 
 <BaseLayout title="404 - Página no encontrada">
@@ -12,8 +14,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Tal vez fue absorbida por un panel solar experimental.
       </p>
       <div class="error-actions">
-        <a href="/" class="btn btn-primary">Volver al Inicio</a>
-        <a href="/personajes" class="btn btn-secondary">Explorar Personajes</a>
+        <a href={`${basePath}/`} class="btn btn-primary">Volver al Inicio</a>
+        <a href={`${basePath}/personajes`} class="btn btn-secondary">Explorar Personajes</a>
       </div>
     </div>
   </section>

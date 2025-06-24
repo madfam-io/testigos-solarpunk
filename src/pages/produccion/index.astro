@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 ---
 
 <BaseLayout title="Producción">
@@ -24,7 +26,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <li>Mood boards por ubicación</li>
             <li>Guías de iluminación</li>
           </ul>
-          <a href="/produccion/estilo-visual" class="btn btn-primary mt-3">Ver Guía Completa</a>
+          <a href={`${basePath}/produccion/estilo-visual`} class="btn btn-primary mt-3">Ver Guía Completa</a>
         </div>
 
         <div class="guide-card card">
@@ -36,7 +38,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <li>Temas recurrentes</li>
             <li>Ejemplos de diálogos</li>
           </ul>
-          <a href="/produccion/tono-voz" class="btn btn-primary mt-3">Explorar Guía</a>
+          <a href={`${basePath}/produccion/tono-voz`} class="btn btn-primary mt-3">Explorar Guía</a>
         </div>
 
         <div class="guide-card card">
@@ -48,7 +50,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <li>Subtítulos y accesibilidad</li>
             <li>Exportación y entrega</li>
           </ul>
-          <a href="/produccion/specs" class="btn btn-primary mt-3">Ver Especificaciones</a>
+          <a href={`${basePath}/produccion/specs`} class="btn btn-primary mt-3">Ver Especificaciones</a>
         </div>
 
         <div class="guide-card card">
@@ -60,7 +62,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <li>Leitmotifs de personajes</li>
             <li>Licencias y atribución</li>
           </ul>
-          <a href="/produccion/audio" class="btn btn-primary mt-3">Escuchar Biblioteca</a>
+          <a href={`${basePath}/produccion/audio`} class="btn btn-primary mt-3">Escuchar Biblioteca</a>
         </div>
       </div>
     </div>
@@ -73,9 +75,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         Mantén la coherencia visual y narrativa del universo Testigos de Solarpunk
       </p>
       <div class="brand-downloads">
-        <a href="/downloads/logo-pack.zip" class="btn btn-secondary">📦 Pack de Logos</a>
-        <a href="/downloads/brand-guide.pdf" class="btn btn-secondary">📖 Manual de Marca</a>
-        <a href="/downloads/templates.zip" class="btn btn-secondary">🎨 Plantillas</a>
+        <a href={`${basePath}/downloads/logo-pack.zip`} class="btn btn-secondary">📦 Pack de Logos</a>
+        <a href={`${basePath}/downloads/brand-guide.pdf`} class="btn btn-secondary">📖 Manual de Marca</a>
+        <a href={`${basePath}/downloads/templates.zip`} class="btn btn-secondary">🎨 Plantillas</a>
       </div>
     </div>
   </section>

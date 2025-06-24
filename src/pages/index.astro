@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteBlock from '../components/QuoteBlock.astro';
+
+const basePath = import.meta.env.BASE_URL || '/testigos-solarpunk';
 ---
 
 <BaseLayout title="Inicio">
@@ -12,8 +14,8 @@ import QuoteBlock from '../components/QuoteBlock.astro';
           Un universo narrativo donde la esperanza, la tecnología sostenible y la comunidad construyen el futuro
         </p>
         <div class="hero-actions animate-fade-in">
-          <a href="/personajes" class="btn btn-primary">Explorar Personajes</a>
-          <a href="/guiones" class="btn btn-secondary">Ver Guiones</a>
+          <a href={`${basePath}/personajes`} class="btn btn-primary">Explorar Personajes</a>
+          <a href={`${basePath}/guiones`} class="btn btn-secondary">Ver Guiones</a>
         </div>
       </div>
     </div>
@@ -24,19 +26,19 @@ import QuoteBlock from '../components/QuoteBlock.astro';
       <div class="card">
         <h3>🌱 Personajes Vivos</h3>
         <p>Conoce a los habitantes de Neo-Cuernavaca, desde ingenieros solares hasta guardianes de semillas ancestrales.</p>
-        <a href="/personajes" class="btn btn-primary mt-2">Conocer Personajes</a>
+        <a href={`${basePath}/personajes`} class="btn btn-primary mt-2">Conocer Personajes</a>
       </div>
       
       <div class="card">
         <h3>📜 Guiones Multiplatforma</h3>
         <p>Episodios diseñados para TikTok, Instagram Reels y YouTube, cada uno optimizado para su audiencia.</p>
-        <a href="/guiones" class="btn btn-primary mt-2">Leer Guiones</a>
+        <a href={`${basePath}/guiones`} class="btn btn-primary mt-2">Leer Guiones</a>
       </div>
       
       <div class="card">
         <h3>🌍 Mundo Detallado</h3>
         <p>Explora las ubicaciones, tecnologías y culturas que dan vida a este futuro esperanzador.</p>
-        <a href="/mundo" class="btn btn-primary mt-2">Explorar Mundo</a>
+        <a href={`${basePath}/mundo`} class="btn btn-primary mt-2">Explorar Mundo</a>
       </div>
     </div>
   </section>
@@ -53,17 +55,17 @@ import QuoteBlock from '../components/QuoteBlock.astro';
         <div class="evangelista-card halo-effect">
           <h3>🌟 Los Evangelistas</h3>
           <p>Tres misioneros dedicados a predicar la salvación ecológica y la redención energética de la humanidad.</p>
-          <a href="/personajes" class="btn btn-primary">Conocer Evangelistas</a>
+          <a href={`${basePath}/personajes`} class="btn btn-primary">Conocer Evangelistas</a>
         </div>
         <div class="evangelista-card halo-effect">
           <h3>📖 El Mensaje</h3>
           <p>Transformación espiritual a través de la tecnología sostenible y la reconexión con los ciclos naturales.</p>
-          <a href="/filosofia" class="btn btn-primary">Leer Filosofía</a>
+          <a href={`${basePath}/filosofia`} class="btn btn-primary">Leer Filosofía</a>
         </div>
         <div class="evangelista-card halo-effect">
           <h3>🎬 Los Formatos</h3>
           <p>Múltiples maneras de llevar la luz solar a cada hogar: videos, podcasts, sketches y más.</p>
-          <a href="/formatos" class="btn btn-primary">Ver Formatos</a>
+          <a href={`${basePath}/formatos`} class="btn btn-primary">Ver Formatos</a>
         </div>
       </div>
     </div>
@@ -104,8 +106,8 @@ import QuoteBlock from '../components/QuoteBlock.astro';
         Únete a creadores, actores y defensores del solarpunk en la construcción de historias que importan
       </p>
       <div class="cta-actions">
-        <a href="/recursos" class="btn btn-primary">Para Creadores</a>
-        <a href="/recursos#patrocinadores" class="btn btn-secondary">Para Patrocinadores</a>
+        <a href={`${basePath}/recursos`} class="btn btn-primary">Para Creadores</a>
+        <a href={`${basePath}/recursos#patrocinadores`} class="btn btn-secondary">Para Patrocinadores</a>
       </div>
     </div>
   </section>
