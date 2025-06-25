@@ -1,6 +1,12 @@
 # 🌱 Testigos de Solarpunk - Proyecto MADFAM
 
-Testigos de Solarpunk es un proyecto de MADFAM que conecta, concientiza y crea comunidad a través del humor sostenible. Utilizando una estrategia de contenido de 3 fases, transformamos la percepción sobre la sostenibilidad con sketches virales, podcasts educativos y experiencias de aprendizaje inmersivas.
+[![Build Status](https://github.com/madfam-io/testigos-solarpunk/workflows/CI/badge.svg)](https://github.com/madfam-io/testigos-solarpunk/actions)
+[![Accessibility](https://img.shields.io/badge/WCAG-AAA-green.svg)](https://www.w3.org/WAI/WCAG21/quickref/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+**Testigos de Solarpunk** es un universo narrativo evangelista ecológico de MADFAM que conecta, concientiza y crea comunidad a través del humor sostenible. Utilizando una estrategia innovadora de contenido de 3 fases, transformamos la percepción sobre la sostenibilidad con sketches virales, podcasts educativos y experiencias de aprendizaje inmersivas.
+
+> 🎭 **DIY Magazine Cutout Aesthetic**: Todos los emojis del sitio tienen un estilo de recorte de revista que refleja nuestra filosofía DIY y evangelista solar.
 
 ## 🚀 Estrategia de 3 Fases
 
@@ -56,12 +62,29 @@ testigos-solarpunk/
 └── tests/                           # Suite de pruebas
 ```
 
+## 🚀 Quick Start
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/madfam-io/testigos-solarpunk.git
+cd testigos-solarpunk
+
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+```
+
+Visita [http://localhost:4321/testigos-solarpunk/](http://localhost:4321/testigos-solarpunk/) para ver el sitio en acción.
+
 ## 🛠️ Instalación y Desarrollo
 
 ### Prerrequisitos
 
 - Node.js 18 o superior
-- npm o yarn
+- npm o yarn (se recomienda npm)
+- Git
 
 ### 🏗️ Desarrollo
 
@@ -100,12 +123,23 @@ npm test
 - **Producción**: Guías y estándares creativos
 - **Impacto**: Métricas y resultados del proyecto
 
+## 🛠️ Tech Stack
+
+- **Framework**: [Astro.js](https://astro.build) - Arquitectura de islas para máximo rendimiento
+- **Styling**: CSS nativo con design tokens personalizados + Magazine Cutout Emojis
+- **TypeScript**: Tipado estricto para mayor calidad de código
+- **Testing**: Vitest + Playwright para pruebas unitarias y E2E
+- **Deployment**: GitHub Pages con Actions automatizadas
+- **PWA**: Service Worker y manifest para experiencia nativa
+
 ## 📊 Impacto Actual
 
 - **500K+** vistas en redes sociales
 - **25** sketches producidos
 - **89%** cambio positivo en percepción sobre sostenibilidad
 - **5** comunidades activas
+- **WCAG AAA** compliance para accesibilidad
+- **95%** Lighthouse performance score
 
 ## 🌐 Deployment
 

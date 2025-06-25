@@ -1,0 +1,136 @@
+# Brand Guide - Testigos de Solarpunk
+
+## Identidad de Marca
+
+### Misión
+Conectar, Concientizar y Crear Comunidad a través del humor sostenible.
+
+### Visión
+Un mundo donde la sostenibilidad sea divertida, accesible y parte natural de la cultura popular.
+
+### Valores
+- **Humor Inteligente**: Comedia que educa sin sermonear
+- **Optimismo Pragmático**: Esperanza basada en soluciones reales
+- **Inclusión Radical**: Todos son bienvenidos al movimiento
+- **DIY Evangelista**: Estética casera con mensaje profesional
+
+## Paleta de Colores
+
+### Colores Principales
+- **Amarillo Solar**: #FFC107 - Energía, optimismo, esperanza
+- **Verde Sostenible**: #4CAF50 - Naturaleza, crecimiento, vida
+- **Azul Tecnológico**: #2196F3 - Innovación, futuro, confianza
+- **Naranja Comunidad**: #FF6F35 - Calidez, conexión, colaboración
+
+### Colores de Soporte
+- **Negro Profundo**: #121212 - Elegancia, contraste
+- **Blanco Puro**: #FFFFFF - Limpieza, claridad
+- **Gris Neutro**: #757575 - Balance, profesionalismo
+
+## Tipografía
+
+### Primaria: Poppins
+- **Uso**: Títulos, navegación, CTAs importantes
+- **Personalidad**: Moderna, amigable, accesible
+- **Pesos**: 300, 400, 500, 600, 700, 900
+
+### Secundaria: Space Mono
+- **Uso**: Código, datos técnicos, detalles
+- **Personalidad**: Técnica, futurista, confiable
+- **Pesos**: 400, 700
+
+## Logo y Identidad Visual
+
+### Logo Principal
+- Combina símbolo solar con tipografía limpia
+- Versiones disponibles: color, blanco, negro, monotono
+- Espaciado mínimo: 20px alrededor del logo
+
+### Símbolo Solar
+- Puede usarse independientemente del logotipo
+- Representa energía, esperanza y transformación
+- Funciona como favicon y marca de agua
+
+## Estética "DIY Magazine Cutout"
+
+### Principios
+- **Bordes Irregulares**: Como si fueran recortados a mano
+- **Texturas de Papel**: Fondo ligeramente texturizado
+- **Colores Saturados**: Vibrantes pero no agresivos
+- **Sombras Suaves**: Para dar profundidad y realismo
+
+### Aplicación en Emojis
+Todos los emojis del sistema utilizan clases específicas:
+```css
+.emoji-cutout {
+  clip-path: polygon(/* bordes irregulares */);
+  filter: sepia(0.1) contrast(1.1);
+  background: /* papel texturizado */;
+}
+```
+
+### Tamaños y Contextos
+- `.emoji-sm`: Navegación, metadatos
+- `.emoji-md`: Botones, acciones
+- `.emoji-lg`: Tarjetas, características
+- `.emoji-xl`: Héroes, impacto
+
+## Tono de Voz
+
+### Personalidad de Marca
+- **Entusiasta**: Apasionado por el cambio positivo
+- **Divertido**: No se toma demasiado en serio
+- **Educativo**: Siempre enseñando algo nuevo
+- **Optimista**: Ve soluciones donde otros ven problemas
+- **Cercano**: Habla como un amigo, no como una corporación
+
+### Palabras Clave
+**Usar**: transformar, inspirar, comunidad, soluciones, futuro, juntos, cambio, esperanza, acción
+**Evitar**: catástrofe, culpa, imposible, perfecto, elitista, complicado
+
+### Ejemplos de Comunicación
+
+#### ✅ Correcto
+"¡Oye! ¿Sabías que puedes ahorrar energía Y dinero con este truco súper sencillo?"
+
+#### ❌ Incorrecto  
+"Es imperativo que todas las personas implementen urgentemente estas medidas para evitar el colapso climático."
+
+## Aplicaciones Visuales
+
+### Redes Sociales
+- **Instagram**: Estética colorida, emojis recortados prominentes
+- **TikTok**: Videos dinámicos con overlay de marca sutil
+- **YouTube**: Thumbnails con tipografía bold y colores vibrantes
+
+### Merchandising
+- **Pegatinas**: Emojis individuales con estética DIY
+- **Camisetas**: Logos y frases motivacionales
+- **Tazas**: Colores marca con mensajes positivos
+
+### Digital
+- **Website**: Layout limpio con acentos coloridos
+- **App**: Interfaz amigable con micro-interacciones divertidas
+- **Presentaciones**: Templates con estética consistente
+
+## Guías de Uso
+
+### Do's ✅
+- Mantener colores vibrantes pero legibles
+- Usar emojis con estética magazine cutout
+- Combinar humor con información útil
+- Incluir calls-to-action claros
+- Mantener consistencia visual
+
+### Don'ts ❌
+- Usar tonos apocalípticos o de culpa
+- Sobrecargar con demasiados elementos
+- Olvidar la accesibilidad (contraste, tamaños)
+- Copiar estéticas de otras marcas eco
+- Complicar mensajes simples
+
+---
+
+**Versión**: 3.0
+**Última actualización**: Diciembre 2024
+**Distribución**: Interna MADFAM y colaboradores autorizados

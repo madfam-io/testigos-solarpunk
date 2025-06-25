@@ -2,6 +2,20 @@
 
 Esta guía está diseñada para asistentes AI (como Claude) que trabajen en el proyecto Testigos de Solarpunk. Proporciona contexto importante y comandos esenciales para mantener la calidad del código.
 
+## 🎭 DIY Magazine Cutout Aesthetic
+
+**IMPORTANTE**: El proyecto implementa un sistema completo de emojis con estética de "recortes de revista DIY":
+
+- **CSS**: `/src/styles/emoji-magazine-cutout.css` (347 líneas) - Sistema completo implementado
+- **Importado en**: `BaseLayout.astro` para aplicación site-wide
+- **Clases aplicadas**: 50+ instancias en navegación, héroes, tarjetas, botones
+- **Efectos**: Bordes irregulares con `clip-path`, texturas de papel, animaciones flutter
+- **Temas**: Solar, verde, púrpura, comunidad con colores específicos
+- **Tamaños**: `emoji-sm`, `emoji-md`, `emoji-lg`, `emoji-xl`
+- **Contextos**: `emoji-nav`, `emoji-hero`, `emoji-card`, `emoji-button`
+
+Al trabajar con emojis, SIEMPRE usar las clases del sistema magazine cutout.
+
 ## 📋 Contexto del Proyecto
 
 Testigos de Solarpunk es un proyecto de MADFAM que utiliza una estrategia de contenido de 3 fases para transformar la percepción sobre sostenibilidad:

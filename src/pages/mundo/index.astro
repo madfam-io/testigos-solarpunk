@@ -67,7 +67,10 @@ const locations: CollectionEntry<'locations'>[] =
             <article class="location-card card">
               <div class="location-type">{location.data.tipo}</div>
               <h3>{location.data.nombre}</h3>
-              <p class="location-district">📍 {location.data.distrito}</p>
+              <p class="location-district">
+                <span class="emoji-cutout emoji-sm theme-community">📍</span>{' '}
+                {location.data.distrito}
+              </p>
               <p class="location-description">
                 {location.data.descripcion.substring(0, 200)}...
               </p>
@@ -96,34 +99,36 @@ const locations: CollectionEntry<'locations'>[] =
       <h2 class="text-center">Tecnologías Clave</h2>
       <div class="tech-grid">
         <div class="tech-card">
-          <span class="tech-icon">☀️</span>
+          <span class="emoji-cutout emoji-lg theme-solar tech-icon">☀️</span>
           <h3>Paneles Solares Orgánicos</h3>
           <p>Células fotovoltaicas biodegradables que imitan la fotosíntesis</p>
         </div>
         <div class="tech-card">
-          <span class="tech-icon">💧</span>
+          <span class="emoji-cutout emoji-lg theme-community tech-icon">💧</span
+          >
           <h3>Captación Atmosférica</h3>
           <p>Sistemas que extraen agua potable directamente del aire</p>
         </div>
         <div class="tech-card">
-          <span class="tech-icon">🌱</span>
+          <span class="emoji-cutout emoji-lg theme-green tech-icon">🌱</span>
           <h3>Agricultura Vertical</h3>
           <p>Torres de cultivo que producen alimentos usando 90% menos agua</p>
         </div>
         <div class="tech-card">
-          <span class="tech-icon">🔋</span>
+          <span class="emoji-cutout emoji-lg theme-purple tech-icon">🔋</span>
           <h3>Baterías de Sal</h3>
           <p>
             Almacenamiento de energía usando materiales abundantes y no tóxicos
           </p>
         </div>
         <div class="tech-card">
-          <span class="tech-icon">🏗️</span>
+          <span class="emoji-cutout emoji-lg theme-community tech-icon">🏗️</span
+          >
           <h3>Bioconcreto</h3>
           <p>Material de construcción que se auto-repara y purifica el aire</p>
         </div>
         <div class="tech-card">
-          <span class="tech-icon">🚊</span>
+          <span class="emoji-cutout emoji-lg theme-purple tech-icon">🚊</span>
           <h3>Transporte Magnético</h3>
           <p>Sistemas de levitación magnética alimentados por energía solar</p>
         </div>

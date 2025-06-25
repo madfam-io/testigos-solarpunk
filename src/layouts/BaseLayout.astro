@@ -1,5 +1,5 @@
 ---
-import PWAInstaller from '../components/PWAInstaller.astro';
+// import PWAInstaller from '../components/PWAInstaller.astro';
 import '../styles/emoji-magazine-cutout.css';
 
 export interface Props {
@@ -219,12 +219,17 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
     <title>{title} | Testigos de Solarpunk - MADFAM</title>
   </head>
   <body>
-    <nav>
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <a href="#nav-menu" class="skip-link">Saltar al menú de navegación</a>
+
+    <nav role="navigation" aria-label="Navegación principal">
       <div class="container">
         <div class="nav-brand">
           <a
             href={`${basePath}/`}
             class:list={currentPath === '/' ? 'active' : ''}
+            aria-label="Testigos de Solarpunk - Ir a la página principal"
           >
             <img
               src={`${basePath}/images/logo.png`}
@@ -235,86 +240,107 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
           </a>
         </div>
 
-        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <button
+          class="mobile-menu-toggle"
+          aria-label="Abrir menú de navegación móvil"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          data-menu-toggle
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <ul class="nav-menu">
-          <li>
+        <ul class="nav-menu" id="nav-menu" role="menubar">
+          <li role="none">
             <a
               href={`${basePath}/proyecto/`}
               class:list={currentPath.startsWith('/proyecto') ? 'active' : ''}
-              >El Proyecto</a
+              role="menuitem">El Proyecto</a
             >
           </li>
-          <li class="nav-dropdown">
+          <li class="nav-dropdown" role="none">
             <a
               href={`${basePath}/contenido/`}
               class:list={currentPath.startsWith('/contenido') ? 'active' : ''}
-              >Contenido</a
+              role="menuitem"
+              aria-haspopup="true"
+              aria-expanded="false"
+              data-dropdown-toggle>Contenido</a
             >
-            <div class="nav-dropdown-menu">
-              <a href={`${basePath}/contenido/sketches/`}
+            <div
+              class="nav-dropdown-menu"
+              role="menu"
+              aria-label="Submenu de Contenido"
+            >
+              <a href={`${basePath}/contenido/sketches/`} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🎬</span> Sketches</a
               >
-              <a href={`${basePath}/contenido/podcast/`}
+              <a href={`${basePath}/contenido/podcast/`} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🎙️</span> Podcast</a
               >
-              <a href={`${basePath}/contenido/madlab/`}
+              <a href={`${basePath}/contenido/madlab/`} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🔬</span> MADLAB</a
               >
             </div>
           </li>
-          <li class="nav-dropdown">
+          <li class="nav-dropdown" role="none">
             <a
               href={`${basePath}/personajes/`}
               class:list={currentPath.startsWith('/personajes') ||
               currentPath.startsWith('/mundo') ||
               currentPath.startsWith('/guiones')
                 ? 'active'
-                : ''}>Universo</a
+                : ''}
+              role="menuitem"
+              aria-haspopup="true"
+              aria-expanded="false"
+              data-dropdown-toggle>Universo</a
             >
-            <div class="nav-dropdown-menu">
-              <a href={`${basePath}/personajes/`}
+            <div
+              class="nav-dropdown-menu"
+              role="menu"
+              aria-label="Submenu de Universo"
+            >
+              <a href={`${basePath}/personajes/`} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">👥</span> Personajes</a
               >
-              <a href={`${basePath}/mundo/`}
+              <a href={`${basePath}/mundo/`} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🌍</span> Construcción
                 del Mundo</a
               >
-              <a href={`${basePath}/guiones/`}
+              <a href={`${basePath}/guiones/`} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">📝</span> Guiones</a
               >
             </div>
           </li>
-          <li>
+          <li role="none">
             <a
               href={`${basePath}/comunidad/`}
               class:list={currentPath.startsWith('/comunidad') ? 'active' : ''}
-              >Comunidad</a
+              role="menuitem">Comunidad</a
             >
           </li>
-          <li>
+          <li role="none">
             <a
               href={`${basePath}/produccion/`}
               class:list={currentPath.startsWith('/produccion') ? 'active' : ''}
-              >Producción</a
+              role="menuitem">Producción</a
             >
           </li>
-          <li>
+          <li role="none">
             <a
               href={`${basePath}/impacto/`}
               class:list={currentPath.startsWith('/impacto') ? 'active' : ''}
-              >Impacto</a
+              role="menuitem">Impacto</a
             >
           </li>
         </ul>
       </div>
     </nav>
 
-    <main>
+    <main id="main-content" role="main">
       <slot />
     </main>
 
@@ -433,7 +459,7 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
       </div>
     </footer>
 
-    <PWAInstaller />
+    <!-- PWAInstaller temporarily removed for linting fix -->
   </body>
 </html>
 

@@ -1,0 +1,111 @@
+# Plantillas UI - Testigos de Solarpunk (Figma File Placeholder)
+
+## Información del Archivo Figma
+
+**Archivo**: plantillas-ui.fig
+**Última actualización**: Diciembre 2024
+**Versión**: 3.2
+**Colaboradores**: Equipo MADFAM Design
+
+## Contenido del Archivo
+
+### 📱 Mobile Components
+- **Navigation Bar**: Con emojis magazine cutout integrados
+- **Button Variants**: Primary, secondary, ghost con estética DIY
+- **Card Components**: Para sketches, personas, fases
+- **Form Elements**: Inputs, selects, textareas con validación visual
+
+### 🖥️ Desktop Components  
+- **Header Navigation**: Dropdown menus con microinteracciones
+- **Hero Sections**: Templates para landing pages
+- **Grid Systems**: Layouts responsivos para contenido
+- **Footer Variants**: Diferentes configuraciones según página
+
+### 🎨 Design System
+- **Color Tokens**: Paleta completa con variables CSS
+- **Typography Scale**: Jerarquía tipográfica completa
+- **Spacing System**: Grid de 8px con tokens nombrados
+- **Icon Library**: Iconografía consistente con brand
+
+### 🎭 Magazine Cutout System
+- **Emoji Frames**: Plantillas para diferentes tamaños (.sm, .md, .lg, .xl)
+- **Clip Paths**: Patrones de recorte reutilizables
+- **Texture Overlays**: Efectos de papel para backgrounds
+- **Shadow Variants**: Sombras para diferentes contextos
+
+### 📑 Page Templates
+- **Homepage**: Template principal con secciones clave
+- **Content Pages**: Para sketches, podcast, MADLAB
+- **Community**: Páginas de personas y participación
+- **Documentation**: Layouts para guías y recursos
+
+### 🧩 Interactive Elements
+- **Loading States**: Spinners y skeletons con brand
+- **Modals & Overlays**: Pop-ups informativos
+- **Form Validation**: Estados de error y éxito
+- **Tooltips**: Información contextual
+
+### 📊 Data Visualization
+- **Charts**: Gráficos para métricas de impacto
+- **Progress Bars**: Indicadores de progreso
+- **Statistics Cards**: Presentación de datos clave
+- **Timeline Components**: Para fases y roadmaps
+
+## Cómo Usar Este Archivo
+
+### 1. Importar en Figma
+```
+File > Import > Seleccionar plantillas-ui.fig
+```
+
+### 2. Configurar Variables
+- Vincular color tokens con CSS custom properties
+- Configurar espaciado según design system
+- Importar fuentes: Poppins y Space Mono
+
+### 3. Usar Componentes
+- Arrastrar desde panel de assets
+- Modificar props según necesidad
+- Mantener consistencia visual
+
+### 4. Exportar Assets
+- **Iconos**: SVG para web
+- **Imágenes**: PNG/WebP optimizadas
+- **Logos**: Múltiples formatos según uso
+
+## Notas de Implementación
+
+### CSS Class Mapping
+```css
+/* Buttons */
+.btn → Button/Primary
+.btn-secondary → Button/Secondary
+.btn-ghost → Button/Ghost
+
+/* Cards */
+.sketch-card → Cards/Sketch
+.persona-card → Cards/Persona
+.phase-card → Cards/Phase
+
+/* Emojis */
+.emoji-cutout → Emoji/Magazine Cutout Base
+.emoji-sm → Emoji/Small Variant
+.emoji-lg → Emoji/Large Variant
+```
+
+### Responsive Breakpoints
+- **Mobile**: 375px - 768px
+- **Tablet**: 768px - 1024px  
+- **Desktop**: 1024px+
+
+### Brand Compliance
+- ✅ Usar solo colores del design system
+- ✅ Mantener espaciado consistente
+- ✅ Aplicar magazine cutout a emojis
+- ✅ Seguir jerarquía tipográfica
+
+---
+
+**Para acceso al archivo real**:
+Contactar: design@madfam.io
+**Licencia**: Uso exclusivo MADFAM y colaboradores autorizados

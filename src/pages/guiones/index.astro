@@ -81,7 +81,12 @@ const platformColors: Record<string, string> = {
                       </div>
                       <h3>{script.data.titulo}</h3>
                       <div class="script-meta">
-                        <span class="location">📍 {script.data.ubicacion}</span>
+                        <span class="location">
+                          <span class="emoji-cutout emoji-sm theme-community">
+                            📍
+                          </span>{' '}
+                          {script.data.ubicacion}
+                        </span>
                         <span class="status" data-status={script.data.estado}>
                           {script.data.estado}
                         </span>
