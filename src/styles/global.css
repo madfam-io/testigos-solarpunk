@@ -3,6 +3,9 @@
 /* Importar design tokens MADFAM */
 @import './madfam-tokens.css';
 
+/* Importar estilos unificados dark theme */
+@import './unified-dark-theme.css';
+
 /* Importar estilos de estrategia de contenido */
 @import './content-strategy.css';
 
@@ -309,6 +312,68 @@ nav .container {
   color: white;
 }
 
+/* Dropdown Navigation */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: var(--fondo-secundario);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--sombra-suave);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  margin-top: 8px;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: var(--espacio-sm) var(--espacio-md);
+  color: var(--texto-primario);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+  background-color: var(--sombra-suave);
+}
+
+.nav-dropdown-menu a:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.nav-dropdown-menu a:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+/* Dropdown arrow indicator */
+.nav-dropdown > a::after {
+  content: '▼';
+  font-size: 0.7em;
+  margin-left: 4px;
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+
 /* Hamburger menu button */
 .mobile-menu-toggle {
   display: none;
@@ -410,6 +475,31 @@ footer a {
 
   .nav-menu a:last-child {
     border-bottom: none;
+  }
+
+  /* Mobile dropdown styles */
+  .nav-dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  .nav-dropdown.active .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-menu a {
+    padding-left: var(--espacio-xxl);
+    font-size: 0.9rem;
+  }
+
+  .nav-dropdown > a::after {
+    float: right;
   }
 }
 

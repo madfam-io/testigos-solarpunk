@@ -1,10 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const basePath =
+let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
 ---
 
 <BaseLayout
@@ -116,6 +121,8 @@ const basePath =
             placeholder="tu@email.com"
             class="email-input"
             required
+            aria-required="true"
+            aria-label="Correo electrónico para notificaciones"
           />
           <button type="submit" class="btn btn-primary"> Notificarme </button>
         </form>
@@ -127,7 +134,7 @@ const basePath =
     <div class="container text-center">
       <h2>Mientras tanto...</h2>
       <p>Disfruta nuestros sketches de la Fase 1</p>
-      <a href={`${basePath}/contenido/sketches`} class="btn btn-primary">
+      <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary">
         🎬 Ver Sketches
       </a>
     </div>
@@ -215,15 +222,21 @@ const basePath =
   }
 
   .feature-card {
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     padding: var(--espacio-xl);
     border-radius: 12px;
     text-align: center;
-    transition: transform 0.3s ease;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .feature-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
 
   .feature-icon {
@@ -282,10 +295,12 @@ const basePath =
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     padding: var(--espacio-xxl);
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   }
 
   .notify-card h3 {
@@ -296,7 +311,7 @@ const basePath =
 
   .notify-card p {
     font-size: 1.1rem;
-    color: var(--texto-secundario);
+    color: var(--text-secondary, #cccccc);
     margin-bottom: var(--espacio-xl);
   }
 

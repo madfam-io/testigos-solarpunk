@@ -1,0 +1,535 @@
+---
+import PWAInstaller from '../components/PWAInstaller.astro';
+import '../styles/unified-dark-theme.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'Testigos de Solarpunk - Conectar, concientizar y crear comunidad a través del humor sostenible',
+  image = '/og-image.jpg',
+  noindex = false,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const baseUrl =
+  import.meta.env.SITE !== ''
+    ? import.meta.env.SITE
+    : 'https://madfam-io.github.io';
+let basePath =
+  import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+const fullUrl = `${baseUrl}${basePath}${currentPath}`;
+const imageUrl = `${baseUrl}${basePath}${image}`;
+const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
+---
+
+<!doctype html>
+<html lang="es-MX" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, nofollow' : 'index, follow'}
+    />
+    <meta name="author" content="MADFAM" />
+    <meta
+      name="keywords"
+      content="solarpunk, evangelista ecológico, sostenibilidad, humor verde, MADFAM, narrativa esperanzadora"
+    />
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#FFC107" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Testigos" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Testigos de Solarpunk" />
+    <meta name="msapplication-TileColor" content="#FFC107" />
+    <meta
+      name="msapplication-config"
+      content={`${basePath}/browserconfig.xml`}
+    />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href={`${basePath}/manifest.json`} />
+
+    <!-- iOS Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href={`${basePath}/apple-touch-icon.png`}
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={fullUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Testigos de Solarpunk" />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@TestigosSolar" />
+    <meta name="twitter:creator" content="@MADFAM_io" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={fullUrl} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href={`${basePath}/favicon.svg`} />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href={`${basePath}/favicon-32x32.png`}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href={`${basePath}/favicon-16x16.png`}
+    />
+    <link rel="shortcut icon" href={`${basePath}/favicon.ico`} />
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- Preload critical resources -->
+    <link
+      rel="preload"
+      href={`${basePath}/fonts/poppins-v20-latin-regular.woff2`}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Testigos de Solarpunk',
+        alternateName: 'Testigos',
+        url: fullUrl,
+        description,
+        publisher: {
+          '@type': 'Organization',
+          name: 'MADFAM',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${baseUrl}${basePath}/icon-512.png`,
+          },
+        },
+      })}
+    />
+
+    <meta name="generator" content={Astro.generator} />
+    <title>{siteTitle}</title>
+  </head>
+  <body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Main Navigation -->
+    <nav class="nav-main" role="navigation" aria-label="Navegación principal">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <a
+            href={`${basePath}/`}
+            class:list={currentPath === '/' ? 'active' : ''}
+            aria-label="Inicio - Testigos de Solarpunk"
+          >
+            <strong class="text-gradient">Testigos de Solarpunk</strong>
+          </a>
+        </div>
+
+        <button
+          class="nav-mobile-toggle"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+
+        <ul class="nav-menu" id="nav-menu" role="menubar">
+          <li role="none">
+            <a
+              href={`${basePath}/proyecto/`}
+              class:list={[
+                'nav-link',
+                currentPath.startsWith('/proyecto') ? 'active' : '',
+              ]}
+              role="menuitem"
+              aria-current={currentPath.startsWith('/proyecto')
+                ? 'page'
+                : undefined}
+            >
+              El Proyecto
+            </a>
+          </li>
+          <li class="nav-dropdown" role="none">
+            <button
+              class="nav-dropdown-toggle nav-link"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="contenido-menu"
+              role="menuitem"
+            >
+              Contenido
+            </button>
+            <div class="nav-dropdown-menu" id="contenido-menu" role="menu">
+              <a href={`${basePath}/contenido/sketches/`} role="menuitem">
+                🎬 Sketches
+              </a>
+              <a href={`${basePath}/contenido/podcast/`} role="menuitem">
+                🎙️ Podcast
+              </a>
+              <a href={`${basePath}/contenido/madlab/`} role="menuitem">
+                🔬 MADLAB
+              </a>
+            </div>
+          </li>
+          <li class="nav-dropdown" role="none">
+            <button
+              class="nav-dropdown-toggle nav-link"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="universo-menu"
+              role="menuitem"
+            >
+              Universo
+            </button>
+            <div class="nav-dropdown-menu" id="universo-menu" role="menu">
+              <a href={`${basePath}/personajes/`} role="menuitem">
+                👥 Personajes
+              </a>
+              <a href={`${basePath}/mundo/`} role="menuitem">
+                🌍 Construcción del Mundo
+              </a>
+              <a href={`${basePath}/guiones/`} role="menuitem"> 📝 Guiones </a>
+            </div>
+          </li>
+          <li role="none">
+            <a
+              href={`${basePath}/comunidad/`}
+              class:list={[
+                'nav-link',
+                currentPath.startsWith('/comunidad') ? 'active' : '',
+              ]}
+              role="menuitem"
+              aria-current={currentPath.startsWith('/comunidad')
+                ? 'page'
+                : undefined}
+            >
+              Comunidad
+            </a>
+          </li>
+          <li role="none">
+            <a
+              href={`${basePath}/produccion/`}
+              class:list={[
+                'nav-link',
+                currentPath.startsWith('/produccion') ? 'active' : '',
+              ]}
+              role="menuitem"
+              aria-current={currentPath.startsWith('/produccion')
+                ? 'page'
+                : undefined}
+            >
+              Producción
+            </a>
+          </li>
+          <li role="none">
+            <a
+              href={`${basePath}/impacto/`}
+              class:list={[
+                'nav-link',
+                currentPath.startsWith('/impacto') ? 'active' : '',
+              ]}
+              role="menuitem"
+              aria-current={currentPath.startsWith('/impacto')
+                ? 'page'
+                : undefined}
+            >
+              Impacto
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            aria-label="Cambiar tema"
+            title="Cambiar entre modo claro y oscuro"
+          >
+            <span class="theme-icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content" class="main-container" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer class="footer-main">
+      <div class="container">
+        <div class="grid grid-cols-3">
+          <div>
+            <h4>Universo Creativo</h4>
+            <ul>
+              <li>
+                <a href={`${basePath}/personajes/`}>Biblia de Personajes</a>
+              </li>
+              <li>
+                <a href={`${basePath}/guiones/`}>Repositorio de Guiones</a>
+              </li>
+              <li><a href={`${basePath}/mundo/`}>Construcción del Mundo</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Para Creadores</h4>
+            <ul>
+              <li><a href={`${basePath}/recursos/`}>Guías y Plantillas</a></li>
+              <li><a href={`${basePath}/produccion/`}>Guía de Estilo</a></li>
+              <li>
+                <a href={`${basePath}/filosofia/`}>Filosofía del Proyecto</a>
+              </li>
+              <li><a href={`${basePath}/guia-visual/`}>Guía Visual</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Conecta</h4>
+            <ul>
+              <li>
+                <a href={`${basePath}/comunidad/`}>Únete a la Comunidad</a>
+              </li>
+              <li><a href={`${basePath}/impacto/`}>Nuestro Impacto</a></li>
+              <li>
+                <a
+                  href="https://github.com/madfam-io/testigos-solarpunk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub del proyecto (se abre en nueva ventana)"
+                >
+                  GitHub
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-center mt-5 text-tertiary">
+          <p>&copy; 2025 Testigos de Solarpunk - Un proyecto MADFAM</p>
+        </div>
+      </div>
+    </footer>
+
+    <PWAInstaller />
+
+    <!-- Screen reader announcements -->
+    <div
+      class="sr-only"
+      aria-live="polite"
+      aria-atomic="true"
+      id="page-announcer"
+    >
+    </div>
+  </body>
+</html>
+
+<style>
+  .main-container {
+    min-height: calc(100vh - 120px);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .footer-main {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-subtle);
+    padding: var(--space-xxl) 0;
+    margin-top: var(--space-xxl);
+  }
+
+  .footer-main h4 {
+    color: var(--madfam-yellow-dark);
+    margin-bottom: var(--space-md);
+    font-size: 1.125rem;
+  }
+
+  .footer-main ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-main li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-main a {
+    color: var(--text-tertiary);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-main a:hover {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .main-container {
+      padding: 1rem;
+    }
+
+    .grid-cols-3 {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const mobileToggle = document.querySelector('.nav-mobile-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+
+  mobileToggle?.addEventListener('click', () => {
+    const isOpen = navMenu?.classList.contains('active');
+    navMenu?.classList.toggle('active');
+    mobileToggle.setAttribute('aria-expanded', (!isOpen).toString());
+  });
+
+  // Dropdown menus with keyboard navigation
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+  dropdowns.forEach((dropdown) => {
+    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    const menu = dropdown.querySelector('.nav-dropdown-menu');
+
+    // Mouse events
+    dropdown.addEventListener('mouseenter', () => {
+      menu?.classList.add('show');
+      toggle?.setAttribute('aria-expanded', 'true');
+    });
+
+    dropdown.addEventListener('mouseleave', () => {
+      menu?.classList.remove('show');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+
+    // Keyboard events
+    toggle?.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = menu?.classList.contains('show');
+      menu?.classList.toggle('show');
+      toggle.setAttribute('aria-expanded', (!isOpen).toString());
+    });
+
+    // Close on Escape
+    dropdown.addEventListener('keydown', (e) => {
+      const keyboardEvent = e as KeyboardEvent;
+      if (keyboardEvent.key === 'Escape') {
+        menu?.classList.remove('show');
+        toggle?.setAttribute('aria-expanded', 'false');
+        if (toggle instanceof HTMLElement) {
+          toggle.focus();
+        }
+      }
+    });
+  });
+
+  // Theme toggle
+  const themeToggle = document.querySelector('.theme-toggle');
+  const html = document.documentElement;
+  const themeIcon = document.querySelector('.theme-icon');
+
+  // Check for saved theme preference or default to dark
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', currentTheme);
+  if (themeIcon) {
+    themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+  }
+
+  themeToggle?.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    if (themeIcon) {
+      themeIcon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+    }
+
+    // Announce theme change to screen readers
+    const announcer = document.getElementById('page-announcer');
+    if (announcer) {
+      announcer.textContent = `Tema cambiado a modo ${newTheme === 'dark' ? 'oscuro' : 'claro'}`;
+    }
+  });
+
+  // Announce page changes for screen readers
+  let pageAnnouncer = document.getElementById('page-announcer');
+
+  document.addEventListener('astro:page-load', () => {
+    if (pageAnnouncer) {
+      pageAnnouncer.textContent = `Página cargada: ${document.title}`;
+    }
+  });
+
+  // Keyboard navigation helpers
+  document.addEventListener('keydown', (e) => {
+    // Alt + 1: Go to main content
+    if (e.altKey && e.key === '1') {
+      document.getElementById('main-content')?.focus();
+    }
+
+    // Alt + 2: Go to navigation
+    if (e.altKey && e.key === '2') {
+      const navMain = document.querySelector('.nav-main');
+      if (navMain instanceof HTMLElement) {
+        navMain.focus();
+      }
+    }
+  });
+</script>

@@ -1,10 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const basePath =
+let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
 
 // Demo sketches data - this will be moved to content collections later
 const sketches = [
@@ -165,7 +170,7 @@ const sketches = [
             target="_blank"
             rel="noopener noreferrer">🔔 Suscribirse al Canal</a
           >
-          <a href={`${basePath}/comunidad`} class="btn btn-secondary">
+          <a href={`${basePath}/comunidad/`} class="btn btn-secondary">
             👥 Unirse a la Comunidad
           </a>
         </div>
@@ -249,8 +254,9 @@ const sketches = [
   }
 
   .filter-btn {
-    background: white;
-    border: 2px solid var(--borde-claro);
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
     padding: var(--espacio-sm) var(--espacio-lg);
     border-radius: 25px;
     font-weight: 500;
@@ -260,6 +266,7 @@ const sketches = [
 
   .filter-btn:hover {
     border-color: var(--amarillo-solar);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 
   .filter-btn.active {
@@ -281,16 +288,18 @@ const sketches = [
   }
 
   .sketch-card {
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
   }
 
   .sketch-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
 
   .sketch-thumbnail {

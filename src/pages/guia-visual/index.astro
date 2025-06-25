@@ -1,10 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const basePath =
+let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
 ---
 
 <BaseLayout title="Guía de Estilo Visual">
@@ -434,15 +439,18 @@ const basePath =
 
   .color-card {
     text-align: center;
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px var(--sombra-suave);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
   }
 
   .color-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
 
   .color-swatch {
@@ -452,7 +460,7 @@ const basePath =
 
   .color-card h4 {
     margin: var(--espacio-md) 0 var(--espacio-sm);
-    color: var(--negro-profundo);
+    color: var(--text-primary, #ffffff);
   }
 
   .color-code {
@@ -483,11 +491,21 @@ const basePath =
   }
 
   .gradient-card {
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px var(--sombra-suave);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     text-align: center;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .gradient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
 
   .gradient-sample {
@@ -726,11 +744,21 @@ const basePath =
   }
 
   .pattern-card {
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px var(--sombra-suave);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     text-align: center;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .pattern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
 
   .pattern-sample {
@@ -740,17 +768,17 @@ const basePath =
 
   .pattern-solar {
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFD700' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    background-color: #fffafa;
+    background-color: var(--bg-tertiary, #1c1c1f);
   }
 
   .pattern-organic {
     background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234CAF50' fill-opacity='0.1'%3E%3Cpath d='M50 30c0-11.046 8.954-20 20-20s20 8.954 20 20c0 11.046-8.954 20-20 20-11.046 0-20-8.954-20-20z'/%3E%3C/g%3E%3C/svg%3E");
-    background-color: #f0fff0;
+    background-color: var(--bg-tertiary, #1c1c1f);
   }
 
   .pattern-circuit {
     background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239370DB' fill-opacity='0.1'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40z'/%3E%3C/g%3E%3C/svg%3E");
-    background-color: #f8f8ff;
+    background-color: var(--bg-tertiary, #1c1c1f);
   }
 
   .pattern-card h4 {

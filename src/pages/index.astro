@@ -2,10 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteBlock from '../components/QuoteBlock.astro';
 
-const basePath =
+let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
 ---
 
 <BaseLayout title="Inicio">
@@ -17,10 +22,10 @@ const basePath =
           Conectar, Concientizar y Crear Comunidad a través del humor sostenible
         </p>
         <div class="hero-actions animate-fade-in">
-          <a href={`${basePath}/contenido/sketches`} class="btn btn-primary"
+          <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary"
             >🎬 Ver Sketches</a
           >
-          <a href={`${basePath}/proyecto`} class="btn btn-secondary"
+          <a href={`${basePath}/proyecto/`} class="btn btn-secondary"
             >Conocer el Proyecto</a
           >
         </div>
@@ -33,45 +38,54 @@ const basePath =
       <h2 class="text-center">Nuestra Estrategia de Impacto</h2>
       <div class="grid grid-3">
         <div class="fase-card-home" data-fase="1">
-          <span class="fase-icon">🎭</span>
-          <h3>Fase 1: Atracción</h3>
-          <p>
-            Sketches de comedia viral que rompen barreras culturales sobre
-            sostenibilidad
-          </p>
-          <span class="fase-status active">En Producción</span>
-          <a
-            href={`${basePath}/contenido/sketches`}
-            class="btn btn-primary mt-2">Ver Sketches</a
-          >
+          <div class="fase-card-content">
+            <span class="fase-icon">🎭</span>
+            <h3>Fase 1: Atracción</h3>
+            <p>
+              Sketches de comedia viral que rompen barreras culturales sobre
+              sostenibilidad
+            </p>
+          </div>
+          <div class="fase-card-footer">
+            <span class="fase-status active">En Producción</span>
+            <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary"
+              >Ver Sketches</a
+            >
+          </div>
         </div>
 
         <div class="fase-card-home" data-fase="2">
-          <span class="fase-icon">🎙️</span>
-          <h3>Fase 2: Conexión</h3>
-          <p>
-            Podcast con expertos para profundizar en soluciones prácticas y
-            escalables
-          </p>
-          <span class="fase-status upcoming">Próximamente</span>
-          <a
-            href={`${basePath}/contenido/podcast`}
-            class="btn btn-secondary mt-2">Saber Más</a
-          >
+          <div class="fase-card-content">
+            <span class="fase-icon">🎙️</span>
+            <h3>Fase 2: Conexión</h3>
+            <p>
+              Podcast con expertos para profundizar en soluciones prácticas y
+              escalables
+            </p>
+          </div>
+          <div class="fase-card-footer">
+            <span class="fase-status upcoming">Próximamente</span>
+            <a href={`${basePath}/contenido/podcast/`} class="btn btn-secondary"
+              >Saber Más</a
+            >
+          </div>
         </div>
 
         <div class="fase-card-home" data-fase="3">
-          <span class="fase-icon">🔬</span>
-          <h3>Fase 3: Conversión</h3>
-          <p>
-            MADLAB: Eventos y experiencias educativas que transforman
-            comunidades escolares
-          </p>
-          <span class="fase-status development">En Desarrollo</span>
-          <a
-            href={`${basePath}/contenido/madlab`}
-            class="btn btn-secondary mt-2">Descubrir</a
-          >
+          <div class="fase-card-content">
+            <span class="fase-icon">🔬</span>
+            <h3>Fase 3: Conversión</h3>
+            <p>
+              MADLAB: Eventos y experiencias educativas que transforman
+              comunidades escolares
+            </p>
+          </div>
+          <div class="fase-card-footer">
+            <span class="fase-status development">En Desarrollo</span>
+            <a href={`${basePath}/contenido/madlab/`} class="btn btn-secondary"
+              >Descubrir</a
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -92,7 +106,7 @@ const basePath =
             Tres misioneros dedicados a predicar la salvación ecológica y la
             redención energética de la humanidad.
           </p>
-          <a href={`${basePath}/personajes`} class="btn btn-primary"
+          <a href={`${basePath}/personajes/`} class="btn btn-primary"
             >Conocer Evangelistas</a
           >
         </div>
@@ -102,7 +116,7 @@ const basePath =
             Transformación espiritual a través de la tecnología sostenible y la
             reconexión con los ciclos naturales.
           </p>
-          <a href={`${basePath}/filosofia`} class="btn btn-primary"
+          <a href={`${basePath}/filosofia/`} class="btn btn-primary"
             >Leer Filosofía</a
           >
         </div>
@@ -112,7 +126,7 @@ const basePath =
             Múltiples maneras de llevar la luz solar a cada hogar: videos,
             podcasts, sketches y más.
           </p>
-          <a href={`${basePath}/formatos`} class="btn btn-primary"
+          <a href={`${basePath}/formatos/`} class="btn btn-primary"
             >Ver Formatos</a
           >
         </div>
@@ -157,10 +171,10 @@ const basePath =
         Únete a los Testigos de Solarpunk y sé parte del movimiento
       </p>
       <div class="cta-actions">
-        <a href={`${basePath}/comunidad`} class="btn btn-primary"
+        <a href={`${basePath}/comunidad/`} class="btn btn-primary"
           >🤝 Únete a la Comunidad</a
         >
-        <a href={`${basePath}/impacto`} class="btn btn-secondary"
+        <a href={`${basePath}/impacto/`} class="btn btn-secondary"
           >📊 Ver Nuestro Impacto</a
         >
       </div>
@@ -231,17 +245,19 @@ const basePath =
   }
 
   .evangelista-card {
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     padding: var(--espacio-xl);
     border-radius: 12px;
     text-align: center;
-    border: 2px solid var(--dorado-solar);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
     transition: all var(--transicion-normal);
   }
 
   .evangelista-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    border-color: var(--dorado-solar);
   }
 
   .evangelista-card h3 {
@@ -298,14 +314,42 @@ const basePath =
   }
 
   .fase-card-home {
-    background: white;
+    background: #1a1a1b; /* Dark background directly */
     padding: var(--espacio-xl);
     border-radius: 16px;
     text-align: center;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff; /* White text directly */
+    display: flex;
+    flex-direction: column;
+    min-height: 350px;
+  }
+
+  .fase-card-home h3 {
+    color: #ffffff;
+  }
+
+  .fase-card-home p {
+    color: #cccccc;
+  }
+
+  .fase-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fase-card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+    align-items: center;
+    margin-top: auto;
+    padding-top: var(--espacio-md);
   }
 
   .fase-card-home::before {
@@ -332,7 +376,8 @@ const basePath =
 
   .fase-card-home:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    border-color: var(--amarillo-solar);
   }
 
   .fase-icon {
@@ -347,7 +392,6 @@ const basePath =
     border-radius: 20px;
     font-size: 0.875rem;
     font-weight: 500;
-    margin-bottom: var(--espacio-md);
   }
 
   .fase-status.active {

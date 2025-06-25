@@ -2,10 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import QuoteBlock from '../../components/QuoteBlock.astro';
 
-const basePath =
+let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
 ---
 
 <BaseLayout title="Formatos de Contenido">
@@ -250,10 +255,10 @@ const basePath =
         sostenible
       </p>
       <div class="cta-buttons">
-        <a href={`${basePath}/recursos`} class="btn btn-evangelista">
+        <a href={`${basePath}/recursos/`} class="btn btn-evangelista">
           <i class="fas fa-download"></i> Descargar Kit de Evangelización
         </a>
-        <a href={`${basePath}/filosofia`} class="btn btn-evangelista-outline">
+        <a href={`${basePath}/filosofia/`} class="btn btn-evangelista-outline">
           <i class="fas fa-book-open"></i> Leer las Escrituras Solares
         </a>
       </div>
@@ -548,10 +553,12 @@ const basePath =
   }
 
   .timeline-content {
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     padding: var(--espacio-lg);
     border-radius: 8px;
-    box-shadow: 0 4px 15px var(--sombra-suave);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     width: 45%;
   }
 

@@ -85,6 +85,27 @@ Al crear contenido, considera estos perfiles:
 3. **Antes de commit**: Ejecuta `npm run check:all`
 4. **Al finalizar**: Verifica que todos los tests pasen
 
+## 🌐 Navegación en Desarrollo Local
+
+Cuando ejecutes el servidor de desarrollo con `npm run dev`, el sitio estará disponible en:
+
+```
+http://localhost:4321/testigos-solarpunk/
+```
+
+**Importante**: Todas las URLs incluyen el prefijo `/testigos-solarpunk` debido a la configuración de GitHub Pages. Para navegar correctamente:
+
+- Inicio: `http://localhost:4321/testigos-solarpunk/`
+- Proyecto: `http://localhost:4321/testigos-solarpunk/proyecto/`
+- Sketches: `http://localhost:4321/testigos-solarpunk/contenido/sketches/`
+- Podcast: `http://localhost:4321/testigos-solarpunk/contenido/podcast/`
+- Comunidad: `http://localhost:4321/testigos-solarpunk/comunidad/`
+
+Si encuentras errores 404, asegúrate de:
+
+1. Incluir el prefijo completo `/testigos-solarpunk` en la URL
+2. Agregar la barra final `/` (trailing slash)
+
 ## ⚠️ Consideraciones Importantes
 
 - **NO** crees archivos de documentación (README, etc.) a menos que se solicite explícitamente

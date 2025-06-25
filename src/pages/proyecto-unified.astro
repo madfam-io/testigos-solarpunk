@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import UnifiedLayout from '../layouts/UnifiedLayout.astro';
+import Breadcrumbs from '../components/layout/Breadcrumbs.astro';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -10,21 +11,28 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
+
+const breadcrumbItems = [
+  { label: 'Inicio', href: '/' },
+  { label: 'El Proyecto' },
+];
 ---
 
-<BaseLayout
+<UnifiedLayout
   title="El Proyecto"
   description="Conectar, Concientizar y Crear Comunidad a través del humor y la sostenibilidad"
 >
+  <Breadcrumbs items={breadcrumbItems} />
+
   <section class="hero-proyecto">
     <div class="container">
-      <h1 class="hero-title animate-fade-in">
+      <h1 class="hero-title animate-fadeInUp">
         Conectar, Concientizar y Crear Comunidad
       </h1>
-      <p class="tagline animate-fade-in">Instruir desde el humor</p>
+      <p class="tagline animate-fadeInUp">Instruir desde el humor</p>
 
       <div class="mision-vision">
-        <div class="mision-card">
+        <div class="card mision-card animate-fadeInUp">
           <h3>🎯 Nuestra Misión</h3>
           <p>
             Transformar la percepción sobre la sostenibilidad a través del
@@ -32,7 +40,7 @@ if (basePath.endsWith('/')) {
             comunidad comprometida con el futuro del planeta.
           </p>
         </div>
-        <div class="vision-card">
+        <div class="card vision-card animate-fadeInUp">
           <h3>🌟 Visión Solarpunk</h3>
           <p>
             Un mundo donde la tecnología y la naturaleza coexisten en armonía,
@@ -47,13 +55,13 @@ if (basePath.endsWith('/')) {
   <section class="fases-section">
     <div class="container">
       <h2 class="section-title">Estrategia de 3 Fases</h2>
-      <p class="section-intro">
+      <p class="section-intro text-secondary">
         Un viaje de transformación que comienza con una sonrisa y termina con
         acción real
       </p>
 
       <div class="fases-grid">
-        <div class="fase-card" data-fase="1">
+        <div class="card fase-card" data-fase="1">
           <span class="fase-number">01</span>
           <span class="fase-icon">🎭</span>
           <h3>Testigos de Solarpunk</h3>
@@ -62,20 +70,20 @@ if (basePath.endsWith('/')) {
             hábitos y ciencia cotidiana
           </p>
           <div class="fase-meta">
-            <span class="status active">En Producción</span>
-            <span class="formato">60-90 segundos</span>
+            <span class="badge badge-success">En Producción</span>
+            <span class="badge badge-secondary">60-90 segundos</span>
           </div>
           <ul class="fase-features">
             <li>Contenido viral para redes sociales</li>
             <li>Humor que rompe barreras culturales</li>
             <li>Tips prácticos de sostenibilidad</li>
           </ul>
-          <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary">
+          <a href={`${basePath}/contenido/sketches`} class="btn btn-primary">
             Ver Sketches
           </a>
         </div>
 
-        <div class="fase-card" data-fase="2">
+        <div class="card fase-card" data-fase="2">
           <span class="fase-number">02</span>
           <span class="fase-icon">🎙️</span>
           <h3>MADFAM Podcast</h3>
@@ -84,20 +92,20 @@ if (basePath.endsWith('/')) {
             de vida con expertos invitados
           </p>
           <div class="fase-meta">
-            <span class="status upcoming">Próximamente</span>
-            <span class="formato">20-30 minutos</span>
+            <span class="badge badge-primary">Próximamente</span>
+            <span class="badge badge-secondary">20-30 minutos</span>
           </div>
           <ul class="fase-features">
             <li>Conversaciones profundas con expertos</li>
             <li>Temas de actualidad ambiental</li>
             <li>Soluciones prácticas y escalables</li>
           </ul>
-          <a href={`${basePath}/contenido/podcast/`} class="btn btn-secondary">
+          <a href={`${basePath}/contenido/podcast`} class="btn btn-secondary">
             Saber Más
           </a>
         </div>
 
-        <div class="fase-card" data-fase="3">
+        <div class="card fase-card" data-fase="3">
           <span class="fase-number">03</span>
           <span class="fase-icon">🔬</span>
           <h3>MADLAB</h3>
@@ -106,15 +114,15 @@ if (basePath.endsWith('/')) {
             patrocinadores para impacto directo
           </p>
           <div class="fase-meta">
-            <span class="status development">En Desarrollo</span>
-            <span class="formato">Eventos presenciales</span>
+            <span class="badge badge-warning">En Desarrollo</span>
+            <span class="badge badge-secondary">Eventos presenciales</span>
           </div>
           <ul class="fase-features">
             <li>Experiencias educativas inmersivas</li>
             <li>Laboratorios de innovación</li>
             <li>Impacto directo en comunidades</li>
           </ul>
-          <a href={`${basePath}/contenido/madlab/`} class="btn btn-secondary">
+          <a href={`${basePath}/contenido/madlab`} class="btn btn-secondary">
             Descubrir
           </a>
         </div>
@@ -129,27 +137,31 @@ if (basePath.endsWith('/')) {
         <div class="proceso-step">
           <div class="step-number">1</div>
           <h4>Investigación</h4>
-          <p>Identificamos pain points y barreras culturales</p>
+          <p class="text-secondary">
+            Identificamos pain points y barreras culturales
+          </p>
         </div>
         <div class="proceso-step">
           <div class="step-number">2</div>
           <h4>Diseño</h4>
-          <p>Creamos contenido que conecta y educa</p>
+          <p class="text-secondary">Creamos contenido que conecta y educa</p>
         </div>
         <div class="proceso-step">
           <div class="step-number">3</div>
           <h4>Producción</h4>
-          <p>Grabamos con calidad MADFAM</p>
+          <p class="text-secondary">Grabamos con calidad MADFAM</p>
         </div>
         <div class="proceso-step">
           <div class="step-number">4</div>
           <h4>Distribución</h4>
-          <p>Alcanzamos audiencias en múltiples plataformas</p>
+          <p class="text-secondary">
+            Alcanzamos audiencias en múltiples plataformas
+          </p>
         </div>
         <div class="proceso-step">
           <div class="step-number">5</div>
           <h4>Impacto</h4>
-          <p>Medimos y optimizamos resultados</p>
+          <p class="text-secondary">Medimos y optimizamos resultados</p>
         </div>
       </div>
     </div>
@@ -158,26 +170,28 @@ if (basePath.endsWith('/')) {
   <section class="cta-proyecto">
     <div class="container text-center">
       <h2>¿Listo para ser parte del cambio?</h2>
-      <p class="cta-subtitle">Únete a la revolución del humor sostenible</p>
+      <p class="cta-subtitle text-secondary">
+        Únete a la revolución del humor sostenible
+      </p>
       <div class="cta-actions">
-        <a href={`${basePath}/comunidad/`} class="btn btn-primary">
+        <a href={`${basePath}/comunidad`} class="btn btn-primary">
           🤝 Únete a la Comunidad
         </a>
-        <a href={`${basePath}/contenido/sketches/`} class="btn btn-secondary">
+        <a href={`${basePath}/contenido/sketches`} class="btn btn-secondary">
           🎬 Ver Contenido
         </a>
       </div>
     </div>
   </section>
-</BaseLayout>
+</UnifiedLayout>
 
 <style>
   .hero-proyecto {
-    padding: var(--espacio-xxl) 0;
+    padding: var(--space-xxl) 0;
     background: linear-gradient(
       135deg,
-      var(--amarillo-solar) 0%,
-      var(--verde-sostenible) 100%
+      var(--madfam-yellow-dark) 0%,
+      var(--madfam-green-dark) 100%
     );
     color: white;
     text-align: center;
@@ -204,79 +218,79 @@ if (basePath.endsWith('/')) {
   .hero-title {
     font-size: 3rem;
     font-weight: 900;
-    margin-bottom: var(--espacio-md);
+    margin-bottom: var(--space-md);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
   }
 
   .tagline {
     font-size: 1.5rem;
     font-weight: 300;
-    margin-bottom: var(--espacio-xl);
+    margin-bottom: var(--space-xl);
     opacity: 0.9;
+    position: relative;
+    z-index: 1;
   }
 
   .mision-vision {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--espacio-xl);
-    margin-top: var(--espacio-xl);
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    z-index: 1;
   }
 
   .mision-card,
   .vision-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    padding: var(--espacio-xl);
-    border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .mision-card h3,
   .vision-card h3 {
     color: white;
-    margin-bottom: var(--espacio-md);
+  }
+
+  .mision-card p,
+  .vision-card p {
+    color: rgba(255, 255, 255, 0.9);
   }
 
   /* Sección de Fases */
   .fases-section {
-    padding: var(--espacio-xxl) 0;
-    background-color: var(--fondo-secundario);
+    padding: var(--space-xxl) 0;
+    background-color: var(--bg-secondary);
   }
 
   .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: var(--espacio-md);
-    color: var(--texto-primario);
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
   }
 
   .section-intro {
     text-align: center;
     font-size: 1.2rem;
-    color: var(--texto-secundario);
-    margin-bottom: var(--espacio-xl);
+    margin-bottom: var(--space-xl);
   }
 
   .fases-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--espacio-xl);
-    margin-top: var(--espacio-xl);
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
   }
 
   .fase-card {
-    background: var(--bg-secondary, #1a1a1b);
-    border-radius: 16px;
-    padding: var(--espacio-xl);
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    color: var(--text-primary, #ffffff);
   }
 
   .fase-card::before {
@@ -286,97 +300,63 @@ if (basePath.endsWith('/')) {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--amarillo-solar);
+    background: var(--madfam-yellow-dark);
   }
 
   .fase-card[data-fase='1']::before {
-    background: var(--amarillo-solar);
+    background: var(--madfam-yellow-dark);
   }
 
   .fase-card[data-fase='2']::before {
-    background: var(--purpura-creativo);
+    background: var(--madfam-purple-dark);
   }
 
   .fase-card[data-fase='3']::before {
-    background: var(--verde-sostenible);
-  }
-
-  .fase-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-    border-color: var(--amarillo-solar);
+    background: var(--madfam-green-dark);
   }
 
   .fase-number {
     position: absolute;
-    top: var(--espacio-md);
-    right: var(--espacio-md);
+    top: var(--space-md);
+    right: var(--space-md);
     font-size: 3rem;
     font-weight: 900;
     opacity: 0.1;
-    color: var(--texto-primario);
+    color: var(--text-primary);
   }
 
   .fase-icon {
     font-size: 3rem;
     display: block;
-    margin-bottom: var(--espacio-md);
+    margin-bottom: var(--space-md);
   }
 
   .fase-card h3 {
-    margin-bottom: var(--espacio-sm);
-    color: var(--texto-primario);
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
   }
 
   .fase-descripcion {
-    color: var(--texto-secundario);
-    margin-bottom: var(--espacio-md);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
   }
 
   .fase-meta {
     display: flex;
-    gap: var(--espacio-md);
-    margin-bottom: var(--espacio-md);
-  }
-
-  .status {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-
-  .status.active {
-    background: var(--verde-sostenible);
-    color: white;
-  }
-
-  .status.upcoming {
-    background: var(--azul-tecnologico);
-    color: white;
-  }
-
-  .status.development {
-    background: var(--naranja-comunidad);
-    color: white;
-  }
-
-  .formato {
-    padding: 4px 12px;
-    background: var(--fondo-secundario);
-    border-radius: 20px;
-    font-size: 0.875rem;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
   }
 
   .fase-features {
     list-style: none;
     padding: 0;
-    margin-bottom: var(--espacio-lg);
+    margin-bottom: var(--space-lg);
   }
 
   .fase-features li {
-    padding: var(--espacio-sm) 0;
-    border-bottom: 1px solid var(--borde-claro);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
   }
 
   .fase-features li:last-child {
@@ -385,22 +365,22 @@ if (basePath.endsWith('/')) {
 
   .fase-features li::before {
     content: '✓';
-    color: var(--verde-sostenible);
+    color: var(--madfam-green-dark);
     font-weight: bold;
-    margin-right: var(--espacio-sm);
+    margin-right: var(--space-sm);
   }
 
   /* Proceso Timeline */
   .proceso-section {
-    padding: var(--espacio-xxl) 0;
+    padding: var(--space-xxl) 0;
   }
 
   .proceso-timeline {
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin-top: var(--espacio-xl);
-    padding: 0 var(--espacio-md);
+    margin-top: var(--space-xl);
+    padding: 0 var(--space-md);
   }
 
   .proceso-timeline::before {
@@ -412,8 +392,8 @@ if (basePath.endsWith('/')) {
     height: 2px;
     background: linear-gradient(
       to right,
-      var(--amarillo-solar),
-      var(--verde-sostenible)
+      var(--madfam-yellow-dark),
+      var(--madfam-green-dark)
     );
     z-index: 0;
   }
@@ -428,46 +408,40 @@ if (basePath.endsWith('/')) {
   .step-number {
     width: 60px;
     height: 60px;
-    background: var(--bg-primary, #0a0a0b);
-    border: 3px solid var(--amarillo-solar);
+    background: var(--bg-primary);
+    border: 3px solid var(--madfam-yellow-dark);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto var(--espacio-md);
+    margin: 0 auto var(--space-md);
     font-weight: bold;
     font-size: 1.5rem;
-    color: var(--amarillo-solar);
+    color: var(--madfam-yellow-dark);
   }
 
   .proceso-step h4 {
-    margin-bottom: var(--espacio-sm);
-  }
-
-  .proceso-step p {
-    font-size: 0.9rem;
-    color: var(--texto-secundario);
+    margin-bottom: var(--space-sm);
   }
 
   /* CTA Section */
   .cta-proyecto {
-    padding: var(--espacio-xxl) 0;
+    padding: var(--space-xxl) 0;
     background: linear-gradient(
       135deg,
-      var(--fondo-primario) 0%,
+      var(--bg-primary) 0%,
       rgba(255, 193, 7, 0.05) 100%
     );
   }
 
   .cta-subtitle {
     font-size: 1.2rem;
-    color: var(--texto-secundario);
-    margin-bottom: var(--espacio-xl);
+    margin-bottom: var(--space-xl);
   }
 
   .cta-actions {
     display: flex;
-    gap: var(--espacio-md);
+    gap: var(--space-md);
     justify-content: center;
   }
 
@@ -479,7 +453,7 @@ if (basePath.endsWith('/')) {
 
     .proceso-timeline {
       flex-direction: column;
-      gap: var(--espacio-xl);
+      gap: var(--space-xl);
     }
 
     .proceso-timeline::before {

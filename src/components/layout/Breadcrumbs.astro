@@ -1,0 +1,92 @@
+---
+export interface Props {
+  items: Array<{
+    label: string;
+    href?: string;
+  }>;
+}
+
+const { items } = Astro.props;
+let basePath =
+  import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-list">
+    {
+      items.map((item, index) => (
+        <li class="breadcrumb-item">
+          {item.href !== undefined && item.href !== null ? (
+            <a href={`${basePath}${item.href}`} class="breadcrumb-link">
+              {item.label}
+            </a>
+          ) : (
+            <span class="breadcrumb-current" aria-current="page">
+              {item.label}
+            </span>
+          )}
+          {index < items.length - 1 && (
+            <span class="breadcrumb-separator" aria-hidden="true">
+              /
+            </span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb-nav {
+    padding: var(--space-md) 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb-link {
+    color: var(--text-tertiary);
+    transition: color var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--madfam-yellow-dark);
+    text-decoration: underline;
+  }
+
+  .breadcrumb-current {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 var(--space-sm);
+    color: var(--text-disabled);
+  }
+
+  @media (max-width: 768px) {
+    .breadcrumb-nav {
+      font-size: 0.8rem;
+    }
+  }
+</style>

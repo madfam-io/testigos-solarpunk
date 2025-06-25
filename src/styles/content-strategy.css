@@ -81,13 +81,15 @@
 .fase-card {
   position: relative;
   overflow: hidden;
-  background: var(--madfam-white);
+  background: var(--bg-tertiary, #1c1c1f);
+  color: var(--text-primary, #ffffff);
   border-radius: 1rem;
   padding: var(--card-padding);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    0 4px 6px rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
 }
 
 .fase-card::before {
@@ -342,7 +344,8 @@
   position: relative;
   border: 2px solid transparent;
   background:
-    linear-gradient(white, white) padding-box,
+    linear-gradient(var(--bg-tertiary, #1c1c1f), var(--bg-tertiary, #1c1c1f))
+      padding-box,
     linear-gradient(
         45deg,
         var(--fase-1-primary),
@@ -473,8 +476,18 @@
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
   .fase-card {
-    background: var(--madfam-black);
-    color: var(--madfam-white);
+    background: var(--bg-tertiary, #1c1c1f);
+    color: var(--text-primary, #ffffff);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+  }
+
+  .fase-card h3,
+  .fase-card h4 {
+    color: var(--text-primary, #ffffff);
+  }
+
+  .fase-card p {
+    color: var(--text-secondary, rgba(255, 255, 255, 0.87));
   }
 
   .status {

@@ -2,10 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-const basePath =
+let basePath =
   import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
 const scripts: CollectionEntry<'scripts'>[] = await getCollection('scripts');
 const scriptsByPlatform: Record<string, CollectionEntry<'scripts'>[]> = {
   TikTok: scripts.filter((s) => s.data.plataforma === 'TikTok'),
@@ -87,7 +92,7 @@ const platformColors: Record<string, string> = {
                         })}
                       </div>
                       <a
-                        href={`${basePath}/guiones/${script.id}`}
+                        href={`${basePath}/guiones/${script.id}/`}
                         class="btn btn-primary"
                       >
                         Leer Guión

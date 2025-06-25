@@ -1,0 +1,275 @@
+{
+  "totalBroken": 49,
+  "brokenLinks": [
+    {
+      "link": "/personajes/${id}",
+      "normalizedLink": "/personajes/${id}",
+      "usedIn": [
+        "src/components/AnimatedCharacterCard.astro",
+        "src/components/CharacterCard.astro"
+      ]
+    },
+    {
+      "link": "/manifest.json",
+      "normalizedLink": "/manifest.json",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/apple-touch-icon.png",
+      "normalizedLink": "/apple-touch-icon.png",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/icon-152.png",
+      "normalizedLink": "/icon-152.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/icon-144.png",
+      "normalizedLink": "/icon-144.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/icon-120.png",
+      "normalizedLink": "/icon-120.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/icon-114.png",
+      "normalizedLink": "/icon-114.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/icon-76.png",
+      "normalizedLink": "/icon-76.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/icon-72.png",
+      "normalizedLink": "/icon-72.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/icon-60.png",
+      "normalizedLink": "/icon-60.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/icon-57.png",
+      "normalizedLink": "/icon-57.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/splash-2048x2732.png",
+      "normalizedLink": "/splash-2048x2732.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/splash-1668x2388.png",
+      "normalizedLink": "/splash-1668x2388.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/splash-1536x2048.png",
+      "normalizedLink": "/splash-1536x2048.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/splash-1125x2436.png",
+      "normalizedLink": "/splash-1125x2436.png",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/favicon.svg",
+      "normalizedLink": "/favicon.svg",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/favicon-32x32.png",
+      "normalizedLink": "/favicon-32x32.png",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/favicon-16x16.png",
+      "normalizedLink": "/favicon-16x16.png",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/favicon.ico",
+      "normalizedLink": "/favicon.ico",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/fonts/poppins-v20-latin-regular.woff2",
+      "normalizedLink": "/fonts/poppins-v20-latin-regular.woff2",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/downloads/paleta-colores.ase",
+      "normalizedLink": "/downloads/paleta-colores.ase",
+      "usedIn": ["src/pages/guia-visual/index.astro"]
+    },
+    {
+      "link": "/downloads/iconos-evangelistas.svg",
+      "normalizedLink": "/downloads/iconos-evangelistas.svg",
+      "usedIn": ["src/pages/guia-visual/index.astro"]
+    },
+    {
+      "link": "/downloads/plantillas-ui.fig",
+      "normalizedLink": "/downloads/plantillas-ui.fig",
+      "usedIn": ["src/pages/guia-visual/index.astro"]
+    },
+    {
+      "link": "/downloads/guia-visual.pdf",
+      "normalizedLink": "/downloads/guia-visual.pdf",
+      "usedIn": ["src/pages/guia-visual/index.astro"]
+    },
+    {
+      "link": "/guiones/${script.id}",
+      "normalizedLink": "/guiones/${script.id}",
+      "usedIn": ["src/pages/guiones/index.astro"]
+    },
+    {
+      "link": "/downloads/plantilla-tiktok.pdf",
+      "normalizedLink": "/downloads/plantilla-tiktok.pdf",
+      "usedIn": ["src/pages/guiones/index.astro"]
+    },
+    {
+      "link": "/downloads/plantilla-instagram.pdf",
+      "normalizedLink": "/downloads/plantilla-instagram.pdf",
+      "usedIn": ["src/pages/guiones/index.astro"]
+    },
+    {
+      "link": "/downloads/guia-escritura.pdf",
+      "normalizedLink": "/downloads/guia-escritura.pdf",
+      "usedIn": ["src/pages/guiones/index.astro"]
+    },
+    {
+      "link": "/mundo/${location.id}",
+      "normalizedLink": "/mundo/${location.id}",
+      "usedIn": ["src/pages/mundo/index.astro"]
+    },
+    {
+      "link": "/produccion/estilo-visual",
+      "normalizedLink": "/produccion/estilo-visual",
+      "usedIn": ["src/pages/produccion/index.astro"]
+    },
+    {
+      "link": "/produccion/tono-voz",
+      "normalizedLink": "/produccion/tono-voz",
+      "usedIn": ["src/pages/produccion/index.astro"]
+    },
+    {
+      "link": "/produccion/specs",
+      "normalizedLink": "/produccion/specs",
+      "usedIn": ["src/pages/produccion/index.astro"]
+    },
+    {
+      "link": "/produccion/audio",
+      "normalizedLink": "/produccion/audio",
+      "usedIn": ["src/pages/produccion/index.astro"]
+    },
+    {
+      "link": "/downloads/logo-pack.zip",
+      "normalizedLink": "/downloads/logo-pack.zip",
+      "usedIn": ["src/pages/produccion/index.astro"]
+    },
+    {
+      "link": "/downloads/brand-guide.pdf",
+      "normalizedLink": "/downloads/brand-guide.pdf",
+      "usedIn": ["src/pages/produccion/index.astro"]
+    },
+    {
+      "link": "/downloads/templates.zip",
+      "normalizedLink": "/downloads/templates.zip",
+      "usedIn": ["src/pages/produccion/index.astro"]
+    },
+    {
+      "link": "/recursos/creadores/plantillas",
+      "normalizedLink": "/recursos/creadores/plantillas",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/recursos/creadores/personajes",
+      "normalizedLink": "/recursos/creadores/personajes",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/recursos/creadores/worldbuilding",
+      "normalizedLink": "/recursos/creadores/worldbuilding",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/recursos/actores/personajes",
+      "normalizedLink": "/recursos/actores/personajes",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/recursos/actores/dialogo",
+      "normalizedLink": "/recursos/actores/dialogo",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/recursos/actores/movimiento",
+      "normalizedLink": "/recursos/actores/movimiento",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/recursos/patrocinadores/impacto",
+      "normalizedLink": "/recursos/patrocinadores/impacto",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/recursos/patrocinadores/integracion",
+      "normalizedLink": "/recursos/patrocinadores/integracion",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/recursos/patrocinadores/valores",
+      "normalizedLink": "/recursos/patrocinadores/valores",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/downloads/biblia-personajes.pdf",
+      "normalizedLink": "/downloads/biblia-personajes.pdf",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/downloads/guia-mundo.pdf",
+      "normalizedLink": "/downloads/guia-mundo.pdf",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/downloads/kit-prensa.zip",
+      "normalizedLink": "/downloads/kit-prensa.zip",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    },
+    {
+      "link": "/downloads/assets-visuales.zip",
+      "normalizedLink": "/downloads/assets-visuales.zip",
+      "usedIn": ["src/pages/recursos/index.astro"]
+    }
+  ],
+  "timestamp": "2025-06-25T00:24:43.852Z"
+}

@@ -1,0 +1,180 @@
+{
+  "timestamp": "2025-06-25T00:19:46.033Z",
+  "summary": {
+    "totalIssues": 6,
+    "totalWarnings": 20,
+    "totalPasses": 6,
+    "wcagLevel": "Fails"
+  },
+  "issues": [
+    {
+      "file": "src/layouts/BaseLayout.astro",
+      "type": "missing-skip-link",
+      "message": "Falta skip link para saltar al contenido principal"
+    },
+    {
+      "file": "src/layouts/BaseLayout.astro",
+      "type": "dropdown-no-aria",
+      "message": "Dropdown sin atributos ARIA apropiados (aria-expanded, aria-haspopup)"
+    },
+    {
+      "type": "low-contrast",
+      "message": "Bordes sobre fondo: ratio 1.74:1 (mínimo 3:1)",
+      "colors": {
+        "foreground": "#3A3A3A",
+        "background": "#0A0A0B"
+      }
+    },
+    {
+      "type": "no-focus-visible",
+      "message": "No se encontraron estilos :focus-visible para navegación por teclado"
+    },
+    {
+      "type": "no-skip-link-styles",
+      "message": "No se encontraron estilos para skip links"
+    },
+    {
+      "type": "no-sr-only",
+      "message": "No se encontró clase .sr-only para contenido de screen readers"
+    }
+  ],
+  "warnings": [
+    {
+      "file": "src/pages/contenido/madlab.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/contenido/podcast.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h1 a h3"
+    },
+    {
+      "file": "src/pages/contenido/podcast.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/contenido/sketches.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h1 a h3"
+    },
+    {
+      "file": "src/pages/filosofia/index.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/filosofia/index.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/formatos/index.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h1 a h3"
+    },
+    {
+      "file": "src/pages/guia-visual/index.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/guia-visual/index.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/guia-visual/index.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/guia-visual/index.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/guia-visual/index.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/impacto.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/proyecto.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h1 a h3"
+    },
+    {
+      "file": "src/pages/proyecto.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/pages/recursos/index.astro",
+      "type": "heading-skip",
+      "message": "Salto en jerarquía de headings: h2 a h4"
+    },
+    {
+      "file": "src/layouts/BaseLayout.astro",
+      "type": "unsafe-blank-link",
+      "message": "Enlace con target=\"_blank\" sin rel=\"noopener noreferrer\"",
+      "element": "<a\n                  href=\"https://github.com/madfam-io/testigos-solarpunk\"\n                  target=\"_blank\">"
+    },
+    {
+      "file": "src/pages/comunidad.astro",
+      "type": "required-no-aria",
+      "message": "Campo requerido sin aria-required=\"true\"",
+      "element": "<input\n              type=\"email\"\n              placeholder=\"tu@email.com\"\n              class=\"email-input\"\n              required\n            />"
+    },
+    {
+      "file": "src/pages/contenido/podcast.astro",
+      "type": "required-no-aria",
+      "message": "Campo requerido sin aria-required=\"true\"",
+      "element": "<input\n            type=\"email\"\n            placeholder=\"tu@email.com\"\n            class=\"email-input\"\n            required\n          />"
+    }
+  ],
+  "passes": [
+    {
+      "type": "good-contrast",
+      "message": "Texto primario sobre fondo oscuro: ratio 19.79:1 ✓"
+    },
+    {
+      "type": "good-contrast",
+      "message": "Texto secundario sobre fondo oscuro: ratio 14.57:1 ✓"
+    },
+    {
+      "type": "good-contrast",
+      "message": "Amarillo MADFAM sobre oscuro: ratio 12.14:1 ✓"
+    },
+    {
+      "type": "good-contrast",
+      "message": "Verde sobre oscuro: ratio 8.37:1 ✓"
+    },
+    {
+      "type": "good-contrast",
+      "message": "Enlaces sobre oscuro: ratio 8.94:1 ✓"
+    },
+    {
+      "type": "good-contrast",
+      "message": "Texto sobre botón amarillo: ratio 12.14:1 ✓"
+    }
+  ],
+  "recommendations": [
+    "Implementar skip links en el layout principal",
+    "Añadir estilos :focus-visible para todos los elementos interactivos",
+    "Crear utilidad .sr-only para contenido de screen readers",
+    "Añadir ARIA labels a todos los elementos interactivos",
+    "Implementar navegación por teclado en dropdowns",
+    "Verificar y ajustar contrastes de color para WCAG AAA"
+  ]
+}

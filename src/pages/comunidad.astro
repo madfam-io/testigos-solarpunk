@@ -1,10 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const basePath =
+let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
 
 // Buyer Personas
 const personas = [
@@ -303,6 +308,8 @@ const painPoints = [
               placeholder="tu@email.com"
               class="email-input"
               required
+              aria-required="true"
+              aria-label="Correo electrónico para newsletter"
             />
             <button type="submit" class="btn btn-primary"> Suscribirme </button>
           </form>
@@ -365,16 +372,20 @@ const painPoints = [
   }
 
   .persona-card {
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     border-radius: 16px;
     padding: var(--espacio-xl);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .persona-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
 
   .persona-header {
@@ -467,11 +478,13 @@ const painPoints = [
   }
 
   .barrier-card {
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     padding: var(--espacio-xl);
     border-radius: 16px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -489,7 +502,7 @@ const painPoints = [
 
   .barrier-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
 
   .barrier-icon {
@@ -563,16 +576,21 @@ const painPoints = [
   }
 
   .join-card {
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     padding: var(--espacio-xl);
     border-radius: 16px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .join-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
 
   .join-card h3 {
@@ -581,7 +599,7 @@ const painPoints = [
   }
 
   .join-card p {
-    color: var(--texto-secundario);
+    color: var(--text-secondary, #cccccc);
     margin-bottom: var(--espacio-lg);
   }
 
@@ -623,26 +641,31 @@ const painPoints = [
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
   }
 
   .social-link:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    border-color: var(--naranja-comunidad);
   }
 
   .newsletter-form {
-    background: white;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     padding: var(--espacio-xl);
     border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   }
 
   .newsletter-form h3 {

@@ -71,6 +71,11 @@ npm install
 
 # Iniciar servidor de desarrollo
 npm run dev
+# El servidor estará disponible en http://localhost:4321/testigos-solarpunk/
+
+# Para desarrollo local sin base path (URLs más simples)
+npm run dev:local
+# El servidor estará disponible en http://localhost:4321/
 
 # Construir para producción
 npm run build

@@ -1,10 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const basePath =
+let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
 ---
 
 <BaseLayout title="Recursos">
@@ -30,7 +35,7 @@ const basePath =
           </div>
           <div class="resource-list">
             <a
-              href={`${basePath}/recursos/creadores/plantillas`}
+              href={`${basePath}/recursos/creadores/plantillas/`}
               class="resource-item"
             >
               <span class="resource-icon">📝</span>
@@ -40,7 +45,7 @@ const basePath =
               </div>
             </a>
             <a
-              href={`${basePath}/recursos/creadores/personajes`}
+              href={`${basePath}/recursos/creadores/personajes/`}
               class="resource-item"
             >
               <span class="resource-icon">👥</span>
@@ -50,7 +55,7 @@ const basePath =
               </div>
             </a>
             <a
-              href={`${basePath}/recursos/creadores/worldbuilding`}
+              href={`${basePath}/recursos/creadores/worldbuilding/`}
               class="resource-item"
             >
               <span class="resource-icon">🌍</span>
@@ -69,7 +74,7 @@ const basePath =
           </div>
           <div class="resource-list">
             <a
-              href={`${basePath}/recursos/actores/personajes`}
+              href={`${basePath}/recursos/actores/personajes/`}
               class="resource-item"
             >
               <span class="resource-icon">🎯</span>
@@ -79,7 +84,7 @@ const basePath =
               </div>
             </a>
             <a
-              href={`${basePath}/recursos/actores/dialogo`}
+              href={`${basePath}/recursos/actores/dialogo/`}
               class="resource-item"
             >
               <span class="resource-icon">💬</span>
@@ -89,7 +94,7 @@ const basePath =
               </div>
             </a>
             <a
-              href={`${basePath}/recursos/actores/movimiento`}
+              href={`${basePath}/recursos/actores/movimiento/`}
               class="resource-item"
             >
               <span class="resource-icon">🚶</span>
@@ -108,7 +113,7 @@ const basePath =
           </div>
           <div class="resource-list">
             <a
-              href={`${basePath}/recursos/patrocinadores/impacto`}
+              href={`${basePath}/recursos/patrocinadores/impacto/`}
               class="resource-item"
             >
               <span class="resource-icon">📊</span>
@@ -118,7 +123,7 @@ const basePath =
               </div>
             </a>
             <a
-              href={`${basePath}/recursos/patrocinadores/integracion`}
+              href={`${basePath}/recursos/patrocinadores/integracion/`}
               class="resource-item"
             >
               <span class="resource-icon">🤝</span>
@@ -128,7 +133,7 @@ const basePath =
               </div>
             </a>
             <a
-              href={`${basePath}/recursos/patrocinadores/valores`}
+              href={`${basePath}/recursos/patrocinadores/valores/`}
               class="resource-item"
             >
               <span class="resource-icon">🌱</span>
@@ -303,15 +308,21 @@ const basePath =
   }
 
   .philosophy-card {
-    background-color: white;
+    background-color: var(--bg-tertiary, #1c1c1f);
+    color: var(--text-primary, #ffffff);
     padding: var(--espacio-lg);
     border-radius: 8px;
     text-align: center;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
   }
 
   .philosophy-card h3 {
-    color: var(--purpura-creativo);
+    color: var(--text-primary, #ffffff);
     margin-bottom: var(--espacio-md);
+  }
+
+  .philosophy-card p {
+    color: var(--text-secondary, rgba(255, 255, 255, 0.87));
   }
 
   .download-section {

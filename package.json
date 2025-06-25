@@ -7,6 +7,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --host",
+    "dev:local": "astro dev --host --config astro.config.dev.mjs",
     "build": "npm run check:all && astro build",
     "preview": "astro preview",
     "check:all": "npm run lint && npm run type-check && npm run test",
@@ -31,7 +32,12 @@
     "new:character": "node scripts/new-character.js",
     "new:script": "echo 'Script para crear guiones pendiente de implementar'",
     "check:links": "echo 'Verificador de links pendiente de implementar'",
-    "analyze:bundle": "astro build && source-map-explorer 'dist/**/*.js'"
+    "analyze:bundle": "astro build && source-map-explorer 'dist/**/*.js'",
+    "audit:navigation": "node scripts/audit-navigation.js",
+    "audit:accessibility": "node scripts/check-accessibility.js",
+    "audit:all": "npm run audit:navigation && npm run audit:accessibility",
+    "fix:styling": "prettier --write 'src/**/*.{astro,css,ts,tsx}'",
+    "fix:all": "npm run fix:styling && npm run audit:all"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",

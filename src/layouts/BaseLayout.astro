@@ -20,10 +20,16 @@ const baseUrl =
   import.meta.env.SITE !== ''
     ? import.meta.env.SITE
     : 'https://madfam-io.github.io';
-const basePath =
+let basePath =
   import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+
 const fullUrl = `${baseUrl}${basePath}${currentPath}`;
 const imageUrl = `${baseUrl}${basePath}${image}`;
 ---
@@ -205,11 +211,6 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
             url: `${baseUrl}${basePath}/icon-512.png`,
           },
         },
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: `${baseUrl}${basePath}/buscar?q={search_term_string}`,
-          'query-input': 'required name=search_term_string',
-        },
       })}
     />
 
@@ -237,45 +238,55 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
         <ul class="nav-menu">
           <li>
             <a
-              href={`${basePath}/proyecto`}
+              href={`${basePath}/proyecto/`}
               class:list={currentPath.startsWith('/proyecto') ? 'active' : ''}
               >El Proyecto</a
             >
           </li>
           <li class="nav-dropdown">
             <a
-              href={`${basePath}/contenido/sketches`}
+              href={`${basePath}/contenido/`}
               class:list={currentPath.startsWith('/contenido') ? 'active' : ''}
               >Contenido</a
             >
+            <div class="nav-dropdown-menu">
+              <a href={`${basePath}/contenido/sketches/`}>🎬 Sketches</a>
+              <a href={`${basePath}/contenido/podcast/`}>🎙️ Podcast</a>
+              <a href={`${basePath}/contenido/madlab/`}>🔬 MADLAB</a>
+            </div>
           </li>
           <li class="nav-dropdown">
             <a
-              href={`${basePath}/personajes`}
+              href={`${basePath}/personajes/`}
               class:list={currentPath.startsWith('/personajes') ||
               currentPath.startsWith('/mundo') ||
               currentPath.startsWith('/guiones')
                 ? 'active'
                 : ''}>Universo</a
             >
+            <div class="nav-dropdown-menu">
+              <a href={`${basePath}/personajes/`}>👥 Personajes</a>
+              <a href={`${basePath}/mundo/`}>🌍 Construcción del Mundo</a>
+              <a href={`${basePath}/guiones/`}>📝 Guiones</a>
+            </div>
           </li>
           <li>
             <a
-              href={`${basePath}/comunidad`}
+              href={`${basePath}/comunidad/`}
               class:list={currentPath.startsWith('/comunidad') ? 'active' : ''}
               >Comunidad</a
             >
           </li>
           <li>
             <a
-              href={`${basePath}/produccion`}
+              href={`${basePath}/produccion/`}
               class:list={currentPath.startsWith('/produccion') ? 'active' : ''}
               >Producción</a
             >
           </li>
           <li>
             <a
-              href={`${basePath}/impacto`}
+              href={`${basePath}/impacto/`}
               class:list={currentPath.startsWith('/impacto') ? 'active' : ''}
               >Impacto</a
             >
@@ -292,6 +303,7 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
       document.addEventListener('DOMContentLoaded', function () {
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
+        const dropdowns = document.querySelectorAll('.nav-dropdown');
 
         if (mobileMenuToggle && navMenu) {
           mobileMenuToggle.addEventListener('click', function () {
@@ -299,13 +311,37 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
             navMenu.classList.toggle('active');
           });
 
-          // Close menu when clicking on a link
+          // Handle mobile dropdowns
+          dropdowns.forEach((dropdown) => {
+            const link = dropdown.querySelector('a');
+            link?.addEventListener('click', function (e) {
+              // Only prevent default on mobile when clicking dropdown toggle
+              if (
+                window.innerWidth <= 768 &&
+                dropdown.querySelector('.nav-dropdown-menu')
+              ) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+
+                // Close other dropdowns
+                dropdowns.forEach((otherDropdown) => {
+                  if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove('active');
+                  }
+                });
+              }
+            });
+          });
+
+          // Close menu when clicking on a non-dropdown link
           const navLinks = navMenu.querySelectorAll('a');
           navLinks.forEach((link) => {
-            link.addEventListener('click', function () {
-              mobileMenuToggle.classList.remove('active');
-              navMenu.classList.remove('active');
-            });
+            if (!link.parentElement?.classList.contains('nav-dropdown')) {
+              link.addEventListener('click', function () {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+              });
+            }
           });
 
           // Close menu when clicking outside
@@ -317,6 +353,9 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
             ) {
               mobileMenuToggle.classList.remove('active');
               navMenu.classList.remove('active');
+              dropdowns.forEach((dropdown) => {
+                dropdown.classList.remove('active');
+              });
             }
           });
         }
@@ -330,36 +369,40 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
             <h4>Universo Creativo</h4>
             <ul>
               <li>
-                <a href={`${basePath}/personajes`}>Biblia de Personajes</a>
+                <a href={`${basePath}/personajes/`}>Biblia de Personajes</a>
               </li>
               <li>
-                <a href={`${basePath}/guiones`}>Repositorio de Guiones</a>
+                <a href={`${basePath}/guiones/`}>Repositorio de Guiones</a>
               </li>
-              <li><a href={`${basePath}/mundo`}>Construcción del Mundo</a></li>
+              <li><a href={`${basePath}/mundo/`}>Construcción del Mundo</a></li>
             </ul>
           </div>
           <div>
             <h4>Para Creadores</h4>
             <ul>
-              <li><a href={`${basePath}/recursos`}>Guías y Plantillas</a></li>
-              <li><a href={`${basePath}/produccion`}>Guía de Estilo</a></li>
+              <li><a href={`${basePath}/recursos/`}>Guías y Plantillas</a></li>
+              <li><a href={`${basePath}/produccion/`}>Guía de Estilo</a></li>
+              <li><a href={`${basePath}/guia-visual/`}>Guía Visual</a></li>
               <li>
-                <a href={`${basePath}/filosofia`}>Filosofía del Proyecto</a>
+                <a href={`${basePath}/filosofia/`}>Filosofía del Proyecto</a>
               </li>
               <li>
-                <a href={`${basePath}/formatos`}>Formatos de Contenido</a>
+                <a href={`${basePath}/formatos/`}>Formatos de Contenido</a>
               </li>
             </ul>
           </div>
           <div>
             <h4>Conecta</h4>
             <ul>
-              <li><a href={`${basePath}/recursos`}>Para Patrocinadores</a></li>
-              <li><a href={`${basePath}/guiones`}>Últimos Episodios</a></li>
+              <li>
+                <a href={`${basePath}/comunidad/`}>Únete a la Comunidad</a>
+              </li>
+              <li><a href={`${basePath}/impacto/`}>Nuestro Impacto</a></li>
               <li>
                 <a
                   href="https://github.com/madfam-io/testigos-solarpunk"
-                  target="_blank">GitHub</a
+                  target="_blank"
+                  rel="noopener noreferrer">GitHub</a
                 >
               </li>
             </ul>
