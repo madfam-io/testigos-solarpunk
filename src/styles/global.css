@@ -283,6 +283,15 @@ nav .container {
   font-weight: 500;
   color: var(--texto-primario);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .nav-menu {
@@ -496,6 +505,10 @@ footer a {
   .nav-dropdown-menu a {
     padding-left: var(--espacio-xxl);
     font-size: 0.9rem;
+  }
+
+  .nav-logo {
+    height: 32px;
   }
 
   .nav-dropdown > a::after {

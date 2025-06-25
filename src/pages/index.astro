@@ -17,7 +17,10 @@ if (basePath.endsWith('/')) {
   <section class="hero gradient-solarpunk">
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title animate-fade-in">Testigos de Solarpunk</h1>
+        <div class="hero-logo-title animate-fade-in">
+          <img src={`${basePath}/images/logo.png`} alt="Testigos de Solarpunk" class="hero-logo" />
+          <h1 class="hero-title">Testigos de Solarpunk</h1>
+        </div>
         <p class="hero-subtitle animate-fade-in">
           Conectar, Concientizar y Crear Comunidad a través del humor sostenible
         </p>
@@ -207,9 +210,23 @@ if (basePath.endsWith('/')) {
     z-index: 2;
   }
 
+  .hero-logo-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .hero-logo {
+    height: 120px;
+    width: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  }
+
   .hero-title {
     font-size: 3.5rem;
-    margin-bottom: var(--espacio-lg);
+    margin: 0;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
@@ -410,6 +427,10 @@ if (basePath.endsWith('/')) {
   }
 
   @media (max-width: 768px) {
+    .hero-logo {
+      height: 80px;
+    }
+
     .hero-title {
       font-size: 2.5rem;
     }
