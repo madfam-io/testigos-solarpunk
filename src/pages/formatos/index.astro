@@ -307,6 +307,7 @@ if (basePath.endsWith('/')) {
 
   .formats-section {
     padding: var(--espacio-xxl) 0;
+    background: var(--bg-primary, #0a0a0b);
   }
 
   .format-grid {
@@ -317,10 +318,22 @@ if (basePath.endsWith('/')) {
   }
 
   .format-card {
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
     padding: var(--espacio-xl);
     border-radius: 12px;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 1;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .format-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
 
   .format-icon {
@@ -341,7 +354,7 @@ if (basePath.endsWith('/')) {
 
   .format-card h3 {
     text-align: center;
-    color: var(--dorado-solar);
+    color: var(--text-primary, #ffffff);
     margin-bottom: var(--espacio-md);
     font-size: 1.5rem;
   }
@@ -423,7 +436,7 @@ if (basePath.endsWith('/')) {
     display: flex;
     align-items: center;
     gap: var(--espacio-sm);
-    color: var(--texto-secundario);
+    color: var(--text-secondary, #cccccc);
   }
 
   .format-features i {
@@ -432,7 +445,9 @@ if (basePath.endsWith('/')) {
   }
 
   .format-example {
-    background: rgba(255, 215, 0, 0.1);
+    background: var(--bg-tertiary, #1c1c1f);
+    color: var(--text-primary, #ffffff);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
     padding: var(--espacio-md);
     border-radius: 8px;
     margin-top: var(--espacio-md);
@@ -452,8 +467,11 @@ if (basePath.endsWith('/')) {
   .folleto-list li {
     padding: var(--espacio-sm);
     margin: var(--espacio-sm) 0;
-    background: rgba(139, 69, 19, 0.1);
+    background: var(--bg-tertiary, #1c1c1f);
+    color: var(--text-primary, #ffffff);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
     border-left: 3px solid var(--marron-tierra);
+    border-radius: 4px;
     font-style: italic;
   }
 
@@ -467,6 +485,7 @@ if (basePath.endsWith('/')) {
     display: flex;
     align-items: center;
     gap: var(--espacio-sm);
+    color: var(--text-secondary, #cccccc);
   }
 
   .podcast-segments i {
@@ -493,7 +512,9 @@ if (basePath.endsWith('/')) {
     align-items: center;
     gap: var(--espacio-sm);
     padding: var(--espacio-sm);
-    background: rgba(0, 255, 127, 0.1);
+    background: var(--bg-tertiary, #1c1c1f);
+    color: var(--text-primary, #ffffff);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
     border-radius: 8px;
   }
 
@@ -504,7 +525,7 @@ if (basePath.endsWith('/')) {
 
   .distribution-section {
     padding: var(--espacio-xxl) 0;
-    background: var(--fondo-secundario);
+    background: var(--bg-secondary, #1a1a1b);
   }
 
   .timeline-container {
@@ -574,7 +595,7 @@ if (basePath.endsWith('/')) {
 
   .timeline-date {
     display: block;
-    color: var(--texto-secundario);
+    color: var(--text-secondary, #cccccc);
     font-size: 0.875rem;
     margin-top: var(--espacio-sm);
   }
@@ -657,5 +678,23 @@ if (basePath.endsWith('/')) {
     .format-grid {
       grid-template-columns: 1fr;
     }
+  }
+
+  /* Additional dark theme support */
+  .format-content {
+    color: var(--text-primary, #ffffff);
+  }
+
+  .format-content h4 {
+    color: var(--text-primary, #ffffff);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .format-content ul {
+    color: var(--text-secondary, #cccccc);
+  }
+
+  .format-content ul li {
+    color: var(--text-secondary, #cccccc);
   }
 </style>
