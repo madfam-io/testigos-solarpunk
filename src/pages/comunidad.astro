@@ -157,7 +157,8 @@ const painPoints = [
                     href={`${basePath}/contenido/sketches`}
                     class="sketch-link"
                   >
-                    🎬 {persona.sketch}
+                    <span class="emoji-cutout emoji-sm theme-solar">🎬</span>{' '}
+                    {persona.sketch}
                   </a>
                 </div>
               </div>
@@ -180,7 +181,11 @@ const painPoints = [
         {
           painPoints.map((point) => (
             <div class="barrier-card" data-tipo={point.tipo}>
-              <span class="barrier-icon">{point.icon}</span>
+              <span class="barrier-icon">
+                <span class="emoji-cutout emoji-lg theme-community flutter">
+                  {point.icon}
+                </span>
+              </span>
               <h3>{point.titulo}</h3>
               <p class="barrier-creencia">{point.creencia}</p>
               <div class="barrier-solution">
@@ -199,22 +204,38 @@ const painPoints = [
       <h2>Nuestros Valores</h2>
       <div class="values-grid">
         <div class="value-card">
-          <span class="value-icon">🤝</span>
+          <span class="value-icon"
+            ><span class="emoji-cutout emoji-lg theme-community interactive"
+              >🤝</span
+            ></span
+          >
           <h3>Inclusión</h3>
           <p>Todos son bienvenidos, sin importar su nivel de conocimiento</p>
         </div>
         <div class="value-card">
-          <span class="value-icon">😄</span>
+          <span class="value-icon"
+            ><span class="emoji-cutout emoji-lg theme-solar interactive"
+              >😄</span
+            ></span
+          >
           <h3>Humor</h3>
           <p>Reírnos juntos mientras aprendemos y crecemos</p>
         </div>
         <div class="value-card">
-          <span class="value-icon">🌱</span>
+          <span class="value-icon"
+            ><span class="emoji-cutout emoji-lg theme-green interactive"
+              >🌱</span
+            ></span
+          >
           <h3>Acción</h3>
           <p>Pequeños pasos que generan grandes cambios</p>
         </div>
         <div class="value-card">
-          <span class="value-icon">💡</span>
+          <span class="value-icon"
+            ><span class="emoji-cutout emoji-lg theme-purple interactive"
+              >💡</span
+            ></span
+          >
           <h3>Creatividad</h3>
           <p>Soluciones innovadoras para problemas complejos</p>
         </div>
@@ -227,22 +248,30 @@ const painPoints = [
       <h2>Formas de Participar</h2>
       <div class="join-options">
         <div class="join-card">
-          <h3>🎬 Crea Contenido</h3>
+          <h3>
+            <span class="emoji-cutout emoji-md theme-solar">🎬</span> Crea Contenido
+          </h3>
           <p>Comparte tus propios sketches y experiencias sostenibles</p>
           <button class="btn btn-secondary">Crear</button>
         </div>
         <div class="join-card">
-          <h3>📤 Comparte</h3>
+          <h3>
+            <span class="emoji-cutout emoji-md theme-purple">📤</span> Comparte
+          </h3>
           <p>Difunde el mensaje en tus redes sociales</p>
           <button class="btn btn-secondary">Compartir</button>
         </div>
         <div class="join-card">
-          <h3>🤝 Colabora</h3>
+          <h3>
+            <span class="emoji-cutout emoji-md theme-community">🤝</span> Colabora
+          </h3>
           <p>Únete como voluntario en eventos MADLAB</p>
           <button class="btn btn-secondary">Voluntariado</button>
         </div>
         <div class="join-card">
-          <h3>💚 Patrocina</h3>
+          <h3>
+            <span class="emoji-cutout emoji-md theme-green">💚</span> Patrocina
+          </h3>
           <p>Apoya el proyecto como empresa sostenible</p>
           <a
             href={`${basePath}/recursos#patrocinadores`}
@@ -269,7 +298,9 @@ const painPoints = [
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>📷</span>
+            <span class="emoji-cutout emoji-md theme-purple interactive"
+              >📷</span
+            >
           </a>
           <a
             href="https://tiktok.com/@testigosdesolarpunk"
@@ -278,7 +309,8 @@ const painPoints = [
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>🎵</span>
+            <span class="emoji-cutout emoji-md theme-solar interactive">🎵</span
+            >
           </a>
           <a
             href="https://youtube.com/@testigosdesolarpunk"
@@ -287,7 +319,9 @@ const painPoints = [
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>📺</span>
+            <span class="emoji-cutout emoji-md theme-community interactive"
+              >📺</span
+            >
           </a>
           <a
             href="https://twitter.com/testigossolarpk"
@@ -296,7 +330,9 @@ const painPoints = [
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>🐦</span>
+            <span class="emoji-cutout emoji-md theme-purple interactive"
+              >🐦</span
+            >
           </a>
         </div>
 

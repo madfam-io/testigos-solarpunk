@@ -225,7 +225,11 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
             href={`${basePath}/`}
             class:list={currentPath === '/' ? 'active' : ''}
           >
-            <img src={`${basePath}/images/logo.png`} alt="Testigos de Solarpunk" class="nav-logo" />
+            <img
+              src={`${basePath}/images/logo.png`}
+              alt="Testigos de Solarpunk"
+              class="nav-logo"
+            />
             <strong class="text-gradient">Testigos de Solarpunk</strong>
           </a>
         </div>
@@ -251,9 +255,15 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
               >Contenido</a
             >
             <div class="nav-dropdown-menu">
-              <a href={`${basePath}/contenido/sketches/`}>🎬 Sketches</a>
-              <a href={`${basePath}/contenido/podcast/`}>🎙️ Podcast</a>
-              <a href={`${basePath}/contenido/madlab/`}>🔬 MADLAB</a>
+              <a href={`${basePath}/contenido/sketches/`}
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎬</span> Sketches</a
+              >
+              <a href={`${basePath}/contenido/podcast/`}
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎙️</span> Podcast</a
+              >
+              <a href={`${basePath}/contenido/madlab/`}
+                ><span class="emoji-cutout emoji-nav emoji-sm">🔬</span> MADLAB</a
+              >
             </div>
           </li>
           <li class="nav-dropdown">
@@ -266,9 +276,16 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
                 : ''}>Universo</a
             >
             <div class="nav-dropdown-menu">
-              <a href={`${basePath}/personajes/`}>👥 Personajes</a>
-              <a href={`${basePath}/mundo/`}>🌍 Construcción del Mundo</a>
-              <a href={`${basePath}/guiones/`}>📝 Guiones</a>
+              <a href={`${basePath}/personajes/`}
+                ><span class="emoji-cutout emoji-nav emoji-sm">👥</span> Personajes</a
+              >
+              <a href={`${basePath}/mundo/`}
+                ><span class="emoji-cutout emoji-nav emoji-sm">🌍</span> Construcción
+                del Mundo</a
+              >
+              <a href={`${basePath}/guiones/`}
+                ><span class="emoji-cutout emoji-nav emoji-sm">📝</span> Guiones</a
+              >
             </div>
           </li>
           <li>

@@ -90,12 +90,14 @@ const sketches = [
       <div class="filter-group">
         <button class="filter-btn active" data-filter="todos"> Todos </button>
         <button class="filter-btn" data-filter="sostenibilidad">
-          🌱 Sostenibilidad
+          <span class="emoji-cutout emoji-sm theme-green">🌱</span> Sostenibilidad
         </button>
         <button class="filter-btn" data-filter="tecnologia">
-          💡 Tecnología
+          <span class="emoji-cutout emoji-sm theme-purple">💡</span> Tecnología
         </button>
-        <button class="filter-btn" data-filter="social"> 👥 Social </button>
+        <button class="filter-btn" data-filter="social">
+          <span class="emoji-cutout emoji-sm theme-community">👥</span> Social
+        </button>
       </div>
     </div>
   </section>
@@ -124,15 +126,31 @@ const sketches = [
 
                 <div class="sketch-meta">
                   <span class="tema-badge" data-tema={sketch.tema}>
-                    {sketch.tema === 'sostenibilidad' && '🌱'}
-                    {sketch.tema === 'tecnologia' && '💡'}
-                    {sketch.tema === 'social' && '👥'}
+                    {sketch.tema === 'sostenibilidad' && (
+                      <span class="emoji-cutout emoji-sm theme-green">🌱</span>
+                    )}
+                    {sketch.tema === 'tecnologia' && (
+                      <span class="emoji-cutout emoji-sm theme-purple">💡</span>
+                    )}
+                    {sketch.tema === 'social' && (
+                      <span class="emoji-cutout emoji-sm theme-community">
+                        👥
+                      </span>
+                    )}
                     {sketch.tema}
                   </span>
 
                   <div class="sketch-stats">
-                    <span>👁 {sketch.views}</span>
-                    <span>❤️ {sketch.likes}</span>
+                    <span>
+                      <span class="emoji-cutout emoji-sm">👁</span>{' '}
+                      {sketch.views}
+                    </span>
+                    <span>
+                      <span class="emoji-cutout emoji-sm theme-community">
+                        ❤️
+                      </span>{' '}
+                      {sketch.likes}
+                    </span>
                   </div>
                 </div>
 
@@ -145,7 +163,9 @@ const sketches = [
 
               <div class="sketch-actions">
                 <button class="btn-play">▶ Ver Sketch</button>
-                <button class="btn-share">📤 Compartir</button>
+                <button class="btn-share">
+                  <span class="emoji-cutout emoji-sm">📤</span> Compartir
+                </button>
               </div>
             </article>
           ))
@@ -168,10 +188,15 @@ const sketches = [
             href="https://youtube.com/@testigosdesolarpunk"
             class="btn btn-primary"
             target="_blank"
-            rel="noopener noreferrer">🔔 Suscribirse al Canal</a
+            rel="noopener noreferrer"
+            ><span class="emoji-cutout emoji-button emoji-md theme-solar"
+              >🔔</span
+            > Suscribirse al Canal</a
           >
           <a href={`${basePath}/comunidad/`} class="btn btn-secondary">
-            👥 Unirse a la Comunidad
+            <span class="emoji-cutout emoji-button emoji-md theme-community"
+              >👥</span
+            > Unirse a la Comunidad
           </a>
         </div>
       </div>

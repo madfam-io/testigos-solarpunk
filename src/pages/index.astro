@@ -18,7 +18,11 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <div class="hero-content">
         <div class="hero-logo-title animate-fade-in">
-          <img src={`${basePath}/images/logo.png`} alt="Testigos de Solarpunk" class="hero-logo" />
+          <img
+            src={`${basePath}/images/logo.png`}
+            alt="Testigos de Solarpunk"
+            class="hero-logo"
+          />
           <h1 class="hero-title">Testigos de Solarpunk</h1>
         </div>
         <p class="hero-subtitle animate-fade-in">
@@ -26,7 +30,9 @@ if (basePath.endsWith('/')) {
         </p>
         <div class="hero-actions animate-fade-in">
           <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary"
-            >🎬 Ver Sketches</a
+            ><span class="emoji-cutout emoji-button emoji-md theme-solar"
+              >🎬</span
+            > Ver Sketches</a
           >
           <a href={`${basePath}/proyecto/`} class="btn btn-secondary"
             >Conocer el Proyecto</a
@@ -42,7 +48,12 @@ if (basePath.endsWith('/')) {
       <div class="grid grid-3">
         <div class="fase-card-home" data-fase="1">
           <div class="fase-card-content">
-            <span class="fase-icon">🎭</span>
+            <span class="fase-icon"
+              ><span
+                class="emoji-cutout emoji-card emoji-xl theme-solar flutter"
+                >🎭</span
+              ></span
+            >
             <h3>Fase 1: Atracción</h3>
             <p>
               Sketches de comedia viral que rompen barreras culturales sobre
@@ -59,7 +70,12 @@ if (basePath.endsWith('/')) {
 
         <div class="fase-card-home" data-fase="2">
           <div class="fase-card-content">
-            <span class="fase-icon">🎙️</span>
+            <span class="fase-icon"
+              ><span
+                class="emoji-cutout emoji-card emoji-xl theme-purple flutter"
+                >🎙️</span
+              ></span
+            >
             <h3>Fase 2: Conexión</h3>
             <p>
               Podcast con expertos para profundizar en soluciones prácticas y
@@ -76,7 +92,12 @@ if (basePath.endsWith('/')) {
 
         <div class="fase-card-home" data-fase="3">
           <div class="fase-card-content">
-            <span class="fase-icon">🔬</span>
+            <span class="fase-icon"
+              ><span
+                class="emoji-cutout emoji-card emoji-xl theme-green flutter"
+                >🔬</span
+              ></span
+            >
             <h3>Fase 3: Conversión</h3>
             <p>
               MADLAB: Eventos y experiencias educativas que transforman
@@ -104,7 +125,10 @@ if (basePath.endsWith('/')) {
       />
       <div class="evangelista-grid">
         <div class="evangelista-card halo-effect">
-          <h3>🌟 Los Evangelistas</h3>
+          <h3>
+            <span class="emoji-cutout emoji-card emoji-lg theme-solar">🌟</span>
+            Los Evangelistas
+          </h3>
           <p>
             Tres misioneros dedicados a predicar la salvación ecológica y la
             redención energética de la humanidad.
@@ -114,7 +138,10 @@ if (basePath.endsWith('/')) {
           >
         </div>
         <div class="evangelista-card halo-effect">
-          <h3>📖 El Mensaje</h3>
+          <h3>
+            <span class="emoji-cutout emoji-card emoji-lg theme-solar">📖</span>
+            El Mensaje
+          </h3>
           <p>
             Transformación espiritual a través de la tecnología sostenible y la
             reconexión con los ciclos naturales.
@@ -124,7 +151,10 @@ if (basePath.endsWith('/')) {
           >
         </div>
         <div class="evangelista-card halo-effect">
-          <h3>🎬 Los Formatos</h3>
+          <h3>
+            <span class="emoji-cutout emoji-card emoji-lg theme-solar">🎬</span>
+            Los Formatos
+          </h3>
           <p>
             Múltiples maneras de llevar la luz solar a cada hogar: videos,
             podcasts, sketches y más.
@@ -142,24 +172,44 @@ if (basePath.endsWith('/')) {
       <h2 class="text-center">Nuestra Visión</h2>
       <div class="vision-grid">
         <div class="vision-item float-animation">
-          <span class="vision-icon">☀️</span>
+          <span class="vision-icon"
+            ><span
+              class="emoji-cutout emoji-hero emoji-xl theme-solar interactive"
+              >☀️</span
+            ></span
+          >
           <h4>Energía Limpia</h4>
           <p>
             Un mundo impulsado por el sol, el viento y la creatividad humana
           </p>
         </div>
         <div class="vision-item float-animation" style="animation-delay: 0.2s">
-          <span class="vision-icon">🤝</span>
+          <span class="vision-icon"
+            ><span
+              class="emoji-cutout emoji-hero emoji-xl theme-community interactive"
+              >🤝</span
+            ></span
+          >
           <h4>Comunidad Fuerte</h4>
           <p>Las soluciones nacen de la colaboración y el apoyo mutuo</p>
         </div>
         <div class="vision-item float-animation" style="animation-delay: 0.4s">
-          <span class="vision-icon">🌺</span>
+          <span class="vision-icon"
+            ><span
+              class="emoji-cutout emoji-hero emoji-xl theme-green interactive"
+              >🌺</span
+            ></span
+          >
           <h4>Armonía Natural</h4>
           <p>La tecnología y la naturaleza coexisten en equilibrio</p>
         </div>
         <div class="vision-item float-animation" style="animation-delay: 0.6s">
-          <span class="vision-icon">🎭</span>
+          <span class="vision-icon"
+            ><span
+              class="emoji-cutout emoji-hero emoji-xl theme-solar interactive"
+              >🎭</span
+            ></span
+          >
           <h4>Historias que Inspiran</h4>
           <p>Narrativas que muestran futuros posibles y deseables</p>
         </div>
@@ -175,10 +225,13 @@ if (basePath.endsWith('/')) {
       </p>
       <div class="cta-actions">
         <a href={`${basePath}/comunidad/`} class="btn btn-primary"
-          >🤝 Únete a la Comunidad</a
+          ><span class="emoji-cutout emoji-button emoji-md theme-community"
+            >🤝</span
+          > Únete a la Comunidad</a
         >
         <a href={`${basePath}/impacto/`} class="btn btn-secondary"
-          >📊 Ver Nuestro Impacto</a
+          ><span class="emoji-cutout emoji-button emoji-md theme-green">📊</span
+          > Ver Nuestro Impacto</a
         >
       </div>
     </div>
