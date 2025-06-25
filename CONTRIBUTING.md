@@ -44,10 +44,11 @@ Esperamos que todos los contribuyentes:
 
 ### 🌱 Añadiendo Contenido
 
-- Personajes nuevos
-- Guiones y episodios
-- Locaciones del universo
-- Recursos de producción
+- **Fase 1 - Sketches**: Guiones de 60-90 segundos con humor viral
+- **Fase 2 - Podcast**: Temas y expertos para episodios
+- **Fase 3 - MADLAB**: Actividades y experiencias educativas
+- Personajes nuevos alineados con buyer personas
+- Locaciones del universo solarpunk
 
 ### 💻 Contribuyendo Código
 
@@ -204,18 +205,40 @@ const { character, showDetails = false } = Astro.props;
 
 ## 📝 Guía de Contenido
 
+### Estrategia de 3 Fases
+
+1. **Fase 1 - Atracción (Sketches)**
+
+   - Duración: 60-90 segundos
+   - Humor que rompe barreras culturales
+   - Conecta con pain points de buyer personas
+   - Optimizado para redes sociales
+
+2. **Fase 2 - Conexión (Podcast)**
+
+   - Duración: 20-30 minutos
+   - Conversaciones con expertos
+   - Soluciones prácticas y escalables
+   - Construcción de comunidad
+
+3. **Fase 3 - Conversión (MADLAB)**
+   - Experiencias educativas presenciales
+   - Actividades prácticas en escuelas
+   - Impacto medible en comunidades
+
 ### Personajes
 
 - Nombres temáticos evangelista-ecológicos
 - Historia de conversión verde
 - Milagro signature único
 - Al menos 3 frases icónicas
+- Alineación con buyer personas (Gaby, Carlos, Mari, Tomás, Lucía)
 
 ### Guiones
 
 - Formato específico por plataforma
 - Momentos virales marcados
-- Duración apropiada
+- Duración apropiada según fase
 - Hashtags estratégicos
 
 ### Tono y Estilo
@@ -281,10 +304,10 @@ npm run analyze:bundle
 
 ### Documentación del Proyecto
 
-- `.claude/README.md` - Guía para AI
-- `.claude/architecture.md` - Arquitectura técnica
-- `.claude/conventions.md` - Convenciones de código
-- `.claude/content-guide.md` - Guía de contenido
+- `README.md` - Descripción general del proyecto
+- `CLAUDE.md` - Guía para asistentes AI
+- `CONTRIBUTING.md` - Esta guía de contribución
+- `GITHUB_PAGES_SETUP.md` - Configuración de deployment
 
 ## 🙏 Agradecimientos
 

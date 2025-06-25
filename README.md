@@ -1,46 +1,59 @@
-# 🌱 Testigos de Solarpunk - Sitio Web del Universo
+# 🌱 Testigos de Solarpunk - Proyecto MADFAM
 
-Sitio web estático integral que sirve como la documentación definitiva del universo creativo de "Testigos de Solarpunk". Este sitio es el centro principal donde creadores de contenido, actores, directores, patrocinadores y partes interesadas del solarpunk pueden explorar personajes, acceder a guiones, entender el mundo y navegar todo el ecosistema creativo.
+Testigos de Solarpunk es un proyecto de MADFAM que conecta, concientiza y crea comunidad a través del humor sostenible. Utilizando una estrategia de contenido de 3 fases, transformamos la percepción sobre la sostenibilidad con sketches virales, podcasts educativos y experiencias de aprendizaje inmersivas.
 
-## 🎯 Características Principales
+## 🚀 Estrategia de 3 Fases
 
-- **Biblia de Personajes**: Perfiles detallados, relaciones y evolución narrativa
-- **Repositorio de Guiones**: Episodios organizados por plataforma (TikTok, Instagram, YouTube)
-- **Construcción del Mundo**: Ubicaciones, tecnología, estructura social, línea temporal
-- **Recursos de Producción**: Guías de estilo, referencias de tono, mood boards visuales
-- **Portal para Interesados**: Información para patrocinadores, colaboradores y defensores
+### 🎭 Fase 1: Atracción (En Producción)
 
-## 🚀 Estructura del Proyecto
+- **Sketches virales** de 60-90 segundos que rompen barreras culturales
+- **Humor accesible** que conecta con los pain points de la audiencia
+- **Contenido para redes sociales** optimizado para compartir
 
-```text
+### 🎙️ Fase 2: Conexión (Próximamente)
+
+- **Podcast MADFAM** con expertos en sostenibilidad
+- **Conversaciones profundas** sobre soluciones prácticas
+- **Comunidad activa** en Discord y eventos en vivo
+
+### 🔬 Fase 3: Conversión (En Desarrollo)
+
+- **MADLAB**: Experiencias educativas en escuelas
+- **Programas inmersivos**: Solar Lab, Green Hackers, Huerto Futuro
+- **Impacto directo** en comunidades escolares
+
+## 🎯 Objetivos del Proyecto
+
+1. **Conectar** con audiencias masivas a través del humor
+2. **Concientizar** sobre sostenibilidad sin sermones
+3. **Crear Comunidad** de agentes de cambio positivo
+4. **Transformar percepciones** sobre la vida sostenible
+5. **Generar impacto medible** en comunidades escolares
+
+## 📁 Estructura del Proyecto
+
+```
 testigos-solarpunk/
-├── .github/
-│   └── workflows/      # GitHub Actions para deployment automático
-├── public/
-│   ├── favicon.svg
-│   └── downloads/      # Recursos descargables
 ├── src/
-│   ├── components/     # Componentes reutilizables
-│   │   ├── CharacterCard.astro
-│   │   └── ScriptViewer.astro
-│   ├── content/        # Contenido estructurado
-│   │   ├── characters/ # Perfiles de personajes (YAML)
-│   │   ├── scripts/    # Guiones de episodios (Markdown)
-│   │   ├── locations/  # Ubicaciones del mundo (YAML)
-│   │   └── resources/  # Recursos y guías (Markdown)
-│   ├── layouts/        # Layouts principales
-│   │   └── BaseLayout.astro
-│   ├── pages/          # Páginas del sitio
-│   │   ├── index.astro
-│   │   ├── personajes/
-│   │   ├── guiones/
-│   │   ├── mundo/
-│   │   ├── produccion/
-│   │   └── recursos/
-│   └── styles/         # Estilos globales
-│       └── global.css
-├── astro.config.mjs    # Configuración de Astro
-└── package.json        # Dependencias y scripts
+│   ├── pages/
+│   │   ├── index.astro              # Página principal
+│   │   ├── proyecto.astro           # Estrategia y misión
+│   │   ├── contenido/
+│   │   │   ├── sketches.astro       # Fase 1: Galería de sketches
+│   │   │   ├── podcast.astro        # Fase 2: Podcast (próximamente)
+│   │   │   └── madlab.astro         # Fase 3: Programas educativos
+│   │   ├── personajes.astro         # Universo: Personajes
+│   │   ├── mundo.astro              # Universo: Construcción del mundo
+│   │   ├── guiones.astro            # Universo: Guiones
+│   │   ├── comunidad.astro          # Buyer personas y comunidad
+│   │   ├── produccion.astro         # Guía de producción
+│   │   ├── impacto.astro            # Métricas y resultados
+│   │   └── otros/                   # Páginas adicionales
+│   ├── components/                  # Componentes reutilizables
+│   ├── layouts/                     # Layouts base
+│   └── styles/                      # Estilos globales
+├── public/                          # Archivos estáticos
+└── tests/                           # Suite de pruebas
 ```
 
 ## 🛠️ Instalación y Desarrollo
@@ -48,143 +61,74 @@ testigos-solarpunk/
 ### Prerrequisitos
 
 - Node.js 18 o superior
-- pnpm (recomendado) o npm
+- npm o yarn
 
-### Instalación
+### 🏗️ Desarrollo
 
 ```bash
-# Clonar el repositorio
-git clone https://github.com/madfam-io/testigos-solarpunk.git
-cd testigos-solarpunk
-
-# Instalar dependencias con pnpm
-pnpm install
-
-# O con npm
+# Instalar dependencias
 npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+
+# Construir para producción
+npm run build
+
+# Previsualizar build de producción
+npm run preview
+
+# Verificar código
+npm run lint
+npm run typecheck
+
+# Ejecutar pruebas
+npm test
 ```
 
-### Comandos de Desarrollo
+## 🎬 Navegación Principal
 
-| Comando        | Acción                                            |
-| :------------- | :------------------------------------------------ |
-| `pnpm dev`     | Inicia servidor de desarrollo en `localhost:4321` |
-| `pnpm build`   | Construye el sitio para producción en `./dist/`   |
-| `pnpm preview` | Vista previa del build de producción              |
-| `pnpm deploy`  | Construye y despliega a GitHub Pages              |
+- **El Proyecto**: Misión, visión y estrategia de 3 fases
+- **Contenido**: Sketches, Podcast y MADLAB
+- **Universo**: Personajes, mundo y guiones
+- **Comunidad**: Buyer personas y participación
+- **Producción**: Guías y estándares creativos
+- **Impacto**: Métricas y resultados del proyecto
+
+## 📊 Impacto Actual
+
+- **500K+** vistas en redes sociales
+- **25** sketches producidos
+- **89%** cambio positivo en percepción sobre sostenibilidad
+- **5** comunidades activas
 
 ## 🌐 Deployment
 
-El sitio se despliega automáticamente a GitHub Pages cuando se hace push a la rama `main`.
-
-- **URL de Producción**: https://madfam-io.github.io/testigos-solarpunk/
-- **Dominio Personalizado** (opcional): https://universo.testigosdesolarpunk.mx
-
-### Deployment Manual
-
-```bash
-# Construir y desplegar manualmente
-pnpm deploy
-```
-
-## 📝 Añadir Contenido
-
-### Nuevo Personaje
-
-Crear archivo en `src/content/characters/nombre-personaje.yaml`:
-
-```yaml
-nombre: Nombre del Personaje
-rol: Protagonista/Apoyo/Comunidad
-edad: 25
-pronombres: ella/she
-ocupacion: Descripción del trabajo
-rasgos:
-  - Rasgo 1
-  - Rasgo 2
-historia: |
-  Historia detallada del personaje...
-```
-
-### Nuevo Guión
-
-Crear archivo en `src/content/scripts/EP00X-PLATAFORMA.md`:
-
-```markdown
----
-episodio: EP00X-TT
-titulo: 'Título del Episodio'
-plataforma: TikTok
-duracion: 45s
-personajes: [personaje-1, personaje-2]
-estado: borrador
----
-
-## Visual
-
-Descripción de elementos visuales...
-
-## Diálogo
-
-**PERSONAJE**:
-Línea de diálogo...
-```
-
-### Nueva Ubicación
-
-Crear archivo en `src/content/locations/nombre-ubicacion.yaml`:
-
-```yaml
-nombre: Nombre de la Ubicación
-tipo: Tipo de lugar
-distrito: Distrito o zona
-descripcion: |
-  Descripción detallada...
-caracteristicas:
-  - Característica 1
-  - Característica 2
-```
-
-## 🎨 Diseño y Estilos
-
-El sitio utiliza el sistema de diseño MADFAM con extensiones solarpunk:
-
-### Paleta de Colores
-
-```css
-/* Paleta Principal MADFAM */
---amarillo-solar: #ffc107;
---verde-sostenible: #4caf50;
---purpura-creativo: #663399;
---azul-tecnologico: #2196f3;
---negro-profundo: #212121;
-
-/* Paleta Extendida Solarpunk */
---bio-luminiscente: #7fff00;
---cielo-esperanza: #87ceeb;
---tierra-cafe: #8b4513;
---agua-clara: #00ced1;
---naranja-comunidad: #ff6b35;
-```
+El sitio está configurado para desplegarse automáticamente en GitHub Pages cuando se hace push a la rama `main`. Visita [GITHUB_PAGES_SETUP.md](GITHUB_PAGES_SETUP.md) para más detalles sobre la configuración.
 
 ## 🤝 Contribuir
 
-1. Fork el proyecto
-2. Crea tu rama de feature (`git checkout -b feature/nueva-caracteristica`)
-3. Commit tus cambios (`git commit -m 'Añadir nueva característica'`)
-4. Push a la rama (`git push origin feature/nueva-caracteristica`)
+¡Bienvenidas todas las contribuciones! Por favor:
+
+1. Fork el repositorio
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
-## 📜 Licencia
+Para más detalles, consulta [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Este proyecto está bajo licencia Creative Commons BY-SA 4.0. Consulta el archivo LICENSE para más detalles.
+## 📄 Licencia
 
-## 🌟 Créditos
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-- **Concepto Original**: MADFAM
-- **Desarrollo Web**: Equipo Testigos de Solarpunk
-- **Framework**: [Astro](https://astro.build)
+## 🙏 Agradecimientos
+
+- A MADFAM por hacer posible este proyecto
+- A toda la comunidad solarpunk por la inspiración
+- A los contribuidores que hacen crecer el movimiento
+- A ti, por creer en el poder del humor para cambiar el mundo
 
 ---
 
-Hecho con 💚 para un futuro más esperanzador
+_"Conectar, Concientizar y Crear Comunidad"_ - Testigos de Solarpunk

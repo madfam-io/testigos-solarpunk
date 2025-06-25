@@ -18,7 +18,6 @@ const personas = [
       'Quiere ser sostenible pero se siente abrumada por toda la información contradictoria',
     dolor: 'Saturación de contenido y culpa ambiental',
     sketch: 'Día 237 intentando ser sostenible',
-    imagen: '/images/personas/gaby.jpg',
   },
   {
     id: 'carlos',
@@ -30,7 +29,6 @@ const personas = [
       'Cree que la sostenibilidad es una moda cara para millennials privilegiados',
     dolor: 'Percibe lo eco como elitista y poco práctico',
     sketch: 'El panel solar que pagó la universidad',
-    imagen: '/images/personas/carlos.jpg',
   },
   {
     id: 'sofia',
@@ -42,7 +40,6 @@ const personas = [
       'Busca contenido auténtico sobre sostenibilidad que conecte con su audiencia',
     dolor: 'Miedo al greenwashing y pérdida de credibilidad',
     sketch: 'La app que salva el mundo... o no',
-    imagen: '/images/personas/sofia.jpg',
   },
   {
     id: 'miguel',
@@ -54,7 +51,6 @@ const personas = [
       'Le encanta crear y experimentar, busca proyectos DIY sostenibles',
     dolor: 'Falta de recursos y guías accesibles',
     sketch: 'Hackeando el futuro solar',
-    imagen: '/images/personas/miguel.jpg',
   },
   {
     id: 'laura',
@@ -66,7 +62,6 @@ const personas = [
       'Quiere enseñar valores sostenibles a sus hijos sin sonar sermoneadora',
     dolor: 'Cómo hacer la sostenibilidad divertida para niños',
     sketch: 'El huerto que se volvió jungla',
-    imagen: '/images/personas/laura.jpg',
   },
 ];
 
@@ -130,10 +125,9 @@ const painPoints = [
             <article class="persona-card">
               <div class="persona-header">
                 <div class="persona-avatar">
-                  <img
-                    src={`${basePath}${persona.imagen}`}
-                    alt={persona.nombre}
-                  />
+                  <div class="persona-placeholder">
+                    {persona.nombre.charAt(0)}
+                  </div>
                 </div>
                 <div class="persona-info">
                   <h3>{persona.nombre}</h3>
@@ -398,10 +392,20 @@ const painPoints = [
     flex-shrink: 0;
   }
 
-  .persona-avatar img {
+  .persona-placeholder {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(
+      135deg,
+      var(--naranja-comunidad),
+      var(--amarillo-solar)
+    );
   }
 
   .persona-info h3 {
