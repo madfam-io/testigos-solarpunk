@@ -78,6 +78,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -86,6 +87,9 @@ body {
   background-color: var(--fondo-primario);
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Enlaces */
@@ -147,6 +151,16 @@ img {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--espacio-md);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--espacio-sm);
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 /* Utilidades */
@@ -250,20 +264,70 @@ img {
   box-shadow: 0 4px 8px var(--sombra-suave);
 }
 
-/* Tarjetas */
+/* Tarjetas con estética magazine cutout */
 .card {
   background-color: var(--fondo-secundario);
+  border: 2px solid var(--borde-claro);
   border-radius: 8px;
   padding: var(--espacio-lg);
   box-shadow: 0 2px 4px var(--sombra-suave);
   transition:
     transform var(--transicion-normal),
     box-shadow var(--transicion-normal);
+  position: relative;
+
+  /* Magazine cutout effect */
+  clip-path: polygon(
+    2% 0%,
+    98% 1%,
+    100% 6%,
+    98% 94%,
+    100% 98%,
+    94% 100%,
+    6% 99%,
+    0% 94%,
+    2% 6%
+  );
+
+  /* Paper texture */
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 1px,
+    rgba(255, 255, 255, 0.02) 1px,
+    rgba(255, 255, 255, 0.02) 2px
+  );
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px var(--sombra-suave);
+  transform: translateY(-4px) rotate(0.5deg);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    0 4px 10px rgba(0, 0, 0, 0.1);
+  border-color: var(--amarillo-solar);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 193, 7, 0.1) 50%,
+    transparent 70%
+  );
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 /* Navegación */
@@ -443,6 +507,9 @@ footer a {
 
   .container {
     padding: 0 var(--espacio-sm);
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   /* Mobile navigation */
@@ -452,9 +519,10 @@ footer a {
 
   .nav-menu {
     position: fixed;
-    top: 100%;
+    top: 60px;
     left: 0;
-    width: 100%;
+    width: 100vw;
+    max-width: 100vw;
     background-color: var(--fondo-secundario);
     flex-direction: column;
     align-items: stretch;
@@ -464,7 +532,9 @@ footer a {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 99;
+    z-index: 999;
+    border-radius: 0 0 8px 8px;
+    overflow-x: hidden;
   }
 
   .nav-menu.active {
@@ -697,24 +767,28 @@ footer a {
 
 /* Skip Links */
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
   background: var(--negro-profundo);
   color: var(--amarillo-solar);
-  padding: 8px 16px;
-  z-index: 1000;
+  padding: 12px 20px;
+  z-index: 9999;
   text-decoration: none;
-  border-radius: 0 0 4px 4px;
+  border-radius: 6px;
   font-weight: 600;
   border: 2px solid var(--amarillo-solar);
   transition: all 0.3s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .skip-link:focus {
-  top: 6px;
-  outline: none;
-  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+  top: 20px;
+  outline: 3px solid var(--amarillo-solar);
+  outline-offset: 2px;
+  box-shadow: 0 8px 20px rgba(255, 193, 7, 0.6);
 }
 
 /* Focus Indicators */

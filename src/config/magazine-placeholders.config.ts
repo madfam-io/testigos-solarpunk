@@ -36,9 +36,9 @@ export const magazinePlaceholderConfig = {
         style: 'collage',
         texture: 'paper',
         effect: 'vintage',
-        border: 'torn'
+        border: 'torn',
       },
-      enabled: true
+      enabled: true,
     },
     {
       name: 'abh.ai',
@@ -47,9 +47,9 @@ export const magazinePlaceholderConfig = {
       styleParams: {
         style: 'magazine',
         border: 'cutout',
-        texture: 'paper'
+        texture: 'paper',
       },
-      enabled: true
+      enabled: true,
     },
     {
       name: 'placeholdr.ai',
@@ -58,10 +58,10 @@ export const magazinePlaceholderConfig = {
       styleParams: {
         aesthetic: 'diy-cutout',
         paper: 'vintage',
-        style: 'collage'
+        style: 'collage',
       },
-      enabled: true
-    }
+      enabled: true,
+    },
   ] as PlaceholderService[],
 
   // Configuración estética del magazine cutout
@@ -72,22 +72,26 @@ export const magazinePlaceholderConfig = {
     tapeChance: 0.6,
     stapleChance: 0.3,
     coffeeStainChance: 0.1,
-    tornEdgeVariations: [
-      'scissors', 'rough-tear', 'careful-cut', 'aged-edge'
-    ]
+    tornEdgeVariations: ['scissors', 'rough-tear', 'careful-cut', 'aged-edge'],
   } as MagazineAesthetics,
 
   // Templates de prompts por tipo de contenido
   prompts: {
-    character: 'vintage magazine portrait, editorial illustration, retro photography, person {name}',
-    sketch: 'storyboard panel, comic strip, DIY zine aesthetic, sketch illustration, {theme}',
-    podcast: 'record album cover, vintage music magazine, retro radio show poster',
+    character:
+      'vintage magazine portrait, editorial illustration, retro photography, person {name}',
+    sketch:
+      'storyboard panel, comic strip, DIY zine aesthetic, sketch illustration, {theme}',
+    podcast:
+      'record album cover, vintage music magazine, retro radio show poster',
     hero: 'magazine collage spread, editorial design, vintage travel poster',
-    background: 'abstract paper collage, mixed media texture, vintage magazine clippings',
-    madlab: 'science magazine illustration, educational poster, laboratory equipment',
-    community: 'community newsletter, group photo, social gathering vintage style',
+    background:
+      'abstract paper collage, mixed media texture, vintage magazine clippings',
+    madlab:
+      'science magazine illustration, educational poster, laboratory equipment',
+    community:
+      'community newsletter, group photo, social gathering vintage style',
     impact: 'infographic magazine page, data visualization retro style',
-    production: 'behind scenes magazine, production notes, DIY manual'
+    production: 'behind scenes magazine, production notes, DIY manual',
   } as PlaceholderPrompts,
 
   // Modificadores de estilo para añadir autenticidad
@@ -96,7 +100,7 @@ export const magazinePlaceholderConfig = {
     diy: 'DIY aesthetic, handmade, imperfect edges, scissors cut',
     vintage: 'retro color palette, aged paper, 70s magazine style',
     collage: 'collage composition, layered paper, mixed media',
-    solarpunk: 'eco-futuristic, green technology, sustainable design'
+    solarpunk: 'eco-futuristic, green technology, sustainable design',
   },
 
   // Configuración de rendimiento
@@ -105,88 +109,123 @@ export const magazinePlaceholderConfig = {
     retries: 2,
     cacheDuration: 24 * 60 * 60 * 1000, // 24 horas
     preloadSize: 10, // Número de placeholders para precargar
-    maxConcurrent: 3 // Máximo número de requests simultáneos
+    maxConcurrent: 3, // Máximo número de requests simultáneos
   },
 
   // Configuración de fallback SVG
   svgFallback: {
     enabled: true,
-    paperColors: ['#F4E5D3', '#E8D5B7', '#D4C5A0', '#F5F5DC'],
-    decorationColors: ['#F5DEB3', '#DDD5B8', '#C4B896'],
-    fonts: ['Georgia', 'serif', 'Times New Roman'],
+    paperColors: [
+      '#FFFEF7',
+      '#F8F5E4',
+      '#F5F5DC',
+      '#FDF6E3',
+      '#FAF0E6',
+      '#F0F8F0',
+      '#FFF8F0',
+      '#F5F0FF',
+      '#F8F8F0',
+      '#FFF5EE',
+    ],
+    decorationColors: [
+      '#FFD700',
+      '#FF6B6B',
+      '#4ECDC4',
+      '#45B7D1',
+      '#96CEB4',
+      '#FF8C42',
+      '#6A4C93',
+      '#1DD1A1',
+      '#FF6B9D',
+      '#C44569',
+      '#F8B500',
+      '#FF5722',
+      '#8BC34A',
+      '#2196F3',
+      '#9C27B0',
+    ],
+    fonts: ['Georgia', 'serif', 'Times New Roman', 'Courier New'],
     defaultMessages: {
-      character: 'PERSONA',
+      character: 'PERSONAJE',
       sketch: 'SKETCH',
       podcast: 'PODCAST',
-      hero: 'TESTIGOS',
-      background: 'PRÓXIMAMENTE'
-    }
-  }
+      hero: 'UNIVERSO SOLARPUNK',
+      background: 'TESTIGOS',
+      madlab: 'MADLAB',
+      community: 'COMUNIDAD',
+      impact: 'IMPACTO',
+      production: 'EN PRODUCCIÓN',
+    },
+  },
 } as const;
 
 // Tipos para TypeScript
 export type PlaceholderType = keyof typeof magazinePlaceholderConfig.prompts;
-export type StyleModifier = keyof typeof magazinePlaceholderConfig.styleModifiers;
+export type StyleModifier =
+  keyof typeof magazinePlaceholderConfig.styleModifiers;
 
 // Configuración por defecto para cada tipo
-export const defaultConfigs: Record<PlaceholderType, {
-  width: number;
-  height: number;
-  quality: number;
-  modifiers: StyleModifier[];
-}> = {
+export const defaultConfigs: Record<
+  PlaceholderType,
+  {
+    width: number;
+    height: number;
+    quality: number;
+    modifiers: StyleModifier[];
+  }
+> = {
   character: {
     width: 400,
     height: 300,
     quality: 85,
-    modifiers: ['magazine', 'vintage']
+    modifiers: ['magazine', 'vintage'],
   },
   sketch: {
     width: 640,
     height: 360,
     quality: 80,
-    modifiers: ['diy', 'collage']
+    modifiers: ['diy', 'collage'],
   },
   podcast: {
     width: 500,
     height: 500,
     quality: 90,
-    modifiers: ['vintage', 'magazine']
+    modifiers: ['vintage', 'magazine'],
   },
   hero: {
     width: 1200,
     height: 600,
     quality: 95,
-    modifiers: ['magazine', 'collage', 'solarpunk']
+    modifiers: ['magazine', 'collage', 'solarpunk'],
   },
   background: {
     width: 800,
     height: 400,
     quality: 75,
-    modifiers: ['collage', 'vintage']
+    modifiers: ['collage', 'vintage'],
   },
   madlab: {
     width: 600,
     height: 400,
     quality: 85,
-    modifiers: ['magazine', 'solarpunk']
+    modifiers: ['magazine', 'solarpunk'],
   },
   community: {
     width: 500,
     height: 400,
     quality: 85,
-    modifiers: ['vintage', 'magazine']
+    modifiers: ['vintage', 'magazine'],
   },
   impact: {
     width: 700,
     height: 500,
     quality: 90,
-    modifiers: ['magazine', 'solarpunk']
+    modifiers: ['magazine', 'solarpunk'],
   },
   production: {
     width: 600,
     height: 450,
     quality: 85,
-    modifiers: ['diy', 'magazine']
-  }
+    modifiers: ['diy', 'magazine'],
+  },
 };

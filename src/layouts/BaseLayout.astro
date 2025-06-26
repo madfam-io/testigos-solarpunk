@@ -1,5 +1,6 @@
 ---
 // import PWAInstaller from '../components/PWAInstaller.astro';
+import UnderConstructionModal from '../components/UnderConstructionModal.astro';
 import '../styles/emoji-magazine-cutout.css';
 
 export interface Props {
@@ -352,6 +353,9 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
     <main id="main-content" role="main">
       <slot />
     </main>
+
+    <!-- Under Construction Modal -->
+    <UnderConstructionModal />
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {

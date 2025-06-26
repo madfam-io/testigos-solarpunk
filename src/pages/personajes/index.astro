@@ -38,11 +38,15 @@ const evangelistas = [
     <div class="container">
       <div class="filter-buttons">
         <button class="filter-btn active" data-filter="todos">Todos</button>
-        <button class="filter-btn" data-filter="protagonista"
-          >Protagonistas</button
-        >
-        <button class="filter-btn" data-filter="apoyo">Apoyo</button>
-        <button class="filter-btn" data-filter="comunidad">Comunidad</button>
+        <button class="filter-btn" data-filter="protagonista">
+          <span class="emoji-cutout emoji-sm theme-solar">⭐</span> Protagonistas
+        </button>
+        <button class="filter-btn" data-filter="evangelista">
+          <span class="emoji-cutout emoji-sm theme-green">📢</span> Evangelistas
+        </button>
+        <button class="filter-btn" data-filter="apoyo">
+          <span class="emoji-cutout emoji-sm theme-purple">🤝</span> Apoyo
+        </button>
       </div>
     </div>
   </section>
@@ -53,7 +57,10 @@ const evangelistas = [
         {
           characters.map((character) => {
             const isEvangelista = evangelistas.includes(character.id);
-            return isEvangelista ? (
+            const roleFilter = isEvangelista
+              ? 'evangelista'
+              : character.data.rol.toLowerCase().replace(/\s+/g, '-');
+            const cardElement = isEvangelista ? (
               <AnimatedCharacterCard
                 id={character.id}
                 nombre={character.data.nombre}
@@ -72,6 +79,16 @@ const evangelistas = [
                 ocupacion={character.data.ocupacion}
                 descripcionBreve={`${character.data.historia.substring(0, 150)}...`}
               />
+            );
+
+            return (
+              <div
+                class="character-wrapper"
+                data-role={roleFilter}
+                data-character-type={isEvangelista ? 'evangelista' : 'regular'}
+              >
+                {cardElement}
+              </div>
             );
           })
         }
@@ -150,21 +167,66 @@ const evangelistas = [
     background-color: var(--fondo-secundario);
     padding: var(--espacio-xxl) 0;
   }
+
+  /* Character wrapper animations */
+  .character-wrapper {
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .character-wrapper[data-character-type='evangelista'] {
+    position: relative;
+  }
+
+  .character-wrapper[data-character-type='evangelista']::before {
+    content: '📢';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    z-index: 10;
+    font-size: 1.2rem;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  }
 </style>
 
 <script>
-  // Simple filter functionality
+  // Character filter functionality
   document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const characterWrappers = document.querySelectorAll('.character-wrapper');
 
     filterButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
+        const filter = (btn as HTMLElement).dataset.filter;
+
         // Update active state
         filterButtons.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // Filter logic would go here
-        // For now, just showing the UI interaction
+        // Filter characters with smooth animation
+        characterWrappers.forEach((wrapper, index) => {
+          const htmlWrapper = wrapper as HTMLElement;
+          const shouldShow =
+            filter === 'todos' ||
+            htmlWrapper.dataset.role === filter ||
+            htmlWrapper.dataset.characterType === filter;
+
+          if (shouldShow) {
+            htmlWrapper.style.display = 'block';
+            // Stagger animation for visual appeal
+            setTimeout(() => {
+              htmlWrapper.style.opacity = '1';
+              htmlWrapper.style.transform = 'translateY(0)';
+            }, index * 100);
+          } else {
+            htmlWrapper.style.opacity = '0';
+            htmlWrapper.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              htmlWrapper.style.display = 'none';
+            }, 300);
+          }
+        });
       });
     });
   });

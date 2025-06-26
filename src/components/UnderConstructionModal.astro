@@ -1,0 +1,433 @@
+---
+/**
+ * Under Construction Modal Component
+ * Testigos de Solarpunk - MADFAM
+ *
+ * Shows a friendly modal when users click on incomplete links
+ */
+
+export interface Props {
+  title?: string;
+  message?: string;
+  suggestedLinks?: Array<{
+    href: string;
+    text: string;
+    emoji: string;
+  }>;
+}
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+
+const {
+  title = '🚧 Sección en Construcción',
+  message = 'Esta parte del universo solarpunk aún se está desarrollando. ¡Vuelve pronto para más novedades!',
+  suggestedLinks = [
+    { href: `${basePath}/`, text: 'Ir al Inicio', emoji: '🏠' },
+    { href: `${basePath}/proyecto/`, text: 'Conocer el Proyecto', emoji: '🌱' },
+    {
+      href: `${basePath}/contenido/sketches/`,
+      text: 'Ver Sketches',
+      emoji: '🎬',
+    },
+    {
+      href: `${basePath}/comunidad/`,
+      text: 'Únete a la Comunidad',
+      emoji: '👥',
+    },
+  ],
+} = Astro.props;
+---
+
+<!-- Modal Backdrop -->
+<div
+  id="construction-modal"
+  class="construction-modal"
+  role="dialog"
+  aria-labelledby="modal-title"
+  aria-hidden="true"
+>
+  <div class="modal-backdrop" data-modal-close></div>
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modal-title" class="modal-title">
+        <span class="emoji-cutout emoji-lg theme-solar"
+          >{title.split(' ')[0]}</span
+        >
+        {title.replace(title.split(' ')[0], '').trim()}
+      </h2>
+      <button class="modal-close" data-modal-close aria-label="Cerrar modal">
+        <span class="emoji-cutout emoji-sm">✖️</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="construction-icon">
+        <span class="emoji-cutout emoji-xl theme-solar flutter">🔨</span>
+        <span class="emoji-cutout emoji-lg theme-green">⚙️</span>
+        <span class="emoji-cutout emoji-md theme-purple">🌱</span>
+      </div>
+
+      <p class="modal-message">{message}</p>
+
+      <div class="suggested-links">
+        <h3>¿Qué tal si exploras esto mientras tanto?</h3>
+        <div class="links-grid">
+          {
+            suggestedLinks.map((link) => (
+              <a href={link.href} class="suggestion-link" data-modal-close>
+                <span class="emoji-cutout emoji-md theme-community">
+                  {link.emoji}
+                </span>
+                <span>{link.text}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-secondary" data-modal-close>
+        <span class="emoji-cutout emoji-sm">👈</span> Volver
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .construction-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--espacio-lg);
+    box-sizing: border-box;
+  }
+
+  .construction-modal.active {
+    display: flex;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+  }
+
+  .modal-content {
+    position: relative;
+    background: var(--fondo-primario);
+    border: 3px solid var(--amarillo-solar);
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(255, 193, 7, 0.3);
+
+    /* Magazine cutout effect */
+    clip-path: polygon(
+      2% 0%,
+      98% 2%,
+      100% 8%,
+      98% 92%,
+      100% 98%,
+      92% 100%,
+      8% 98%,
+      0% 92%,
+      2% 8%
+    );
+
+    /* Paper texture */
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 193, 7, 0.05) 1px,
+      rgba(255, 193, 7, 0.05) 2px
+    );
+
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .construction-modal.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--espacio-lg);
+    border-bottom: 2px solid var(--borde-claro);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 193, 7, 0.1) 0%,
+      transparent 100%
+    );
+  }
+
+  .modal-title {
+    margin: 0;
+    color: var(--amarillo-solar);
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    font-size: 1.5rem;
+  }
+
+  .modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--espacio-xs);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    min-width: auto;
+    min-height: auto;
+  }
+
+  .modal-close:hover {
+    background: rgba(255, 193, 7, 0.1);
+    transform: scale(1.1);
+  }
+
+  .modal-body {
+    padding: var(--espacio-xl);
+    text-align: center;
+  }
+
+  .construction-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    position: relative;
+  }
+
+  .construction-icon .emoji-cutout:nth-child(1) {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .construction-icon .emoji-cutout:nth-child(2) {
+    animation: float 3s ease-in-out infinite 0.5s;
+  }
+
+  .construction-icon .emoji-cutout:nth-child(3) {
+    animation: float 3s ease-in-out infinite 1s;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .modal-message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: var(--espacio-xl);
+    color: var(--texto-secundario);
+  }
+
+  .suggested-links h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    font-size: 1.2rem;
+  }
+
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .suggestion-link {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-md);
+    background: var(--fondo-secundario);
+    border: 2px solid var(--borde-claro);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--texto-primario);
+    transition: all 0.3s ease;
+
+    /* Mini magazine cutout effect */
+    clip-path: polygon(1% 2%, 98% 1%, 99% 98%, 2% 99%);
+  }
+
+  .suggestion-link:hover {
+    border-color: var(--verde-sostenible);
+    background: rgba(76, 175, 80, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+  }
+
+  .modal-footer {
+    padding: var(--espacio-lg);
+    border-top: 2px solid var(--borde-claro);
+    background: rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .construction-modal {
+      padding: var(--espacio-md);
+    }
+
+    .modal-content {
+      max-height: 95vh;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      padding: var(--espacio-md);
+    }
+
+    .modal-title {
+      font-size: 1.3rem;
+    }
+
+    .links-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .suggestion-link {
+      justify-content: center;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .modal-content {
+      transition: none;
+    }
+
+    .construction-icon .emoji-cutout {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('construction-modal');
+    if (!modal) return;
+
+    // Function to show modal
+    function showModal() {
+      if (!modal) return;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Focus management
+      const closeButton = modal.querySelector('.modal-close');
+      if (closeButton instanceof HTMLElement) {
+        closeButton.focus();
+      }
+    }
+
+    // Function to hide modal
+    function hideModal() {
+      if (!modal) return;
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal handlers
+    const closeElements = modal.querySelectorAll('[data-modal-close]');
+    closeElements.forEach((element) => {
+      element.addEventListener('click', hideModal);
+    });
+
+    // Keyboard support
+    modal.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        hideModal();
+      }
+    });
+
+    // Auto-detect construction links and attach modal
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a');
+
+      if (link && shouldShowConstructionModal(link)) {
+        e.preventDefault();
+        showModal();
+      }
+    });
+
+    // Function to determine if link should show construction modal
+    function shouldShowConstructionModal(link: HTMLAnchorElement): boolean {
+      const href = link.getAttribute('href');
+      if (!href) return false;
+
+      // Check for common "under construction" indicators
+      const constructionPatterns = [
+        '/personajes/',
+        '/guiones',
+        '#',
+        'javascript:void(0)',
+        'mailto:',
+        'tel:',
+      ];
+
+      // Don't show modal for external links or if link has specific data attribute
+      if (
+        link.hasAttribute('data-no-modal') ||
+        href.startsWith('http') ||
+        href.startsWith('//')
+      ) {
+        return false;
+      }
+
+      // Check if the link points to a non-existent page or construction pattern
+      return (
+        constructionPatterns.some((pattern) => href.includes(pattern)) ||
+        (link.textContent?.toLowerCase().includes('próximamente') ?? false) ||
+        (link.textContent?.toLowerCase().includes('construcción') ?? false)
+      );
+    }
+
+    // Expose functions globally for manual triggering
+    (window as any).showConstructionModal = showModal;
+    (window as any).hideConstructionModal = hideModal;
+  });
+</script>
