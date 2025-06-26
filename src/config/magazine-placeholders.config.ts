@@ -27,42 +27,7 @@ export interface PlaceholderPrompts {
 
 export const magazinePlaceholderConfig = {
   // Servicios de AI en orden de preferencia
-  services: [
-    {
-      name: 'placeholders.io',
-      endpoint: 'https://placeholders.io/api/v1/image',
-      features: ['ai-generated', 'style-params', 'free-tier'],
-      styleParams: {
-        style: 'collage',
-        texture: 'paper',
-        effect: 'vintage',
-        border: 'torn',
-      },
-      enabled: true,
-    },
-    {
-      name: 'abh.ai',
-      endpoint: 'https://abh.ai/place',
-      features: ['contextual', 'fast', 'magazine-styles'],
-      styleParams: {
-        style: 'magazine',
-        border: 'cutout',
-        texture: 'paper',
-      },
-      enabled: true,
-    },
-    {
-      name: 'placeholdr.ai',
-      endpoint: 'https://placeholdr.ai/generate',
-      features: ['custom-styles', 'high-quality', 'artistic'],
-      styleParams: {
-        aesthetic: 'diy-cutout',
-        paper: 'vintage',
-        style: 'collage',
-      },
-      enabled: true,
-    },
-  ] as PlaceholderService[],
+  services: [] as PlaceholderService[],
 
   // Configuración estética del magazine cutout
   aesthetics: {
