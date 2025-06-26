@@ -28,7 +28,9 @@ if (basePath.endsWith('/')) {
       <div class="resource-categories">
         <div class="resource-category">
           <div class="category-header">
-            <h2>🎬 Para Creadores</h2>
+            <h2>
+              <span class="emoji emoji-md emoji-card">🎬</span> Para Creadores
+            </h2>
             <p>
               Todo lo que necesitas para crear contenido en nuestro universo
             </p>
@@ -75,7 +77,9 @@ if (basePath.endsWith('/')) {
 
         <div class="resource-category">
           <div class="category-header">
-            <h2>🎭 Para Actores</h2>
+            <h2>
+              <span class="emoji emoji-md emoji-card">🎭</span> Para Actores
+            </h2>
             <p>Recursos para dar vida a los personajes</p>
           </div>
           <div class="resource-list">
@@ -120,7 +124,9 @@ if (basePath.endsWith('/')) {
 
         <div class="resource-category" id="patrocinadores">
           <div class="category-header">
-            <h2>💼 Para Patrocinadores</h2>
+            <h2>
+              <span class="emoji emoji-md emoji-card">💼</span> Para Patrocinadores
+            </h2>
             <p>Oportunidades de colaboración e impacto</p>
           </div>
           <div class="resource-list">
@@ -211,17 +217,17 @@ if (basePath.endsWith('/')) {
           class="download-card"
         >
           <span class="download-icon">📚</span>
-          <h4>Biblia de Personajes</h4>
+          <h3>Biblia de Personajes</h3>
           <p>PDF - 2.5 MB</p>
         </a>
         <a href={`${basePath}/downloads/guia-mundo.pdf`} class="download-card">
           <span class="download-icon">🗺️</span>
-          <h4>Guía del Mundo</h4>
+          <h3>Guía del Mundo</h3>
           <p>PDF - 3.8 MB</p>
         </a>
         <a href={`${basePath}/downloads/kit-prensa.zip`} class="download-card">
           <span class="download-icon">📰</span>
-          <h4>Kit de Prensa</h4>
+          <h3>Kit de Prensa</h3>
           <p>ZIP - 15 MB</p>
         </a>
         <a
@@ -229,7 +235,7 @@ if (basePath.endsWith('/')) {
           class="download-card"
         >
           <span class="download-icon">🎨</span>
-          <h4>Assets Visuales</h4>
+          <h3>Assets Visuales</h3>
           <p>ZIP - 45 MB</p>
         </a>
       </div>
@@ -375,7 +381,7 @@ if (basePath.endsWith('/')) {
     margin-bottom: var(--espacio-md);
   }
 
-  .download-card h4 {
+  .download-card h3 {
     color: var(--verde-sostenible);
     margin-bottom: var(--espacio-sm);
   }

@@ -1,6 +1,7 @@
 ---
 import PWAInstaller from '../components/PWAInstaller.astro';
 import '../styles/unified-dark-theme.css';
+import '../styles/emoji-magazine-cutout.css';
 
 export interface Props {
   title: string;
@@ -301,7 +302,9 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
             aria-label="Cambiar tema"
             title="Cambiar entre modo claro y oscuro"
           >
-            <span class="theme-icon" aria-hidden="true">🌙</span>
+            <span class="theme-icon" aria-hidden="true"
+              ><span class="emoji emoji-sm">🌙</span></span
+            >
           </button>
         </div>
       </div>
@@ -487,7 +490,10 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
   const currentTheme = localStorage.getItem('theme') || 'dark';
   html.setAttribute('data-theme', currentTheme);
   if (themeIcon) {
-    themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+    themeIcon.innerHTML =
+      currentTheme === 'dark'
+        ? '<span class="emoji emoji-sm">🌙</span>'
+        : '<span class="emoji emoji-sm">☀️</span>';
   }
 
   themeToggle?.addEventListener('click', () => {
@@ -498,7 +504,10 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
     localStorage.setItem('theme', newTheme);
 
     if (themeIcon) {
-      themeIcon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+      themeIcon.innerHTML =
+        newTheme === 'dark'
+          ? '<span class="emoji emoji-sm">🌙</span>'
+          : '<span class="emoji emoji-sm">☀️</span>';
     }
 
     // Announce theme change to screen readers

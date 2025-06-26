@@ -4,9 +4,11 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // GitHub Pages deployment configuration
-  site: 'https://madfam-io.github.io',
-  base: '/testigos-solarpunk',
+  // Vercel deployment configuration (no base path needed)
+  site: 'https://testigos-solarpunk.vercel.app',
+  
+  // No base path for Vercel
+  base: '/',
 
   // Integrations
   integrations: [
@@ -25,23 +27,19 @@ export default defineConfig({
     }),
   ],
 
-  // Build configuration (simplified to reduce bundle size)
+  // Build configuration optimized for Vercel
   build: {
     // Optimize asset file names
     assets: '_assets',
-    // Disable inline stylesheets to reduce bundle size
-    inlineStylesheets: 'never',
+    // Enable inline stylesheets for better performance
+    inlineStylesheets: 'auto',
   },
 
-  // Image optimization configuration (disabled to reduce bundle size)
-  // image: {
-  //   service: {
-  //     entrypoint: 'astro/assets/services/sharp',
-  //     config: {
-  //       limitInputPixels: false,
-  //     },
-  //   },
-  // },
+  // Image optimization configuration
+  image: {
+    domains: ['testigos-solarpunk.vercel.app'],
+    remotePatterns: [{ protocol: "https" }],
+  },
 
   // Vite configuration
   vite: {
@@ -61,11 +59,10 @@ export default defineConfig({
         },
       },
     },
-    // SSR configuration (disabled for static build)
+    // SSR configuration
     ssr: {
       // Exclude problematic dependencies from SSR
       external: ['@resvg/resvg-js', 'sharp'],
-      // Disable SSR for static builds
       noExternal: [],
     },
   },
@@ -88,22 +85,20 @@ export default defineConfig({
     },
   },
 
-  // Prefetch configuration for better performance (disabled to reduce bundle size)
-  // prefetch: {
-  //   prefetchAll: true,
-  //   defaultStrategy: 'viewport',
-  // },
+  // Prefetch configuration for better performance
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
+  },
 
   // Output configuration
   output: 'static',
 
-  // Enable trailing slash for GitHub Pages compatibility
+  // Enable trailing slash for consistency
   trailingSlash: 'always',
 
-  // Compression is disabled (was causing 404 errors)
-  // Use astro-compress when the issues are resolved
-
-  // Future custom domain configuration:
-  // site: 'https://universo.testigosdesolarpunk.mx',
-  // base: '/',
+  // Enable compression for Vercel
+  compressHTML: true,
+  
+  // Security headers are handled in vercel.json
 });

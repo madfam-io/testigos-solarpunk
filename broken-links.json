@@ -1,5 +1,5 @@
 {
-  "totalBroken": 49,
+  "totalBroken": 65,
   "brokenLinks": [
     {
       "link": "/personajes/${id}",
@@ -126,6 +126,149 @@
       ]
     },
     {
+      "link": "/proyecto/",
+      "normalizedLink": "/proyecto/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro",
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "link": "/contenido/",
+      "normalizedLink": "/contenido/",
+      "usedIn": ["src/layouts/BaseLayout.astro"]
+    },
+    {
+      "link": "/contenido/sketches/",
+      "normalizedLink": "/contenido/sketches/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro",
+        "src/pages/contenido/index.astro",
+        "src/pages/contenido/podcast.astro",
+        "src/pages/index.astro",
+        "src/pages/proyecto.astro"
+      ]
+    },
+    {
+      "link": "/contenido/podcast/",
+      "normalizedLink": "/contenido/podcast/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro",
+        "src/pages/contenido/index.astro",
+        "src/pages/index.astro",
+        "src/pages/proyecto.astro"
+      ]
+    },
+    {
+      "link": "/contenido/madlab/",
+      "normalizedLink": "/contenido/madlab/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro",
+        "src/pages/contenido/index.astro",
+        "src/pages/index.astro",
+        "src/pages/proyecto.astro"
+      ]
+    },
+    {
+      "link": "/personajes/",
+      "normalizedLink": "/personajes/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro",
+        "src/pages/404.astro",
+        "src/pages/filosofia/index.astro",
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "link": "/mundo/",
+      "normalizedLink": "/mundo/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/guiones/",
+      "normalizedLink": "/guiones/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/comunidad/",
+      "normalizedLink": "/comunidad/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro",
+        "src/pages/contenido/madlab.astro",
+        "src/pages/contenido/sketches.astro",
+        "src/pages/impacto.astro",
+        "src/pages/index.astro",
+        "src/pages/proyecto.astro"
+      ]
+    },
+    {
+      "link": "/produccion/",
+      "normalizedLink": "/produccion/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/impacto/",
+      "normalizedLink": "/impacto/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro",
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "link": "/recursos/",
+      "normalizedLink": "/recursos/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro",
+        "src/pages/filosofia/index.astro",
+        "src/pages/formatos/index.astro"
+      ]
+    },
+    {
+      "link": "/guia-visual/",
+      "normalizedLink": "/guia-visual/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro"
+      ]
+    },
+    {
+      "link": "/filosofia/",
+      "normalizedLink": "/filosofia/",
+      "usedIn": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/UnifiedLayout.astro",
+        "src/pages/formatos/index.astro",
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "link": "/formatos/",
+      "normalizedLink": "/formatos/",
+      "usedIn": ["src/layouts/BaseLayout.astro", "src/pages/index.astro"]
+    },
+    {
+      "link": "/recursos/#patrocinadores",
+      "normalizedLink": "/recursos/",
+      "usedIn": ["src/pages/contenido/madlab.astro", "src/pages/impacto.astro"]
+    },
+    {
       "link": "/downloads/paleta-colores.ase",
       "normalizedLink": "/downloads/paleta-colores.ase",
       "usedIn": ["src/pages/guia-visual/index.astro"]
@@ -146,8 +289,8 @@
       "usedIn": ["src/pages/guia-visual/index.astro"]
     },
     {
-      "link": "/guiones/${script.id}",
-      "normalizedLink": "/guiones/${script.id}",
+      "link": "/guiones/${script.id}/",
+      "normalizedLink": "/guiones/${script.id}/",
       "usedIn": ["src/pages/guiones/index.astro"]
     },
     {
@@ -171,23 +314,23 @@
       "usedIn": ["src/pages/mundo/index.astro"]
     },
     {
-      "link": "/produccion/estilo-visual",
-      "normalizedLink": "/produccion/estilo-visual",
+      "link": "/produccion/estilo-visual/",
+      "normalizedLink": "/produccion/estilo-visual/",
       "usedIn": ["src/pages/produccion/index.astro"]
     },
     {
-      "link": "/produccion/tono-voz",
-      "normalizedLink": "/produccion/tono-voz",
+      "link": "/produccion/tono-voz/",
+      "normalizedLink": "/produccion/tono-voz/",
       "usedIn": ["src/pages/produccion/index.astro"]
     },
     {
-      "link": "/produccion/specs",
-      "normalizedLink": "/produccion/specs",
+      "link": "/produccion/specs/",
+      "normalizedLink": "/produccion/specs/",
       "usedIn": ["src/pages/produccion/index.astro"]
     },
     {
-      "link": "/produccion/audio",
-      "normalizedLink": "/produccion/audio",
+      "link": "/produccion/audio/",
+      "normalizedLink": "/produccion/audio/",
       "usedIn": ["src/pages/produccion/index.astro"]
     },
     {
@@ -206,48 +349,48 @@
       "usedIn": ["src/pages/produccion/index.astro"]
     },
     {
-      "link": "/recursos/creadores/plantillas",
-      "normalizedLink": "/recursos/creadores/plantillas",
+      "link": "/recursos/creadores/plantillas/",
+      "normalizedLink": "/recursos/creadores/plantillas/",
       "usedIn": ["src/pages/recursos/index.astro"]
     },
     {
-      "link": "/recursos/creadores/personajes",
-      "normalizedLink": "/recursos/creadores/personajes",
+      "link": "/recursos/creadores/personajes/",
+      "normalizedLink": "/recursos/creadores/personajes/",
       "usedIn": ["src/pages/recursos/index.astro"]
     },
     {
-      "link": "/recursos/creadores/worldbuilding",
-      "normalizedLink": "/recursos/creadores/worldbuilding",
+      "link": "/recursos/creadores/worldbuilding/",
+      "normalizedLink": "/recursos/creadores/worldbuilding/",
       "usedIn": ["src/pages/recursos/index.astro"]
     },
     {
-      "link": "/recursos/actores/personajes",
-      "normalizedLink": "/recursos/actores/personajes",
+      "link": "/recursos/actores/personajes/",
+      "normalizedLink": "/recursos/actores/personajes/",
       "usedIn": ["src/pages/recursos/index.astro"]
     },
     {
-      "link": "/recursos/actores/dialogo",
-      "normalizedLink": "/recursos/actores/dialogo",
+      "link": "/recursos/actores/dialogo/",
+      "normalizedLink": "/recursos/actores/dialogo/",
       "usedIn": ["src/pages/recursos/index.astro"]
     },
     {
-      "link": "/recursos/actores/movimiento",
-      "normalizedLink": "/recursos/actores/movimiento",
+      "link": "/recursos/actores/movimiento/",
+      "normalizedLink": "/recursos/actores/movimiento/",
       "usedIn": ["src/pages/recursos/index.astro"]
     },
     {
-      "link": "/recursos/patrocinadores/impacto",
-      "normalizedLink": "/recursos/patrocinadores/impacto",
+      "link": "/recursos/patrocinadores/impacto/",
+      "normalizedLink": "/recursos/patrocinadores/impacto/",
       "usedIn": ["src/pages/recursos/index.astro"]
     },
     {
-      "link": "/recursos/patrocinadores/integracion",
-      "normalizedLink": "/recursos/patrocinadores/integracion",
+      "link": "/recursos/patrocinadores/integracion/",
+      "normalizedLink": "/recursos/patrocinadores/integracion/",
       "usedIn": ["src/pages/recursos/index.astro"]
     },
     {
-      "link": "/recursos/patrocinadores/valores",
-      "normalizedLink": "/recursos/patrocinadores/valores",
+      "link": "/recursos/patrocinadores/valores/",
+      "normalizedLink": "/recursos/patrocinadores/valores/",
       "usedIn": ["src/pages/recursos/index.astro"]
     },
     {
@@ -271,5 +414,5 @@
       "usedIn": ["src/pages/recursos/index.astro"]
     }
   ],
-  "timestamp": "2025-06-25T00:24:43.852Z"
+  "timestamp": "2025-06-26T20:17:17.058Z"
 }

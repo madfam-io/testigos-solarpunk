@@ -19,7 +19,6 @@ concurrency:
 
 env:
   NODE_VERSION: '20'
-  PNPM_VERSION: '8'
 
 jobs:
   quality-checks:
@@ -36,39 +35,28 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Configurar pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-
-      - name: Obtener directorio de caché de pnpm
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Configurar caché de pnpm
+      - name: Configurar caché de npm
         uses: actions/cache@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-node-
 
       - name: Instalar dependencias
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: Verificar formato de código
-        run: pnpm format:check
+        run: npm run format:check
 
       - name: Lint del código
-        run: pnpm lint
+        run: npm run lint
 
       - name: Verificación de tipos TypeScript
-        run: pnpm type-check
+        run: npm run type-check
 
       - name: Ejecutar tests
-        run: pnpm test:coverage
+        run: npm run test:coverage
 
       - name: Subir reporte de cobertura
         uses: codecov/codecov-action@v4
@@ -78,11 +66,11 @@ jobs:
           name: codecov-umbrella
 
       - name: Análisis de seguridad
-        run: pnpm audit --audit-level=moderate
+        run: npm audit --audit-level=moderate
         continue-on-error: true # No fallar el build, solo advertir
 
       - name: Verificar licencias
-        run: pnpm licenses list
+        run: npm ls --depth=0
         continue-on-error: true
 
   build-and-analyze:
@@ -98,30 +86,19 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Configurar pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-
-      - name: Obtener directorio de caché de pnpm
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Configurar caché de pnpm
+      - name: Configurar caché de npm
         uses: actions/cache@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-node-
 
       - name: Instalar dependencias
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: Construir proyecto
-        run: pnpm build
+        run: npm run build
         env:
           CI: true
 

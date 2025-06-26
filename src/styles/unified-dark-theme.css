@@ -34,10 +34,10 @@
   --focus-overlay: rgba(255, 193, 7, 0.24);
   --active-overlay: rgba(255, 255, 255, 0.16);
 
-  /* Bordes y Divisores - Ajustado para mejor contraste */
-  --border-subtle: rgba(255, 255, 255, 0.12);
-  --border-default: rgba(255, 255, 255, 0.23);
-  --border-strong: rgba(255, 255, 255, 0.35);
+  /* Bordes y Divisores - Ajustado para mejor contraste (WCAG 3:1 mínimo) */
+  --border-subtle: rgba(255, 255, 255, 0.2);
+  --border-default: rgba(255, 255, 255, 0.3);
+  --border-strong: rgba(255, 255, 255, 0.5);
 
   /* Sombras para Dark Mode */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.8);

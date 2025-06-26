@@ -262,8 +262,8 @@ class AccessibilityChecker {
         bg: '#FFC107',
         minRatio: 4.5,
       },
-      // Elementos de UI
-      { name: 'Bordes sobre fondo', fg: '#3A3A3A', bg: '#0A0A0B', minRatio: 3 },
+      // Elementos de UI - Updated to match CSS changes
+      { name: 'Bordes sobre fondo', fg: '#606060', bg: '#0A0A0B', minRatio: 3 },
     ];
 
     colorPairs.forEach((pair) => {

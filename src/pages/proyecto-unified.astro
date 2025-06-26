@@ -31,9 +31,12 @@ const breadcrumbItems = [
       </h1>
       <p class="tagline animate-fadeInUp">Instruir desde el humor</p>
 
+      <h2 class="sr-only">Misión y Visión</h2>
       <div class="mision-vision">
         <div class="card mision-card animate-fadeInUp">
-          <h3>🎯 Nuestra Misión</h3>
+          <h3>
+            <span class="emoji emoji-md emoji-card">🎯</span> Nuestra Misión
+          </h3>
           <p>
             Transformar la percepción sobre la sostenibilidad a través del
             humor, creando contenido que conecte, eduque y construya una
@@ -41,7 +44,9 @@ const breadcrumbItems = [
           </p>
         </div>
         <div class="card vision-card animate-fadeInUp">
-          <h3>🌟 Visión Solarpunk</h3>
+          <h3>
+            <span class="emoji emoji-md emoji-card">🌟</span> Visión Solarpunk
+          </h3>
           <p>
             Un mundo donde la tecnología y la naturaleza coexisten en armonía,
             donde cada persona es un agente de cambio positivo, y donde el
@@ -63,7 +68,8 @@ const breadcrumbItems = [
       <div class="fases-grid">
         <div class="card fase-card" data-fase="1">
           <span class="fase-number">01</span>
-          <span class="fase-icon">🎭</span>
+          <span class="fase-icon emoji emoji-xl emoji-card theme-solar">🎭</span
+          >
           <h3>Testigos de Solarpunk</h3>
           <p class="fase-descripcion">
             Sketches de comedia con contenido relevante para reflexionar sobre
@@ -85,7 +91,9 @@ const breadcrumbItems = [
 
         <div class="card fase-card" data-fase="2">
           <span class="fase-number">02</span>
-          <span class="fase-icon">🎙️</span>
+          <span class="fase-icon emoji emoji-xl emoji-card theme-purple"
+            >🎙️</span
+          >
           <h3>MADFAM Podcast</h3>
           <p class="fase-descripcion">
             Contenido de profundidad media sobre ciencia, tecnología y calidad
@@ -107,7 +115,8 @@ const breadcrumbItems = [
 
         <div class="card fase-card" data-fase="3">
           <span class="fase-number">03</span>
-          <span class="fase-icon">🔬</span>
+          <span class="fase-icon emoji emoji-xl emoji-card theme-green">🔬</span
+          >
           <h3>MADLAB</h3>
           <p class="fase-descripcion">
             Eventos, experiencias y activaciones en escuelas con apoyo de
@@ -136,31 +145,31 @@ const breadcrumbItems = [
       <div class="proceso-timeline">
         <div class="proceso-step">
           <div class="step-number">1</div>
-          <h4>Investigación</h4>
+          <h3>Investigación</h3>
           <p class="text-secondary">
             Identificamos pain points y barreras culturales
           </p>
         </div>
         <div class="proceso-step">
           <div class="step-number">2</div>
-          <h4>Diseño</h4>
+          <h3>Diseño</h3>
           <p class="text-secondary">Creamos contenido que conecta y educa</p>
         </div>
         <div class="proceso-step">
           <div class="step-number">3</div>
-          <h4>Producción</h4>
+          <h3>Producción</h3>
           <p class="text-secondary">Grabamos con calidad MADFAM</p>
         </div>
         <div class="proceso-step">
           <div class="step-number">4</div>
-          <h4>Distribución</h4>
+          <h3>Distribución</h3>
           <p class="text-secondary">
             Alcanzamos audiencias en múltiples plataformas
           </p>
         </div>
         <div class="proceso-step">
           <div class="step-number">5</div>
-          <h4>Impacto</h4>
+          <h3>Impacto</h3>
           <p class="text-secondary">Medimos y optimizamos resultados</p>
         </div>
       </div>
@@ -175,10 +184,10 @@ const breadcrumbItems = [
       </p>
       <div class="cta-actions">
         <a href={`${basePath}/comunidad`} class="btn btn-primary">
-          🤝 Únete a la Comunidad
+          <span class="emoji emoji-button">🤝</span> Únete a la Comunidad
         </a>
         <a href={`${basePath}/contenido/sketches`} class="btn btn-secondary">
-          🎬 Ver Contenido
+          <span class="emoji emoji-button">🎬</span> Ver Contenido
         </a>
       </div>
     </div>
@@ -420,7 +429,7 @@ const breadcrumbItems = [
     color: var(--madfam-yellow-dark);
   }
 
-  .proceso-step h4 {
+  .proceso-step h3 {
     margin-bottom: var(--space-sm);
   }
 

@@ -18,11 +18,17 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <div class="hero-content">
         <div class="hero-logo-title animate-fade-in">
-          <img
-            src={`${basePath}/images/logo.png`}
-            alt="Testigos de Solarpunk"
-            class="hero-logo"
-          />
+          <picture>
+            <source srcset={`${basePath}/images/logo.webp`} type="image/webp" />
+            <img
+              src={`${basePath}/images/logo.png`}
+              alt="Testigos de Solarpunk"
+              class="hero-logo"
+              loading="eager"
+              width="120"
+              height="120"
+            />
+          </picture>
           <h1 class="hero-title">Testigos de Solarpunk</h1>
         </div>
         <p class="hero-subtitle animate-fade-in">
@@ -178,7 +184,7 @@ if (basePath.endsWith('/')) {
               >☀️</span
             ></span
           >
-          <h4>Energía Limpia</h4>
+          <h3>Energía Limpia</h3>
           <p>
             Un mundo impulsado por el sol, el viento y la creatividad humana
           </p>
@@ -190,7 +196,7 @@ if (basePath.endsWith('/')) {
               >🤝</span
             ></span
           >
-          <h4>Comunidad Fuerte</h4>
+          <h3>Comunidad Fuerte</h3>
           <p>Las soluciones nacen de la colaboración y el apoyo mutuo</p>
         </div>
         <div class="vision-item float-animation" style="animation-delay: 0.4s">
@@ -200,7 +206,7 @@ if (basePath.endsWith('/')) {
               >🌺</span
             ></span
           >
-          <h4>Armonía Natural</h4>
+          <h3>Armonía Natural</h3>
           <p>La tecnología y la naturaleza coexisten en equilibrio</p>
         </div>
         <div class="vision-item float-animation" style="animation-delay: 0.6s">
@@ -210,7 +216,7 @@ if (basePath.endsWith('/')) {
               >🎭</span
             ></span
           >
-          <h4>Historias que Inspiran</h4>
+          <h3>Historias que Inspiran</h3>
           <p>Narrativas que muestran futuros posibles y deseables</p>
         </div>
       </div>

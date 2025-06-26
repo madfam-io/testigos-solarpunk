@@ -1,6 +1,6 @@
 {
-  "totalPages": 17,
-  "totalLinks": 66,
+  "totalPages": 18,
+  "totalLinks": 72,
   "pages": [
     "/",
     "/404",
@@ -18,16 +18,21 @@
     "/personajes",
     "/produccion",
     "/proyecto",
+    "/proyecto-unified",
     "/recursos"
   ],
   "links": [
     "/",
     "/apple-touch-icon.png",
     "/comunidad",
-    "/contenido",
+    "/comunidad/",
+    "/contenido/",
     "/contenido/madlab",
+    "/contenido/madlab/",
     "/contenido/podcast",
+    "/contenido/podcast/",
     "/contenido/sketches",
+    "/contenido/sketches/",
     "/downloads/assets-visuales.zip",
     "/downloads/biblia-personajes.pdf",
     "/downloads/brand-guide.pdf",
@@ -46,12 +51,13 @@
     "/favicon-32x32.png",
     "/favicon.ico",
     "/favicon.svg",
-    "/filosofia",
+    "/filosofia/",
     "/fonts/poppins-v20-latin-regular.woff2",
-    "/formatos",
-    "/guia-visual",
+    "/formatos/",
+    "/guia-visual/",
     "/guiones",
-    "/guiones/${script.id}",
+    "/guiones/",
+    "/guiones/${script.id}/",
     "/icon-114.png",
     "/icon-120.png",
     "/icon-144.png",
@@ -60,29 +66,30 @@
     "/icon-60.png",
     "/icon-72.png",
     "/icon-76.png",
-    "/impacto",
+    "/impacto/",
     "/manifest.json",
-    "/mundo",
+    "/mundo/",
     "/mundo/${location.id}",
-    "/personajes",
+    "/personajes/",
     "/personajes/${id}",
-    "/produccion",
-    "/produccion/audio",
-    "/produccion/estilo-visual",
-    "/produccion/specs",
-    "/produccion/tono-voz",
-    "/proyecto",
-    "/recursos",
+    "/produccion/",
+    "/produccion/audio/",
+    "/produccion/estilo-visual/",
+    "/produccion/specs/",
+    "/produccion/tono-voz/",
+    "/proyecto/",
     "/recursos#patrocinadores",
-    "/recursos/actores/dialogo",
-    "/recursos/actores/movimiento",
-    "/recursos/actores/personajes",
-    "/recursos/creadores/personajes",
-    "/recursos/creadores/plantillas",
-    "/recursos/creadores/worldbuilding",
-    "/recursos/patrocinadores/impacto",
-    "/recursos/patrocinadores/integracion",
-    "/recursos/patrocinadores/valores",
+    "/recursos/",
+    "/recursos/#patrocinadores",
+    "/recursos/actores/dialogo/",
+    "/recursos/actores/movimiento/",
+    "/recursos/actores/personajes/",
+    "/recursos/creadores/personajes/",
+    "/recursos/creadores/plantillas/",
+    "/recursos/creadores/worldbuilding/",
+    "/recursos/patrocinadores/impacto/",
+    "/recursos/patrocinadores/integracion/",
+    "/recursos/patrocinadores/valores/",
     "/splash-1125x2436.png",
     "/splash-1536x2048.png",
     "/splash-1668x2388.png",
@@ -138,52 +145,50 @@
       "src/layouts/UnifiedLayout.astro",
       "src/pages/404.astro"
     ],
-    "/proyecto": [
+    "/proyecto/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro",
       "src/pages/index.astro"
     ],
-    "/contenido": ["src/layouts/BaseLayout.astro"],
-    "/contenido/sketches": [
+    "/contenido/": ["src/layouts/BaseLayout.astro"],
+    "/contenido/sketches/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro",
-      "src/pages/comunidad.astro",
       "src/pages/contenido/index.astro",
       "src/pages/contenido/podcast.astro",
       "src/pages/index.astro",
       "src/pages/proyecto.astro"
     ],
-    "/contenido/podcast": [
+    "/contenido/podcast/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro",
       "src/pages/contenido/index.astro",
       "src/pages/index.astro",
       "src/pages/proyecto.astro"
     ],
-    "/contenido/madlab": [
+    "/contenido/madlab/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro",
       "src/pages/contenido/index.astro",
       "src/pages/index.astro",
       "src/pages/proyecto.astro"
     ],
-    "/personajes": [
+    "/personajes/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro",
       "src/pages/404.astro",
       "src/pages/filosofia/index.astro",
       "src/pages/index.astro"
     ],
-    "/mundo": [
+    "/mundo/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro"
     ],
-    "/guiones": [
+    "/guiones/": [
       "src/layouts/BaseLayout.astro",
-      "src/layouts/UnifiedLayout.astro",
-      "src/pages/personajes/index.astro"
+      "src/layouts/UnifiedLayout.astro"
     ],
-    "/comunidad": [
+    "/comunidad/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro",
       "src/pages/contenido/madlab.astro",
@@ -192,34 +197,38 @@
       "src/pages/index.astro",
       "src/pages/proyecto.astro"
     ],
-    "/produccion": [
+    "/produccion/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro"
     ],
-    "/impacto": [
+    "/impacto/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro",
       "src/pages/index.astro"
     ],
-    "/recursos": [
+    "/recursos/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro",
       "src/pages/filosofia/index.astro",
       "src/pages/formatos/index.astro"
     ],
-    "/guia-visual": [
+    "/guia-visual/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro"
     ],
-    "/filosofia": [
+    "/filosofia/": [
       "src/layouts/BaseLayout.astro",
       "src/layouts/UnifiedLayout.astro",
       "src/pages/formatos/index.astro",
       "src/pages/index.astro"
     ],
-    "/formatos": ["src/layouts/BaseLayout.astro", "src/pages/index.astro"],
-    "/recursos#patrocinadores": [
+    "/formatos/": ["src/layouts/BaseLayout.astro", "src/pages/index.astro"],
+    "/contenido/sketches": [
       "src/pages/comunidad.astro",
+      "src/pages/proyecto-unified.astro"
+    ],
+    "/recursos#patrocinadores": ["src/pages/comunidad.astro"],
+    "/recursos/#patrocinadores": [
       "src/pages/contenido/madlab.astro",
       "src/pages/impacto.astro"
     ],
@@ -227,31 +236,35 @@
     "/downloads/iconos-evangelistas.svg": ["src/pages/guia-visual/index.astro"],
     "/downloads/plantillas-ui.fig": ["src/pages/guia-visual/index.astro"],
     "/downloads/guia-visual.pdf": ["src/pages/guia-visual/index.astro"],
-    "/guiones/${script.id}": ["src/pages/guiones/index.astro"],
+    "/guiones/${script.id}/": ["src/pages/guiones/index.astro"],
     "/downloads/plantilla-tiktok.pdf": ["src/pages/guiones/index.astro"],
     "/downloads/plantilla-instagram.pdf": ["src/pages/guiones/index.astro"],
     "/downloads/guia-escritura.pdf": ["src/pages/guiones/index.astro"],
     "/mundo/${location.id}": ["src/pages/mundo/index.astro"],
-    "/produccion/estilo-visual": ["src/pages/produccion/index.astro"],
-    "/produccion/tono-voz": ["src/pages/produccion/index.astro"],
-    "/produccion/specs": ["src/pages/produccion/index.astro"],
-    "/produccion/audio": ["src/pages/produccion/index.astro"],
+    "/guiones": ["src/pages/personajes/index.astro"],
+    "/produccion/estilo-visual/": ["src/pages/produccion/index.astro"],
+    "/produccion/tono-voz/": ["src/pages/produccion/index.astro"],
+    "/produccion/specs/": ["src/pages/produccion/index.astro"],
+    "/produccion/audio/": ["src/pages/produccion/index.astro"],
     "/downloads/logo-pack.zip": ["src/pages/produccion/index.astro"],
     "/downloads/brand-guide.pdf": ["src/pages/produccion/index.astro"],
     "/downloads/templates.zip": ["src/pages/produccion/index.astro"],
-    "/recursos/creadores/plantillas": ["src/pages/recursos/index.astro"],
-    "/recursos/creadores/personajes": ["src/pages/recursos/index.astro"],
-    "/recursos/creadores/worldbuilding": ["src/pages/recursos/index.astro"],
-    "/recursos/actores/personajes": ["src/pages/recursos/index.astro"],
-    "/recursos/actores/dialogo": ["src/pages/recursos/index.astro"],
-    "/recursos/actores/movimiento": ["src/pages/recursos/index.astro"],
-    "/recursos/patrocinadores/impacto": ["src/pages/recursos/index.astro"],
-    "/recursos/patrocinadores/integracion": ["src/pages/recursos/index.astro"],
-    "/recursos/patrocinadores/valores": ["src/pages/recursos/index.astro"],
+    "/contenido/podcast": ["src/pages/proyecto-unified.astro"],
+    "/contenido/madlab": ["src/pages/proyecto-unified.astro"],
+    "/comunidad": ["src/pages/proyecto-unified.astro"],
+    "/recursos/creadores/plantillas/": ["src/pages/recursos/index.astro"],
+    "/recursos/creadores/personajes/": ["src/pages/recursos/index.astro"],
+    "/recursos/creadores/worldbuilding/": ["src/pages/recursos/index.astro"],
+    "/recursos/actores/personajes/": ["src/pages/recursos/index.astro"],
+    "/recursos/actores/dialogo/": ["src/pages/recursos/index.astro"],
+    "/recursos/actores/movimiento/": ["src/pages/recursos/index.astro"],
+    "/recursos/patrocinadores/impacto/": ["src/pages/recursos/index.astro"],
+    "/recursos/patrocinadores/integracion/": ["src/pages/recursos/index.astro"],
+    "/recursos/patrocinadores/valores/": ["src/pages/recursos/index.astro"],
     "/downloads/biblia-personajes.pdf": ["src/pages/recursos/index.astro"],
     "/downloads/guia-mundo.pdf": ["src/pages/recursos/index.astro"],
     "/downloads/kit-prensa.zip": ["src/pages/recursos/index.astro"],
     "/downloads/assets-visuales.zip": ["src/pages/recursos/index.astro"]
   },
-  "timestamp": "2025-06-25T00:24:43.852Z"
+  "timestamp": "2025-06-26T20:17:17.058Z"
 }

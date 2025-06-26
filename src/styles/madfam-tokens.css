@@ -311,9 +311,9 @@
     --color-text-disabled: var(--madfam-gray-600);
     --color-text-hint: var(--madfam-gray-500);
 
-    /* Ajustar bordes */
-    --color-border: var(--madfam-gray-700);
-    --color-border-hover: var(--madfam-gray-600);
+    /* Ajustar bordes - mejorado para WCAG 3:1 */
+    --color-border: var(--madfam-gray-600);
+    --color-border-hover: var(--madfam-gray-500);
     --color-divider: var(--madfam-gray-700);
 
     /* Ajustar sombras para modo oscuro */

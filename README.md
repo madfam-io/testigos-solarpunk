@@ -100,11 +100,17 @@ npm run dev
 npm run dev:local
 # El servidor estará disponible en http://localhost:4321/
 
+# Para desarrollo con configuración de Vercel
+npm run dev:vercel
+
 # Construir para producción
-npm run build
+npm run build          # Build por defecto (GitHub Pages)
+npm run build:github   # Build específico para GitHub Pages
+npm run build:vercel   # Build específico para Vercel
 
 # Previsualizar build de producción
-npm run preview
+npm run preview         # Preview por defecto
+npm run preview:vercel  # Preview con configuración de Vercel
 
 # Verificar código
 npm run lint
