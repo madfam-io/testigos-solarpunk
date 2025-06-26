@@ -25,7 +25,7 @@ class MockImage {
 }
 
 // Mock global Image
-global.Image = MockImage as any;
+(global as { Image: unknown }).Image = MockImage;
 
 describe('MagazineCutoutPlaceholderService', () => {
   beforeEach(() => {
@@ -46,17 +46,13 @@ describe('MagazineCutoutPlaceholderService', () => {
         height: 300
       });
 
-      expect(result).toMatchObject({
-        url: expect.any(String),
-        service: expect.any(String),
-        cached: expect.any(Boolean),
-        aesthetic: {
-          rotation: expect.any(Number),
-          translateX: expect.any(Number),
-          translateY: expect.any(Number),
-          hasDecorations: expect.any(Boolean)
-        }
-      });
+      expect(result.url).toEqual(expect.any(String));
+      expect(result.service).toEqual(expect.any(String));
+      expect(result.cached).toEqual(expect.any(Boolean));
+      expect(result.aesthetic.rotation).toEqual(expect.any(Number));
+      expect(result.aesthetic.translateX).toEqual(expect.any(Number));
+      expect(result.aesthetic.translateY).toEqual(expect.any(Number));
+      expect(result.aesthetic.hasDecorations).toEqual(expect.any(Boolean));
 
       // Verificar que la rotación está en el rango esperado
       expect(result.aesthetic.rotation).toBeGreaterThanOrEqual(-5);
@@ -288,8 +284,8 @@ describe('MagazinePlaceholderCache', () => {
   });
 
   describe('preload functionality', () => {
-    it('should preload common placeholders', async () => {
-      await MagazinePlaceholderCache.preloadCommon();
+    it('should preload common placeholders', () => {
+      MagazinePlaceholderCache.preloadCommon();
 
       const stats = MagazinePlaceholderCache.getStats();
       expect(stats.totalEntries).toBeGreaterThan(0);
@@ -328,7 +324,10 @@ describe('MagazinePlaceholderCache', () => {
       
       expect(exported).toHaveProperty('stats');
       expect(exported).toHaveProperty('entries');
-      expect(exported.entries['test-key']).toMatchObject({
+      expect(exported.entries).toHaveProperty('test-key');
+      const entries = exported.entries as Record<string, unknown>;
+      const testKeyEntry = entries['test-key'] as Record<string, unknown>;
+      expect(testKeyEntry).toMatchObject({
         service: 'test-service',
         hasUrl: true,
         hasFallback: false

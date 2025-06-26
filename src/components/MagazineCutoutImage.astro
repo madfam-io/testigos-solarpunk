@@ -45,13 +45,13 @@ const {
 let placeholderData = null;
 let placeholderUrl = src;
 
-if (!src) {
+if (src == null || src === '') {
   try {
     placeholderData = await MagazineCutoutPlaceholderService.generatePlaceholder({
       type,
       width,
       height,
-      prompt: prompt || alt,
+      prompt: prompt ?? alt,
       priority: eager ? 'high' : 'normal'
     });
     placeholderUrl = placeholderData.url;
@@ -62,7 +62,7 @@ if (!src) {
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
         <rect width="100%" height="100%" fill="#F4E5D3"/>
         <text x="50%" y="50%" text-anchor="middle" font-family="serif" font-size="16" fill="#666">
-          ${alt}
+          ${alt.replace(/[<>&"]/g, '')}
         </text>
       </svg>
     `)}`;
@@ -72,13 +72,13 @@ if (!src) {
 // Construir clases CSS
 const cssClasses = [
   'magazine-cutout-image',
-  cutoutStyle.length > 0 ? `emoji-cutout ${cutoutStyle}` : '',
+  `emoji-cutout ${cutoutStyle}`,
   theme !== undefined ? `theme-${theme}` : '',
   context !== undefined ? `emoji-${context}` : '',
   interactive ? 'interactive' : '',
   flutter ? 'flutter' : '',
   className
-].filter(cls => cls.length > 0).join(' ');
+].filter(cls => cls !== '').join(' ');
 
 // Usar propiedades estéticas del placeholder o generar aleatorias
 const aesthetic = placeholderData?.aesthetic ?? {
@@ -106,13 +106,13 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       loading={eager ? 'eager' : 'lazy'}
       class:list={cssClasses}
       data-magazine-cutout="true"
-      onerror={placeholderData?.fallbackUrl !== undefined && placeholderData.fallbackUrl.length > 0 ? `this.onerror=null; this.src='${placeholderData.fallbackUrl}';` : undefined}
+      data-fallback-url={placeholderData?.fallbackUrl}
     />
     
-    {(src === undefined || src.length === 0) && (
+    {(src == null || src === '') && (
       <div class="placeholder-marker">
         <span class="cut-here">✂️ - - - - -</span>
-        {placeholderData?.service !== undefined && placeholderData.service.length > 0 && (
+        {placeholderData?.service != null && placeholderData.service !== '' && (
           <span class="service-indicator">{placeholderData.service}</span>
         )}
       </div>
@@ -128,7 +128,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
   )}
   
   <!-- Indicador de carga para placeholders AI -->
-  {(src === undefined || src.length === 0) && (
+  {(src == null || src === '') && (
     <div class="ai-loading-indicator" aria-hidden="true">
       <span class="loading-dots">🤖</span>
     </div>
@@ -323,11 +323,6 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     transform: rotate(calc(var(--magazine-rotation) * 0.8)) translate(1px, 1px) scale(0.98);
   }
 
-  /* Efectos de papel flotante */
-  .magazine-cutout-wrapper.flutter .magazine-cutout-inner {
-    animation: paperFloat 4s ease-in-out infinite;
-  }
-
   @keyframes paperFloat {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     25% { transform: translateY(-2px) rotate(0.5deg); }
@@ -420,16 +415,20 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
         // Ocultar indicador cuando la imagen cargue
         img.addEventListener('load', () => {
           if (loadingIndicator) {
-            loadingIndicator.style.opacity = '0';
+            (loadingIndicator as HTMLElement).style.opacity = '0';
             setTimeout(() => loadingIndicator.remove(), 300);
           }
         });
         
         // Manejar errores de carga
         img.addEventListener('error', () => {
-          if (loadingIndicator) {
+          const fallbackUrl = img.getAttribute('data-fallback-url');
+          if (fallbackUrl && fallbackUrl !== '') {
+            img.src = fallbackUrl;
+            img.removeAttribute('data-fallback-url');
+          } else if (loadingIndicator) {
             loadingIndicator.textContent = '⚠️ Error';
-            loadingIndicator.style.background = 'rgba(255, 200, 200, 0.95)';
+            (loadingIndicator as HTMLElement).style.background = 'rgba(255, 200, 200, 0.95)';
           }
         });
       }

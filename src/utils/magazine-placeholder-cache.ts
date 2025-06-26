@@ -93,7 +93,7 @@ export class MagazinePlaceholderCache {
       }
     }
     
-    if (oldestKey) {
+    if (oldestKey !== '') {
       this.cache.delete(oldestKey);
     }
   }
@@ -101,7 +101,7 @@ export class MagazinePlaceholderCache {
   /**
    * Precargar placeholders comunes
    */
-  static async preloadCommon(): Promise<void> {
+  static preloadCommon(): void {
     const commonPlaceholders = [
       { key: 'character-default', type: 'character', width: 400, height: 300 },
       { key: 'sketch-default', type: 'sketch', width: 640, height: 360 },
@@ -145,7 +145,7 @@ export class MagazinePlaceholderCache {
       background: 'CONTENIDO'
     };
     
-    const message = messages[type as keyof typeof messages] || 'PRÓXIMAMENTE';
+    const message = messages[type as keyof typeof messages] ?? 'PRÓXIMAMENTE';
     const centerX = width / 2;
     const centerY = height / 2;
     
@@ -181,7 +181,7 @@ export class MagazinePlaceholderCache {
    * Obtener estadísticas del cache
    */
   static getStats(): CacheStats {
-    const entries = Array.from(this.cache.values());
+    // const entries = Array.from(this.cache.values());
     const now = Date.now();
     
     let oldestTime = now;
@@ -256,8 +256,8 @@ export class MagazinePlaceholderCache {
   /**
    * Exportar cache para debugging
    */
-  static export(): { [key: string]: any } {
-    const exported: { [key: string]: any } = {};
+  static export(): Record<string, unknown> {
+    const exported: Record<string, unknown> = {};
     
     for (const [key, entry] of this.cache) {
       exported[key] = {
@@ -265,8 +265,8 @@ export class MagazinePlaceholderCache {
         timestamp: new Date(entry.timestamp).toISOString(),
         accessCount: entry.accessCount,
         lastAccessed: new Date(entry.lastAccessed).toISOString(),
-        hasUrl: !!entry.placeholder.url,
-        hasFallback: !!entry.placeholder.fallbackUrl
+        hasUrl: entry.placeholder.url !== '',
+        hasFallback: entry.placeholder.fallbackUrl != null && entry.placeholder.fallbackUrl !== ''
       };
     }
     
@@ -284,22 +284,26 @@ export class MagazinePlaceholderCache {
     
     // Agrupar por URL
     for (const [key, entry] of this.cache) {
-      const {url} = entry.placeholder;
+      const { url } = entry.placeholder;
       if (!urlToKeys.has(url)) {
         urlToKeys.set(url, []);
       }
-      urlToKeys.get(url)!.push(key);
+      const keys = urlToKeys.get(url);
+      if (keys != null) {
+        keys.push(key);
+      }
     }
     
     let removedCount = 0;
     
     // Eliminar duplicados, conservando el más accedido
-    for (const [url, keys] of urlToKeys) {
+    for (const [_url, keys] of urlToKeys) {
       if (keys.length > 1) {
         // Ordenar por acceso (más accedido primero)
         keys.sort((a, b) => {
-          const entryA = this.cache.get(a)!;
-          const entryB = this.cache.get(b)!;
+          const entryA = this.cache.get(a);
+          const entryB = this.cache.get(b);
+          if (entryA == null || entryB == null) return 0;
           return entryB.accessCount - entryA.accessCount;
         });
         

@@ -9,6 +9,7 @@ import {
   magazinePlaceholderConfig, 
   type PlaceholderType, 
   type StyleModifier,
+  type PlaceholderService,
   defaultConfigs 
 } from '../config/magazine-placeholders.config';
 
@@ -20,6 +21,17 @@ export interface MagazinePlaceholderOptions {
   customModifiers?: StyleModifier[];
   rotation?: number;
   priority?: 'high' | 'normal' | 'low';
+}
+
+interface PlaceholderConfig {
+  type: PlaceholderType;
+  width: number;
+  height: number;
+  quality: number;
+  prompt: string;
+  enhancedPrompt: string;
+  modifiers: StyleModifier[];
+  priority: string;
 }
 
 export interface GeneratedPlaceholder {
@@ -37,7 +49,7 @@ export interface GeneratedPlaceholder {
 
 export class MagazineCutoutPlaceholderService {
   private static cache = new Map<string, GeneratedPlaceholder>();
-  private static activePreviews = new Set<string>();
+  // private static activePreviews = new Set<string>();
 
   /**
    * Genera un placeholder con estética magazine cutout
@@ -62,7 +74,7 @@ export class MagazineCutoutPlaceholderService {
 
         try {
           const url = await this.tryService(service, config);
-          if (url) {
+          if (url !== null && url !== '') {
             const result: GeneratedPlaceholder = {
               url,
               fallbackUrl: this.generateSVGFallback(config),
@@ -109,7 +121,7 @@ export class MagazineCutoutPlaceholderService {
   /**
    * Construye configuración completa a partir de opciones
    */
-  private static buildConfig(options: MagazinePlaceholderOptions) {
+  private static buildConfig(options: MagazinePlaceholderOptions): PlaceholderConfig {
     const defaults = defaultConfigs[options.type];
     const basePrompt = magazinePlaceholderConfig.prompts[options.type];
     
@@ -120,20 +132,20 @@ export class MagazineCutoutPlaceholderService {
 
     return {
       type: options.type,
-      width: options.width || defaults.width,
-      height: options.height || defaults.height,
+      width: options.width ?? defaults.width,
+      height: options.height ?? defaults.height,
       quality: defaults.quality,
-      prompt: options.prompt || basePrompt,
-      enhancedPrompt: `${options.prompt || basePrompt}, ${modifierText}`,
+      prompt: options.prompt ?? basePrompt,
+      enhancedPrompt: `${options.prompt ?? basePrompt}, ${modifierText}`,
       modifiers,
-      priority: options.priority || 'normal'
+      priority: options.priority ?? 'normal'
     };
   }
 
   /**
    * Intenta generar placeholder con un servicio específico
    */
-  private static async tryService(service: any, config: any): Promise<string | null> {
+  private static async tryService(service: PlaceholderService, config: PlaceholderConfig): Promise<string | null> {
     const {timeout} = magazinePlaceholderConfig.performance;
     
     return new Promise((resolve) => {
@@ -182,14 +194,14 @@ export class MagazineCutoutPlaceholderService {
   /**
    * Construye URL para placeholders.io
    */
-  private static buildPlaceholdersIOUrl(service: any, config: any): string {
+  private static buildPlaceholdersIOUrl(service: PlaceholderService, config: PlaceholderConfig): string {
     const params = new URLSearchParams({
       prompt: config.enhancedPrompt,
       w: config.width.toString(),
       h: config.height.toString(),
-      style: service.styleParams.style,
-      texture: service.styleParams.texture,
-      effect: service.styleParams.effect
+      style: service.styleParams.style ?? 'collage',
+      texture: service.styleParams.texture ?? 'paper',
+      effect: service.styleParams.effect ?? 'vintage'
     });
 
     return `${service.endpoint}?${params.toString()}`;
@@ -198,12 +210,12 @@ export class MagazineCutoutPlaceholderService {
   /**
    * Construye URL para abh.ai
    */
-  private static buildABHUrl(service: any, config: any): string {
+  private static buildABHUrl(service: PlaceholderService, config: PlaceholderConfig): string {
     const size = `${config.width}x${config.height}`;
     const params = new URLSearchParams({
       text: config.enhancedPrompt,
-      style: service.styleParams.style,
-      border: service.styleParams.border
+      style: service.styleParams.style ?? 'magazine',
+      border: service.styleParams.border ?? 'cutout'
     });
 
     return `${service.endpoint}/${size}?${params.toString()}`;
@@ -212,13 +224,13 @@ export class MagazineCutoutPlaceholderService {
   /**
    * Construye URL para placeholdr.ai
    */
-  private static buildPlaceholdrUrl(service: any, config: any): string {
+  private static buildPlaceholdrUrl(service: PlaceholderService, config: PlaceholderConfig): string {
     const params = new URLSearchParams({
       prompt: config.enhancedPrompt,
       w: config.width.toString(),
       h: config.height.toString(),
-      aesthetic: service.styleParams.aesthetic,
-      paper: service.styleParams.paper
+      aesthetic: service.styleParams.aesthetic ?? 'diy-cutout',
+      paper: service.styleParams.paper ?? 'vintage'
     });
 
     return `${service.endpoint}?${params.toString()}`;
@@ -227,7 +239,7 @@ export class MagazineCutoutPlaceholderService {
   /**
    * Genera propiedades estéticas para el magazine cutout
    */
-  private static generateAesthetic() {
+  private static generateAesthetic(): { rotation: number; translateX: number; translateY: number; hasDecorations: boolean } {
     const { rotationRange, tapeChance, stapleChance } = magazinePlaceholderConfig.aesthetics;
     
     return {
@@ -241,18 +253,18 @@ export class MagazineCutoutPlaceholderService {
   /**
    * Genera SVG fallback con estética auténtica de magazine cutout
    */
-  private static generateSVGFallback(config: any): string {
+  private static generateSVGFallback(config: PlaceholderConfig): string {
     const { paperColors, decorationColors, defaultMessages } = magazinePlaceholderConfig.svgFallback;
     const { width, height, type } = config;
     
     const rotation = Math.random() * 10 - 5;
     const paperColor = paperColors[Math.floor(Math.random() * paperColors.length)];
     const decorColor = decorationColors[Math.floor(Math.random() * decorationColors.length)];
-    const message = defaultMessages[type as keyof typeof defaultMessages] || 'PRÓXIMAMENTE';
+    const message = defaultMessages[type as keyof typeof defaultMessages] ?? 'PRÓXIMAMENTE';
 
     const tornEdgePath = this.generateTornEdgePath(width, height);
     const decorations = this.generateSVGDecorations(width, height, decorColor);
-    const content = this.generateTypeSpecificContent(type, width, height, message);
+    const content = this.generateTypeSpecificContent(String(type), width, height, message);
 
     const svg = `
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
@@ -446,7 +458,7 @@ export class MagazineCutoutPlaceholderService {
   /**
    * Genera clave de cache
    */
-  private static getCacheKey(config: any): string {
+  private static getCacheKey(config: PlaceholderConfig): string {
     return `${config.type}-${config.width}x${config.height}-${btoa(config.enhancedPrompt).slice(0, 20)}`;
   }
 
