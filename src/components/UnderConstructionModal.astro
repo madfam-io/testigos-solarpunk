@@ -402,16 +402,6 @@ const {
       const href = link.getAttribute('href');
       if (!href) return false;
 
-      // Check for common "under construction" indicators
-      const constructionPatterns = [
-        '/personajes/',
-        '/guiones',
-        '#',
-        'javascript:void(0)',
-        'mailto:',
-        'tel:',
-      ];
-
       // Don't show modal for external links or if link has specific data attribute
       if (
         link.hasAttribute('data-no-modal') ||
@@ -421,11 +411,32 @@ const {
         return false;
       }
 
-      // Check if the link points to a non-existent page or construction pattern
+      // Skip links and empty anchors that should trigger modal
+      const emptyLinkPatterns = [
+        '#nav-menu',
+        '#',
+        'javascript:void(0)',
+        'mailto:',
+        'tel:',
+      ];
+
+      // Button text patterns that should trigger modal
+      const buttonText = link.textContent?.toLowerCase().trim() || '';
+      const constructionButtonTexts = [
+        'crear',
+        'compartir',
+        'voluntariado',
+        'próximamente',
+        'construcción',
+        'en desarrollo',
+      ];
+
+      // Check for under construction indicators
       return (
-        constructionPatterns.some((pattern) => href.includes(pattern)) ||
-        (link.textContent?.toLowerCase().includes('próximamente') ?? false) ||
-        (link.textContent?.toLowerCase().includes('construcción') ?? false)
+        emptyLinkPatterns.some((pattern) => href.includes(pattern)) ||
+        constructionButtonTexts.some((text) => buttonText.includes(text)) ||
+        href === '#' ||
+        href === ''
       );
     }
 
