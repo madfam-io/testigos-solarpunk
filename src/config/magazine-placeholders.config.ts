@@ -77,30 +77,24 @@ export const magazinePlaceholderConfig = {
 
   // Templates de prompts por tipo de contenido
   prompts: {
-    character:
-      'vintage magazine portrait, editorial illustration, retro photography, person {name}',
-    sketch:
-      'storyboard panel, comic strip, DIY zine aesthetic, sketch illustration, {theme}',
-    podcast:
-      'record album cover, vintage music magazine, retro radio show poster',
-    hero: 'magazine collage spread, editorial design, vintage travel poster',
-    background:
-      'abstract paper collage, mixed media texture, vintage magazine clippings',
-    madlab:
-      'science magazine illustration, educational poster, laboratory equipment',
-    community:
-      'community newsletter, group photo, social gathering vintage style',
-    impact: 'infographic magazine page, data visualization retro style',
-    production: 'behind scenes magazine, production notes, DIY manual',
+    character: 'vintage portrait, person',
+    sketch: 'comic panel, sketch',
+    podcast: 'retro radio poster',
+    hero: 'magazine spread',
+    background: 'paper collage',
+    madlab: 'science poster',
+    community: 'group photo',
+    impact: 'data visualization',
+    production: 'production notes',
   } as PlaceholderPrompts,
 
   // Modificadores de estilo para añadir autenticidad
   styleModifiers: {
-    magazine: 'magazine cutout, paper texture, vintage editorial',
-    diy: 'DIY aesthetic, handmade, imperfect edges, scissors cut',
-    vintage: 'retro color palette, aged paper, 70s magazine style',
-    collage: 'collage composition, layered paper, mixed media',
-    solarpunk: 'eco-futuristic, green technology, sustainable design',
+    magazine: 'magazine cutout, vintage',
+    diy: 'DIY handmade',
+    vintage: 'retro aged paper',
+    collage: 'collage layered',
+    solarpunk: 'eco-futuristic',
   },
 
   // Configuración de rendimiento
@@ -127,23 +121,7 @@ export const magazinePlaceholderConfig = {
       '#F8F8F0',
       '#FFF5EE',
     ],
-    decorationColors: [
-      '#FFD700',
-      '#FF6B6B',
-      '#4ECDC4',
-      '#45B7D1',
-      '#96CEB4',
-      '#FF8C42',
-      '#6A4C93',
-      '#1DD1A1',
-      '#FF6B9D',
-      '#C44569',
-      '#F8B500',
-      '#FF5722',
-      '#8BC34A',
-      '#2196F3',
-      '#9C27B0',
-    ],
+    decorationColors: ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'],
     fonts: ['Georgia', 'serif', 'Times New Roman', 'Courier New'],
     defaultMessages: {
       character: 'PERSONAJE',

@@ -300,75 +300,37 @@ export class MagazineCutoutPlaceholderService {
     const svg = `
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <!-- Textura de papel premium -->
-          <filter id="roughPaper" x="0" y="0" width="120%" height="120%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" result="paperNoise"/>
-            <feTurbulence type="turbulence" baseFrequency="0.08" numOctaves="2" result="fiberGrain"/>
-            <feColorMatrix in="fiberGrain" values="0.4 0.4 0.4 0 0 0.4 0.4 0.4 0 0 0.4 0.4 0.4 0 0 0 0 0 1 0"/>
-            <feComposite in="paperNoise" in2="fiberGrain" operator="multiply" result="paperTexture"/>
-            <feDiffuseLighting in="paperTexture" lighting-color="#FFFEF7" surfaceScale="2">
-              <feDistantLight azimuth="45" elevation="65"/>
-            </feDiffuseLighting>
-            <feComposite in2="SourceGraphic" operator="multiply"/>
+          <!-- Textura de papel -->
+          <filter id="roughPaper" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" result="noise"/>
+            <feColorMatrix in="noise" values="0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0 0 0 1 0"/>
           </filter>
           
-          <!-- Filtro de envejecimiento mejorado -->
-          <filter id="vintage" x="0" y="0" width="100%" height="100%">
-            <feColorMatrix values="0.95 0.15 0.1 0 0.03 0.05 0.85 0.1 0 0.02 0.05 0.1 0.75 0 0.03 0 0 0 1 0"/>
-            <feComponentTransfer>
-              <feFuncR type="gamma" amplitude="1" exponent="1.1"/>
-              <feFuncG type="gamma" amplitude="1" exponent="1.05"/>  
-              <feFuncB type="gamma" amplitude="1" exponent="0.95"/>
-            </feComponentTransfer>
-          </filter>
-          
-          <!-- Borde desgarrado con variaciones -->
+          <!-- Borde desgarrado -->
           <clipPath id="tornEdge">
             <path d="${tornEdgePath}" />
           </clipPath>
           
-          <!-- Sombra profunda realista -->
+          <!-- Sombra -->
           <filter id="dropShadow">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-            <feOffset dx="3" dy="5" result="offsetblur"/>
-            <feFlood flood-color="#000000" flood-opacity="0.25"/>
-            <feComposite in2="offsetblur" operator="in" result="dropshadow"/>
-            <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
-            <feOffset dx="1" dy="2" result="innerShadow"/>
-            <feFlood flood-color="#000000" flood-opacity="0.1"/>
-            <feComposite in2="innerShadow" operator="in" result="innerShadowColor"/>
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="4" dy="4" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.2"/>
+            <feComposite in2="offsetblur" operator="in"/>
             <feMerge>
-              <feMergeNode in="dropshadow"/>
-              <feMergeNode in="innerShadowColor"/>
+              <feMergeNode/>
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
-          
-          <!-- Gradiente para efectos de profundidad -->
-          <linearGradient id="paperGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:white;stop-opacity:0.8"/>
-            <stop offset="50%" style="stop-color:${paperColor};stop-opacity:1"/>
-            <stop offset="100%" style="stop-color:#F5F5F0;stop-opacity:0.9"/>
-          </linearGradient>
         </defs>
         
         <g transform="rotate(${rotation} ${width / 2} ${height / 2})">
-          <!-- Fondo de papel con gradiente -->
-          <rect 
-            width="${width}" 
-            height="${height}" 
-            fill="url(#paperGradient)"
-            filter="url(#roughPaper)"
-            clip-path="url(#tornEdge)"
-          />
-          
-          <!-- Capa de textura adicional -->
+          <!-- Fondo de papel -->
           <rect 
             width="${width}" 
             height="${height}" 
             fill="${paperColor}"
-            opacity="0.3"
-            filter="url(#vintage)"
+            filter="url(#roughPaper)"
             clip-path="url(#tornEdge)"
           />
           
@@ -387,72 +349,38 @@ export class MagazineCutoutPlaceholderService {
   }
 
   /**
-   * Genera path de borde desgarrado realista con múltiples variaciones
+   * Genera path de borde desgarrado
    */
   private static generateTornEdgePath(width: number, height: number): string {
     const points: string[] = [];
-    const steps = Math.floor(Math.random() * 8) + 18; // Variabilidad en detalle
-    const edgeStyle = Math.floor(Math.random() * 4); // 4 estilos diferentes
+    const steps = 15;
+    const roughness = 8;
 
-    // Parámetros según el estilo de borde
-    const edgeVariations = {
-      0: { roughness: 12, frequency: 0.8 }, // Desgarrado
-      1: { roughness: 6, frequency: 0.4 }, // Cortado cuidadoso
-      2: { roughness: 15, frequency: 1.2 }, // Muy irregular
-      3: { roughness: 4, frequency: 0.2 }, // Casi recto
-    };
-
-    const { roughness, frequency } =
-      edgeVariations[edgeStyle as keyof typeof edgeVariations];
-
-    // Borde superior con desgarros variables
+    // Borde superior
     for (let i = 0; i <= steps; i++) {
-      const progress = i / steps;
       const x = (width / steps) * i;
-      // Función de variación más compleja
-      const baseVariation =
-        Math.sin(progress * Math.PI * frequency * 8) * (roughness * 0.3);
-      const randomVariation = (Math.random() - 0.5) * roughness;
-      const y = Math.max(0, baseVariation + randomVariation);
+      const y = Math.random() * roughness;
       points.push(`${x},${y}`);
     }
 
-    // Borde derecho con patrón similar
+    // Borde derecho
     for (let i = 1; i <= steps; i++) {
-      const progress = i / steps;
       const y = (height / steps) * i;
-      const baseVariation =
-        Math.sin(progress * Math.PI * frequency * 6) * (roughness * 0.25);
-      const randomVariation = (Math.random() - 0.5) * roughness * 0.8;
-      const x = Math.min(
-        width,
-        width - Math.max(0, baseVariation + randomVariation)
-      );
+      const x = width - Math.random() * roughness;
       points.push(`${x},${y}`);
     }
 
-    // Borde inferior con variación mejorada
+    // Borde inferior
     for (let i = steps; i >= 0; i--) {
-      const progress = (steps - i) / steps;
       const x = (width / steps) * i;
-      const baseVariation =
-        Math.sin(progress * Math.PI * frequency * 7) * (roughness * 0.25);
-      const randomVariation = (Math.random() - 0.5) * roughness * 0.9;
-      const y = Math.max(
-        height - roughness * 2,
-        height - Math.max(0, baseVariation + randomVariation)
-      );
+      const y = height - Math.random() * roughness;
       points.push(`${x},${y}`);
     }
 
-    // Borde izquierdo con variación mejorada
+    // Borde izquierdo
     for (let i = steps; i >= 0; i--) {
-      const progress = (steps - i) / steps;
       const y = (height / steps) * i;
-      const baseVariation =
-        Math.sin(progress * Math.PI * frequency * 5) * (roughness * 0.2);
-      const randomVariation = (Math.random() - 0.5) * roughness * 0.7;
-      const x = Math.max(0, baseVariation + randomVariation);
+      const x = Math.random() * roughness;
       points.push(`${x},${y}`);
     }
 
