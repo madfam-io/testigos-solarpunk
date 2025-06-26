@@ -1,4 +1,6 @@
 ---
+import MagazineCutoutImage from './MagazineCutoutImage.astro';
+
 export interface Props {
   id: string;
   nombre: string;
@@ -25,8 +27,6 @@ const {
   isEvangelista: _isEvangelista = false,
 } = Astro.props;
 
-const imagenUrl = imagen ?? '/images/characters/placeholder.jpg';
-
 const colorClasses = {
   verde: 'tema-verde',
   solar: 'tema-solar',
@@ -45,9 +45,22 @@ const fraseAleatoria =
   <div class="character-aura"></div>
 
   <div class="character-image-container">
-    <img src={imagenUrl} alt={nombre} loading="lazy" class="character-image" />
+    <MagazineCutoutImage
+      src={imagen}
+      alt={`Retrato evangelista de ${nombre}, ${ocupacion}`}
+      width={400}
+      height={300}
+      type="character"
+      prompt={`evangelical portrait of ${nombre}, ${ocupacion}, ${rol}, ${colorTema} theme, mystical aura`}
+      cutoutStyle="emoji-lg"
+      theme={colorTema === 'verde' ? 'green' : colorTema === 'solar' ? 'solar' : colorTema === 'mistico' ? 'purple' : 'community'}
+      context="hero"
+      interactive={true}
+      flutter={true}
+      class="character-image"
+    />
     <div class="character-halo"></div>
-    <span class="character-badge">{rol}</span>
+    <span class="character-badge emoji-cutout emoji-sm">{rol}</span>
   </div>
 
   <div class="character-info">

@@ -206,8 +206,10 @@ describe('Constants', () => {
         high: 95,
       });
       expect(IMAGE_CONFIG.placeholder).toEqual({
-        type: 'blur',
+        type: 'magazine-cutout',
+        ai: true,
         size: 20,
+        fallback: 'svg',
       });
     });
   });

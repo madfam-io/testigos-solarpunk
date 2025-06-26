@@ -184,8 +184,30 @@ export const IMAGE_CONFIG = {
     high: 95,
   },
   placeholder: {
-    type: 'blur',
+    type: 'magazine-cutout',
+    ai: true,
     size: 20,
+    fallback: 'svg',
+  },
+} as const;
+
+// Configuración de placeholders Magazine Cutout
+export const MAGAZINE_PLACEHOLDER_CONFIG = {
+  enabled: true,
+  aiServices: ['placeholders.io', 'abh.ai', 'placeholdr.ai'],
+  fallbackToSVG: true,
+  cacheEnabled: true,
+  preloadCommon: true,
+  performance: {
+    timeout: 5000,
+    retries: 2,
+    maxConcurrent: 3,
+  },
+  aesthetic: {
+    rotation: [-5, 5],
+    decorationChance: 0.6,
+    vintageFilter: true,
+    paperTexture: true,
   },
 } as const;
 

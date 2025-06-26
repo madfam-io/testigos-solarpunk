@@ -1,4 +1,6 @@
 ---
+import MagazineCutoutImage from './MagazineCutoutImage.astro';
+
 export interface Props {
   id: string;
   nombre: string;
@@ -11,16 +13,24 @@ export interface Props {
 
 const { id, nombre, rol, edad, ocupacion, imagen, descripcionBreve } =
   Astro.props;
-const imagenUrl =
-  imagen != null && imagen !== ''
-    ? imagen
-    : '/images/characters/placeholder.jpg';
 ---
 
 <article class="character-card card">
   <div class="character-image">
-    <img src={imagenUrl} alt={nombre} loading="lazy" />
-    <span class="character-role">{rol}</span>
+    <MagazineCutoutImage
+      src={imagen}
+      alt={`Retrato de ${nombre}, ${ocupacion}`}
+      width={400}
+      height={300}
+      type="character"
+      prompt={`portrait of ${nombre}, ${ocupacion}, ${rol}, vintage magazine style`}
+      cutoutStyle="emoji-md"
+      theme="solar"
+      context="card"
+      interactive={true}
+      class="character-portrait"
+    />
+    <span class="character-role emoji-cutout emoji-sm theme-green">{rol}</span>
   </div>
 
   <div class="character-info">
@@ -48,15 +58,14 @@ const imagenUrl =
       var(--espacio-md);
   }
 
-  .character-image img {
+  .character-image .character-portrait {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     transition: transform var(--transicion-normal);
   }
 
-  .character-card:hover .character-image img {
-    transform: scale(1.05);
+  .character-card:hover .character-image .character-portrait {
+    transform: scale(1.02);
   }
 
   .character-role {
