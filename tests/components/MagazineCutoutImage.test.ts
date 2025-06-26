@@ -157,10 +157,12 @@ describe('MagazineCutoutPlaceholderService', () => {
       if (result.url.startsWith('data:image/svg+xml')) {
         const svgContent = decodeURIComponent(result.url.split(',')[1]);
 
-        // Verificar efectos específicos
+        // Verificar efectos auténticos del magazine cutout
         expect(svgContent).toContain('roughPaper');
         expect(svgContent).toContain('dropShadow');
         expect(svgContent).toContain('clip-path');
+        expect(svgContent).toContain('feTurbulence');
+        expect(svgContent).toContain('tornEdge');
       }
     });
   });

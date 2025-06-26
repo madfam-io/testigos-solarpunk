@@ -288,7 +288,6 @@ export class MagazineCutoutPlaceholderService {
     const message =
       defaultMessages[type as keyof typeof defaultMessages] ?? 'PRÓXIMAMENTE';
 
-    const tornEdgePath = this.generateTornEdgePath(width, height);
     const decorations = this.generateSVGDecorations(width, height, decorColor);
     const content = this.generateTypeSpecificContent(
       String(type),
@@ -300,22 +299,23 @@ export class MagazineCutoutPlaceholderService {
     const svg = `
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <!-- Textura de papel -->
+          <!-- Paper texture with realistic grain -->
           <filter id="roughPaper" x="0" y="0" width="100%" height="100%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" result="noise"/>
-            <feColorMatrix in="noise" values="0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0 0 0 1 0"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+            <feColorMatrix in="noise" values="0.2 0.2 0.2 0 0 0.2 0.2 0.2 0 0 0.2 0.2 0.2 0 0 0 0 0 1 0"/>
+            <feComposite operator="multiply" in2="SourceGraphic"/>
           </filter>
           
-          <!-- Borde desgarrado -->
+          <!-- Authentic torn paper edge -->
           <clipPath id="tornEdge">
-            <path d="${tornEdgePath}" />
+            <path d="${this.generateTornEdgePath(width, height)}" />
           </clipPath>
           
-          <!-- Sombra -->
+          <!-- Realistic drop shadow -->
           <filter id="dropShadow">
             <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-            <feOffset dx="4" dy="4" result="offsetblur"/>
-            <feFlood flood-color="#000000" flood-opacity="0.2"/>
+            <feOffset dx="3" dy="4" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.25"/>
             <feComposite in2="offsetblur" operator="in"/>
             <feMerge>
               <feMergeNode/>
@@ -325,7 +325,7 @@ export class MagazineCutoutPlaceholderService {
         </defs>
         
         <g transform="rotate(${rotation} ${width / 2} ${height / 2})">
-          <!-- Fondo de papel -->
+          <!-- Paper base with texture -->
           <rect 
             width="${width}" 
             height="${height}" 
@@ -334,12 +334,12 @@ export class MagazineCutoutPlaceholderService {
             clip-path="url(#tornEdge)"
           />
           
-          <!-- Contenido específico del tipo -->
+          <!-- Content with shadow -->
           <g filter="url(#dropShadow)">
             ${content}
           </g>
           
-          <!-- Decoraciones (cinta, grapas) -->
+          <!-- Authentic decorations -->
           ${decorations}
         </g>
       </svg>
@@ -349,39 +349,39 @@ export class MagazineCutoutPlaceholderService {
   }
 
   /**
-   * Genera path de borde desgarrado
+   * Genera path auténtico de borde cortado con tijeras
    */
   private static generateTornEdgePath(width: number, height: number): string {
     const points: string[] = [];
-    const steps = 15;
-    const roughness = 8;
+    const steps = 20; // Más puntos para mayor realismo
+    const roughness = 12; // Mayor variación para aspecto más auténtico
 
-    // Borde superior
+    // Borde superior - corte irregular
     for (let i = 0; i <= steps; i++) {
       const x = (width / steps) * i;
-      const y = Math.random() * roughness;
-      points.push(`${x},${y}`);
+      const y = Math.random() * roughness - roughness / 2;
+      points.push(`${x},${Math.max(0, y)}`);
     }
 
     // Borde derecho
     for (let i = 1; i <= steps; i++) {
       const y = (height / steps) * i;
       const x = width - Math.random() * roughness;
-      points.push(`${x},${y}`);
+      points.push(`${Math.min(width, x)},${y}`);
     }
 
     // Borde inferior
     for (let i = steps; i >= 0; i--) {
       const x = (width / steps) * i;
       const y = height - Math.random() * roughness;
-      points.push(`${x},${y}`);
+      points.push(`${x},${Math.min(height, y)}`);
     }
 
     // Borde izquierdo
     for (let i = steps; i >= 0; i--) {
       const y = (height / steps) * i;
       const x = Math.random() * roughness;
-      points.push(`${x},${y}`);
+      points.push(`${Math.max(0, x)},${y}`);
     }
 
     return `M ${points.join(' L ')} Z`;
@@ -397,74 +397,85 @@ export class MagazineCutoutPlaceholderService {
   ): string {
     const decorations = [];
 
-    // Múltiples cintas para mayor autenticidad
-    if (Math.random() > 0.3) {
+    // Authentic washi tape with realistic appearance
+    if (Math.random() > 0.4) {
       const numTapes = Math.random() > 0.7 ? 2 : 1;
       for (let i = 0; i < numTapes; i++) {
-        const tapeWidth = 40 + Math.random() * 60;
-        const tapeHeight = 15 + Math.random() * 20;
+        const tapeWidth = 35 + Math.random() * 50;
+        const tapeHeight = 12 + Math.random() * 15;
         const x = Math.random() * (width - tapeWidth);
         const y =
-          i === 0 ? Math.random() * 30 - 15 : height - 30 + Math.random() * 30;
-        const rotation = Math.random() * 50 - 25;
-        const tapeColor = i === 0 ? color : '#F5DEB3';
+          i === 0 ? Math.random() * 25 - 10 : height - 25 + Math.random() * 20;
+        const rotation = Math.random() * 40 - 20;
+        const tapeColor = i === 0 ? color : '#F4E6D7';
 
         decorations.push(`
           <rect 
             x="${x}" y="${y}" 
             width="${tapeWidth}" height="${tapeHeight}" 
-            fill="${tapeColor}" opacity="0.8" 
+            fill="${tapeColor}" opacity="0.85" 
             transform="rotate(${rotation} ${x + tapeWidth / 2} ${y + tapeHeight / 2})"
             filter="url(#roughPaper)"
           />
-          <!-- Tape shine effect -->
+          <!-- Tape highlight for realism -->
           <rect 
-            x="${x + 2}" y="${y + 2}" 
-            width="${tapeWidth - 4}" height="4" 
-            fill="white" opacity="0.3" 
+            x="${x + 2}" y="${y + 1}" 
+            width="${tapeWidth - 4}" height="3" 
+            fill="white" opacity="0.4" 
+            transform="rotate(${rotation} ${x + tapeWidth / 2} ${y + tapeHeight / 2})"
+          />
+          <!-- Tape shadow -->
+          <rect 
+            x="${x + 1}" y="${y + tapeHeight - 2}" 
+            width="${tapeWidth}" height="2" 
+            fill="black" opacity="0.15" 
             transform="rotate(${rotation} ${x + tapeWidth / 2} ${y + tapeHeight / 2})"
           />
         `);
       }
     }
 
-    // Grapas y elementos adicionales
-    if (Math.random() > 0.6) {
-      const x = Math.random() * (width - 25) + 15;
-      const y = Math.random() * (height - 40) + 20;
-      const stapleRotation = Math.random() * 30 - 15;
+    // Realistic staples with metallic shine
+    if (Math.random() > 0.65) {
+      const x = Math.random() * (width - 20) + 10;
+      const y = Math.random() * (height - 30) + 15;
+      const stapleRotation = Math.random() * 25 - 12;
 
       decorations.push(`
         <g transform="translate(${x}, ${y}) rotate(${stapleRotation})">
-          <!-- Staple shadow -->
-          <rect x="2" y="2" width="14" height="3" fill="#000" opacity="0.2" rx="1"/>
-          <rect x="2" y="10" width="14" height="3" fill="#000" opacity="0.2" rx="1"/>
-          <!-- Actual staple -->
-          <rect x="0" y="0" width="14" height="3" fill="#666" rx="1"/>
-          <rect x="0" y="8" width="14" height="3" fill="#666" rx="1"/>
-          <rect x="0" y="0" width="3" height="11" fill="#555" rx="1"/>
-          <rect x="11" y="0" width="3" height="11" fill="#555" rx="1"/>
-          <!-- Metallic shine -->
-          <rect x="1" y="1" width="12" height="1" fill="white" opacity="0.4" rx="0.5"/>
+          <!-- Staple body -->
+          <rect x="0" y="0" width="12" height="2.5" fill="#8B8B8B" rx="0.5"/>
+          <rect x="0" y="6" width="12" height="2.5" fill="#8B8B8B" rx="0.5"/>
+          <rect x="0" y="0" width="2.5" height="8.5" fill="#777" rx="0.5"/>
+          <rect x="9.5" y="0" width="2.5" height="8.5" fill="#777" rx="0.5"/>
+          <!-- Metallic highlights -->
+          <rect x="0.5" y="0.5" width="11" height="0.8" fill="white" opacity="0.5" rx="0.3"/>
+          <rect x="0.5" y="6.5" width="11" height="0.8" fill="white" opacity="0.5" rx="0.3"/>
+          <!-- Shadow -->
+          <rect x="1" y="9" width="12" height="1" fill="black" opacity="0.2" rx="0.5"/>
         </g>
       `);
     }
 
-    // Manchas de café ocasionales
+    // Coffee stains for authentic feel
     if (Math.random() > 0.8) {
-      const stainX = Math.random() * (width - 40) + 20;
-      const stainY = Math.random() * (height - 40) + 20;
-      const stainSize = 15 + Math.random() * 25;
+      const stainX = Math.random() * (width - 35) + 15;
+      const stainY = Math.random() * (height - 35) + 15;
+      const stainSize = 12 + Math.random() * 20;
 
       decorations.push(`
         <circle 
           cx="${stainX}" cy="${stainY}" r="${stainSize}" 
-          fill="#8B4513" opacity="0.15"
+          fill="#D2B48C" opacity="0.2"
           filter="url(#roughPaper)"
         />
         <circle 
-          cx="${stainX + 3}" cy="${stainY - 2}" r="${stainSize * 0.3}" 
-          fill="#8B4513" opacity="0.1"
+          cx="${stainX + 2}" cy="${stainY - 1}" r="${stainSize * 0.4}" 
+          fill="#CD853F" opacity="0.15"
+        />
+        <circle 
+          cx="${stainX - 1}" cy="${stainY + 2}" r="${stainSize * 0.2}" 
+          fill="#A0522D" opacity="0.1"
         />
       `);
     }
