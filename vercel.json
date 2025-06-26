@@ -39,10 +39,5 @@
     }
   ],
   "trailingSlash": true,
-  "regions": ["iad1"],
-  "functions": {
-    "api/*": {
-      "maxDuration": 10
-    }
-  }
+  "regions": ["iad1"]
 }
