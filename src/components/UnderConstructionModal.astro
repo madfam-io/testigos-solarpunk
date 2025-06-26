@@ -103,6 +103,7 @@ const {
   </div>
 </div>
 
+<!-- eslint-disable astro/no-unused-css-selector -->
 <style>
   .construction-modal {
     position: fixed;
@@ -119,6 +120,7 @@ const {
   }
 
   .construction-modal.active {
+    /* Used in JavaScript */
     display: flex;
   }
 
@@ -174,6 +176,7 @@ const {
   }
 
   .construction-modal.active .modal-content {
+    /* Used in JavaScript */
     transform: scale(1);
     opacity: 1;
   }
