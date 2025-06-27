@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { platformColors, statusColors } from '../../lib/script-constants';
 
 export async function getStaticPaths(): Promise<
   Array<{
@@ -15,40 +16,15 @@ export async function getStaticPaths(): Promise<
   }));
 }
 
-interface Props {
-  script: CollectionEntry<'scripts'>;
-}
-
 const { script } = Astro.props;
 const { data, body } = script;
 
-const baseUrl = import.meta.env.BASE_URL ?? '';
-const basePath = baseUrl !== '' ? baseUrl.replace(/\/$/, '') : '';
-
-// Initialize platform colors using simple assignments
-const platformColors = {} as Record<string, string>;
-platformColors['TikTok'] = '#FF0050';
-platformColors['Instagram'] = '#E4405F';
-platformColors['YouTube'] = '#FF0000';
-platformColors['Facebook'] = '#1877F2';
-
-// Initialize status colors using simple assignments
-const statusColors = {} as Record<string, { bg: string; text: string }>;
-statusColors['borrador'] = { bg: '#fff3cd', text: '#856404' };
-statusColors['revision'] = { bg: '#cce5ff', text: '#004085' };
-statusColors['aprobado'] = { bg: '#d4edda', text: '#155724' };
-statusColors['filmado'] = { bg: '#d1ecf1', text: '#0c5460' };
-
-const allCharacters = await getCollection('characters');
-const characterMap = new Map<string, string>();
-allCharacters.forEach((char: CollectionEntry<'characters'>) => {
-  characterMap.set(char.id, char.data.nombre);
-});
+const basePath = import.meta.env.BASE_URL ?? '';
 ---
 
 <BaseLayout
   title={`${data.titulo} - ${data.episodio}`}
-  description={`Guión para ${data.plataforma}: ${data.titulo}. Duración: ${data.duracion}. ${data.temas.join(', ')}`}
+  description={`Guión para ${data.plataforma}: ${data.titulo}. Duración: ${data.duracion}.`}
 >
   <!-- Breadcrumb Navigation -->
   <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
@@ -141,10 +117,9 @@ allCharacters.forEach((char: CollectionEntry<'characters'>) => {
               >
                 <span class="emoji-cutout emoji-sm theme-green">👤</span>
                 <span>
-                  {characterMap.get(characterId) ??
-                    characterId
-                      .replace('-', ' ')
-                      .replace(/\b\w/g, (l: string) => l.toUpperCase())}
+                  {characterId
+                    .replace('-', ' ')
+                    .replace(/\b\w/g, (l: string) => l.toUpperCase())}
                 </span>
               </a>
             ))}
