@@ -2,6 +2,8 @@
 // import PWAInstaller from '../components/PWAInstaller.astro';
 import UnderConstructionModal from '../components/UnderConstructionModal.astro';
 import '../styles/emoji-magazine-cutout.css';
+import '../styles/magazine-cutout-cards.css';
+import '../styles/newspaper-background.css';
 
 export interface Props {
   title: string;
@@ -325,6 +327,31 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
               >
             </div>
           </li>
+          <li class="nav-dropdown" role="none">
+            <a
+              href={`${basePath}/recursos/`}
+              class:list={currentPath.startsWith('/recursos') ? 'active' : ''}
+              role="menuitem"
+              aria-haspopup="true"
+              aria-expanded="false"
+              data-dropdown-toggle>Recursos</a
+            >
+            <div
+              class="nav-dropdown-menu"
+              role="menu"
+              aria-label="Submenu de Recursos"
+            >
+              <a href={`${basePath}/recursos/creadores/`} role="menuitem"
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎬</span> Creadores</a
+              >
+              <a href={`${basePath}/recursos/actores/`} role="menuitem"
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎭</span> Actores</a
+              >
+              <a href={`${basePath}/recursos/patrocinadores/`} role="menuitem"
+                ><span class="emoji-cutout emoji-nav emoji-sm">💼</span> Patrocinadores</a
+              >
+            </div>
+          </li>
           <li role="none">
             <a
               href={`${basePath}/comunidad/`}
@@ -332,12 +359,33 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
               role="menuitem">Comunidad</a
             >
           </li>
-          <li role="none">
+          <li class="nav-dropdown" role="none">
             <a
               href={`${basePath}/produccion/`}
               class:list={currentPath.startsWith('/produccion') ? 'active' : ''}
-              role="menuitem">Producción</a
+              role="menuitem"
+              aria-haspopup="true"
+              aria-expanded="false"
+              data-dropdown-toggle>Producción</a
             >
+            <div
+              class="nav-dropdown-menu"
+              role="menu"
+              aria-label="Submenu de Producción"
+            >
+              <a href={`${basePath}/produccion/estilo-visual/`} role="menuitem"
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎨</span> Estilo Visual</a
+              >
+              <a href={`${basePath}/produccion/tono-voz/`} role="menuitem"
+                ><span class="emoji-cutout emoji-nav emoji-sm">🗣️</span> Tono de Voz</a
+              >
+              <a href={`${basePath}/produccion/audio/`} role="menuitem"
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎵</span> Audio</a
+              >
+              <a href={`${basePath}/produccion/specs/`} role="menuitem"
+                ><span class="emoji-cutout emoji-nav emoji-sm">📋</span> Especificaciones</a
+              >
+            </div>
           </li>
           <li role="none">
             <a

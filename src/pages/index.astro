@@ -48,12 +48,12 @@ if (basePath.endsWith('/')) {
     </div>
   </section>
 
-  <section class="fases-home">
+  <section class="fases-home newspaper-bg with-columns">
     <div class="container">
       <h2 class="text-center">Nuestra Estrategia de Impacto</h2>
       <div class="grid grid-3">
-        <div class="fase-card-home" data-fase="1">
-          <div class="fase-card-content">
+        <div class="magazine-card card-lg theme-solar interactive context-grid">
+          <div class="card-content">
             <span class="fase-icon"
               ><span
                 class="emoji-cutout emoji-card emoji-xl theme-solar flutter"
@@ -66,7 +66,7 @@ if (basePath.endsWith('/')) {
               sostenibilidad
             </p>
           </div>
-          <div class="fase-card-footer">
+          <div class="card-footer">
             <span class="fase-status active">En Producción</span>
             <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary"
               >Ver Sketches</a
@@ -74,8 +74,8 @@ if (basePath.endsWith('/')) {
           </div>
         </div>
 
-        <div class="fase-card-home" data-fase="2">
-          <div class="fase-card-content">
+        <div class="magazine-card card-lg theme-purple interactive context-grid">
+          <div class="card-content">
             <span class="fase-icon"
               ><span
                 class="emoji-cutout emoji-card emoji-xl theme-purple flutter"
@@ -88,7 +88,7 @@ if (basePath.endsWith('/')) {
               escalables
             </p>
           </div>
-          <div class="fase-card-footer">
+          <div class="card-footer">
             <span class="fase-status upcoming">Próximamente</span>
             <a href={`${basePath}/contenido/podcast/`} class="btn btn-secondary"
               >Saber Más</a
@@ -96,8 +96,8 @@ if (basePath.endsWith('/')) {
           </div>
         </div>
 
-        <div class="fase-card-home" data-fase="3">
-          <div class="fase-card-content">
+        <div class="magazine-card card-lg theme-green interactive context-grid">
+          <div class="card-content">
             <span class="fase-icon"
               ><span
                 class="emoji-cutout emoji-card emoji-xl theme-green flutter"
@@ -110,7 +110,7 @@ if (basePath.endsWith('/')) {
               comunidades escolares
             </p>
           </div>
-          <div class="fase-card-footer">
+          <div class="card-footer">
             <span class="fase-status development">En Desarrollo</span>
             <a href={`${basePath}/contenido/madlab/`} class="btn btn-secondary"
               >Descubrir</a
@@ -130,7 +130,7 @@ if (basePath.endsWith('/')) {
         variant="solar"
       />
       <div class="evangelista-grid">
-        <div class="evangelista-card halo-effect">
+        <div class="magazine-card card-lg theme-solar interactive context-feature">
           <h3>
             <span class="emoji-cutout emoji-card emoji-lg theme-solar">🌟</span>
             Los Evangelistas
@@ -143,7 +143,7 @@ if (basePath.endsWith('/')) {
             >Conocer Evangelistas</a
           >
         </div>
-        <div class="evangelista-card halo-effect">
+        <div class="magazine-card card-lg theme-solar interactive context-feature">
           <h3>
             <span class="emoji-cutout emoji-card emoji-lg theme-solar">📖</span>
             El Mensaje
@@ -156,7 +156,7 @@ if (basePath.endsWith('/')) {
             >Leer Filosofía</a
           >
         </div>
-        <div class="evangelista-card halo-effect">
+        <div class="magazine-card card-lg theme-solar interactive context-feature">
           <h3>
             <span class="emoji-cutout emoji-card emoji-lg theme-solar">🎬</span>
             Los Formatos
@@ -173,7 +173,7 @@ if (basePath.endsWith('/')) {
     </div>
   </section>
 
-  <section class="vision-section">
+  <section class="vision-section newspaper-bg aged">
     <div class="container">
       <h2 class="text-center">Nuestra Visión</h2>
       <div class="vision-grid">
@@ -320,35 +320,14 @@ if (basePath.endsWith('/')) {
     margin-top: var(--espacio-xl);
   }
 
-  .evangelista-card {
-    background: var(--bg-secondary, #1a1a1b);
-    color: var(--text-primary, #ffffff);
-    padding: var(--espacio-xl);
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    transition: all var(--transicion-normal);
-  }
-
-  .evangelista-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-    border-color: var(--dorado-solar);
-  }
-
-  .evangelista-card h3 {
-    color: var(--dorado-solar);
-    margin-bottom: var(--espacio-md);
-  }
-
-  .evangelista-card .btn {
-    margin-top: var(--espacio-md);
-  }
-
   .vision-section {
-    background-color: var(--fondo-secundario);
     padding: var(--espacio-xxl) 0;
     margin-top: 0;
+  }
+  
+  .vision-section h2 {
+    color: #2c2c2c;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
   }
 
   .vision-grid {
@@ -381,79 +360,13 @@ if (basePath.endsWith('/')) {
   /* Fases Home Section */
   .fases-home {
     padding: var(--espacio-xxl) 0;
-    background: var(--fondo-secundario);
   }
 
   .fases-home h2 {
     font-size: 2.5rem;
     margin-bottom: var(--espacio-xl);
-  }
-
-  .fase-card-home {
-    background: #1a1a1b; /* Dark background directly */
-    padding: var(--espacio-xl);
-    border-radius: 16px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff; /* White text directly */
-    display: flex;
-    flex-direction: column;
-    min-height: 350px;
-  }
-
-  .fase-card-home h3 {
-    color: #ffffff;
-  }
-
-  .fase-card-home p {
-    color: #cccccc;
-  }
-
-  .fase-card-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .fase-card-footer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--espacio-md);
-    align-items: center;
-    margin-top: auto;
-    padding-top: var(--espacio-md);
-  }
-
-  .fase-card-home::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--amarillo-solar);
-  }
-
-  .fase-card-home[data-fase='1']::before {
-    background: var(--amarillo-solar);
-  }
-
-  .fase-card-home[data-fase='2']::before {
-    background: var(--purpura-creativo);
-  }
-
-  .fase-card-home[data-fase='3']::before {
-    background: var(--verde-sostenible);
-  }
-
-  .fase-card-home:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-    border-color: var(--amarillo-solar);
+    color: #2c2c2c;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
   }
 
   .fase-icon {

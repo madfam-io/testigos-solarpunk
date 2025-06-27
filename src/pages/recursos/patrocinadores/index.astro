@@ -1,0 +1,730 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  title="Recursos para Patrocinadores"
+  description="Oportunidades de colaboración e integración auténtica en el universo Testigos de Solarpunk"
+>
+  <!-- Hero Section -->
+  <section class="resource-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="emoji-cutout emoji-hero emoji-xl theme-community flutter"
+          >💼</span
+        >
+        <h1>Recursos para Patrocinadores</h1>
+        <p class="hero-description">
+          Descubre oportunidades de colaboración auténtica, métricas de impacto
+          y formas orgánicas de integrar tu marca en nuestro universo narrativo
+          solarpunk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Grid -->
+  <section class="resources-section">
+    <div class="container">
+      <div class="resources-grid">
+        <div class="resource-card card">
+          <div class="resource-header">
+            <span class="emoji-cutout emoji-lg theme-purple">📊</span>
+            <h2>Reporte de Impacto</h2>
+          </div>
+          <div class="resource-content">
+            <p>
+              Métricas detalladas de alcance, engagement y conversión.
+              Demuestra el ROI real de tu inversión en contenido solarpunk con
+              datos verificables y análisis profundo.
+            </p>
+            <ul class="feature-list">
+              <li>Analytics de audiencia y demografía</li>
+              <li>Métricas de engagement y sentiment</li>
+              <li>Tracking de conversión y leads</li>
+              <li>Reportes personalizados y dashboards</li>
+            </ul>
+            <a
+              href={`${basePath}/recursos/patrocinadores/impacto/`}
+              class="btn btn-primary"
+            >
+              <span class="emoji-cutout emoji-sm">📈</span>
+              Ver Métricas
+            </a>
+          </div>
+        </div>
+
+        <div class="resource-card card">
+          <div class="resource-header">
+            <span class="emoji-cutout emoji-lg theme-community">🤝</span>
+            <h2>Oportunidades de Integración</h2>
+          </div>
+          <div class="resource-content">
+            <p>
+              Formas orgánicas y auténticas de participar en las historias.
+              Desde integración narrativa hasta co-desarrollo de productos,
+              maximiza el valor para tu marca y nuestra audiencia.
+            </p>
+            <ul class="feature-list">
+              <li>Integración narrativa orgánica</li>
+              <li>Patrocinio de contenido educativo</li>
+              <li>Co-desarrollo con feedback de comunidad</li>
+              <li>Eventos y experiencias inmersivas</li>
+            </ul>
+            <a
+              href={`${basePath}/recursos/patrocinadores/integracion/`}
+              class="btn btn-primary"
+            >
+              <span class="emoji-cutout emoji-sm">🎯</span>
+              Explorar Colaboraciones
+            </a>
+          </div>
+        </div>
+
+        <div class="resource-card card">
+          <div class="resource-header">
+            <span class="emoji-cutout emoji-lg theme-green">🌱</span>
+            <h2>Alineación de Valores</h2>
+          </div>
+          <div class="resource-content">
+            <p>
+              Filosofía y principios fundamentales que guían el proyecto.
+              Descubre cómo tu organización puede alinearse auténticamente con
+              nuestra misión de optimismo radical y acción sostenible.
+            </p>
+            <ul class="feature-list">
+              <li>Principios fundamentales del solarpunk</li>
+              <li>Criterios de alineación de valores</li>
+              <li>Framework de evaluación ética</li>
+              <li>Casos de estudio de colaboraciones exitosas</li>
+            </ul>
+            <a
+              href={`${basePath}/recursos/patrocinadores/valores/`}
+              class="btn btn-primary"
+            >
+              <span class="emoji-cutout emoji-sm">💎</span>
+              Evaluar Alineación
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Tiers -->
+  <section class="tiers-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">⭐</span>
+        Niveles de Colaboración
+      </h2>
+      <div class="tiers-grid">
+        <div class="tier-card">
+          <div class="tier-header">
+            <h3>Colaborador Semilla</h3>
+            <div class="tier-price">$5K - $15K</div>
+            <div class="tier-duration">3-6 meses</div>
+          </div>
+          <div class="tier-content">
+            <h4>Incluye</h4>
+            <ul>
+              <li>1-2 menciones orgánicas</li>
+              <li>Logo en contenido relevante</li>
+              <li>Shout-out en redes sociales</li>
+              <li>Reporte básico de métricas</li>
+            </ul>
+            <div class="tier-metrics">
+              <div class="metric">
+                <span class="metric-number">50K+</span>
+                <span class="metric-label">Impresiones esperadas</span>
+              </div>
+              <div class="metric">
+                <span class="metric-number">85%</span>
+                <span class="metric-label">Sentiment positivo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tier-card featured">
+          <div class="tier-header">
+            <h3>Socio de Crecimiento</h3>
+            <div class="tier-price">$15K - $50K</div>
+            <div class="tier-duration">6-12 meses</div>
+            <div class="tier-badge">Más Popular</div>
+          </div>
+          <div class="tier-content">
+            <h4>Incluye</h4>
+            <ul>
+              <li>Integración narrativa completa</li>
+              <li>Contenido educativo co-branded</li>
+              <li>Participación en eventos virtuales</li>
+              <li>Acceso a comunidad para feedback</li>
+              <li>Reporte detallado con insights</li>
+            </ul>
+            <div class="tier-metrics">
+              <div class="metric">
+                <span class="metric-number">200K+</span>
+                <span class="metric-label">Impresiones esperadas</span>
+              </div>
+              <div class="metric">
+                <span class="metric-number">340</span>
+                <span class="metric-label">Leads promedio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tier-card">
+          <div class="tier-header">
+            <h3>Aliado Estratégico</h3>
+            <div class="tier-price">$50K+</div>
+            <div class="tier-duration">12+ meses</div>
+          </div>
+          <div class="tier-content">
+            <h4>Incluye</h4>
+            <ul>
+              <li>Serie completa dedicada</li>
+              <li>Co-desarrollo de productos</li>
+              <li>Presencia en eventos presenciales</li>
+              <li>Contenido multiplataforma</li>
+              <li>Acceso directo al equipo creativo</li>
+            </ul>
+            <div class="tier-metrics">
+              <div class="metric">
+                <span class="metric-number">1M+</span>
+                <span class="metric-label">Impresiones esperadas</span>
+              </div>
+              <div class="metric">
+                <span class="metric-number">230%</span>
+                <span class="metric-label">ROI promedio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories -->
+  <section class="success-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">🏆</span>
+        Casos de Éxito
+      </h2>
+      <div class="success-grid">
+        <div class="success-card">
+          <div class="success-header">
+            <h3>SolarTech Solutions</h3>
+            <span class="success-type">Integración Narrativa</span>
+          </div>
+          <div class="success-metrics">
+            <div class="metric-row">
+              <span class="metric-value">2.3M</span>
+              <span class="metric-desc">Views en la serie</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-value">340</span>
+              <span class="metric-desc">Leads generados</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-value">45</span>
+              <span class="metric-desc">Instalaciones directas</span>
+            </div>
+          </div>
+          <p class="success-quote">
+            "La colaboración nos posicionó como líderes en sustentabilidad.
+            Nuestras ventas aumentaron 65% en 6 meses."
+          </p>
+        </div>
+
+        <div class="success-card">
+          <div class="success-header">
+            <h3>EcoApp</h3>
+            <span class="success-type">Patrocinio Educativo</span>
+          </div>
+          <div class="success-metrics">
+            <div class="metric-row">
+              <span class="metric-value">45K</span>
+              <span class="metric-desc">Descargas de la app</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-value">78%</span>
+              <span class="metric-desc">Retention a 30 días</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-value">4.9</span>
+              <span class="metric-desc">Rating en stores</span>
+            </div>
+          </div>
+          <p class="success-quote">
+            "El contenido educativo nos ayudó a educar a usuarios mientras
+            demostrábamos valor real. ROI de 230%."
+          </p>
+        </div>
+
+        <div class="success-card">
+          <div class="success-header">
+            <h3>BioMaterials Corp</h3>
+            <span class="success-type">Co-desarrollo</span>
+          </div>
+          <div class="success-metrics">
+            <div class="metric-row">
+              <span class="metric-value">1,200</span>
+              <span class="metric-desc">Participantes en feedback</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-value">67</span>
+              <span class="metric-desc">Mejoras implementadas</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-value">6 meses</span>
+              <span class="metric-desc">Reducción time-to-market</span>
+            </div>
+          </div>
+          <p class="success-quote">
+            "La comunidad nos ayudó a crear un producto que realmente necesitaban.
+            Lanzamiento más exitoso de nuestra historia."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-content">
+        <h2>¿Listo para Colaborar?</h2>
+        <p>
+          Exploremos juntos cómo tu marca puede formar parte auténtica del
+          futuro solarpunk. Cada colaboración es única y diseñada para maximizar
+          el valor para todas las partes.
+        </p>
+        <div class="contact-actions">
+          <a href={`${basePath}/comunidad/`} class="btn btn-primary">
+            <span class="emoji-cutout emoji-sm">📧</span>
+            Contactar Equipo
+          </a>
+          <a href={`${basePath}/recursos/`} class="btn btn-secondary">
+            <span class="emoji-cutout emoji-sm">📚</span>
+            Ver Más Recursos
+          </a>
+        </div>
+        <div class="contact-stats">
+          <div class="stat-item">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Marcas colaboradoras</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">89%</span>
+            <span class="stat-label">Satisfacción promedio</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">2.5x</span>
+            <span class="stat-label">ROI promedio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .resource-hero {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin: var(--espacio-lg) 0;
+    color: var(--naranja-comunidad);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .resources-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .resource-card {
+    padding: var(--espacio-xl);
+  }
+
+  .resource-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .resource-header h2 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .resource-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+    line-height: 1.6;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .feature-list li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+    position: relative;
+    padding-left: var(--espacio-lg);
+  }
+
+  .feature-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--verde-sostenible);
+    font-weight: bold;
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tiers-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .tiers-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .tier-card {
+    background: var(--fondo-primario);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+    position: relative;
+  }
+
+  .tier-card.featured {
+    border-color: var(--amarillo-solar);
+    transform: scale(1.03);
+  }
+
+  .tier-header {
+    text-align: center;
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+    position: relative;
+  }
+
+  .tier-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0 0 var(--espacio-sm) 0;
+    font-size: 1.2rem;
+  }
+
+  .tier-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--amarillo-solar);
+    margin-bottom: var(--espacio-xs);
+  }
+
+  .tier-duration {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+  }
+
+  .tier-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--amarillo-solar);
+    color: var(--negro-profundo);
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .tier-content h4 {
+    color: var(--purpura-creativo);
+    margin: 0 0 var(--espacio-md) 0;
+    font-size: 1rem;
+  }
+
+  .tier-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .tier-content li {
+    padding: var(--espacio-xs) 0;
+    color: var(--texto-secundario);
+    position: relative;
+    padding-left: var(--espacio-md);
+  }
+
+  .tier-content li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--verde-sostenible);
+  }
+
+  .tier-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espacio-md);
+    margin-top: var(--espacio-lg);
+  }
+
+  .metric {
+    text-align: center;
+    padding: var(--espacio-sm);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 6px;
+  }
+
+  .metric-number {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--verde-sostenible);
+  }
+
+  .metric-label {
+    font-size: 0.8rem;
+    color: var(--texto-secundario);
+  }
+
+  .success-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .success-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .success-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .success-card {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+  }
+
+  .success-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .success-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .success-type {
+    background: var(--purpura-creativo);
+    color: white;
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .success-metrics {
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--espacio-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .metric-row:last-child {
+    border-bottom: none;
+  }
+
+  .metric-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--verde-sostenible);
+  }
+
+  .metric-desc {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+  }
+
+  .success-quote {
+    color: var(--texto-secundario);
+    font-style: italic;
+    margin: 0;
+    line-height: 1.5;
+    border-left: 3px solid var(--amarillo-solar);
+    padding-left: var(--espacio-md);
+  }
+
+  .contact-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+    text-align: center;
+  }
+
+  .contact-content h2 {
+    color: var(--amarillo-solar);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .contact-content p {
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto var(--espacio-xl);
+    line-height: 1.6;
+  }
+
+  .contact-actions {
+    display: flex;
+    gap: var(--espacio-lg);
+    justify-content: center;
+    margin-bottom: var(--espacio-xxl);
+    flex-wrap: wrap;
+  }
+
+  .contact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--espacio-lg);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-xs);
+  }
+
+  .stat-label {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .resources-grid,
+    .success-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tiers-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tier-card.featured {
+      transform: none;
+    }
+
+    .tier-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-actions .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .contact-stats {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

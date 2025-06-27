@@ -118,7 +118,7 @@ const painPoints = [
     </div>
   </section>
 
-  <section class="personas-section">
+  <section class="personas-section newspaper-bg with-columns">
     <div class="container">
       <h2>¿Te identificas con alguno?</h2>
       <p class="section-intro">
@@ -128,7 +128,7 @@ const painPoints = [
       <div class="personas-grid">
         {
           personas.map((persona) => (
-            <article class="persona-card">
+            <article class="magazine-card card-lg theme-community interactive">
               <div class="persona-header">
                 <div class="persona-avatar">
                   <MagazineCutoutImage
@@ -179,7 +179,7 @@ const painPoints = [
     </div>
   </section>
 
-  <section class="pain-points-section">
+  <section class="pain-points-section newspaper-bg aged">
     <div class="container">
       <h2>Entendemos las Barreras</h2>
       <p class="section-intro">
@@ -190,7 +190,7 @@ const painPoints = [
       <div class="barriers-grid">
         {
           painPoints.map((point) => (
-            <div class="barrier-card" data-tipo={point.tipo}>
+            <div class="magazine-card card-md theme-green interactive">
               <span class="barrier-icon">
                 <span class="emoji-cutout emoji-lg theme-community flutter">
                   {point.icon}
@@ -213,7 +213,7 @@ const painPoints = [
     <div class="container">
       <h2>Nuestros Valores</h2>
       <div class="values-grid">
-        <div class="value-card">
+        <div class="magazine-card card-md theme-solar interactive context-feature">
           <span class="value-icon"
             ><span class="emoji-cutout emoji-lg theme-community interactive"
               >🤝</span
@@ -222,7 +222,7 @@ const painPoints = [
           <h3>Inclusión</h3>
           <p>Todos son bienvenidos, sin importar su nivel de conocimiento</p>
         </div>
-        <div class="value-card">
+        <div class="magazine-card card-md theme-solar interactive context-feature">
           <span class="value-icon"
             ><span class="emoji-cutout emoji-lg theme-solar interactive"
               >😄</span
@@ -231,7 +231,7 @@ const painPoints = [
           <h3>Humor</h3>
           <p>Reírnos juntos mientras aprendemos y crecemos</p>
         </div>
-        <div class="value-card">
+        <div class="magazine-card card-md theme-solar interactive context-feature">
           <span class="value-icon"
             ><span class="emoji-cutout emoji-lg theme-green interactive"
               >🌱</span
@@ -240,7 +240,7 @@ const painPoints = [
           <h3>Acción</h3>
           <p>Pequeños pasos que generan grandes cambios</p>
         </div>
-        <div class="value-card">
+        <div class="magazine-card card-md theme-solar interactive context-feature">
           <span class="value-icon"
             ><span class="emoji-cutout emoji-lg theme-purple interactive"
               >💡</span
@@ -257,28 +257,28 @@ const painPoints = [
     <div class="container">
       <h2>Formas de Participar</h2>
       <div class="join-options">
-        <div class="join-card">
+        <div class="magazine-card card-md theme-community interactive context-feature">
           <h3>
             <span class="emoji-cutout emoji-md theme-solar">🎬</span> Crea Contenido
           </h3>
           <p>Comparte tus propios sketches y experiencias sostenibles</p>
           <button class="btn btn-secondary">Crear</button>
         </div>
-        <div class="join-card">
+        <div class="magazine-card card-md theme-community interactive context-feature">
           <h3>
             <span class="emoji-cutout emoji-md theme-purple">📤</span> Comparte
           </h3>
           <p>Difunde el mensaje en tus redes sociales</p>
           <button class="btn btn-secondary">Compartir</button>
         </div>
-        <div class="join-card">
+        <div class="magazine-card card-md theme-community interactive context-feature">
           <h3>
             <span class="emoji-cutout emoji-md theme-community">🤝</span> Colabora
           </h3>
           <p>Únete como voluntario en eventos MADLAB</p>
           <button class="btn btn-secondary">Voluntariado</button>
         </div>
-        <div class="join-card">
+        <div class="magazine-card card-md theme-community interactive context-feature">
           <h3>
             <span class="emoji-cutout emoji-md theme-green">💚</span> Patrocina
           </h3>
@@ -346,7 +346,7 @@ const painPoints = [
           </a>
         </div>
 
-        <div class="newsletter-form">
+        <div class="magazine-card card-lg theme-tech interactive">
           <h3>Recibe nuestro newsletter</h3>
           <form>
             <input
@@ -392,7 +392,6 @@ const painPoints = [
   /* Personas Section */
   .personas-section {
     padding: var(--espacio-xxl) 0;
-    background: var(--fondo-secundario);
   }
 
   .personas-section h2,
@@ -402,13 +401,16 @@ const painPoints = [
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: var(--espacio-md);
+    color: #2c2c2c;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
   }
 
   .section-intro {
     text-align: center;
     font-size: 1.1rem;
-    color: var(--texto-secundario);
+    color: #4a4a4a;
     margin-bottom: var(--espacio-xl);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
   }
 
   .personas-grid {
@@ -417,22 +419,6 @@ const painPoints = [
     gap: var(--espacio-xl);
   }
 
-  .persona-card {
-    background: var(--bg-secondary, #1a1a1b);
-    color: var(--text-primary, #ffffff);
-    border-radius: 16px;
-    padding: var(--espacio-xl);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .persona-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-  }
 
   .persona-header {
     display: flex;
@@ -507,32 +493,8 @@ const painPoints = [
     gap: var(--espacio-xl);
   }
 
-  .barrier-card {
-    background: var(--bg-secondary, #1a1a1b);
-    color: var(--text-primary, #ffffff);
-    padding: var(--espacio-xl);
-    border-radius: 16px;
+  .barriers-grid {
     text-align: center;
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .barrier-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--naranja-comunidad);
-  }
-
-  .barrier-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
 
   .barrier-icon {

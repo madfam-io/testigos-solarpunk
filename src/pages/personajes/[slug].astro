@@ -195,7 +195,24 @@ const basePath = import.meta.env.BASE_URL ?? '';
             Evolución del Personaje
           </h2>
           <div class="evolution-content card">
-            <p>{data.evolucion}</p>
+            {typeof data.evolucion === 'string' ? (
+              <p>{data.evolucion}</p>
+            ) : Array.isArray(data.evolucion) ? (
+              <div>
+                {data.evolucion.map((item) => (
+                  <p>{typeof item === 'string' ? item : JSON.stringify(item)}</p>
+                ))}
+              </div>
+            ) : (
+              <div>
+                {Object.entries(data.evolucion).map(([key, value]) => (
+                  <div class="evolution-phase">
+                    <h4>{key}</h4>
+                    <p>{typeof value === 'string' ? value : JSON.stringify(value)}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>

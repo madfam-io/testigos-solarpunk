@@ -1,0 +1,465 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  title="Recursos para Creadores"
+  description="Herramientas, plantillas y guías para crear contenido en el universo Testigos de Solarpunk"
+>
+  <!-- Hero Section -->
+  <section class="resource-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="emoji-cutout emoji-hero emoji-xl theme-purple flutter"
+          >🎬</span
+        >
+        <h1>Recursos para Creadores</h1>
+        <p class="hero-description">
+          Todo lo que necesitas para crear contenido auténtico en nuestro
+          universo solarpunk: plantillas, fichas de personajes y guías de
+          construcción del mundo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Grid -->
+  <section class="resources-section">
+    <div class="container">
+      <div class="resources-grid">
+        <div class="resource-card card">
+          <div class="resource-header">
+            <span class="emoji-cutout emoji-lg theme-purple">📝</span>
+            <h2>Plantillas de Guiones</h2>
+          </div>
+          <div class="resource-content">
+            <p>
+              Formatos optimizados para cada plataforma: TikTok, Instagram Reels,
+              YouTube Shorts, y contenido de formato largo. Estructuras narrativas
+              probadas que funcionan.
+            </p>
+            <ul class="feature-list">
+              <li>Templates para videos de 15-60 segundos</li>
+              <li>Estructuras de tres actos adaptadas</li>
+              <li>Guías de timing y ritmo</li>
+              <li>Frameworks de engagement</li>
+            </ul>
+            <a
+              href={`${basePath}/recursos/creadores/plantillas/`}
+              class="btn btn-primary"
+            >
+              <span class="emoji-cutout emoji-sm">🚀</span>
+              Explorar Plantillas
+            </a>
+          </div>
+        </div>
+
+        <div class="resource-card card">
+          <div class="resource-header">
+            <span class="emoji-cutout emoji-lg theme-community">👥</span>
+            <h2>Fichas de Personajes</h2>
+          </div>
+          <div class="resource-content">
+            <p>
+              Perfiles detallados de todos los personajes del universo, con
+              trasfondos, motivaciones, patrones de habla y arcos narrativos para
+              desarrollo coherente.
+            </p>
+            <ul class="feature-list">
+              <li>Biografías completas y trasfondos</li>
+              <li>Patrones de diálogo y vocabulario</li>
+              <li>Motivaciones y objetivos</li>
+              <li>Referencias visuales y de personalidad</li>
+            </ul>
+            <a
+              href={`${basePath}/recursos/creadores/personajes/`}
+              class="btn btn-primary"
+            >
+              <span class="emoji-cutout emoji-sm">🎯</span>
+              Ver Personajes
+            </a>
+          </div>
+        </div>
+
+        <div class="resource-card card">
+          <div class="resource-header">
+            <span class="emoji-cutout emoji-lg theme-green">🌍</span>
+            <h2>Guía de Construcción del Mundo</h2>
+          </div>
+          <div class="resource-content">
+            <p>
+              Reglas y coherencia del universo Neo-Cuernavaca: geografía,
+              tecnología, cultura y dinámicas sociales que mantienen la
+              autenticidad narrativa.
+            </p>
+            <ul class="feature-list">
+              <li>Atlas de Neo-Cuernavaca</li>
+              <li>Tecnologías disponibles</li>
+              <li>Dinámicas sociales y económicas</li>
+              <li>Timeline histórico del universo</li>
+            </ul>
+            <a
+              href={`${basePath}/recursos/creadores/worldbuilding/`}
+              class="btn btn-primary"
+            >
+              <span class="emoji-cutout emoji-sm">🗺️</span>
+              Explorar Mundo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Tools -->
+  <section class="tools-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">⚡</span>
+        Herramientas Rápidas
+      </h2>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <h3>Generador de Ideas</h3>
+          <p>Combina personajes y situaciones para crear conceptos únicos</p>
+          <button class="btn btn-secondary" onclick="generateIdea()">
+            <span class="emoji-cutout emoji-sm">🎲</span>
+            Generar Idea
+          </button>
+          <div id="idea-output" class="idea-result"></div>
+        </div>
+
+        <div class="tool-card">
+          <h3>Verificador de Coherencia</h3>
+          <p>Lista de chequeo para mantener la consistencia del universo</p>
+          <details class="checklist">
+            <summary>Ver Lista de Verificación</summary>
+            <ul>
+              <li>
+                <input type="checkbox" id="check1" />
+                <label for="check1"
+                  >¿Los personajes actúan según sus motivaciones?</label
+                >
+              </li>
+              <li>
+                <input type="checkbox" id="check2" />
+                <label for="check2"
+                  >¿La tecnología es consistente con el mundo?</label
+                >
+              </li>
+              <li>
+                <input type="checkbox" id="check3" />
+                <label for="check3"
+                  >¿El tono mantiene el optimismo solarpunk?</label
+                >
+              </li>
+              <li>
+                <input type="checkbox" id="check4" />
+                <label for="check4">¿Hay un mensaje claro de esperanza?</label>
+              </li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="tool-card">
+          <h3>Biblioteca de Assets</h3>
+          <p>Logos, tipografías y elementos visuales del universo</p>
+          <a
+            href={`${basePath}/downloads/assets-visuales.zip`}
+            class="btn btn-secondary"
+          >
+            <span class="emoji-cutout emoji-sm">📦</span>
+            Descargar Assets
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section class="community-section">
+    <div class="container">
+      <div class="community-content">
+        <h2>Únete a la Comunidad de Creadores</h2>
+        <p>
+          Conecta con otros creadores, comparte tu trabajo en progreso y recibe
+          feedback de la comunidad. Juntos estamos construyendo el futuro
+          solarpunk.
+        </p>
+        <div class="community-actions">
+          <a href={`${basePath}/comunidad/`} class="btn btn-primary">
+            <span class="emoji-cutout emoji-sm">💬</span>
+            Unirse al Discord
+          </a>
+          <a href={`${basePath}/recursos/`} class="btn btn-secondary">
+            <span class="emoji-cutout emoji-sm">📚</span>
+            Ver Todos los Recursos
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .resource-hero {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin: var(--espacio-lg) 0;
+    color: var(--purpura-creativo);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .resources-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .resource-card {
+    padding: var(--espacio-xl);
+  }
+
+  .resource-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .resource-header h2 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .resource-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+    line-height: 1.6;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .feature-list li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+    position: relative;
+    padding-left: var(--espacio-lg);
+  }
+
+  .feature-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--verde-sostenible);
+    font-weight: bold;
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tools-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .tools-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .tool-card {
+    background: var(--fondo-primario);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+    text-align: center;
+  }
+
+  .tool-card h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .tool-card p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .checklist {
+    text-align: left;
+    margin-top: var(--espacio-md);
+  }
+
+  .checklist summary {
+    color: var(--amarillo-solar);
+    cursor: pointer;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .checklist ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-xs) 0;
+    color: var(--texto-secundario);
+  }
+
+  .idea-result {
+    margin-top: var(--espacio-md);
+    padding: var(--espacio-md);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--verde-sostenible);
+    font-style: italic;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .community-section {
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+  }
+
+  .community-content h2 {
+    color: var(--amarillo-solar);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .community-content p {
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto var(--espacio-xl);
+    line-height: 1.6;
+  }
+
+  .community-actions {
+    display: flex;
+    gap: var(--espacio-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .community-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .community-actions .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>
+
+<script>
+  function generateIdea() {
+    const personajes = [
+      'Hermana Panelia',
+      'Hermano Compostino',
+      'Lucía Solar',
+      'Carlos Escéptico',
+      'Mari Influencer',
+    ];
+
+    const situaciones = [
+      'descubre una nueva tecnología sostenible',
+      'convence a un vecino escéptico',
+      'organiza un evento comunitario',
+      'resuelve un problema ambiental local',
+      'enseña a niños sobre sostenibilidad',
+      'transforma un espacio urbano abandonado',
+    ];
+
+    const formatos = [
+      'video educativo de 60 segundos',
+      'serie de 3 partes',
+      'tutorial paso a paso',
+      'sketch cómico',
+      'documental mini',
+    ];
+
+    const personaje =
+      personajes[Math.floor(Math.random() * personajes.length)];
+    const situacion =
+      situaciones[Math.floor(Math.random() * situaciones.length)];
+    const formato = formatos[Math.floor(Math.random() * formatos.length)];
+
+    const output = document.getElementById('idea-output');
+    if (output) {
+      output.textContent = `${personaje} ${situacion} en un ${formato}`;
+    }
+  }
+</script>

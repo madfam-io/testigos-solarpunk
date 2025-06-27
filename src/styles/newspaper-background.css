@@ -1,0 +1,376 @@
+/* 📰 Newspaper Background Effects - Testigos de Solarpunk */
+
+/* Base Newspaper Background */
+.newspaper-bg {
+  position: relative;
+  background-color: #f8f8f6;
+  color: #2c2c2c;
+  
+  /* Subtle paper texture */
+  background-image: 
+    /* Fine grain texture */
+    radial-gradient(circle at 25% 25%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    radial-gradient(circle at 50% 80%, rgba(0, 0, 0, 0.01) 1px, transparent 1px),
+    /* Paper grain lines */
+    linear-gradient(0deg, transparent 98%, rgba(0, 0, 0, 0.01) 100%),
+    linear-gradient(90deg, transparent 98%, rgba(0, 0, 0, 0.008) 100%);
+  
+  background-size: 
+    4px 4px,
+    6px 6px, 
+    3px 3px,
+    1px 8px,
+    12px 1px;
+  
+  background-position: 
+    0 0,
+    2px 2px,
+    1px 4px,
+    0 0,
+    0 0;
+}
+
+/* Newspaper with Text Columns Effect */
+.newspaper-bg.with-columns::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.03;
+  z-index: 1;
+  background-image: 
+    /* Fake newspaper text lines */
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 12px,
+      rgba(0, 0, 0, 0.05) 12px,
+      rgba(0, 0, 0, 0.05) 13px,
+      transparent 13px,
+      transparent 25px
+    ),
+    /* Column dividers */
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 180px,
+      rgba(0, 0, 0, 0.02) 180px,
+      rgba(0, 0, 0, 0.02) 182px,
+      transparent 182px,
+      transparent 362px
+    );
+  pointer-events: none;
+}
+
+/* Faded Newspaper Headlines Effect */
+.newspaper-bg.with-headlines::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0.02;
+  z-index: 1;
+  background-image: 
+    /* Fake headline blocks */
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.08) 0%,
+      rgba(0, 0, 0, 0.08) 60%,
+      transparent 60%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0.05) 40%,
+      transparent 40%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.06) 0%,
+      rgba(0, 0, 0, 0.06) 75%,
+      transparent 75%
+    );
+  background-size: 
+    100% 18px,
+    100% 12px,
+    100% 15px;
+  background-position: 
+    0 0,
+    0 80px,
+    0 160px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* Aged Paper Effect */
+.newspaper-bg.aged {
+  background-color: #f5f3f0;
+  
+  /* Age spots and discoloration */
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(139, 119, 101, 0.02) 20px, transparent 20px),
+    radial-gradient(circle at 85% 30%, rgba(139, 119, 101, 0.015) 15px, transparent 15px),
+    radial-gradient(circle at 60% 70%, rgba(139, 119, 101, 0.01) 25px, transparent 25px),
+    radial-gradient(circle at 30% 80%, rgba(139, 119, 101, 0.008) 18px, transparent 18px),
+    /* Basic paper texture */
+    radial-gradient(circle at 25% 25%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+  
+  background-size: 
+    400px 300px,
+    350px 280px,
+    500px 350px,
+    300px 250px,
+    4px 4px,
+    6px 6px;
+}
+
+/* Torn Edges Effect */
+.newspaper-bg.torn-edges {
+  margin: var(--espacio-md);
+  clip-path: polygon(
+    1% 0%,
+    99% 2%,
+    98% 15%,
+    100% 30%,
+    97% 45%,
+    99% 60%,
+    96% 75%,
+    98% 90%,
+    99% 100%,
+    85% 98%,
+    70% 100%,
+    50% 97%,
+    30% 99%,
+    15% 97%,
+    2% 100%,
+    0% 85%,
+    2% 70%,
+    0% 50%,
+    1% 30%,
+    0% 15%
+  );
+}
+
+/* Crumpled Paper Effect */
+.newspaper-bg.crumpled::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.15;
+  z-index: 1;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.1) 1px, transparent 2px),
+    radial-gradient(circle at 80% 30%, rgba(0, 0, 0, 0.08) 1px, transparent 2px),
+    radial-gradient(circle at 45% 70%, rgba(0, 0, 0, 0.12) 1px, transparent 2px),
+    radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.09) 1px, transparent 2px),
+    radial-gradient(circle at 30% 60%, rgba(255, 255, 255, 0.2) 2px, transparent 3px),
+    radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.15) 2px, transparent 3px);
+  background-size: 
+    60px 60px,
+    80px 80px,
+    70px 70px,
+    90px 90px,
+    50px 50px,
+    65px 65px;
+  pointer-events: none;
+}
+
+/* Dark Theme Adaptation */
+.newspaper-bg.dark-theme {
+  background-color: #2c2c2a;
+  color: #e8e8e6;
+  
+  /* Inverted paper texture for dark theme */
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+    linear-gradient(0deg, transparent 98%, rgba(255, 255, 255, 0.01) 100%),
+    linear-gradient(90deg, transparent 98%, rgba(255, 255, 255, 0.008) 100%);
+}
+
+.newspaper-bg.dark-theme.with-columns::before {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 12px,
+      rgba(255, 255, 255, 0.03) 12px,
+      rgba(255, 255, 255, 0.03) 13px,
+      transparent 13px,
+      transparent 25px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 180px,
+      rgba(255, 255, 255, 0.015) 180px,
+      rgba(255, 255, 255, 0.015) 182px,
+      transparent 182px,
+      transparent 362px
+    );
+}
+
+/* Content Overlay Styles */
+.newspaper-bg .content-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(0.5px);
+  border-radius: 8px;
+  padding: var(--espacio-lg);
+  margin: var(--espacio-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.newspaper-bg.dark-theme .content-overlay {
+  background: rgba(26, 26, 27, 0.85);
+  color: #ffffff;
+}
+
+/* Specific Section Variations */
+.newspaper-section-light {
+  background-color: #fafaf8;
+}
+
+.newspaper-section-medium {
+  background-color: #f5f3f0;
+}
+
+.newspaper-section-vintage {
+  background-color: #f2efe8;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(139, 119, 101, 0.015) 30px, transparent 30px),
+    radial-gradient(circle at 80% 60%, rgba(139, 119, 101, 0.01) 20px, transparent 20px),
+    radial-gradient(circle at 25% 25%, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 
+    300px 250px,
+    400px 300px,
+    4px 4px;
+}
+
+/* Animation for Dynamic Effect */
+@keyframes paperFlutter {
+  0%, 100% {
+    background-position: 
+      0 0,
+      2px 2px,
+      1px 4px,
+      0 0,
+      0 0;
+  }
+  50% {
+    background-position: 
+      1px 1px,
+      3px 1px,
+      0px 5px,
+      1px 0,
+      0 1px;
+  }
+}
+
+.newspaper-bg.animated {
+  animation: paperFlutter 8s ease-in-out infinite;
+}
+
+/* Utility Classes for Quick Application */
+.newspaper-light {
+  @apply newspaper-bg;
+  background-color: #fafaf8;
+}
+
+.newspaper-columns {
+  @apply newspaper-bg with-columns;
+}
+
+.newspaper-headlines {
+  @apply newspaper-bg with-headlines;
+}
+
+.newspaper-vintage {
+  @apply newspaper-bg aged;
+}
+
+.newspaper-torn {
+  @apply newspaper-bg torn-edges;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .newspaper-bg.with-columns::before {
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 10px,
+        rgba(0, 0, 0, 0.03) 10px,
+        rgba(0, 0, 0, 0.03) 11px,
+        transparent 11px,
+        transparent 21px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 140px,
+        rgba(0, 0, 0, 0.015) 140px,
+        rgba(0, 0, 0, 0.015) 141px,
+        transparent 141px,
+        transparent 281px
+      );
+  }
+  
+  .newspaper-bg.torn-edges {
+    margin: var(--espacio-sm);
+    clip-path: polygon(
+      5% 0%,
+      95% 0%,
+      100% 5%,
+      100% 95%,
+      95% 100%,
+      5% 100%,
+      0% 95%,
+      0% 5%
+    );
+  }
+}
+
+/* Print Styles */
+@media print {
+  .newspaper-bg,
+  .newspaper-bg::before,
+  .newspaper-bg::after {
+    background: white !important;
+    box-shadow: none !important;
+    clip-path: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .newspaper-bg {
+    background: white;
+    color: black;
+    border: 1px solid black;
+  }
+  
+  .newspaper-bg::before,
+  .newspaper-bg::after {
+    display: none;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .newspaper-bg.animated {
+    animation: none;
+  }
+}
