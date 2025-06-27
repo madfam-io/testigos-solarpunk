@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { evangelistas } from '../../lib/character-constants';
 
 export async function getStaticPaths(): Promise<
   Array<{
@@ -24,7 +23,6 @@ const { character } = Astro.props;
 const { data } = character;
 
 const basePath = import.meta.env.BASE_URL ?? '';
-const isEvangelista = evangelistas.includes(character.id);
 ---
 
 <BaseLayout
@@ -49,17 +47,9 @@ const isEvangelista = evangelistas.includes(character.id);
         <div class="character-visual">
           <div class="character-portrait">
             <span class="emoji-cutout emoji-xxl theme-purple">
-              {isEvangelista ? '🌟' : '👤'}
+              👤
             </span>
           </div>
-          {
-            isEvangelista && (
-              <div class="evangelista-badge">
-                <span class="emoji-cutout emoji-sm theme-solar">⚡</span>
-                <span>Evangelista</span>
-              </div>
-            )
-          }
         </div>
 
         <div class="character-basics">
