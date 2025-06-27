@@ -25,13 +25,11 @@ const { data } = character;
 
 const basePath = import.meta.env.BASE_URL ?? '';
 const isEvangelista = evangelistas.includes(character.id);
-const truncatedHistory =
-  data.historia.length > 0 ? data.historia.substring(0, 150) : '';
 ---
 
 <BaseLayout
   title={`${data.nombre} - ${data.rol}`}
-  description={`Conoce a ${data.nombre}, ${data.ocupacion} de ${data.edad} años. ${truncatedHistory}...`}
+  description={`Conoce a ${data.nombre}, ${data.ocupacion} de ${data.edad} años.`}
 >
   <!-- Breadcrumb Navigation -->
   <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">

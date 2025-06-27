@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { platformColors, statusColors } from '../../lib/script-constants';
 
 export async function getStaticPaths(): Promise<
   Array<{
@@ -17,9 +16,9 @@ export async function getStaticPaths(): Promise<
 }
 
 const { script } = Astro.props;
-const { data, body } = script;
-
-const basePath = import.meta.env.BASE_URL ?? '';
+const { data } = script;
+const { body } = script;
+const basePath = '/testigos-solarpunk';
 ---
 
 <BaseLayout
@@ -44,15 +43,12 @@ const basePath = import.meta.env.BASE_URL ?? '';
         <div class="episode-info">
           <div class="episode-badges">
             <span class="episode-number">{data.episodio}</span>
-            <span
-              class="platform-badge"
-              style={`background-color: ${platformColors[data.plataforma] ?? '#6c757d'}`}
-            >
+            <span class="platform-badge">
               {data.plataforma}
             </span>
             <span
               class="status-badge"
-              style={`background-color: ${statusColors[data.estado]?.bg ?? '#f8f9fa'}; color: ${statusColors[data.estado]?.text ?? '#6c757d'}`}
+              style={`background-color: #f8f9fa; color: #6c757d`}
             >
               {data.estado}
             </span>
@@ -68,17 +64,11 @@ const basePath = import.meta.env.BASE_URL ?? '';
               </span>
               <span class="meta-item">
                 <span class="emoji-cutout emoji-sm theme-green">📍</span>
-                {data.ubicacion.replace(/-/g, ' ')}
+                {data.ubicacion}
               </span>
               <span class="meta-item">
                 <span class="emoji-cutout emoji-sm theme-purple">📅</span>
-                {
-                  new Date(data.fecha).toLocaleDateString('es-MX', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })
-                }
+                {data.fecha}
               </span>
             </div>
           </div>
@@ -102,12 +92,7 @@ const basePath = import.meta.env.BASE_URL ?? '';
               class="character-chip"
             >
               <span class="emoji-cutout emoji-sm">👤</span>
-              <span>
-                {personaje
-                  .split('-')
-                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                  .join(' ')}
-              </span>
+              <span>{personaje}</span>
             </a>
           ))
         }
@@ -127,7 +112,7 @@ const basePath = import.meta.env.BASE_URL ?? '';
           data.temas.map((tema: string) => (
             <span class="theme-tag">
               <span class="emoji-cutout emoji-sm theme-green">✨</span>
-              {tema.replace(/-/g, ' ')}
+              {tema}
             </span>
           ))
         }
