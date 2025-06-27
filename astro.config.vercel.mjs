@@ -97,8 +97,8 @@ export default defineConfig({
   // Enable trailing slash for consistency
   trailingSlash: 'always',
 
-  // Enable compression for Vercel
-  compressHTML: true,
+  // Disable HTML compression to avoid parsing issues
+  compressHTML: false,
   
   // Security headers are handled in vercel.json
 });

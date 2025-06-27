@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import MagazineCutoutImage from '../../components/MagazineCutoutImage.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths(): Promise<
@@ -50,87 +49,101 @@ const isEvangelista = evangelistas.includes(character.id);
     </div>
   </nav>
 
-  <!-- Character Hero Section -->
-  <section class="character-hero">
+  <!-- Character Profile Header -->
+  <section class="character-header">
     <div class="container">
-      <div class="hero-content">
-        <div class="character-portrait">
-          <MagazineCutoutImage
-            src={data.referencias_visuales?.[0]}
-            alt={`Retrato de ${data.nombre}, ${data.ocupacion}`}
-            width={500}
-            height={600}
-            type="character"
-            prompt={`portrait of ${data.nombre}, ${data.ocupacion}, ${data.rol}, vintage magazine style`}
-            cutoutStyle="emoji-lg"
-            theme={isEvangelista ? 'green' : 'solar'}
-            context="hero"
-            interactive={true}
-            class="hero-portrait"
-          />
+      <div class="header-content">
+        <div class="character-visual">
+          <div class="character-portrait">
+            <span class="emoji-cutout emoji-xxl theme-purple">
+              {isEvangelista ? '🌟' : '👤'}
+            </span>
+          </div>
           {
             isEvangelista && (
               <div class="evangelista-badge">
-                <span class="emoji-cutout emoji-md theme-green">📢</span>
+                <span class="emoji-cutout emoji-sm theme-solar">⚡</span>
                 <span>Evangelista</span>
               </div>
             )
           }
         </div>
 
-        <div class="character-details">
+        <div class="character-basics">
           <h1 class="character-name text-gradient">{data.nombre}</h1>
-          <h2 class="character-role">{data.rol}</h2>
+          <p class="character-role">{data.rol}</p>
 
-          <div class="character-meta">
-            <div class="meta-item">
-              <span class="emoji-cutout emoji-sm theme-solar">🎂</span>
+          <div class="character-stats">
+            <div class="stat-item">
+              <span class="emoji-cutout emoji-sm theme-green">🎂</span>
               <span>{data.edad} años</span>
             </div>
-            <div class="meta-item">
-              <span class="emoji-cutout emoji-sm theme-purple">💼</span>
+            <div class="stat-item">
+              <span class="emoji-cutout emoji-sm theme-community">💼</span>
               <span>{data.ocupacion}</span>
             </div>
-            <div class="meta-item">
-              <span class="emoji-cutout emoji-sm theme-community">👤</span>
-              <span>{data.pronombres}</span>
+            <div class="stat-item">
+              <span class="emoji-cutout emoji-sm theme-purple">📍</span>
+              <span>Neo-Cuernavaca</span>
             </div>
           </div>
 
-          <div class="character-traits">
-            <h3>Rasgos Distintivos</h3>
-            <ul class="traits-list">
-              {
-                data.rasgos.map((rasgo: string) => (
-                  <li>
-                    <span class="emoji-cutout emoji-sm theme-green">✨</span>
-                    {rasgo}
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+          <p class="character-brief">{data.descripcionBreve}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Character Story Section -->
+  <!-- Character Story -->
   <section class="character-story">
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-solar">📖</span>
         Historia
       </h2>
-      <div class="story-content">
+      <div class="story-content card">
         <p>{data.historia}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Character Personality -->
+  <section class="character-personality">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">🎭</span>
+        Personalidad
+      </h2>
+      <div class="personality-traits">
+        {
+          data.personalidad.rasgos.map((rasgo: string) => (
+            <div class="trait-card card">
+              <span class="emoji-cutout emoji-sm theme-green">✨</span>
+              <span>{rasgo}</span>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="motivations-section">
+        <h3>Motivaciones</h3>
+        <ul class="motivations-list">
+          {
+            data.personalidad.motivaciones.map((motivacion: string) => (
+              <li>
+                <span class="emoji-cutout emoji-sm theme-solar">🎯</span>
+                {motivacion}
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Character Relationships -->
   {
-    data.relaciones != null && data.relaciones.length > 0 ? (
+    data.relaciones != null && Object.keys(data.relaciones).length > 0 && (
       <section class="character-relationships">
         <div class="container">
           <h2>
@@ -138,134 +151,101 @@ const isEvangelista = evangelistas.includes(character.id);
             Relaciones
           </h2>
           <div class="relationships-grid">
-            {data.relaciones.map(
-              (relacion: {
-                personaje: string;
-                tipo: string;
-                descripcion: string;
-              }) => (
-                <div class="relationship-card card">
-                  <h4>{relacion.tipo}</h4>
-                  <p class="relationship-character">
-                    <a href={`${basePath}/personajes/${relacion.personaje}/`}>
-                      {relacion.personaje
-                        .replace('-', ' ')
-                        .replace(/\b\w/g, (l: string) => l.toUpperCase())}
-                    </a>
-                  </p>
-                  <p class="relationship-description">{relacion.descripcion}</p>
-                </div>
-              )
-            )}
+            {Object.entries(data.relaciones).map(([personaje, relacion]) => (
+              <div class="relationship-card card">
+                <h3>
+                  {personaje
+                    .split('-')
+                    .map(
+                      (word: string) =>
+                        word.charAt(0).toUpperCase() + word.slice(1)
+                    )
+                    .join(' ')}
+                </h3>
+                <p>{relacion as string}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-    ) : null
+    )
   }
 
-  <!-- Iconic Phrases -->
+  <!-- Character Quotes -->
   {
-    data.frases_emblematicas != null && data.frases_emblematicas.length > 0 ? (
-      <section class="character-phrases">
+    data.frases != null && data.frases.length > 0 && (
+      <section class="character-quotes">
         <div class="container">
           <h2>
             <span class="emoji-cutout emoji-md theme-purple">💬</span>
-            Frases Emblemáticas
+            Frases Memorables
           </h2>
-          <div class="phrases-grid">
-            {data.frases_emblematicas.map((frase: string) => (
-              <blockquote class="phrase-card">
-                <p>"{frase}"</p>
+          <div class="quotes-list">
+            {data.frases.map((frase: string) => (
+              <blockquote class="quote-card card">
+                <span class="emoji-cutout emoji-sm theme-solar">❝</span>
+                <p>{frase}</p>
                 <cite>— {data.nombre}</cite>
               </blockquote>
             ))}
           </div>
         </div>
       </section>
-    ) : null
+    )
   }
 
-  <!-- Episodes -->
+  <!-- Character Episodes -->
   {
-    data.episodios_destacados != null &&
-    data.episodios_destacados.length > 0 ? (
+    data.episodios != null && data.episodios.length > 0 && (
       <section class="character-episodes">
         <div class="container">
           <h2>
-            <span class="emoji-cutout emoji-md theme-solar">🎬</span>
-            Episodios Destacados
+            <span class="emoji-cutout emoji-md theme-green">🎬</span>
+            Apariciones
           </h2>
           <div class="episodes-list">
-            {data.episodios_destacados.map((episodio: string) => (
-              <a href={`${basePath}/guiones/${episodio}/`} class="episode-link">
-                <span class="episode-badge">{episodio}</span>
-                <span class="episode-arrow">→</span>
+            {data.episodios.map((episodio: string) => (
+              <a href={`${basePath}/guiones/${episodio}/`} class="episode-chip">
+                <span class="emoji-cutout emoji-sm theme-purple">📺</span>
+                <span>{episodio}</span>
               </a>
             ))}
           </div>
         </div>
       </section>
-    ) : null
+    )
   }
 
   <!-- Character Evolution -->
   {
-    data.evolucion != null ? (
+    data.evolucion != null && (
       <section class="character-evolution">
         <div class="container">
           <h2>
-            <span class="emoji-cutout emoji-md theme-green">📈</span>
+            <span class="emoji-cutout emoji-md theme-solar">🌱</span>
             Evolución del Personaje
           </h2>
-          <div class="evolution-timeline">
-            {Object.entries(data.evolucion).map(([temporada, descripcion]) => (
-              <div class="timeline-item">
-                <div class="timeline-marker">
-                  <span class="emoji-cutout emoji-sm theme-purple">⭐</span>
-                </div>
-                <div class="timeline-content">
-                  <h4>{temporada.replace('temporada', 'Temporada ')}</h4>
-                  <p>{descripcion as string}</p>
-                </div>
-              </div>
-            ))}
+          <div class="evolution-content card">
+            <p>{data.evolucion}</p>
           </div>
         </div>
       </section>
-    ) : null
+    )
   }
 
-  <!-- Sacred Gadgets for Evangelistas -->
-  {
-    isEvangelista &&
-    data.gadgets_sagrados != null &&
-    data.gadgets_sagrados.length > 0 ? (
-      <section class="sacred-gadgets">
-        <div class="container">
-          <h2>
-            <span class="emoji-cutout emoji-md theme-green">⚡</span>
-            Gadgets Sagrados
-          </h2>
-          <div class="gadgets-grid">
-            {data.gadgets_sagrados.map((gadget: string) => (
-              <div class="gadget-item">
-                <span class="emoji-cutout emoji-sm theme-solar">🔮</span>
-                <span>{gadget}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    ) : null
-  }
-
-  <!-- Back to Characters -->
-  <section class="back-navigation">
-    <div class="container text-center">
-      <a href={`${basePath}/personajes/`} class="btn btn-secondary">
-        <span class="emoji-cutout emoji-sm">👈</span>
-        Volver a Personajes
-      </a>
+  <!-- Navigation -->
+  <section class="character-navigation">
+    <div class="container">
+      <div class="nav-buttons">
+        <a href={`${basePath}/personajes/`} class="btn btn-secondary">
+          <span class="emoji-cutout emoji-sm">👈</span>
+          Volver a Personajes
+        </a>
+        <a href={`${basePath}/guiones/`} class="btn btn-primary">
+          <span class="emoji-cutout emoji-sm">📝</span>
+          Ver Guiones
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -304,7 +284,7 @@ const isEvangelista = evangelistas.includes(character.id);
     text-decoration: underline;
   }
 
-  .character-hero {
+  .character-header {
     padding: var(--espacio-xxl) 0;
     background: linear-gradient(
       135deg,
@@ -313,34 +293,57 @@ const isEvangelista = evangelistas.includes(character.id);
     );
   }
 
-  .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+  .header-content {
+    display: flex;
     gap: var(--espacio-xxl);
-    align-items: start;
+    align-items: flex-start;
+  }
+
+  .character-visual {
+    flex-shrink: 0;
+    text-align: center;
   }
 
   .character-portrait {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--fondo-secundario);
+    border-radius: 50%;
+    border: 4px solid var(--borde-claro);
+    margin-bottom: var(--espacio-lg);
     position: relative;
+
+    /* Magazine cutout effect */
+    clip-path: polygon(
+      5% 0%,
+      95% 3%,
+      100% 15%,
+      98% 85%,
+      100% 95%,
+      85% 100%,
+      15% 98%,
+      0% 90%,
+      3% 10%
+    );
   }
 
   .evangelista-badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: var(--verde-sostenible);
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    background: var(--amarillo-solar);
+    color: var(--texto-oscuro);
     padding: var(--espacio-sm) var(--espacio-md);
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: var(--espacio-xs);
+    font-weight: 600;
     font-size: 0.875rem;
-    font-weight: 500;
-    z-index: 10;
+  }
 
-    /* Magazine cutout effect */
-    clip-path: polygon(2% 0%, 98% 2%, 100% 98%, 2% 100%);
+  .character-basics {
+    flex: 1;
   }
 
   .character-name {
@@ -353,69 +356,100 @@ const isEvangelista = evangelistas.includes(character.id);
     font-size: 1.5rem;
     color: var(--verde-sostenible);
     margin-bottom: var(--espacio-lg);
-    font-weight: 500;
   }
 
-  .character-meta {
+  .character-stats {
     display: flex;
-    flex-direction: column;
-    gap: var(--espacio-md);
+    gap: var(--espacio-xl);
     margin-bottom: var(--espacio-xl);
+    flex-wrap: wrap;
   }
 
-  .meta-item {
+  .stat-item {
     display: flex;
     align-items: center;
     gap: var(--espacio-sm);
     font-size: 1.1rem;
+    color: var(--texto-secundario);
   }
 
-  .character-traits h3 {
-    color: var(--amarillo-solar);
-    margin-bottom: var(--espacio-md);
-    display: flex;
-    align-items: center;
-    gap: var(--espacio-sm);
-  }
-
-  .traits-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .traits-list li {
-    display: flex;
-    align-items: center;
-    gap: var(--espacio-sm);
-    margin-bottom: var(--espacio-sm);
-    padding: var(--espacio-sm);
-    background: var(--fondo-secundario);
-    border-radius: 8px;
-    border-left: 3px solid var(--verde-sostenible);
+  .character-brief {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--texto-primario);
   }
 
   .character-story {
-    padding: var(--espacio-xxl) 0;
+    padding: var(--espacio-xl) 0;
+    background-color: var(--fondo-secundario);
   }
 
   .character-story h2 {
     display: flex;
     align-items: center;
     gap: var(--espacio-md);
-    margin-bottom: var(--espacio-xl);
+    margin-bottom: var(--espacio-lg);
     color: var(--amarillo-solar);
   }
 
   .story-content {
+    padding: var(--espacio-xl);
     font-size: 1.1rem;
-    line-height: 1.7;
-    max-width: 800px;
-    color: var(--texto-primario);
+    line-height: 1.8;
+  }
+
+  .character-personality {
+    padding: var(--espacio-xl) 0;
+  }
+
+  .character-personality h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .personality-traits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xxl);
+  }
+
+  .trait-card {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    padding: var(--espacio-md);
+    background: var(--fondo-secundario);
+    font-weight: 500;
+
+    /* Mini magazine cutout effect */
+    clip-path: polygon(2% 0%, 98% 1%, 99% 98%, 1% 99%);
+  }
+
+  .motivations-section h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .motivations-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .motivations-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espacio-md);
+    padding: var(--espacio-sm) 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 
   .character-relationships {
-    padding: var(--espacio-xxl) 0;
+    padding: var(--espacio-xl) 0;
     background-color: var(--fondo-secundario);
   }
 
@@ -423,7 +457,7 @@ const isEvangelista = evangelistas.includes(character.id);
     display: flex;
     align-items: center;
     gap: var(--espacio-md);
-    margin-bottom: var(--espacio-xl);
+    margin-bottom: var(--espacio-lg);
     color: var(--amarillo-solar);
   }
 
@@ -437,73 +471,67 @@ const isEvangelista = evangelistas.includes(character.id);
     padding: var(--espacio-lg);
   }
 
-  .relationship-card h4 {
-    color: var(--verde-sostenible);
+  .relationship-card h3 {
+    color: var(--purpura-creativo);
     margin-bottom: var(--espacio-sm);
   }
 
-  .relationship-character {
-    font-weight: 500;
-    margin-bottom: var(--espacio-sm);
-  }
-
-  .relationship-character a {
-    color: var(--azul-tecnologico);
-    text-decoration: none;
-  }
-
-  .relationship-character a:hover {
-    text-decoration: underline;
-  }
-
-  .relationship-description {
+  .relationship-card p {
+    line-height: 1.6;
     color: var(--texto-secundario);
-    margin: 0;
   }
 
-  .character-phrases {
-    padding: var(--espacio-xxl) 0;
+  .character-quotes {
+    padding: var(--espacio-xl) 0;
   }
 
-  .character-phrases h2 {
+  .character-quotes h2 {
     display: flex;
     align-items: center;
     gap: var(--espacio-md);
-    margin-bottom: var(--espacio-xl);
+    margin-bottom: var(--espacio-lg);
     color: var(--amarillo-solar);
   }
 
-  .phrases-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  .quotes-list {
+    display: flex;
+    flex-direction: column;
     gap: var(--espacio-lg);
   }
 
-  .phrase-card {
-    background: var(--fondo-secundario);
+  .quote-card {
+    position: relative;
     padding: var(--espacio-xl);
-    border-radius: 12px;
-    border-left: 4px solid var(--purpura-creativo);
     margin: 0;
-
-    /* Magazine cutout effect */
-    clip-path: polygon(1% 2%, 98% 0%, 99% 98%, 2% 100%);
+    background: var(--fondo-secundario);
+    border-left: 4px solid var(--amarillo-solar);
   }
 
-  .phrase-card p {
+  .quote-card .emoji-cutout {
+    position: absolute;
+    top: var(--espacio-lg);
+    left: var(--espacio-lg);
+    opacity: 0.3;
+  }
+
+  .quote-card p {
     font-size: 1.2rem;
+    line-height: 1.6;
     font-style: italic;
     margin-bottom: var(--espacio-md);
-    color: var(--texto-primario);
+    padding-left: var(--espacio-xl);
   }
 
-  .phrase-card cite {
+  .quote-card cite {
+    display: block;
+    text-align: right;
     color: var(--texto-secundario);
-    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 600;
   }
 
   .character-episodes {
-    padding: var(--espacio-xxl) 0;
+    padding: var(--espacio-xl) 0;
     background-color: var(--fondo-secundario);
   }
 
@@ -511,7 +539,7 @@ const isEvangelista = evangelistas.includes(character.id);
     display: flex;
     align-items: center;
     gap: var(--espacio-md);
-    margin-bottom: var(--espacio-xl);
+    margin-bottom: var(--espacio-lg);
     color: var(--amarillo-solar);
   }
 
@@ -521,165 +549,117 @@ const isEvangelista = evangelistas.includes(character.id);
     gap: var(--espacio-md);
   }
 
-  .episode-link {
+  .episode-chip {
     display: flex;
     align-items: center;
     gap: var(--espacio-sm);
-    padding: var(--espacio-md) var(--espacio-lg);
+    padding: var(--espacio-sm) var(--espacio-md);
     background: var(--fondo-primario);
     border: 2px solid var(--borde-claro);
-    border-radius: 8px;
+    border-radius: 20px;
     text-decoration: none;
     color: var(--texto-primario);
     transition: all var(--transicion-rapida);
+    font-weight: 500;
   }
 
-  .episode-link:hover {
-    border-color: var(--amarillo-solar);
+  .episode-chip:hover {
+    border-color: var(--purpura-creativo);
+    background: rgba(156, 39, 176, 0.1);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
-  }
-
-  .episode-badge {
-    background: var(--purpura-creativo);
-    color: white;
-    padding: var(--espacio-xs) var(--espacio-sm);
-    border-radius: 4px;
-    font-family: var(--fuente-mono);
-    font-size: 0.875rem;
-  }
-
-  .episode-arrow {
-    color: var(--amarillo-solar);
-    font-weight: bold;
   }
 
   .character-evolution {
-    padding: var(--espacio-xxl) 0;
+    padding: var(--espacio-xl) 0;
   }
 
   .character-evolution h2 {
     display: flex;
     align-items: center;
     gap: var(--espacio-md);
-    margin-bottom: var(--espacio-xl);
+    margin-bottom: var(--espacio-lg);
     color: var(--amarillo-solar);
   }
 
-  .evolution-timeline {
-    max-width: 800px;
+  .evolution-content {
+    padding: var(--espacio-xl);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    background: linear-gradient(
+      135deg,
+      rgba(76, 175, 80, 0.05) 0%,
+      transparent 100%
+    );
   }
 
-  .timeline-item {
+  .character-navigation {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .nav-buttons {
     display: flex;
+    justify-content: space-between;
     gap: var(--espacio-lg);
-    margin-bottom: var(--espacio-xl);
-  }
-
-  .timeline-marker {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    background: var(--verde-sostenible);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  .timeline-item:not(:last-child) .timeline-marker::after {
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 60px;
-    background: var(--borde-claro);
-  }
-
-  .timeline-content h4 {
-    color: var(--verde-sostenible);
-    margin-bottom: var(--espacio-sm);
-  }
-
-  .timeline-content p {
-    color: var(--texto-secundario);
-    margin: 0;
-  }
-
-  .sacred-gadgets {
-    padding: var(--espacio-xxl) 0;
-    background-color: var(--fondo-secundario);
-  }
-
-  .sacred-gadgets h2 {
-    display: flex;
-    align-items: center;
-    gap: var(--espacio-md);
-    margin-bottom: var(--espacio-xl);
-    color: var(--amarillo-solar);
-  }
-
-  .gadgets-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--espacio-md);
-  }
-
-  .gadget-item {
-    display: flex;
-    align-items: center;
-    gap: var(--espacio-sm);
-    padding: var(--espacio-md);
-    background: var(--fondo-primario);
-    border-radius: 8px;
-    border: 1px solid var(--borde-claro);
-  }
-
-  .back-navigation {
-    padding: var(--espacio-xxl) 0;
   }
 
   /* Mobile Responsiveness */
   @media (max-width: 768px) {
-    .hero-content {
-      grid-template-columns: 1fr;
-      gap: var(--espacio-xl);
+    .header-content {
+      flex-direction: column;
+      align-items: center;
       text-align: center;
+      gap: var(--espacio-xl);
     }
 
     .character-name {
       font-size: 2.5rem;
     }
 
-    .character-role {
-      font-size: 1.25rem;
+    .character-stats {
+      justify-content: center;
+      gap: var(--espacio-md);
     }
 
-    .character-meta {
-      align-items: center;
+    .stat-item {
+      font-size: 1rem;
+    }
+
+    .personality-traits {
+      grid-template-columns: 1fr;
     }
 
     .relationships-grid {
       grid-template-columns: 1fr;
     }
 
-    .phrases-grid {
-      grid-template-columns: 1fr;
+    .nav-buttons {
+      flex-direction: column;
+      align-items: center;
     }
 
-    .episodes-list {
-      justify-content: center;
+    .nav-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .character-name {
+      font-size: 2rem;
     }
 
-    .timeline-item {
-      gap: var(--espacio-md);
+    .character-role {
+      font-size: 1.25rem;
     }
 
-    .gadgets-grid {
-      grid-template-columns: 1fr;
+    .character-stats {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .quote-card p {
+      font-size: 1.1rem;
+      padding-left: var(--espacio-md);
     }
   }
 </style>

@@ -39,14 +39,11 @@ const statusColors: Record<string, { bg: string; text: string }> = {
   filmado: { bg: '#d1ecf1', text: '#0c5460' },
 };
 
-// Get all characters for character lookup
 const allCharacters = await getCollection('characters');
-const characterMap = new Map(
-  allCharacters.map((char: CollectionEntry<'characters'>) => [
-    char.id,
-    char.data.nombre,
-  ])
-);
+const characterMap = new Map<string, string>();
+allCharacters.forEach((char: CollectionEntry<'characters'>) => {
+  characterMap.set(char.id, char.data.nombre);
+});
 ---
 
 <BaseLayout
