@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-export async function getStaticPaths(): Promise<Array<{ params: { slug: string }; props: { script: any } }>> {
+export async function getStaticPaths() {
   const scripts = await getCollection('scripts');
   return scripts.map((script) => ({
     params: { slug: script.id },
