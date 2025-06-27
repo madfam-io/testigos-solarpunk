@@ -53,7 +53,13 @@ const fraseAleatoria =
       type="character"
       prompt={`evangelical portrait of ${nombre}, ${ocupacion}, ${rol}, ${colorTema} theme, mystical aura`}
       cutoutStyle="emoji-lg"
-      theme={colorTema === 'verde' ? 'green' : colorTema === 'solar' ? 'solar' : colorTema === 'mistico' ? 'purple' : 'community'}
+      theme={colorTema === 'verde'
+        ? 'green'
+        : colorTema === 'solar'
+          ? 'solar'
+          : colorTema === 'mistico'
+            ? 'purple'
+            : 'community'}
       context="hero"
       interactive={true}
       flutter={true}
@@ -145,7 +151,6 @@ const fraseAleatoria =
     object-fit: cover;
     transition: transform 0.4s ease;
   }
-
 
   .character-halo {
     position: absolute;

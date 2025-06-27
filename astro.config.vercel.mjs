@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   // Vercel deployment configuration (no base path needed)
   site: 'https://testigos-solarpunk.vercel.app',
-  
+
   // No base path for Vercel
   base: '/',
 
@@ -38,7 +38,7 @@ export default defineConfig({
   // Image optimization configuration
   image: {
     domains: ['testigos-solarpunk.vercel.app'],
-    remotePatterns: [{ protocol: "https" }],
+    remotePatterns: [{ protocol: 'https' }],
   },
 
   // Vite configuration
@@ -99,6 +99,6 @@ export default defineConfig({
 
   // Disable HTML compression to avoid parsing issues
   compressHTML: false,
-  
+
   // Security headers are handled in vercel.json
 });

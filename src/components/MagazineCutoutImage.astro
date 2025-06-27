@@ -2,7 +2,7 @@
 /**
  * Componente de Imagen con Estética Magazine Cutout
  * Testigos de Solarpunk - MADFAM
- * 
+ *
  * Integra placeholders AI con la estética DIY existente
  */
 
@@ -25,11 +25,11 @@ export interface Props {
   flutter?: boolean;
 }
 
-const { 
-  src, 
-  alt, 
-  width, 
-  height, 
+const {
+  src,
+  alt,
+  width,
+  height,
   type = 'background',
   prompt,
   class: className = '',
@@ -38,7 +38,7 @@ const {
   theme,
   context,
   interactive = false,
-  flutter = false
+  flutter = false,
 } = Astro.props;
 
 // Generar placeholder con estética magazine cutout si no hay src
@@ -47,13 +47,14 @@ let placeholderUrl = src;
 
 if (src == null || src === '') {
   try {
-    placeholderData = await MagazineCutoutPlaceholderService.generatePlaceholder({
-      type,
-      width,
-      height,
-      prompt: prompt ?? alt,
-      priority: eager ? 'high' : 'normal'
-    });
+    placeholderData =
+      await MagazineCutoutPlaceholderService.generatePlaceholder({
+        type,
+        width,
+        height,
+        prompt: prompt ?? alt,
+        priority: eager ? 'high' : 'normal',
+      });
     placeholderUrl = placeholderData.url;
   } catch (error) {
     console.warn('Failed to generate placeholder:', error);
@@ -77,22 +78,24 @@ const cssClasses = [
   context !== undefined ? `emoji-${context}` : '',
   interactive ? 'interactive' : '',
   flutter ? 'flutter' : '',
-  className
-].filter(cls => cls !== '').join(' ');
+  className,
+]
+  .filter((cls) => cls !== '')
+  .join(' ');
 
 // Usar propiedades estéticas del placeholder o generar aleatorias
 const aesthetic = placeholderData?.aesthetic ?? {
   rotation: Math.random() * 10 - 5,
   translateX: Math.random() * 4 - 2,
   translateY: Math.random() * 4 - 2,
-  hasDecorations: Math.random() > 0.5
+  hasDecorations: Math.random() > 0.5,
 };
 
 const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.translateX}px, ${aesthetic.translateY}px)`;
 ---
 
-<div 
-  class="magazine-cutout-wrapper" 
+<div
+  class="magazine-cutout-wrapper"
   style={`--magazine-transform: ${transform}; --magazine-rotation: ${aesthetic.rotation}deg;`}
   data-magazine-type={type}
   data-service={placeholderData?.service}
@@ -108,31 +111,44 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       data-magazine-cutout="true"
       data-fallback-url={placeholderData?.fallbackUrl}
     />
-    
-    {(src == null || src === '') && (
-      <div class="placeholder-marker">
-        <span class="cut-here">✂️ - - - - -</span>
-        {placeholderData?.service != null && placeholderData.service !== '' && (
-          <span class="service-indicator">{placeholderData.service}</span>
-        )}
-      </div>
-    )}
+
+    {
+      (src == null || src === '') && (
+        <div class="placeholder-marker">
+          <span class="cut-here">✂️ - - - - -</span>
+          {placeholderData?.service != null &&
+            placeholderData.service !== '' && (
+              <span class="service-indicator">{placeholderData.service}</span>
+            )}
+        </div>
+      )
+    }
   </div>
-  
+
   <!-- Decoraciones auténticas de magazine cutout -->
-  {aesthetic.hasDecorations && (
-    <>
-      <div class="tape tape-1" style={`--tape-rotation: ${Math.random() * 40 - 20}deg;`}></div>
-      <div class="tape tape-2" style={`--tape-rotation: ${Math.random() * 40 - 20}deg;`}></div>
-    </>
-  )}
-  
+  {
+    aesthetic.hasDecorations && (
+      <>
+        <div
+          class="tape tape-1"
+          style={`--tape-rotation: ${Math.random() * 40 - 20}deg;`}
+        />
+        <div
+          class="tape tape-2"
+          style={`--tape-rotation: ${Math.random() * 40 - 20}deg;`}
+        />
+      </>
+    )
+  }
+
   <!-- Indicador de carga para placeholders AI -->
-  {(src == null || src === '') && (
-    <div class="ai-loading-indicator" aria-hidden="true">
-      <span class="loading-dots">🤖</span>
-    </div>
-  )}
+  {
+    (src == null || src === '') && (
+      <div class="ai-loading-indicator" aria-hidden="true">
+        <span class="loading-dots">🤖</span>
+      </div>
+    )
+  }
 </div>
 
 <style>
@@ -151,27 +167,21 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
 
   .magazine-cutout-inner {
     position: relative;
-    background: linear-gradient(
-      135deg,
-      #F4E5D3 0%,
-      #E8D5B7 50%,
-      #D4C5A0 100%
-    );
+    background: linear-gradient(135deg, #f4e5d3 0%, #e8d5b7 50%, #d4c5a0 100%);
     padding: 0.5rem;
     border-radius: 2px;
-    
+
     /* Efecto de papel texturizado */
-    background-image: 
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 1px,
-        rgba(255, 255, 255, 0.1) 1px,
-        rgba(255, 255, 255, 0.1) 2px
-      );
-    
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.1) 1px,
+      rgba(255, 255, 255, 0.1) 2px
+    );
+
     /* Múltiples sombras para profundidad */
-    box-shadow: 
+    box-shadow:
       0 4px 8px rgba(0, 0, 0, 0.15),
       inset 0 1px 2px rgba(255, 255, 255, 0.3),
       0 0 0 1px rgba(0, 0, 0, 0.05);
@@ -183,37 +193,87 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     height: 100%;
     object-fit: cover;
     border-radius: 1px;
-    
+
     /* Efecto de borde desgarrado usando clip-path más complejo */
     clip-path: polygon(
-      1% 3%, 3% 0%, 8% 2%, 15% 0%, 22% 3%, 28% 1%, 35% 2%, 
-      42% 0%, 48% 3%, 55% 1%, 62% 2%, 68% 0%, 75% 3%, 82% 1%, 
-      88% 2%, 95% 0%, 98% 3%, 100% 8%, 98% 15%, 100% 22%, 97% 28%, 
-      100% 35%, 98% 42%, 100% 48%, 97% 55%, 100% 62%, 98% 68%, 
-      100% 75%, 97% 82%, 100% 88%, 98% 95%, 100% 97%, 97% 100%, 
-      92% 98%, 85% 100%, 78% 97%, 72% 100%, 65% 98%, 58% 100%, 
-      52% 97%, 45% 100%, 38% 98%, 32% 100%, 25% 97%, 18% 100%, 
-      12% 98%, 5% 100%, 3% 97%, 0% 92%, 2% 85%, 0% 78%, 3% 72%, 
-      0% 65%, 2% 58%, 0% 52%, 3% 45%, 0% 38%, 2% 32%, 0% 25%, 
-      3% 18%, 0% 12%, 2% 5%, 0% 3%, 3% 1%
+      1% 3%,
+      3% 0%,
+      8% 2%,
+      15% 0%,
+      22% 3%,
+      28% 1%,
+      35% 2%,
+      42% 0%,
+      48% 3%,
+      55% 1%,
+      62% 2%,
+      68% 0%,
+      75% 3%,
+      82% 1%,
+      88% 2%,
+      95% 0%,
+      98% 3%,
+      100% 8%,
+      98% 15%,
+      100% 22%,
+      97% 28%,
+      100% 35%,
+      98% 42%,
+      100% 48%,
+      97% 55%,
+      100% 62%,
+      98% 68%,
+      100% 75%,
+      97% 82%,
+      100% 88%,
+      98% 95%,
+      100% 97%,
+      97% 100%,
+      92% 98%,
+      85% 100%,
+      78% 97%,
+      72% 100%,
+      65% 98%,
+      58% 100%,
+      52% 97%,
+      45% 100%,
+      38% 98%,
+      32% 100%,
+      25% 97%,
+      18% 100%,
+      12% 98%,
+      5% 100%,
+      3% 97%,
+      0% 92%,
+      2% 85%,
+      0% 78%,
+      3% 72%,
+      0% 65%,
+      2% 58%,
+      0% 52%,
+      3% 45%,
+      0% 38%,
+      2% 32%,
+      0% 25%,
+      3% 18%,
+      0% 12%,
+      2% 5%,
+      0% 3%,
+      3% 1%
     );
-    
+
     /* Filtros vintage para autenticidad */
-    filter: 
-      sepia(0.2) 
-      contrast(1.05) 
-      brightness(1.02) 
-      saturate(0.95);
+    filter: sepia(0.2) contrast(1.05) brightness(1.02) saturate(0.95);
   }
 
   /* Tape decorations con rotación variable */
   .tape {
     position: absolute;
     background: linear-gradient(
-      45deg, 
-      transparent 20%, 
-      rgba(245, 222, 179, 0.9) 20%, 
-      rgba(245, 222, 179, 0.9) 80%, 
+      45deg,
+      transparent 20%,
+      rgba(245, 222, 179, 0.9) 20%,
+      rgba(245, 222, 179, 0.9) 80%,
       transparent 80%
     );
     width: 70px;
@@ -221,16 +281,15 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     transform: rotate(var(--tape-rotation));
     filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
     z-index: 2;
-    
+
     /* Textura de cinta */
-    background-image: 
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 2px,
-        rgba(255, 255, 255, 0.1) 2px,
-        rgba(255, 255, 255, 0.1) 4px
-      );
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.1) 2px,
+      rgba(255, 255, 255, 0.1) 4px
+    );
   }
 
   .tape-1 {
@@ -285,8 +344,15 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
   }
 
   @keyframes aiPulse {
-    0%, 100% { opacity: 0.7; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
+    0%,
+    100% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
   }
 
   .loading-dots::after {
@@ -295,19 +361,25 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
   }
 
   @keyframes loadingDots {
-    0%, 20% { content: ''; }
-    40% { content: '.'; }
-    60% { content: '..'; }
-    80%, 100% { content: '...'; }
+    0%,
+    20% {
+      content: '';
+    }
+    40% {
+      content: '.';
+    }
+    60% {
+      content: '..';
+    }
+    80%,
+    100% {
+      content: '...';
+    }
   }
 
   /* Efectos de hover mejorados */
   .magazine-cutout-wrapper:hover .magazine-cutout-image {
-    filter: 
-      sepia(0.1) 
-      contrast(1.1) 
-      brightness(1.05) 
-      saturate(1.02);
+    filter: sepia(0.1) contrast(1.1) brightness(1.05) saturate(1.02);
   }
 
   .magazine-cutout-wrapper:hover .tape {
@@ -320,14 +392,24 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
   }
 
   .magazine-cutout-wrapper.interactive:active {
-    transform: rotate(calc(var(--magazine-rotation) * 0.8)) translate(1px, 1px) scale(0.98);
+    transform: rotate(calc(var(--magazine-rotation) * 0.8)) translate(1px, 1px)
+      scale(0.98);
   }
 
   @keyframes paperFloat {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    25% { transform: translateY(-2px) rotate(0.5deg); }
-    50% { transform: translateY(-1px) rotate(-0.3deg); }
-    75% { transform: translateY(-3px) rotate(0.2deg); }
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-2px) rotate(0.5deg);
+    }
+    50% {
+      transform: translateY(-1px) rotate(-0.3deg);
+    }
+    75% {
+      transform: translateY(-3px) rotate(0.2deg);
+    }
   }
 
   /* Responsive adjustments */
@@ -335,22 +417,29 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     .magazine-cutout-wrapper {
       filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.15));
     }
-    
+
     .tape {
       width: 50px;
       height: 20px;
     }
-    
+
     .placeholder-marker {
       font-size: 0.55rem;
       padding: 0.1rem 0.3rem;
     }
-    
+
     /* Simplificar clip-path en mobile para rendimiento */
     .magazine-cutout-image {
       clip-path: polygon(
-        2% 0%, 98% 2%, 100% 8%, 98% 92%, 100% 98%, 
-        92% 100%, 8% 98%, 0% 92%, 2% 8%
+        2% 0%,
+        98% 2%,
+        100% 8%,
+        98% 92%,
+        100% 98%,
+        92% 100%,
+        8% 98%,
+        0% 92%,
+        2% 8%
       );
     }
   }
@@ -363,7 +452,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       clip-path: none;
       border-radius: 4px;
     }
-    
+
     .tape {
       background: currentColor;
       opacity: 0.3;
@@ -388,12 +477,12 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       filter: none;
       transform: none;
     }
-    
+
     .magazine-cutout-image {
       filter: none;
       clip-path: none;
     }
-    
+
     .tape,
     .placeholder-marker,
     .ai-loading-indicator {
@@ -405,12 +494,14 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
 <script>
   // Mejorar la experiencia de carga de placeholders AI
   document.addEventListener('DOMContentLoaded', () => {
-    const placeholderImages = document.querySelectorAll('[data-magazine-cutout="true"]');
-    
+    const placeholderImages = document.querySelectorAll(
+      '[data-magazine-cutout="true"]'
+    );
+
     placeholderImages.forEach((img) => {
       const wrapper = img.closest('.magazine-cutout-wrapper');
       const loadingIndicator = wrapper?.querySelector('.ai-loading-indicator');
-      
+
       if (img instanceof HTMLImageElement) {
         // Ocultar indicador cuando la imagen cargue
         img.addEventListener('load', () => {
@@ -419,7 +510,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
             setTimeout(() => loadingIndicator.remove(), 300);
           }
         });
-        
+
         // Manejar errores de carga
         img.addEventListener('error', () => {
           const fallbackUrl = img.getAttribute('data-fallback-url');
@@ -428,7 +519,8 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
             img.removeAttribute('data-fallback-url');
           } else if (loadingIndicator) {
             loadingIndicator.textContent = '⚠️ Error';
-            (loadingIndicator as HTMLElement).style.background = 'rgba(255, 200, 200, 0.95)';
+            (loadingIndicator as HTMLElement).style.background =
+              'rgba(255, 200, 200, 0.95)';
           }
         });
       }

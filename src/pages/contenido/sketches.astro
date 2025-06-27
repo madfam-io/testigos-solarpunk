@@ -119,14 +119,24 @@ const sketches = [
                   type="sketch"
                   prompt={`${sketch.titulo}, ${sketch.tema}, comedy sketch about ${sketch.descripcion}`}
                   cutoutStyle="emoji-md"
-                  theme={sketch.tema === 'sostenibilidad' ? 'green' : sketch.tema === 'tecnologia' ? 'purple' : 'solar'}
+                  theme={
+                    sketch.tema === 'sostenibilidad'
+                      ? 'green'
+                      : sketch.tema === 'tecnologia'
+                        ? 'purple'
+                        : 'solar'
+                  }
                   context="card"
                   interactive={true}
                   class="sketch-image"
                 />
-                <span class="duracion emoji-cutout emoji-sm">{sketch.duracion}</span>
+                <span class="duracion emoji-cutout emoji-sm">
+                  {sketch.duracion}
+                </span>
                 <div class="play-overlay">
-                  <button class="play-btn emoji-cutout emoji-md theme-solar interactive">▶</button>
+                  <button class="play-btn emoji-cutout emoji-md theme-solar interactive">
+                    ▶
+                  </button>
                 </div>
               </div>
 
@@ -344,7 +354,6 @@ const sketches = [
     overflow: hidden;
     background: var(--fondo-secundario);
   }
-
 
   .duracion {
     position: absolute;

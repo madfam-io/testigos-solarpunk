@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { evangelistas } from '../../lib/character-constants';
 
 export async function getStaticPaths(): Promise<
   Array<{
@@ -22,15 +23,7 @@ interface Props {
 const { character } = Astro.props;
 const { data } = character;
 
-const baseUrl = import.meta.env.BASE_URL ?? '';
-const basePath = baseUrl !== '' ? baseUrl.replace(/\/$/, '') : '';
-
-// Determine if character is an evangelista
-const evangelistas = [
-  'hermana-panelia',
-  'hermano-compostino',
-  'profeta-del-sol',
-];
+const basePath = import.meta.env.BASE_URL ?? '';
 const isEvangelista = evangelistas.includes(character.id);
 ---
 

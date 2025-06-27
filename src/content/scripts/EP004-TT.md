@@ -3,8 +3,16 @@ episodio: EP004-TT
 titulo: 'Milagro en el Súper'
 plataforma: TikTok
 duracion: 45s
-personajes: [hermana-panelia, empleado-javier, cliente-random, gerente]
-temas: [milagros, productos-ecologicos, supermercado, transformacion]
+personajes:
+  - hermana-panelia
+  - empleado-javier
+  - cliente-random
+  - gerente
+temas:
+  - milagros
+  - productos-ecologicos
+  - supermercado
+  - transformacion
 ubicacion: superverde-neo-cuernavaca
 fecha: 2024-12-03
 estado: aprobado

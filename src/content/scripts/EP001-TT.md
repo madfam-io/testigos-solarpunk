@@ -3,8 +3,13 @@ episodio: EP001-TT
 titulo: 'El Despertar Solar'
 plataforma: TikTok
 duracion: 45s
-personajes: [lucia-solar, marco-tierra]
-temas: [energia-solar, comunidad, despertar]
+personajes:
+  - lucia-solar
+  - marco-tierra
+temas:
+  - energia-solar
+  - comunidad
+  - despertar
 ubicacion: azotea-verde-neo-cuernavaca
 fecha: 2025-02-01
 estado: aprobado

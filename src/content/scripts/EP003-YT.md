@@ -3,8 +3,16 @@ episodio: EP003-YT
 titulo: 'La App que Salva el Mundo... o No'
 plataforma: YouTube
 duracion: 90s
-personajes: [alex-rivera, zara, hermana-panelia, siri-alexa]
-temas: [tecnologia, sostenibilidad, apps, bateria]
+personajes:
+  - alex-rivera
+  - zara
+  - hermana-panelia
+  - siri-alexa
+temas:
+  - tecnologia
+  - sostenibilidad
+  - apps
+  - bateria
 ubicacion: cafe-solar-hub
 fecha: 2024-12-02
 estado: aprobado

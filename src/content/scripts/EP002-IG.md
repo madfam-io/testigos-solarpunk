@@ -3,8 +3,16 @@ episodio: EP002-IG
 titulo: 'El Evangelio según los Paneles'
 plataforma: Instagram
 duracion: 60s
-personajes: [hermana-panelia, hermano-compostino, senora-mercedes, don-carlos]
-temas: [evangelizacion, energia-solar, compostaje, mercado]
+personajes:
+  - hermana-panelia
+  - hermano-compostino
+  - senora-mercedes
+  - don-carlos
+temas:
+  - evangelizacion
+  - energia-solar
+  - compostaje
+  - mercado
 ubicacion: mercado-neo-cuernavaca
 fecha: 2024-12-01
 estado: aprobado

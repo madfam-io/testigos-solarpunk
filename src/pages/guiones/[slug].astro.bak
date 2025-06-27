@@ -73,13 +73,11 @@ const basePath = import.meta.env.BASE_URL ?? '';
               </span>
               <span class="meta-item">
                 <span class="emoji-cutout emoji-sm theme-purple">📅</span>
-                {
-                  new Date(data.fecha).toLocaleDateString('es-MX', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })
-                }
+                {new Date(data.fecha).toLocaleDateString('es-MX', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
               </span>
             </div>
           </div>

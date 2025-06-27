@@ -4,15 +4,17 @@ titulo: 'Grupo de WhatsApp Evangelista'
 plataforma: YouTube
 duracion: 120s
 personajes:
-  [
-    hermana-panelia,
-    dona-carmen,
-    ing-roberto,
-    millennial-sofia,
-    don-aurelio,
-    teenage-gael,
-  ]
-temas: [whatsapp, grupo-vecinal, evangelizacion-digital, generaciones]
+  - hermana-panelia
+  - dona-carmen
+  - ing-roberto
+  - millennial-sofia
+  - don-aurelio
+  - teenage-gael
+temas:
+  - whatsapp
+  - grupo-vecinal
+  - evangelizacion-digital
+  - generaciones
 ubicacion: grupo-whatsapp-virtual
 fecha: 2024-12-04
 estado: aprobado
