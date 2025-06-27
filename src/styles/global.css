@@ -490,7 +490,13 @@ footer {
 }
 
 footer a {
+  color: var(--azul-tecnologico);
+  transition: color var(--transicion-rapida);
+}
+
+footer a:hover {
   color: var(--amarillo-solar);
+  text-decoration: underline;
 }
 
 /* Responsive */

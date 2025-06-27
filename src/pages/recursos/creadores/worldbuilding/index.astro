@@ -1,0 +1,731 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  title="Construcción del Mundo"
+  description="Reglas y coherencia del universo solarpunk - Guía completa para creadores de contenido"
+>
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href={`${basePath}/`}>Inicio</a></li>
+        <li><a href={`${basePath}/recursos/`}>Recursos</a></li>
+        <li><a href={`${basePath}/recursos/creadores/`}>Creadores</a></li>
+        <li aria-current="page">Construcción del Mundo</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="resource-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="emoji-cutout emoji-hero emoji-xl theme-green flutter"
+          >🌍</span
+        >
+        <h1>Construcción del Mundo</h1>
+        <p class="hero-description">
+          Reglas y coherencia del universo solarpunk que mantienen la
+          consistencia narrativa y la credibilidad del mundo de los Testigos de
+          Solarpunk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- World Overview -->
+  <section class="world-overview">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">🏙️</span>
+        Neo-Cuernavaca: El Epicentro
+      </h2>
+      <div class="overview-grid">
+        <div class="overview-card card">
+          <h3>Ubicación y Geografía</h3>
+          <ul>
+            <li>
+              <strong>Localización:</strong> Valle de Morelos transformado
+            </li>
+            <li>
+              <strong>Clima:</strong> Tropical seco moderado por tecnología verde
+            </li>
+            <li>
+              <strong>Topografía:</strong> Terrazas verdes en laderas montañosas
+            </li>
+            <li>
+              <strong>Población:</strong> ~400,000 habitantes en armonía ecológica
+            </li>
+            <li>
+              <strong>Fundación:</strong> 2045, después del "Gran Despertar Verde"
+            </li>
+          </ul>
+        </div>
+
+        <div class="overview-card card">
+          <h3>Organización Social</h3>
+          <ul>
+            <li><strong>Gobierno:</strong> Consejos comunitarios rotativos</li>
+            <li><strong>Economía:</strong> Circular y regenerativa</li>
+            <li><strong>Energía:</strong> 100% renovable y distribuida</li>
+            <li>
+              <strong>Transporte:</strong> Bicicletas, transporte público eléctrico
+            </li>
+            <li>
+              <strong>Vivienda:</strong> Edificios bioclimáticos integrados
+            </li>
+          </ul>
+        </div>
+
+        <div class="overview-card card">
+          <h3>Cultura y Valores</h3>
+          <ul>
+            <li><strong>Filosofía:</strong> "Optimismo radical en acción"</li>
+            <li><strong>Religión:</strong> Espiritualidad ecológica diversa</li>
+            <li>
+              <strong>Educación:</strong> Aprendizaje experiencial y colaborativo
+            </li>
+            <li><strong>Arte:</strong> Biomimética y expresión sostenible</li>
+            <li>
+              <strong>Tiempo:</strong> Ritmos naturales sobre horarios rígidos
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Districts Section -->
+  <section class="districts-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">🏘️</span>
+        Distritos de Neo-Cuernavaca
+      </h2>
+      <div class="districts-grid">
+        <div class="district-card card">
+          <div class="district-header">
+            <span class="emoji-cutout emoji-lg theme-solar">🌅</span>
+            <h3>Distrito Solar</h3>
+          </div>
+          <div class="district-content">
+            <p>
+              <strong>Características:</strong> Centro de investigación energética
+              y residencia de los evangelistas solares.
+            </p>
+            <ul>
+              <li>Laboratorios de células fotovoltaicas</li>
+              <li>Torre de distribución energética central</li>
+              <li>Jardines de concentradores solares</li>
+              <li>Residencias con techos completamente panelados</li>
+              <li>Plaza del Solsticio (centro ceremonial)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="district-card card">
+          <div class="district-header">
+            <span class="emoji-cutout emoji-lg theme-green">🌱</span>
+            <h3>Valle del Compostaje</h3>
+          </div>
+          <div class="district-content">
+            <p>
+              <strong>Características:</strong> Centro de gestión de residuos orgánicos
+              y agricultura regenerativa.
+            </p>
+            <ul>
+              <li>Instalaciones de compostaje comunitario</li>
+              <li>Granjas verticales integradas</li>
+              <li>Mercados de productos locales</li>
+              <li>Centros de educación agrícola</li>
+              <li>Senderos de biodiversidad urbana</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="district-card card">
+          <div class="district-header">
+            <span class="emoji-cutout emoji-lg theme-purple">🔬</span>
+            <h3>Zona de Innovación</h3>
+          </div>
+          <div class="district-content">
+            <p>
+              <strong>Características:</strong> Hub tecnológico donde se desarrollan
+              soluciones apropiadas.
+            </p>
+            <ul>
+              <li>Incubadoras de tecnología limpia</li>
+              <li>Talleres de fabricación digital</li>
+              <li>Espacios de coworking colaborativo</li>
+              <li>Centros de reparación comunitaria</li>
+              <li>Laboratorios de biomateriales</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="district-card card">
+          <div class="district-header">
+            <span class="emoji-cutout emoji-lg theme-community">💧</span>
+            <h3>Barrio de las Aguas</h3>
+          </div>
+          <div class="district-content">
+            <p>
+              <strong>Características:</strong> Gestión hídrica integral y espacios
+              de bienestar comunitario.
+            </p>
+            <ul>
+              <li>Sistemas de captación de lluvia</li>
+              <li>Plantas de tratamiento natural</li>
+              <li>Balnearios públicos geotérmicos</li>
+              <li>Jardines acuáticos recreativos</li>
+              <li>Centros de salud holística</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Section -->
+  <section class="technology-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">⚙️</span>
+        Tecnología Apropiada
+      </h2>
+      <div class="tech-grid">
+        <div class="tech-category card">
+          <h3>Energía Renovable</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <h4>Paneles Solares Orgánicos</h4>
+              <p>
+                Células fotovoltaicas cultivadas a partir de algas modificadas
+                genéticamente.
+              </p>
+            </div>
+            <div class="tech-item">
+              <h4>Turbinas Eólicas Biomicéticas</h4>
+              <p>
+                Diseños inspirados en alas de colibrí para máxima eficiencia con
+                mínimo ruido.
+              </p>
+            </div>
+            <div class="tech-item">
+              <h4>Generadores Geotérmicos Domésticos</h4>
+              <p>
+                Sistemas de aprovechamiento de calor terrestre para viviendas
+                individuales.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-category card">
+          <h3>Gestión de Recursos</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <h4>Compostadores Inteligentes</h4>
+              <p>
+                Sistemas automatizados que monitorizan pH, humedad y
+                temperatura.
+              </p>
+            </div>
+            <div class="tech-item">
+              <h4>Captadores Atmosféricos de Agua</h4>
+              <p>Tecnología que extrae humedad del aire para consumo humano.</p>
+            </div>
+            <div class="tech-item">
+              <h4>Materiales Autoregenerativos</h4>
+              <p>
+                Biomateriales que se reparan automáticamente usando micelio.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-category card">
+          <h3>Transporte Sostenible</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <h4>Bicicletas de Asistencia Solar</h4>
+              <p>
+                Vehículos personales con carga continua a través de paneles
+                flexibles.
+              </p>
+            </div>
+            <div class="tech-item">
+              <h4>Transporte Público por Inducción</h4>
+              <p>
+                Autobuses que se cargan mientras circulan por carriles
+                electromagnéticos.
+              </p>
+            </div>
+            <div class="tech-item">
+              <h4>Redes de Teleportación de Objetos</h4>
+              <p>
+                Sistema de tubos neumáticos para distribución de paquetes
+                pequeños.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rules and Guidelines -->
+  <section class="rules-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">📜</span>
+        Reglas del Universo
+      </h2>
+      <div class="rules-grid">
+        <div class="rule-category card">
+          <h3>Coherencia Tecnológica</h3>
+          <ul>
+            <li>Toda tecnología debe tener base científica plausible</li>
+            <li>Los avances surgen de necesidades comunitarias reales</li>
+            <li>No hay soluciones mágicas instantáneas</li>
+            <li>La innovación es colaborativa, no individual</li>
+            <li>Los errores y limitaciones son parte del proceso</li>
+          </ul>
+        </div>
+
+        <div class="rule-category card">
+          <h3>Dinámicas Sociales</h3>
+          <ul>
+            <li>Los conflictos se resuelven mediante diálogo</li>
+            <li>La diversidad de opiniones es valorada</li>
+            <li>El consenso se busca pero no siempre se logra</li>
+            <li>Las decisiones consideran 7 generaciones futuras</li>
+            <li>El bien común prevalece sobre el individual</li>
+          </ul>
+        </div>
+
+        <div class="rule-category card">
+          <h3>Límites Narrativos</h3>
+          <ul>
+            <li>No distopía: los problemas tienen soluciones</li>
+            <li>No utopía: existen desafíos y tensiones</li>
+            <li>Los personajes tienen defectos y crecimiento</li>
+            <li>El humor surge de situaciones, no de burlas</li>
+            <li>Cada historia debe inspirar acción real</li>
+          </ul>
+        </div>
+
+        <div class="rule-category card">
+          <h3>Estética Visual</h3>
+          <ul>
+            <li>Colores vibrantes pero naturales</li>
+            <li>Integración armoniosa entre tecnología y naturaleza</li>
+            <li>Diseños curvos inspirados en formas orgánicas</li>
+            <li>Materiales visiblemente sostenibles</li>
+            <li>Espacios abiertos y comunitarios</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">📅</span>
+        Línea Temporal
+      </h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3>2023-2030: El Despertar</h3>
+            <p>
+              Crisis climáticas consecutivas llevan a un cambio de conciencia
+              masivo. Comienzan los primeros experimentos comunitarios.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3>2030-2040: La Transición</h3>
+            <p>
+              Gobiernos adoptan políticas radicales de sostenibilidad. Emergen
+              las primeras tecnologías apropiadas a gran escala.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3>2040-2045: La Transformación</h3>
+            <p>
+              Cuernavaca se convierte en ciudad piloto para la reconstrucción
+              sostenible total. Nace Neo-Cuernavaca.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3>2045-Presente: La Nueva Era</h3>
+            <p>
+              Neo-Cuernavaca se establece como modelo global. Los Testigos de
+              Solarpunk inician sus misiones evangelizadoras.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="resource-navigation">
+    <div class="container">
+      <div class="nav-buttons">
+        <a
+          href={`${basePath}/recursos/creadores/personajes/`}
+          class="btn btn-secondary"
+        >
+          <span class="emoji-cutout emoji-sm">👥</span>
+          Fichas de Personajes
+        </a>
+        <a href={`${basePath}/recursos/`} class="btn btn-primary">
+          <span class="emoji-cutout emoji-sm">📚</span>
+          Volver a Recursos
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-md) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb li {
+    color: var(--texto-secundario);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 var(--espacio-sm);
+    color: var(--texto-terciario);
+  }
+
+  .breadcrumb a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .resource-hero {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin: var(--espacio-lg) 0;
+    color: var(--verde-sostenible);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .world-overview,
+  .districts-section,
+  .technology-section,
+  .rules-section,
+  .timeline-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .districts-section,
+  .rules-section {
+    background-color: var(--fondo-secundario);
+  }
+
+  .world-overview h2,
+  .districts-section h2,
+  .technology-section h2,
+  .rules-section h2,
+  .timeline-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .districts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .tech-grid,
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .overview-card,
+  .district-card,
+  .tech-category,
+  .rule-category {
+    padding: var(--espacio-xl);
+  }
+
+  .overview-card h3,
+  .tech-category h3,
+  .rule-category h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    font-size: 1.2rem;
+  }
+
+  .district-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .district-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .district-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-md);
+    font-style: italic;
+  }
+
+  .overview-card ul,
+  .district-content ul,
+  .rule-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .overview-card li,
+  .district-content li,
+  .rule-category li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .overview-card li:last-child,
+  .district-content li:last-child,
+  .rule-category li:last-child {
+    border-bottom: none;
+  }
+
+  .tech-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+  }
+
+  .tech-item {
+    padding: var(--espacio-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border-left: 3px solid var(--purpura-creativo);
+  }
+
+  .tech-item h4 {
+    color: var(--purpura-creativo);
+    margin: 0 0 var(--espacio-sm) 0;
+    font-size: 1rem;
+  }
+
+  .tech-item p {
+    color: var(--texto-secundario);
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: var(--espacio-xl) auto 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--verde-sostenible);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: var(--espacio-xxl);
+    width: 50%;
+  }
+
+  .timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: var(--espacio-xl);
+    text-align: right;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: var(--espacio-xl);
+    text-align: left;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: var(--amarillo-solar);
+    border: 3px solid var(--verde-sostenible);
+    border-radius: 50%;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-marker {
+    right: -8px;
+  }
+
+  .timeline-item:nth-child(even) .timeline-marker {
+    left: -8px;
+  }
+
+  .timeline-content {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+  }
+
+  .timeline-content h3 {
+    color: var(--verde-sostenible);
+    margin: 0 0 var(--espacio-md) 0;
+  }
+
+  .timeline-content p {
+    color: var(--texto-secundario);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .resource-navigation {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--espacio-lg);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .overview-grid,
+    .districts-grid,
+    .tech-grid,
+    .rules-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline::before {
+      left: 20px;
+    }
+
+    .timeline-item {
+      width: 100%;
+      left: 0;
+      padding-left: var(--espacio-xl);
+      text-align: left;
+    }
+
+    .timeline-item:nth-child(odd) {
+      padding-right: 0;
+      text-align: left;
+    }
+
+    .timeline-marker {
+      left: 12px !important;
+      right: auto !important;
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>

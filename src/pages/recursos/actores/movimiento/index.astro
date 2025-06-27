@@ -1,0 +1,881 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  title="Referencias de Movimiento"
+  description="Gestualidad y presencia física - Guía de expresión corporal para actores del universo Testigos de Solarpunk"
+>
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href={`${basePath}/`}>Inicio</a></li>
+        <li><a href={`${basePath}/recursos/`}>Recursos</a></li>
+        <li><a href={`${basePath}/recursos/actores/`}>Actores</a></li>
+        <li aria-current="page">Referencias de Movimiento</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="resource-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="emoji-cutout emoji-hero emoji-xl theme-community flutter"
+          >🚶</span
+        >
+        <h1>Referencias de Movimiento</h1>
+        <p class="hero-description">
+          Domina la gestualidad y presencia física que define a cada personaje
+          para crear interpretaciones corporalmente auténticas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Panelia Movement Guide -->
+  <section class="movement-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">☀️</span>
+        Hermana Panelia - Lenguaje Corporal Solar
+      </h2>
+      <div class="movement-guide card">
+        <div class="movement-grid">
+          <div class="posture-column">
+            <h3>Postura y Presencia</h3>
+            <div class="posture-guide">
+              <h4>Postura Base: "Antena Solar"</h4>
+              <ul>
+                <li>Columna erguida, como si capturara energía del sol</li>
+                <li>Hombros relajados pero abiertos</li>
+                <li>Pecho ligeramente expandido (respiración consciente)</li>
+                <li>
+                  Pies firmemente plantados pero listos para el movimiento
+                </li>
+                <li>Cabeza alta con barbilla paralela al suelo</li>
+              </ul>
+            </div>
+
+            <div class="posture-guide">
+              <h4>Aproximación Espacial</h4>
+              <ul>
+                <li>
+                  Se acerca en curvas suaves, nunca líneas rectas agresivas
+                </li>
+                <li>
+                  Mantiene distancia respetuosa (1.5-2 metros inicialmente)
+                </li>
+                <li>
+                  Se mueve hacia adelante al hablar, retrocede al escuchar
+                </li>
+                <li>
+                  Usa el espacio como herramienta de conexión, no dominación
+                </li>
+              </ul>
+            </div>
+
+            <div class="posture-guide">
+              <h4>Energía Corporal</h4>
+              <ul>
+                <li>Movimientos fluidos como rayos de sol</li>
+                <li>Energía contenida pero visible</li>
+                <li>Cambios de ritmo según el contenido emocional</li>
+                <li>Nunca estática, siempre en ligero movimiento</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="gestures-column">
+            <h3>Gestualidad Característica</h3>
+            <div class="gesture-category">
+              <h4>Gestos de Apertura</h4>
+              <div class="gesture-item">
+                <h5>Las Manos Solares</h5>
+                <p>
+                  Palmas abiertas hacia arriba al explicar conceptos, como si
+                  ofreciera luz. Movimientos circulares que imitan la rotación
+                  solar.
+                </p>
+              </div>
+              <div class="gesture-item">
+                <h5>El Abrazo del Horizonte</h5>
+                <p>
+                  Brazos que se extienden gradualmente al hablar de
+                  posibilidades, como si abrazara todo el potencial futuro.
+                </p>
+              </div>
+              <div class="gesture-item">
+                <h5>La Siembra de Ideas</h5>
+                <p>
+                  Gestos hacia abajo con las manos, como plantando semillas de
+                  pensamiento en terreno fértil.
+                </p>
+              </div>
+            </div>
+
+            <div class="gesture-category">
+              <h4>Gestos de Conexión</h4>
+              <div class="gesture-item">
+                <h5>El Puente de Luz</h5>
+                <p>
+                  Una mano hacia sí misma, otra hacia la persona, creando un
+                  "puente" visual de comprensión mutua.
+                </p>
+              </div>
+              <div class="gesture-item">
+                <h5>El Punto de Iluminación</h5>
+                <p>
+                  Índice que se eleva suavemente al tener una revelación, nunca
+                  acusatorio, siempre inspiracional.
+                </p>
+              </div>
+            </div>
+
+            <div class="gesture-category">
+              <h4>Gestos de Escucha</h4>
+              <div class="gesture-item">
+                <h5>La Receptividad Solar</h5>
+                <p>
+                  Ligera inclinación hacia adelante, manos relajadas, expresión
+                  facial atenta pero no intensa.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compostino Movement Guide -->
+  <section class="movement-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">🌱</span>
+        Hermano Compostino - Lenguaje Corporal Terrenal
+      </h2>
+      <div class="movement-guide card">
+        <div class="movement-grid">
+          <div class="posture-column">
+            <h3>Postura y Presencia</h3>
+            <div class="posture-guide">
+              <h4>Postura Base: "Árbol Centenario"</h4>
+              <ul>
+                <li>Centro de gravedad bajo, conectado con la tierra</li>
+                <li>Postura sólida pero no rígida</li>
+                <li>Respiración visible desde el diafragma</li>
+                <li>Movimientos mínimos pero significativos</li>
+                <li>
+                  Presencia que llena el espacio sin ocuparlo agresivamente
+                </li>
+              </ul>
+            </div>
+
+            <div class="posture-guide">
+              <h4>Aproximación Espacial</h4>
+              <ul>
+                <li>Se acerca lentamente, como la raíz que encuentra agua</li>
+                <li>Ocupa el espacio con paciencia, nunca con prisa</li>
+                <li>
+                  Mantiene distancia constante, raramente invade espacio
+                  personal
+                </li>
+                <li>Usa pausas y silencio como herramientas espaciales</li>
+              </ul>
+            </div>
+
+            <div class="posture-guide">
+              <h4>Energía Corporal</h4>
+              <ul>
+                <li>
+                  Movimientos orgánicos, inspirados en crecimiento natural
+                </li>
+                <li>Ritmo constante, como los ciclos de la naturaleza</li>
+                <li>Energía contenida, profunda, nunca superficial</li>
+                <li>Transiciones suaves entre posturas</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="gestures-column">
+            <h3>Gestualidad Característica</h3>
+            <div class="gesture-category">
+              <h4>Gestos de Sabiduría</h4>
+              <div class="gesture-item">
+                <h5>Las Manos de la Tierra</h5>
+                <p>
+                  Palmas hacia abajo al explicar procesos, como si sintiera la
+                  tierra. Movimientos horizontales que sugieren ciclos y
+                  continuidad.
+                </p>
+              </div>
+              <div class="gesture-item">
+                <h5>El Abrazar del Tiempo</h5>
+                <p>
+                  Gestos amplios y lentos que encompassan grandes períodos,
+                  mostrando la perspectiva del tiempo natural.
+                </p>
+              </div>
+              <div class="gesture-item">
+                <h5>La Paciencia del Crecimiento</h5>
+                <p>
+                  Manos que se abren gradualmente, como una flor que florece en
+                  cámara lenta.
+                </p>
+              </div>
+            </div>
+
+            <div class="gesture-category">
+              <h4>Gestos de Proceso</h4>
+              <div class="gesture-item">
+                <h5>El Ciclo Completo</h5>
+                <p>
+                  Movimientos circulares con ambas manos, mostrando cómo todo se
+                  conecta en ciclos naturales.
+                </p>
+              </div>
+              <div class="gesture-item">
+                <h5>La Transformación Gradual</h5>
+                <p>
+                  Una mano representa el "antes", la otra el "después", con
+                  movimiento lento de transformación entre ambas.
+                </p>
+              </div>
+            </div>
+
+            <div class="gesture-category">
+              <h4>Gestos de Reflexión</h4>
+              <div class="gesture-item">
+                <h5>La Contemplación Profunda</h5>
+                <p>
+                  Mano en la barbilla, pero no pensativo sino conectado con
+                  sabiduría ancestral.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interaction Dynamics -->
+  <section class="dynamics-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">🤝</span>
+        Dinámicas de Interacción
+      </h2>
+      <div class="dynamics-grid">
+        <div class="dynamic-card card">
+          <h3>Panelia + Compostino: El Dúo Complementario</h3>
+          <div class="dynamic-content">
+            <h4>Sincronización Corporal</h4>
+            <ul>
+              <li>
+                Panelia inicia con energía, Compostino la ancla con estabilidad
+              </li>
+              <li>
+                Se posicionan formando un semicírculo inclusivo hacia la
+                audiencia
+              </li>
+              <li>
+                Panelia se mueve más, Compostino crea el centro de gravedad
+              </li>
+              <li>Intercambian roles de líder/seguidor según el tema</li>
+            </ul>
+
+            <h4>Coreografía Natural</h4>
+            <div class="choreography-sequence">
+              <div class="sequence-step">
+                <h5>1. Aproximación Inicial</h5>
+                <p>
+                  <strong>Panelia:</strong> Se acerca primero, energía hacia adelante
+                </p>
+                <p>
+                  <strong>Compostino:</strong> Sigue a distancia, observando, creando
+                  respaldo
+                </p>
+              </div>
+              <div class="sequence-step">
+                <h5>2. Desarrollo de la Conversación</h5>
+                <p>
+                  <strong>Panelia:</strong> Gesticula activamente, usa el espacio
+                </p>
+                <p>
+                  <strong>Compostino:</strong> Movimientos mínimos pero significativos,
+                  ancla la interacción
+                </p>
+              </div>
+              <div class="sequence-step">
+                <h5>3. Cierre Conjunto</h5>
+                <p>
+                  <strong>Ambos:</strong> Se sincronizan para el momento final, creando
+                  unidad visual
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dynamic-card card">
+          <h3>Adaptación a Diferentes Audiencias</h3>
+          <div class="dynamic-content">
+            <h4>El Escéptico (tipo Lucía)</h4>
+            <div class="audience-adaptation">
+              <p>
+                <strong>Panelia:</strong> Reduce gestos dramáticos, aumenta gestos
+                precisos y técnicos
+              </p>
+              <p>
+                <strong>Compostino:</strong> Mantiene distancia mayor, usa gestos
+                más analíticos
+              </p>
+            </div>
+
+            <h4>El Idealista Joven</h4>
+            <div class="audience-adaptation">
+              <p>
+                <strong>Panelia:</strong> Aumenta expresividad, gestos más amplios
+                e inclusivos
+              </p>
+              <p>
+                <strong>Compostino:</strong> Se permite más cercanía, gestos más
+                paternales
+              </p>
+            </div>
+
+            <h4>El Pragmático Ocupado</h4>
+            <div class="audience-adaptation">
+              <p>
+                <strong>Panelia:</strong> Gestos más directos, menos filosofía corporal
+              </p>
+              <p>
+                <strong>Compostino:</strong> Movimientos más rápidos que lo usual,
+                pero sin perder esencia
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="dynamic-card card">
+          <h3>Manejo Corporal de Objeciones</h3>
+          <div class="dynamic-content">
+            <h4>Resistencia Activa</h4>
+            <p>Cuando enfrentan hostilidad o resistencia fuerte:</p>
+            <ul>
+              <li>
+                <strong>Panelia:</strong> Se retira ligeramente, baja la intensidad
+                gestual
+              </li>
+              <li>
+                <strong>Compostino:</strong> Se mantiene firme pero no confrontacional
+              </li>
+              <li>
+                <strong>Ambos:</strong> Crean espacio físico para que la persona
+                se sienta menos presionada
+              </li>
+            </ul>
+
+            <h4>Curiosidad Emergente</h4>
+            <p>Cuando detectan interés genuino:</p>
+            <ul>
+              <li>
+                <strong>Panelia:</strong> Se acerca gradualmente, aumenta expresividad
+              </li>
+              <li>
+                <strong>Compostino:</strong> Se inclina ligeramente hacia adelante,
+                señal de disponibilidad
+              </li>
+              <li>
+                <strong>Ambos:</strong> Sincronizan su energía con la de la audiencia
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Considerations -->
+  <section class="technical-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-community">🎬</span>
+        Consideraciones Técnicas
+      </h2>
+      <div class="technical-content card">
+        <div class="technical-grid">
+          <div class="video-column">
+            <h3>Para Video (TikTok, Instagram, YouTube)</h3>
+            <div class="tech-considerations">
+              <h4>Framing y Composición</h4>
+              <ul>
+                <li>Gestos deben ser visibles en formato vertical (móvil)</li>
+                <li>Movimientos importantes en el tercio superior del frame</li>
+                <li>Panelia puede usar más espacio lateral</li>
+                <li>Compostino se mantiene más centrado</li>
+              </ul>
+
+              <h4>Ritmo Visual</h4>
+              <ul>
+                <li>Panelia: Cambios de postura cada 3-5 segundos</li>
+                <li>Compostino: Cambios cada 8-12 segundos</li>
+                <li>
+                  Gestos clave deben coincidir con puntos importantes del
+                  diálogo
+                </li>
+                <li>Evitar movimiento excesivo que distraiga del mensaje</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="stage-column">
+            <h3>Para Presentaciones en Vivo</h3>
+            <div class="tech-considerations">
+              <h4>Uso del Espacio Escénico</h4>
+              <ul>
+                <li>Panelia: Usa toda la anchura del escenario</li>
+                <li>
+                  Compostino: Mantiene territorio base, se expande gradualmente
+                </li>
+                <li>Ambos: Evitan dar la espalda a sectores de la audiencia</li>
+                <li>Movimientos amplificados para audiencias grandes</li>
+              </ul>
+
+              <h4>Proyección Corporal</h4>
+              <ul>
+                <li>Gestos 20% más grandes que en conversación normal</li>
+                <li>Expresiones faciales más marcadas</li>
+                <li>Movimientos más definidos y sostenidos</li>
+                <li>Contacto visual rotativo con toda la audiencia</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="practice-section">
+          <h3>Ejercicios de Práctica</h3>
+          <div class="practice-exercises">
+            <div class="exercise-item">
+              <h4>Ejercicio 1: Espejo Solar (Para Panelia)</h4>
+              <p>
+                Practica frente a un espejo imaginando que reflejas luz solar
+                hacia diferentes personas. Cada gesto debe "iluminar" un área
+                específica.
+              </p>
+            </div>
+
+            <div class="exercise-item">
+              <h4>Ejercicio 2: Raíces Profundas (Para Compostino)</h4>
+              <p>
+                Camina muy lentamente, sintiendo conexión con el suelo. Cada
+                paso debe ser deliberado, como si crecieran raíces.
+              </p>
+            </div>
+
+            <div class="exercise-item">
+              <h4>Ejercicio 3: Danza del Equilibrio (Ambos)</h4>
+              <p>
+                Practiquen juntos sin diálogo, solo encontrando el balance entre
+                la energía solar y terrenal a través del movimiento.
+              </p>
+            </div>
+
+            <div class="exercise-item">
+              <h4>Ejercicio 4: Improvisación Gestual</h4>
+              <p>
+                Respondan a objeciones comunes usando solo lenguaje corporal,
+                sin palabras. Desarrolla repertorio gestual auténtico.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="resource-navigation">
+    <div class="container">
+      <div class="nav-buttons">
+        <a
+          href={`${basePath}/recursos/actores/dialogo/`}
+          class="btn btn-secondary"
+        >
+          <span class="emoji-cutout emoji-sm">💬</span>
+          Guías de Diálogo
+        </a>
+        <a href={`${basePath}/recursos/`} class="btn btn-primary">
+          <span class="emoji-cutout emoji-sm">📚</span>
+          Volver a Recursos
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-md) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb li {
+    color: var(--texto-secundario);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 var(--espacio-sm);
+    color: var(--texto-terciario);
+  }
+
+  .breadcrumb a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .resource-hero {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin: var(--espacio-lg) 0;
+    color: var(--naranja-comunidad);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .movement-section,
+  .dynamics-section,
+  .technical-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .dynamics-section {
+    background-color: var(--fondo-secundario);
+  }
+
+  .movement-section h2,
+  .dynamics-section h2,
+  .technical-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .movement-guide {
+    padding: var(--espacio-xxl);
+    margin-bottom: var(--espacio-xxl);
+  }
+
+  .movement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-xxl);
+  }
+
+  .posture-column h3,
+  .gestures-column h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .posture-guide {
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .posture-guide h4 {
+    color: var(--amarillo-solar);
+    margin-bottom: var(--espacio-md);
+    font-size: 1.1rem;
+  }
+
+  .posture-guide ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .posture-guide li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+    line-height: 1.5;
+  }
+
+  .posture-guide li:last-child {
+    border-bottom: none;
+  }
+
+  .gesture-category {
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .gesture-category h4 {
+    color: var(--purpura-creativo);
+    margin-bottom: var(--espacio-lg);
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .gesture-item {
+    margin-bottom: var(--espacio-lg);
+    padding: var(--espacio-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border-left: 3px solid var(--naranja-comunidad);
+  }
+
+  .gesture-item h5 {
+    color: var(--naranja-comunidad);
+    margin: 0 0 var(--espacio-sm) 0;
+    font-size: 1rem;
+  }
+
+  .gesture-item p {
+    color: var(--texto-secundario);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .dynamics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .dynamic-card {
+    padding: var(--espacio-xl);
+  }
+
+  .dynamic-card h3 {
+    color: var(--purpura-creativo);
+    margin-bottom: var(--espacio-lg);
+    text-align: center;
+  }
+
+  .dynamic-content h4 {
+    color: var(--amarillo-solar);
+    margin: var(--espacio-lg) 0 var(--espacio-md) 0;
+    font-size: 1rem;
+  }
+
+  .dynamic-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .dynamic-content li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+  }
+
+  .choreography-sequence {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+  }
+
+  .sequence-step {
+    padding: var(--espacio-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border-left: 3px solid var(--verde-sostenible);
+  }
+
+  .sequence-step h5 {
+    color: var(--verde-sostenible);
+    margin: 0 0 var(--espacio-sm) 0;
+    font-size: 0.9rem;
+  }
+
+  .sequence-step p {
+    color: var(--texto-secundario);
+    margin: var(--espacio-xs) 0;
+    line-height: 1.5;
+  }
+
+  .sequence-step p strong {
+    color: var(--amarillo-solar);
+  }
+
+  .audience-adaptation {
+    margin-bottom: var(--espacio-md);
+  }
+
+  .audience-adaptation p {
+    color: var(--texto-secundario);
+    margin: var(--espacio-xs) 0;
+    line-height: 1.5;
+  }
+
+  .audience-adaptation p strong {
+    color: var(--amarillo-solar);
+  }
+
+  .technical-content {
+    padding: var(--espacio-xxl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .technical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xxl);
+    margin-bottom: var(--espacio-xxl);
+  }
+
+  .video-column h3,
+  .stage-column h3 {
+    color: var(--naranja-comunidad);
+    margin-bottom: var(--espacio-lg);
+    text-align: center;
+  }
+
+  .tech-considerations h4 {
+    color: var(--amarillo-solar);
+    margin: var(--espacio-lg) 0 var(--espacio-md) 0;
+    font-size: 1rem;
+  }
+
+  .tech-considerations ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .tech-considerations li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+  }
+
+  .practice-section {
+    border-top: 2px solid var(--borde-claro);
+    padding-top: var(--espacio-xl);
+  }
+
+  .practice-section h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    text-align: center;
+  }
+
+  .practice-exercises {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .exercise-item {
+    padding: var(--espacio-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border-left: 3px solid var(--verde-sostenible);
+  }
+
+  .exercise-item h4 {
+    color: var(--verde-sostenible);
+    margin: 0 0 var(--espacio-sm) 0;
+    font-size: 1rem;
+  }
+
+  .exercise-item p {
+    color: var(--texto-secundario);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .resource-navigation {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--espacio-lg);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .movement-grid {
+      grid-template-columns: 1fr;
+      gap: var(--espacio-xl);
+    }
+
+    .dynamics-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .technical-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .practice-exercises {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>

@@ -136,6 +136,9 @@ const siteStructure = [
   title="Mapa del Sitio"
   description="Navegación completa del universo Testigos de Solarpunk - todas las secciones y páginas disponibles"
 >
+  <!-- Skip to content for better accessibility -->
+  <a href="#sitemap-main" class="skip-link">Saltar al contenido del mapa</a>
+
   <section class="sitemap-hero">
     <div class="container">
       <h1>
@@ -152,16 +155,24 @@ const siteStructure = [
     </div>
   </section>
 
-  <section class="sitemap-content">
+  <section
+    class="sitemap-content"
+    aria-labelledby="sitemap-heading"
+    id="sitemap-main"
+  >
     <div class="container">
-      <div class="sitemap-grid">
+      <h2 id="sitemap-heading" class="sr-only">
+        Todas las secciones del sitio web
+      </h2>
+      <div class="sitemap-grid" role="list">
         {
           siteStructure.map((section) => (
-            <div class="sitemap-section">
+            <div class="sitemap-section" role="listitem">
               <div class="section-header">
                 <a
                   href={section.href}
                   class:list={[`section-link`, `theme-${section.theme}`]}
+                  aria-describedby={`desc-${section.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <span
                     class:list={[
@@ -169,28 +180,49 @@ const siteStructure = [
                       `emoji-lg`,
                       `theme-${section.theme}`,
                     ]}
+                    aria-hidden="true"
                   >
                     {section.emoji}
                   </span>
                   <div class="section-info">
                     <h2>{section.title}</h2>
-                    <p>{section.description}</p>
+                    <p
+                      id={`desc-${section.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {section.description}
+                    </p>
                   </div>
                 </a>
               </div>
 
               {section.subsections && (
-                <div class="subsections">
+                <nav
+                  class="subsections"
+                  aria-label={`Subsecciones de ${section.title}`}
+                >
                   {section.subsections.map((sub) => (
-                    <a href={sub.href} class="subsection-link">
-                      <span class="emoji-cutout emoji-sm theme-green">📄</span>
+                    <a
+                      href={sub.href}
+                      class="subsection-link"
+                      aria-describedby={`subdesc-${sub.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      <span
+                        class="emoji-cutout emoji-sm theme-green"
+                        aria-hidden="true"
+                      >
+                        📄
+                      </span>
                       <div>
                         <strong>{sub.title}</strong>
-                        <p>{sub.description}</p>
+                        <p
+                          id={`subdesc-${sub.title.toLowerCase().replace(/\s+/g, '-')}`}
+                        >
+                          {sub.description}
+                        </p>
                       </div>
                     </a>
                   ))}
-                </div>
+                </nav>
               )}
             </div>
           ))

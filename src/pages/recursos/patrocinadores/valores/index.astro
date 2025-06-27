@@ -1,0 +1,1094 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  title="Alineación de Valores"
+  description="Filosofía y principios del proyecto - Guía de valores compartidos para patrocinadores del universo Testigos de Solarpunk"
+>
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href={`${basePath}/`}>Inicio</a></li>
+        <li><a href={`${basePath}/recursos/`}>Recursos</a></li>
+        <li>
+          <a href={`${basePath}/recursos/patrocinadores/`}>Patrocinadores</a>
+        </li>
+        <li aria-current="page">Alineación de Valores</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="resource-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="emoji-cutout emoji-hero emoji-xl theme-green flutter"
+          >🌱</span
+        >
+        <h1>Alineación de Valores</h1>
+        <p class="hero-description">
+          Descubre la filosofía y principios fundamentales que guían el proyecto
+          Testigos de Solarpunk y cómo tu organización puede alinearse
+          auténticamente con nuestra misión.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="values-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">💎</span>
+        Valores Fundamentales
+      </h2>
+      <div class="values-grid">
+        <div class="value-card card">
+          <div class="value-header">
+            <span class="emoji-cutout emoji-lg theme-solar">🌅</span>
+            <h3>Optimismo Radical</h3>
+          </div>
+          <div class="value-content">
+            <h4>Qué Significa</h4>
+            <p>
+              Creemos firmemente que un futuro mejor no solo es posible, sino
+              inevitable si trabajamos juntos. No es optimismo ciego, sino
+              acción esperanzadora basada en soluciones reales.
+            </p>
+
+            <h4>En la Práctica</h4>
+            <ul>
+              <li>Enfocamos en soluciones, no solo en problemas</li>
+              <li>Celebramos pequeños avances y victorias cotidianas</li>
+              <li>Mantenemos esperanza incluso frente a desafíos complejos</li>
+              <li>Inspiramos acción positiva, no parálisis por miedo</li>
+            </ul>
+
+            <h4>Para Patrocinadores</h4>
+            <p>
+              Buscamos marcas que comparten esta visión esperanzadora y que
+              comunican soluciones reales de manera positiva, evitando el doom
+              scrolling o el fear-mongering.
+            </p>
+          </div>
+        </div>
+
+        <div class="value-card card">
+          <div class="value-header">
+            <span class="emoji-cutout emoji-lg theme-community">🏘️</span>
+            <h3>Acción Local, Impacto Global</h3>
+          </div>
+          <div class="value-content">
+            <h4>Qué Significa</h4>
+            <p>
+              Los cambios globales comienzan con transformaciones en nuestras
+              comunidades. Cada acción individual, conectada con otras, crea
+              ondas de transformación masiva.
+            </p>
+
+            <h4>En la Práctica</h4>
+            <ul>
+              <li>Promovemos soluciones aplicables en el hogar y barrio</li>
+              <li>
+                Conectamos acciones individuales con movimientos colectivos
+              </li>
+              <li>Apoyamos iniciativas comunitarias concretas</li>
+              <li>Medimos impacto tanto local como sistémico</li>
+            </ul>
+
+            <h4>Para Patrocinadores</h4>
+            <p>
+              Valoramos marcas con presencia local real, que entienden las
+              comunidades donde operan y contribuyen genuinamente al bienestar
+              regional.
+            </p>
+          </div>
+        </div>
+
+        <div class="value-card card">
+          <div class="value-header">
+            <span class="emoji-cutout emoji-lg theme-green">⚙️</span>
+            <h3>Tecnología Apropiada</h3>
+          </div>
+          <div class="value-content">
+            <h4>Qué Significa</h4>
+            <p>
+              La mejor tecnología es la que resuelve problemas reales de manera
+              accesible, sostenible y compatible con el bienestar humano y
+              ambiental.
+            </p>
+
+            <h4>En la Práctica</h4>
+            <ul>
+              <li>Priorizamos soluciones simples y efectivas</li>
+              <li>Evaluamos impacto ambiental del ciclo de vida completo</li>
+              <li>Promovemos tecnologías reparables y modificables</li>
+              <li>Favorecemos innovación inclusiva y accesible</li>
+            </ul>
+
+            <h4>Para Patrocinadores</h4>
+            <p>
+              Buscamos empresas tecnológicas que diseñan para la longevidad,
+              reparabilidad y accesibilidad, no solo para el consumo rápido.
+            </p>
+          </div>
+        </div>
+
+        <div class="value-card card">
+          <div class="value-header">
+            <span class="emoji-cutout emoji-lg theme-purple">🌈</span>
+            <h3>Diversidad Regenerativa</h3>
+          </div>
+          <div class="value-content">
+            <h4>Qué Significa</h4>
+            <p>
+              La fortaleza viene de la diversidad de voces, culturas,
+              perspectivas y soluciones. Como en la naturaleza, los ecosistemas
+              diversos son más resilientes.
+            </p>
+
+            <h4>En la Práctica</h4>
+            <ul>
+              <li>Incluimos perspectivas de diferentes comunidades</li>
+              <li>Celebramos soluciones culturalmente específicas</li>
+              <li>Promovemos equidad en acceso a recursos</li>
+              <li>Aprendemos de conocimientos ancestrales y tradicionales</li>
+            </ul>
+
+            <h4>Para Patrocinadores</h4>
+            <p>
+              Colaboramos con organizaciones comprometidas genuinamente con la
+              diversidad, equidad e inclusión en sus operaciones y liderazgo.
+            </p>
+          </div>
+        </div>
+
+        <div class="value-card card">
+          <div class="value-header">
+            <span class="emoji-cutout emoji-lg theme-solar">🔄</span>
+            <h3>Regeneración sobre Sostenibilidad</h3>
+          </div>
+          <div class="value-content">
+            <h4>Qué Significa</h4>
+            <p>
+              No solo buscamos "hacer menos daño" sino crear sistemas que
+              activamente restauran y mejoran el bienestar de personas y
+              planeta.
+            </p>
+
+            <h4>En la Práctica</h4>
+            <ul>
+              <li>Promovemos modelos circulares y regenerativos</li>
+              <li>Medimos impacto positivo, no solo reducción de negativo</li>
+              <li>Apoyamos sistemas que mejoran con el tiempo</li>
+              <li>Integramos bienestar humano y ambiental</li>
+            </ul>
+
+            <h4>Para Patrocinadores</h4>
+            <p>
+              Priorizamos empresas con modelos de negocio regenerativos que
+              crean valor compartido para todos los stakeholders.
+            </p>
+          </div>
+        </div>
+
+        <div class="value-card card">
+          <div class="value-header">
+            <span class="emoji-cutout emoji-lg theme-community">🤝</span>
+            <h3>Colaboración sobre Competencia</h3>
+          </div>
+          <div class="value-content">
+            <h4>Qué Significa</h4>
+            <p>
+              Los desafíos complejos requieren soluciones colaborativas.
+              Competimos en innovación y calidad, pero colaboramos en la misión
+              compartida de bienestar planetario.
+            </p>
+
+            <h4>En la Práctica</h4>
+            <ul>
+              <li>Facilitamos conexiones entre organizaciones afines</li>
+              <li>Compartimos conocimiento y recursos abiertamente</li>
+              <li>Celebramos éxitos de toda la comunidad</li>
+              <li>Construimos ecosistemas, no monopolios</li>
+            </ul>
+
+            <h4>Para Patrocinadores</h4>
+            <p>
+              Valoramos empresas que ven la colaboración intersectorial como
+              estrategia de valor compartido, no solo como táctica de marketing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alignment Assessment -->
+  <section class="assessment-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">✅</span>
+        Evaluación de Alineación
+      </h2>
+      <div class="assessment-content card">
+        <div class="assessment-intro">
+          <p>
+            Para determinar la compatibilidad de valores, evaluamos a
+            potenciales patrocinadores en las siguientes dimensiones:
+          </p>
+        </div>
+
+        <div class="assessment-categories">
+          <div class="assessment-category">
+            <h3>🎯 Propósito y Misión</h3>
+            <div class="criteria-list">
+              <div class="criteria-item excellent">
+                <h4>Excelente Alineación</h4>
+                <ul>
+                  <li>Misión explícita de sostenibilidad o bienestar social</li>
+                  <li>Objetivos cuantificables de impacto positivo</li>
+                  <li>Liderazgo comprometido públicamente con valores ESG</li>
+                  <li>
+                    Historial de decisiones coherentes con principios declarados
+                  </li>
+                </ul>
+              </div>
+              <div class="criteria-item good">
+                <h4>Buena Alineación</h4>
+                <ul>
+                  <li>Interés genuino en sostenibilidad</li>
+                  <li>Iniciativas ESG en desarrollo</li>
+                  <li>Voluntad de transparencia en operaciones</li>
+                  <li>Apertura al aprendizaje y mejora continua</li>
+                </ul>
+              </div>
+              <div class="criteria-item poor">
+                <h4>Incompatible</h4>
+                <ul>
+                  <li>Modelo de negocio fundamentalmente extractivo</li>
+                  <li>Historial de greenwashing documentado</li>
+                  <li>Resistencia a transparencia o accountability</li>
+                  <li>Prácticas laborales o ambientales problemáticas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-category">
+            <h3>🏭 Prácticas Operacionales</h3>
+            <div class="criteria-list">
+              <div class="criteria-item excellent">
+                <h4>Excelente Alineación</h4>
+                <ul>
+                  <li>Certificaciones ambientales y sociales verificables</li>
+                  <li>Cadena de suministro transparente y ética</li>
+                  <li>Políticas laborales progresivas y inclusivas</li>
+                  <li>Economía circular integrada en operaciones</li>
+                </ul>
+              </div>
+              <div class="criteria-item good">
+                <h4>Buena Alineación</h4>
+                <ul>
+                  <li>Esfuerzos documentados de mejora ambiental</li>
+                  <li>Políticas de diversidad e inclusión activas</li>
+                  <li>Transparencia en reporting de sostenibilidad</li>
+                  <li>Inversión en R&D de soluciones sostenibles</li>
+                </ul>
+              </div>
+              <div class="criteria-item poor">
+                <h4>Incompatible</h4>
+                <ul>
+                  <li>Externalización sistemática de costos ambientales</li>
+                  <li>Prácticas laborales explotativas</li>
+                  <li>Resistencia a regulaciones ambientales</li>
+                  <li>Modelo basado en obsolescencia programada</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-category">
+            <h3>🗣️ Comunicación y Cultura</h3>
+            <div class="criteria-list">
+              <div class="criteria-item excellent">
+                <h4>Excelente Alineación</h4>
+                <ul>
+                  <li>Comunicación auténtica sobre impacto y limitaciones</li>
+                  <li>Cultura interna alineada con valores públicos</li>
+                  <li>Engagement genuino con comunidades</li>
+                  <li>Apertura a crítica constructiva y feedback</li>
+                </ul>
+              </div>
+              <div class="criteria-item good">
+                <h4>Buena Alineación</h4>
+                <ul>
+                  <li>Comunicación mayormente honesta y directa</li>
+                  <li>Esfuerzos reales de engagement comunitario</li>
+                  <li>Receptividad a feedback externo</li>
+                  <li>Cultura organizacional en evolución positiva</li>
+                </ul>
+              </div>
+              <div class="criteria-item poor">
+                <h4>Incompatible</h4>
+                <ul>
+                  <li>Comunicación fundamentalmente misleading</li>
+                  <li>Cultura tóxica interna documentada</li>
+                  <li>Hostilidad hacia crítica o accountability</li>
+                  <li>Estrategias de communications defensivas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Red Lines -->
+  <section class="redlines-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-community">🚫</span>
+        Líneas Rojas: No Colaboramos Con
+      </h2>
+      <div class="redlines-grid">
+        <div class="redline-card card">
+          <h3>🛢️ Industrias Extractivas</h3>
+          <div class="redline-content">
+            <p>
+              No colaboramos con empresas cuyo modelo de negocio principal se
+              basa en:
+            </p>
+            <ul>
+              <li>Extracción de combustibles fósiles</li>
+              <li>Minería destructiva sin restauración</li>
+              <li>Deforestación o destrucción de ecosistemas</li>
+              <li>
+                Industrias con externalidades ambientales no internalizadas
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="redline-card card">
+          <h3>🏭 Prácticas Laborales Explotativas</h3>
+          <div class="redline-content">
+            <p>Rechazamos asociaciones con organizaciones que:</p>
+            <ul>
+              <li>Explotan trabajo infantil o forzado</li>
+              <li>Mantienen condiciones laborales peligrosas</li>
+              <li>Sistemáticamente subpagan salarios dignos</li>
+              <li>Reprimen organización sindical legítima</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="redline-card card">
+          <h3>🎭 Greenwashing Sistemático</h3>
+          <div class="redline-content">
+            <p>No toleramos organizaciones que:</p>
+            <ul>
+              <li>Hacen afirmaciones ambientales no verificables</li>
+              <li>Usan certificaciones falsas o misleading</li>
+              <li>Invierten más en marketing verde que en impacto real</li>
+              <li>Ocultan impactos negativos significativos</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="redline-card card">
+          <h3>⚔️ Industrias de Daño</h3>
+          <div class="redline-content">
+            <p>No colaboramos con sectores fundamentalmente incompatibles:</p>
+            <ul>
+              <li>Industria armamentística</li>
+              <li>Tabaco y productos adictivos dañinos</li>
+              <li>Gambling y industrias de explotación</li>
+              <li>Empresas con historial de corrupción sistemática</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="redline-card card">
+          <h3>🚪 Culturas Tóxicas</h3>
+          <div class="redline-content">
+            <p>Evitamos organizaciones con:</p>
+            <ul>
+              <li>Cultura interna discriminatoria documentada</li>
+              <li>Liderazgo con historial de comportamiento abusivo</li>
+              <li>Resistencia sistemática a accountability</li>
+              <li>Prácticas de silencing de whistleblowers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="redline-card card">
+          <h3>🎯 Misalignment Filosófico</h3>
+          <div class="redline-content">
+            <p>No es compatible trabajar con empresas que:</p>
+            <ul>
+              <li>
+                Promueven individualismo extremo sobre bienestar colectivo
+              </li>
+              <li>Priorizan crecimiento a cualquier costo</li>
+              <li>Ven la regulación ambiental como enemiga</li>
+              <li>Mantienen ideologías fundamentalmente anti-científicas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Framework -->
+  <section class="framework-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">🤝</span>
+        Marco de Colaboración Ética
+      </h2>
+      <div class="framework-content card">
+        <div class="framework-principles">
+          <h3>Principios de Colaboración</h3>
+          <div class="principles-grid">
+            <div class="principle-box">
+              <h4>🔍 Transparencia Radical</h4>
+              <p>
+                Revelamos todas las relaciones comerciales y su naturaleza.
+                Nuestra audiencia tiene derecho a conocer quién financia qué
+                contenido.
+              </p>
+            </div>
+            <div class="principle-box">
+              <h4>🎯 Integridad Editorial</h4>
+              <p>
+                Mantenemos control editorial completo. Los patrocinadores pueden
+                sugerir, pero no pueden dictionar el contenido o perspectiva.
+              </p>
+            </div>
+            <div class="principle-box">
+              <h4>📊 Accountability Mutua</h4>
+              <p>
+                Tanto nosotros como nuestros patrocinadores nos comprometemos a
+                ser responsables de nuestras acciones y impactos.
+              </p>
+            </div>
+            <div class="principle-box">
+              <h4>🌱 Mejora Continua</h4>
+              <p>
+                Esperamos crecimiento y evolución. Los errores son oportunidades
+                de aprendizaje, no razones para cancelación inmediata.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="framework-process">
+          <h3>Proceso de Due Diligence</h3>
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Investigación Inicial</h4>
+                <p>
+                  Revisión de sitio web, reportes de sostenibilidad,
+                  certificaciones y cobertura mediática.
+                </p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Verificación de Terceros</h4>
+                <p>
+                  Consulta con ONGs relevantes, verification de claims y
+                  análisis de controversias.
+                </p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Entrevista de Valores</h4>
+                <p>
+                  Conversación directa sobre motivaciones, objetivos y
+                  alineación filosófica.
+                </p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Periodo de Prueba</h4>
+                <p>
+                  Colaboración inicial limitada para evaluar compatibility
+                  práctica y química de trabajo.
+                </p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h4>Revisión Continua</h4>
+                <p>
+                  Monitoreo ongoing de prácticas, evolución y mantenimiento de
+                  alineación de valores.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content card">
+        <h2>¿Tu Organización Está Alineada?</h2>
+        <p>
+          Si reconoces a tu empresa en nuestros valores y prácticas, nos
+          encantaría conocerte. Construyamos juntos un futuro más regenerativo y
+          esperanzador.
+        </p>
+
+        <div class="cta-steps">
+          <div class="cta-step">
+            <span class="emoji-cutout emoji-lg theme-solar">📋</span>
+            <h3>1. Auto-Evaluación</h3>
+            <p>
+              Revisa honestamente cómo tu organización se alinea con nuestros
+              valores fundamentales.
+            </p>
+          </div>
+          <div class="cta-step">
+            <span class="emoji-cutout emoji-lg theme-green">📞</span>
+            <h3>2. Contacto Inicial</h3>
+            <p>
+              Escríbenos contando tu misión, valores y cómo ves una potencial
+              colaboración.
+            </p>
+          </div>
+          <div class="cta-step">
+            <span class="emoji-cutout emoji-lg theme-community">🤝</span>
+            <h3>3. Conversación</h3>
+            <p>
+              Tengamos una charla honesta sobre objetivos, expectativas y
+              posibilidades mutuas.
+            </p>
+          </div>
+        </div>
+
+        <div class="cta-buttons">
+          <a
+            href="mailto:colaboraciones@testigossolarpunk.com"
+            class="btn btn-primary"
+          >
+            <span class="emoji-cutout emoji-sm theme-solar">✉️</span>
+            Iniciar Conversación
+          </a>
+          <a
+            href={`${basePath}/recursos/patrocinadores/impacto/`}
+            class="btn btn-secondary"
+          >
+            <span class="emoji-cutout emoji-sm theme-purple">📊</span>
+            Ver Reporte de Impacto
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="resource-navigation">
+    <div class="container">
+      <div class="nav-buttons">
+        <a
+          href={`${basePath}/recursos/patrocinadores/integracion/`}
+          class="btn btn-secondary"
+        >
+          <span class="emoji-cutout emoji-sm">🤝</span>
+          Oportunidades de Integración
+        </a>
+        <a href={`${basePath}/recursos/`} class="btn btn-primary">
+          <span class="emoji-cutout emoji-sm">📚</span>
+          Volver a Recursos
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-md) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb li {
+    color: var(--texto-secundario);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 var(--espacio-sm);
+    color: var(--texto-terciario);
+  }
+
+  .breadcrumb a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .resource-hero {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin: var(--espacio-lg) 0;
+    color: var(--verde-sostenible);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .values-section,
+  .assessment-section,
+  .redlines-section,
+  .framework-section,
+  .cta-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .assessment-section,
+  .framework-section {
+    background-color: var(--fondo-secundario);
+  }
+
+  .values-section h2,
+  .assessment-section h2,
+  .redlines-section h2,
+  .framework-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .value-card {
+    padding: var(--espacio-xl);
+  }
+
+  .value-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .value-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .value-content h4 {
+    color: var(--amarillo-solar);
+    margin: var(--espacio-lg) 0 var(--espacio-md) 0;
+    font-size: 1rem;
+  }
+
+  .value-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+    line-height: 1.6;
+  }
+
+  .value-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .value-content li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+  }
+
+  .value-content li:last-child {
+    border-bottom: none;
+  }
+
+  .assessment-content {
+    padding: var(--espacio-xxl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .assessment-intro {
+    text-align: center;
+    margin-bottom: var(--espacio-xxl);
+  }
+
+  .assessment-intro p {
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .assessment-categories {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-xxl);
+  }
+
+  .assessment-category h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .criteria-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .criteria-item {
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border-left: 4px solid;
+  }
+
+  .criteria-item.excellent {
+    background: rgba(76, 175, 80, 0.1);
+    border-left-color: var(--verde-sostenible);
+  }
+
+  .criteria-item.good {
+    background: rgba(255, 193, 7, 0.1);
+    border-left-color: var(--amarillo-solar);
+  }
+
+  .criteria-item.poor {
+    background: rgba(244, 67, 54, 0.1);
+    border-left-color: #f44336;
+  }
+
+  .criteria-item h4 {
+    margin: 0 0 var(--espacio-md) 0;
+    font-size: 1rem;
+  }
+
+  .criteria-item.excellent h4 {
+    color: var(--verde-sostenible);
+  }
+
+  .criteria-item.good h4 {
+    color: var(--amarillo-solar);
+  }
+
+  .criteria-item.poor h4 {
+    color: #f44336;
+  }
+
+  .criteria-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .criteria-item li {
+    padding: var(--espacio-xs) 0;
+    color: var(--texto-secundario);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .criteria-item li:last-child {
+    border-bottom: none;
+  }
+
+  .redlines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .redline-card {
+    padding: var(--espacio-xl);
+    border-left: 4px solid #f44336;
+    background: rgba(244, 67, 54, 0.05);
+  }
+
+  .redline-card h3 {
+    color: #f44336;
+    margin-bottom: var(--espacio-lg);
+    font-size: 1.2rem;
+  }
+
+  .redline-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-md);
+    line-height: 1.6;
+  }
+
+  .redline-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .redline-content li {
+    padding: var(--espacio-xs) 0;
+    color: var(--texto-secundario);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .redline-content li:last-child {
+    border-bottom: none;
+  }
+
+  .framework-content {
+    padding: var(--espacio-xxl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .framework-principles {
+    margin-bottom: var(--espacio-xxl);
+  }
+
+  .framework-principles h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    text-align: center;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .principle-box {
+    padding: var(--espacio-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border-left: 3px solid var(--amarillo-solar);
+  }
+
+  .principle-box h4 {
+    color: var(--amarillo-solar);
+    margin: 0 0 var(--espacio-sm) 0;
+    font-size: 1rem;
+  }
+
+  .principle-box p {
+    color: var(--texto-secundario);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .framework-process h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    text-align: center;
+  }
+
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+  }
+
+  .process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espacio-lg);
+    padding: var(--espacio-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+  }
+
+  .step-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--verde-sostenible);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+
+  .step-content h4 {
+    color: var(--amarillo-solar);
+    margin: 0 0 var(--espacio-sm) 0;
+  }
+
+  .step-content p {
+    color: var(--texto-secundario);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .cta-content {
+    padding: var(--espacio-xxl);
+    text-align: center;
+    margin-top: var(--espacio-xl);
+  }
+
+  .cta-content h2 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .cta-content > p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-xxl);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .cta-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--espacio-xl);
+    margin-bottom: var(--espacio-xxl);
+  }
+
+  .cta-step {
+    text-align: center;
+  }
+
+  .cta-step h3 {
+    color: var(--amarillo-solar);
+    margin: var(--espacio-md) 0;
+    font-size: 1.1rem;
+  }
+
+  .cta-step p {
+    color: var(--texto-secundario);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--espacio-lg);
+    flex-wrap: wrap;
+  }
+
+  .resource-navigation {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--espacio-lg);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .criteria-list {
+      grid-template-columns: 1fr;
+    }
+
+    .redlines-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .principles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-steps {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>

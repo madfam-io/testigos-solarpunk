@@ -27,20 +27,20 @@ if (basePath.endsWith('/')) {
 }
 
 const {
-  title = '🚧 Sección en Construcción',
-  message = 'Esta parte del universo solarpunk aún se está desarrollando. ¡Vuelve pronto para más novedades!',
+  title = '📥 Descarga Próximamente',
+  message = 'Este archivo estará disponible para descarga muy pronto. Estamos finalizando los últimos detalles para ofrecerte el mejor contenido.',
   suggestedLinks = [
-    { href: `${basePath}/`, text: 'Ir al Inicio', emoji: '🏠' },
-    { href: `${basePath}/proyecto/`, text: 'Conocer el Proyecto', emoji: '🌱' },
+    { href: `${basePath}/personajes/`, text: 'Ver Personajes', emoji: '👥' },
+    { href: `${basePath}/guiones/`, text: 'Explorar Guiones', emoji: '📝' },
+    {
+      href: `${basePath}/mundo/`,
+      text: 'Conocer el Mundo',
+      emoji: '🌍',
+    },
     {
       href: `${basePath}/contenido/sketches/`,
       text: 'Ver Sketches',
       emoji: '🎬',
-    },
-    {
-      href: `${basePath}/comunidad/`,
-      text: 'Únete a la Comunidad',
-      emoji: '👥',
     },
   ],
 } = Astro.props;
@@ -411,43 +411,21 @@ const {
         return false;
       }
 
-      // Skip links and empty anchors that should trigger modal
-      const emptyLinkPatterns = [
-        '#nav-menu',
-        '#',
-        'javascript:void(0)',
-        'mailto:',
-        'tel:',
+      // Only trigger modal for specific download links in recursos page
+      const specificDownloadPatterns = [
+        '/downloads/biblia-personajes.pdf',
+        '/downloads/guia-mundo.pdf',
+        '/downloads/kit-prensa.zip',
+        '/downloads/assets-visuales.zip',
       ];
 
-      // Button text patterns that should trigger modal
-      const buttonText = link.textContent?.toLowerCase().trim() || '';
-      const constructionButtonTexts = [
-        'crear',
-        'compartir',
-        'voluntariado',
-        'próximamente',
-        'en desarrollo',
-      ];
-
-      // Specific phrases that should trigger modal (exact matches)
-      const exactConstructionPhrases = [
-        'construcción', // Only if it's just "construcción" alone
-      ];
-
-      // Check if it's an exact construction phrase match (not part of a larger phrase)
-      const isExactConstructionMatch = exactConstructionPhrases.some(
-        (phrase) => buttonText === phrase
+      // Check if the href matches any of the specific download patterns
+      const isSpecificDownload = specificDownloadPatterns.some((pattern) =>
+        href.includes(pattern)
       );
 
-      // Check for under construction indicators
-      return (
-        emptyLinkPatterns.some((pattern) => href.includes(pattern)) ||
-        constructionButtonTexts.some((text) => buttonText.includes(text)) ||
-        isExactConstructionMatch ||
-        href === '#' ||
-        href === ''
-      );
+      // Only show modal for the specific download buttons
+      return isSpecificDownload;
     }
 
     // Expose functions globally for manual triggering
