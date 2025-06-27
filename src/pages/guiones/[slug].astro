@@ -4,13 +4,19 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const scripts = await getCollection('scripts');
-  return scripts.map((script) => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return scripts.map((script: any) => ({
     params: { slug: script.id },
     props: { script },
   }));
 }
 
-const { script } = Astro.props;
+interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  script: any;
+}
+
+const { script }: Props = Astro.props;
 const { data } = script;
 ---
 

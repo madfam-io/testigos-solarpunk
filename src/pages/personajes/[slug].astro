@@ -1,25 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
-export async function getStaticPaths(): Promise<
-  Array<{
-    params: { slug: string };
-    props: { character: CollectionEntry<'characters'> };
-  }>
-> {
+export async function getStaticPaths() {
   const characters = await getCollection('characters');
-  return characters.map((character: CollectionEntry<'characters'>) => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return characters.map((character: any) => ({
     params: { slug: character.id },
     props: { character },
   }));
 }
 
 interface Props {
-  character: CollectionEntry<'characters'>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  character: any;
 }
 
-const { character } = Astro.props;
+const { character }: Props = Astro.props;
 const { data } = character;
 
 const basePath = import.meta.env.BASE_URL ?? '';
@@ -46,9 +43,7 @@ const basePath = import.meta.env.BASE_URL ?? '';
       <div class="header-content">
         <div class="character-visual">
           <div class="character-portrait">
-            <span class="emoji-cutout emoji-xxl theme-purple">
-              👤
-            </span>
+            <span class="emoji-cutout emoji-xxl theme-purple"> 👤 </span>
           </div>
         </div>
 
@@ -99,7 +94,7 @@ const basePath = import.meta.env.BASE_URL ?? '';
       </h2>
       <div class="personality-traits">
         {
-          data.personalidad.rasgos.map((rasgo: string) => (
+          data.rasgos.map((rasgo: string) => (
             <div class="trait-card card">
               <span class="emoji-cutout emoji-sm theme-green">✨</span>
               <span>{rasgo}</span>
@@ -107,26 +102,12 @@ const basePath = import.meta.env.BASE_URL ?? '';
           ))
         }
       </div>
-
-      <div class="motivations-section">
-        <h3>Motivaciones</h3>
-        <ul class="motivations-list">
-          {
-            data.personalidad.motivaciones.map((motivacion: string) => (
-              <li>
-                <span class="emoji-cutout emoji-sm theme-solar">🎯</span>
-                {motivacion}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
     </div>
   </section>
 
   <!-- Character Relationships -->
   {
-    data.relaciones != null && Object.keys(data.relaciones).length > 0 && (
+    data.relaciones != null && data.relaciones.length > 0 && (
       <section class="character-relationships">
         <div class="container">
           <h2>
@@ -134,10 +115,11 @@ const basePath = import.meta.env.BASE_URL ?? '';
             Relaciones
           </h2>
           <div class="relationships-grid">
-            {Object.entries(data.relaciones).map(([personaje, relacion]) => (
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            {data.relaciones.map((relacion: any) => (
               <div class="relationship-card card">
                 <h3>
-                  {personaje
+                  {relacion.personaje
                     .split('-')
                     .map(
                       (word: string) =>
@@ -145,7 +127,7 @@ const basePath = import.meta.env.BASE_URL ?? '';
                     )
                     .join(' ')}
                 </h3>
-                <p>{relacion as string}</p>
+                <p>{relacion.descripcion}</p>
               </div>
             ))}
           </div>
@@ -156,7 +138,7 @@ const basePath = import.meta.env.BASE_URL ?? '';
 
   <!-- Character Quotes -->
   {
-    data.frases != null && data.frases.length > 0 && (
+    data.frases_emblematicas != null && data.frases_emblematicas.length > 0 && (
       <section class="character-quotes">
         <div class="container">
           <h2>
@@ -164,7 +146,7 @@ const basePath = import.meta.env.BASE_URL ?? '';
             Frases Memorables
           </h2>
           <div class="quotes-list">
-            {data.frases.map((frase: string) => (
+            {data.frases_emblematicas.map((frase: string) => (
               <blockquote class="quote-card card">
                 <span class="emoji-cutout emoji-sm theme-solar">❝</span>
                 <p>{frase}</p>
@@ -179,24 +161,28 @@ const basePath = import.meta.env.BASE_URL ?? '';
 
   <!-- Character Episodes -->
   {
-    data.episodios != null && data.episodios.length > 0 && (
-      <section class="character-episodes">
-        <div class="container">
-          <h2>
-            <span class="emoji-cutout emoji-md theme-green">🎬</span>
-            Apariciones
-          </h2>
-          <div class="episodes-list">
-            {data.episodios.map((episodio: string) => (
-              <a href={`${basePath}/guiones/${episodio}/`} class="episode-chip">
-                <span class="emoji-cutout emoji-sm theme-purple">📺</span>
-                <span>{episodio}</span>
-              </a>
-            ))}
+    data.episodios_destacados != null &&
+      data.episodios_destacados.length > 0 && (
+        <section class="character-episodes">
+          <div class="container">
+            <h2>
+              <span class="emoji-cutout emoji-md theme-green">🎬</span>
+              Apariciones
+            </h2>
+            <div class="episodes-list">
+              {data.episodios_destacados.map((episodio: string) => (
+                <a
+                  href={`${basePath}/guiones/${episodio}/`}
+                  class="episode-chip"
+                >
+                  <span class="emoji-cutout emoji-sm theme-purple">📺</span>
+                  <span>{episodio}</span>
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    )
+        </section>
+      )
   }
 
   <!-- Character Evolution -->
@@ -312,7 +298,6 @@ const basePath = import.meta.env.BASE_URL ?? '';
       3% 10%
     );
   }
-
 
   .character-basics {
     flex: 1;
