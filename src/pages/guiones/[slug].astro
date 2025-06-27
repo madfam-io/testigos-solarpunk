@@ -25,19 +25,19 @@ const { data, body } = script;
 const baseUrl = import.meta.env.BASE_URL ?? '';
 const basePath = baseUrl !== '' ? baseUrl.replace(/\/$/, '') : '';
 
-const platformColors: Record<string, string> = {
-  TikTok: '#FF0050',
-  Instagram: '#E4405F',
-  YouTube: '#FF0000',
-  Facebook: '#1877F2',
-};
+// Initialize platform colors using simple assignments
+const platformColors = {} as Record<string, string>;
+platformColors['TikTok'] = '#FF0050';
+platformColors['Instagram'] = '#E4405F';
+platformColors['YouTube'] = '#FF0000';
+platformColors['Facebook'] = '#1877F2';
 
-const statusColors: Record<string, { bg: string; text: string }> = {
-  borrador: { bg: '#fff3cd', text: '#856404' },
-  revision: { bg: '#cce5ff', text: '#004085' },
-  aprobado: { bg: '#d4edda', text: '#155724' },
-  filmado: { bg: '#d1ecf1', text: '#0c5460' },
-};
+// Initialize status colors using simple assignments
+const statusColors = {} as Record<string, { bg: string; text: string }>;
+statusColors['borrador'] = { bg: '#fff3cd', text: '#856404' };
+statusColors['revision'] = { bg: '#cce5ff', text: '#004085' };
+statusColors['aprobado'] = { bg: '#d4edda', text: '#155724' };
+statusColors['filmado'] = { bg: '#d1ecf1', text: '#0c5460' };
 
 const allCharacters = await getCollection('characters');
 const characterMap = new Map<string, string>();

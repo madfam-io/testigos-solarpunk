@@ -2,27 +2,27 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-let basePath =
-  import.meta.env.BASE_URL !== ''
-    ? import.meta.env.BASE_URL
-    : '/testigos-solarpunk';
-
-// Ensure basePath doesn't end with a slash
-if (basePath.endsWith('/')) {
-  basePath = basePath.slice(0, -1);
-}
+const baseUrl = import.meta.env.BASE_URL ?? '';
+const basePath = baseUrl !== '' ? baseUrl.replace(/\/$/, '') : '';
 const scripts: CollectionEntry<'scripts'>[] = await getCollection('scripts');
-const scriptsByPlatform: Record<string, CollectionEntry<'scripts'>[]> = {
-  TikTok: scripts.filter((s) => s.data.plataforma === 'TikTok'),
-  Instagram: scripts.filter((s) => s.data.plataforma === 'Instagram'),
-  YouTube: scripts.filter((s) => s.data.plataforma === 'YouTube'),
-};
 
-const platformColors: Record<string, string> = {
-  TikTok: '#FF0050',
-  Instagram: '#E4405F',
-  YouTube: '#FF0000',
-};
+// Initialize scriptsByPlatform using simple assignments
+const scriptsByPlatform = {} as Record<string, CollectionEntry<'scripts'>[]>;
+scriptsByPlatform['TikTok'] = scripts.filter(
+  (s) => s.data.plataforma === 'TikTok'
+);
+scriptsByPlatform['Instagram'] = scripts.filter(
+  (s) => s.data.plataforma === 'Instagram'
+);
+scriptsByPlatform['YouTube'] = scripts.filter(
+  (s) => s.data.plataforma === 'YouTube'
+);
+
+// Initialize platform colors using simple assignments
+const platformColors = {} as Record<string, string>;
+platformColors['TikTok'] = '#FF0050';
+platformColors['Instagram'] = '#E4405F';
+platformColors['YouTube'] = '#FF0000';
 ---
 
 <BaseLayout title="Guiones">
