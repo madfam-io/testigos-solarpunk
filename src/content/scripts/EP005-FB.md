@@ -1,7 +1,7 @@
 ---
 episodio: EP005-FB
 titulo: 'Grupo de WhatsApp Evangelista'
-plataforma: YouTube
+plataforma: Facebook
 duracion: 120s
 personajes:
   - hermana-panelia

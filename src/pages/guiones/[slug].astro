@@ -17,8 +17,7 @@ export async function getStaticPaths(): Promise<
 }
 
 const { script } = Astro.props;
-const { data } = script;
-const { Content } = await script.render();
+const { data, body } = script;
 
 const basePath = import.meta.env.BASE_URL ?? '';
 ---
@@ -173,7 +172,7 @@ const basePath = import.meta.env.BASE_URL ?? '';
         Guión Completo
       </h2>
       <article class="script-body">
-        <Content />
+        <div set:html={body} />
       </article>
     </div>
   </section>

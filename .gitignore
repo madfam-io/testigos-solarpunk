@@ -29,6 +29,7 @@ pnpm-debug.log*
 # Temporary files
 *.tmp
 *.temp
+*.bak
 
 # OS files
 Thumbs.db

@@ -32,7 +32,7 @@ const scriptsCollection = defineCollection({
   schema: z.object({
     episodio: z.string(),
     titulo: z.string(),
-    plataforma: z.enum(['TikTok', 'Instagram', 'YouTube']),
+    plataforma: z.enum(['TikTok', 'Instagram', 'YouTube', 'Facebook']),
     duracion: z.string(),
     personajes: z.array(z.string()),
     temas: z.array(z.string()),
