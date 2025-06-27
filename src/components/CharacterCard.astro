@@ -13,6 +13,16 @@ export interface Props {
 
 const { id, nombre, rol, edad, ocupacion, imagen, descripcionBreve } =
   Astro.props;
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
 ---
 
 <article class="character-card card">
@@ -39,7 +49,8 @@ const { id, nombre, rol, edad, ocupacion, imagen, descripcionBreve } =
       <span>{edad} años</span> • <span>{ocupacion}</span>
     </p>
     <p class="character-description">{descripcionBreve}</p>
-    <a href={`/personajes/${id}`} class="btn btn-primary">Ver Perfil Completo</a
+    <a href={`${basePath}/personajes/${id}/`} class="btn btn-primary"
+      >Ver Perfil Completo</a
     >
   </div>
 </article>
@@ -57,7 +68,6 @@ const { id, nombre, rol, edad, ocupacion, imagen, descripcionBreve } =
     margin: calc(-1 * var(--espacio-lg)) calc(-1 * var(--espacio-lg))
       var(--espacio-md);
   }
-
 
   .character-role {
     position: absolute;

@@ -1,0 +1,863 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout title="Tono y Voz Narrativa">
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href={`${basePath}/`}>Inicio</a></li>
+        <li><a href={`${basePath}/produccion/`}>Producción</a></li>
+        <li aria-current="page">Tono y Voz</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="text-gradient">
+        <span class="emoji-cutout emoji-lg theme-purple">🎭</span>
+        Tono y Voz Narrativa
+      </h1>
+      <p class="lead">
+        Cómo contar historias que inspiren esperanza y acción en el mundo
+        solarpunk
+      </p>
+    </div>
+  </section>
+
+  <!-- Narrative Principles -->
+  <section class="principles-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">📜</span>
+        Principios Narrativos Fundamentales
+      </h2>
+      <div class="principles-grid">
+        <div class="principle-card card">
+          <div class="principle-icon">
+            <span class="emoji-cutout emoji-xl theme-green">🌱</span>
+          </div>
+          <h3>Esperanza Activa</h3>
+          <p>
+            No es optimismo ciego, sino esperanza que nace de la acción.
+            Mostramos problemas reales pero siempre con soluciones posibles y
+            personajes que actúan para crear cambio.
+          </p>
+          <div class="example-box">
+            <strong>Ejemplo:</strong> "La ciudad estaba colapsando por el calor,
+            pero Lucía ya tenía un plan para las azoteas verdes..."
+          </div>
+        </div>
+
+        <div class="principle-card card">
+          <div class="principle-icon">
+            <span class="emoji-cutout emoji-xl theme-community">🤝</span>
+          </div>
+          <h3>Comunidad como Fuerza</h3>
+          <p>
+            Los problemas se resuelven juntos, no con héroes solitarios.
+            Celebramos la inteligencia colectiva y las soluciones comunitarias
+            por encima del individualismo.
+          </p>
+          <div class="example-box">
+            <strong>Ejemplo:</strong> "No era solo la idea de Marco, era el resultado
+            de tres meses de reuniones vecinales y experimentos compartidos."
+          </div>
+        </div>
+
+        <div class="principle-card card">
+          <div class="principle-icon">
+            <span class="emoji-cutout emoji-xl theme-purple">⚖️</span>
+          </div>
+          <h3>Justicia Ecológica</h3>
+          <p>
+            El ambientalismo sin justicia social es vacío. Nuestras historias
+            conectan la crisis climática con la equidad, mostrando cómo la
+            sostenibilidad debe ser para todos.
+          </p>
+          <div class="example-box">
+            <strong>Ejemplo:</strong> "El programa de energía solar no funcionaría
+            si dejaba fuera a las familias que más lo necesitaban."
+          </div>
+        </div>
+
+        <div class="principle-card card">
+          <div class="principle-icon">
+            <span class="emoji-cutout emoji-xl theme-solar">🔬</span>
+          </div>
+          <h3>Ciencia con Alma</h3>
+          <p>
+            La tecnología y la ciencia son herramientas para el bienestar, no
+            fines en sí mismos. Mostramos innovación que sirve a la vida y
+            fortalece las conexiones humanas.
+          </p>
+          <div class="example-box">
+            <strong>Ejemplo:</strong> "El biodigestor no solo convertía basura en
+            energía, también se volvió el lugar donde la comunidad se reunía cada
+            tarde."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voice and Tone -->
+  <section class="voice-tone-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">🎤</span>
+        Voz y Tono por Contexto
+      </h2>
+      <div class="voice-grid">
+        <div class="voice-card card">
+          <h3>
+            <span class="emoji-cutout emoji-sm theme-solar">📱</span>
+            Redes Sociales (TikTok/Instagram)
+          </h3>
+          <div class="tone-characteristics">
+            <div class="characteristic">
+              <strong>Energía:</strong> Alta, dinámica, atractiva
+            </div>
+            <div class="characteristic">
+              <strong>Humor:</strong> Ligero, situacional, auto-consciente
+            </div>
+            <div class="characteristic">
+              <strong>Duración:</strong> Directa, cada palabra cuenta
+            </div>
+          </div>
+          <div class="voice-example">
+            <h4>Ejemplo de Diálogo:</h4>
+            <blockquote>
+              "¿En serio vas a tirar esa cáscara de plátano? Hermano Compostino
+              está viendo... y tiene opiniones FUERTES sobre el desperdicio
+              orgánico."
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="voice-card card">
+          <h3>
+            <span class="emoji-cutout emoji-sm theme-purple">🎙️</span>
+            Podcast/Audio Largo
+          </h3>
+          <div class="tone-characteristics">
+            <div class="characteristic">
+              <strong>Profundidad:</strong> Reflexiva, conversacional
+            </div>
+            <div class="characteristic">
+              <strong>Ritmo:</strong> Pausado, permite absorber ideas
+            </div>
+            <div class="characteristic">
+              <strong>Intimidad:</strong> Como hablar con un amigo sabio
+            </div>
+          </div>
+          <div class="voice-example">
+            <h4>Ejemplo de Narración:</h4>
+            <blockquote>
+              "Esa tarde, mientras el sol se filtraba por los paneles solares,
+              Lucía se dio cuenta de algo importante: la revolución energética
+              no se trataba solo de tecnología... se trataba de cambiar la forma
+              en que nos relacionamos con nuestro entorno."
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="voice-card card">
+          <h3>
+            <span class="emoji-cutout emoji-sm theme-community">👥</span>
+            Contenido Educativo
+          </h3>
+          <div class="tone-characteristics">
+            <div class="characteristic">
+              <strong>Claridad:</strong> Conceptos complejos, lenguaje simple
+            </div>
+            <div class="characteristic">
+              <strong>Invitación:</strong> "Tú también puedes hacer esto"
+            </div>
+            <div class="characteristic">
+              <strong>Practicidad:</strong> Pasos concretos, resultados reales
+            </div>
+          </div>
+          <div class="voice-example">
+            <h4>Ejemplo de Explicación:</h4>
+            <blockquote>
+              "Un biodigestor suena complicado, pero básicamente es una 'panza
+              artificial' que digiere tu basura orgánica y te regala gas para
+              cocinar. Marco te explica cómo hacer uno con cosas que ya tienes
+              en casa."
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Character Archetypes -->
+  <section class="archetypes-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">🎭</span>
+        Arquetipos de Personajes
+      </h2>
+      <div class="archetypes-grid">
+        <div class="archetype-card card">
+          <div class="archetype-header">
+            <span class="emoji-cutout emoji-lg theme-solar">🌟</span>
+            <h3>El Evangelista</h3>
+          </div>
+          <p class="archetype-description">
+            Comparte la visión solarpunk con pasión contagiosa. No predica desde
+            una torre de marfil, sino que vive los valores que promueve.
+          </p>
+          <div class="archetype-traits">
+            <h4>Características:</h4>
+            <ul>
+              <li>Optimista pragmático</li>
+              <li>Conecta lo personal con lo planetario</li>
+              <li>Usa humor para desarmar resistencias</li>
+              <li>Admite cuando no sabe algo</li>
+            </ul>
+          </div>
+          <div class="archetype-example">
+            <strong>Ejemplo:</strong> Hermana Panelia, Hermano Compostino
+          </div>
+        </div>
+
+        <div class="archetype-card card">
+          <div class="archetype-header">
+            <span class="emoji-cutout emoji-lg theme-green">🔧</span>
+            <h3>El Innovador</h3>
+          </div>
+          <p class="archetype-description">
+            Resuelve problemas con creatividad y recursos locales. Ve
+            oportunidades donde otros ven obstáculos.
+          </p>
+          <div class="archetype-traits">
+            <h4>Características:</h4>
+            <ul>
+              <li>Experimentador nato</li>
+              <li>Combina tradición e innovación</li>
+              <li>Comparte conocimiento libremente</li>
+              <li>Aprende de los errores</li>
+            </ul>
+          </div>
+          <div class="archetype-example">
+            <strong>Ejemplo:</strong> Lucía Solar, Marco Tierra
+          </div>
+        </div>
+
+        <div class="archetype-card card">
+          <div class="archetype-header">
+            <span class="emoji-cutout emoji-lg theme-community">🌱</span>
+            <h3>El Catalizador</h3>
+          </div>
+          <p class="archetype-description">
+            Facilita conexiones y organiza comunidades. Su superpoder es hacer
+            que las personas se encuentren y colaboren.
+          </p>
+          <div class="archetype-traits">
+            <h4>Características:</h4>
+            <ul>
+              <li>Constructor de puentes</li>
+              <li>Escucha activa</li>
+              <li>Identifica talentos ocultos</li>
+              <li>Celebra logros colectivos</li>
+            </ul>
+          </div>
+          <div class="archetype-example">
+            <strong>Ejemplo:</strong> Facilitadores comunitarios, líderes vecinales
+          </div>
+        </div>
+
+        <div class="archetype-card card">
+          <div class="archetype-header">
+            <span class="emoji-cutout emoji-lg theme-purple">🤔</span>
+            <h3>El Escéptico</h3>
+          </div>
+          <p class="archetype-description">
+            Hace preguntas difíciles y aporta realismo. No es el antagonista,
+            sino quien ayuda a que las ideas mejoren.
+          </p>
+          <div class="archetype-traits">
+            <h4>Características:</h4>
+            <ul>
+              <li>Pensamiento crítico</li>
+              <li>Experiencia práctica</li>
+              <li>Preocupación genuina</li>
+              <li>Abierto a ser convencido</li>
+            </ul>
+          </div>
+          <div class="archetype-example">
+            <strong>Ejemplo:</strong> Vecinos cautelosos, expertos tradicionales
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recurring Themes -->
+  <section class="themes-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">🌈</span>
+        Temas Recurrentes
+      </h2>
+      <div class="themes-list">
+        <div class="theme-item">
+          <div class="theme-icon">
+            <span class="emoji-cutout emoji-md theme-green">🔄</span>
+          </div>
+          <div class="theme-content">
+            <h3>Ciclos y Regeneración</h3>
+            <p>
+              Todo se conecta, nada se desperdicia. Los finales son nuevos
+              comienzos.
+            </p>
+            <div class="theme-keywords">
+              <span class="keyword">compostaje</span>
+              <span class="keyword">economía circular</span>
+              <span class="keyword">renovación</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-item">
+          <div class="theme-icon">
+            <span class="emoji-cutout emoji-md theme-community">🕸️</span>
+          </div>
+          <div class="theme-content">
+            <h3>Interdependencia</h3>
+            <p>
+              Somos parte de una red más grande. Nuestro bienestar está
+              conectado.
+            </p>
+            <div class="theme-keywords">
+              <span class="keyword">ecosistemas</span>
+              <span class="keyword">colaboración</span>
+              <span class="keyword">reciprocidad</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-item">
+          <div class="theme-icon">
+            <span class="emoji-cutout emoji-md theme-purple">⚡</span>
+          </div>
+          <div class="theme-content">
+            <h3>Tecnología Apropiada</h3>
+            <p>
+              La mejor tecnología es la que sirve a la vida y fortalece
+              comunidades.
+            </p>
+            <div class="theme-keywords">
+              <span class="keyword">biomimética</span>
+              <span class="keyword">código abierto</span>
+              <span class="keyword">accesibilidad</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-item">
+          <div class="theme-icon">
+            <span class="emoji-cutout emoji-md theme-solar">🎨</span>
+          </div>
+          <div class="theme-content">
+            <h3>Abundancia Creativa</h3>
+            <p>
+              Hay múltiples soluciones para cada problema. La diversidad es
+              fortaleza.
+            </p>
+            <div class="theme-keywords">
+              <span class="keyword">experimentación</span>
+              <span class="keyword">arte</span>
+              <span class="keyword">innovación social</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dialogue Examples -->
+  <section class="dialogue-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">💬</span>
+        Ejemplos de Diálogos por Situación
+      </h2>
+      <div class="dialogue-examples">
+        <div class="dialogue-card card">
+          <h3>Introducing a Complex Concept</h3>
+          <div class="dialogue-text">
+            <p>
+              <strong>Lucía:</strong> "¿Sabes qué es lo más loco de los paneles solares?"
+            </p>
+            <p>
+              <strong>Marco:</strong> "¿Que convierten luz en electricidad?"
+            </p>
+            <p>
+              <strong>Lucía:</strong> "No, que cada uno es como una mini-planta de
+              energía. Imagínate que cada casa fuera su propia central eléctrica..."
+            </p>
+            <p>
+              <strong>Marco:</strong> "Y nosotros somos como... ¿gerentes de energía?"
+            </p>
+            <p>
+              <strong>Lucía:</strong> (riendo) "¡Exacto! Gerentes muy guapos, por
+              cierto."
+            </p>
+          </div>
+        </div>
+
+        <div class="dialogue-card card">
+          <h3>Handling Skepticism</h3>
+          <div class="dialogue-text">
+            <p>
+              <strong>Vecino:</strong> "Esto de la composta suena bien, pero ¿no
+              va a apestar mi patio?"
+            </p>
+            <p>
+              <strong>Hermano Compostino:</strong> "Hermano, esa es la pregunta del
+              millón. Y la respuesta es: solo si lo haces mal."
+            </p>
+            <p><strong>Vecino:</strong> "¿Y cómo se hace bien?"</p>
+            <p>
+              <strong>Hermano Compostino:</strong> "Es como cocinar. Los ingredientes
+              correctos en las proporciones correctas. Te enseño?"
+            </p>
+          </div>
+        </div>
+
+        <div class="dialogue-card card">
+          <h3>Building Community</h3>
+          <div class="dialogue-text">
+            <p>
+              <strong>Lucía:</strong> "El proyecto no va a funcionar si solo soy
+              yo."
+            </p>
+            <p><strong>Marco:</strong> "¿Qué propones?"</p>
+            <p>
+              <strong>Lucía:</strong> "Que cada quien aporte lo que sabe hacer mejor.
+              Tú con las plantas, yo con la energía, doña Carmen con la organización..."
+            </p>
+            <p>
+              <strong>Marco:</strong> "Y entre todos armamos algo que ninguno podría
+              hacer solo."
+            </p>
+            <p>
+              <strong>Lucía:</strong> "Ahora sí estás entendiendo el solarpunk."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back Navigation -->
+  <section class="back-navigation">
+    <div class="container text-center">
+      <a href={`${basePath}/produccion/`} class="btn btn-secondary">
+        <span class="emoji-cutout emoji-sm">👈</span>
+        Volver a Producción
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-md) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb li {
+    color: var(--texto-secundario);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 var(--espacio-sm);
+    color: var(--texto-terciario);
+  }
+
+  .breadcrumb a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .hero-section {
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--texto-secundario);
+  }
+
+  .principles-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .principles-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .principle-card {
+    padding: var(--espacio-xl);
+    text-align: center;
+  }
+
+  .principle-icon {
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .principle-card h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-md);
+    font-size: 1.3rem;
+  }
+
+  .principle-card p {
+    line-height: 1.6;
+    margin-bottom: var(--espacio-lg);
+    color: var(--texto-secundario);
+  }
+
+  .example-box {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-md);
+    border-radius: 8px;
+    border-left: 4px solid var(--amarillo-solar);
+    font-size: 0.9rem;
+    text-align: left;
+    font-style: italic;
+  }
+
+  .voice-tone-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .voice-tone-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .voice-card {
+    padding: var(--espacio-xl);
+  }
+
+  .voice-card h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .tone-characteristics {
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .characteristic {
+    display: flex;
+    margin-bottom: var(--espacio-sm);
+    padding: var(--espacio-sm);
+    background: var(--fondo-primario);
+    border-radius: 6px;
+  }
+
+  .characteristic strong {
+    color: var(--texto-primario);
+    min-width: 80px;
+    margin-right: var(--espacio-sm);
+  }
+
+  .voice-example h4 {
+    color: var(--purpura-creativo);
+    margin-bottom: var(--espacio-sm);
+    font-size: 1rem;
+  }
+
+  .voice-example blockquote {
+    background: var(--fondo-primario);
+    padding: var(--espacio-md);
+    border-radius: 8px;
+    border-left: 4px solid var(--purpura-creativo);
+    font-style: italic;
+    margin: 0;
+    color: var(--texto-primario);
+  }
+
+  .archetypes-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .archetypes-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .archetypes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .archetype-card {
+    padding: var(--espacio-xl);
+  }
+
+  .archetype-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .archetype-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0;
+  }
+
+  .archetype-description {
+    line-height: 1.6;
+    margin-bottom: var(--espacio-lg);
+    color: var(--texto-secundario);
+  }
+
+  .archetype-traits h4 {
+    color: var(--texto-primario);
+    margin-bottom: var(--espacio-sm);
+    font-size: 1rem;
+  }
+
+  .archetype-traits ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .archetype-traits li {
+    padding: var(--espacio-xs) 0;
+    color: var(--texto-secundario);
+  }
+
+  .archetype-traits li::before {
+    content: '• ';
+    color: var(--amarillo-solar);
+    font-weight: bold;
+  }
+
+  .archetype-example {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-sm);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--texto-terciario);
+  }
+
+  .themes-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .themes-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .themes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+  }
+
+  .theme-item {
+    display: flex;
+    gap: var(--espacio-lg);
+    padding: var(--espacio-xl);
+    background: var(--fondo-primario);
+    border-radius: 12px;
+    border: 2px solid var(--borde-claro);
+
+    /* Magazine cutout effect */
+    clip-path: polygon(1% 0%, 99% 2%, 98% 100%, 2% 98%);
+  }
+
+  .theme-icon {
+    flex-shrink: 0;
+  }
+
+  .theme-content h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .theme-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-md);
+    line-height: 1.6;
+  }
+
+  .theme-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-sm);
+  }
+
+  .keyword {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: var(--azul-tecnologico);
+    border: 1px solid var(--borde-claro);
+  }
+
+  .dialogue-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .dialogue-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .dialogue-examples {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-xl);
+  }
+
+  .dialogue-card {
+    padding: var(--espacio-xl);
+  }
+
+  .dialogue-card h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    text-align: center;
+  }
+
+  .dialogue-text {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+    font-family: 'Georgia', serif;
+  }
+
+  .dialogue-text p {
+    margin-bottom: var(--espacio-sm);
+    line-height: 1.6;
+  }
+
+  .dialogue-text strong {
+    color: var(--purpura-creativo);
+  }
+
+  .back-navigation {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .principles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .voice-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .archetypes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .theme-item {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .characteristic {
+      flex-direction: column;
+    }
+
+    .characteristic strong {
+      min-width: auto;
+      margin-right: 0;
+      margin-bottom: var(--espacio-xs);
+    }
+
+    .archetype-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .theme-keywords {
+      justify-content: center;
+    }
+  }
+</style>

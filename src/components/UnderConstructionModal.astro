@@ -427,14 +427,24 @@ const {
         'compartir',
         'voluntariado',
         'próximamente',
-        'construcción',
         'en desarrollo',
       ];
+
+      // Specific phrases that should trigger modal (exact matches)
+      const exactConstructionPhrases = [
+        'construcción', // Only if it's just "construcción" alone
+      ];
+
+      // Check if it's an exact construction phrase match (not part of a larger phrase)
+      const isExactConstructionMatch = exactConstructionPhrases.some(
+        (phrase) => buttonText === phrase
+      );
 
       // Check for under construction indicators
       return (
         emptyLinkPatterns.some((pattern) => href.includes(pattern)) ||
         constructionButtonTexts.some((text) => buttonText.includes(text)) ||
+        isExactConstructionMatch ||
         href === '#' ||
         href === ''
       );

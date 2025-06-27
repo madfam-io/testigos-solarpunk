@@ -1,0 +1,632 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths(): Promise<
+  Array<{
+    params: { slug: string };
+    props: { script: CollectionEntry<'scripts'> };
+  }>
+> {
+  const scripts = await getCollection('scripts');
+  return scripts.map((script: CollectionEntry<'scripts'>) => ({
+    params: { slug: script.id },
+    props: { script },
+  }));
+}
+
+interface Props {
+  script: CollectionEntry<'scripts'>;
+}
+
+const { script } = Astro.props;
+const { data, body } = script;
+
+const baseUrl = import.meta.env.BASE_URL ?? '';
+const basePath =
+  baseUrl !== '' ? baseUrl.replace(/\/$/, '') : '/testigos-solarpunk';
+
+const platformColors: Record<string, string> = {
+  TikTok: '#FF0050',
+  Instagram: '#E4405F',
+  YouTube: '#FF0000',
+  Facebook: '#1877F2',
+};
+
+const statusColors: Record<string, { bg: string; text: string }> = {
+  borrador: { bg: '#fff3cd', text: '#856404' },
+  revision: { bg: '#cce5ff', text: '#004085' },
+  aprobado: { bg: '#d4edda', text: '#155724' },
+  filmado: { bg: '#d1ecf1', text: '#0c5460' },
+};
+
+// Get all characters for character lookup
+const allCharacters = await getCollection('characters');
+const characterMap = new Map(
+  allCharacters.map((char: CollectionEntry<'characters'>) => [
+    char.id,
+    char.data.nombre,
+  ])
+);
+---
+
+<BaseLayout
+  title={`${data.titulo} - ${data.episodio}`}
+  description={`Guión para ${data.plataforma}: ${data.titulo}. Duración: ${data.duracion}. ${data.temas.join(', ')}`}
+>
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href={`${basePath}/`}>Inicio</a></li>
+        <li><a href={`${basePath}/guiones/`}>Guiones</a></li>
+        <li aria-current="page">{data.episodio}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Script Header -->
+  <section class="script-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="episode-info">
+          <div class="episode-badges">
+            <span class="episode-number">{data.episodio}</span>
+            <span
+              class="platform-badge"
+              style={`background-color: ${platformColors[data.plataforma] ?? '#6c757d'}`}
+            >
+              {data.plataforma}
+            </span>
+            <span
+              class="status-badge"
+              style={`background-color: ${statusColors[data.estado]?.bg ?? '#f8f9fa'}; color: ${statusColors[data.estado]?.text ?? '#6c757d'}`}
+            >
+              {data.estado}
+            </span>
+          </div>
+
+          <h1 class="script-title text-gradient">{data.titulo}</h1>
+
+          <div class="script-meta">
+            <div class="meta-row">
+              <div class="meta-item">
+                <span class="emoji-cutout emoji-sm theme-solar">⏱️</span>
+                <span>Duración: {data.duracion}</span>
+              </div>
+              <div class="meta-item">
+                <span class="emoji-cutout emoji-sm theme-community">📍</span>
+                <span>Ubicación: {data.ubicacion}</span>
+              </div>
+              <div class="meta-item">
+                <span class="emoji-cutout emoji-sm theme-purple">📅</span>
+                <span
+                  >Fecha: {
+                    new Date(data.fecha).toLocaleDateString('es-MX', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })
+                  }</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="script-actions">
+          <button class="btn btn-secondary" onclick="window.print()">
+            <span class="emoji-cutout emoji-sm">🖨️</span>
+            Imprimir Guión
+          </button>
+          <button class="btn btn-primary" onclick="copyScriptLink()">
+            <span class="emoji-cutout emoji-sm">🔗</span>
+            Compartir
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script Characters -->
+  {
+    data.personajes != null && data.personajes.length > 0 ? (
+      <section class="script-characters">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-community">👥</span>
+            Personajes
+          </h2>
+          <div class="characters-list">
+            {data.personajes.map((characterId: string) => (
+              <a
+                href={`${basePath}/personajes/${characterId}/`}
+                class="character-chip"
+              >
+                <span class="emoji-cutout emoji-sm theme-green">👤</span>
+                <span>
+                  {characterMap.get(characterId) ??
+                    characterId
+                      .replace('-', ' ')
+                      .replace(/\b\w/g, (l: string) => l.toUpperCase())}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null
+  }
+
+  <!-- Script Themes -->
+  {
+    data.temas != null && data.temas.length > 0 ? (
+      <section class="script-themes">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-purple">🏷️</span>
+            Temas
+          </h2>
+          <div class="themes-list">
+            {data.temas.map((tema: string) => (
+              <span class="theme-tag">
+                <span class="emoji-cutout emoji-sm theme-solar">🌱</span>#{tema}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null
+  }
+
+  <!-- Script Content -->
+  <section class="script-content">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">📝</span>
+        Guión Completo
+      </h2>
+      <article class="script-body">
+        <div class="script-text" set:html={body} />
+      </article>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="script-navigation">
+    <div class="container">
+      <div class="nav-buttons">
+        <a href={`${basePath}/guiones/`} class="btn btn-secondary">
+          <span class="emoji-cutout emoji-sm">👈</span>
+          Volver a Guiones
+        </a>
+        <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary">
+          <span class="emoji-cutout emoji-sm">🎬</span>
+          Ver Sketches
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-md) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb li {
+    color: var(--texto-secundario);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 var(--espacio-sm);
+    color: var(--texto-terciario);
+  }
+
+  .breadcrumb a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .script-header {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--espacio-xl);
+  }
+
+  .episode-info {
+    flex: 1;
+  }
+
+  .episode-badges {
+    display: flex;
+    gap: var(--espacio-sm);
+    margin-bottom: var(--espacio-lg);
+    flex-wrap: wrap;
+  }
+
+  .episode-number {
+    background: var(--purpura-creativo);
+    color: white;
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: 6px;
+    font-family: var(--fuente-mono);
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .platform-badge {
+    color: white;
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  .status-badge {
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .script-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-lg);
+    line-height: 1.2;
+  }
+
+  .script-meta {
+    color: var(--texto-secundario);
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-lg);
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    font-size: 1rem;
+  }
+
+  .script-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+    flex-shrink: 0;
+  }
+
+  .script-actions .btn {
+    white-space: nowrap;
+  }
+
+  .script-characters {
+    padding: var(--espacio-xl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .script-characters h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .characters-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-md);
+  }
+
+  .character-chip {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-sm) var(--espacio-md);
+    background: var(--fondo-primario);
+    border: 2px solid var(--borde-claro);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--texto-primario);
+    transition: all var(--transicion-rapida);
+    font-size: 0.9rem;
+  }
+
+  .character-chip:hover {
+    border-color: var(--verde-sostenible);
+    background: rgba(76, 175, 80, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .script-themes {
+    padding: var(--espacio-xl) 0;
+  }
+
+  .script-themes h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .themes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-md);
+  }
+
+  .theme-tag {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-sm) var(--espacio-md);
+    background: var(--fondo-secundario);
+    border: 1px solid var(--borde-claro);
+    border-radius: 15px;
+    color: var(--azul-tecnologico);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .script-content {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .script-content h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .script-body {
+    background: var(--fondo-primario);
+    padding: var(--espacio-xxl);
+    border-radius: 12px;
+    border: 2px solid var(--borde-claro);
+
+    /* Magazine cutout effect */
+    clip-path: polygon(1% 0%, 99% 2%, 98% 100%, 2% 98%);
+
+    /* Paper texture */
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 193, 7, 0.03) 1px,
+      rgba(255, 193, 7, 0.03) 2px
+    );
+  }
+
+  .script-text {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--texto-primario);
+    max-width: none;
+  }
+
+  /* Style markdown content in script */
+  .script-text :global(h2) {
+    color: var(--verde-sostenible);
+    font-size: 1.5rem;
+    margin: var(--espacio-xl) 0 var(--espacio-lg);
+    border-bottom: 2px solid var(--verde-sostenible);
+    padding-bottom: var(--espacio-sm);
+  }
+
+  .script-text :global(h3) {
+    color: var(--amarillo-solar);
+    font-size: 1.2rem;
+    margin: var(--espacio-lg) 0 var(--espacio-md);
+  }
+
+  .script-text :global(p) {
+    margin-bottom: var(--espacio-md);
+  }
+
+  .script-text :global(em) {
+    font-style: italic;
+    color: var(--texto-secundario);
+  }
+
+  .script-text :global(strong) {
+    font-weight: bold;
+    color: var(--texto-primario);
+  }
+
+  .script-text :global(ul) {
+    margin: var(--espacio-md) 0;
+    padding-left: var(--espacio-xl);
+  }
+
+  .script-text :global(li) {
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .script-navigation {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--espacio-lg);
+  }
+
+  /* Print Styles */
+  @media print {
+    .breadcrumb-nav,
+    .script-actions,
+    .script-navigation {
+      display: none;
+    }
+
+    .script-header {
+      background: none;
+      padding: var(--espacio-lg) 0;
+    }
+
+    .script-body {
+      background: white;
+      border: 1px solid #000;
+      clip-path: none;
+      background-image: none;
+    }
+
+    .script-text {
+      font-size: 12pt;
+      line-height: 1.6;
+      color: black;
+    }
+
+    .script-title {
+      font-size: 18pt;
+      color: black;
+    }
+
+    .episode-badges {
+      margin-bottom: var(--espacio-md);
+    }
+
+    .episode-number,
+    .platform-badge,
+    .status-badge {
+      border: 1px solid #000;
+      color: #000 !important;
+      background: white !important;
+    }
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      gap: var(--espacio-lg);
+    }
+
+    .script-actions {
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .script-actions .btn {
+      flex: 1;
+    }
+
+    .script-title {
+      font-size: 2rem;
+    }
+
+    .meta-row {
+      flex-direction: column;
+      gap: var(--espacio-md);
+    }
+
+    .script-body {
+      padding: var(--espacio-lg);
+    }
+
+    .script-text {
+      font-size: 0.9rem;
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .nav-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .episode-badges {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .characters-list {
+      flex-direction: column;
+    }
+
+    .character-chip {
+      justify-content: center;
+    }
+
+    .themes-list {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  (window as any).copyScriptLink = function () {
+    const url = window.location.href;
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        // Create temporary notification
+        const notification = document.createElement('div');
+        notification.textContent = '¡Enlace copiado al portapapeles!';
+        notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--verde-sostenible);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        z-index: 1000;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      `;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          document.body.removeChild(notification);
+        }, 3000);
+      })
+      .catch(() => {
+        // Fallback for older browsers
+        alert('URL copiada: ' + url);
+      });
+  };
+</script>

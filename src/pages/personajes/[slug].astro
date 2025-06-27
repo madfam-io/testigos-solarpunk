@@ -1,0 +1,692 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MagazineCutoutImage from '../../components/MagazineCutoutImage.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths(): Promise<
+  Array<{
+    params: { slug: string };
+    props: { character: CollectionEntry<'characters'> };
+  }>
+> {
+  const characters = await getCollection('characters');
+  return characters.map((character: CollectionEntry<'characters'>) => ({
+    params: { slug: character.id },
+    props: { character },
+  }));
+}
+
+interface Props {
+  character: CollectionEntry<'characters'>;
+}
+
+const { character } = Astro.props;
+const { data } = character;
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+
+// Determine if character is an evangelista
+const evangelistas = [
+  'hermana-panelia',
+  'hermano-compostino',
+  'profeta-del-sol',
+];
+const isEvangelista = evangelistas.includes(character.id);
+---
+
+<BaseLayout
+  title={`${data.nombre} - ${data.rol}`}
+  description={`Conoce a ${data.nombre}, ${data.ocupacion} de ${data.edad} años. ${data.historia.substring(0, 150)}...`}
+>
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href={`${basePath}/`}>Inicio</a></li>
+        <li><a href={`${basePath}/personajes/`}>Personajes</a></li>
+        <li aria-current="page">{data.nombre}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Character Hero Section -->
+  <section class="character-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="character-portrait">
+          <MagazineCutoutImage
+            src={data.referencias_visuales?.[0]}
+            alt={`Retrato de ${data.nombre}, ${data.ocupacion}`}
+            width={500}
+            height={600}
+            type="character"
+            prompt={`portrait of ${data.nombre}, ${data.ocupacion}, ${data.rol}, vintage magazine style`}
+            cutoutStyle="emoji-lg"
+            theme={isEvangelista ? 'green' : 'solar'}
+            context="hero"
+            interactive={true}
+            class="hero-portrait"
+          />
+          {
+            isEvangelista && (
+              <div class="evangelista-badge">
+                <span class="emoji-cutout emoji-md theme-green">📢</span>
+                <span>Evangelista</span>
+              </div>
+            )
+          }
+        </div>
+
+        <div class="character-details">
+          <h1 class="character-name text-gradient">{data.nombre}</h1>
+          <h2 class="character-role">{data.rol}</h2>
+
+          <div class="character-meta">
+            <div class="meta-item">
+              <span class="emoji-cutout emoji-sm theme-solar">🎂</span>
+              <span>{data.edad} años</span>
+            </div>
+            <div class="meta-item">
+              <span class="emoji-cutout emoji-sm theme-purple">💼</span>
+              <span>{data.ocupacion}</span>
+            </div>
+            <div class="meta-item">
+              <span class="emoji-cutout emoji-sm theme-community">👤</span>
+              <span>{data.pronombres}</span>
+            </div>
+          </div>
+
+          <div class="character-traits">
+            <h3>Rasgos Distintivos</h3>
+            <ul class="traits-list">
+              {
+                data.rasgos.map((rasgo: string) => (
+                  <li>
+                    <span class="emoji-cutout emoji-sm theme-green">✨</span>
+                    {rasgo}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Character Story Section -->
+  <section class="character-story">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">📖</span>
+        Historia
+      </h2>
+      <div class="story-content">
+        <p>{data.historia}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Character Relationships -->
+  {
+    data.relaciones != null && data.relaciones.length > 0 ? (
+      <section class="character-relationships">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-community">🤝</span>
+            Relaciones
+          </h2>
+          <div class="relationships-grid">
+            {data.relaciones.map(
+              (relacion: {
+                personaje: string;
+                tipo: string;
+                descripcion: string;
+              }) => (
+                <div class="relationship-card card">
+                  <h4>{relacion.tipo}</h4>
+                  <p class="relationship-character">
+                    <a href={`${basePath}/personajes/${relacion.personaje}/`}>
+                      {relacion.personaje
+                        .replace('-', ' ')
+                        .replace(/\b\w/g, (l: string) => l.toUpperCase())}
+                    </a>
+                  </p>
+                  <p class="relationship-description">{relacion.descripcion}</p>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+    ) : null
+  }
+
+  <!-- Iconic Phrases -->
+  {
+    data.frases_emblematicas != null && data.frases_emblematicas.length > 0 ? (
+      <section class="character-phrases">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-purple">💬</span>
+            Frases Emblemáticas
+          </h2>
+          <div class="phrases-grid">
+            {data.frases_emblematicas.map((frase: string) => (
+              <blockquote class="phrase-card">
+                <p>"{frase}"</p>
+                <cite>— {data.nombre}</cite>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null
+  }
+
+  <!-- Episodes -->
+  {
+    data.episodios_destacados != null &&
+    data.episodios_destacados.length > 0 ? (
+      <section class="character-episodes">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-solar">🎬</span>
+            Episodios Destacados
+          </h2>
+          <div class="episodes-list">
+            {data.episodios_destacados.map((episodio: string) => (
+              <a href={`${basePath}/guiones/${episodio}/`} class="episode-link">
+                <span class="episode-badge">{episodio}</span>
+                <span class="episode-arrow">→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null
+  }
+
+  <!-- Character Evolution -->
+  {
+    data.evolucion != null ? (
+      <section class="character-evolution">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-green">📈</span>
+            Evolución del Personaje
+          </h2>
+          <div class="evolution-timeline">
+            {Object.entries(data.evolucion).map(([temporada, descripcion]) => (
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <span class="emoji-cutout emoji-sm theme-purple">⭐</span>
+                </div>
+                <div class="timeline-content">
+                  <h4>{temporada.replace('temporada', 'Temporada ')}</h4>
+                  <p>{descripcion as string}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null
+  }
+
+  <!-- Sacred Gadgets for Evangelistas -->
+  {
+    isEvangelista &&
+    data.gadgets_sagrados != null &&
+    data.gadgets_sagrados.length > 0 ? (
+      <section class="sacred-gadgets">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-green">⚡</span>
+            Gadgets Sagrados
+          </h2>
+          <div class="gadgets-grid">
+            {data.gadgets_sagrados.map((gadget: string) => (
+              <div class="gadget-item">
+                <span class="emoji-cutout emoji-sm theme-solar">🔮</span>
+                <span>{gadget}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null
+  }
+
+  <!-- Back to Characters -->
+  <section class="back-navigation">
+    <div class="container text-center">
+      <a href={`${basePath}/personajes/`} class="btn btn-secondary">
+        <span class="emoji-cutout emoji-sm">👈</span>
+        Volver a Personajes
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-md) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb li {
+    color: var(--texto-secundario);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 var(--espacio-sm);
+    color: var(--texto-terciario);
+  }
+
+  .breadcrumb a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .character-hero {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--espacio-xxl);
+    align-items: start;
+  }
+
+  .character-portrait {
+    position: relative;
+  }
+
+  .evangelista-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--verde-sostenible);
+    color: white;
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+    font-size: 0.875rem;
+    font-weight: 500;
+    z-index: 10;
+
+    /* Magazine cutout effect */
+    clip-path: polygon(2% 0%, 98% 2%, 100% 98%, 2% 100%);
+  }
+
+  .character-name {
+    font-size: 3rem;
+    margin-bottom: var(--espacio-sm);
+    line-height: 1.1;
+  }
+
+  .character-role {
+    font-size: 1.5rem;
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    font-weight: 500;
+  }
+
+  .character-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    font-size: 1.1rem;
+  }
+
+  .character-traits h3 {
+    color: var(--amarillo-solar);
+    margin-bottom: var(--espacio-md);
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+  }
+
+  .traits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .traits-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    margin-bottom: var(--espacio-sm);
+    padding: var(--espacio-sm);
+    background: var(--fondo-secundario);
+    border-radius: 8px;
+    border-left: 3px solid var(--verde-sostenible);
+  }
+
+  .character-story {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .character-story h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .story-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 800px;
+    color: var(--texto-primario);
+  }
+
+  .character-relationships {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .character-relationships h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .relationships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .relationship-card {
+    padding: var(--espacio-lg);
+  }
+
+  .relationship-card h4 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .relationship-character {
+    font-weight: 500;
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .relationship-character a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .relationship-character a:hover {
+    text-decoration: underline;
+  }
+
+  .relationship-description {
+    color: var(--texto-secundario);
+    margin: 0;
+  }
+
+  .character-phrases {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .character-phrases h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .phrases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .phrase-card {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-xl);
+    border-radius: 12px;
+    border-left: 4px solid var(--purpura-creativo);
+    margin: 0;
+
+    /* Magazine cutout effect */
+    clip-path: polygon(1% 2%, 98% 0%, 99% 98%, 2% 100%);
+  }
+
+  .phrase-card p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: var(--espacio-md);
+    color: var(--texto-primario);
+  }
+
+  .phrase-card cite {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+  }
+
+  .character-episodes {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .character-episodes h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .episodes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-md);
+  }
+
+  .episode-link {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-md) var(--espacio-lg);
+    background: var(--fondo-primario);
+    border: 2px solid var(--borde-claro);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--texto-primario);
+    transition: all var(--transicion-rapida);
+  }
+
+  .episode-link:hover {
+    border-color: var(--amarillo-solar);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+  }
+
+  .episode-badge {
+    background: var(--purpura-creativo);
+    color: white;
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 4px;
+    font-family: var(--fuente-mono);
+    font-size: 0.875rem;
+  }
+
+  .episode-arrow {
+    color: var(--amarillo-solar);
+    font-weight: bold;
+  }
+
+  .character-evolution {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .character-evolution h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .evolution-timeline {
+    max-width: 800px;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: var(--espacio-lg);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .timeline-marker {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--verde-sostenible);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .timeline-item:not(:last-child) .timeline-marker::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 60px;
+    background: var(--borde-claro);
+  }
+
+  .timeline-content h4 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .timeline-content p {
+    color: var(--texto-secundario);
+    margin: 0;
+  }
+
+  .sacred-gadgets {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .sacred-gadgets h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .gadgets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-md);
+  }
+
+  .gadget-item {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-md);
+    background: var(--fondo-primario);
+    border-radius: 8px;
+    border: 1px solid var(--borde-claro);
+  }
+
+  .back-navigation {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: var(--espacio-xl);
+      text-align: center;
+    }
+
+    .character-name {
+      font-size: 2.5rem;
+    }
+
+    .character-role {
+      font-size: 1.25rem;
+    }
+
+    .character-meta {
+      align-items: center;
+    }
+
+    .relationships-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .phrases-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .episodes-list {
+      justify-content: center;
+    }
+
+    .timeline-item {
+      gap: var(--espacio-md);
+    }
+
+    .gadgets-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
