@@ -2,7 +2,14 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-export async function getStaticPaths() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function getStaticPaths(): Promise<
+  Array<{
+    params: { slug: string };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    props: { script: any };
+  }>
+> {
   const scripts = await getCollection('scripts');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return scripts.map((script: any) => ({
@@ -18,12 +25,11 @@ interface Props {
 
 const { script }: Props = Astro.props;
 const { data } = script;
+const pageTitle = `${data.titulo} - ${data.episodio}`;
+const pageDescription = `Guion para ${data.plataforma}: ${data.titulo}. Duracion: ${data.duracion}.`;
 ---
 
-<BaseLayout
-  title={`${data.titulo} - ${data.episodio}`}
-  description={`Guión para ${data.plataforma}: ${data.titulo}. Duración: ${data.duracion}.`}
->
+<BaseLayout title={pageTitle} description={pageDescription}>
   <div class="container">
     <h1>{data.titulo}</h1>
     <p>Episodio: {data.episodio}</p>

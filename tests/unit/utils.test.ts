@@ -325,6 +325,18 @@ This is **bold** and *italic* text with [a link](https://example.com).`;
   });
 
   describe('getURLParam', () => {
+    it('should return null when not in browser environment', () => {
+      // Mock isBrowser to return false
+      const originalWindow = global.window;
+      // @ts-expect-error Testing non-browser environment
+      delete global.window;
+
+      expect(getURLParam('param1')).toBe(null);
+
+      // Restore
+      global.window = originalWindow;
+    });
+
     it('should get URL parameters', () => {
       // Mock window.location.search
       const originalSearch = window.location.search;

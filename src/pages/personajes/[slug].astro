@@ -2,7 +2,14 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-export async function getStaticPaths() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function getStaticPaths(): Promise<
+  Array<{
+    params: { slug: string };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    props: { character: any };
+  }>
+> {
   const characters = await getCollection('characters');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return characters.map((character: any) => ({
@@ -20,12 +27,11 @@ const { character }: Props = Astro.props;
 const { data } = character;
 
 const basePath = import.meta.env.BASE_URL ?? '';
+const pageTitle = `${data.nombre} - ${data.rol}`;
+const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.edad} años.`;
 ---
 
-<BaseLayout
-  title={`${data.nombre} - ${data.rol}`}
-  description={`Conoce a ${data.nombre}, ${data.ocupacion} de ${data.edad} años.`}
->
+<BaseLayout title={pageTitle} description={pageDescription}>
   <!-- Breadcrumb Navigation -->
   <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
     <div class="container">
@@ -199,8 +205,10 @@ const basePath = import.meta.env.BASE_URL ?? '';
               <p>{data.evolucion}</p>
             ) : Array.isArray(data.evolucion) ? (
               <div>
-                {data.evolucion.map((item) => (
-                  <p>{typeof item === 'string' ? item : JSON.stringify(item)}</p>
+                {data.evolucion.map((item: unknown) => (
+                  <p>
+                    {typeof item === 'string' ? item : JSON.stringify(item)}
+                  </p>
                 ))}
               </div>
             ) : (
@@ -208,7 +216,11 @@ const basePath = import.meta.env.BASE_URL ?? '';
                 {Object.entries(data.evolucion).map(([key, value]) => (
                   <div class="evolution-phase">
                     <h4>{key}</h4>
-                    <p>{typeof value === 'string' ? value : JSON.stringify(value)}</p>
+                    <p>
+                      {typeof value === 'string'
+                        ? value
+                        : JSON.stringify(value)}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -401,25 +413,6 @@ const basePath = import.meta.env.BASE_URL ?? '';
 
     /* Mini magazine cutout effect */
     clip-path: polygon(2% 0%, 98% 1%, 99% 98%, 1% 99%);
-  }
-
-  .motivations-section h3 {
-    color: var(--verde-sostenible);
-    margin-bottom: var(--espacio-md);
-  }
-
-  .motivations-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  .motivations-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--espacio-md);
-    padding: var(--espacio-sm) 0;
-    font-size: 1.1rem;
-    line-height: 1.6;
   }
 
   .character-relationships {

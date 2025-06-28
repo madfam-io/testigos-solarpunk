@@ -334,8 +334,8 @@ export class MagazinePlaceholderCache {
   }
 }
 
-// Auto-limpieza periódica
-if (typeof window !== 'undefined') {
+// Auto-limpieza periódica - solo en entorno browser real (no tests)
+if (typeof window !== 'undefined' && !('__vitest_worker__' in globalThis)) {
   // Limpiar cache expirado cada 5 minutos
   setInterval(
     () => {

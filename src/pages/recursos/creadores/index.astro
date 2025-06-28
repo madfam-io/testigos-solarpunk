@@ -44,9 +44,9 @@ if (basePath.endsWith('/')) {
           </div>
           <div class="resource-content">
             <p>
-              Formatos optimizados para cada plataforma: TikTok, Instagram Reels,
-              YouTube Shorts, y contenido de formato largo. Estructuras narrativas
-              probadas que funcionan.
+              Formatos optimizados para cada plataforma: TikTok, Instagram
+              Reels, YouTube Shorts, y contenido de formato largo. Estructuras
+              narrativas probadas que funcionan.
             </p>
             <ul class="feature-list">
               <li>Templates para videos de 15-60 segundos</li>
@@ -72,8 +72,8 @@ if (basePath.endsWith('/')) {
           <div class="resource-content">
             <p>
               Perfiles detallados de todos los personajes del universo, con
-              trasfondos, motivaciones, patrones de habla y arcos narrativos para
-              desarrollo coherente.
+              trasfondos, motivaciones, patrones de habla y arcos narrativos
+              para desarrollo coherente.
             </p>
             <ul class="feature-list">
               <li>Biografías completas y trasfondos</li>
@@ -146,26 +146,28 @@ if (basePath.endsWith('/')) {
             <summary>Ver Lista de Verificación</summary>
             <ul>
               <li>
-                <input type="checkbox" id="check1" />
-                <label for="check1"
-                  >¿Los personajes actúan según sus motivaciones?</label
-                >
+                <label for="check1">
+                  <input type="checkbox" id="check1" />
+                  ¿Los personajes actúan según sus motivaciones?
+                </label>
               </li>
               <li>
-                <input type="checkbox" id="check2" />
-                <label for="check2"
-                  >¿La tecnología es consistente con el mundo?</label
-                >
+                <label for="check2">
+                  <input type="checkbox" id="check2" />
+                  ¿La tecnología es consistente con el mundo?
+                </label>
               </li>
               <li>
-                <input type="checkbox" id="check3" />
-                <label for="check3"
-                  >¿El tono mantiene el optimismo solarpunk?</label
-                >
+                <label for="check3">
+                  <input type="checkbox" id="check3" />
+                  ¿El tono mantiene el optimismo solarpunk?
+                </label>
               </li>
               <li>
-                <input type="checkbox" id="check4" />
-                <label for="check4">¿Hay un mensaje claro de esperanza?</label>
+                <label for="check4">
+                  <input type="checkbox" id="check4" />
+                  ¿Hay un mensaje claro de esperanza?
+                </label>
               </li>
             </ul>
           </details>
@@ -451,8 +453,7 @@ if (basePath.endsWith('/')) {
       'documental mini',
     ];
 
-    const personaje =
-      personajes[Math.floor(Math.random() * personajes.length)];
+    const personaje = personajes[Math.floor(Math.random() * personajes.length)];
     const situacion =
       situaciones[Math.floor(Math.random() * situaciones.length)];
     const formato = formatos[Math.floor(Math.random() * formatos.length)];

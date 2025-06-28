@@ -568,10 +568,6 @@ export class MagazineCutoutPlaceholderService {
       this.generatePlaceholder({ type, priority: 'low' })
     );
 
-    try {
-      await Promise.allSettled(preloadPromises);
-    } catch (error) {
-      console.warn('Preload failed:', error);
-    }
+    await Promise.allSettled(preloadPromises);
   }
 }

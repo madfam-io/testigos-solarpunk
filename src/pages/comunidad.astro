@@ -213,7 +213,9 @@ const painPoints = [
     <div class="container">
       <h2>Nuestros Valores</h2>
       <div class="values-grid">
-        <div class="magazine-card card-md theme-solar interactive context-feature">
+        <div
+          class="magazine-card card-md theme-solar interactive context-feature"
+        >
           <span class="value-icon"
             ><span class="emoji-cutout emoji-lg theme-community interactive"
               >🤝</span
@@ -222,7 +224,9 @@ const painPoints = [
           <h3>Inclusión</h3>
           <p>Todos son bienvenidos, sin importar su nivel de conocimiento</p>
         </div>
-        <div class="magazine-card card-md theme-solar interactive context-feature">
+        <div
+          class="magazine-card card-md theme-solar interactive context-feature"
+        >
           <span class="value-icon"
             ><span class="emoji-cutout emoji-lg theme-solar interactive"
               >😄</span
@@ -231,7 +235,9 @@ const painPoints = [
           <h3>Humor</h3>
           <p>Reírnos juntos mientras aprendemos y crecemos</p>
         </div>
-        <div class="magazine-card card-md theme-solar interactive context-feature">
+        <div
+          class="magazine-card card-md theme-solar interactive context-feature"
+        >
           <span class="value-icon"
             ><span class="emoji-cutout emoji-lg theme-green interactive"
               >🌱</span
@@ -240,7 +246,9 @@ const painPoints = [
           <h3>Acción</h3>
           <p>Pequeños pasos que generan grandes cambios</p>
         </div>
-        <div class="magazine-card card-md theme-solar interactive context-feature">
+        <div
+          class="magazine-card card-md theme-solar interactive context-feature"
+        >
           <span class="value-icon"
             ><span class="emoji-cutout emoji-lg theme-purple interactive"
               >💡</span
@@ -257,28 +265,36 @@ const painPoints = [
     <div class="container">
       <h2>Formas de Participar</h2>
       <div class="join-options">
-        <div class="magazine-card card-md theme-community interactive context-feature">
+        <div
+          class="magazine-card card-md theme-community interactive context-feature"
+        >
           <h3>
             <span class="emoji-cutout emoji-md theme-solar">🎬</span> Crea Contenido
           </h3>
           <p>Comparte tus propios sketches y experiencias sostenibles</p>
           <button class="btn btn-secondary">Crear</button>
         </div>
-        <div class="magazine-card card-md theme-community interactive context-feature">
+        <div
+          class="magazine-card card-md theme-community interactive context-feature"
+        >
           <h3>
             <span class="emoji-cutout emoji-md theme-purple">📤</span> Comparte
           </h3>
           <p>Difunde el mensaje en tus redes sociales</p>
           <button class="btn btn-secondary">Compartir</button>
         </div>
-        <div class="magazine-card card-md theme-community interactive context-feature">
+        <div
+          class="magazine-card card-md theme-community interactive context-feature"
+        >
           <h3>
             <span class="emoji-cutout emoji-md theme-community">🤝</span> Colabora
           </h3>
           <p>Únete como voluntario en eventos MADLAB</p>
           <button class="btn btn-secondary">Voluntariado</button>
         </div>
-        <div class="magazine-card card-md theme-community interactive context-feature">
+        <div
+          class="magazine-card card-md theme-community interactive context-feature"
+        >
           <h3>
             <span class="emoji-cutout emoji-md theme-green">💚</span> Patrocina
           </h3>
@@ -419,7 +435,6 @@ const painPoints = [
     gap: var(--espacio-xl);
   }
 
-
   .persona-header {
     display: flex;
     gap: var(--espacio-md);
@@ -503,11 +518,6 @@ const painPoints = [
     margin-bottom: var(--espacio-md);
   }
 
-  .barrier-card h3 {
-    color: var(--texto-primario);
-    margin-bottom: var(--espacio-md);
-  }
-
   .barrier-creencia {
     font-size: 1.1rem;
     color: var(--texto-secundario);
@@ -541,19 +551,10 @@ const painPoints = [
     margin: 0 auto;
   }
 
-  .value-card {
-    text-align: center;
-  }
-
   .value-icon {
     font-size: 3rem;
     display: block;
     margin-bottom: var(--espacio-md);
-  }
-
-  .value-card h3 {
-    color: var(--naranja-comunidad);
-    margin-bottom: var(--espacio-sm);
   }
 
   /* Join Options */
@@ -565,34 +566,6 @@ const painPoints = [
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--espacio-xl);
-  }
-
-  .join-card {
-    background: var(--bg-secondary, #1a1a1b);
-    color: var(--text-primary, #ffffff);
-    padding: var(--espacio-xl);
-    border-radius: 16px;
-    text-align: center;
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .join-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-  }
-
-  .join-card h3 {
-    color: var(--naranja-comunidad);
-    margin-bottom: var(--espacio-md);
-  }
-
-  .join-card p {
-    color: var(--text-secondary, #cccccc);
-    margin-bottom: var(--espacio-lg);
   }
 
   /* CTA Section */
@@ -651,27 +624,6 @@ const painPoints = [
     border-color: var(--naranja-comunidad);
   }
 
-  .newsletter-form {
-    background: var(--bg-secondary, #1a1a1b);
-    color: var(--text-primary, #ffffff);
-    padding: var(--espacio-xl);
-    border-radius: 16px;
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  }
-
-  .newsletter-form h3 {
-    margin-bottom: var(--espacio-lg);
-    color: var(--naranja-comunidad);
-  }
-
-  .newsletter-form form {
-    display: flex;
-    gap: var(--espacio-md);
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
   .email-input {
     flex: 1;
     padding: var(--espacio-md);
@@ -702,31 +654,5 @@ const painPoints = [
     .persona-avatar {
       margin: 0 auto;
     }
-
-    .newsletter-form form {
-      flex-direction: column;
-    }
   }
 </style>
-
-<script>
-  // Handle newsletter form
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector(
-      '.newsletter-form form'
-    ) as HTMLFormElement;
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const emailInput = form.querySelector(
-          '.email-input'
-        ) as HTMLInputElement;
-        if (emailInput) {
-          const email = emailInput.value;
-          alert(`¡Gracias por unirte! Te enviaremos contenido a ${email}`);
-          form.reset();
-        }
-      });
-    }
-  });
-</script>
