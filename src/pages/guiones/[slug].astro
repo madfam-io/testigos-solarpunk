@@ -2,20 +2,22 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function getStaticPaths(): Promise<
-  Array<{
-    params: { slug: string };
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    props: { script: any };
-  }>
-> {
+// Define types for better clarity
+type ScriptPath = {
+  params: { slug: string };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  props: { script: any };
+};
+
+export async function getStaticPaths(): Promise<ScriptPath[]> {
   const scripts = await getCollection('scripts');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return scripts.map((script: any) => ({
-    params: { slug: script.id },
-    props: { script },
-  }));
+  return scripts.map(
+    (script: any): ScriptPath => ({
+      params: { slug: script.id },
+      props: { script },
+    })
+  );
 }
 
 interface Props {

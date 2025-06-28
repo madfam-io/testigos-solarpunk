@@ -119,10 +119,12 @@ const {
     box-sizing: border-box;
   }
 
+  /* eslint-disable astro/no-unused-css-selector */
   .construction-modal.active {
     /* Used in JavaScript */
     display: flex;
   }
+  /* eslint-enable astro/no-unused-css-selector */
 
   .modal-backdrop {
     position: absolute;
@@ -175,11 +177,13 @@ const {
     transition: all 0.3s ease;
   }
 
+  /* eslint-disable astro/no-unused-css-selector */
   .construction-modal.active .modal-content {
     /* Used in JavaScript */
     transform: scale(1);
     opacity: 1;
   }
+  /* eslint-enable astro/no-unused-css-selector */
 
   .modal-header {
     display: flex;

@@ -2,20 +2,22 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function getStaticPaths(): Promise<
-  Array<{
-    params: { slug: string };
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    props: { character: any };
-  }>
-> {
+// Define types for better clarity
+type CharacterPath = {
+  params: { slug: string };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  props: { character: any };
+};
+
+export async function getStaticPaths(): Promise<CharacterPath[]> {
   const characters = await getCollection('characters');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return characters.map((character: any) => ({
-    params: { slug: character.id },
-    props: { character },
-  }));
+  return characters.map(
+    (character: any): CharacterPath => ({
+      params: { slug: character.id },
+      props: { character },
+    })
+  );
 }
 
 interface Props {
