@@ -24,11 +24,23 @@ interface Props {
 }
 
 const { character }: Props = Astro.props;
-const { data } = character;
+const data = character != null ? character.data : {};
+
+// Ensure all values are defined with fallbacks
+const nombre = data.nombre ?? 'Personaje';
+const rol = data.rol ?? 'Rol';
+const ocupacion = data.ocupacion ?? 'Ocupación';
+const edad = data.edad ?? 0;
+const rasgos = data.rasgos ?? [];
+const historia = data.historia ?? '';
+const relaciones = data.relaciones ?? [];
+const episodios_destacados = data.episodios_destacados ?? [];
+const evolucion = data.evolucion ?? {};
+const frases_emblematicas = data.frases_emblematicas ?? [];
 
 const basePath = import.meta.env.BASE_URL ?? '';
-const pageTitle = `${data.nombre} - ${data.rol}`;
-const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.edad} años.`;
+const pageTitle = `${nombre} - ${rol}`;
+const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -38,7 +50,7 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
       <ol class="breadcrumb">
         <li><a href={`${basePath}/`}>Inicio</a></li>
         <li><a href={`${basePath}/personajes/`}>Personajes</a></li>
-        <li aria-current="page">{data.nombre}</li>
+        <li aria-current="page">{nombre}</li>
       </ol>
     </div>
   </nav>
@@ -54,17 +66,17 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
         </div>
 
         <div class="character-basics">
-          <h1 class="character-name text-gradient">{data.nombre}</h1>
-          <p class="character-role">{data.rol}</p>
+          <h1 class="character-name text-gradient">{nombre}</h1>
+          <p class="character-role">{rol}</p>
 
           <div class="character-stats">
             <div class="stat-item">
               <span class="emoji-cutout emoji-sm theme-green">🎂</span>
-              <span>{data.edad} años</span>
+              <span>{edad} años</span>
             </div>
             <div class="stat-item">
               <span class="emoji-cutout emoji-sm theme-community">💼</span>
-              <span>{data.ocupacion}</span>
+              <span>{ocupacion}</span>
             </div>
             <div class="stat-item">
               <span class="emoji-cutout emoji-sm theme-purple">📍</span>
@@ -72,7 +84,7 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
             </div>
           </div>
 
-          <p class="character-brief">{data.descripcionBreve}</p>
+          <p class="character-brief">{data.descripcionBreve ?? ''}</p>
         </div>
       </div>
     </div>
@@ -86,7 +98,7 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
         Historia
       </h2>
       <div class="story-content card">
-        <p>{data.historia}</p>
+        <p>{historia}</p>
       </div>
     </div>
   </section>
@@ -100,7 +112,7 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
       </h2>
       <div class="personality-traits">
         {
-          data.rasgos.map((rasgo: string) => (
+          rasgos.map((rasgo: string) => (
             <div class="trait-card card">
               <span class="emoji-cutout emoji-sm theme-green">✨</span>
               <span>{rasgo}</span>
@@ -113,7 +125,7 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
 
   <!-- Character Relationships -->
   {
-    data.relaciones != null && data.relaciones.length > 0 && (
+    relaciones.length > 0 && (
       <section class="character-relationships">
         <div class="container">
           <h2>
@@ -122,7 +134,7 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
           </h2>
           <div class="relationships-grid">
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-            {data.relaciones.map((relacion: any) => (
+            {relaciones.map((relacion: any) => (
               <div class="relationship-card card">
                 <h3>
                   {relacion.personaje
@@ -144,7 +156,7 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
 
   <!-- Character Quotes -->
   {
-    data.frases_emblematicas != null && data.frases_emblematicas.length > 0 && (
+    frases_emblematicas.length > 0 && (
       <section class="character-quotes">
         <div class="container">
           <h2>
@@ -152,11 +164,11 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
             Frases Memorables
           </h2>
           <div class="quotes-list">
-            {data.frases_emblematicas.map((frase: string) => (
+            {frases_emblematicas.map((frase: string) => (
               <blockquote class="quote-card card">
                 <span class="emoji-cutout emoji-sm theme-solar">❝</span>
                 <p>{frase}</p>
-                <cite>— {data.nombre}</cite>
+                <cite>— {nombre}</cite>
               </blockquote>
             ))}
           </div>
@@ -167,33 +179,29 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
 
   <!-- Character Episodes -->
   {
-    data.episodios_destacados != null &&
-      data.episodios_destacados.length > 0 && (
-        <section class="character-episodes">
-          <div class="container">
-            <h2>
-              <span class="emoji-cutout emoji-md theme-green">🎬</span>
-              Apariciones
-            </h2>
-            <div class="episodes-list">
-              {data.episodios_destacados.map((episodio: string) => (
-                <a
-                  href={`${basePath}/guiones/${episodio}/`}
-                  class="episode-chip"
-                >
-                  <span class="emoji-cutout emoji-sm theme-purple">📺</span>
-                  <span>{episodio}</span>
-                </a>
-              ))}
-            </div>
+    episodios_destacados.length > 0 && (
+      <section class="character-episodes">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-green">🎬</span>
+            Apariciones
+          </h2>
+          <div class="episodes-list">
+            {data.episodios_destacados.map((episodio: string) => (
+              <a href={`${basePath}/guiones/${episodio}/`} class="episode-chip">
+                <span class="emoji-cutout emoji-sm theme-purple">📺</span>
+                <span>{episodio}</span>
+              </a>
+            ))}
           </div>
-        </section>
-      )
+        </div>
+      </section>
+    )
   }
 
   <!-- Character Evolution -->
   {
-    data.evolucion != null && (
+    Object.keys(evolucion).length > 0 && (
       <section class="character-evolution">
         <div class="container">
           <h2>
@@ -201,11 +209,11 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
             Evolución del Personaje
           </h2>
           <div class="evolution-content card">
-            {typeof data.evolucion === 'string' ? (
-              <p>{data.evolucion}</p>
-            ) : Array.isArray(data.evolucion) ? (
+            {typeof evolucion === 'string' ? (
+              <p>{evolucion}</p>
+            ) : Array.isArray(evolucion) ? (
               <div>
-                {data.evolucion.map((item: unknown) => (
+                {evolucion.map((item: unknown) => (
                   <p>
                     {typeof item === 'string' ? item : JSON.stringify(item)}
                   </p>
@@ -213,7 +221,7 @@ const pageDescription = `Conoce a ${data.nombre}, ${data.ocupacion} de ${data.ed
               </div>
             ) : (
               <div>
-                {Object.entries(data.evolucion).map(([key, value]) => (
+                {Object.entries(evolucion).map(([key, value]) => (
                   <div class="evolution-phase">
                     <h4>{key}</h4>
                     <p>

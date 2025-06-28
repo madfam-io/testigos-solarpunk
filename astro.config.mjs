@@ -100,6 +100,9 @@ export default defineConfig({
   // Enable trailing slash for GitHub Pages compatibility
   trailingSlash: 'always',
 
+  // Disable HTML compression to avoid parsing issues
+  compressHTML: false,
+
   // Compression is disabled (was causing 404 errors)
   // Use astro-compress when the issues are resolved
 
