@@ -1,5 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
 # Ejecutar lint-staged para verificar y formatear código
 npx lint-staged

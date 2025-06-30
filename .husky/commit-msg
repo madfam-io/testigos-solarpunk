@@ -1,11 +1,9 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
 # Verificar formato del mensaje de commit
 # Formato esperado: tipo(alcance): descripción
 # Tipos válidos: feat, fix, docs, style, refactor, test, chore, perf
 
-commit_regex='^(feat|fix|docs|style|refactor|test|chore|perf)(\([a-z0-9\-]+\))?: .{1,100}$'
+commit_regex='^(feat|fix|docs|style|refactor|test|chore|perf|release)(\([a-z0-9\-]+\))?: .{1,100}$'
 commit_message=$(cat "$1")
 
 if ! echo "$commit_message" | grep -qE "$commit_regex"; then
@@ -22,11 +20,13 @@ if ! echo "$commit_message" | grep -qE "$commit_regex"; then
   echo "  test:     Añadir o modificar tests"
   echo "  chore:    Tareas de mantenimiento"
   echo "  perf:     Mejoras de rendimiento"
+  echo "  release:  Trigger de release de versión"
   echo ""
   echo "Ejemplos:"
   echo "  feat(characters): add new solarpunk character"
   echo "  fix(navigation): correct mobile menu behavior"
   echo "  docs: update README with new instructions"
+  echo "  release: implement new feature system"
   echo ""
   exit 1
 fi

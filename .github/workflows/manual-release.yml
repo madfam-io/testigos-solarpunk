@@ -1,0 +1,68 @@
+name: Manual Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version-type:
+        description: 'Version bump type'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      release-notes:
+        description: 'Release notes (optional)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create release commit
+        run: |
+          # Determine the release type message
+          case "${{ inputs.version-type }}" in
+            patch)
+              if [ -n "${{ inputs.release-notes }}" ]; then
+                COMMIT_MSG="release: patch version bump - ${{ inputs.release-notes }}"
+              else
+                COMMIT_MSG="release: patch version bump"
+              fi
+              ;;
+            minor)
+              git commit --allow-empty -m "feat!: minor version bump" -m "MINOR RELEASE: ${{ inputs.release-notes || 'Feature set completion' }}"
+              git push
+              exit 0
+              ;;
+            major)
+              git commit --allow-empty -m "feat: major version bump" -m "BREAKING CHANGE: ${{ inputs.release-notes || 'Major architectural changes' }}"
+              git push
+              exit 0
+              ;;
+          esac
+
+          # Create commit for patch
+          git commit --allow-empty -m "$COMMIT_MSG"
+          git push
+
+      - name: Trigger Release Please
+        run: |
+          echo "Release commit pushed. Release Please will handle the rest."
+          echo "Version type: ${{ inputs.version-type }}"
+          echo "Check the Actions tab for the Release Please workflow."

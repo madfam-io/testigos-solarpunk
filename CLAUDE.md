@@ -49,6 +49,24 @@ npm test
 npm run check:all
 ```
 
+### Comandos de Release (cuando sea apropiado)
+
+```bash
+# Commit normal (NO genera release)
+git commit -m "fix: corregir typo en navegación"
+
+# Patch release - Feature completa
+git commit -m "release: agregar sistema de notificaciones push"
+
+# Minor release - Conjunto de features
+git commit -m "feat!: lanzar plataforma de contenido fase 2"
+
+# Major release - Cambios fundamentales
+git commit -m "feat: migrar a nueva arquitectura
+
+BREAKING CHANGE: APIs completamente rediseñadas"
+```
+
 ## 📁 Estructura Clave
 
 ```
@@ -99,6 +117,61 @@ Al crear contenido, considera estos perfiles:
 3. **Antes de commit**: Ejecuta `npm run check:all`
 4. **Al finalizar**: Verifica que todos los tests pasen
 
+## 🎯 Estrategia de Versionado y Releases
+
+**IMPORTANTE**: Este proyecto usa una estrategia de releases controlada. NO todos los commits generan releases automáticamente.
+
+### Criterios de Versionado
+
+- **Patch (0.0.1)**: Features completas implementadas por AI (componentes nuevos, páginas, servicios)
+- **Minor (0.1.0)**: Conjuntos de features relacionadas completadas (sistema completo)
+- **Major (1.0.0)**: Cambios arquitectónicos transformadores o breaking changes
+
+### Cómo Triggear Releases
+
+```bash
+# Para patch release (0.0.1) - Feature individual
+git commit -m "release: implementar sistema de gestión de personajes"
+
+# Para minor release (0.1.0) - Conjunto de features
+git commit -m "feat!: completar fase 1 - plataforma de sketches virales"
+
+# O incluir MINOR RELEASE en el body
+git commit -m "feat: implementación de plataforma de podcast
+
+MINOR RELEASE: Sistema completo de gestión de podcast con reproductor"
+
+# Para major release (1.0.0) - Cambios fundamentales
+git commit -m "feat: nueva arquitectura de plataforma
+
+BREAKING CHANGE: Reescritura completa de la plataforma"
+```
+
+### Release Manual
+
+También puedes usar el workflow manual:
+
+1. Ve a Actions → Manual Release en GitHub
+2. Selecciona el tipo de versión (patch/minor/major)
+3. Agrega notas de release (opcional)
+4. Ejecuta el workflow
+
+### ⚠️ Commits que NO Generan Releases
+
+- `fix:` - Correcciones menores
+- `docs:` - Actualizaciones de documentación
+- `style:` - Cambios de formato
+- `test:` - Adiciones/cambios de tests
+- `chore:` - Tareas de mantenimiento
+- Commits sin prefijos convencionales
+
+### Mejores Prácticas
+
+- Acumula cambios pequeños sin generar releases
+- Cada versión debe representar valor real
+- Usa releases manuales para control explícito
+- Documenta en el commit de release qué se incluye
+
 ## 🌐 Navegación en Desarrollo Local
 
 Cuando ejecutes el servidor de desarrollo con `npm run dev`, el sitio estará disponible en:
@@ -123,9 +196,12 @@ Si encuentras errores 404, asegúrate de:
 ## ⚠️ Consideraciones Importantes
 
 - **NO** crees archivos de documentación (README, etc.) a menos que se solicite explícitamente
+- **NO** triggees releases para cambios menores (usa commits normales sin `release:`)
 - **SIEMPRE** verifica que el código pase linting y tests
 - **MANTÉN** consistencia con el estilo existente del proyecto
 - **CONSIDERA** el impacto en las 3 fases de contenido
+- **ACUMULA** cambios pequeños antes de crear un release
+- **USA** `release:` solo cuando completes una feature significativa
 
 ## 📊 Métricas de Calidad
 
