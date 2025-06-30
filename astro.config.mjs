@@ -8,9 +8,19 @@ export default defineConfig({
   site: 'https://madfam-io.github.io',
   base: '/testigos-solarpunk',
 
+  // Internationalization configuration
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: true, // Always show /es/ for Spanish
+      redirectToDefaultLocale: false,
+    },
+  },
+
   // Integrations
   integrations: [
-    // Generate automatic sitemap
+    // Generate automatic sitemap with i18n support
     sitemap({
       filter: (page) => !page.includes('404'),
       changefreq: 'weekly',
@@ -20,6 +30,7 @@ export default defineConfig({
         defaultLocale: 'es',
         locales: {
           es: 'es-MX',
+          en: 'en-US',
         },
       },
     }),

@@ -2,4 +2,10 @@
   "extends": "astro/tsconfigs/strict",
   "include": ["src/env.d.ts", ".astro/types.d.ts", "**/*"],
   "exclude": ["dist", "coverage", "tests/reports", "node_modules"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+    },
+  },
 }

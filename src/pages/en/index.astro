@@ -1,0 +1,594 @@
+---
+/**
+ * English Homepage - Solarpunk Witnesses
+ * Enterprise-grade bilingual homepage with DIY Magazine Cutout aesthetic
+ *
+ * @page EnglishHomepage
+ * @description Main homepage for English-speaking users
+ * @author MADFAM
+ * @version 0.3.0+i18n
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import QuoteBlock from '../../components/QuoteBlock.astro';
+import ThemeSelector from '../../components/ThemeSelector.astro';
+import LanguageSelector from '../../components/LanguageSelector.astro';
+import { useTranslations } from '@/i18n/config';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout title={t('site.title')} lang={lang}>
+  <!-- Skip to content link for accessibility -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-yellow-500 text-black p-2 z-50"
+  >
+    {t('a11y.skip.content')}
+  </a>
+
+  <!-- Navigation controls positioned for enterprise UX -->
+  <div class="site-controls">
+    <ThemeSelector showLabels={false} variant="compact" />
+    <LanguageSelector
+      currentLang={lang}
+      currentPath="/"
+      showLabels={false}
+      variant="compact"
+    />
+  </div>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero gradient-solarpunk" role="banner">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-logo-title animate-fade-in">
+            <picture>
+              <source
+                srcset={`${basePath}/images/logo.webp`}
+                type="image/webp"
+              />
+              <img
+                src={`${basePath}/images/logo.png`}
+                alt={t('site.title')}
+                class="hero-logo"
+                loading="eager"
+                width="120"
+                height="120"
+              />
+            </picture>
+            <h1 class="hero-title">{t('hero.title')}</h1>
+          </div>
+          <p class="hero-subtitle animate-fade-in">
+            {t('hero.subtitle')}
+          </p>
+          <p class="hero-description animate-fade-in">
+            {t('hero.description')}
+          </p>
+          <div class="hero-actions animate-fade-in">
+            <a
+              href={`${basePath}/en/content/sketches/`}
+              class="btn btn-primary"
+            >
+              <span class="emoji-cutout emoji-button emoji-md theme-solar"
+                >🎬</span
+              >
+              {t('hero.cta.primary')}
+            </a>
+            <a href={`${basePath}/en/project/`} class="btn btn-secondary">
+              {t('hero.cta.secondary')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three-Phase Strategy Section -->
+    <section
+      class="fases-home newspaper-bg with-columns"
+      aria-labelledby="strategy-heading"
+    >
+      <div class="container">
+        <h2 id="strategy-heading" class="text-center">Our Impact Strategy</h2>
+        <div class="grid grid-3" role="list">
+          <!-- Phase 1: Attraction -->
+          <article
+            class="magazine-card card-lg theme-solar interactive context-grid"
+            role="listitem"
+          >
+            <div class="card-content">
+              <span class="fase-icon">
+                <span
+                  class="emoji-cutout emoji-card emoji-xl theme-solar flutter"
+                  role="img"
+                  aria-label="Theater masks">🎭</span
+                >
+              </span>
+              <h3>{t('phase1.title')}</h3>
+              <p>{t('phase1.description')}</p>
+            </div>
+            <div class="card-footer">
+              <span class="fase-status active">{t('phase1.status')}</span>
+              <a
+                href={`${basePath}/en/content/sketches/`}
+                class="btn btn-primary"
+              >
+                {t('cta.watch')}
+              </a>
+            </div>
+          </article>
+
+          <!-- Phase 2: Connection -->
+          <article
+            class="magazine-card card-lg theme-purple interactive context-grid"
+            role="listitem"
+          >
+            <div class="card-content">
+              <span class="fase-icon">
+                <span
+                  class="emoji-cutout emoji-card emoji-xl theme-purple flutter"
+                  role="img"
+                  aria-label="Microphone">🎙️</span
+                >
+              </span>
+              <h3>{t('phase2.title')}</h3>
+              <p>{t('phase2.description')}</p>
+            </div>
+            <div class="card-footer">
+              <span class="fase-status upcoming">{t('phase2.status')}</span>
+              <a
+                href={`${basePath}/en/content/podcast/`}
+                class="btn btn-secondary"
+              >
+                {t('cta.learn')}
+              </a>
+            </div>
+          </article>
+
+          <!-- Phase 3: Conversion -->
+          <article
+            class="magazine-card card-lg theme-green interactive context-grid"
+            role="listitem"
+          >
+            <div class="card-content">
+              <span class="fase-icon">
+                <span
+                  class="emoji-cutout emoji-card emoji-xl theme-green flutter"
+                  role="img"
+                  aria-label="Microscope">🔬</span
+                >
+              </span>
+              <h3>{t('phase3.title')}</h3>
+              <p>{t('phase3.description')}</p>
+            </div>
+            <div class="card-footer">
+              <span class="fase-status development">{t('phase3.status')}</span>
+              <a
+                href={`${basePath}/en/content/madlab/`}
+                class="btn btn-secondary"
+              >
+                {t('cta.discover')}
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evangelists Section -->
+    <section class="evangelista-section" aria-labelledby="evangelistas-heading">
+      <div class="container">
+        <h2 id="evangelistas-heading" class="text-center evangelista-title">
+          The Solar Gospel
+        </h2>
+        <QuoteBlock
+          quote="Brothers and sisters, the Sun loves us and wants to see us illuminated. Every panel is a prayer to the star king."
+          author="Sister Panelia"
+          variant="solar"
+        />
+        <div class="evangelista-grid" role="list">
+          <article
+            class="magazine-card card-lg theme-solar interactive context-feature"
+            role="listitem"
+          >
+            <h3>
+              <span
+                class="emoji-cutout emoji-card emoji-lg theme-solar"
+                role="img"
+                aria-label="Star">🌟</span
+              >
+              {t('characters.title')}
+            </h3>
+            <p>
+              Three missionaries dedicated to preaching ecological salvation and
+              humanity's energetic redemption.
+            </p>
+            <a href={`${basePath}/en/characters/`} class="btn btn-primary">
+              Meet the Evangelists
+            </a>
+          </article>
+
+          <article
+            class="magazine-card card-lg theme-solar interactive context-feature"
+            role="listitem"
+          >
+            <h3>
+              <span
+                class="emoji-cutout emoji-card emoji-lg theme-solar"
+                role="img"
+                aria-label="Book">📖</span
+              >
+              The Message
+            </h3>
+            <p>
+              Spiritual transformation through sustainable technology and
+              reconnection with natural cycles.
+            </p>
+            <a href={`${basePath}/en/philosophy/`} class="btn btn-primary">
+              Read Philosophy
+            </a>
+          </article>
+
+          <article
+            class="magazine-card card-lg theme-solar interactive context-feature"
+            role="listitem"
+          >
+            <h3>
+              <span
+                class="emoji-cutout emoji-card emoji-lg theme-solar"
+                role="img"
+                aria-label="Camera">🎬</span
+              >
+              The Formats
+            </h3>
+            <p>
+              Multiple ways to bring solar light to every home: videos,
+              podcasts, sketches and more.
+            </p>
+            <a href={`${basePath}/en/formats/`} class="btn btn-primary">
+              View Formats
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section
+      class="vision-section newspaper-bg aged"
+      aria-labelledby="vision-heading"
+    >
+      <div class="container">
+        <h2 id="vision-heading" class="text-center">Our Vision</h2>
+        <div class="vision-grid" role="list">
+          <article class="vision-item float-animation" role="listitem">
+            <span class="vision-icon">
+              <span
+                class="emoji-cutout emoji-hero emoji-xl theme-solar interactive"
+                role="img"
+                aria-label="Sun">☀️</span
+              >
+            </span>
+            <h3>Clean Energy</h3>
+            <p>A world powered by sun, wind and human creativity</p>
+          </article>
+
+          <article
+            class="vision-item float-animation"
+            style="animation-delay: 0.2s"
+            role="listitem"
+          >
+            <span class="vision-icon">
+              <span
+                class="emoji-cutout emoji-hero emoji-xl theme-community interactive"
+                role="img"
+                aria-label="Handshake">🤝</span
+              >
+            </span>
+            <h3>Strong Community</h3>
+            <p>Solutions are born from collaboration and mutual support</p>
+          </article>
+
+          <article
+            class="vision-item float-animation"
+            style="animation-delay: 0.4s"
+            role="listitem"
+          >
+            <span class="vision-icon">
+              <span
+                class="emoji-cutout emoji-hero emoji-xl theme-green interactive"
+                role="img"
+                aria-label="Flower">🌺</span
+              >
+            </span>
+            <h3>Natural Harmony</h3>
+            <p>Technology and nature coexist in balance</p>
+          </article>
+
+          <article
+            class="vision-item float-animation"
+            style="animation-delay: 0.6s"
+            role="listitem"
+          >
+            <span class="vision-icon">
+              <span
+                class="emoji-cutout emoji-hero emoji-xl theme-solar interactive"
+                role="img"
+                aria-label="Theater masks">🎭</span
+              >
+            </span>
+            <h3>Inspiring Stories</h3>
+            <p>Narratives that show possible and desirable futures</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <div class="container text-center">
+        <h2 id="cta-heading">Ready to change the world with humor?</h2>
+        <p class="text-muted mb-3">
+          Join the Solarpunk Witnesses and be part of the movement
+        </p>
+        <div class="cta-actions">
+          <a href={`${basePath}/en/community/`} class="btn btn-primary">
+            <span
+              class="emoji-cutout emoji-button emoji-md theme-community"
+              role="img"
+              aria-label="Handshake">🤝</span
+            >
+            {t('cta.connect')}
+          </a>
+          <a href={`${basePath}/en/impact/`} class="btn btn-secondary">
+            <span
+              class="emoji-cutout emoji-button emoji-md theme-green"
+              role="img"
+              aria-label="Chart">📊</span
+            >
+            View Our Impact
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  /* Site Controls for Theme and Language Selectors */
+  .site-controls {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 1000;
+    align-items: center;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-logo-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .hero-logo {
+    height: 120px;
+    width: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin: 0;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-bottom: var(--espacio-md);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+  }
+
+  .hero-description {
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    margin-bottom: var(--espacio-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--espacio-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Sections */
+  .evangelista-section {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      rgba(255, 215, 0, 0.05) 100%
+    );
+  }
+
+  .evangelista-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .vision-section {
+    padding: var(--espacio-xxl) 0;
+    margin-top: 0;
+  }
+
+  .vision-section h2 {
+    color: #2c2c2c;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  }
+
+  .vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .vision-item {
+    text-align: center;
+  }
+
+  .vision-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .cta-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--espacio-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Fases Home Section */
+  .fases-home {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .fases-home h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: var(--espacio-xl);
+    color: #2c2c2c;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  }
+
+  .fase-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .fase-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .fase-status.active {
+    background: var(--verde-sostenible);
+    color: white;
+  }
+
+  .fase-status.upcoming {
+    background: var(--azul-tecnologico);
+    color: white;
+  }
+
+  .fase-status.development {
+    background: var(--naranja-comunidad);
+    color: white;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .site-controls {
+      position: relative;
+      top: unset;
+      right: unset;
+      justify-content: center;
+      margin: 1rem 0;
+      gap: 0.5rem;
+    }
+
+    .hero {
+      min-height: 80vh;
+    }
+
+    .hero-logo {
+      height: 80px;
+    }
+
+    .hero-actions,
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--espacio-sm);
+    }
+
+    .hero-actions .btn,
+    .cta-actions .btn {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .float-animation {
+      animation: none;
+    }
+  }
+
+  /* Theme adjustments removed - not needed for current design */
+</style>

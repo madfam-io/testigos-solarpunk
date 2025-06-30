@@ -1,6 +1,9 @@
 ---
 // import PWAInstaller from '../components/PWAInstaller.astro';
 import UnderConstructionModal from '../components/UnderConstructionModal.astro';
+import ThemeSelector from '../components/ThemeSelector.astro';
+import LanguageSelector from '../components/LanguageSelector.astro';
+import { detectLanguage } from '@/i18n/config';
 import '../styles/emoji-magazine-cutout.css';
 import '../styles/magazine-cutout-cards.css';
 import '../styles/newspaper-background.css';
@@ -10,6 +13,7 @@ export interface Props {
   description?: string;
   image?: string;
   noindex?: boolean;
+  lang?: string;
 }
 
 const {
@@ -17,6 +21,7 @@ const {
   description = 'Testigos de Solarpunk - Universo narrativo evangelista ecológico que combina humor, sostenibilidad y esperanza',
   image = '/og-image.svg',
   noindex = false,
+  lang = 'es-MX',
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -36,10 +41,13 @@ if (basePath.endsWith('/')) {
 
 const fullUrl = `${baseUrl}${basePath}${currentPath}`;
 const imageUrl = `${baseUrl}${basePath}${image}`;
+
+// Detect current language from path
+const currentLang = detectLanguage(currentPath);
 ---
 
 <!doctype html>
-<html lang="es-MX">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -252,17 +260,25 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
           </a>
         </div>
 
-        <button
-          class="mobile-menu-toggle"
-          aria-label="Abrir menú de navegación móvil"
-          aria-expanded="false"
-          aria-controls="nav-menu"
-          data-menu-toggle
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="nav-actions">
+          <ThemeSelector variant="compact" />
+          <LanguageSelector
+            currentLang={currentLang}
+            currentPath={currentPath}
+            variant="compact"
+          />
+          <button
+            class="mobile-menu-toggle"
+            aria-label="Abrir menú de navegación móvil"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            data-menu-toggle
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
 
         <ul class="nav-menu" id="nav-menu" role="menubar">
           <li role="none">
@@ -595,5 +611,24 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
   footer h4 {
     color: var(--amarillo-solar);
     margin-bottom: var(--espacio-md);
+  }
+
+  /* Navigation actions container */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm, 0.75rem);
+    order: 2;
+  }
+
+  @media (max-width: 768px) {
+    .nav-actions {
+      gap: var(--space-xs, 0.5rem);
+    }
+
+    .nav-actions .language-selector,
+    .nav-actions .theme-selector {
+      scale: 0.9;
+    }
   }
 </style>

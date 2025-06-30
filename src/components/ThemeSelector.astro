@@ -1,0 +1,313 @@
+---
+/**
+ * Theme Selector Component - Testigos de Solarpunk
+ * Enterprise-grade theme switching with DIY Magazine Cutout aesthetic
+ *
+ * @component ThemeSelector
+ * @description Interactive theme selector preserving magazine cutout design
+ * @author MADFAM
+ * @version 0.3.0+themes
+ */
+
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+  showLabels?: boolean;
+  variant?: 'compact' | 'expanded';
+}
+
+const {
+  showLabels = false,
+  variant = 'compact',
+  class: className,
+  ...attrs
+} = Astro.props;
+---
+
+<div
+  class:list={['theme-selector', `theme-selector--${variant}`, className]}
+  data-theme-selector
+  {...attrs}
+>
+  <button
+    class="theme-btn emoji-cutout"
+    aria-label="Toggle theme"
+    title="Switch between light, dark, and auto themes"
+    data-theme-toggle
+  >
+    <span class="theme-icon theme-icon--light" data-theme-icon="light">☀️</span>
+    <span class="theme-icon theme-icon--dark" data-theme-icon="dark">🌙</span>
+    <span class="theme-icon theme-icon--auto" data-theme-icon="auto">🔄</span>
+  </button>
+
+  {
+    showLabels && (
+      <span class="theme-label" data-theme-label>
+        <span class="theme-label-text" data-theme-text="light">
+          Light
+        </span>
+        <span class="theme-label-text" data-theme-text="dark">
+          Dark
+        </span>
+        <span class="theme-label-text" data-theme-text="auto">
+          Auto
+        </span>
+      </span>
+    )
+  }
+</div>
+
+<script>
+  import { ThemeManager } from '@/utils/theme-manager';
+
+  // Initialize theme system on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    ThemeManager.initialize();
+    updateThemeUI();
+  });
+
+  // Handle theme toggle button clicks
+  document.addEventListener('click', (e) => {
+    const toggleBtn = (e.target as Element)?.closest('[data-theme-toggle]');
+    if (toggleBtn) {
+      const newTheme = ThemeManager.toggleTheme();
+      updateThemeUI();
+
+      // Add visual feedback
+      (toggleBtn as HTMLElement).style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        (toggleBtn as HTMLElement).style.transform = '';
+      }, 150);
+
+      // Announce to screen readers
+      announceThemeChange(newTheme);
+    }
+  });
+
+  // Listen for theme changes from other sources
+  window.addEventListener('themeChange', () => {
+    updateThemeUI();
+  });
+
+  /**
+   * Update UI to reflect current theme state
+   */
+  function updateThemeUI() {
+    const currentSelection = ThemeManager.getSavedTheme();
+    const root = document.documentElement;
+
+    // Update root attribute for CSS targeting
+    root.setAttribute('data-theme-selection', currentSelection);
+
+    // Update button title
+    const toggleBtn = document.querySelector('[data-theme-toggle]');
+    if (toggleBtn) {
+      toggleBtn.setAttribute('title', ThemeManager.getThemeDescription());
+      toggleBtn.setAttribute(
+        'aria-label',
+        `Current: ${ThemeManager.getThemeDescription()}`
+      );
+    }
+  }
+
+  /**
+   * Announce theme change to screen readers
+   */
+  function announceThemeChange(newTheme: string) {
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.className = 'sr-only';
+    announcement.textContent = `Theme changed to ${newTheme}`;
+
+    document.body.appendChild(announcement);
+    setTimeout(() => {
+      document.body.removeChild(announcement);
+    }, 1000);
+  }
+</script>
+
+<style>
+  .theme-selector {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm, 0.5rem);
+  }
+
+  .theme-btn {
+    /* Base button styles */
+    background: transparent;
+    border: 3px solid var(--madfam-yellow, #ffc107);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+
+    /* Magazine cutout effect */
+    transform: rotate(-2deg);
+    box-shadow:
+      3px 3px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
+      0 0 0 2px var(--tape-color, rgba(255, 193, 7, 0.7)) inset;
+
+    /* Paper texture from existing magazine cutout system */
+    background: radial-gradient(
+        circle at 20% 50%,
+        transparent 20%,
+        rgba(255, 255, 255, 0.03) 21%,
+        rgba(255, 255, 255, 0.03) 34%,
+        transparent 35%,
+        transparent
+      ),
+      linear-gradient(
+        0deg,
+        transparent 24%,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.05) 26%,
+        transparent 27%,
+        transparent 74%,
+        rgba(255, 255, 255, 0.03) 75%,
+        rgba(255, 255, 255, 0.03) 76%,
+        transparent 77%,
+        transparent
+      );
+  }
+
+  .theme-btn:hover {
+    transform: rotate(2deg) scale(1.05);
+    border-color: var(--madfam-green, #4caf50);
+    box-shadow:
+      5px 5px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
+      0 0 0 3px var(--madfam-green, #4caf50) inset,
+      0 0 20px rgba(76, 175, 80, 0.3);
+  }
+
+  .theme-btn:active {
+    transform: rotate(0deg) scale(0.95);
+  }
+
+  .theme-btn:focus-visible {
+    outline: 3px solid var(--madfam-yellow, #ffc107);
+    outline-offset: 4px;
+  }
+
+  .theme-icon {
+    font-size: 1.5rem;
+    position: absolute;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0.5) rotate(180deg);
+  }
+
+  /* Show only active theme icon with smooth transitions */
+  [data-theme-selection='light'] .theme-icon--light,
+  [data-theme-selection='dark'] .theme-icon--dark,
+  [data-theme-selection='auto'] .theme-icon--auto {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  .theme-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary, rgba(255, 255, 255, 0.87));
+    position: relative;
+    min-width: 3rem;
+  }
+
+  .theme-label-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Show only active theme label */
+  [data-theme-selection='light'] .theme-label-text[data-theme-text='light'],
+  [data-theme-selection='dark'] .theme-label-text[data-theme-text='dark'],
+  [data-theme-selection='auto'] .theme-label-text[data-theme-text='auto'] {
+    opacity: 1;
+  }
+
+  /* Compact variant (default) */
+  .theme-selector--compact {
+    /* Styles already defined above */
+  }
+
+  /* Expanded variant with more spacing */
+  .theme-selector--expanded {
+    gap: var(--space-md, 1rem);
+  }
+
+  .theme-selector--expanded .theme-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .theme-selector--expanded .theme-icon {
+    font-size: 1.75rem;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .theme-btn,
+    .theme-icon,
+    .theme-label-text {
+      transition: none;
+    }
+
+    .theme-btn:hover {
+      transform: none;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .theme-btn {
+      border-width: 4px;
+      background: var(--bg-primary);
+    }
+
+    .theme-btn:hover {
+      background: var(--bg-elevated);
+    }
+  }
+
+  /* Dark theme specific adjustments */
+  [data-theme='dark'] .theme-btn {
+    border-color: var(--madfam-yellow-dark, #ffc107);
+    box-shadow:
+      3px 3px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.3)),
+      0 0 0 2px var(--tape-color, rgba(255, 213, 79, 0.8)) inset;
+  }
+
+  [data-theme='dark'] .theme-btn:hover {
+    border-color: var(--madfam-green-dark, #66bb6a);
+    box-shadow:
+      5px 5px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.3)),
+      0 0 0 3px var(--madfam-green-dark, #66bb6a) inset,
+      0 0 20px rgba(102, 187, 106, 0.3);
+  }
+
+  /* Light theme specific adjustments */
+  [data-theme='light'] .theme-btn {
+    border-color: var(--madfam-yellow, #ffc107);
+    box-shadow:
+      3px 3px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
+      0 0 0 2px var(--tape-color, rgba(255, 193, 7, 0.7)) inset;
+  }
+
+  [data-theme='light'] .theme-btn:hover {
+    border-color: var(--madfam-green, #4caf50);
+    box-shadow:
+      5px 5px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
+      0 0 0 3px var(--madfam-green, #4caf50) inset,
+      0 0 20px rgba(76, 175, 80, 0.3);
+  }
+</style>

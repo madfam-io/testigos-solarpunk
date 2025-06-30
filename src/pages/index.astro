@@ -1,6 +1,17 @@
 ---
+/**
+ * Root Index Redirect - Testigos de Solarpunk
+ * Intelligent language detection and redirect to appropriate locale
+ *
+ * @page RootRedirect
+ * @description Redirects users to their preferred language version
+ * @author MADFAM
+ * @version 0.3.0+i18n
+ */
+
 import BaseLayout from '../layouts/BaseLayout.astro';
-import QuoteBlock from '../components/QuoteBlock.astro';
+
+export const prerender = true;
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -11,418 +22,153 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
+
+// Server-side language detection logic would go here
+// For now, we redirect to the default language (Spanish)
+// const redirectUrl = `${basePath}/${defaultLang}/`;
 ---
 
-<BaseLayout title="Inicio">
-  <section class="hero gradient-solarpunk">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-logo-title animate-fade-in">
-          <picture>
-            <source srcset={`${basePath}/images/logo.webp`} type="image/webp" />
-            <img
-              src={`${basePath}/images/logo.png`}
-              alt="Testigos de Solarpunk"
-              class="hero-logo"
-              loading="eager"
-              width="120"
-              height="120"
-            />
-          </picture>
-          <h1 class="hero-title">Testigos de Solarpunk</h1>
-        </div>
-        <p class="hero-subtitle animate-fade-in">
-          Conectar, Concientizar y Crear Comunidad a través del humor sostenible
-        </p>
-        <div class="hero-actions animate-fade-in">
-          <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary"
-            ><span class="emoji-cutout emoji-button emoji-md theme-solar"
-              >🎬</span
-            > Ver Sketches</a
-          >
-          <a href={`${basePath}/proyecto/`} class="btn btn-secondary"
-            >Conocer el Proyecto</a
-          >
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="fases-home newspaper-bg with-columns">
-    <div class="container">
-      <h2 class="text-center">Nuestra Estrategia de Impacto</h2>
-      <div class="grid grid-3">
-        <div class="magazine-card card-lg theme-solar interactive context-grid">
-          <div class="card-content">
-            <span class="fase-icon"
-              ><span
-                class="emoji-cutout emoji-card emoji-xl theme-solar flutter"
-                >🎭</span
-              ></span
-            >
-            <h3>Fase 1: Atracción</h3>
-            <p>
-              Sketches de comedia viral que rompen barreras culturales sobre
-              sostenibilidad
-            </p>
-          </div>
-          <div class="card-footer">
-            <span class="fase-status active">En Producción</span>
-            <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary"
-              >Ver Sketches</a
-            >
-          </div>
-        </div>
-
-        <div
-          class="magazine-card card-lg theme-purple interactive context-grid"
-        >
-          <div class="card-content">
-            <span class="fase-icon"
-              ><span
-                class="emoji-cutout emoji-card emoji-xl theme-purple flutter"
-                >🎙️</span
-              ></span
-            >
-            <h3>Fase 2: Conexión</h3>
-            <p>
-              Podcast con expertos para profundizar en soluciones prácticas y
-              escalables
-            </p>
-          </div>
-          <div class="card-footer">
-            <span class="fase-status upcoming">Próximamente</span>
-            <a href={`${basePath}/contenido/podcast/`} class="btn btn-secondary"
-              >Saber Más</a
-            >
-          </div>
-        </div>
-
-        <div class="magazine-card card-lg theme-green interactive context-grid">
-          <div class="card-content">
-            <span class="fase-icon"
-              ><span
-                class="emoji-cutout emoji-card emoji-xl theme-green flutter"
-                >🔬</span
-              ></span
-            >
-            <h3>Fase 3: Conversión</h3>
-            <p>
-              MADLAB: Eventos y experiencias educativas que transforman
-              comunidades escolares
-            </p>
-          </div>
-          <div class="card-footer">
-            <span class="fase-status development">En Desarrollo</span>
-            <a href={`${basePath}/contenido/madlab/`} class="btn btn-secondary"
-              >Descubrir</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="evangelista-section">
-    <div class="container">
-      <h2 class="text-center evangelista-title">El Evangelio Solar</h2>
-      <QuoteBlock
-        quote="Hermanos, el Sol nos ama y quiere vernos iluminados. Cada panel es una oración al astro rey."
-        author="Hermana Panelia"
-        variant="solar"
-      />
-      <div class="evangelista-grid">
-        <div
-          class="magazine-card card-lg theme-solar interactive context-feature"
-        >
-          <h3>
-            <span class="emoji-cutout emoji-card emoji-lg theme-solar">🌟</span>
-            Los Evangelistas
-          </h3>
-          <p>
-            Tres misioneros dedicados a predicar la salvación ecológica y la
-            redención energética de la humanidad.
-          </p>
-          <a href={`${basePath}/personajes/`} class="btn btn-primary"
-            >Conocer Evangelistas</a
-          >
-        </div>
-        <div
-          class="magazine-card card-lg theme-solar interactive context-feature"
-        >
-          <h3>
-            <span class="emoji-cutout emoji-card emoji-lg theme-solar">📖</span>
-            El Mensaje
-          </h3>
-          <p>
-            Transformación espiritual a través de la tecnología sostenible y la
-            reconexión con los ciclos naturales.
-          </p>
-          <a href={`${basePath}/filosofia/`} class="btn btn-primary"
-            >Leer Filosofía</a
-          >
-        </div>
-        <div
-          class="magazine-card card-lg theme-solar interactive context-feature"
-        >
-          <h3>
-            <span class="emoji-cutout emoji-card emoji-lg theme-solar">🎬</span>
-            Los Formatos
-          </h3>
-          <p>
-            Múltiples maneras de llevar la luz solar a cada hogar: videos,
-            podcasts, sketches y más.
-          </p>
-          <a href={`${basePath}/formatos/`} class="btn btn-primary"
-            >Ver Formatos</a
-          >
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="vision-section newspaper-bg aged">
-    <div class="container">
-      <h2 class="text-center">Nuestra Visión</h2>
-      <div class="vision-grid">
-        <div class="vision-item float-animation">
-          <span class="vision-icon"
-            ><span
-              class="emoji-cutout emoji-hero emoji-xl theme-solar interactive"
-              >☀️</span
-            ></span
-          >
-          <h3>Energía Limpia</h3>
-          <p>
-            Un mundo impulsado por el sol, el viento y la creatividad humana
-          </p>
-        </div>
-        <div class="vision-item float-animation" style="animation-delay: 0.2s">
-          <span class="vision-icon"
-            ><span
-              class="emoji-cutout emoji-hero emoji-xl theme-community interactive"
-              >🤝</span
-            ></span
-          >
-          <h3>Comunidad Fuerte</h3>
-          <p>Las soluciones nacen de la colaboración y el apoyo mutuo</p>
-        </div>
-        <div class="vision-item float-animation" style="animation-delay: 0.4s">
-          <span class="vision-icon"
-            ><span
-              class="emoji-cutout emoji-hero emoji-xl theme-green interactive"
-              >🌺</span
-            ></span
-          >
-          <h3>Armonía Natural</h3>
-          <p>La tecnología y la naturaleza coexisten en equilibrio</p>
-        </div>
-        <div class="vision-item float-animation" style="animation-delay: 0.6s">
-          <span class="vision-icon"
-            ><span
-              class="emoji-cutout emoji-hero emoji-xl theme-solar interactive"
-              >🎭</span
-            ></span
-          >
-          <h3>Historias que Inspiran</h3>
-          <p>Narrativas que muestran futuros posibles y deseables</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
+<BaseLayout title="Redirecting to language preference...">
+  <!-- Language Detection and Redirect -->
+  <main class="redirect-container">
     <div class="container text-center">
-      <h2>¿Listo para cambiar el mundo con humor?</h2>
-      <p class="text-muted mb-3">
-        Únete a los Testigos de Solarpunk y sé parte del movimiento
-      </p>
-      <div class="cta-actions">
-        <a href={`${basePath}/comunidad/`} class="btn btn-primary"
-          ><span class="emoji-cutout emoji-button emoji-md theme-community"
-            >🤝</span
-          > Únete a la Comunidad</a
-        >
-        <a href={`${basePath}/impacto/`} class="btn btn-secondary"
-          ><span class="emoji-cutout emoji-button emoji-md theme-green">📊</span
-          > Ver Nuestro Impacto</a
-        >
+      <div class="redirect-content">
+        <picture>
+          <source srcset={`${basePath}/images/logo.webp`} type="image/webp" />
+          <img
+            src={`${basePath}/images/logo.png`}
+            alt="Testigos de Solarpunk"
+            class="redirect-logo"
+            loading="eager"
+            width="120"
+            height="120"
+          />
+        </picture>
+
+        <h1>Welcome to Testigos de Solarpunk</h1>
+        <p>Redirecting to your language preference...</p>
+
+        <!-- Manual language selection as fallback -->
+        <div class="language-choice">
+          <a href={`${basePath}/es/`} class="btn btn-primary">
+            <span class="emoji-cutout emoji-button emoji-md theme-solar"
+              >🇲🇽</span
+            >
+            Español
+          </a>
+          <a href={`${basePath}/en/`} class="btn btn-secondary">
+            <span class="emoji-cutout emoji-button emoji-md theme-solar"
+              >🇺🇸</span
+            >
+            English
+          </a>
+        </div>
       </div>
     </div>
-  </section>
+  </main>
 </BaseLayout>
 
+<script>
+  // Client-side language detection and redirect
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get browser language preference
+    const browserLang = navigator.language || navigator.languages?.[0] || 'es';
+    const langCode = browserLang.startsWith('en') ? 'en' : 'es';
+
+    // Get base path from meta tag or environment
+    const basePath =
+      import.meta.env.BASE_URL?.replace(/\/$/, '') || '/testigos-solarpunk';
+
+    // Check if user has a stored language preference
+    const storedLang = localStorage.getItem('preferred-language');
+    const finalLang = storedLang || langCode;
+
+    // Redirect to appropriate language
+    const redirectUrl = `${basePath}/${finalLang}/`;
+
+    // Add a small delay to show the page briefly
+    setTimeout(() => {
+      window.location.href = redirectUrl;
+    }, 1000);
+  });
+</script>
+
 <style>
-  .hero {
-    padding: var(--espacio-xxl) 0;
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-logo-title {
+  .redirect-container {
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: var(--espacio-md);
-    margin-bottom: var(--espacio-lg);
+    justify-content: center;
+    padding: var(--espacio-xl) 0;
   }
 
-  .hero-logo {
+  .redirect-content {
+    max-width: 500px;
+    text-align: center;
+  }
+
+  .redirect-logo {
     height: 120px;
     width: auto;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    margin-bottom: var(--espacio-lg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
   }
 
-  .hero-title {
-    font-size: 3.5rem;
-    margin: 0;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  .redirect-content h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: var(--espacio-md);
+    color: var(--text-primary);
   }
 
-  .hero-subtitle {
-    font-size: 1.5rem;
+  .redirect-content p {
+    font-size: 1.125rem;
     margin-bottom: var(--espacio-xl);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    color: var(--text-secondary);
   }
 
-  .hero-actions {
+  .language-choice {
     display: flex;
     gap: var(--espacio-md);
     justify-content: center;
+    flex-wrap: wrap;
   }
 
-  .evangelista-section {
-    padding: var(--espacio-xxl) 0;
-    background: linear-gradient(
-      135deg,
-      var(--fondo-primario) 0%,
-      rgba(255, 215, 0, 0.05) 100%
-    );
+  .language-choice .btn {
+    min-width: 150px;
   }
 
-  .evangelista-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--espacio-xl);
-    margin-top: var(--espacio-xl);
-  }
-
-  .vision-section {
-    padding: var(--espacio-xxl) 0;
-    margin-top: 0;
-  }
-
-  .vision-section h2 {
-    color: #2c2c2c;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-  }
-
-  .vision-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--espacio-xl);
-    margin-top: var(--espacio-xl);
-  }
-
-  .vision-item {
-    text-align: center;
-  }
-
-  .vision-icon {
-    font-size: 3rem;
+  /* Loading animation */
+  .redirect-content::after {
+    content: '';
     display: block;
-    margin-bottom: var(--espacio-md);
+    width: 40px;
+    height: 40px;
+    margin: var(--espacio-lg) auto 0;
+    border: 3px solid var(--border-subtle);
+    border-top-color: var(--madfam-yellow);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
   }
 
-  .cta-section {
-    padding: var(--espacio-xxl) 0;
-  }
-
-  .cta-actions {
-    display: flex;
-    gap: var(--espacio-md);
-    justify-content: center;
-  }
-
-  /* Fases Home Section */
-  .fases-home {
-    padding: var(--espacio-xxl) 0;
-  }
-
-  .fases-home h2 {
-    font-size: 2.5rem;
-    margin-bottom: var(--espacio-xl);
-    color: #2c2c2c;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-  }
-
-  .fase-icon {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: var(--espacio-md);
-  }
-
-  .fase-status {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-
-  .fase-status.active {
-    background: var(--verde-sostenible);
-    color: white;
-  }
-
-  .fase-status.upcoming {
-    background: var(--azul-tecnologico);
-    color: white;
-  }
-
-  .fase-status.development {
-    background: var(--naranja-comunidad);
-    color: white;
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   @media (max-width: 768px) {
-    .hero-logo {
+    .redirect-logo {
       height: 80px;
     }
 
-    .hero-title {
-      font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-    }
-
-    .hero-actions,
-    .cta-actions {
+    .language-choice {
       flex-direction: column;
       align-items: center;
+    }
+
+    .language-choice .btn {
+      width: 100%;
+      max-width: 250px;
     }
   }
 </style>
