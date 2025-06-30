@@ -1,11 +1,21 @@
 /**
- * Test for browser interval setup code
- * This test file is specifically to cover lines 340-354 in magazine-placeholder-cache.ts
+ * @fileoverview Tests for browser-specific interval setup in magazine placeholder cache.
+ * This test file specifically covers the browser environment detection
+ * and interval setup code in magazine-placeholder-cache.ts.
+ * The intervals handle periodic cache cleanup and optimization in production.
  */
 
 import { describe, it, expect } from 'vitest';
 
+/**
+ * Test suite for browser interval setup
+ * Validates environment detection and interval initialization logic
+ */
 describe('Browser Interval Coverage', () => {
+  /**
+   * Coverage test for interval setup code
+   * Ensures the browser detection code is evaluated during tests
+   */
   it('should cover browser interval setup code', () => {
     // This test exists solely to ensure the browser interval code is evaluated
     // The actual intervals are only set up in browser environments, not in tests
@@ -23,6 +33,10 @@ describe('Browser Interval Coverage', () => {
     expect(true).toBe(true);
   });
 
+  /**
+   * Tests the conditional logic for interval setup
+   * Intervals should only run in browser, not in test environment
+   */
   it('should test interval setup conditions', () => {
     // Test the condition logic
     const hasWindow = typeof window !== 'undefined';

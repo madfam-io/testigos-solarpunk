@@ -1,8 +1,32 @@
 #!/usr/bin/env node
 
 /**
- * Script para generar todos los iconos necesarios para PWA
- * Genera iconos en múltiples tamaños a partir de un SVG o PNG base
+ * @fileoverview PWA Icon Generator Script
+ *
+ * Automated tool to generate all required icons for Progressive Web App
+ * functionality across different platforms. Creates icons in multiple sizes
+ * from a source image or generates a default SVG if no source is found.
+ *
+ * Features:
+ * - Generates PWA manifest icons (72px to 512px)
+ * - Creates Apple Touch icons for iOS
+ * - Produces Windows tile images
+ * - Generates splash screens for iOS devices
+ * - Creates favicon files
+ * - Builds browserconfig.xml for Windows
+ *
+ * Usage:
+ * ```bash
+ * node scripts/generate-icons.js
+ * ```
+ *
+ * Source Priority:
+ * 1. public/icon-source.png
+ * 2. public/icon-source.svg
+ * 3. public/favicon.svg
+ * 4. Generated default SVG
+ *
+ * @module scripts/generate-icons
  */
 
 import sharp from 'sharp';
@@ -14,7 +38,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.join(__dirname, '..');
 
-// Configuración de iconos
+/**
+ * Icon size configurations for various platforms
+ * Each entry defines the size and filename for the generated icon
+ */
 const ICON_SIZES = [
   // PWA estándar
   { size: 72, name: 'icon-72.png' },
@@ -44,7 +71,10 @@ const ICON_SIZES = [
   { size: 310, name: 'ms-icon-310x310.png' },
 ];
 
-// Splash screens para iOS
+/**
+ * iOS splash screen configurations
+ * Covers all modern iOS device resolutions
+ */
 const SPLASH_SCREENS = [
   { width: 2048, height: 2732, name: 'splash-2048x2732.png' }, // iPad Pro 12.9"
   { width: 1668, height: 2388, name: 'splash-1668x2388.png' }, // iPad Pro 11"
@@ -55,7 +85,10 @@ const SPLASH_SCREENS = [
   { width: 828, height: 1792, name: 'splash-828x1792.png' }, // iPhone XR
 ];
 
-// Colores MADFAM
+/**
+ * MADFAM brand color palette
+ * Used for generating default icons and splash screens
+ */
 const MADFAM_COLORS = {
   yellow: '#FFC107',
   green: '#4CAF50',
@@ -65,6 +98,18 @@ const MADFAM_COLORS = {
   white: '#FFFFFF',
 };
 
+/**
+ * Generates default SVG icon for Testigos de Solarpunk
+ *
+ * Creates a themed icon featuring:
+ * - Solar gradient sun
+ * - Plant/leaf elements
+ * - Evangelistic cross
+ * - Project branding
+ *
+ * @async
+ * @returns {Promise<Buffer>} SVG content as buffer
+ */
 async function generateIconFromSVG() {
   const svgContent = `
     <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -121,6 +166,20 @@ async function generateIconFromSVG() {
   return Buffer.from(svgContent);
 }
 
+/**
+ * Generates splash screen for iOS devices
+ *
+ * Creates branded splash screens with:
+ * - Gradient background
+ * - Central sun logo
+ * - Project title and tagline
+ * - MADFAM attribution
+ *
+ * @async
+ * @param {number} width - Screen width in pixels
+ * @param {number} height - Screen height in pixels
+ * @returns {Promise<Buffer>} SVG content as buffer
+ */
 async function generateSplashScreen(width, height) {
   const svgContent = `
     <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
@@ -160,6 +219,13 @@ async function generateSplashScreen(width, height) {
   return Buffer.from(svgContent);
 }
 
+/**
+ * Ensures directory exists, creating it if necessary
+ *
+ * @async
+ * @param {string} dirPath - Directory path to verify/create
+ * @returns {Promise<void>}
+ */
 async function ensureDirectoryExists(dirPath) {
   try {
     await fs.access(dirPath);
@@ -168,6 +234,19 @@ async function ensureDirectoryExists(dirPath) {
   }
 }
 
+/**
+ * Main icon generation process
+ *
+ * Workflow:
+ * 1. Search for source image
+ * 2. Generate all icon sizes
+ * 3. Create favicon.ico
+ * 4. Generate iOS splash screens
+ * 5. Create Windows browserconfig.xml
+ *
+ * @async
+ * @returns {Promise<void>}
+ */
 async function main() {
   console.log('🎨 Generador de Iconos - Testigos de Solarpunk\n');
 
@@ -276,7 +355,11 @@ async function main() {
   }
 }
 
-// Ejecutar si es llamado directamente
+/**
+ * Script execution
+ *
+ * Runs main process when script is called directly
+ */
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main();
 }

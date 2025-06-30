@@ -1,3 +1,11 @@
+/**
+ * @fileoverview Unit tests for the CharacterCard component.
+ * Tests the HTML output and structure of character cards used throughout the site
+ * to display eco-warrior evangelists from the Testigos de Solarpunk universe.
+ * Since Astro components compile to HTML at build time, these tests validate
+ * the expected HTML structure rather than testing the component directly.
+ */
+
 import { describe, it, expect } from 'vitest';
 import {
   extractTextContent,
@@ -8,12 +16,16 @@ import {
 } from '../../helpers/astro-test-utils';
 
 /**
- * Since Astro components compile to HTML at build time,
- * we test the expected HTML structure and content
+ * Test suite for CharacterCard component
+ * Validates HTML structure, CSS classes, accessibility, and content rendering
  */
-
 describe('CharacterCard Component', () => {
-  // Mock rendered HTML output based on the component structure
+  /**
+   * Mock function to generate expected HTML output for a CharacterCard
+   * Simulates the Astro component's compiled HTML structure
+   * @param props - Character properties matching the component's expected props
+   * @returns HTML string representing the rendered component
+   */
   const mockCharacterCardHTML = (props: {
     id: string;
     nombre: string;
@@ -43,7 +55,15 @@ describe('CharacterCard Component', () => {
     `;
   };
 
+  /**
+   * Test suite for basic component rendering
+   * Validates that all character information is properly displayed
+   */
   describe('Basic Rendering', () => {
+    /**
+     * Tests complete character data rendering
+     * Uses Lucía Solar as example - the main protagonist
+     */
     it('should render character information correctly', () => {
       const props = {
         id: 'lucia-solar',
@@ -65,6 +85,10 @@ describe('CharacterCard Component', () => {
       expect(extractTextContent(html)).toContain('Carismática líder');
     });
 
+    /**
+     * Validates CSS class structure for styling consistency
+     * These classes are essential for the magazine cutout aesthetic
+     */
     it('should have correct CSS classes', () => {
       const props = {
         id: 'test',
@@ -89,7 +113,15 @@ describe('CharacterCard Component', () => {
     });
   });
 
+  /**
+   * Test suite for character image handling
+   * Ensures proper image loading and fallback behavior
+   */
   describe('Image Handling', () => {
+    /**
+     * Tests custom image URL usage
+     * Validates lazy loading for performance optimization
+     */
     it('should use provided image URL', () => {
       const props = {
         id: 'test',
@@ -109,6 +141,10 @@ describe('CharacterCard Component', () => {
       expect(imgAttrs.loading).toBe('lazy');
     });
 
+    /**
+     * Tests fallback placeholder image functionality
+     * Important for characters without profile photos
+     */
     it('should use placeholder image when no image provided', () => {
       const props = {
         id: 'test',
@@ -126,7 +162,15 @@ describe('CharacterCard Component', () => {
     });
   });
 
+  /**
+   * Test suite for profile link generation
+   * Ensures characters link to their detailed profile pages
+   */
   describe('Link Generation', () => {
+    /**
+     * Tests dynamic URL generation based on character ID
+     * Uses Hermano Compostino as example - a secondary character
+     */
     it('should generate correct profile link', () => {
       const props = {
         id: 'hermano-compostino',
@@ -146,7 +190,15 @@ describe('CharacterCard Component', () => {
     });
   });
 
+  /**
+   * Test suite for HTML structure validation
+   * Ensures consistent DOM structure for reliable styling and scripting
+   */
   describe('Structure Validation', () => {
+    /**
+     * Validates complete HTML element hierarchy
+     * Counts specific tags to ensure no missing elements
+     */
     it('should have expected HTML structure', () => {
       const props = {
         id: 'test',
@@ -170,6 +222,10 @@ describe('CharacterCard Component', () => {
       expect(countTags(html, 'a')).toBeGreaterThanOrEqual(1);
     });
 
+    /**
+     * Tests content placement within nested elements
+     * Ensures data appears in the correct DOM locations
+     */
     it('should have correct nested structure', () => {
       const props = {
         id: 'test',
@@ -194,7 +250,15 @@ describe('CharacterCard Component', () => {
     });
   });
 
+  /**
+   * Test suite for accessibility features
+   * Ensures the component meets WCAG standards
+   */
   describe('Accessibility', () => {
+    /**
+     * Tests image alt text for screen reader support
+     * Uses character name as descriptive alt text
+     */
     it('should have proper alt text for images', () => {
       const props = {
         id: 'test',
@@ -211,6 +275,10 @@ describe('CharacterCard Component', () => {
       expect(imgAttrs.alt).toBe('Lucía Solar');
     });
 
+    /**
+     * Validates semantic HTML usage
+     * Ensures proper document structure for accessibility and SEO
+     */
     it('should have semantic HTML elements', () => {
       const props = {
         id: 'test',

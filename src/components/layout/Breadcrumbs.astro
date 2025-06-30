@@ -1,4 +1,33 @@
 ---
+/**
+ * @fileoverview Breadcrumbs Component
+ *
+ * Navigation breadcrumb trail component for improved user orientation and SEO.
+ * Follows ARIA accessibility standards and provides a hierarchical navigation path.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <Breadcrumbs
+ *   items={[
+ *     { label: "Inicio", href: "/" },
+ *     { label: "Personajes", href: "/personajes/" },
+ *     { label: "Hermana Panelia" }
+ *   ]}
+ * />
+ * ```
+ */
+
+/**
+ * Props interface for Breadcrumbs component
+ *
+ * @interface Props
+ * @property {Array<BreadcrumbItem>} items - Ordered list of breadcrumb items
+ *
+ * @typedef {Object} BreadcrumbItem
+ * @property {string} label - Display text for the breadcrumb
+ * @property {string} [href] - Optional link URL. If omitted, item is treated as current page
+ */
 export interface Props {
   items: Array<{
     label: string;
@@ -7,6 +36,11 @@ export interface Props {
 }
 
 const { items } = Astro.props;
+
+/**
+ * Base path calculation for proper URL generation
+ * Handles GitHub Pages deployment paths
+ */
 let basePath =
   import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -18,11 +52,19 @@ if (basePath.endsWith('/')) {
 }
 ---
 
+<!-- 
+  Breadcrumb Navigation Structure:
+  - Semantic nav element with ARIA label
+  - Ordered list for proper hierarchy
+  - Current page marked with aria-current
+  - Separators hidden from screen readers
+-->
 <nav aria-label="Breadcrumb" class="breadcrumb-nav">
   <ol class="breadcrumb-list">
     {
       items.map((item, index) => (
         <li class="breadcrumb-item">
+          {/* Render as link if href provided, otherwise as current page */}
           {item.href !== undefined && item.href !== null ? (
             <a href={`${basePath}${item.href}`} class="breadcrumb-link">
               {item.label}
@@ -32,6 +74,7 @@ if (basePath.endsWith('/')) {
               {item.label}
             </span>
           )}
+          {/* Add separator between items (not after last) */}
           {index < items.length - 1 && (
             <span class="breadcrumb-separator" aria-hidden="true">
               /
@@ -44,6 +87,10 @@ if (basePath.endsWith('/')) {
 </nav>
 
 <style>
+  /**
+   * Breadcrumb Styles
+   * Minimal, accessible design that adapts to dark theme
+   */
   .breadcrumb-nav {
     padding: var(--space-md) 0;
     font-size: 0.875rem;

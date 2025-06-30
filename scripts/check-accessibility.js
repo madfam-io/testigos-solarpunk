@@ -1,3 +1,25 @@
+/**
+ * @fileoverview Accessibility Checker Script
+ *
+ * Automated accessibility audit tool that checks for WCAG compliance
+ * across the Testigos de Solarpunk website. Identifies common accessibility
+ * issues and generates comprehensive reports.
+ *
+ * Checks:
+ * - HTML structure and semantics
+ * - ARIA attributes and roles
+ * - Color contrast ratios
+ * - Keyboard navigation support
+ * - Form accessibility
+ *
+ * Usage:
+ * ```bash
+ * node scripts/check-accessibility.js
+ * ```
+ *
+ * @module scripts/check-accessibility
+ */
+
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -5,7 +27,19 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Color contrast checker
+/**
+ * Color contrast calculation utilities
+ * Based on WCAG 2.1 contrast ratio formulas
+ */
+
+/**
+ * Calculates relative luminance of an RGB color
+ *
+ * @param {number[]} rgb - RGB values [r, g, b] (0-255)
+ * @returns {number} Relative luminance (0-1)
+ *
+ * @see https://www.w3.org/TR/WCAG20/#relativeluminancedef
+ */
 function getLuminance(rgb) {
   const [r, g, b] = rgb;
   const sRGB = [r, g, b].map((val) => {
@@ -15,6 +49,17 @@ function getLuminance(rgb) {
   return 0.2126 * sRGB[0] + 0.7152 * sRGB[1] + 0.0722 * sRGB[2];
 }
 
+/**
+ * Calculates contrast ratio between two colors
+ *
+ * @param {number[]} color1 - First RGB color
+ * @param {number[]} color2 - Second RGB color
+ * @returns {number} Contrast ratio (1-21)
+ *
+ * WCAG Guidelines:
+ * - Normal text: 4.5:1 (AA), 7:1 (AAA)
+ * - Large text: 3:1 (AA), 4.5:1 (AAA)
+ */
 function getContrastRatio(color1, color2) {
   const lum1 = getLuminance(color1);
   const lum2 = getLuminance(color2);
@@ -23,6 +68,15 @@ function getContrastRatio(color1, color2) {
   return (brightest + 0.05) / (darkest + 0.05);
 }
 
+/**
+ * Converts hex color to RGB values
+ *
+ * @param {string} hex - Hex color code (with or without #)
+ * @returns {number[] | null} RGB array [r, g, b] or null if invalid
+ *
+ * @example
+ * hexToRgb('#FFC107') // [255, 193, 7]
+ */
 function hexToRgb(hex) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
@@ -34,14 +88,31 @@ function hexToRgb(hex) {
     : null;
 }
 
+/**
+ * Main accessibility checking class
+ *
+ * Performs comprehensive accessibility audits and generates reports
+ * with issues categorized by severity.
+ */
 class AccessibilityChecker {
   constructor() {
+    /** @type {Array<{file?: string, type: string, message: string, element?: string}>} Critical accessibility issues */
     this.issues = [];
+    /** @type {Array<{file?: string, type: string, message: string, element?: string}>} Non-critical warnings */
     this.warnings = [];
+    /** @type {Array<{type: string, message: string}>} Passed checks */
     this.passes = [];
   }
 
-  // Recursive function to get all files
+  /**
+   * Recursively retrieves all files in directory
+   *
+   * @param {string} dirPath - Directory to scan
+   * @param {string[]} [arrayOfFiles=[]] - Accumulator array
+   * @returns {string[]} All file paths found
+   *
+   * Excludes node_modules and .git directories
+   */
   getAllFiles(dirPath, arrayOfFiles = []) {
     const files = fs.readdirSync(dirPath);
 
@@ -59,6 +130,19 @@ class AccessibilityChecker {
     return arrayOfFiles;
   }
 
+  /**
+   * Main accessibility check process
+   *
+   * Runs all accessibility checks and generates reports:
+   * 1. HTML structure validation
+   * 2. ARIA attribute verification
+   * 3. Color contrast analysis
+   * 4. Keyboard navigation support
+   * 5. Form accessibility
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
   async check() {
     console.log('♿ Iniciando verificación de accesibilidad...\n');
 
@@ -83,6 +167,18 @@ class AccessibilityChecker {
     console.log('✅ Verificación completada!\n');
   }
 
+  /**
+   * Checks HTML structure and semantics
+   *
+   * Validates:
+   * - Skip links presence
+   * - Language attributes
+   * - Heading hierarchy
+   * - Image alt text
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
   async checkHTMLStructure() {
     console.log('📋 Verificando estructura HTML...');
 
@@ -146,6 +242,18 @@ class AccessibilityChecker {
     }
   }
 
+  /**
+   * Checks ARIA attributes and roles
+   *
+   * Validates:
+   * - Button labels for icon-only buttons
+   * - Navigation landmarks
+   * - Dropdown/menu attributes
+   * - External link safety
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
   async checkARIA() {
     console.log('🏷️  Verificando ARIA y roles...');
 
@@ -219,6 +327,16 @@ class AccessibilityChecker {
     }
   }
 
+  /**
+   * Checks color contrast ratios
+   *
+   * Tests key color combinations against WCAG standards:
+   * - AA: 4.5:1 for normal text, 3:1 for large text
+   * - AAA: 7:1 for normal text, 4.5:1 for large text
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
   async checkColorContrast() {
     console.log('🎨 Verificando contraste de colores...');
 
@@ -289,6 +407,18 @@ class AccessibilityChecker {
     });
   }
 
+  /**
+   * Checks keyboard navigation support
+   *
+   * Validates:
+   * - Focus visible styles
+   * - Skip link implementation
+   * - Screen reader utilities
+   * - Tabindex usage
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
   async checkKeyboardNavigation() {
     console.log('⌨️  Verificando navegación por teclado...');
 
@@ -368,6 +498,18 @@ class AccessibilityChecker {
     }
   }
 
+  /**
+   * Checks form accessibility
+   *
+   * Validates:
+   * - Input label associations
+   * - Required field indicators
+   * - Error messaging
+   * - Form validation
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
   async checkForms() {
     console.log('📝 Verificando formularios...');
 
@@ -421,6 +563,15 @@ class AccessibilityChecker {
     }
   }
 
+  /**
+   * Generates accessibility audit reports
+   *
+   * Creates:
+   * - accessibility-report.json: Machine-readable data
+   * - accessibility-report.md: Human-readable summary
+   *
+   * @returns {void}
+   */
   generateReport() {
     const report = {
       timestamp: new Date().toISOString(),
@@ -498,6 +649,11 @@ class AccessibilityChecker {
   }
 }
 
-// Ejecutar verificación
+/**
+ * Script execution
+ *
+ * Creates and runs the accessibility checker.
+ * Results are saved to report files.
+ */
 const checker = new AccessibilityChecker();
 checker.check().catch(console.error);

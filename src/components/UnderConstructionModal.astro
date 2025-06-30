@@ -1,11 +1,40 @@
 ---
 /**
- * Under Construction Modal Component
- * Testigos de Solarpunk - MADFAM
+ * @fileoverview UnderConstructionModal Component
  *
- * Shows a friendly modal when users click on incomplete links
+ * Modal dialog that appears when users click on features or downloads that are
+ * still under development. Provides a friendly message and alternative navigation
+ * options to keep users engaged.
+ *
+ * Features:
+ * - Magazine cutout aesthetic with paper texture
+ * - Animated emoji decorations
+ * - Suggested alternative links
+ * - Keyboard accessibility (ESC to close)
+ * - Focus management
+ * - Mobile-optimized responsive design
+ *
+ * @component
+ * @example
+ * ```astro
+ * <UnderConstructionModal
+ *   title="📥 Descarga Próximamente"
+ *   message="Este archivo estará disponible pronto"
+ *   suggestedLinks={[
+ *     { href: "/personajes/", text: "Ver Personajes", emoji: "👥" }
+ *   ]}
+ * />
+ * ```
  */
 
+/**
+ * Props interface for UnderConstructionModal component
+ *
+ * @interface Props
+ * @property {string} [title='📥 Descarga Próximamente'] - Modal title with emoji
+ * @property {string} [message] - Explanatory message for users
+ * @property {Array<{href: string, text: string, emoji: string}>} [suggestedLinks] - Alternative navigation options
+ */
 export interface Props {
   title?: string;
   message?: string;
@@ -348,25 +377,40 @@ const {
 </style>
 
 <script>
+  /**
+   * Under Construction Modal Controller
+   * Manages modal display, user interactions, and accessibility features
+   */
   document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('construction-modal');
     if (!modal) return;
 
-    // Function to show modal
+    /**
+     * Shows the modal with proper accessibility setup
+     * - Adds active class for CSS animation
+     * - Updates ARIA attributes
+     * - Prevents body scroll
+     * - Manages focus to close button
+     */
     function showModal() {
       if (!modal) return;
       modal.classList.add('active');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
 
-      // Focus management
+      // Focus management for accessibility
       const closeButton = modal.querySelector('.modal-close');
       if (closeButton instanceof HTMLElement) {
         closeButton.focus();
       }
     }
 
-    // Function to hide modal
+    /**
+     * Hides the modal and restores page state
+     * - Removes active class
+     * - Updates ARIA attributes
+     * - Restores body scroll
+     */
     function hideModal() {
       if (!modal) return;
       modal.classList.remove('active');
@@ -374,20 +418,23 @@ const {
       document.body.style.overflow = '';
     }
 
-    // Close modal handlers
+    // Attach close handlers to all elements with data-modal-close
     const closeElements = modal.querySelectorAll('[data-modal-close]');
     closeElements.forEach((element) => {
       element.addEventListener('click', hideModal);
     });
 
-    // Keyboard support
+    // ESC key support for accessibility
     modal.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         hideModal();
       }
     });
 
-    // Auto-detect construction links and attach modal
+    /**
+     * Global click handler to intercept construction links
+     * Prevents default navigation and shows modal instead
+     */
     document.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       const link = target.closest('a');
@@ -398,12 +445,21 @@ const {
       }
     });
 
-    // Function to determine if link should show construction modal
+    /**
+     * Determines if a link should trigger the construction modal
+     * @param {HTMLAnchorElement} link - The clicked link element
+     * @returns {boolean} Whether to show the modal
+     *
+     * Rules:
+     * - Skip external links
+     * - Skip links with data-no-modal attribute
+     * - Only show for specific download patterns
+     */
     function shouldShowConstructionModal(link: HTMLAnchorElement): boolean {
       const href = link.getAttribute('href');
       if (!href) return false;
 
-      // Don't show modal for external links or if link has specific data attribute
+      // Don't show modal for external links or opted-out links
       if (
         link.hasAttribute('data-no-modal') ||
         href.startsWith('http') ||
@@ -412,7 +468,7 @@ const {
         return false;
       }
 
-      // Only trigger modal for specific download links in recursos page
+      // Specific download links that trigger the modal
       const specificDownloadPatterns = [
         '/downloads/biblia-personajes.pdf',
         '/downloads/guia-mundo.pdf',
@@ -423,16 +479,18 @@ const {
         '/downloads/plantilla-podcast.pdf',
       ];
 
-      // Check if the href matches any of the specific download patterns
+      // Check if the href matches any pattern
       const isSpecificDownload = specificDownloadPatterns.some((pattern) =>
         href.includes(pattern)
       );
 
-      // Only show modal for the specific download buttons
       return isSpecificDownload;
     }
 
-    // Expose functions globally for manual triggering
+    /**
+     * Expose functions globally for programmatic control
+     * Useful for triggering modal from other scripts
+     */
     (window as any).showConstructionModal = showModal;
     (window as any).hideConstructionModal = hideModal;
   });

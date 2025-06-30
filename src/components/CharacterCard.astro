@@ -1,6 +1,38 @@
 ---
+/**
+ * @fileoverview CharacterCard Component
+ *
+ * A compact character display card for grid layouts and listing pages.
+ * Features magazine cutout aesthetic with character portrait and basic info.
+ * Links to full character detail page.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <CharacterCard
+ *   id="hermana-panelia"
+ *   nombre="Hermana Panelia"
+ *   rol="Evangelista Solar"
+ *   edad={33}
+ *   ocupacion="Instaladora de Paneles Solares"
+ *   descripcionBreve="Predica el evangelio de la energía renovable"
+ * />
+ * ```
+ */
 import MagazineCutoutImage from './MagazineCutoutImage.astro';
 
+/**
+ * Props interface for CharacterCard component
+ *
+ * @interface Props
+ * @property {string} id - Unique identifier for URL generation
+ * @property {string} nombre - Character's full name
+ * @property {string} rol - Character's role in the Solarpunk universe
+ * @property {number} edad - Character's age in years
+ * @property {string} ocupacion - Character's occupation/profession
+ * @property {string} [imagen] - Optional custom image URL
+ * @property {string} descripcionBreve - Brief character description (1-2 sentences)
+ */
 export interface Props {
   id: string;
   nombre: string;
@@ -14,18 +46,31 @@ export interface Props {
 const { id, nombre, rol, edad, ocupacion, imagen, descripcionBreve } =
   Astro.props;
 
+/**
+ * Calculate base path for proper URL generation
+ * Handles both local development and production environments
+ * Ensures compatibility with GitHub Pages deployment
+ */
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
     : '/testigos-solarpunk';
 
-// Ensure basePath doesn't end with a slash
+// Ensure basePath doesn't end with a slash for consistent URL formatting
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
 ---
 
+<!-- 
+  Character Card Layout:
+  - Fixed height portrait section
+  - Overlaid role badge with magazine cutout style
+  - Structured information hierarchy
+  - Call-to-action button
+-->
 <article class="character-card card">
+  <!-- Portrait section with magazine cutout image -->
   <div class="character-image">
     <MagazineCutoutImage
       src={imagen}
@@ -40,15 +85,19 @@ if (basePath.endsWith('/')) {
       interactive={true}
       class="character-portrait"
     />
+    <!-- Role badge overlay -->
     <span class="character-role emoji-cutout emoji-sm theme-green">{rol}</span>
   </div>
 
+  <!-- Character information section -->
   <div class="character-info">
     <h3>{nombre}</h3>
+    <!-- Metadata with separator -->
     <p class="character-meta">
       <span>{edad} años</span> • <span>{ocupacion}</span>
     </p>
     <p class="character-description">{descripcionBreve}</p>
+    <!-- Dynamic URL with base path handling -->
     <a href={`${basePath}/personajes/${id}/`} class="btn btn-primary"
       >Ver Perfil Completo</a
     >
@@ -56,19 +105,27 @@ if (basePath.endsWith('/')) {
 </article>
 
 <style>
+  /**
+   * Character Card Styles
+   * Designed for grid layouts with consistent dimensions
+   * Uses design tokens from madfam-tokens.css
+   */
   .character-card {
     overflow: hidden;
     transition: all var(--transicion-normal);
   }
 
+  /* Image container with fixed height for consistency */
   .character-image {
     position: relative;
     height: 200px;
     overflow: hidden;
+    /* Negative margins extend image to card edges */
     margin: calc(-1 * var(--espacio-lg)) calc(-1 * var(--espacio-lg))
       var(--espacio-md);
   }
 
+  /* Floating role badge positioned over image */
   .character-role {
     position: absolute;
     top: var(--espacio-md);
@@ -81,22 +138,26 @@ if (basePath.endsWith('/')) {
     font-weight: 500;
   }
 
+  /* Character name styling with brand color */
   .character-info h3 {
     color: var(--purpura-creativo);
     margin-bottom: var(--espacio-sm);
   }
 
+  /* Secondary information styling */
   .character-meta {
     color: var(--texto-secundario);
     font-size: 0.875rem;
     margin-bottom: var(--espacio-md);
   }
 
+  /* Description text with proper line height */
   .character-description {
     margin-bottom: var(--espacio-lg);
     line-height: 1.5;
   }
 
+  /* Full-width CTA button */
   .character-card .btn {
     width: 100%;
     text-align: center;

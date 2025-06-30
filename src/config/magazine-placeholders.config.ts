@@ -1,8 +1,23 @@
 /**
- * Configuración para el sistema de placeholders con estética Magazine Cutout
- * Testigos de Solarpunk - MADFAM
+ * @fileoverview Magazine Cutout Placeholder Configuration
+ *
+ * Central configuration for the AI-powered placeholder generation system.
+ * Defines services, aesthetic parameters, prompts, and fallback settings
+ * for creating authentic DIY magazine cutout style placeholder images.
+ *
+ * @module config/magazine-placeholders
  */
 
+/**
+ * AI placeholder service configuration
+ *
+ * @interface PlaceholderService
+ * @property {string} name - Service identifier
+ * @property {string} endpoint - API endpoint URL
+ * @property {string[]} features - Supported features list
+ * @property {Record<string, string>} styleParams - Service-specific style parameters
+ * @property {boolean} enabled - Whether service is active
+ */
 export interface PlaceholderService {
   name: string;
   endpoint: string;
@@ -11,6 +26,18 @@ export interface PlaceholderService {
   enabled: boolean;
 }
 
+/**
+ * Magazine cutout visual aesthetics configuration
+ *
+ * @interface MagazineAesthetics
+ * @property {[number, number]} rotationRange - Min/max rotation angles in degrees
+ * @property {number} shadowIntensity - Drop shadow opacity (0-1)
+ * @property {boolean} paperTexture - Enable paper grain texture
+ * @property {number} tapeChance - Probability of washi tape decoration (0-1)
+ * @property {number} stapleChance - Probability of staple decoration (0-1)
+ * @property {number} coffeeStainChance - Probability of coffee stains (0-1)
+ * @property {string[]} tornEdgeVariations - Types of edge cutting styles
+ */
 export interface MagazineAesthetics {
   rotationRange: [number, number];
   shadowIntensity: number;
@@ -21,15 +48,33 @@ export interface MagazineAesthetics {
   tornEdgeVariations: string[];
 }
 
+/**
+ * Content type to AI prompt mapping
+ *
+ * @interface PlaceholderPrompts
+ * Base prompts for each placeholder type, enhanced with style modifiers
+ */
 export interface PlaceholderPrompts {
   [key: string]: string;
 }
 
+/**
+ * Main magazine placeholder configuration object
+ *
+ * Central configuration containing all settings for the placeholder system.
+ * Services array is empty as they are dynamically configured per deployment.
+ */
 export const magazinePlaceholderConfig = {
-  // Servicios de AI en orden de preferencia
+  /**
+   * AI services array (populated at runtime)
+   * Services are tried in order until one succeeds
+   */
   services: [] as PlaceholderService[],
 
-  // Configuración estética del magazine cutout
+  /**
+   * Visual style configuration for magazine cutout effect
+   * Creates authentic DIY aesthetic with realistic imperfections
+   */
   aesthetics: {
     rotationRange: [-5, 5] as [number, number],
     shadowIntensity: 0.2,
@@ -40,7 +85,10 @@ export const magazinePlaceholderConfig = {
     tornEdgeVariations: ['scissors', 'rough-tear', 'careful-cut', 'aged-edge'],
   } as MagazineAesthetics,
 
-  // Templates de prompts por tipo de contenido
+  /**
+   * Base prompts for AI generation by content type
+   * Enhanced with style modifiers for final prompt
+   */
   prompts: {
     character: 'vintage portrait, person',
     sketch: 'comic panel, sketch',
@@ -53,7 +101,10 @@ export const magazinePlaceholderConfig = {
     production: 'production notes',
   } as PlaceholderPrompts,
 
-  // Modificadores de estilo para añadir autenticidad
+  /**
+   * Style modifiers to enhance base prompts
+   * Combined with prompts to create authentic magazine aesthetic
+   */
   styleModifiers: {
     magazine: 'magazine cutout, vintage',
     diy: 'DIY handmade',
@@ -62,16 +113,22 @@ export const magazinePlaceholderConfig = {
     solarpunk: 'eco-futuristic',
   },
 
-  // Configuración de rendimiento
+  /**
+   * Performance and optimization settings
+   * Balances quality with response time and resource usage
+   */
   performance: {
-    timeout: 5000, // 5 segundos timeout
-    retries: 2,
-    cacheDuration: 24 * 60 * 60 * 1000, // 24 horas
-    preloadSize: 10, // Número de placeholders para precargar
-    maxConcurrent: 3, // Máximo número de requests simultáneos
+    timeout: 5000, // Maximum wait time per service (5 seconds)
+    retries: 2, // Retry attempts per service
+    cacheDuration: 24 * 60 * 60 * 1000, // Cache TTL (24 hours)
+    preloadSize: 10, // Number of common placeholders to preload
+    maxConcurrent: 3, // Maximum parallel AI requests
   },
 
-  // Configuración de fallback SVG
+  /**
+   * SVG fallback configuration when AI services fail
+   * Generates deterministic SVG placeholders with magazine aesthetic
+   */
   svgFallback: {
     enabled: true,
     paperColors: [
@@ -102,12 +159,21 @@ export const magazinePlaceholderConfig = {
   },
 } as const;
 
-// Tipos para TypeScript
+/**
+ * TypeScript type definitions derived from configuration
+ */
 export type PlaceholderType = keyof typeof magazinePlaceholderConfig.prompts;
 export type StyleModifier =
   keyof typeof magazinePlaceholderConfig.styleModifiers;
 
-// Configuración por defecto para cada tipo
+/**
+ * Default configurations for each placeholder type
+ *
+ * Defines dimensions, quality, and style modifiers optimized
+ * for each content type's specific use case.
+ *
+ * @constant {Record<PlaceholderType, Object>}
+ */
 export const defaultConfigs: Record<
   PlaceholderType,
   {
@@ -117,54 +183,81 @@ export const defaultConfigs: Record<
     modifiers: StyleModifier[];
   }
 > = {
+  /**
+   * Character cards - Medium size for grid layouts
+   */
   character: {
     width: 400,
     height: 300,
     quality: 85,
     modifiers: ['magazine', 'vintage'],
   },
+  /**
+   * Video sketches - 16:9 aspect ratio for thumbnails
+   */
   sketch: {
     width: 640,
     height: 360,
     quality: 80,
     modifiers: ['diy', 'collage'],
   },
+  /**
+   * Podcast covers - Square format for audio platforms
+   */
   podcast: {
     width: 500,
     height: 500,
     quality: 90,
     modifiers: ['vintage', 'magazine'],
   },
+  /**
+   * Hero sections - Large banner format
+   */
   hero: {
     width: 1200,
     height: 600,
     quality: 95,
     modifiers: ['magazine', 'collage', 'solarpunk'],
   },
+  /**
+   * Background images - Medium quality for performance
+   */
   background: {
     width: 800,
     height: 400,
     quality: 75,
     modifiers: ['collage', 'vintage'],
   },
+  /**
+   * MADLAB sections - Educational content format
+   */
   madlab: {
     width: 600,
     height: 400,
     quality: 85,
     modifiers: ['magazine', 'solarpunk'],
   },
+  /**
+   * Community features - Social content dimensions
+   */
   community: {
     width: 500,
     height: 400,
     quality: 85,
     modifiers: ['vintage', 'magazine'],
   },
+  /**
+   * Impact metrics - Data visualization format
+   */
   impact: {
     width: 700,
     height: 500,
     quality: 90,
     modifiers: ['magazine', 'solarpunk'],
   },
+  /**
+   * Production content - Behind-the-scenes format
+   */
   production: {
     width: 600,
     height: 450,

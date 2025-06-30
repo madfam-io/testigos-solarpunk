@@ -1,8 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * Script para optimizar imágenes del proyecto
- * Genera versiones WebP y múltiples tamaños para responsive
+ * @fileoverview Optimizes all project images for web performance.
+ *
+ * This script processes images to create optimized versions:
+ * - Generates WebP and AVIF formats for modern browsers
+ * - Creates multiple sizes for responsive images (srcset)
+ * - Preserves aspect ratios and applies quality settings
+ * - Skips already optimized images to save processing time
+ *
+ * Usage: node scripts/optimize-images.js
+ *
+ * @module optimize-images
  */
 
 import sharp from 'sharp';
@@ -15,7 +24,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.join(__dirname, '..');
 
-// Configuración
+/**
+ * Configuration object for image optimization.
+ * @constant {Object} CONFIG
+ * @property {string[]} sourcePaths - Glob patterns for finding source images
+ * @property {number[]} sizes - Width breakpoints for responsive images
+ * @property {string[]} formats - Output formats to generate
+ * @property {Object} quality - Quality settings for each format (0-100)
+ * @property {string[]} skipPatterns - Patterns to exclude from processing
+ */
 const CONFIG = {
   sourcePaths: [
     'src/assets/images/**/*.{jpg,jpeg,png}',
@@ -31,7 +48,10 @@ const CONFIG = {
   skipPatterns: ['**/node_modules/**', '**/dist/**', '**/.git/**'],
 };
 
-// Colores para la consola
+/**
+ * ANSI color codes for console output formatting.
+ * @constant {Object} colors
+ */
 const colors = {
   reset: '\x1b[0m',
   green: '\x1b[32m',
@@ -40,11 +60,20 @@ const colors = {
   red: '\x1b[31m',
 };
 
-// Utilidades
+/**
+ * Logs a colored message to the console.
+ * @param {string} message - The message to log
+ * @param {keyof colors} color - The color to use (defaults to 'reset')
+ */
 function log(message, color = 'reset') {
   console.log(`${colors[color]}${message}${colors.reset}`);
 }
 
+/**
+ * Formats byte size into human-readable format.
+ * @param {number} bytes - Size in bytes
+ * @returns {string} Formatted size string (e.g., "1.5 MB")
+ */
 function formatBytes(bytes) {
   if (bytes === 0) return '0 Bytes';
   const k = 1024;
@@ -53,7 +82,12 @@ function formatBytes(bytes) {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
-// Procesar una imagen
+/**
+ * Processes a single image file to create optimized versions.
+ * @async
+ * @param {string} imagePath - Path to the source image
+ * @returns {Promise<Object>} Processing statistics including sizes and file counts
+ */
 async function processImage(imagePath) {
   try {
     const startTime = Date.now();
@@ -74,10 +108,10 @@ async function processImage(imagePath) {
     let totalSaved = 0;
     let filesCreated = 0;
 
-    // Generar diferentes formatos y tamaños
+    // Generate different formats and sizes for responsive images
     for (const outputFormat of CONFIG.formats) {
       for (const size of CONFIG.sizes) {
-        // Skip si la imagen es más pequeña que el tamaño objetivo
+        // Skip if source image is smaller than target size
         if (width < size) continue;
 
         const outputPath = path.join(
@@ -85,7 +119,7 @@ async function processImage(imagePath) {
           `${baseName}-${size}w.${outputFormat}`
         );
 
-        // Skip si el archivo ya existe y es más nuevo
+        // Skip if output file exists and is newer than source
         try {
           const outputStats = await fs.stat(outputPath);
           if (outputStats.mtime > stats.mtime) {
@@ -95,10 +129,10 @@ async function processImage(imagePath) {
             continue;
           }
         } catch (e) {
-          // El archivo no existe, continuar
+          // Output file doesn't exist, proceed with creation
         }
 
-        // Procesar imagen
+        // Process image with Sharp: resize and convert format
         const buffer = await sharp(imagePath)
           .resize(size, null, {
             withoutEnlargement: true,
@@ -124,7 +158,7 @@ async function processImage(imagePath) {
       }
     }
 
-    // Generar versión principal en formato moderno
+    // Generate main WebP version at original size
     const mainOutputPath = path.join(outputDir, `${baseName}.webp`);
 
     try {
@@ -181,14 +215,19 @@ async function processImage(imagePath) {
   }
 }
 
-// Función principal
+/**
+ * Main function that orchestrates the image optimization process.
+ * Finds all images, processes them, and reports statistics.
+ * @async
+ * @returns {Promise<void>}
+ */
 async function main() {
   log('\n🌟 Optimizador de Imágenes - Testigos de Solarpunk\n', 'green');
 
-  // Cambiar al directorio raíz
+  // Change to root directory for consistent path resolution
   process.chdir(ROOT_DIR);
 
-  // Buscar imágenes
+  // Find all images matching source patterns
   const images = await globby(CONFIG.sourcePaths, {
     ignore: CONFIG.skipPatterns,
   });
@@ -200,7 +239,7 @@ async function main() {
 
   log(`Encontradas ${images.length} imágenes para procesar...`, 'blue');
 
-  // Procesar imágenes
+  // Process all images and collect statistics
   const startTime = Date.now();
   let totalOriginalSize = 0;
   let totalSaved = 0;
@@ -217,7 +256,7 @@ async function main() {
 
   const totalDuration = Date.now() - startTime;
 
-  // Resumen final
+  // Print final summary with statistics
   log('\n' + '='.repeat(60), 'blue');
   log('📊 RESUMEN FINAL', 'green');
   log('='.repeat(60), 'blue');
@@ -236,7 +275,7 @@ async function main() {
   log('✨ ¡Optimización completada! ¡Aleluya Solar! ✨\n', 'green');
 }
 
-// Ejecutar si es llamado directamente
+// Execute main function if script is run directly
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main().catch((error) => {
     log(`\n❌ Error fatal: ${error.message}`, 'red');

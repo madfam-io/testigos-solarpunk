@@ -1,14 +1,66 @@
 ---
 /**
- * Componente de Imagen con Estética Magazine Cutout
- * Testigos de Solarpunk - MADFAM
+ * @fileoverview MagazineCutoutImage Component
  *
- * Integra placeholders AI con la estética DIY existente
+ * Advanced image component with DIY magazine cutout aesthetic and AI placeholder generation.
+ * Integrates with the emoji magazine cutout design system to create authentic-looking
+ * paper cutouts with tape, worn edges, and vintage effects.
+ *
+ * Features:
+ * - Automatic AI placeholder generation when src is not provided
+ * - Magazine cutout styling with irregular edges
+ * - Tape decorations and paper texture effects
+ * - Responsive design with performance optimizations
+ * - Accessibility support with proper loading states
+ * - Fallback handling for failed image loads
+ *
+ * @component
+ * @example
+ * ```astro
+ * // With custom image
+ * <MagazineCutoutImage
+ *   src="/images/hero.jpg"
+ *   alt="Solar panel installation"
+ *   width={600}
+ *   height={400}
+ *   theme="solar"
+ *   interactive={true}
+ * />
+ *
+ * // With AI placeholder
+ * <MagazineCutoutImage
+ *   alt="Community garden"
+ *   width={400}
+ *   height={300}
+ *   type="location"
+ *   prompt="vibrant community garden with solar panels"
+ *   theme="green"
+ *   flutter={true}
+ * />
+ * ```
  */
 
 import { MagazineCutoutPlaceholderService } from '../services/MagazineCutoutPlaceholderService';
 import type { PlaceholderType } from '../config/magazine-placeholders.config';
 
+/**
+ * Props interface for MagazineCutoutImage component
+ *
+ * @interface Props
+ * @property {string} [src] - Image source URL. If not provided, generates AI placeholder
+ * @property {string} alt - Alternative text for accessibility (required)
+ * @property {number} width - Image width in pixels
+ * @property {number} height - Image height in pixels
+ * @property {PlaceholderType} [type='background'] - Type of placeholder to generate
+ * @property {string} [prompt] - Custom prompt for AI generation. Falls back to alt text
+ * @property {string} [class] - Additional CSS classes
+ * @property {boolean} [eager=false] - Whether to load image eagerly (vs lazy loading)
+ * @property {'emoji-sm' | 'emoji-md' | 'emoji-lg' | 'emoji-xl'} [cutoutStyle='emoji-md'] - Size preset
+ * @property {'solar' | 'green' | 'purple' | 'community'} [theme] - Color theme
+ * @property {'nav' | 'hero' | 'card' | 'button'} [context] - Usage context for styling
+ * @property {boolean} [interactive=false] - Whether image responds to interactions
+ * @property {boolean} [flutter=false] - Enable paper flutter animation
+ */
 export interface Props {
   src?: string;
   alt: string;
@@ -25,6 +77,7 @@ export interface Props {
   flutter?: boolean;
 }
 
+// Extract and validate props with defaults
 const {
   src,
   alt,
@@ -41,24 +94,29 @@ const {
   flutter = false,
 } = Astro.props;
 
-// Generar placeholder con estética magazine cutout si no hay src
+/**
+ * Placeholder generation logic
+ * If no src is provided, generates an AI placeholder image
+ * Falls back to SVG placeholder if AI generation fails
+ */
 let placeholderData = null;
 let placeholderUrl = src;
 
 if (src == null || src === '') {
   try {
+    // Generate AI placeholder with magazine cutout aesthetic
     placeholderData =
       await MagazineCutoutPlaceholderService.generatePlaceholder({
         type,
         width,
         height,
-        prompt: prompt ?? alt,
+        prompt: prompt ?? alt, // Use alt text as prompt if not specified
         priority: eager ? 'high' : 'normal',
       });
     placeholderUrl = placeholderData.url;
   } catch (error) {
     console.warn('Failed to generate placeholder:', error);
-    // Fallback básico
+    // SVG fallback with paper texture appearance
     placeholderUrl = `data:image/svg+xml,${encodeURIComponent(`
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
         <rect width="100%" height="100%" fill="#F4E5D3"/>
@@ -70,7 +128,10 @@ if (src == null || src === '') {
   }
 }
 
-// Construir clases CSS
+/**
+ * CSS class construction
+ * Combines base classes with conditional modifiers
+ */
 const cssClasses = [
   'magazine-cutout-image',
   `emoji-cutout ${cutoutStyle}`,
@@ -83,14 +144,19 @@ const cssClasses = [
   .filter((cls) => cls !== '')
   .join(' ');
 
-// Usar propiedades estéticas del placeholder o generar aleatorias
+/**
+ * Aesthetic properties for magazine cutout effect
+ * Uses AI-generated values or random fallbacks
+ * Creates unique paper rotation and positioning
+ */
 const aesthetic = placeholderData?.aesthetic ?? {
-  rotation: Math.random() * 10 - 5,
-  translateX: Math.random() * 4 - 2,
-  translateY: Math.random() * 4 - 2,
-  hasDecorations: Math.random() > 0.5,
+  rotation: Math.random() * 10 - 5, // -5 to 5 degrees
+  translateX: Math.random() * 4 - 2, // -2 to 2 pixels
+  translateY: Math.random() * 4 - 2, // -2 to 2 pixels
+  hasDecorations: Math.random() > 0.5, // 50% chance of tape
 };
 
+// Transform string for CSS custom properties
 const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.translateX}px, ${aesthetic.translateY}px)`;
 ---
 
@@ -492,8 +558,12 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
 </style>
 
 <script>
-  // Mejorar la experiencia de carga de placeholders AI
+  /**
+   * Client-side enhancement for AI placeholder loading experience
+   * Handles loading states, error recovery, and fallback mechanisms
+   */
   document.addEventListener('DOMContentLoaded', () => {
+    // Select all magazine cutout images
     const placeholderImages = document.querySelectorAll(
       '[data-magazine-cutout="true"]'
     );
@@ -503,7 +573,10 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       const loadingIndicator = wrapper?.querySelector('.ai-loading-indicator');
 
       if (img instanceof HTMLImageElement) {
-        // Ocultar indicador cuando la imagen cargue
+        /**
+         * Handle successful image load
+         * Fades out and removes loading indicator
+         */
         img.addEventListener('load', () => {
           if (loadingIndicator) {
             (loadingIndicator as HTMLElement).style.opacity = '0';
@@ -511,13 +584,18 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
           }
         });
 
-        // Manejar errores de carga
+        /**
+         * Handle image loading errors
+         * Attempts fallback URL or shows error state
+         */
         img.addEventListener('error', () => {
           const fallbackUrl = img.getAttribute('data-fallback-url');
           if (fallbackUrl && fallbackUrl !== '') {
+            // Try fallback URL
             img.src = fallbackUrl;
             img.removeAttribute('data-fallback-url');
           } else if (loadingIndicator) {
+            // Show error state
             loadingIndicator.textContent = '⚠️ Error';
             (loadingIndicator as HTMLElement).style.background =
               'rgba(255, 200, 200, 0.95)';

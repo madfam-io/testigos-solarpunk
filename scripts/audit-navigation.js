@@ -1,3 +1,24 @@
+/**
+ * @fileoverview Navigation Audit Script
+ *
+ * Automated tool to audit site navigation, find broken links, and generate
+ * comprehensive reports about the site's link structure. Helps maintain
+ * navigation integrity across the Testigos de Solarpunk website.
+ *
+ * Features:
+ * - Discovers all pages in the project
+ * - Scans for internal links in all source files
+ * - Identifies broken links and missing pages
+ * - Generates JSON and Markdown reports
+ *
+ * Usage:
+ * ```bash
+ * node scripts/audit-navigation.js
+ * ```
+ *
+ * @module scripts/audit-navigation
+ */
+
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -5,14 +26,36 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/**
+ * Navigation auditing class
+ *
+ * Scans the entire codebase to build a comprehensive map of pages and links,
+ * then identifies any broken internal links.
+ */
 class NavigationAuditor {
   constructor() {
+    /** @type {Array<{link: string, normalizedLink: string, usedIn: string[]}>} Broken links found */
     this.brokenLinks = [];
+    /** @type {Set<string>} All discoverable page routes */
     this.allPages = new Set();
+    /** @type {Set<string>} All internal links found in codebase */
     this.allLinks = new Set();
+    /** @type {Object<string, string[]>} Map of links to files using them */
     this.navigationMap = {};
   }
 
+  /**
+   * Main audit process
+   *
+   * Executes the complete navigation audit workflow:
+   * 1. Discovers all pages
+   * 2. Scans for all internal links
+   * 3. Identifies broken links
+   * 4. Generates comprehensive reports
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
   async audit() {
     console.log('🔍 Iniciando auditoría de navegación...\n');
 
@@ -31,7 +74,17 @@ class NavigationAuditor {
     console.log('✅ Auditoría completada!\n');
   }
 
-  // Recursive function to get all files
+  /**
+   * Recursively retrieves all files in a directory
+   *
+   * @param {string} dirPath - Directory path to scan
+   * @param {string[]} [arrayOfFiles=[]] - Accumulator for file paths
+   * @returns {string[]} Array of all file paths found
+   *
+   * Excludes:
+   * - node_modules directory
+   * - .git directory
+   */
   getAllFiles(dirPath, arrayOfFiles = []) {
     const files = fs.readdirSync(dirPath);
 
@@ -49,6 +102,15 @@ class NavigationAuditor {
     return arrayOfFiles;
   }
 
+  /**
+   * Discovers all page routes in the project
+   *
+   * Scans the src/pages directory for .astro, .md, and .mdx files
+   * and converts file paths to URL routes.
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
   async findAllPages() {
     const pagesDir = path.join(__dirname, '..', 'src', 'pages');
     const files = this.getAllFiles(pagesDir);
@@ -67,6 +129,15 @@ class NavigationAuditor {
     console.log(`📄 Encontradas ${this.allPages.size} páginas`);
   }
 
+  /**
+   * Scans all source files for internal links
+   *
+   * Searches through .astro, .tsx, .jsx, .md, and .mdx files
+   * to extract all internal link references.
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
   async scanAllLinks() {
     const srcDir = path.join(__dirname, '..', 'src');
     const files = this.getAllFiles(srcDir);
@@ -99,6 +170,18 @@ class NavigationAuditor {
     console.log(`🔗 Encontrados ${this.allLinks.size} enlaces únicos`);
   }
 
+  /**
+   * Extracts all internal links from file content
+   *
+   * Uses regex patterns to find various link formats including:
+   * - Standard href attributes
+   * - Template literal hrefs
+   * - React Router links
+   * - Programmatic navigation
+   *
+   * @param {string} content - File content to search
+   * @returns {Set<string>} Set of unique internal links found
+   */
   extractLinks(content) {
     const links = new Set();
 
@@ -136,6 +219,20 @@ class NavigationAuditor {
     return links;
   }
 
+  /**
+   * Converts file path to URL route
+   *
+   * Transforms file system paths into web routes following
+   * Astro's file-based routing conventions.
+   *
+   * @param {string} filePath - Absolute file path
+   * @returns {string} URL route path
+   *
+   * Examples:
+   * - /pages/index.astro -> /
+   * - /pages/about.astro -> /about
+   * - /pages/blog/index.astro -> /blog
+   */
   fileToRoute(filePath) {
     // Convertir ruta de archivo a ruta URL
     const pagesDir = path.join(__dirname, '..', 'src', 'pages');
@@ -160,6 +257,20 @@ class NavigationAuditor {
     return route;
   }
 
+  /**
+   * Identifies broken internal links
+   *
+   * Compares all found links against discovered pages to find
+   * links pointing to non-existent routes.
+   *
+   * @returns {void}
+   *
+   * Handles:
+   * - Hash fragments (#section)
+   * - Query parameters (?param=value)
+   * - Trailing slashes
+   * - Index routes
+   */
   checkBrokenLinks() {
     this.allLinks.forEach((link) => {
       // Normalizar el enlace
@@ -204,6 +315,16 @@ class NavigationAuditor {
     console.log(`❌ Encontrados ${this.brokenLinks.length} enlaces rotos`);
   }
 
+  /**
+   * Generates comprehensive audit reports
+   *
+   * Creates three report files:
+   * 1. broken-links.json - Detailed broken links data
+   * 2. site-navigation.json - Complete navigation map
+   * 3. missing-pages.md - Human-readable missing pages report
+   *
+   * @returns {void}
+   */
   generateReports() {
     const timestamp = new Date().toISOString();
 
@@ -280,6 +401,11 @@ class NavigationAuditor {
   }
 }
 
-// Ejecutar auditoría
+/**
+ * Script execution
+ *
+ * Creates and runs the navigation auditor.
+ * Errors are logged to console.
+ */
 const auditor = new NavigationAuditor();
 auditor.audit().catch(console.error);

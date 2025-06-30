@@ -87,7 +87,21 @@ export const CATCHPHRASES = [
   '¡Alabado sea el panel solar!',
 ] as const;
 
-// Tipos de milagros verdes
+/**
+ * Green miracle categorization
+ *
+ * Types of sustainable transformations portrayed in the content,
+ * each representing a different aspect of environmental action.
+ *
+ * @constant {Object}
+ *
+ * Categories align with real sustainability pillars:
+ * - ENERGIA: Renewable energy adoption
+ * - AGRICULTURA: Urban farming and food systems
+ * - RECICLAJE: Circular economy practices
+ * - AGUA: Water conservation and management
+ * - TRANSPORTE: Sustainable mobility solutions
+ */
 export const MIRACLE_TYPES = {
   ENERGIA: {
     name: 'Milagro Energético',
@@ -116,7 +130,19 @@ export const MIRACLE_TYPES = {
   },
 } as const;
 
-// Configuración de SEO
+/**
+ * SEO configuration defaults
+ *
+ * Search engine optimization settings for consistent metadata across pages.
+ * Follows Open Graph and Twitter Card specifications.
+ *
+ * @constant {Object}
+ *
+ * Templates:
+ * - titleTemplate: Pattern for page titles (%s is replaced)
+ * - defaultImage: Social sharing preview image
+ * - twitterHandle: Twitter account for attribution
+ */
 export const SEO_DEFAULTS = {
   titleTemplate: '%s | Testigos de Solarpunk',
   defaultTitle: 'Testigos de Solarpunk - Universo Narrativo Eco-Evangelista',
@@ -126,7 +152,22 @@ export const SEO_DEFAULTS = {
   twitterHandle: '@TestigosSolar',
 } as const;
 
-// Colores del tema MADFAM
+/**
+ * MADFAM brand color palette
+ *
+ * Core brand colors used throughout the design system.
+ * These colors maintain consistency with MADFAM's visual identity.
+ *
+ * @constant {Object}
+ *
+ * Colors:
+ * - yellow: Primary brand color (Amber 500)
+ * - green: Success/sustainability (Green 500)
+ * - purple: Creative/mystical (Rebecca Purple)
+ * - blue: Information/water (Blue 500)
+ * - black: Text/contrast (Grey 900)
+ * - white: Background/light
+ */
 export const MADFAM_COLORS = {
   yellow: '#FFC107',
   green: '#4CAF50',
@@ -136,7 +177,24 @@ export const MADFAM_COLORS = {
   white: '#FFFFFF',
 } as const;
 
-// Colores extendidos Solarpunk
+/**
+ * Extended Solarpunk color palette
+ *
+ * Additional thematic colors representing different aspects
+ * of the Solarpunk aesthetic and environmental themes.
+ *
+ * @constant {Object}
+ *
+ * Thematic associations:
+ * - bioGlow: Bioluminescence, future tech (Chartreuse)
+ * - skyHope: Clear skies, optimism (Sky Blue)
+ * - earth: Soil, grounding (Saddle Brown)
+ * - water: Clean water, life (Dark Turquoise)
+ * - community: Human connection (Portland Orange)
+ * - solarGold: Solar energy, prosperity (Gold)
+ * - leafGreen: Vegetation, growth (Forest Green)
+ * - compostBrown: Organic matter, cycles (Saddle Brown)
+ */
 export const SOLARPUNK_COLORS = {
   bioGlow: '#7FFF00',
   skyHope: '#87CEEB',
@@ -148,7 +206,20 @@ export const SOLARPUNK_COLORS = {
   compostBrown: '#8B4513',
 } as const;
 
-// Configuración de animaciones
+/**
+ * Animation timing configuration
+ *
+ * Standardized durations for consistent animation feel across the UI.
+ * Values in milliseconds for CSS transitions and JavaScript animations.
+ *
+ * @constant {Object}
+ *
+ * Durations:
+ * - fast: Quick feedback (hover states)
+ * - base: Standard transitions
+ * - slow: Deliberate animations
+ * - verySlow: Major state changes
+ */
 export const ANIMATION_DURATION = {
   fast: 150,
   base: 250,
@@ -156,7 +227,21 @@ export const ANIMATION_DURATION = {
   verySlow: 500,
 } as const;
 
-// Breakpoints para responsive design
+/**
+ * Responsive design breakpoints
+ *
+ * Screen size thresholds for responsive layouts.
+ * Based on common device dimensions and content requirements.
+ *
+ * @constant {Object}
+ *
+ * Breakpoints (pixels):
+ * - mobile: Minimum supported width
+ * - tablet: iPad portrait and similar
+ * - desktop: Laptop screens
+ * - wide: Desktop monitors
+ * - ultrawide: Large displays and TV
+ */
 export const BREAKPOINTS = {
   mobile: 320,
   tablet: 768,
@@ -165,7 +250,21 @@ export const BREAKPOINTS = {
   ultrawide: 1920,
 } as const;
 
-// Límites de contenido
+/**
+ * Content length limits
+ *
+ * Maximum character counts for different content types.
+ * Optimized for readability and SEO requirements.
+ *
+ * @constant {Object}
+ *
+ * Limits:
+ * - titleMax: SEO-friendly title length
+ * - descriptionMax: Card and preview descriptions
+ * - excerptMax: Meta description length
+ * - bioMax: Character biography length
+ * - sermonMax: Long-form sermon content
+ */
 export const CONTENT_LIMITS = {
   titleMax: 100,
   descriptionMax: 300,
@@ -174,7 +273,20 @@ export const CONTENT_LIMITS = {
   sermonMax: 1000,
 } as const;
 
-// Configuración de imágenes
+/**
+ * Image optimization configuration
+ *
+ * Settings for responsive images, format selection, and quality levels.
+ * Supports modern formats with fallbacks.
+ *
+ * @constant {Object}
+ *
+ * Features:
+ * - formats: Modern image formats in priority order
+ * - sizes: Responsive image widths for srcset
+ * - quality: Compression levels by use case
+ * - placeholder: Magazine cutout style settings
+ */
 export const IMAGE_CONFIG = {
   formats: ['webp', 'avif'],
   sizes: [320, 640, 768, 1024, 1280, 1920],
@@ -191,7 +303,23 @@ export const IMAGE_CONFIG = {
   },
 } as const;
 
-// Configuración de placeholders Magazine Cutout
+/**
+ * Magazine cutout placeholder configuration
+ *
+ * Settings for AI-generated placeholder images with DIY magazine aesthetic.
+ * Manages service fallbacks and visual styling.
+ *
+ * @constant {Object}
+ *
+ * Configuration:
+ * - aiServices: Priority-ordered AI services
+ * - performance: Timeout and concurrency limits
+ * - aesthetic: Visual style parameters
+ *   - rotation: Random angle range in degrees
+ *   - decorationChance: Probability of tape/staples
+ *   - vintageFilter: Apply aged paper effect
+ *   - paperTexture: Add paper grain texture
+ */
 export const MAGAZINE_PLACEHOLDER_CONFIG = {
   enabled: true,
   aiServices: ['placeholders.io', 'abh.ai', 'placeholdr.ai'],
@@ -211,7 +339,21 @@ export const MAGAZINE_PLACEHOLDER_CONFIG = {
   },
 } as const;
 
-// Tags predefinidos para contenido
+/**
+ * Predefined content tags
+ *
+ * Taxonomies for categorizing and filtering content.
+ * Used for navigation, search, and content recommendations.
+ *
+ * @constant {Object}
+ *
+ * Categories:
+ * - episodios: Episode content types
+ * - personajes: Character archetypes
+ * - temas: Environmental themes
+ *
+ * Tags enable content discovery and cross-referencing
+ */
 export const CONTENT_TAGS = {
   episodios: [
     'tutorial',
@@ -239,7 +381,21 @@ export const CONTENT_TAGS = {
   ],
 } as const;
 
-// Mensajes de error y éxito
+/**
+ * User-facing messages
+ *
+ * Thematically consistent messages for different UI states.
+ * Maintains evangelical tone while providing clear feedback.
+ *
+ * @constant {Object}
+ *
+ * Message types:
+ * - error: Failure states with humor
+ * - success: Positive feedback with celebration
+ * - loading: Progress indicators with theme
+ *
+ * All messages use evangelical language for brand consistency
+ */
 export const MESSAGES = {
   error: {
     notFound: '¡Hermano, esta página se ha extraviado en el camino verde!',
@@ -258,7 +414,20 @@ export const MESSAGES = {
   },
 } as const;
 
-// Configuración de API (si se necesita en el futuro)
+/**
+ * API configuration (future use)
+ *
+ * Prepared configuration for backend API integration.
+ * Currently unused but ready for future content management system.
+ *
+ * @constant {Object}
+ *
+ * Settings:
+ * - baseURL: API endpoint (environment variable or default)
+ * - timeout: Request timeout in milliseconds
+ * - retries: Automatic retry count for failed requests
+ * - headers: Default headers for API requests
+ */
 export const API_CONFIG = {
   baseURL:
     process.env.API_URL != null && process.env.API_URL !== ''
@@ -272,7 +441,12 @@ export const API_CONFIG = {
   },
 } as const;
 
-// Exportar tipos para TypeScript
+/**
+ * TypeScript type exports
+ *
+ * Derived types from constants for type-safe usage throughout the application.
+ * These types ensure consistency when referencing constant values.
+ */
 export type Platform = keyof typeof PLATFORMS;
 export type CharacterRole = keyof typeof CHARACTER_ROLES;
 export type MiracleType = keyof typeof MIRACLE_TYPES;

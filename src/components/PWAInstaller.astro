@@ -1,5 +1,31 @@
 ---
-// Componente para manejar la instalación de PWA
+/**
+ * @fileoverview PWAInstaller Component
+ *
+ * Progressive Web App installation prompt and service worker management.
+ * Provides a custom installation UI that appears when the browser's install
+ * criteria are met, handles service worker registration, and manages updates.
+ *
+ * Features:
+ * - Custom install prompt with branded styling
+ * - Service worker registration and update handling
+ * - Dismissal with 7-day cooldown period
+ * - Success notification on installation
+ * - Standalone mode detection
+ * - Responsive design for mobile devices
+ *
+ * @component
+ * @example
+ * ```astro
+ * // Simply include in your layout
+ * <PWAInstaller />
+ * ```
+ *
+ * Browser Support:
+ * - Chrome/Edge: Full support
+ * - Firefox: Service worker only (no install prompt)
+ * - Safari: Limited PWA support
+ */
 ---
 
 <div id="pwa-installer" class="pwa-installer" hidden>
@@ -106,7 +132,16 @@
 </style>
 
 <script>
-  // Registrar Service Worker
+  /**
+   * PWA Installation and Service Worker Management
+   * Handles the complete PWA lifecycle including registration,
+   * updates, installation prompts, and user interactions
+   */
+
+  /**
+   * Service Worker Registration
+   * Registers the service worker and sets up update monitoring
+   */
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', async () => {
       try {
@@ -119,15 +154,15 @@
 
         console.log('Service Worker registrado:', registration);
 
-        // Verificar actualizaciones periódicamente
+        // Check for updates every hour
         setInterval(
           () => {
             registration.update();
           },
           60 * 60 * 1000
-        ); // Cada hora
+        );
 
-        // Manejar actualizaciones
+        // Handle service worker updates
         registration.addEventListener('updatefound', () => {
           const newWorker = registration.installing;
 
@@ -136,9 +171,9 @@
               newWorker.state === 'installed' &&
               navigator.serviceWorker.controller
             ) {
-              // Nuevo contenido disponible
+              // New content is available
               console.log('Nueva versión disponible');
-              // Aquí podrías mostrar un banner de actualización
+              // TODO: Show update notification banner
             }
           });
         });
@@ -148,43 +183,58 @@
     });
   }
 
-  // Manejar instalación de PWA
-  let deferredPrompt: any;
+  /**
+   * PWA Installation Handler
+   * Manages the installation prompt and user interactions
+   */
+  let deferredPrompt: any; // BeforeInstallPromptEvent
   const installer = document.getElementById('pwa-installer');
   const installBtn = document.getElementById('pwa-install-btn');
   const dismissBtn = document.getElementById('pwa-dismiss-btn');
 
+  /**
+   * Intercept browser install prompt
+   * Shows custom UI instead of default browser prompt
+   */
   window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevenir el prompt automático
+    // Prevent the default browser prompt
     e.preventDefault();
     deferredPrompt = e;
 
-    // Mostrar nuestro propio prompt
+    // Show custom prompt if not previously dismissed
     if (installer && !localStorage.getItem('pwa-dismissed')) {
       installer.hidden = false;
     }
   });
 
+  /**
+   * Handle install button click
+   * Triggers the browser's install flow
+   */
   installBtn?.addEventListener('click', async () => {
     if (!deferredPrompt) return;
 
-    // Mostrar el prompt de instalación
+    // Show the browser's install prompt
     deferredPrompt.prompt();
 
-    // Esperar la respuesta del usuario
+    // Wait for user's response
     const { outcome } = await deferredPrompt.userChoice;
     console.log(`Usuario eligió: ${outcome}`);
 
-    // Limpiar
+    // Clean up
     deferredPrompt = null;
     if (installer) installer.hidden = true;
   });
 
+  /**
+   * Handle dismiss button click
+   * Hides prompt and sets 7-day cooldown
+   */
   dismissBtn?.addEventListener('click', () => {
     if (installer) installer.hidden = true;
     localStorage.setItem('pwa-dismissed', 'true');
 
-    // Permitir mostrar de nuevo después de 7 días
+    // Re-enable prompt after 7 days
     setTimeout(
       () => {
         localStorage.removeItem('pwa-dismissed');
@@ -193,12 +243,15 @@
     );
   });
 
-  // Detectar si ya está instalada
+  /**
+   * Handle successful installation
+   * Shows success message and cleans up UI
+   */
   window.addEventListener('appinstalled', () => {
     console.log('PWA instalada exitosamente');
     if (installer) installer.hidden = true;
 
-    // Mostrar mensaje de éxito
+    // Create and show success notification
     const message = document.createElement('div');
     message.className = 'success-message';
     message.textContent = '¡Aleluya! La app ha sido instalada';
@@ -218,14 +271,18 @@
 
     document.body.appendChild(message);
 
+    // Remove notification after 5 seconds
     setTimeout(() => {
       message.remove();
     }, 5000);
   });
 
-  // Detectar modo standalone
+  /**
+   * Detect standalone mode
+   * App is running as installed PWA
+   */
   if (window.matchMedia('(display-mode: standalone)').matches) {
     console.log('App ejecutándose en modo standalone');
-    // Aquí podrías ajustar la UI para modo app
+    // TODO: Adjust UI for app mode (hide install prompts, etc.)
   }
 </script>

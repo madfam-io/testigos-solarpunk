@@ -1,6 +1,43 @@
 ---
+/**
+ * @fileoverview AnimatedCharacterCard Component
+ *
+ * A visually rich character card component with floating animations, mystical auras,
+ * and dynamic theming. Designed for the Testigos de Solarpunk universe to showcase
+ * characters with an evangelical/mystical aesthetic.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <AnimatedCharacterCard
+ *   id="hermana-panelia"
+ *   nombre="Hermana Panelia"
+ *   rol="Evangelista Solar"
+ *   edad={33}
+ *   ocupacion="Instaladora de Paneles Solares"
+ *   colorTema="solar"
+ *   descripcionBreve="Predica el evangelio de la energía limpia"
+ *   frases={["¡El sol brilla para todos!"]}
+ * />
+ * ```
+ */
 import MagazineCutoutImage from './MagazineCutoutImage.astro';
 
+/**
+ * Props interface for AnimatedCharacterCard component
+ *
+ * @interface Props
+ * @property {string} id - Unique identifier used for generating character detail URLs
+ * @property {string} nombre - Character's full name
+ * @property {string} rol - Character's role/title in the Solarpunk universe
+ * @property {number | string} edad - Character's age (number) or "Eterno" for mystical beings
+ * @property {string} ocupacion - Character's occupation/profession
+ * @property {string} [imagen] - Optional custom image URL. If not provided, generates placeholder
+ * @property {string} descripcionBreve - Brief character description (1-2 sentences)
+ * @property {'verde' | 'solar' | 'tierra' | 'mistico'} [colorTema='verde'] - Theme color affecting visuals
+ * @property {string[]} [frases=[]] - Array of iconic phrases. One is randomly selected
+ * @property {boolean} [isEvangelista=false] - Whether character is an evangelist (reserved for future use)
+ */
 export interface Props {
   id: string;
   nombre: string;
@@ -14,6 +51,7 @@ export interface Props {
   isEvangelista?: boolean;
 }
 
+// Extract props with defaults
 const {
   id,
   nombre,
@@ -24,9 +62,17 @@ const {
   descripcionBreve,
   colorTema = 'verde',
   frases = [],
-  isEvangelista: _isEvangelista = false,
+  isEvangelista: _isEvangelista = false, // Reserved for future features
 } = Astro.props;
 
+/**
+ * Color theme mapping to CSS classes
+ * Each theme provides unique visual styling:
+ * - verde: Green sustainable theme with nature vibes
+ * - solar: Yellow/gold solar energy theme with radiant effects
+ * - tierra: Earth brown theme with grounded aesthetics
+ * - mistico: Purple/gold mystical theme with animated auras
+ */
 const colorClasses = {
   verde: 'tema-verde',
   solar: 'tema-solar',
@@ -36,15 +82,24 @@ const colorClasses = {
 
 const colorClass = colorClasses[colorTema];
 
-// Seleccionar una frase aleatoria si hay frases disponibles
+// Select a random phrase from the array for dynamic content
 const fraseAleatoria =
   frases.length > 0 ? frases[Math.floor(Math.random() * frases.length)] : null;
 ---
 
+<!-- 
+  Character Card Structure:
+  - Floating animation with mystical effects
+  - Responsive design with magazine cutout aesthetic
+  - Accessible with semantic HTML and ARIA attributes
+-->
 <article class:list={`animated-character-card card ${colorClass}`}>
+  <!-- Animated background aura that appears on hover -->
   <div class="character-aura"></div>
 
+  <!-- Character portrait section with special effects -->
   <div class="character-image-container">
+    <!-- Magazine cutout style image with AI placeholder generation -->
     <MagazineCutoutImage
       src={imagen}
       alt={`Retrato evangelista de ${nombre}, ${ocupacion}`}
@@ -65,43 +120,55 @@ const fraseAleatoria =
       flutter={true}
       class="character-image"
     />
+    <!-- Glowing halo effect for mystical appearance -->
     <div class="character-halo"></div>
+    <!-- Role badge with magazine cutout styling -->
     <span class="character-badge emoji-cutout emoji-sm">{rol}</span>
   </div>
 
+  <!-- Character information section -->
   <div class="character-info">
     <h3 class="character-name">{nombre}</h3>
+
+    <!-- Character metadata with icons -->
     <div class="character-meta">
       <span class="meta-item">
-        <i class="fas fa-birthday-cake"></i>
+        <i class="fas fa-birthday-cake" aria-hidden="true"></i>
         {edad === 'Eterno' ? edad : `${edad} años`}
       </span>
-      <span class="meta-separator">•</span>
+      <span class="meta-separator" aria-hidden="true">•</span>
       <span class="meta-item">
-        <i class="fas fa-briefcase"></i>
+        <i class="fas fa-briefcase" aria-hidden="true"></i>
         {ocupacion}
       </span>
     </div>
 
     <p class="character-description">{descripcionBreve}</p>
 
+    <!-- Conditional quote display with random selection -->
     {
       fraseAleatoria !== null && (
         <div class="character-quote">
-          <i class="fas fa-quote-left quote-icon" />
+          <i class="fas fa-quote-left quote-icon" aria-hidden="true" />
           <p class="quote-text">{fraseAleatoria}</p>
         </div>
       )
     }
 
+    <!-- Link to character detail page -->
     <a href={`/personajes/${id}`} class="character-link">
       <span>Conocer más</span>
-      <i class="fas fa-arrow-right"></i>
+      <i class="fas fa-arrow-right" aria-hidden="true"></i>
     </a>
   </div>
 </article>
 
 <style>
+  /* ===========================
+     Base Card Styles
+     =========================== */
+
+  /* Main card container with floating animation */
   .animated-character-card {
     position: relative;
     overflow: hidden;
@@ -112,6 +179,7 @@ const fraseAleatoria =
     animation: float-animation 3s ease-in-out infinite;
   }
 
+  /* Subtle floating effect for mystical appearance */
   @keyframes float-animation {
     0%,
     100% {
@@ -122,6 +190,11 @@ const fraseAleatoria =
     }
   }
 
+  /* ===========================
+     Visual Effects
+     =========================== */
+
+  /* Background aura effect - theme-specific gradient */
   .character-aura {
     position: absolute;
     top: -50%;
@@ -137,10 +210,16 @@ const fraseAleatoria =
     opacity: 1;
   }
 
+  /* ===========================
+     Image Section
+     =========================== */
+
+  /* Container for character portrait and effects */
   .character-image-container {
     position: relative;
     height: 250px;
     overflow: hidden;
+    /* Negative margins to create full-width effect */
     margin: calc(-1 * var(--espacio-lg)) calc(-1 * var(--espacio-lg))
       var(--espacio-lg);
   }
@@ -152,6 +231,7 @@ const fraseAleatoria =
     transition: transform 0.4s ease;
   }
 
+  /* Mystical halo effect overlay */
   .character-halo {
     position: absolute;
     top: 50%;
@@ -165,6 +245,7 @@ const fraseAleatoria =
     pointer-events: none;
   }
 
+  /* Activate halo with pulsing animation on hover */
   .animated-character-card:hover .character-halo {
     opacity: 0.5;
     animation: pulse-glow 2s infinite;
@@ -265,7 +346,17 @@ const fraseAleatoria =
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
 
-  /* Temas de color */
+  /* ===========================
+     Color Themes
+     Each theme provides unique visual identity:
+     - Background gradients
+     - Aura effects
+     - Badge colors
+     - Text colors
+     - Link styles
+     =========================== */
+
+  /* Verde Theme - Sustainable/Nature */
   .tema-verde {
     background: linear-gradient(
       135deg,
@@ -486,4 +577,20 @@ const fraseAleatoria =
     );
     color: white;
   }
+
+  /* ===========================
+     Design System Integration
+     
+     This component uses:
+     - CSS Variables from madfam-tokens.css
+     - Magazine cutout aesthetic from emoji-magazine-cutout.css
+     - Responsive design patterns
+     - Accessibility best practices
+     - Performance optimizations (GPU-accelerated animations)
+     
+     Browser Support:
+     - Modern browsers with CSS Grid/Flexbox
+     - Backdrop-filter for glass morphism effects
+     - CSS animations and transitions
+     =========================== */
 </style>

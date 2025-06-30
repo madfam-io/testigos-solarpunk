@@ -1,13 +1,33 @@
 /**
- * Sistema de Cache para Placeholders Magazine Cutout
- * Testigos de Solarpunk - MADFAM
+ * @fileoverview Magazine Placeholder Cache System
  *
- * Maneja el cache de placeholders AI y optimización de rendimiento
+ * Advanced caching system for AI-generated magazine cutout placeholders.
+ * Implements LRU eviction, memory management, and performance optimization
+ * for the Testigos de Solarpunk project.
+ *
+ * Features:
+ * - Time-based expiration with configurable TTL
+ * - LRU (Least Recently Used) eviction strategy
+ * - Access statistics and hit rate tracking
+ * - Memory usage estimation
+ * - Automatic cleanup and optimization
+ * - Preloading of common placeholder types
+ *
+ * @module utils/magazine-placeholder-cache
  */
 
 import { magazinePlaceholderConfig } from '../config/magazine-placeholders.config';
 import type { GeneratedPlaceholder } from '../services/MagazineCutoutPlaceholderService';
 
+/**
+ * Internal cache entry structure
+ *
+ * @interface CacheEntry
+ * @property {GeneratedPlaceholder} placeholder - Cached placeholder data
+ * @property {number} timestamp - Creation timestamp (milliseconds)
+ * @property {number} accessCount - Number of times accessed
+ * @property {number} lastAccessed - Last access timestamp (milliseconds)
+ */
 interface CacheEntry {
   placeholder: GeneratedPlaceholder;
   timestamp: number;
@@ -15,6 +35,16 @@ interface CacheEntry {
   lastAccessed: number;
 }
 
+/**
+ * Cache statistics for monitoring and debugging
+ *
+ * @interface CacheStats
+ * @property {number} totalEntries - Current number of cached items
+ * @property {number} hitRate - Cache hit percentage (0-100)
+ * @property {number} memoryUsage - Estimated memory usage in bytes
+ * @property {number} oldestEntry - Age of oldest entry in milliseconds
+ * @property {string} mostAccessed - Key of most frequently accessed item
+ */
 interface CacheStats {
   totalEntries: number;
   hitRate: number;
@@ -30,7 +60,19 @@ export class MagazinePlaceholderCache {
   private static maxSize = 100; // Máximo número de entradas
 
   /**
-   * Obtiene un placeholder del cache
+   * Retrieves a placeholder from cache
+   *
+   * Checks expiration and updates access statistics.
+   * Returns null if not found or expired.
+   *
+   * @static
+   * @param {string} key - Cache key to retrieve
+   * @returns {GeneratedPlaceholder | null} Cached placeholder or null
+   *
+   * Side Effects:
+   * - Updates hit/miss statistics
+   * - Updates access count and timestamp
+   * - Removes expired entries
    */
   static get(key: string): GeneratedPlaceholder | null {
     const entry = this.cache.get(key);
@@ -61,7 +103,20 @@ export class MagazinePlaceholderCache {
   }
 
   /**
-   * Almacena un placeholder en el cache
+   * Stores a placeholder in cache
+   *
+   * Triggers LRU eviction if cache is full.
+   * Resets access statistics for new entries.
+   *
+   * @static
+   * @param {string} key - Cache key for storage
+   * @param {GeneratedPlaceholder} placeholder - Placeholder to cache
+   * @returns {void}
+   *
+   * Implementation:
+   * - Checks cache size limit
+   * - Evicts oldest entry if needed
+   * - Stores with fresh timestamps
    */
   static set(key: string, placeholder: GeneratedPlaceholder): void {
     const now = Date.now();
@@ -80,7 +135,19 @@ export class MagazinePlaceholderCache {
   }
 
   /**
-   * Elimina entradas más antiguas cuando el cache está lleno
+   * Evicts least recently used entry when cache is full
+   *
+   * Uses a scoring algorithm combining last access time
+   * and access frequency to determine eviction priority.
+   *
+   * @private
+   * @static
+   * @returns {void}
+   *
+   * Algorithm:
+   * Score = lastAccessed / (accessCount + 1)
+   * Lower score = higher eviction priority
+   * Prevents evicting frequently accessed items
    */
   private static evictOldest(): void {
     let oldestKey = '';
@@ -101,7 +168,19 @@ export class MagazinePlaceholderCache {
   }
 
   /**
-   * Precargar placeholders comunes
+   * Preloads common placeholder configurations
+   *
+   * Generates and caches frequently used placeholder types
+   * to improve initial load performance.
+   *
+   * @static
+   * @returns {void}
+   *
+   * Preloaded Types:
+   * - character: 400x300 for character cards
+   * - sketch: 640x360 for video thumbnails
+   * - hero: 1200x600 for hero sections
+   * - podcast: 500x500 for podcast covers
    */
   static preloadCommon(): void {
     const commonPlaceholders = [
@@ -140,7 +219,23 @@ export class MagazinePlaceholderCache {
   }
 
   /**
-   * Genera SVG por defecto para preload
+   * Generates default SVG for preloading
+   *
+   * Creates simple SVG placeholders with paper texture
+   * and type-specific messaging.
+   *
+   * @private
+   * @static
+   * @param {string} type - Placeholder type
+   * @param {number} width - SVG width in pixels
+   * @param {number} height - SVG height in pixels
+   * @returns {string} Data URI containing SVG
+   *
+   * SVG Features:
+   * - Paper texture filter
+   * - Type-specific labels
+   * - Centered layout
+   * - Loading indicator
    */
   private static generateDefaultSVG(
     type: string,
@@ -188,7 +283,20 @@ export class MagazinePlaceholderCache {
   }
 
   /**
-   * Obtener estadísticas del cache
+   * Gets comprehensive cache statistics
+   *
+   * Calculates performance metrics and usage patterns
+   * for monitoring and optimization.
+   *
+   * @static
+   * @returns {CacheStats} Current cache statistics
+   *
+   * Metrics:
+   * - Hit rate percentage
+   * - Memory usage estimation
+   * - Age of oldest entry
+   * - Most accessed key
+   * - Total entry count
    */
   static getStats(): CacheStats {
     // const entries = Array.from(this.cache.values());
@@ -226,7 +334,15 @@ export class MagazinePlaceholderCache {
   }
 
   /**
-   * Limpiar cache expirado
+   * Removes expired cache entries
+   *
+   * Iterates through cache and removes entries older
+   * than configured cache duration.
+   *
+   * @static
+   * @returns {number} Number of entries removed
+   *
+   * Called automatically every 5 minutes in browser environment
    */
   static cleanExpired(): number {
     const now = Date.now();
@@ -246,7 +362,15 @@ export class MagazinePlaceholderCache {
   }
 
   /**
-   * Limpiar todo el cache
+   * Clears entire cache and resets statistics
+   *
+   * Complete reset of cache system. Useful for:
+   * - Memory management
+   * - Testing
+   * - Configuration changes
+   *
+   * @static
+   * @returns {void}
    */
   static clear(): void {
     this.cache.clear();
@@ -255,7 +379,16 @@ export class MagazinePlaceholderCache {
   }
 
   /**
-   * Configurar tamaño máximo del cache
+   * Sets maximum cache size
+   *
+   * Adjusts cache capacity and triggers eviction
+   * if current size exceeds new limit.
+   *
+   * @static
+   * @param {number} size - Maximum number of entries (minimum: 1)
+   * @returns {void}
+   *
+   * Automatically evicts excess entries using LRU strategy
    */
   static setMaxSize(size: number): void {
     this.maxSize = Math.max(1, size);
@@ -267,7 +400,19 @@ export class MagazinePlaceholderCache {
   }
 
   /**
-   * Exportar cache para debugging
+   * Exports cache data for debugging
+   *
+   * Creates sanitized snapshot of cache state without
+   * exposing actual URLs or sensitive data.
+   *
+   * @static
+   * @returns {Record<string, unknown>} Exported cache data
+   *
+   * Export includes:
+   * - Overall statistics
+   * - Entry metadata (no URLs)
+   * - Access patterns
+   * - Service distribution
    */
   static export(): Record<string, unknown> {
     const exported: Record<string, unknown> = {};
@@ -292,7 +437,20 @@ export class MagazinePlaceholderCache {
   }
 
   /**
-   * Optimizar cache eliminando duplicados
+   * Optimizes cache by removing duplicate URLs
+   *
+   * Consolidates entries with identical URLs, keeping
+   * the most frequently accessed version.
+   *
+   * @static
+   * @returns {number} Number of duplicates removed
+   *
+   * Algorithm:
+   * 1. Group entries by URL
+   * 2. Sort by access count
+   * 3. Keep most accessed, remove others
+   *
+   * Called automatically every 30 minutes in browser
    */
   static optimize(): number {
     const urlToKeys = new Map<string, string[]>();
@@ -334,9 +492,18 @@ export class MagazinePlaceholderCache {
   }
 }
 
-// Auto-limpieza periódica - solo en entorno browser real (no tests)
+/**
+ * Automatic cache maintenance
+ *
+ * Sets up periodic cleanup tasks for browser environment.
+ * Excludes test environments to prevent interference.
+ *
+ * Maintenance Schedule:
+ * - Expired entry cleanup: Every 5 minutes
+ * - Duplicate optimization: Every 30 minutes
+ */
 if (typeof window !== 'undefined' && !('__vitest_worker__' in globalThis)) {
-  // Limpiar cache expirado cada 5 minutos
+  // Clean expired entries every 5 minutes
   setInterval(
     () => {
       MagazinePlaceholderCache.cleanExpired();
@@ -344,7 +511,7 @@ if (typeof window !== 'undefined' && !('__vitest_worker__' in globalThis)) {
     5 * 60 * 1000
   );
 
-  // Optimizar cache cada 30 minutos
+  // Optimize cache every 30 minutes
   setInterval(
     () => {
       MagazinePlaceholderCache.optimize();

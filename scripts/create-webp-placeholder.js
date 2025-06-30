@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 
 /**
- * Creates a placeholder WebP file for the logo
- * Since we don't have image conversion tools available,
- * this creates a minimal valid WebP file as a placeholder
+ * @fileoverview Creates a placeholder WebP file for the project logo.
+ *
+ * This script generates a minimal valid WebP file (1x1 transparent pixel) as a placeholder
+ * when image conversion tools are not available. The placeholder should be replaced with
+ * a properly converted WebP version of the logo for optimal performance.
+ *
+ * Usage: node scripts/create-webp-placeholder.js
+ *
+ * @module create-webp-placeholder
  */
 
 import fs from 'fs';
@@ -13,19 +19,25 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Minimal valid WebP file (1x1 transparent pixel)
-// This is a base64 encoded WebP file
+/**
+ * Base64 encoded minimal valid WebP file (1x1 transparent pixel).
+ * This creates the smallest possible valid WebP file for use as a placeholder.
+ * @constant {string}
+ */
 const minimalWebP = Buffer.from(
   'UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==',
   'base64'
 );
 
+/** @constant {string} outputPath - Destination path for the placeholder WebP file */
 const outputPath = path.join(__dirname, '..', 'public', 'images', 'logo.webp');
 
 try {
-  // Create the WebP file
+  // Create the WebP file in the public images directory
   fs.writeFileSync(outputPath, minimalWebP);
   console.log('✅ Created placeholder logo.webp at:', outputPath);
+
+  // Provide guidance for proper WebP conversion
   console.log(
     '⚠️  Note: This is a placeholder file. For optimal results, convert logo.png to WebP using:'
   );

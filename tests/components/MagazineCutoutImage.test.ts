@@ -1,6 +1,9 @@
 /**
- * Tests para MagazineCutoutImage Component
- * Testigos de Solarpunk - MADFAM
+ * @fileoverview Comprehensive tests for Magazine Cutout Image placeholder system.
+ * Tests the MagazineCutoutPlaceholderService and MagazinePlaceholderCache
+ * that implement the DIY magazine aesthetic for image placeholders.
+ * This system is critical for maintaining the unique visual style
+ * while images are loading or when AI services are unavailable.
  */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -11,7 +14,10 @@ import { MagazineCutoutPlaceholderService } from '../../src/services/MagazineCut
 import { MagazinePlaceholderCache } from '../../src/utils/magazine-placeholder-cache';
 import { magazinePlaceholderConfig } from '../../src/config/magazine-placeholders.config';
 
-// Mock del DOM para simular Image loading
+/**
+ * Mock Image class for testing image loading behavior
+ * Simulates both successful loads and errors based on URL
+ */
 class MockImage {
   src = '';
   onload: (() => void) | null = null;
@@ -31,7 +37,15 @@ class MockImage {
 // Mock global Image
 (global as { Image: unknown }).Image = MockImage;
 
+/**
+ * Test suite for MagazineCutoutPlaceholderService
+ * Validates placeholder generation, caching, and fallback mechanisms
+ */
 describe('MagazineCutoutPlaceholderService', () => {
+  /**
+   * Setup before each test
+   * Clears cache and mocks to ensure test isolation
+   */
   beforeEach(() => {
     // Limpiar cache antes de cada test
     MagazinePlaceholderCache.clear();
@@ -42,7 +56,15 @@ describe('MagazineCutoutPlaceholderService', () => {
     vi.restoreAllMocks();
   });
 
+  /**
+   * Tests for placeholder generation functionality
+   * Covers various content types and configurations
+   */
   describe('generatePlaceholder', () => {
+    /**
+     * Validates basic placeholder generation with default settings
+     * Ensures all required properties are present
+     */
     it('should generate placeholder with default config', async () => {
       const result = await MagazineCutoutPlaceholderService.generatePlaceholder(
         {
@@ -65,6 +87,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       expect(result.aesthetic.rotation).toBeLessThanOrEqual(5);
     });
 
+    /**
+     * Tests custom prompt handling
+     * Allows specific placeholder content via prompts
+     */
     it('should use custom prompt when provided', async () => {
       const customPrompt = 'custom test prompt';
       const result = await MagazineCutoutPlaceholderService.generatePlaceholder(
@@ -79,6 +105,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       expect(result.url).toMatch(/custom|svg/);
     });
 
+    /**
+     * Validates magazine cutout aesthetic properties
+     * Ensures rotation and translation values are within design limits
+     */
     it('should generate aesthetics within expected ranges', async () => {
       const results = [];
       for (let i = 0; i < 5; i++) {
@@ -101,6 +131,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       });
     });
 
+    /**
+     * Tests fallback mechanism when AI services are unavailable
+     * SVG fallback ensures placeholders always render
+     */
     it('should fallback to SVG when AI services fail', async () => {
       // Mock para simular fallo de servicios
       const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
@@ -118,6 +152,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       consoleSpy.mockRestore();
     });
 
+    /**
+     * Tests service selection based on availability
+     * Validates that only enabled services are used
+     */
     it('should test generatePlaceholder with enabled services', async () => {
       // Clear cache first
       MagazineCutoutPlaceholderService.clearCache();
@@ -176,6 +214,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       }
     });
 
+    /**
+     * Tests resilience when services fail
+     * Ensures system tries next available service on failure
+     */
     it('should handle service errors and continue to next service', async () => {
       const consoleWarnSpy = vi
         .spyOn(console, 'warn')
@@ -239,6 +281,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       }
     });
 
+    /**
+     * Tests priority-based service selection
+     * Different priorities trigger different services
+     */
     it('should test different service URL builders', async () => {
       // Test different priorities to trigger different services
       const highPriorityResult =
@@ -262,6 +308,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       expect(normalPriorityResult).toBeDefined();
     });
 
+    /**
+     * Comprehensive test of all URL builder methods
+     * Ensures each priority level uses appropriate services
+     */
     it('should test URL builders through different priorities', async () => {
       // Test with different priorities to ensure all URL builders get called
       const results = [];
@@ -307,6 +357,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       });
     });
 
+    /**
+     * Unit test for ABH.ai URL builder
+     * Validates URL construction with style parameters
+     */
     it('should test buildABHUrl method directly', () => {
       // Access private method through prototype
       const buildABHUrlMethod = MagazineCutoutPlaceholderService['buildABHUrl'];
@@ -344,6 +398,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       expect(url).toContain('border=torn');
     });
 
+    /**
+     * Unit test for Placeholdr.ai URL builder
+     * Tests DIY aesthetic parameters in URL
+     */
     it('should test buildPlaceholdrUrl method directly', () => {
       // Access private method through prototype
       const buildPlaceholdrUrlMethod =
@@ -384,6 +442,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       expect(url).toContain('paper=aged');
     });
 
+    /**
+     * Unit test for Placeholders.io URL builder
+     * Validates magazine-style texture parameters
+     */
     it('should test buildPlaceholdersIOUrl method directly', () => {
       // Access private method through prototype
       const buildPlaceholdersIOUrlMethod =
@@ -426,6 +488,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       expect(url).toContain('effect=retro');
     });
 
+    /**
+     * Integration test for service attempts
+     * Tests all service types and error handling
+     */
     it('should test tryService method with all service types', async () => {
       // Mock Image to avoid actual network requests
       const originalImage = global.Image;
@@ -534,6 +600,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       }
     });
 
+    /**
+     * Tests exception handling in service attempts
+     * Ensures graceful degradation on errors
+     */
     it('should handle exceptions in tryService', async () => {
       // Mock buildPlaceholdersIOUrl to throw an error
       const originalBuild =
@@ -579,7 +649,15 @@ describe('MagazineCutoutPlaceholderService', () => {
     });
   });
 
+  /**
+   * Tests cache clearing functionality
+   * Important for memory management and testing
+   */
   describe('clearCache', () => {
+    /**
+     * Validates cache clearing removes all entries
+     * Ensures fresh state after clearing
+     */
     it('should clear the service cache', async () => {
       // First, generate some placeholders to populate cache
       await MagazineCutoutPlaceholderService.generatePlaceholder({
@@ -610,7 +688,15 @@ describe('MagazineCutoutPlaceholderService', () => {
     });
   });
 
+  /**
+   * Tests preloading functionality for common placeholders
+   * Improves performance by pre-generating frequent placeholders
+   */
   describe('preloadCommon', () => {
+    /**
+     * Validates successful preloading of common types
+     * Character, sketch, and hero placeholders should be cached
+     */
     it('should preload common placeholder types successfully', async () => {
       const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
@@ -643,6 +729,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       consoleSpy.mockRestore();
     });
 
+    /**
+     * Tests error resilience during preloading
+     * Preload failures shouldn't crash the application
+     */
     it('should handle preload errors gracefully', async () => {
       const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
@@ -657,7 +747,15 @@ describe('MagazineCutoutPlaceholderService', () => {
     });
   });
 
+  /**
+   * Tests SVG fallback generation
+   * SVG ensures placeholders always display, even offline
+   */
   describe('SVG Fallback Generation', () => {
+    /**
+     * Validates SVG generation for all content types
+     * Each type should produce valid, properly sized SVG
+     */
     it('should generate valid SVG for different types', async () => {
       const types = [
         'character',
@@ -695,6 +793,10 @@ describe('MagazineCutoutPlaceholderService', () => {
       }
     });
 
+    /**
+     * Tests magazine cutout visual effects in SVG
+     * Validates torn edges, paper texture, and drop shadows
+     */
     it('should include magazine cutout effects in SVG', async () => {
       const result = await MagazineCutoutPlaceholderService.generatePlaceholder(
         {
@@ -726,7 +828,15 @@ describe('MagazineCutoutPlaceholderService', () => {
   });
 });
 
+/**
+ * Test suite for MagazinePlaceholderCache
+ * Validates caching logic, memory management, and optimization
+ */
 describe('MagazinePlaceholderCache', () => {
+  /**
+   * Setup before each test
+   * Clears cache and uses fake timers for testing
+   */
   beforeEach(() => {
     MagazinePlaceholderCache.clear();
     vi.useFakeTimers();
@@ -736,7 +846,15 @@ describe('MagazinePlaceholderCache', () => {
     vi.useRealTimers();
   });
 
+  /**
+   * Tests fundamental cache operations
+   * Store, retrieve, and cache hit functionality
+   */
   describe('basic cache operations', () => {
+    /**
+     * Validates basic set/get operations
+     * Retrieved items should be marked as cached
+     */
     it('should store and retrieve placeholders', () => {
       const testPlaceholder = {
         url: 'test-url',
@@ -759,11 +877,19 @@ describe('MagazinePlaceholderCache', () => {
       });
     });
 
+    /**
+     * Tests cache miss behavior
+     * Non-existent keys should return null
+     */
     it('should return null for non-existent keys', () => {
       const result = MagazinePlaceholderCache.get('non-existent');
       expect(result).toBeNull();
     });
 
+    /**
+     * Tests cache statistics tracking
+     * Hit rate, memory usage, and access patterns
+     */
     it('should track cache statistics', () => {
       const testPlaceholder = {
         url: 'test-url',
@@ -820,7 +946,15 @@ describe('MagazinePlaceholderCache', () => {
     });
   });
 
+  /**
+   * Tests cache size management and eviction
+   * Ensures memory usage stays within limits
+   */
   describe('cache management', () => {
+    /**
+     * Validates LRU eviction when cache is full
+     * Oldest entries should be removed first
+     */
     it('should handle cache size limits', () => {
       MagazinePlaceholderCache.setMaxSize(2);
 
@@ -854,6 +988,10 @@ describe('MagazinePlaceholderCache', () => {
       expect(MagazinePlaceholderCache.get('key3')).not.toBeNull();
     });
 
+    /**
+     * Tests dynamic cache size adjustment
+     * Reducing max size should evict excess entries
+     */
     it('should handle setMaxSize eviction', () => {
       // Fill cache with 3 items
       const testPlaceholder = {
@@ -879,6 +1017,10 @@ describe('MagazinePlaceholderCache', () => {
       expect(stats.totalEntries).toBe(1);
     });
 
+    /**
+     * Basic duplicate removal test
+     * Optimization should identify and remove duplicates
+     */
     it('should optimize cache by removing duplicates', () => {
       // Test optimization logic directly without relying on cache state
       const testPlaceholder = {
@@ -906,6 +1048,10 @@ describe('MagazinePlaceholderCache', () => {
       expect(removed).toBeGreaterThanOrEqual(0);
     });
 
+    /**
+     * Advanced duplicate handling test
+     * Most accessed duplicate should be retained
+     */
     it('should remove duplicate entries with same URL keeping most accessed', () => {
       const duplicateUrl = 'https://test.com/same-image.jpg';
       const placeholder1 = {
@@ -958,6 +1104,10 @@ describe('MagazinePlaceholderCache', () => {
       expect(MagazinePlaceholderCache.get('dup-url-1')).toBeNull();
     });
 
+    /**
+     * Tests optimization with many duplicates
+     * Only one instance per URL should remain
+     */
     it('should handle multiple duplicates correctly', () => {
       const duplicateUrl = 'https://test.com/multi-duplicate.jpg';
       const basePlaceholder = {
@@ -1003,7 +1153,15 @@ describe('MagazinePlaceholderCache', () => {
     });
   });
 
+  /**
+   * Tests cache preloading functionality
+   * Common placeholders should be pre-cached
+   */
   describe('preload functionality', () => {
+    /**
+     * Validates preloading of default placeholders
+     * Character, sketch, and hero types should be available
+     */
     it('should preload common placeholders', () => {
       MagazinePlaceholderCache.preloadCommon();
 
@@ -1024,7 +1182,15 @@ describe('MagazinePlaceholderCache', () => {
     });
   });
 
+  /**
+   * Tests debugging and monitoring features
+   * Export functionality for cache analysis
+   */
   describe('export and debugging', () => {
+    /**
+     * Validates cache export for debugging
+     * Should include stats and sanitized entries
+     */
     it('should export cache data for debugging', () => {
       const testPlaceholder = {
         url: 'test-url',
@@ -1054,6 +1220,10 @@ describe('MagazinePlaceholderCache', () => {
       });
     });
 
+    /**
+     * Tests export with fallback URLs
+     * Fallback presence should be indicated
+     */
     it('should export cache with fallback URL', () => {
       const testPlaceholder = {
         url: 'test-url',
@@ -1078,7 +1248,15 @@ describe('MagazinePlaceholderCache', () => {
     });
   });
 
+  /**
+   * Tests periodic maintenance operations
+   * Cleanup and optimization intervals
+   */
   describe('interval callbacks', () => {
+    /**
+     * Direct test of expired entry cleanup
+     * Method should execute without errors
+     */
     it('should test cleanExpired method directly', () => {
       // Add some expired entries
       const testPlaceholder = {
@@ -1099,6 +1277,10 @@ describe('MagazinePlaceholderCache', () => {
       expect(() => MagazinePlaceholderCache.cleanExpired()).not.toThrow();
     });
 
+    /**
+     * Direct test of cache optimization
+     * Should remove duplicates and return count
+     */
     it('should test optimize method directly', () => {
       // Add duplicate entries
       const testPlaceholder = {
@@ -1123,6 +1305,10 @@ describe('MagazinePlaceholderCache', () => {
       expect(removed).toBeGreaterThanOrEqual(0);
     });
 
+    /**
+     * Tests optimization edge cases
+     * Empty cache and no duplicates scenarios
+     */
     it('should handle edge cases in optimize method', () => {
       // Clear cache
       MagazinePlaceholderCache.clear();
@@ -1162,6 +1348,10 @@ describe('MagazinePlaceholderCache', () => {
       expect(MagazinePlaceholderCache.getStats().totalEntries).toBe(2);
     });
 
+    /**
+     * Tests expired entry removal
+     * Entries older than 24 hours should be removed
+     */
     it('should test cleanExpired with expired entries', () => {
       // Clear cache first
       MagazinePlaceholderCache.clear();
@@ -1208,7 +1398,15 @@ describe('MagazinePlaceholderCache', () => {
   });
 });
 
+/**
+ * Integration tests for component behavior
+ * Tests real-world usage scenarios
+ */
 describe('Component Integration', () => {
+  /**
+   * Tests error handling in image loading
+   * Component should gracefully handle failed loads
+   */
   it('should handle image loading errors gracefully', () => {
     // Simular error de carga de imagen
     const img = new MockImage();
@@ -1228,6 +1426,10 @@ describe('Component Integration', () => {
     });
   });
 
+  /**
+   * Statistical test for aesthetic properties
+   * Validates randomization stays within design bounds
+   */
   it('should generate consistent magazine aesthetic properties', () => {
     // Verificar que las propiedades estéticas están en rangos válidos
     for (let i = 0; i < 100; i++) {

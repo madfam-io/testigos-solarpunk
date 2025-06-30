@@ -1,4 +1,29 @@
 ---
+/**
+ * @fileoverview QuoteBlock Component
+ *
+ * Stylized blockquote component with thematic variants for the Solarpunk universe.
+ * Features animated decorations and color themes aligned with character types.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <QuoteBlock
+ *   quote="El sol brilla para todos, hermanos"
+ *   author="Hermana Panelia"
+ *   variant="solar"
+ * />
+ * ```
+ */
+
+/**
+ * Props interface for QuoteBlock component
+ *
+ * @interface Props
+ * @property {string} quote - The quote text to display
+ * @property {string} [author] - Optional author attribution
+ * @property {'solar' | 'earth' | 'mystical' | 'default'} [variant='default'] - Visual theme variant
+ */
 export interface Props {
   quote: string;
   author?: string;
@@ -7,6 +32,14 @@ export interface Props {
 
 const { quote, author, variant = 'default' } = Astro.props;
 
+/**
+ * Variant class mapping
+ * Each variant provides unique styling:
+ * - default: Green sustainable theme
+ * - solar: Yellow/gold with glow effects
+ * - earth: Brown grounded aesthetic
+ * - mystical: Purple/gold gradient with animations
+ */
 const variantClasses = {
   solar: 'quote-solar',
   earth: 'quote-earth',

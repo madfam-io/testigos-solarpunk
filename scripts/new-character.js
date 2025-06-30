@@ -1,8 +1,15 @@
 #!/usr/bin/env node
 
 /**
- * Script para crear un nuevo personaje en el universo Testigos de Solarpunk
- * Genera el archivo YAML con la estructura correcta
+ * @fileoverview Interactive CLI tool to create new characters for Testigos de Solarpunk.
+ *
+ * This script provides a guided interface for creating new evangelistic eco-characters
+ * with proper YAML structure. It collects character information through prompts and
+ * generates a properly formatted YAML file in the characters content directory.
+ *
+ * Usage: node scripts/new-character.js
+ *
+ * @module new-character
  */
 
 import { promises as fs } from 'fs';
@@ -16,17 +23,32 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.join(__dirname, '..');
 const CHARACTERS_DIR = path.join(ROOT_DIR, 'src/content/characters');
 
-// Interfaz de línea de comandos
+/** @type {readline.Interface} rl - Readline interface for user input */
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-// Promisificar readline
+/**
+ * Promisified version of readline.question for async/await usage.
+ * @param {string} query - The question to ask the user
+ * @returns {Promise<string>} The user's response
+ */
 const question = (query) =>
   new Promise((resolve) => rl.question(query, resolve));
 
-// Plantilla de personaje
+/**
+ * Generates a YAML character template with the provided data.
+ * @param {Object} data - Character data collected from user input
+ * @param {string} data.nombre - Character's full name
+ * @param {string} data.titulo - Evangelistic title
+ * @param {string} data.slug - URL-friendly slug
+ * @param {string} data.descripcion_corta - Short description
+ * @param {string} data.rol_principal - Main role (Protagonista/Antagonista/etc)
+ * @param {number} data.edad - Age
+ * @param {string} data.ocupacion - Occupation with evangelistic twist
+ * @returns {string} Formatted YAML content for the character file
+ */
 function generateCharacterTemplate(data) {
   return `# ${data.nombre}
 # ${data.titulo}
@@ -115,8 +137,10 @@ seo_description: "${data.seo_description}"
 `;
 }
 
-// Opciones predefinidas
+/** @constant {string[]} ROLES - Available character role options */
 const ROLES = ['Protagonista', 'Antagonista', 'Secundario', 'Cameo'];
+
+/** @constant {string[]} TITULOS_SUGERIDOS - Suggested evangelistic title templates */
 const TITULOS_SUGERIDOS = [
   'El/La Profeta de [Elemento Verde]',
   'El/La Guardián/a de [Lugar Sagrado]',
@@ -125,6 +149,12 @@ const TITULOS_SUGERIDOS = [
   'El/La Testimonio de [Milagro]',
 ];
 
+/**
+ * Main function that runs the interactive character creation process.
+ * Collects all character information through CLI prompts and generates the YAML file.
+ * @async
+ * @returns {Promise<void>}
+ */
 async function main() {
   console.log('🌟 Creador de Personajes - Testigos de Solarpunk 🌟\n');
   console.log(
@@ -132,10 +162,10 @@ async function main() {
   );
 
   try {
-    // Recopilar información
+    // Initialize data object to collect all character information
     const data = {};
 
-    // Información básica
+    // Section 1: Basic Information
     console.log('=== INFORMACIÓN BÁSICA ===\n');
     data.nombre = await question('Nombre completo del personaje: ');
 
@@ -147,6 +177,7 @@ async function main() {
       '\nTítulo evangelista (ej: La Profeta de los Paneles Sagrados): '
     );
 
+    // Generate URL-friendly slug from character name
     data.slug = slugify(data.nombre);
     console.log(`Slug generado: ${data.slug}`);
 
@@ -160,7 +191,7 @@ async function main() {
     data.edad = await question('Edad: ');
     data.ocupacion = await question('Ocupación (con toque evangelista): ');
 
-    // Apariencia
+    // Section 2: Physical Appearance
     console.log('\n=== APARIENCIA ===\n');
     data.estatura = await question('Estatura (ej: Alta, Media, Baja): ');
     data.complexion = await question(
@@ -174,7 +205,7 @@ async function main() {
       'Gadget sagrado (herramienta tecnológica-espiritual): '
     );
 
-    // Personalidad
+    // Section 3: Personality Traits
     console.log('\n=== PERSONALIDAD ===\n');
     data.rasgo1 = await question('Rasgo de personalidad 1: ');
     data.rasgo2 = await question('Rasgo de personalidad 2: ');
@@ -184,7 +215,7 @@ async function main() {
     data.miedo1 = await question('Miedo principal: ');
     data.miedo2 = await question('Miedo secundario: ');
 
-    // Habilidades
+    // Section 4: Skills and Values
     console.log('\n=== HABILIDADES Y VALORES ===\n');
     data.habilidad1 = await question('Habilidad 1 (técnica/ecológica): ');
     data.habilidad2 = await question('Habilidad 2 (social/evangelista): ');
@@ -192,11 +223,12 @@ async function main() {
     data.valor1 = await question('Valor principal: ');
     data.valor2 = await question('Valor secundario: ');
 
-    // Elementos evangelistas
+    // Section 5: Parodic Evangelistic Elements
     console.log('\n=== ELEMENTOS EVANGELISTAS PARÓDICOS ===\n');
     data.cita_biblica = await question(
       'Cita bíblica paródica (adaptación ecológica): '
     );
+    // Collect multi-line sermon input
     console.log('Sermón ecológico (termina con línea vacía):');
     let sermon = '';
     let line;
@@ -207,7 +239,7 @@ async function main() {
 
     data.milagro_verde = await question('Milagro verde signature: ');
 
-    // Historia
+    // Section 6: Origin Story
     console.log('\n=== HISTORIA DE ORIGEN ===\n');
     console.log('Historia de origen (termina con línea vacía):');
     let historia = '';
@@ -220,14 +252,14 @@ async function main() {
       'Momento de conversión ecológica: '
     );
 
-    // Contenido viral
+    // Section 7: Viral Content Elements
     console.log('\n=== CONTENIDO VIRAL ===\n');
     data.frase1 = await question('Frase icónica 1: ');
     data.frase2 = await question('Frase icónica 2: ');
     data.frase3 = await question('Frase icónica 3: ');
     data.momento_viral = await question('Momento viral signature: ');
 
-    // Metadata
+    // Section 8: SEO and Metadata
     console.log('\n=== METADATA ===\n');
     data.tag1 = await question('Tag 1: ');
     data.tag2 = await question('Tag 2: ');
@@ -236,12 +268,12 @@ async function main() {
       'Descripción SEO (máx 160 caracteres): '
     );
 
-    // Generar archivo
+    // Generate YAML file
     const yamlContent = generateCharacterTemplate(data);
     const fileName = `${data.slug}.yaml`;
     const filePath = path.join(CHARACTERS_DIR, fileName);
 
-    // Verificar si existe
+    // Check if file already exists and confirm overwrite
     try {
       await fs.access(filePath);
       const overwrite = await question(
@@ -253,10 +285,10 @@ async function main() {
         return;
       }
     } catch {
-      // El archivo no existe, continuar
+      // File doesn't exist, proceed with creation
     }
 
-    // Guardar archivo
+    // Save the YAML file to the characters directory
     await fs.writeFile(filePath, yamlContent, 'utf8');
 
     console.log('\n' + '='.repeat(60));
@@ -272,7 +304,7 @@ async function main() {
   }
 }
 
-// Ejecutar
+// Execute main function if script is run directly
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main();
 }

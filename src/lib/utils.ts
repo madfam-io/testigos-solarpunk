@@ -1,12 +1,28 @@
 /**
- * Utilidades generales para el proyecto Testigos de Solarpunk
+ * @fileoverview General Utilities for Testigos de Solarpunk
+ *
+ * Collection of utility functions for common operations throughout the application.
+ * Includes date formatting, text processing, SEO utilities, and browser helpers.
+ *
+ * @module lib/utils
  */
 
 /**
- * Formatea una fecha en formato legible en español
- * @param date - Fecha a formatear
- * @param options - Opciones de formato adicionales
- * @returns Fecha formateada en español
+ * Formats a date in readable Spanish format
+ *
+ * Uses Intl.DateTimeFormat with Mexican Spanish locale for consistent
+ * date formatting across the application.
+ *
+ * @export
+ * @param {Date | string} date - Date to format (Date object or ISO string)
+ * @param {Intl.DateTimeFormatOptions} [options] - Additional format options
+ * @returns {string} Formatted date in Spanish (e.g., "15 de marzo de 2024")
+ *
+ * @example
+ * ```typescript
+ * formatDate('2024-03-15') // "15 de marzo de 2024"
+ * formatDate(new Date(), { weekday: 'long' }) // "viernes, 15 de marzo de 2024"
+ * ```
  */
 export function formatDate(
   date: Date | string,
@@ -23,9 +39,26 @@ export function formatDate(
 }
 
 /**
- * Convierte texto a slug URL-friendly
- * @param text - Texto a convertir
- * @returns Slug normalizado
+ * Converts text to URL-friendly slug
+ *
+ * Normalizes text by removing accents, converting to lowercase,
+ * and replacing special characters with hyphens.
+ *
+ * @export
+ * @param {string} text - Text to convert to slug
+ * @returns {string} Normalized slug suitable for URLs
+ *
+ * @example
+ * ```typescript
+ * slugify('Hermana Panelia') // "hermana-panelia"
+ * slugify('¡Energía Solar!') // "energia-solar"
+ * ```
+ *
+ * Transformations:
+ * 1. Convert to lowercase
+ * 2. Normalize and remove accents (NFD decomposition)
+ * 3. Replace non-alphanumeric characters with hyphens
+ * 4. Remove leading/trailing hyphens
  */
 export function slugify(text: string): string {
   return text
@@ -37,10 +70,21 @@ export function slugify(text: string): string {
 }
 
 /**
- * Trunca texto con puntos suspensivos
- * @param text - Texto a truncar
- * @param maxLength - Longitud máxima
- * @returns Texto truncado
+ * Truncates text with ellipsis
+ *
+ * Safely truncates text to specified length, adding ellipsis if needed.
+ * Trims whitespace before adding ellipsis for clean output.
+ *
+ * @export
+ * @param {string} text - Text to truncate
+ * @param {number} maxLength - Maximum length before truncation
+ * @returns {string} Truncated text with ellipsis if needed
+ *
+ * @example
+ * ```typescript
+ * truncateText('Long text here', 10) // "Long text..."
+ * truncateText('Short', 10) // "Short"
+ * ```
  */
 export function truncateText(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
@@ -48,10 +92,29 @@ export function truncateText(text: string, maxLength: number): string {
 }
 
 /**
- * Genera un excerpt de contenido Markdown
- * @param content - Contenido Markdown
- * @param maxLength - Longitud máxima del excerpt
- * @returns Texto plano truncado
+ * Generates excerpt from Markdown content
+ *
+ * Strips Markdown syntax and frontmatter to create plain text excerpts
+ * suitable for meta descriptions and preview text.
+ *
+ * @export
+ * @param {string} content - Markdown content to process
+ * @param {number} [maxLength=160] - Maximum excerpt length (SEO optimal)
+ * @returns {string} Plain text excerpt truncated to maxLength
+ *
+ * @example
+ * ```typescript
+ * const markdown = '---\ntitle: Test\n---\n# Header\n**Bold** text with [link](url)';
+ * generateExcerpt(markdown) // "Header Bold text with link..."
+ * ```
+ *
+ * Removes:
+ * - YAML frontmatter
+ * - Headers (#)
+ * - Bold/italic formatting
+ * - Links (preserves text)
+ * - Code blocks and inline code
+ * - Multiple newlines
  */
 export function generateExcerpt(content: string, maxLength = 160): string {
   // Eliminar frontmatter YAML
@@ -72,9 +135,20 @@ export function generateExcerpt(content: string, maxLength = 160): string {
 }
 
 /**
- * Capitaliza la primera letra de un texto
- * @param text - Texto a capitalizar
- * @returns Texto con primera letra en mayúscula
+ * Capitalizes first letter of text
+ *
+ * Simple utility for consistent text capitalization.
+ * Handles null/empty strings gracefully.
+ *
+ * @export
+ * @param {string} text - Text to capitalize
+ * @returns {string} Text with first letter uppercase, empty string if null/empty
+ *
+ * @example
+ * ```typescript
+ * capitalize('hello') // "Hello"
+ * capitalize('') // ""
+ * ```
  */
 export function capitalize(text: string): string {
   if (text == null || text === '') return '';
@@ -82,9 +156,20 @@ export function capitalize(text: string): string {
 }
 
 /**
- * Convierte duración en segundos a formato MM:SS
- * @param seconds - Duración en segundos
- * @returns Formato MM:SS
+ * Converts duration in seconds to MM:SS format
+ *
+ * Formats time duration for display in video/audio players.
+ * Pads seconds with leading zero for consistent display.
+ *
+ * @export
+ * @param {number} seconds - Duration in seconds
+ * @returns {string} Formatted duration as MM:SS
+ *
+ * @example
+ * ```typescript
+ * formatDuration(65) // "1:05"
+ * formatDuration(3600) // "60:00"
+ * ```
  */
 export function formatDuration(seconds: number): string {
   const minutes = Math.floor(seconds / 60);
@@ -93,9 +178,29 @@ export function formatDuration(seconds: number): string {
 }
 
 /**
- * Obtiene el icono de plataforma
- * @param platform - Código de plataforma
- * @returns Emoji o símbolo de la plataforma
+ * Gets platform-specific icon emoji
+ *
+ * Returns appropriate emoji for social media platforms.
+ * Falls back to globe emoji for unknown platforms.
+ *
+ * @export
+ * @param {string} platform - Platform code
+ * @returns {string} Platform emoji icon
+ *
+ * @example
+ * ```typescript
+ * getPlatformIcon('TT') // "📱" (TikTok)
+ * getPlatformIcon('YT') // "📺" (YouTube)
+ * getPlatformIcon('IG') // "📷" (Instagram)
+ * getPlatformIcon('FB') // "👥" (Facebook)
+ * getPlatformIcon('XX') // "🌐" (Unknown)
+ * ```
+ *
+ * Platform Codes:
+ * - TT: TikTok
+ * - YT: YouTube
+ * - IG: Instagram
+ * - FB: Facebook
  */
 export function getPlatformIcon(platform: string): string {
   const icons: Record<string, string> = {
@@ -108,9 +213,26 @@ export function getPlatformIcon(platform: string): string {
 }
 
 /**
- * Genera un color consistente basado en un string
- * @param str - String para generar color
- * @returns Color en formato HSL
+ * Generates consistent color from string
+ *
+ * Creates deterministic HSL color based on string hash.
+ * Used for generating consistent colors for categories, tags, etc.
+ *
+ * @export
+ * @param {string} str - String to generate color from
+ * @returns {string} Color in HSL format
+ *
+ * @example
+ * ```typescript
+ * stringToColor('solar') // "hsl(123, 70%, 50%)"
+ * stringToColor('solar') // "hsl(123, 70%, 50%)" (same input = same color)
+ * ```
+ *
+ * Algorithm:
+ * 1. Hash string to number
+ * 2. Use hash for hue (0-360°)
+ * 3. Fixed saturation (70%) for vibrancy
+ * 4. Fixed lightness (50%) for balance
  */
 export function stringToColor(str: string): string {
   let hash = 0;
@@ -127,10 +249,25 @@ export function stringToColor(str: string): string {
 }
 
 /**
- * Ordena elementos por fecha (más reciente primero)
- * @param items - Array de elementos con fecha
- * @param dateField - Campo de fecha a usar
- * @returns Array ordenado
+ * Sorts items by date (newest first)
+ *
+ * Generic sorting function for arrays of objects containing date fields.
+ * Returns new sorted array without mutating original.
+ *
+ * @export
+ * @template T - Object type with date field
+ * @param {T[]} items - Array of items to sort
+ * @param {string} [dateField='fecha_publicacion'] - Date field name to sort by
+ * @returns {T[]} New array sorted by date descending
+ *
+ * @example
+ * ```typescript
+ * const posts = [
+ *   { title: 'Old', fecha_publicacion: '2024-01-01' },
+ *   { title: 'New', fecha_publicacion: '2024-03-01' }
+ * ];
+ * sortByDate(posts) // [{ title: 'New'... }, { title: 'Old'... }]
+ * ```
  */
 export function sortByDate<T extends Record<string, unknown>>(
   items: T[],
@@ -144,10 +281,27 @@ export function sortByDate<T extends Record<string, unknown>>(
 }
 
 /**
- * Agrupa elementos por una propiedad
- * @param items - Array de elementos
- * @param key - Clave para agrupar
- * @returns Objeto con elementos agrupados
+ * Groups array items by property value
+ *
+ * Creates an object where keys are unique values of the specified property
+ * and values are arrays of items with that property value.
+ *
+ * @export
+ * @template T - Object type to group
+ * @param {T[]} items - Array of items to group
+ * @param {keyof T} key - Property key to group by
+ * @returns {Record<string, T[]>} Object with grouped items
+ *
+ * @example
+ * ```typescript
+ * const items = [
+ *   { name: 'A', category: 'solar' },
+ *   { name: 'B', category: 'earth' },
+ *   { name: 'C', category: 'solar' }
+ * ];
+ * groupBy(items, 'category')
+ * // { solar: [{name: 'A'...}, {name: 'C'...}], earth: [{name: 'B'...}] }
+ * ```
  */
 export function groupBy<T extends Record<string, unknown>>(
   items: T[],
@@ -167,9 +321,35 @@ export function groupBy<T extends Record<string, unknown>>(
 }
 
 /**
- * Genera metadatos SEO para una página
- * @param options - Opciones de metadatos
- * @returns Objeto con metadatos formateados
+ * Generates comprehensive SEO metadata for pages
+ *
+ * Creates structured metadata object for Open Graph and Twitter cards.
+ * Ensures consistent SEO across the site with proper fallbacks.
+ *
+ * @export
+ * @param {Object} options - SEO metadata options
+ * @param {string} options.title - Page title
+ * @param {string} options.description - Page description
+ * @param {string} [options.image] - Social media image URL
+ * @param {string} options.url - Canonical page URL
+ * @param {string} [options.type='website'] - Open Graph type
+ * @returns {Object} Formatted metadata object
+ *
+ * @example
+ * ```typescript
+ * generateSEOMeta({
+ *   title: 'Hermana Panelia',
+ *   description: 'Conoce a la evangelista solar',
+ *   url: 'https://example.com/personajes/hermana-panelia'
+ * })
+ * ```
+ *
+ * Returns object with:
+ * - title: Full title with site name
+ * - description: Truncated to 160 chars
+ * - canonical: Canonical URL
+ * - openGraph: Open Graph metadata
+ * - twitter: Twitter card metadata
  */
 export function generateSEOMeta({
   title,
@@ -227,10 +407,33 @@ export function generateSEOMeta({
 }
 
 /**
- * Debounce para optimizar llamadas a funciones
- * @param func - Función a ejecutar
- * @param wait - Tiempo de espera en ms
- * @returns Función con debounce
+ * Debounce utility for optimizing function calls
+ *
+ * Delays function execution until after wait milliseconds have elapsed
+ * since the last time the debounced function was invoked.
+ *
+ * @export
+ * @template T - Function type to debounce
+ * @param {T} func - Function to debounce
+ * @param {number} wait - Delay in milliseconds
+ * @returns {(...args: Parameters<T>) => void} Debounced function
+ *
+ * @example
+ * ```typescript
+ * const debouncedSearch = debounce((query: string) => {
+ *   console.log('Searching:', query);
+ * }, 300);
+ *
+ * // Rapid calls
+ * debouncedSearch('h');
+ * debouncedSearch('he');
+ * debouncedSearch('hello'); // Only this executes after 300ms
+ * ```
+ *
+ * Common use cases:
+ * - Search input handlers
+ * - Window resize listeners
+ * - Scroll event handlers
  */
 export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
@@ -250,17 +453,42 @@ export function debounce<T extends (...args: unknown[]) => unknown>(
 }
 
 /**
- * Verifica si estamos en el navegador
- * @returns true si estamos en el cliente
+ * Checks if code is running in browser environment
+ *
+ * Useful for SSR/SSG environments to prevent window access errors.
+ * Returns false during build time and server-side rendering.
+ *
+ * @export
+ * @returns {boolean} True if running in browser, false if server/build
+ *
+ * @example
+ * ```typescript
+ * if (isBrowser()) {
+ *   // Safe to use window, document, etc.
+ *   window.localStorage.setItem('key', 'value');
+ * }
+ * ```
  */
 export function isBrowser(): boolean {
   return typeof window !== 'undefined';
 }
 
 /**
- * Obtiene parámetros de URL de forma segura
- * @param param - Nombre del parámetro
- * @returns Valor del parámetro o null
+ * Safely gets URL query parameter
+ *
+ * Retrieves query parameter value with SSR safety check.
+ * Returns null if not in browser or parameter not found.
+ *
+ * @export
+ * @param {string} param - Parameter name to retrieve
+ * @returns {string | null} Parameter value or null
+ *
+ * @example
+ * ```typescript
+ * // URL: https://example.com?ref=social&campaign=spring
+ * getURLParam('ref') // "social"
+ * getURLParam('missing') // null
+ * ```
  */
 export function getURLParam(param: string): string | null {
   if (!isBrowser()) return null;
@@ -270,10 +498,35 @@ export function getURLParam(param: string): string | null {
 }
 
 /**
- * Carga una imagen de forma lazy con placeholder
- * @param src - URL de la imagen
- * @param placeholder - URL del placeholder
- * @returns Promise con la imagen cargada
+ * Lazy loads image with optional placeholder
+ *
+ * Preloads image in background and optionally shows placeholder
+ * while loading. Useful for performance optimization.
+ *
+ * @export
+ * @param {string} src - Image source URL
+ * @param {string} [placeholder] - Optional placeholder image URL
+ * @returns {Promise<HTMLImageElement>} Promise resolving to loaded image element
+ *
+ * @example
+ * ```typescript
+ * // With placeholder
+ * const img = await lazyLoadImage(
+ *   '/high-res.jpg',
+ *   '/low-res-placeholder.jpg'
+ * );
+ *
+ * // Without placeholder
+ * lazyLoadImage('/image.jpg')
+ *   .then(img => document.body.appendChild(img))
+ *   .catch(err => console.error('Image failed to load'));
+ * ```
+ *
+ * Implementation:
+ * 1. Creates new Image element
+ * 2. Shows placeholder immediately if provided
+ * 3. Loads actual image in background
+ * 4. Resolves when image is fully loaded
  */
 export function lazyLoadImage(
   src: string,
