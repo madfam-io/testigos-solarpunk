@@ -41,8 +41,9 @@ if (
 <BaseLayout title="Redirecting to language preference...">
   <!-- Language Detection and Redirect -->
   <main class="redirect-container">
-    <div class="container text-center">
-      <div class="redirect-content">
+    <div class="magazine-loader">
+      <!-- Magazine Cutout Logo -->
+      <div class="logo-cutout">
         <picture>
           <source
             srcset={basePath === '/'
@@ -61,40 +62,65 @@ if (
             height="120"
           />
         </picture>
+        <div class="logo-tape logo-tape-1"></div>
+        <div class="logo-tape logo-tape-2"></div>
+      </div>
 
-        <h1>Bienvenido a Testigos de Solarpunk</h1>
-        <p>Cargando tu experiencia solarpunk...</p>
+      <!-- Title with Magazine Letters -->
+      <h1 class="magazine-title">
+        <span class="letter-cutout">B</span>
+        <span class="letter-cutout">i</span>
+        <span class="letter-cutout">e</span>
+        <span class="letter-cutout">n</span>
+        <span class="letter-cutout">v</span>
+        <span class="letter-cutout">e</span>
+        <span class="letter-cutout">n</span>
+        <span class="letter-cutout">i</span>
+        <span class="letter-cutout">d</span>
+        <span class="letter-cutout">o</span>
+        <span class="letter-cutout">s</span>
+      </h1>
 
-        <!-- Loading indicator -->
-        <div class="loading-indicator">
-          <div class="loading-dot"></div>
-          <div class="loading-dot"></div>
-          <div class="loading-dot"></div>
+      <!-- Subtitle with Magazine Style -->
+      <p class="magazine-subtitle">
+        <span class="subtitle-text">Cargando tu experiencia</span>
+        <span class="subtitle-accent">solarpunk</span>
+      </p>
+
+      <!-- Premium Loading Animation -->
+      <div class="premium-loader">
+        <div class="loader-sun">
+          <span class="emoji-cutout emoji-xl theme-solar">☀️</span>
         </div>
-
-        <div class="loading-progress"></div>
-
-        <!-- Manual language selection as fallback -->
-        <div class="language-choice">
-          <a
-            href={basePath === '/' ? '/es/' : `${basePath}/es/`}
-            class="btn btn-primary"
-          >
-            <span class="emoji-cutout emoji-button emoji-md theme-solar"
-              >🇲🇽</span
-            >
-            Español
-          </a>
-          <a
-            href={basePath === '/' ? '/en/' : `${basePath}/en/`}
-            class="btn btn-secondary"
-          >
-            <span class="emoji-cutout emoji-button emoji-md theme-solar"
-              >🇺🇸</span
-            >
-            English
-          </a>
+        <div class="loader-orbit">
+          <div class="orbit-item">
+            <span class="emoji-cutout emoji-sm theme-verde">🌱</span>
+          </div>
+          <div class="orbit-item">
+            <span class="emoji-cutout emoji-sm theme-purple">♻️</span>
+          </div>
+          <div class="orbit-item">
+            <span class="emoji-cutout emoji-sm theme-community">🤝</span>
+          </div>
         </div>
+      </div>
+
+      <!-- Manual language selection as fallback -->
+      <div class="language-choice">
+        <a
+          href={basePath === '/' ? '/es/' : `${basePath}/es/`}
+          class="magazine-btn primary"
+        >
+          <span class="emoji-cutout emoji-button emoji-md theme-solar">🇲🇽</span>
+          <span class="btn-text">Español</span>
+        </a>
+        <a
+          href={basePath === '/' ? '/en/' : `${basePath}/en/`}
+          class="magazine-btn secondary"
+        >
+          <span class="emoji-cutout emoji-button emoji-md theme-solar">🇺🇸</span>
+          <span class="btn-text">English</span>
+        </a>
       </div>
     </div>
   </main>
@@ -128,21 +154,22 @@ if (
       : `/${finalLang}/`;
 
     // Add smooth fade-out before redirect
-    const redirectContainer = document.querySelector(
-      '.redirect-container'
+    const magazineLoader = document.querySelector(
+      '.magazine-loader'
     ) as HTMLElement;
 
     setTimeout(() => {
-      if (redirectContainer) {
-        redirectContainer.style.opacity = '0';
-        redirectContainer.style.transition = 'opacity 0.3s ease-out';
+      if (magazineLoader) {
+        magazineLoader.style.opacity = '0';
+        magazineLoader.style.transform = 'translateY(-20px)';
+        magazineLoader.style.transition = 'all 0.4s ease-out';
       }
 
       // Redirect after fade-out
       setTimeout(() => {
         window.location.href = redirectUrl;
-      }, 300);
-    }, 500); // Show loading screen for 500ms
+      }, 400);
+    }, 1200); // Show loading screen for 1.2s for premium feel
   });
 </script>
 
@@ -152,127 +179,389 @@ if (
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--espacio-xl) 0;
+    padding: var(--espacio-xl) var(--espacio-md);
+    background: linear-gradient(
+      135deg,
+      rgba(248, 245, 235, 0.3) 0%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(248, 245, 235, 0.2) 100%
+    );
+    position: relative;
+    overflow: hidden;
   }
 
-  .redirect-content {
-    max-width: 500px;
+  /* Magazine style scatter decoration */
+  .redirect-container::before,
+  .redirect-container::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+      circle,
+      rgba(255, 209, 0, 0.05) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .redirect-container::before {
+    top: -150px;
+    left: -150px;
+    transform: rotate(45deg);
+  }
+
+  .redirect-container::after {
+    bottom: -150px;
+    right: -150px;
+    transform: rotate(-45deg);
+  }
+
+  .magazine-loader {
+    max-width: 600px;
     text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Logo with magazine cutout effect */
+  .logo-cutout {
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--espacio-xl);
+    animation: float 3s ease-in-out infinite;
   }
 
   .redirect-logo {
     height: 120px;
     width: auto;
-    margin-bottom: var(--espacio-lg);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    filter: sepia(0.1) contrast(1.1) brightness(1.05)
+      drop-shadow(2px 2px 0 var(--madfam-yellow))
+      drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.2));
+    transform: rotate(-2deg);
   }
 
-  .redirect-content h1 {
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    margin-bottom: var(--espacio-md);
-    color: var(--text-primary);
+  /* Tape effect on logo */
+  .logo-tape {
+    position: absolute;
+    width: 80px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 0.9;
+    transform: rotate(-45deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .redirect-content p {
-    font-size: 1.125rem;
-    margin-bottom: var(--espacio-xl);
-    color: var(--text-secondary);
-  }
-
-  .language-choice {
-    display: flex;
-    gap: var(--espacio-md);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .language-choice .btn {
-    min-width: 150px;
-  }
-
-  /* Enhanced loading animation */
-  .loading-indicator {
-    margin-top: var(--espacio-xl);
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .loading-dot {
-    width: 12px;
-    height: 12px;
-    background: var(--madfam-yellow);
-    border-radius: 50%;
-    animation: pulse 1.4s ease-in-out infinite;
-  }
-
-  .loading-dot:nth-child(1) {
-    animation-delay: -0.32s;
-  }
-
-  .loading-dot:nth-child(2) {
-    animation-delay: -0.16s;
-  }
-
-  @keyframes pulse {
-    0%,
-    80%,
-    100% {
-      transform: scale(0.8);
-      opacity: 0.5;
-    }
-    40% {
-      transform: scale(1.2);
-      opacity: 1;
-    }
-  }
-
-  /* Loading progress bar */
-  .loading-progress {
-    width: 100%;
-    max-width: 300px;
-    height: 4px;
-    background: var(--border-subtle);
-    border-radius: 2px;
-    margin: var(--espacio-md) auto;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .loading-progress::after {
+  .logo-tape::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 30%;
-    background: linear-gradient(
+    inset: 2px;
+    background: repeating-linear-gradient(
       90deg,
-      var(--madfam-yellow) 0%,
-      var(--verde-sostenible) 50%,
-      var(--madfam-yellow) 100%
+      transparent,
+      transparent 4px,
+      rgba(0, 0, 0, 0.05) 4px,
+      rgba(0, 0, 0, 0.05) 8px
     );
-    animation: shimmer 1.5s ease-in-out infinite;
   }
 
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
+  .logo-tape-1 {
+    top: -10px;
+    left: -30px;
+  }
+
+  .logo-tape-2 {
+    bottom: -10px;
+    right: -30px;
+    transform: rotate(45deg);
+  }
+
+  /* Magazine cutout title */
+  .magazine-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: var(--espacio-md);
+    line-height: 1.2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.2em;
+  }
+
+  .letter-cutout {
+    display: inline-block;
+    position: relative;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: linear-gradient(
+      135deg,
+      var(--text-primary) 0%,
+      var(--text-secondary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: contrast(1.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: letterFloat 4s ease-in-out infinite;
+  }
+
+  .letter-cutout:nth-child(odd) {
+    transform: rotate(-2deg) translateY(-2px);
+    font-family: var(--font-display), serif;
+  }
+
+  .letter-cutout:nth-child(even) {
+    transform: rotate(1deg) translateY(2px);
+    font-family: var(--font-sans), sans-serif;
+  }
+
+  .letter-cutout:nth-child(3n) {
+    color: var(--madfam-yellow);
+    -webkit-text-fill-color: var(--madfam-yellow);
+    text-shadow: 1px 1px 0 var(--text-primary);
+  }
+
+  .letter-cutout:nth-child(5n) {
+    color: var(--verde-sostenible);
+    -webkit-text-fill-color: var(--verde-sostenible);
+    text-shadow: 1px 1px 0 var(--text-primary);
+  }
+
+  /* Magazine subtitle */
+  .magazine-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: var(--espacio-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  .subtitle-text {
+    background: var(--text-secondary);
+    color: var(--bg-primary);
+    padding: 0.2em 0.6em;
+    transform: rotate(-1deg);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .subtitle-accent {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--verde-sostenible);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    transform: rotate(1deg);
+  }
+
+  /* Premium loading animation */
+  .premium-loader {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: var(--espacio-xl) auto;
+  }
+
+  .loader-sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: sunPulse 2s ease-in-out infinite;
+  }
+
+  .loader-orbit {
+    position: absolute;
+    inset: 0;
+    animation: orbit 8s linear infinite;
+  }
+
+  .orbit-item {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .orbit-item:nth-child(2) {
+    transform: rotate(120deg);
+    transform-origin: center 100px;
+  }
+
+  .orbit-item:nth-child(3) {
+    transform: rotate(240deg);
+    transform-origin: center 100px;
+  }
+
+  /* Language choice buttons */
+  .language-choice {
+    display: flex;
+    gap: var(--espacio-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--espacio-xl);
+  }
+
+  .magazine-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-md) var(--espacio-lg);
+    background: var(--bg-primary);
+    border: 3px solid currentColor;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    transition: all 0.3s ease;
+    transform: rotate(-1deg);
+    box-shadow:
+      3px 3px 0 currentColor,
+      5px 5px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .magazine-btn.primary {
+    color: var(--madfam-yellow);
+    background: linear-gradient(
+      135deg,
+      var(--bg-primary) 0%,
+      rgba(255, 209, 0, 0.1) 100%
+    );
+  }
+
+  .magazine-btn.secondary {
+    color: var(--verde-sostenible);
+    background: linear-gradient(
+      135deg,
+      var(--bg-primary) 0%,
+      rgba(68, 170, 68, 0.1) 100%
+    );
+  }
+
+  .magazine-btn:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow:
+      4px 4px 0 currentColor,
+      6px 6px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-text {
+    font-size: 1.1rem;
+  }
+
+  /* Animations */
+  @keyframes float {
+    0%,
     100% {
-      transform: translateX(400%);
+      transform: translateY(0);
     }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes letterFloat {
+    0%,
+    100% {
+      transform: translateY(var(--float-y, 0)) rotate(var(--rotate, 0deg));
+    }
+    25% {
+      transform: translateY(calc(var(--float-y, 0) - 3px))
+        rotate(calc(var(--rotate, 0deg) + 1deg));
+    }
+    75% {
+      transform: translateY(calc(var(--float-y, 0) + 3px))
+        rotate(calc(var(--rotate, 0deg) - 1deg));
+    }
+  }
+
+  @keyframes sunPulse {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Letter float variations */
+  .letter-cutout:nth-child(1) {
+    --float-y: -2px;
+    --rotate: -2deg;
+    animation-delay: 0s;
+  }
+  .letter-cutout:nth-child(2) {
+    --float-y: 2px;
+    --rotate: 1deg;
+    animation-delay: 0.1s;
+  }
+  .letter-cutout:nth-child(3) {
+    --float-y: -1px;
+    --rotate: -1deg;
+    animation-delay: 0.2s;
+  }
+  .letter-cutout:nth-child(4) {
+    --float-y: 3px;
+    --rotate: 2deg;
+    animation-delay: 0.3s;
+  }
+  .letter-cutout:nth-child(5) {
+    --float-y: -3px;
+    --rotate: -1deg;
+    animation-delay: 0.4s;
+  }
+  .letter-cutout:nth-child(6) {
+    --float-y: 1px;
+    --rotate: 1deg;
+    animation-delay: 0.5s;
+  }
+  .letter-cutout:nth-child(7) {
+    --float-y: -2px;
+    --rotate: -2deg;
+    animation-delay: 0.6s;
+  }
+  .letter-cutout:nth-child(8) {
+    --float-y: 2px;
+    --rotate: 1deg;
+    animation-delay: 0.7s;
+  }
+  .letter-cutout:nth-child(9) {
+    --float-y: -1px;
+    --rotate: -1deg;
+    animation-delay: 0.8s;
+  }
+  .letter-cutout:nth-child(10) {
+    --float-y: 3px;
+    --rotate: 2deg;
+    animation-delay: 0.9s;
+  }
+  .letter-cutout:nth-child(11) {
+    --float-y: -2px;
+    --rotate: -1deg;
+    animation-delay: 1s;
   }
 
   /* Fade in animation */
-  .redirect-content {
-    animation: fadeIn 0.5s ease-out;
+  .magazine-loader {
+    animation: fadeIn 0.6s ease-out;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -280,9 +569,35 @@ if (
     }
   }
 
+  /* Mobile responsiveness */
   @media (max-width: 768px) {
     .redirect-logo {
       height: 80px;
+    }
+
+    .logo-tape {
+      width: 60px;
+      height: 20px;
+    }
+
+    .magazine-title {
+      font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .magazine-subtitle {
+      font-size: 1rem;
+      flex-direction: column;
+      gap: 0.3em;
+    }
+
+    .premium-loader {
+      width: 150px;
+      height: 150px;
+    }
+
+    .orbit-item:nth-child(2),
+    .orbit-item:nth-child(3) {
+      transform-origin: center 75px;
     }
 
     .language-choice {
@@ -290,9 +605,25 @@ if (
       align-items: center;
     }
 
-    .language-choice .btn {
+    .magazine-btn {
       width: 100%;
-      max-width: 250px;
+      max-width: 280px;
+      justify-content: center;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .magazine-loader,
+    .letter-cutout,
+    .logo-cutout,
+    .loader-sun,
+    .loader-orbit {
+      animation: none;
+    }
+
+    .magazine-btn {
+      transition: none;
     }
   }
 </style>
