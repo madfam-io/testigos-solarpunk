@@ -62,8 +62,17 @@ if (
           />
         </picture>
 
-        <h1>Welcome to Testigos de Solarpunk</h1>
-        <p>Redirecting to your language preference...</p>
+        <h1>Bienvenido a Testigos de Solarpunk</h1>
+        <p>Cargando tu experiencia solarpunk...</p>
+
+        <!-- Loading indicator -->
+        <div class="loading-indicator">
+          <div class="loading-dot"></div>
+          <div class="loading-dot"></div>
+          <div class="loading-dot"></div>
+        </div>
+
+        <div class="loading-progress"></div>
 
         <!-- Manual language selection as fallback -->
         <div class="language-choice">
@@ -94,9 +103,11 @@ if (
 <script>
   // Client-side language detection and redirect
   document.addEventListener('DOMContentLoaded', () => {
-    // Get browser language preference
-    const browserLang = navigator.language || navigator.languages?.[0] || 'es';
-    const langCode = browserLang.startsWith('en') ? 'en' : 'es';
+    // Apply theme immediately to prevent flash
+    const savedTheme = localStorage.getItem('testigos-theme-preference');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
 
     // Detect deployment environment and set base path
     let basePath = '/';
@@ -107,18 +118,31 @@ if (
     }
 
     // Check if user has a stored language preference
+    // Always default to Spanish unless user explicitly chose English
     const storedLang = localStorage.getItem('preferred-language');
-    const finalLang = storedLang || langCode;
+    const finalLang = storedLang || 'es'; // Always default to Spanish
 
     // Build redirect URL based on deployment environment
     const redirectUrl = basePath
       ? `${basePath}/${finalLang}/`
       : `/${finalLang}/`;
 
-    // Add a small delay to show the page briefly
+    // Add smooth fade-out before redirect
+    const redirectContainer = document.querySelector(
+      '.redirect-container'
+    ) as HTMLElement;
+
     setTimeout(() => {
-      window.location.href = redirectUrl;
-    }, 1000);
+      if (redirectContainer) {
+        redirectContainer.style.opacity = '0';
+        redirectContainer.style.transition = 'opacity 0.3s ease-out';
+      }
+
+      // Redirect after fade-out
+      setTimeout(() => {
+        window.location.href = redirectUrl;
+      }, 300);
+    }, 500); // Show loading screen for 500ms
   });
 </script>
 
@@ -166,22 +190,93 @@ if (
     min-width: 150px;
   }
 
-  /* Loading animation */
-  .redirect-content::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 40px;
-    margin: var(--espacio-lg) auto 0;
-    border: 3px solid var(--border-subtle);
-    border-top-color: var(--madfam-yellow);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+  /* Enhanced loading animation */
+  .loading-indicator {
+    margin-top: var(--espacio-xl);
+    display: flex;
+    justify-content: center;
+    gap: 8px;
   }
 
-  @keyframes spin {
+  .loading-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--madfam-yellow);
+    border-radius: 50%;
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+
+  .loading-dot:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+
+  .loading-dot:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+
+  @keyframes pulse {
+    0%,
+    80%,
+    100% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+  }
+
+  /* Loading progress bar */
+  .loading-progress {
+    width: 100%;
+    max-width: 300px;
+    height: 4px;
+    background: var(--border-subtle);
+    border-radius: 2px;
+    margin: var(--espacio-md) auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .loading-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(
+      90deg,
+      var(--madfam-yellow) 0%,
+      var(--verde-sostenible) 50%,
+      var(--madfam-yellow) 100%
+    );
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(400%);
+    }
+  }
+
+  /* Fade in animation */
+  .redirect-content {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
     to {
-      transform: rotate(360deg);
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 

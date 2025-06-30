@@ -11,20 +11,19 @@
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import QuoteBlock from '../../components/QuoteBlock.astro';
-import ThemeSelector from '../../components/ThemeSelector.astro';
-import LanguageSelector from '../../components/LanguageSelector.astro';
 import { useTranslations } from '@/i18n/config';
 
 const lang = 'en';
 const t = useTranslations(lang);
 
+// Detect deployment environment and set base path accordingly
 let basePath =
-  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+  import.meta.env.BASE_URL !== undefined && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
-    : '/testigos-solarpunk';
+    : '/';
 
-// Ensure basePath doesn't end with a slash
-if (basePath.endsWith('/')) {
+// Remove trailing slash for consistency
+if (basePath.endsWith('/') && basePath !== '/') {
   basePath = basePath.slice(0, -1);
 }
 ---
@@ -37,17 +36,6 @@ if (basePath.endsWith('/')) {
   >
     {t('a11y.skip.content')}
   </a>
-
-  <!-- Navigation controls positioned for enterprise UX -->
-  <div class="site-controls">
-    <ThemeSelector showLabels={false} variant="compact" />
-    <LanguageSelector
-      currentLang={lang}
-      currentPath="/"
-      showLabels={false}
-      variant="compact"
-    />
-  </div>
 
   <main id="main-content">
     <!-- Hero Section -->
@@ -367,17 +355,6 @@ if (basePath.endsWith('/')) {
 </BaseLayout>
 
 <style>
-  /* Site Controls for Theme and Language Selectors */
-  .site-controls {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    display: flex;
-    gap: 1rem;
-    z-index: 1000;
-    align-items: center;
-  }
-
   /* Hero Section */
   .hero {
     padding: var(--espacio-xxl) 0;
@@ -551,15 +528,6 @@ if (basePath.endsWith('/')) {
 
   /* Responsive Design */
   @media (max-width: 768px) {
-    .site-controls {
-      position: relative;
-      top: unset;
-      right: unset;
-      justify-content: center;
-      margin: 1rem 0;
-      gap: 0.5rem;
-    }
-
     .hero {
       min-height: 80vh;
     }
