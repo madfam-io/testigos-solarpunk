@@ -42,41 +42,73 @@ if (basePath.endsWith('/') && basePath !== '/') {
     <section class="hero gradient-solarpunk" role="banner">
       <div class="container">
         <div class="hero-content">
-          <div class="hero-logo-title animate-fade-in">
-            <picture>
-              <source
-                srcset={`${basePath}/images/logo.webp`}
-                type="image/webp"
-              />
-              <img
-                src={`${basePath}/images/logo.png`}
-                alt={t('site.title')}
-                class="hero-logo"
-                loading="eager"
-                width="120"
-                height="120"
-              />
-            </picture>
-            <h1 class="hero-title">{t('hero.title')}</h1>
+          <!-- Logo with magazine cutout effect -->
+          <div class="hero-logo-wrapper animate-fade-in">
+            <div class="logo-cutout-hero">
+              <picture>
+                <source
+                  srcset={`${basePath}/images/logo.webp`}
+                  type="image/webp"
+                />
+                <img
+                  src={`${basePath}/images/logo.png`}
+                  alt={t('site.title')}
+                  class="hero-logo"
+                  loading="eager"
+                  width="120"
+                  height="120"
+                />
+              </picture>
+              <div class="logo-tape logo-tape-1"></div>
+              <div class="logo-tape logo-tape-2"></div>
+            </div>
           </div>
-          <p class="hero-subtitle animate-fade-in">
-            {t('hero.subtitle')}
+
+          <!-- Magazine cutout title -->
+          <h1 class="magazine-title-hero animate-fade-in">
+            <span class="letter-cutout">T</span>
+            <span class="letter-cutout">e</span>
+            <span class="letter-cutout">s</span>
+            <span class="letter-cutout">t</span>
+            <span class="letter-cutout">i</span>
+            <span class="letter-cutout">g</span>
+            <span class="letter-cutout">o</span>
+            <span class="letter-cutout">s</span>
+            <span class="letter-cutout"> </span>
+            <span class="letter-cutout">d</span>
+            <span class="letter-cutout">e</span>
+            <br class="mobile-break" />
+            <span class="letter-cutout">S</span>
+            <span class="letter-cutout">o</span>
+            <span class="letter-cutout">l</span>
+            <span class="letter-cutout">a</span>
+            <span class="letter-cutout">r</span>
+            <span class="letter-cutout">p</span>
+            <span class="letter-cutout">u</span>
+            <span class="letter-cutout">n</span>
+            <span class="letter-cutout">k</span>
+          </h1>
+
+          <p class="hero-subtitle animate-fade-in magazine-subtitle-hero">
+            <span class="subtitle-text">{t('hero.subtitle')}</span>
           </p>
+
           <p class="hero-description animate-fade-in">
             {t('hero.description')}
           </p>
+
           <div class="hero-actions animate-fade-in">
             <a
               href={`${basePath}/es/contenido/sketches/`}
-              class="btn btn-primary"
+              class="magazine-btn primary"
             >
               <span class="emoji-cutout emoji-button emoji-md theme-solar"
                 >🎬</span
               >
-              {t('hero.cta.primary')}
+              <span class="btn-text">{t('hero.cta.primary')}</span>
             </a>
-            <a href={`${basePath}/es/proyecto/`} class="btn btn-secondary">
-              {t('hero.cta.secondary')}
+            <a href={`${basePath}/es/proyecto/`} class="magazine-btn secondary">
+              <span class="btn-text">{t('hero.cta.secondary')}</span>
             </a>
           </div>
         </div>
@@ -385,35 +417,128 @@ if (basePath.endsWith('/') && basePath !== '/') {
   .hero-content {
     position: relative;
     z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .hero-logo-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--espacio-md);
+  /* Logo wrapper with magazine effect */
+  .hero-logo-wrapper {
     margin-bottom: var(--espacio-lg);
+  }
+
+  .logo-cutout-hero {
+    position: relative;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
   }
 
   .hero-logo {
     height: 120px;
     width: auto;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    filter: sepia(0.1) contrast(1.1) brightness(1.05)
+      drop-shadow(2px 2px 0 var(--madfam-yellow))
+      drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3));
+    transform: rotate(-2deg);
   }
 
-  .hero-title {
+  /* Tape effect on logo */
+  .logo-tape {
+    position: absolute;
+    width: 80px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 0.9;
+    transform: rotate(-45deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo-tape::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 4px,
+      rgba(0, 0, 0, 0.05) 4px,
+      rgba(0, 0, 0, 0.05) 8px
+    );
+  }
+
+  .logo-tape-1 {
+    top: -10px;
+    left: -30px;
+  }
+
+  .logo-tape-2 {
+    bottom: -10px;
+    right: -30px;
+    transform: rotate(45deg);
+  }
+
+  /* Magazine cutout title */
+  .magazine-title-hero {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
-    margin: 0;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0 0 var(--espacio-lg) 0;
+    line-height: 1.2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.2em;
   }
 
-  .hero-subtitle {
+  .letter-cutout {
+    display: inline-block;
+    position: relative;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: white;
+    text-shadow:
+      2px 2px 4px rgba(0, 0, 0, 0.5),
+      1px 1px 0px rgba(255, 255, 255, 0.2),
+      0 0 8px rgba(255, 255, 255, 0.1);
+    animation: letterFloat 4s ease-in-out infinite;
+  }
+
+  .letter-cutout:nth-child(odd) {
+    transform: rotate(-2deg) translateY(-2px);
+    font-family: var(--font-display), serif;
+  }
+
+  .letter-cutout:nth-child(even) {
+    transform: rotate(1deg) translateY(2px);
+    font-family: var(--font-sans), sans-serif;
+  }
+
+  .letter-cutout:nth-child(3n) {
+    color: var(--madfam-yellow);
+    text-shadow:
+      2px 2px 4px rgba(0, 0, 0, 0.5),
+      1px 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .letter-cutout:nth-child(5n) {
+    color: var(--verde-sostenible);
+    text-shadow:
+      2px 2px 4px rgba(0, 0, 0, 0.5),
+      1px 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  /* Magazine subtitle */
+  .magazine-subtitle-hero {
     font-size: clamp(1.25rem, 3vw, 1.5rem);
     margin-bottom: var(--espacio-md);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .subtitle-text {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
+    padding: 0.3em 0.8em;
+    transform: rotate(-1deg);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
     font-weight: 600;
   }
 
@@ -423,15 +548,197 @@ if (basePath.endsWith('/') && basePath !== '/') {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    opacity: 0.9;
+    opacity: 0.95;
     line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   .hero-actions {
     display: flex;
-    gap: var(--espacio-md);
+    gap: var(--espacio-lg);
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  /* Magazine buttons */
+  .magazine-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-md) var(--espacio-lg);
+    background: var(--bg-primary);
+    border: 3px solid currentColor;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    transition: all 0.3s ease;
+    transform: rotate(-1deg);
+    box-shadow:
+      3px 3px 0 currentColor,
+      5px 5px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .magazine-btn.primary {
+    color: var(--madfam-yellow);
+    background: linear-gradient(
+      135deg,
+      var(--bg-primary) 0%,
+      rgba(255, 209, 0, 0.1) 100%
+    );
+  }
+
+  .magazine-btn.secondary {
+    color: var(--verde-sostenible);
+    background: linear-gradient(
+      135deg,
+      var(--bg-primary) 0%,
+      rgba(68, 170, 68, 0.1) 100%
+    );
+  }
+
+  .magazine-btn:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow:
+      4px 4px 0 currentColor,
+      6px 6px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .btn-text {
+    font-size: 1rem;
+  }
+
+  /* Animations */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes letterFloat {
+    0%,
+    100% {
+      transform: translateY(var(--float-y, 0)) rotate(var(--rotate, 0deg));
+    }
+    25% {
+      transform: translateY(calc(var(--float-y, 0) - 3px))
+        rotate(calc(var(--rotate, 0deg) + 1deg));
+    }
+    75% {
+      transform: translateY(calc(var(--float-y, 0) + 3px))
+        rotate(calc(var(--rotate, 0deg) - 1deg));
+    }
+  }
+
+  /* Letter float variations */
+  .letter-cutout:nth-child(1) {
+    --float-y: -2px;
+    --rotate: -2deg;
+    animation-delay: 0s;
+  }
+  .letter-cutout:nth-child(2) {
+    --float-y: 2px;
+    --rotate: 1deg;
+    animation-delay: 0.1s;
+  }
+  .letter-cutout:nth-child(3) {
+    --float-y: -1px;
+    --rotate: -1deg;
+    animation-delay: 0.2s;
+  }
+  .letter-cutout:nth-child(4) {
+    --float-y: 3px;
+    --rotate: 2deg;
+    animation-delay: 0.3s;
+  }
+  .letter-cutout:nth-child(5) {
+    --float-y: -3px;
+    --rotate: -1deg;
+    animation-delay: 0.4s;
+  }
+  .letter-cutout:nth-child(6) {
+    --float-y: 1px;
+    --rotate: 1deg;
+    animation-delay: 0.5s;
+  }
+  .letter-cutout:nth-child(7) {
+    --float-y: -2px;
+    --rotate: -2deg;
+    animation-delay: 0.6s;
+  }
+  .letter-cutout:nth-child(8) {
+    --float-y: 2px;
+    --rotate: 1deg;
+    animation-delay: 0.7s;
+  }
+  .letter-cutout:nth-child(9) {
+    --float-y: -1px;
+    --rotate: -1deg;
+    animation-delay: 0.8s;
+  }
+  .letter-cutout:nth-child(10) {
+    --float-y: 3px;
+    --rotate: 2deg;
+    animation-delay: 0.9s;
+  }
+  .letter-cutout:nth-child(11) {
+    --float-y: -2px;
+    --rotate: -1deg;
+    animation-delay: 1s;
+  }
+  .letter-cutout:nth-child(12) {
+    --float-y: -2px;
+    --rotate: -2deg;
+    animation-delay: 1.1s;
+  }
+  .letter-cutout:nth-child(13) {
+    --float-y: 2px;
+    --rotate: 1deg;
+    animation-delay: 1.2s;
+  }
+  .letter-cutout:nth-child(14) {
+    --float-y: -1px;
+    --rotate: -1deg;
+    animation-delay: 1.3s;
+  }
+  .letter-cutout:nth-child(15) {
+    --float-y: 3px;
+    --rotate: 2deg;
+    animation-delay: 1.4s;
+  }
+  .letter-cutout:nth-child(16) {
+    --float-y: -3px;
+    --rotate: -1deg;
+    animation-delay: 1.5s;
+  }
+  .letter-cutout:nth-child(17) {
+    --float-y: 1px;
+    --rotate: 1deg;
+    animation-delay: 1.6s;
+  }
+  .letter-cutout:nth-child(18) {
+    --float-y: -2px;
+    --rotate: -2deg;
+    animation-delay: 1.7s;
+  }
+  .letter-cutout:nth-child(19) {
+    --float-y: 2px;
+    --rotate: 1deg;
+    animation-delay: 1.8s;
+  }
+  .letter-cutout:nth-child(20) {
+    --float-y: -1px;
+    --rotate: -1deg;
+    animation-delay: 1.9s;
+  }
+
+  .mobile-break {
+    display: none;
   }
 
   /* Sections */
@@ -540,6 +847,19 @@ if (basePath.endsWith('/') && basePath !== '/') {
       height: 80px;
     }
 
+    .logo-tape {
+      width: 60px;
+      height: 20px;
+    }
+
+    .magazine-title-hero {
+      font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .mobile-break {
+      display: block;
+    }
+
     .hero-actions,
     .cta-actions {
       flex-direction: column;
@@ -547,18 +867,57 @@ if (basePath.endsWith('/') && basePath !== '/') {
       gap: var(--espacio-sm);
     }
 
-    .hero-actions .btn,
+    .magazine-btn,
     .cta-actions .btn {
       width: 100%;
       max-width: 280px;
+      justify-content: center;
+    }
+  }
+
+  /* Seamless transition from loading screen */
+  .animate-fade-in {
+    animation: fadeInHero 0.8s ease-out;
+    animation-fill-mode: both;
+  }
+
+  .animate-fade-in:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .animate-fade-in:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .animate-fade-in:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .animate-fade-in:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .animate-fade-in:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+
+  @keyframes fadeInHero {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
   /* Accessibility improvements */
   @media (prefers-reduced-motion: reduce) {
     .animate-fade-in,
-    .float-animation {
+    .logo-cutout-hero,
+    .letter-cutout {
       animation: none;
+    }
+
+    .magazine-btn {
+      transition: none;
     }
   }
 
