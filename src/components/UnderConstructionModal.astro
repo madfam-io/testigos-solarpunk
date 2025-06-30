@@ -104,7 +104,6 @@ const {
 </div>
 
 <style>
-  /* eslint-disable astro/no-unused-css-selector */
   .construction-modal {
     position: fixed;
     top: 0;
@@ -119,12 +118,11 @@ const {
     box-sizing: border-box;
   }
 
-  /* eslint-disable astro/no-unused-css-selector */
+  /* This selector is used by JavaScript in line 362 */
+  /* eslint-disable-next-line astro/no-unused-css-selector */
   .construction-modal.active {
-    /* Used in JavaScript */
     display: flex;
   }
-  /* eslint-enable astro/no-unused-css-selector */
 
   .modal-backdrop {
     position: absolute;
@@ -177,13 +175,12 @@ const {
     transition: all 0.3s ease;
   }
 
-  /* eslint-disable astro/no-unused-css-selector */
+  /* This selector is used by JavaScript for modal animation */
+  /* eslint-disable-next-line astro/no-unused-css-selector */
   .construction-modal.active .modal-content {
-    /* Used in JavaScript */
     transform: scale(1);
     opacity: 1;
   }
-  /* eslint-enable astro/no-unused-css-selector */
 
   .modal-header {
     display: flex;
@@ -348,7 +345,6 @@ const {
       animation: none;
     }
   }
-  /* eslint-enable astro/no-unused-css-selector */
 </style>
 
 <script>

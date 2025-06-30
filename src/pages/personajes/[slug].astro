@@ -1,19 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 // Define types for better clarity
 type CharacterPath = {
   params: { slug: string };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  props: { character: any };
+  props: { character: CollectionEntry<'characters'> };
 };
 
 export async function getStaticPaths(): Promise<CharacterPath[]> {
   const characters = await getCollection('characters');
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return characters.map(
-    (character: any): CharacterPath => ({
+    (character: CollectionEntry<'characters'>): CharacterPath => ({
       params: { slug: character.id },
       props: { character },
     })
@@ -21,8 +19,7 @@ export async function getStaticPaths(): Promise<CharacterPath[]> {
 }
 
 interface Props {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  character: any;
+  character: CollectionEntry<'characters'>;
 }
 
 const { character }: Props = Astro.props;
@@ -135,21 +132,26 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
             Relaciones
           </h2>
           <div class="relationships-grid">
-            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-            {relaciones.map((relacion: any) => (
-              <div class="relationship-card card">
-                <h3>
-                  {relacion.personaje
-                    .split('-')
-                    .map(
-                      (word: string) =>
-                        word.charAt(0).toUpperCase() + word.slice(1)
-                    )
-                    .join(' ')}
-                </h3>
-                <p>{relacion.descripcion}</p>
-              </div>
-            ))}
+            {relaciones.map(
+              (relacion: {
+                personaje: string;
+                tipo: string;
+                descripcion: string;
+              }) => (
+                <div class="relationship-card card">
+                  <h3>
+                    {relacion.personaje
+                      .split('-')
+                      .map(
+                        (word: string) =>
+                          word.charAt(0).toUpperCase() + word.slice(1)
+                      )
+                      .join(' ')}
+                  </h3>
+                  <p>{relacion.descripcion}</p>
+                </div>
+              )
+            )}
           </div>
         </div>
       </section>
