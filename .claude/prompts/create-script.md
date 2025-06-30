@@ -7,7 +7,6 @@ Escribir un nuevo guión para el universo Testigos de Solarpunk optimizado para 
 ## Pasos a Seguir
 
 1. **Crear archivo** en `src/content/scripts/EP[XXX]-[PLATAFORMA].md`
-
    - Formato: `EP001-TT.md` (TikTok), `EP002-YT.md` (YouTube), etc.
 
 2. **Estructura del frontmatter**:

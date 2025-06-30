@@ -295,19 +295,16 @@ window.addEventListener('unhandledrejection', (event) => {
 #### Site Down Incident
 
 1. **Immediate Response** (0-15 minutes)
-
    - Check GitHub Pages status
    - Verify DNS resolution
    - Check build logs in GitHub Actions
 
 2. **Investigation** (15-30 minutes)
-
    - Identify root cause
    - Check recent deployments
    - Review error logs
 
 3. **Resolution** (30-60 minutes)
-
    - Implement fix or rollback
    - Deploy emergency patch
    - Verify restoration

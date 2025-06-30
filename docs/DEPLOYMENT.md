@@ -26,13 +26,11 @@ Both deployments are triggered automatically via GitHub Actions on push to the `
 ### Production Environments
 
 1. **GitHub Pages Production**
-
    - URL: https://madfam-io.github.io/testigos-solarpunk/
    - Base path: `/testigos-solarpunk`
    - Auto-deploys from `main` branch
 
 2. **Vercel Production**
-
    - URL: https://testigos-solarpunk.vercel.app
    - Base path: `/`
    - Auto-deploys from `main` branch
@@ -97,7 +95,6 @@ npm run deploy
    ```
 
 2. **Set Environment Variables in Vercel Dashboard**
-
    - `NODE_ENV=production`
    - Any API keys or secrets
 
@@ -242,12 +239,10 @@ npm run preview:vercel
 ### Common Issues
 
 1. **Different behavior between deployments**
-
    - Check config differences between `astro.config.mjs` and `astro.config.vercel.mjs`
    - Verify environment variables
 
 2. **CI/CD Pipeline Failures**
-
    - Check GitHub Actions logs
    - Ensure all secrets are properly set
    - Verify npm packages are up to date

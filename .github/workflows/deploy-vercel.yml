@@ -1,156 +1,24 @@
-name: Deploy to Vercel
+# This workflow has been deprecated in favor of Vercel's automatic Git deployments
+# Vercel automatically deploys on push to main branch
+# To re-enable manual deployments via GitHub Actions:
+# 1. Add VERCEL_TOKEN secret to repository secrets
+# 2. Add VERCEL_ORG_ID secret to repository secrets
+# 3. Add VERCEL_PROJECT_ID secret to repository secrets
+# 4. Uncomment the workflow content below
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-env:
-  NODE_VERSION: '20'
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-
-jobs:
-  quality-checks:
-    name: Quality Checks
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
-
-      - name: Configurar pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-          run_install: false
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
-
-      - name: Instalar dependencias
-        run: pnpm install --frozen-lockfile
-
-      - name: Ejecutar checks de calidad
-        run: |
-          pnpm run lint
-          pnpm run type-check
-          pnpm test
-
-  deploy-preview:
-    name: Deploy Preview to Vercel
-    runs-on: ubuntu-latest
-    needs: quality-checks
-    if: github.event_name == 'pull_request'
-    environment:
-      name: preview
-      url: ${{ steps.deploy.outputs.url }}
-    steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
-
-      - name: Configurar pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-          run_install: false
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
-
-      - name: Instalar Vercel CLI
-        run: pnpm add --global vercel@latest
-
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Build Project Artifacts
-        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Deploy Preview to Vercel
-        id: deploy
-        run: |
-          url=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
-          echo "url=$url" >> $GITHUB_OUTPUT
-
-      - name: Comentar URL de preview en PR
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const url = '${{ steps.deploy.outputs.url }}';
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `🚀 Preview desplegado en Vercel: ${url}`
-            })
-
-  deploy-production:
-    name: Deploy to Vercel Production
-    runs-on: ubuntu-latest
-    needs: quality-checks
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    environment:
-      name: production-vercel
-      url: ${{ steps.deploy.outputs.url }}
-    steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
-
-      - name: Configurar pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-          run_install: false
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
-
-      - name: Instalar Vercel CLI
-        run: pnpm add --global vercel@latest
-
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Deploy to Vercel Production
-        id: deploy
-        run: |
-          url=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})
-          echo "url=$url" >> $GITHUB_OUTPUT
-
-      - name: Notificar despliegue exitoso
-        run: |
-          echo "✅ Sitio desplegado en producción: ${{ steps.deploy.outputs.url }}"
-
-  lighthouse-check:
-    name: Lighthouse Performance Check
-    runs-on: ubuntu-latest
-    needs: [deploy-production]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
-
-      - name: Esperar a que el sitio esté disponible
-        run: sleep 30
-
-      - name: Run Lighthouse
-        uses: treosh/lighthouse-ci-action@v10
-        with:
-          urls: |
-            https://testigos-solarpunk.vercel.app
-          uploadArtifacts: true
-          temporaryPublicStorage: true
-          runs: 3
+# name: Deploy to Vercel
+#
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
+#
+# env:
+#   NODE_VERSION: '20'
+#   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+#   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+#
+# jobs:
+#   # Quality checks are handled by deploy.yml workflow
+#   # Vercel handles automatic deployments on git push

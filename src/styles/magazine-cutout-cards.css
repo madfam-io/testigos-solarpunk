@@ -4,7 +4,8 @@
 .magazine-card {
   position: relative;
   display: block;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       45deg,
       transparent 48%,
       rgba(255, 255, 255, 0.03) 48%,
@@ -21,12 +22,16 @@
   background-size: 8px 8px;
   background-color: var(--bg-secondary, #1a1a1b);
   color: var(--text-primary, #ffffff);
-  
+
   /* Paper texture overlay */
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+  background-image:
+    radial-gradient(
+      circle at 25% 25%,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
     radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.01) 1px, transparent 1px);
-  
+
   /* Torn paper border using clip-path - Default variation */
   clip-path: polygon(
     2% 0%,
@@ -59,13 +64,13 @@
 
   /* Slight rotation for organic feel */
   transform: rotate(-0.8deg);
-  
+
   /* Smooth transitions */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Ensure content stays within bounds */
   overflow: hidden;
-  
+
   /* Border for definition */
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -429,7 +434,8 @@
 
 /* Paper Flutter Animation */
 @keyframes magazineFlutter {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(-0.8deg) translateY(0px);
   }
   25% {
@@ -511,20 +517,20 @@
       0% 95%,
       0% 5%
     );
-    
+
     /* Reduce transforms on mobile */
     transform: rotate(-0.2deg);
   }
-  
+
   .magazine-card:hover {
     transform: rotate(0deg) scale(1.01);
   }
-  
+
   .magazine-card.card-xl {
     padding: var(--espacio-lg);
     font-size: 1rem;
   }
-  
+
   .magazine-card.card-lg {
     padding: var(--espacio-md);
     font-size: 0.95rem;
@@ -549,11 +555,11 @@
     animation: none;
     transform: none;
   }
-  
+
   .magazine-card.flutter {
     animation: none;
   }
-  
+
   .magazine-card:hover {
     transform: none;
   }

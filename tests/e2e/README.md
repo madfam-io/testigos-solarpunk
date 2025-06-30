@@ -5,25 +5,21 @@ This directory is reserved for end-to-end tests using tools like Playwright or C
 ## Potential E2E Test Scenarios
 
 1. **Navigation Flow**
-
    - Test navigation between all pages
    - Verify menu functionality
    - Check responsive navigation
 
 2. **Character Browsing**
-
    - Browse character list
    - Click on character cards
    - View character details
 
 3. **Script Viewing**
-
    - Navigate to scripts section
    - Open script viewer
    - Verify script content display
 
 4. **PWA Installation**
-
    - Test PWA installation prompt
    - Verify offline functionality
    - Check service worker registration

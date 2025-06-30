@@ -114,11 +114,11 @@
    * ================================================================= */
 
   /* Familias tipográficas */
-  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, sans-serif;
+  --font-primary:
+    'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Space Mono', 'SF Mono', Consolas, 'Courier New', monospace;
-  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    sans-serif;
+  --font-system:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Tamaños de fuente - Sistema modular (1.25 ratio) */
   --font-size-xs: 0.64rem; /* 10.24px */
