@@ -13,14 +13,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 export const prerender = true;
 
+// Detect deployment environment and set base path accordingly
 let basePath =
-  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+  import.meta.env.BASE_URL !== undefined && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
-    : '/testigos-solarpunk';
+    : '/';
 
-// Ensure basePath doesn't end with a slash
-if (basePath.endsWith('/')) {
+// Remove trailing slash for consistency
+if (basePath.endsWith('/') && basePath !== '/') {
   basePath = basePath.slice(0, -1);
+}
+
+// Fallback for GitHub Pages if BASE_URL is not properly set
+if (
+  basePath === '/' &&
+  typeof window !== 'undefined' &&
+  window.location.hostname.includes('github.io')
+) {
+  basePath = '/testigos-solarpunk';
 }
 
 // Server-side language detection logic would go here
@@ -34,9 +44,16 @@ if (basePath.endsWith('/')) {
     <div class="container text-center">
       <div class="redirect-content">
         <picture>
-          <source srcset={`${basePath}/images/logo.webp`} type="image/webp" />
+          <source
+            srcset={basePath === '/'
+              ? '/images/logo.webp'
+              : `${basePath}/images/logo.webp`}
+            type="image/webp"
+          />
           <img
-            src={`${basePath}/images/logo.png`}
+            src={basePath === '/'
+              ? '/images/logo.png'
+              : `${basePath}/images/logo.png`}
             alt="Testigos de Solarpunk"
             class="redirect-logo"
             loading="eager"
@@ -50,13 +67,19 @@ if (basePath.endsWith('/')) {
 
         <!-- Manual language selection as fallback -->
         <div class="language-choice">
-          <a href={`${basePath}/es/`} class="btn btn-primary">
+          <a
+            href={basePath === '/' ? '/es/' : `${basePath}/es/`}
+            class="btn btn-primary"
+          >
             <span class="emoji-cutout emoji-button emoji-md theme-solar"
               >🇲🇽</span
             >
             Español
           </a>
-          <a href={`${basePath}/en/`} class="btn btn-secondary">
+          <a
+            href={basePath === '/' ? '/en/' : `${basePath}/en/`}
+            class="btn btn-secondary"
+          >
             <span class="emoji-cutout emoji-button emoji-md theme-solar"
               >🇺🇸</span
             >
@@ -75,16 +98,22 @@ if (basePath.endsWith('/')) {
     const browserLang = navigator.language || navigator.languages?.[0] || 'es';
     const langCode = browserLang.startsWith('en') ? 'en' : 'es';
 
-    // Get base path from meta tag or environment
-    const basePath =
-      import.meta.env.BASE_URL?.replace(/\/$/, '') || '/testigos-solarpunk';
+    // Detect deployment environment and set base path
+    let basePath = '/';
+    if (window.location.hostname.includes('github.io')) {
+      basePath = '/testigos-solarpunk';
+    } else if (window.location.hostname.includes('vercel.app')) {
+      basePath = ''; // Vercel uses root path
+    }
 
     // Check if user has a stored language preference
     const storedLang = localStorage.getItem('preferred-language');
     const finalLang = storedLang || langCode;
 
-    // Redirect to appropriate language
-    const redirectUrl = `${basePath}/${finalLang}/`;
+    // Build redirect URL based on deployment environment
+    const redirectUrl = basePath
+      ? `${basePath}/${finalLang}/`
+      : `/${finalLang}/`;
 
     // Add a small delay to show the page briefly
     setTimeout(() => {

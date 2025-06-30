@@ -10,6 +10,16 @@ export default defineConfig({
   // No base path for Vercel
   base: '/',
 
+  // Internationalization configuration
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: true, // Always show /es/ for Spanish
+      redirectToDefaultLocale: false,
+    },
+  },
+
   // Integrations
   integrations: [
     // Generate automatic sitemap
@@ -22,6 +32,7 @@ export default defineConfig({
         defaultLocale: 'es',
         locales: {
           es: 'es-MX',
+          en: 'en-US',
         },
       },
     }),
