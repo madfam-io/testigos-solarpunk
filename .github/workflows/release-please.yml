@@ -1,0 +1,46 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+          package-name: testigos-solarpunk
+
+      # The logic below handles the npm version update and creates a PR
+      - name: Checkout
+        uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          node-version: '20'
+
+      - name: Update npm dependencies
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          npm ci
+
+      # Output release information
+      - name: Release Info
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          echo "Release created!"
+          echo "Tag: ${{ steps.release.outputs.tag_name }}"
+          echo "Version: ${{ steps.release.outputs.version }}"
+          echo "Upload URL: ${{ steps.release.outputs.upload_url }}"

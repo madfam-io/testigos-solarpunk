@@ -10,6 +10,7 @@
 - [Estándares de Código](#estándares-de-código)
 - [Guía de Contenido](#guía-de-contenido)
 - [Proceso de Pull Request](#proceso-de-pull-request)
+- [Proceso de Release](#proceso-de-release)
 
 ## 🤝 Código de Conducta
 
@@ -277,6 +278,61 @@ git push origin feature/tu-rama
 - Pueden pedir cambios o mejoras
 - Una vez aprobado, será mergeado
 - ¡Tu contribución será parte del evangelio verde!
+
+## 🚢 Proceso de Release
+
+### Releases Automáticos
+
+Este proyecto usa [Release Please](https://github.com/googleapis/release-please) para automatizar el proceso de release. Funciona así:
+
+1. **Commits con Conventional Commits**: Usa el formato estándar en tus commits
+
+   - `feat:` - Nueva característica (incrementa versión minor)
+   - `fix:` - Corrección de bug (incrementa versión patch)
+   - `feat!:` o `BREAKING CHANGE:` - Cambios breaking (incrementa versión major)
+
+2. **Release Please Bot**: Automáticamente crea PRs de release cuando detecta cambios
+
+   - Actualiza version en package.json
+   - Genera/actualiza CHANGELOG.md
+   - Crea tags y releases en GitHub
+
+3. **Proceso**:
+   - Haz commits siguiendo Conventional Commits
+   - Release Please crea un PR con los cambios de versión
+   - Revisa y mergea el PR de release
+   - Se crea automáticamente el tag y release en GitHub
+
+### Ejemplo de Flujo
+
+```bash
+# Desarrollo normal
+git commit -m "feat(characters): add new solar prophet character"
+git commit -m "fix(navigation): correct mobile menu overlap"
+git push
+
+# Release Please crea PR automáticamente
+# Revisa y aprueba el PR "chore(main): release X.Y.Z"
+# ¡Listo! Se crea el release
+```
+
+### Releases Manuales (Emergencia)
+
+Si necesitas crear un release manual:
+
+```bash
+# 1. Actualizar versión en package.json
+npm version patch  # o minor, major
+
+# 2. Crear tag
+git tag -a vX.Y.Z -m "Release vX.Y.Z"
+
+# 3. Push cambios y tag
+git push origin main --tags
+
+# 4. Crear release en GitHub
+gh release create vX.Y.Z --title "vX.Y.Z" --notes "Release notes..."
+```
 
 ## 🎨 Recursos Útiles
 
