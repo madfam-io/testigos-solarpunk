@@ -66,25 +66,29 @@ if (basePath.endsWith('/') && basePath !== '/') {
 
           <!-- Magazine cutout title -->
           <h1 class="magazine-title-hero animate-fade-in">
-            <span class="letter-cutout">S</span>
-            <span class="letter-cutout">o</span>
-            <span class="letter-cutout">l</span>
-            <span class="letter-cutout">a</span>
-            <span class="letter-cutout">r</span>
-            <span class="letter-cutout">p</span>
-            <span class="letter-cutout">u</span>
-            <span class="letter-cutout">n</span>
-            <span class="letter-cutout">k</span>
+            <span class="word-group">
+              <span class="letter-cutout">S</span>
+              <span class="letter-cutout">o</span>
+              <span class="letter-cutout">l</span>
+              <span class="letter-cutout">a</span>
+              <span class="letter-cutout">r</span>
+              <span class="letter-cutout">p</span>
+              <span class="letter-cutout">u</span>
+              <span class="letter-cutout">n</span>
+              <span class="letter-cutout">k</span>
+            </span>
             <br class="mobile-break" />
-            <span class="letter-cutout">W</span>
-            <span class="letter-cutout">i</span>
-            <span class="letter-cutout">t</span>
-            <span class="letter-cutout">n</span>
-            <span class="letter-cutout">e</span>
-            <span class="letter-cutout">s</span>
-            <span class="letter-cutout">s</span>
-            <span class="letter-cutout">e</span>
-            <span class="letter-cutout">s</span>
+            <span class="word-group">
+              <span class="letter-cutout">W</span>
+              <span class="letter-cutout">i</span>
+              <span class="letter-cutout">t</span>
+              <span class="letter-cutout">n</span>
+              <span class="letter-cutout">e</span>
+              <span class="letter-cutout">s</span>
+              <span class="letter-cutout">s</span>
+              <span class="letter-cutout">e</span>
+              <span class="letter-cutout">s</span>
+            </span>
           </h1>
 
           <p class="hero-subtitle animate-fade-in magazine-subtitle-hero">
@@ -478,7 +482,12 @@ if (basePath.endsWith('/') && basePath !== '/') {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.2em;
+    gap: 0.8em; /* Gap between words only */
+  }
+
+  .word-group {
+    display: inline-flex;
+    align-items: baseline;
   }
 
   .letter-cutout {
@@ -494,24 +503,25 @@ if (basePath.endsWith('/') && basePath !== '/') {
     animation: letterFloat 4s ease-in-out infinite;
   }
 
-  .letter-cutout:nth-child(odd) {
+  /* Style letters based on their position within each word */
+  .word-group .letter-cutout:nth-child(odd) {
     transform: rotate(-2deg) translateY(-2px);
     font-family: var(--font-display), serif;
   }
 
-  .letter-cutout:nth-child(even) {
+  .word-group .letter-cutout:nth-child(even) {
     transform: rotate(1deg) translateY(2px);
     font-family: var(--font-sans), sans-serif;
   }
 
-  .letter-cutout:nth-child(3n) {
+  .word-group .letter-cutout:nth-child(3n) {
     color: var(--madfam-yellow);
     text-shadow:
       2px 2px 4px rgba(0, 0, 0, 0.5),
       1px 1px 0 rgba(255, 255, 255, 0.3);
   }
 
-  .letter-cutout:nth-child(5n) {
+  .word-group .letter-cutout:nth-child(5n) {
     color: var(--verde-sostenible);
     text-shadow:
       2px 2px 4px rgba(0, 0, 0, 0.5),
