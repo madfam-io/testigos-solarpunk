@@ -72,8 +72,8 @@
   --space-xxl: 3rem;
 
   /* Tipografía */
-  --font-primary:
-    'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
   --font-mono: 'Space Mono', 'Courier New', monospace;
 
   /* Transiciones */

@@ -4,8 +4,7 @@
 .magazine-card {
   position: relative;
   display: block;
-  background:
-    linear-gradient(
+  background: linear-gradient(
       45deg,
       transparent 48%,
       rgba(255, 255, 255, 0.03) 48%,
@@ -24,8 +23,7 @@
   color: var(--text-primary, #ffffff);
 
   /* Paper texture overlay */
-  background-image:
-    radial-gradient(
+  background-image: radial-gradient(
       circle at 25% 25%,
       rgba(255, 255, 255, 0.02) 1px,
       transparent 1px

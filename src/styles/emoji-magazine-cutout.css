@@ -8,8 +8,7 @@
   transition: all 0.3s ease;
 
   /* Paper texture background */
-  background:
-    linear-gradient(
+  background: linear-gradient(
       45deg,
       transparent 48%,
       rgba(255, 255, 255, 0.05) 48%,
@@ -345,8 +344,7 @@
 }
 
 .emoji-cutout.emoji-hero {
-  background:
-    radial-gradient(
+  background: radial-gradient(
       circle at 30% 70%,
       rgba(255, 255, 230, 0.4) 0%,
       transparent 50%
@@ -466,8 +464,7 @@
 
 /* Thematic Color Variants */
 .emoji-cutout.theme-solar {
-  background:
-    radial-gradient(
+  background: radial-gradient(
       circle at 40% 60%,
       rgba(255, 215, 0, 0.3) 0%,
       transparent 60%
@@ -481,8 +478,7 @@
 }
 
 .emoji-cutout.theme-green {
-  background:
-    radial-gradient(
+  background: radial-gradient(
       circle at 40% 60%,
       rgba(76, 175, 80, 0.2) 0%,
       transparent 60%
@@ -496,8 +492,7 @@
 }
 
 .emoji-cutout.theme-purple {
-  background:
-    radial-gradient(
+  background: radial-gradient(
       circle at 40% 60%,
       rgba(102, 51, 153, 0.2) 0%,
       transparent 60%
@@ -511,8 +506,7 @@
 }
 
 .emoji-cutout.theme-community {
-  background:
-    radial-gradient(
+  background: radial-gradient(
       circle at 40% 60%,
       rgba(255, 111, 53, 0.2) 0%,
       transparent 60%

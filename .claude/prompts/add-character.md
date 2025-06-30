@@ -77,6 +77,7 @@ seo_description: '[Descripción optimizada para búsquedas]'
 ```
 
 3. **Validar que el personaje**:
+
    - Tenga un nombre memorable y temático
    - Su título refleje su rol evangelista-ecológico
    - Las habilidades mezclen lo técnico con lo espiritual
@@ -85,6 +86,7 @@ seo_description: '[Descripción optimizada para búsquedas]'
    - La historia de origen incluya una transformación clara
 
 4. **Añadir imagen** (si está disponible):
+
    - Guardar en `src/assets/images/characters/[slug].webp`
    - Formato: WebP, 800x800px mínimo
    - Optimizada para web (<100KB ideal)

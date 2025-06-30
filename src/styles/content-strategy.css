@@ -43,8 +43,7 @@
 
 /* Solar Rays Pattern Background */
 .pattern-solar-rays {
-  background-image:
-    repeating-linear-gradient(
+  background-image: repeating-linear-gradient(
       45deg,
       transparent,
       transparent 10px,
@@ -62,8 +61,7 @@
 
 /* Geometric Pattern Background */
 .pattern-geometric {
-  background-image:
-    repeating-linear-gradient(
+  background-image: repeating-linear-gradient(
       0deg,
       transparent,
       transparent 50px,

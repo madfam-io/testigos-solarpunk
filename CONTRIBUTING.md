@@ -208,12 +208,14 @@ const { character, showDetails = false } = Astro.props;
 ### Estrategia de 3 Fases
 
 1. **Fase 1 - Atracción (Sketches)**
+
    - Duración: 60-90 segundos
    - Humor que rompe barreras culturales
    - Conecta con pain points de buyer personas
    - Optimizado para redes sociales
 
 2. **Fase 2 - Conexión (Podcast)**
+
    - Duración: 20-30 minutos
    - Conversaciones con expertos
    - Soluciones prácticas y escalables
