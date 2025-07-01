@@ -2,14 +2,14 @@
 
 /**
  * @fileoverview Multi-dimensional Lighthouse testing for Testigos de Solarpunk
- * 
+ *
  * Tests all combinations of:
  * - Languages: Spanish (es) and English (en)
  * - Themes: light, dark, auto
  * - Key pages: home, project, content, community
- * 
+ *
  * Generates comprehensive performance reports for enterprise health validation.
- * 
+ *
  * @module lighthouse-multi-test
  * @version 0.3.0+testing
  */
@@ -78,7 +78,7 @@ function log(message, color = 'reset') {
  */
 function generateTestMatrix() {
   const combinations = [];
-  
+
   for (const lang of TEST_CONFIG.languages) {
     for (const theme of TEST_CONFIG.themes) {
       for (const page of TEST_CONFIG.pages) {
@@ -93,7 +93,7 @@ function generateTestMatrix() {
       }
     }
   }
-  
+
   return combinations;
 }
 
@@ -140,11 +140,11 @@ function getThemeScript(theme) {
  */
 async function runLighthouseAudit(chrome, testCase) {
   const startTime = Date.now();
-  
+
   log(`\n🔬 Testing: ${testCase.id}`, 'cyan');
   log(`   URL: ${testCase.url}`, 'blue');
   log(`   Theme: ${testCase.theme}`, 'blue');
-  
+
   const options = {
     logLevel: 'error',
     output: 'json',
@@ -152,7 +152,8 @@ async function runLighthouseAudit(chrome, testCase) {
     port: chrome.port,
     // Custom config for theme testing
     extraHeaders: {
-      'Accept-Language': testCase.lang === 'es' ? 'es-MX,es;q=0.9' : 'en-US,en;q=0.9',
+      'Accept-Language':
+        testCase.lang === 'es' ? 'es-MX,es;q=0.9' : 'en-US,en;q=0.9',
     },
   };
 
@@ -172,7 +173,7 @@ async function runLighthouseAudit(chrome, testCase) {
       beforePass: async ({ driver }) => {
         await driver.evaluateAsync(getThemeScript(testCase.theme));
         // Wait for theme to apply
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise((resolve) => setTimeout(resolve, 500));
       },
     },
   };
@@ -180,24 +181,32 @@ async function runLighthouseAudit(chrome, testCase) {
   try {
     const result = await lighthouse(testCase.url, options, config);
     const duration = Date.now() - startTime;
-    
+
     if (!result) {
       throw new Error('Lighthouse returned null result');
     }
 
     const scores = {
       performance: Math.round(result.lhr.categories.performance.score * 100),
-      accessibility: Math.round(result.lhr.categories.accessibility.score * 100),
-      bestPractices: Math.round(result.lhr.categories['best-practices'].score * 100),
+      accessibility: Math.round(
+        result.lhr.categories.accessibility.score * 100
+      ),
+      bestPractices: Math.round(
+        result.lhr.categories['best-practices'].score * 100
+      ),
       seo: Math.round(result.lhr.categories.seo.score * 100),
     };
 
     // Extract key metrics
     const metrics = {
-      firstContentfulPaint: result.lhr.audits['first-contentful-paint']?.numericValue || 0,
-      largestContentfulPaint: result.lhr.audits['largest-contentful-paint']?.numericValue || 0,
-      cumulativeLayoutShift: result.lhr.audits['cumulative-layout-shift']?.numericValue || 0,
-      totalBlockingTime: result.lhr.audits['total-blocking-time']?.numericValue || 0,
+      firstContentfulPaint:
+        result.lhr.audits['first-contentful-paint']?.numericValue || 0,
+      largestContentfulPaint:
+        result.lhr.audits['largest-contentful-paint']?.numericValue || 0,
+      cumulativeLayoutShift:
+        result.lhr.audits['cumulative-layout-shift']?.numericValue || 0,
+      totalBlockingTime:
+        result.lhr.audits['total-blocking-time']?.numericValue || 0,
       speedIndex: result.lhr.audits['speed-index']?.numericValue || 0,
     };
 
@@ -207,26 +216,51 @@ async function runLighthouseAudit(chrome, testCase) {
       accessibility: scores.accessibility >= TEST_CONFIG.budgets.accessibility,
       bestPractices: scores.bestPractices >= TEST_CONFIG.budgets.bestPractices,
       seo: scores.seo >= TEST_CONFIG.budgets.seo,
-      fcp: metrics.firstContentfulPaint <= TEST_CONFIG.budgets.firstContentfulPaint,
-      lcp: metrics.largestContentfulPaint <= TEST_CONFIG.budgets.largestContentfulPaint,
-      cls: metrics.cumulativeLayoutShift <= TEST_CONFIG.budgets.cumulativeLayoutShift,
+      fcp:
+        metrics.firstContentfulPaint <=
+        TEST_CONFIG.budgets.firstContentfulPaint,
+      lcp:
+        metrics.largestContentfulPaint <=
+        TEST_CONFIG.budgets.largestContentfulPaint,
+      cls:
+        metrics.cumulativeLayoutShift <=
+        TEST_CONFIG.budgets.cumulativeLayoutShift,
       tbt: metrics.totalBlockingTime <= TEST_CONFIG.budgets.totalBlockingTime,
     };
 
     const overallPass = Object.values(passesbudgets).every(Boolean);
 
     // Log results
-    const perfColor = scores.performance >= 90 ? 'green' : scores.performance >= 70 ? 'yellow' : 'red';
-    const a11yColor = scores.accessibility >= 95 ? 'green' : scores.accessibility >= 85 ? 'yellow' : 'red';
-    const bpColor = scores.bestPractices >= 95 ? 'green' : scores.bestPractices >= 85 ? 'yellow' : 'red';
-    const seoColor = scores.seo >= 95 ? 'green' : scores.seo >= 85 ? 'yellow' : 'red';
+    const perfColor =
+      scores.performance >= 90
+        ? 'green'
+        : scores.performance >= 70
+          ? 'yellow'
+          : 'red';
+    const a11yColor =
+      scores.accessibility >= 95
+        ? 'green'
+        : scores.accessibility >= 85
+          ? 'yellow'
+          : 'red';
+    const bpColor =
+      scores.bestPractices >= 95
+        ? 'green'
+        : scores.bestPractices >= 85
+          ? 'yellow'
+          : 'red';
+    const seoColor =
+      scores.seo >= 95 ? 'green' : scores.seo >= 85 ? 'yellow' : 'red';
 
     log(`   📊 Performance: ${scores.performance}`, perfColor);
     log(`   ♿ Accessibility: ${scores.accessibility}`, a11yColor);
     log(`   ✅ Best Practices: ${scores.bestPractices}`, bpColor);
     log(`   🔍 SEO: ${scores.seo}`, seoColor);
     log(`   ⏱️  Duration: ${duration}ms`, 'blue');
-    log(`   ${overallPass ? '✅ PASS' : '❌ FAIL'}`, overallPass ? 'green' : 'red');
+    log(
+      `   ${overallPass ? '✅ PASS' : '❌ FAIL'}`,
+      overallPass ? 'green' : 'red'
+    );
 
     // Save detailed report
     const reportPath = path.join(REPORTS_DIR, `${testCase.id}.json`);
@@ -241,7 +275,6 @@ async function runLighthouseAudit(chrome, testCase) {
       duration,
       reportPath,
     };
-    
   } catch (error) {
     log(`   ❌ Error: ${error.message}`, 'red');
     return {
@@ -258,9 +291,9 @@ async function runLighthouseAudit(chrome, testCase) {
  */
 async function generateSummaryReport(results) {
   const totalTests = results.length;
-  const passedTests = results.filter(r => r.overallPass).length;
+  const passedTests = results.filter((r) => r.overallPass).length;
   const failedTests = totalTests - passedTests;
-  
+
   const html = `
 <!DOCTYPE html>
 <html lang="en">
@@ -335,9 +368,10 @@ async function generateSummaryReport(results) {
           </tr>
         </thead>
         <tbody>
-          ${results.map(result => {
-            if (result.error) {
-              return `
+          ${results
+            .map((result) => {
+              if (result.error) {
+                return `
                 <tr>
                   <td>${result.testCase.id}</td>
                   <td>${result.testCase.lang.toUpperCase()}</td>
@@ -347,17 +381,17 @@ async function generateSummaryReport(results) {
                   <td class="fail">FAIL</td>
                 </tr>
               `;
-            }
-            
-            const getScoreClass = (score) => {
-              if (score >= 100) return 'score-100';
-              if (score >= 90) return 'score-90';
-              if (score >= 80) return 'score-80';
-              if (score >= 70) return 'score-70';
-              return 'score-low';
-            };
-            
-            return `
+              }
+
+              const getScoreClass = (score) => {
+                if (score >= 100) return 'score-100';
+                if (score >= 90) return 'score-90';
+                if (score >= 80) return 'score-80';
+                if (score >= 70) return 'score-70';
+                return 'score-low';
+              };
+
+              return `
               <tr>
                 <td>${result.testCase.id}</td>
                 <td>${result.testCase.lang.toUpperCase()}</td>
@@ -370,7 +404,8 @@ async function generateSummaryReport(results) {
                 <td class="${result.overallPass ? 'pass' : 'fail'}">${result.overallPass ? 'PASS' : 'FAIL'}</td>
               </tr>
             `;
-          }).join('')}
+            })
+            .join('')}
         </tbody>
       </table>
     </div>
@@ -378,10 +413,10 @@ async function generateSummaryReport(results) {
 </body>
 </html>
   `;
-  
+
   const reportPath = path.join(REPORTS_DIR, 'summary.html');
   await fs.writeFile(reportPath, html);
-  
+
   return reportPath;
 }
 
@@ -391,65 +426,70 @@ async function generateSummaryReport(results) {
 async function main() {
   log('\n🚀 Starting Multi-Dimensional Lighthouse Testing', 'magenta');
   log('Testing all Language × Theme × Page combinations\n', 'blue');
-  
+
   // Ensure reports directory exists
   await fs.mkdir(REPORTS_DIR, { recursive: true });
-  
+
   // Generate test matrix
   const testCases = generateTestMatrix();
   log(`📋 Generated ${testCases.length} test combinations`, 'blue');
-  
+
   // Launch Chrome
   log('🌐 Launching Chrome...', 'blue');
   const chrome = await launchChrome();
-  
+
   try {
     const results = [];
     const startTime = Date.now();
-    
+
     // Run all tests
     for (let i = 0; i < testCases.length; i++) {
       const testCase = testCases[i];
-      log(`\n[${i + 1}/${testCases.length}] Running test: ${testCase.id}`, 'cyan');
-      
+      log(
+        `\n[${i + 1}/${testCases.length}] Running test: ${testCase.id}`,
+        'cyan'
+      );
+
       const result = await runLighthouseAudit(chrome, testCase);
       results.push(result);
-      
+
       // Brief pause between tests
       if (i < testCases.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
       }
     }
-    
+
     const totalDuration = Date.now() - startTime;
-    
+
     // Generate summary
-    const passedTests = results.filter(r => r.overallPass).length;
+    const passedTests = results.filter((r) => r.overallPass).length;
     const failedTests = results.length - passedTests;
-    
+
     log('\n' + '='.repeat(80), 'blue');
     log('📊 FINAL RESULTS', 'magenta');
     log('='.repeat(80), 'blue');
     log(`Total tests: ${results.length}`);
-    log(`Passed: ${passedTests}`, passedTests === results.length ? 'green' : 'yellow');
+    log(
+      `Passed: ${passedTests}`,
+      passedTests === results.length ? 'green' : 'yellow'
+    );
     log(`Failed: ${failedTests}`, failedTests === 0 ? 'green' : 'red');
     log(`Pass rate: ${Math.round((passedTests / results.length) * 100)}%`);
     log(`Total duration: ${(totalDuration / 1000).toFixed(2)}s`);
-    
+
     // Generate summary report
     const summaryPath = await generateSummaryReport(results);
     log(`\n📄 Summary report: ${summaryPath}`, 'green');
-    
+
     // Save raw results
     const rawResultsPath = path.join(REPORTS_DIR, 'raw-results.json');
     await fs.writeFile(rawResultsPath, JSON.stringify(results, null, 2));
     log(`📄 Raw results: ${rawResultsPath}`, 'blue');
-    
+
     log('\n✨ Multi-dimensional testing complete!', 'green');
-    
+
     // Exit with appropriate code
     process.exit(failedTests === 0 ? 0 : 1);
-    
   } finally {
     await chrome.kill();
   }

@@ -263,10 +263,18 @@ const getLangPath = (path: string): string => {
   <body>
     <!-- Skip Links for Accessibility -->
     <a href="#main-content" class="skip-link">
-      {currentLang === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
+      {
+        currentLang === 'es'
+          ? 'Saltar al contenido principal'
+          : 'Skip to main content'
+      }
     </a>
     <a href="#nav-menu" class="skip-link">
-      {currentLang === 'es' ? 'Saltar al menú de navegación' : 'Skip to navigation menu'}
+      {
+        currentLang === 'es'
+          ? 'Saltar al menú de navegación'
+          : 'Skip to navigation menu'
+      }
     </a>
     <a href="#footer" class="skip-link">
       {currentLang === 'es' ? 'Saltar al pie de página' : 'Skip to footer'}
@@ -278,14 +286,18 @@ const getLangPath = (path: string): string => {
       aria-live="polite"
       aria-atomic="true"
       class="sr-only"
-    ></div>
+    >
+    </div>
 
     <nav role="navigation" aria-label="Navegación principal">
       <div class="container">
         <div class="nav-brand">
           <a
             href={getLangPath('')}
-            class:list={currentPath === `/${currentLang}/` || currentPath === '/' ? 'active' : ''}
+            class:list={currentPath === `/${currentLang}/` ||
+            currentPath === '/'
+              ? 'active'
+              : ''}
             aria-label="Testigos de Solarpunk - Ir a la página principal"
           >
             <picture>
@@ -327,8 +339,8 @@ const getLangPath = (path: string): string => {
         </div>
 
         <ul class="nav-menu" id="nav-menu" role="menubar">
-          <button 
-            class="mobile-menu-close" 
+          <button
+            class="mobile-menu-close"
             aria-label={currentLang === 'es' ? 'Cerrar menú' : 'Close menu'}
             data-menu-close
           >
@@ -537,7 +549,7 @@ const getLangPath = (path: string): string => {
         if (mobileMenuToggle && navMenu) {
           // Get close button
           const closeButton = navMenu.querySelector('[data-menu-close]');
-          
+
           // Function to close menu
           function closeMobileMenu() {
             if (mobileMenuToggle && navMenu) {
@@ -547,7 +559,7 @@ const getLangPath = (path: string): string => {
               document.body.classList.remove('mobile-menu-open');
             }
           }
-          
+
           // Toggle mobile menu with body scroll lock
           mobileMenuToggle.addEventListener('click', function () {
             const isActive = mobileMenuToggle.classList.contains('active');
@@ -557,7 +569,7 @@ const getLangPath = (path: string): string => {
               'aria-expanded',
               (!isActive).toString()
             );
-            
+
             // Toggle body scroll lock
             if (!isActive) {
               document.body.classList.add('mobile-menu-open');
@@ -565,7 +577,7 @@ const getLangPath = (path: string): string => {
               document.body.classList.remove('mobile-menu-open');
             }
           });
-          
+
           // Close button handler
           if (closeButton) {
             closeButton.addEventListener('click', closeMobileMenu);
@@ -677,7 +689,9 @@ const getLangPath = (path: string): string => {
               <li>
                 <a href={getLangPath('guiones/')}>Repositorio de Guiones</a>
               </li>
-              <li><a href={getLangPath('mundo/')}>Construcción del Mundo</a></li>
+              <li>
+                <a href={getLangPath('mundo/')}>Construcción del Mundo</a>
+              </li>
             </ul>
           </div>
           <div>

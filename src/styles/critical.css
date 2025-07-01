@@ -89,7 +89,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background: var(--bg-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Typography - Critical headings only */
@@ -265,7 +267,9 @@ h2 {
   position: relative;
   transition: all 0.3s ease;
   transform: rotate(-1deg);
-  box-shadow: 3px 3px 0 currentColor, 5px 5px 12px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    3px 3px 0 currentColor,
+    5px 5px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   font-size: 1rem;
 }
@@ -280,7 +284,9 @@ h2 {
 
 .magazine-btn:hover {
   transform: rotate(0deg) translateY(-2px);
-  box-shadow: 4px 4px 0 currentColor, 6px 6px 16px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    4px 4px 0 currentColor,
+    6px 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .magazine-btn:focus {

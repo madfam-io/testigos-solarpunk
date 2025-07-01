@@ -253,20 +253,24 @@ const siteStructure = {
 
 // Get current language from URL or default to Spanish
 const currentPath = Astro.url.pathname;
-const langMatch = currentPath.match(/\/(es|en)\//); 
+const langMatch = currentPath.match(/\/(es|en)\//);
 const currentLang: 'es' | 'en' = (langMatch?.[1] as 'es' | 'en') ?? 'es';
 const currentStructure = siteStructure[currentLang] ?? siteStructure.es;
 ---
 
 <BaseLayout
   title={currentLang === 'en' ? 'Site Map' : 'Mapa del Sitio'}
-  description={currentLang === 'en' 
+  description={currentLang === 'en'
     ? 'Complete navigation of the Solarpunk Witnesses universe - all available sections and pages'
     : 'Navegación completa del universo Testigos de Solarpunk - todas las secciones y páginas disponibles'}
 >
   <!-- Skip to content for better accessibility -->
   <a href="#sitemap-main" class="skip-link">
-    {currentLang === 'en' ? 'Skip to map content' : 'Saltar al contenido del mapa'}
+    {
+      currentLang === 'en'
+        ? 'Skip to map content'
+        : 'Saltar al contenido del mapa'
+    }
   </a>
 
   <section class="sitemap-hero">
@@ -278,9 +282,11 @@ const currentStructure = siteStructure[currentLang] ?? siteStructure.es;
         {currentLang === 'en' ? 'Site Map' : 'Mapa del Sitio'}
       </h1>
       <p class="hero-description">
-        {currentLang === 'en' 
-          ? 'Explore the entire universe of the Solarpunk Witnesses. From viral sketches to educational experiences, here you will find every corner of our narrative world.'
-          : 'Explora todo el universo de los Testigos de Solarpunk. Desde sketches virales hasta experiencias educativas, aquí encontrarás cada rincón de nuestro mundo narrativo.'}
+        {
+          currentLang === 'en'
+            ? 'Explore the entire universe of the Solarpunk Witnesses. From viral sketches to educational experiences, here you will find every corner of our narrative world.'
+            : 'Explora todo el universo de los Testigos de Solarpunk. Desde sketches virales hasta experiencias educativas, aquí encontrarás cada rincón de nuestro mundo narrativo.'
+        }
       </p>
     </div>
   </section>
@@ -292,7 +298,11 @@ const currentStructure = siteStructure[currentLang] ?? siteStructure.es;
   >
     <div class="container">
       <h2 id="sitemap-heading" class="sr-only">
-        {currentLang === 'en' ? 'All website sections' : 'Todas las secciones del sitio web'}
+        {
+          currentLang === 'en'
+            ? 'All website sections'
+            : 'Todas las secciones del sitio web'
+        }
       </h2>
       <div class="sitemap-grid" role="list">
         {
@@ -365,19 +375,28 @@ const currentStructure = siteStructure[currentLang] ?? siteStructure.es;
     <div class="container">
       <div class="footer-content">
         <h2>
-          {currentLang === 'en' ? "Didn't find what you were looking for?" : '¿No encontraste lo que buscabas?'}
+          {
+            currentLang === 'en'
+              ? "Didn't find what you were looking for?"
+              : '¿No encontraste lo que buscabas?'
+          }
         </h2>
         <p>
-          {currentLang === 'en' 
-            ? 'We are constantly growing. Some sections may be in development or coming soon.'
-            : 'Estamos en constante crecimiento. Algunas secciones pueden estar en desarrollo o próximamente disponibles.'}
+          {
+            currentLang === 'en'
+              ? 'We are constantly growing. Some sections may be in development or coming soon.'
+              : 'Estamos en constante crecimiento. Algunas secciones pueden estar en desarrollo o próximamente disponibles.'
+          }
         </p>
         <div class="footer-actions">
           <a href={`${basePath}/${currentLang}/`} class="btn btn-primary">
             <span class="emoji-cutout emoji-sm theme-solar">🏠</span>
             {currentLang === 'en' ? 'Back to Home' : 'Volver al Inicio'}
           </a>
-          <a href={`${basePath}/${currentLang}/comunidad/`} class="btn btn-secondary">
+          <a
+            href={`${basePath}/${currentLang}/comunidad/`}
+            class="btn btn-secondary"
+          >
             <span class="emoji-cutout emoji-sm theme-community">💬</span>
             {currentLang === 'en' ? 'Contact Us' : 'Contáctanos'}
           </a>

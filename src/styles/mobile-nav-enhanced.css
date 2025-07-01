@@ -7,7 +7,7 @@
     padding: var(--space-sm) 0;
     background: var(--bg-secondary);
     backdrop-filter: blur(12px);
-    box-shadow: 
+    box-shadow:
       0 4px 20px rgba(0, 0, 0, 0.08),
       0 2px 8px rgba(0, 0, 0, 0.04);
   }
@@ -159,8 +159,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-      repeating-linear-gradient(
+    background-image: repeating-linear-gradient(
         45deg,
         transparent,
         transparent 20px,
@@ -206,7 +205,7 @@
     transform: rotate(-1deg);
     transition: all 0.3s ease;
     text-decoration: none;
-    box-shadow: 
+    box-shadow:
       3px 3px 0 var(--border-default),
       6px 6px 12px rgba(0, 0, 0, 0.05);
   }
@@ -226,7 +225,7 @@
     transform: rotate(0deg) translateY(-2px);
     border-color: var(--madfam-yellow);
     background: var(--bg-elevated);
-    box-shadow: 
+    box-shadow:
       4px 4px 0 var(--madfam-yellow),
       8px 8px 16px rgba(0, 0, 0, 0.1);
   }
@@ -235,7 +234,7 @@
     background: var(--madfam-green);
     color: var(--text-on-accent);
     border-color: var(--madfam-green);
-    box-shadow: 
+    box-shadow:
       3px 3px 0 var(--madfam-yellow),
       6px 6px 12px rgba(0, 0, 0, 0.1);
   }
@@ -409,11 +408,21 @@
   opacity: 0;
 }
 
-.nav-menu.active li:nth-child(1) { animation-delay: 0.1s; }
-.nav-menu.active li:nth-child(2) { animation-delay: 0.15s; }
-.nav-menu.active li:nth-child(3) { animation-delay: 0.2s; }
-.nav-menu.active li:nth-child(4) { animation-delay: 0.25s; }
-.nav-menu.active li:nth-child(5) { animation-delay: 0.3s; }
+.nav-menu.active li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.nav-menu.active li:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.nav-menu.active li:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.nav-menu.active li:nth-child(4) {
+  animation-delay: 0.25s;
+}
+.nav-menu.active li:nth-child(5) {
+  animation-delay: 0.3s;
+}
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
@@ -424,7 +433,7 @@
     transition: none !important;
     animation: none !important;
   }
-  
+
   .nav-menu.active li {
     opacity: 1;
     animation: none;

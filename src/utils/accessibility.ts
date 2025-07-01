@@ -195,7 +195,10 @@ export class FocusManager {
 /**
  * Internationalized accessibility labels
  */
-export function getA11yLabels(lang: Language): Record<string, string | ((param: string) => string)> & {
+export function getA11yLabels(lang: Language): Record<
+  string,
+  string | ((param: string) => string)
+> & {
   currentTheme: (theme: string) => string;
   currentLanguage: (language: string) => string;
 } {
@@ -206,50 +209,55 @@ export function getA11yLabels(lang: Language): Record<string, string | ((param: 
     skipToContent: t('a11y.skip.content'),
     mainMenu: t('a11y.menu.open'),
     closeMenu: t('a11y.menu.close'),
-    
+
     // Theme switching
     toggleTheme: t('a11y.theme.toggle'),
-    
+
     // Language switching
     switchLanguage: t('a11y.lang.toggle'),
-    
+
     // Content interaction
     readMore: (title: string) => `Read more about ${title}`,
     viewDetails: (item: string) => `View details for ${item}`,
     playVideo: (title: string) => `Play video: ${title}`,
     downloadFile: (filename: string) => `Download ${filename}`,
-    
+
     // Form controls
     requiredField: t('form.required'),
     invalidInput: t('form.invalid'),
     searchPlaceholder: t('ui.search'),
-    
+
     // Status messages
     loading: t('status.loading'),
     error: t('status.error'),
     success: t('status.success'),
-    
+
     // Social media
     shareOn: (platform: string) => `Share on ${platform}`,
     socialLink: (platform: string) => `Visit our ${platform} page`,
-    
+
     // Magazine cutout specific
-    cutoutImage: (subject: string) => `Magazine cutout style image of ${subject}`,
+    cutoutImage: (subject: string) =>
+      `Magazine cutout style image of ${subject}`,
     tapedPhoto: 'Photo with decorative tape',
     vintagePhoto: 'Vintage style photograph',
-    
+
     // Navigation breadcrumbs
     breadcrumbNavigation: 'Breadcrumb navigation',
     currentPage: 'Current page',
-    
+
     // Characters and content
     characterProfile: (name: string) => `Character profile for ${name}`,
     episodePlayer: (episode: string) => `Audio player for ${episode}`,
     sketchVideo: (title: string) => `Watch sketch: ${title}`,
-    
+
     // Dynamic status messages (moved outside the main object to avoid duplicate keys)
-    currentTheme: (theme: string) => lang === 'es' ? `Tema cambiado a ${theme}` : `Theme changed to ${theme}`,
-    currentLanguage: (language: string) => lang === 'es' ? `Idioma cambiado a ${language}` : `Language changed to ${language}`,
+    currentTheme: (theme: string) =>
+      lang === 'es' ? `Tema cambiado a ${theme}` : `Theme changed to ${theme}`,
+    currentLanguage: (language: string) =>
+      lang === 'es'
+        ? `Idioma cambiado a ${language}`
+        : `Language changed to ${language}`,
   };
 }
 
@@ -341,10 +349,7 @@ export class KeyboardNavigation {
   /**
    * Handle Enter and Space key activation
    */
-  static handleActivation(
-    event: KeyboardEvent,
-    callback: () => void
-  ): void {
+  static handleActivation(event: KeyboardEvent, callback: () => void): void {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       callback();
@@ -354,10 +359,7 @@ export class KeyboardNavigation {
   /**
    * Handle Escape key
    */
-  static handleEscape(
-    event: KeyboardEvent,
-    callback: () => void
-  ): void {
+  static handleEscape(event: KeyboardEvent, callback: () => void): void {
     if (event.key === 'Escape') {
       event.preventDefault();
       callback();
@@ -408,7 +410,7 @@ export class ContrastUtils {
     isLargeText = false
   ): boolean {
     const ratio = this.getContrastRatio(color1, color2);
-    
+
     if (level === 'AAA') {
       return isLargeText ? ratio >= 4.5 : ratio >= 7;
     }
@@ -433,7 +435,9 @@ export class A11yTesting {
     }
 
     // Check for buttons without accessible names
-    const buttons = document.querySelectorAll('button:not([aria-label]):not([aria-labelledby])');
+    const buttons = document.querySelectorAll(
+      'button:not([aria-label]):not([aria-labelledby])'
+    );
     buttons.forEach((button) => {
       if (button.textContent?.trim() === '' || button.textContent === null) {
         issues.push('Button without accessible name found');
@@ -452,10 +456,16 @@ export class A11yTesting {
     });
 
     // Check for form controls without labels
-    const inputs = document.querySelectorAll('input:not([aria-label]):not([aria-labelledby])');
+    const inputs = document.querySelectorAll(
+      'input:not([aria-label]):not([aria-labelledby])'
+    );
     inputs.forEach((input) => {
       const id = input.getAttribute('id');
-      if (id === null || id === '' || !document.querySelector(`label[for="${id}"]`)) {
+      if (
+        id === null ||
+        id === '' ||
+        !document.querySelector(`label[for="${id}"]`)
+      ) {
         issues.push('Form control without proper label found');
       }
     });
@@ -489,9 +499,13 @@ export function initializeAccessibility(lang: Language): void {
   document.addEventListener('keydown', (e) => {
     // Global Escape handler for modals
     if (e.key === 'Escape') {
-      const openModal = document.querySelector('[data-modal][aria-hidden="false"]');
+      const openModal = document.querySelector(
+        '[data-modal][aria-hidden="false"]'
+      );
       if (openModal) {
-        const closeButton = openModal.querySelector('[data-close]') as HTMLElement;
+        const closeButton = openModal.querySelector(
+          '[data-close]'
+        ) as HTMLElement;
         closeButton?.click();
       }
     }
