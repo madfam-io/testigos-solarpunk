@@ -1,32 +1,50 @@
 /* 📰 Newspaper Background Effects - Testigos de Solarpunk */
 
-/* Base Newspaper Background */
+/* Base Newspaper Background - Theme Aware */
 .newspaper-bg {
   position: relative;
-  background-color: #f8f8f6;
-  color: #2c2c2c;
+  background-color: var(--bg-secondary, #f8f8f6);
+  color: var(--text-primary, #2c2c2c);
 
+  /* Paper texture using CSS custom properties for theme adaptation */
+  --paper-texture-color: rgba(0, 0, 0, 0.02);
+  --paper-texture-color-medium: rgba(0, 0, 0, 0.015);
+  --paper-texture-color-light: rgba(0, 0, 0, 0.01);
+  --paper-texture-color-faint: rgba(0, 0, 0, 0.008);
+}
+
+/* Light theme texture (default) */
+[data-theme='light'] .newspaper-bg,
+.newspaper-bg {
   /* Subtle paper texture */
   background-image: 
     /* Fine grain texture */
     radial-gradient(
       circle at 25% 25%,
-      rgba(0, 0, 0, 0.02) 1px,
+      var(--paper-texture-color) 1px,
       transparent 1px
     ),
     radial-gradient(
       circle at 75% 75%,
-      rgba(0, 0, 0, 0.015) 1px,
+      var(--paper-texture-color-medium) 1px,
       transparent 1px
     ),
     radial-gradient(
       circle at 50% 80%,
-      rgba(0, 0, 0, 0.01) 1px,
+      var(--paper-texture-color-light) 1px,
       transparent 1px
     ),
     /* Paper grain lines */
-      linear-gradient(0deg, transparent 98%, rgba(0, 0, 0, 0.01) 100%),
-    linear-gradient(90deg, transparent 98%, rgba(0, 0, 0, 0.008) 100%);
+      linear-gradient(
+        0deg,
+        transparent 98%,
+        var(--paper-texture-color-light) 100%
+      ),
+    linear-gradient(
+      90deg,
+      transparent 98%,
+      var(--paper-texture-color-faint) 100%
+    );
 
   background-size:
     4px 4px,
@@ -41,6 +59,23 @@
     1px 4px,
     0 0,
     0 0;
+}
+
+/* Dark theme texture */
+[data-theme='dark'] .newspaper-bg {
+  --paper-texture-color: rgba(255, 255, 255, 0.02);
+  --paper-texture-color-medium: rgba(255, 255, 255, 0.015);
+  --paper-texture-color-light: rgba(255, 255, 255, 0.01);
+  --paper-texture-color-faint: rgba(255, 255, 255, 0.008);
+}
+
+/* Solar theme texture */
+[data-theme='solar'] .newspaper-bg {
+  background-color: var(--bg-secondary, #fffef5);
+  --paper-texture-color: rgba(255, 193, 7, 0.03);
+  --paper-texture-color-medium: rgba(255, 193, 7, 0.02);
+  --paper-texture-color-light: rgba(255, 193, 7, 0.015);
+  --paper-texture-color-faint: rgba(255, 193, 7, 0.01);
 }
 
 /* Newspaper with Text Columns Effect */
@@ -59,8 +94,8 @@
       0deg,
       transparent 0px,
       transparent 12px,
-      rgba(0, 0, 0, 0.05) 12px,
-      rgba(0, 0, 0, 0.05) 13px,
+      var(--text-primary, rgba(0, 0, 0, 0.8)) 12px,
+      var(--text-primary, rgba(0, 0, 0, 0.8)) 13px,
       transparent 13px,
       transparent 25px
     ),
@@ -69,8 +104,8 @@
         90deg,
         transparent 0px,
         transparent 180px,
-        rgba(0, 0, 0, 0.02) 180px,
-        rgba(0, 0, 0, 0.02) 182px,
+        var(--text-primary, rgba(0, 0, 0, 0.5)) 180px,
+        var(--text-primary, rgba(0, 0, 0, 0.5)) 182px,
         transparent 182px,
         transparent 362px
       );
@@ -120,8 +155,6 @@
 
 /* Aged Paper Effect */
 .newspaper-bg.aged {
-  background-color: #f5f3f0;
-
   /* Age spots and discoloration */
   background-image:
     radial-gradient(
@@ -230,91 +263,60 @@
   pointer-events: none;
 }
 
-/* Dark Theme Adaptation */
-.newspaper-bg.dark-theme {
-  background-color: #2c2c2a;
-  color: #e8e8e6;
-
-  /* Inverted paper texture for dark theme */
-  background-image: radial-gradient(
-      circle at 25% 25%,
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      circle at 75% 75%,
-      rgba(255, 255, 255, 0.015) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      circle at 50% 80%,
-      rgba(255, 255, 255, 0.01) 1px,
-      transparent 1px
-    ),
-    linear-gradient(0deg, transparent 98%, rgba(255, 255, 255, 0.01) 100%),
-    linear-gradient(90deg, transparent 98%, rgba(255, 255, 255, 0.008) 100%);
-}
-
-.newspaper-bg.dark-theme.with-columns::before {
-  background-image: repeating-linear-gradient(
-      0deg,
-      transparent 0px,
-      transparent 12px,
-      rgba(255, 255, 255, 0.03) 12px,
-      rgba(255, 255, 255, 0.03) 13px,
-      transparent 13px,
-      transparent 25px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 180px,
-      rgba(255, 255, 255, 0.015) 180px,
-      rgba(255, 255, 255, 0.015) 182px,
-      transparent 182px,
-      transparent 362px
-    );
-}
-
 /* Content Overlay Styles */
 .newspaper-bg .content-overlay {
   position: relative;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--bg-elevated, rgba(255, 255, 255, 0.85));
   backdrop-filter: blur(0.5px);
   border-radius: 8px;
   padding: var(--espacio-lg);
   margin: var(--espacio-md);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  color: var(--text-primary);
 }
 
-.newspaper-bg.dark-theme .content-overlay {
-  background: rgba(26, 26, 27, 0.85);
-  color: var(--text-primary, #ffffff);
-}
-
-/* Specific Section Variations */
-.newspaper-section-light {
+/* Specific Section Variations - Theme Aware */
+[data-theme='light'] .newspaper-section-light {
   background-color: #fafaf8;
 }
 
-.newspaper-section-medium {
+[data-theme='dark'] .newspaper-section-light {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme='light'] .newspaper-section-medium {
   background-color: #f5f3f0;
 }
 
-.newspaper-section-vintage {
+[data-theme='dark'] .newspaper-section-medium {
+  background-color: var(--bg-tertiary);
+}
+
+[data-theme='light'] .newspaper-section-vintage {
   background-color: #f2efe8;
+}
+
+[data-theme='dark'] .newspaper-section-vintage {
+  background-color: var(--bg-elevated);
+}
+
+.newspaper-section-vintage {
   background-image: radial-gradient(
       circle at 20% 30%,
-      rgba(139, 119, 101, 0.015) 30px,
+      var(--paper-texture-color-medium, rgba(139, 119, 101, 0.015)) 30px,
       transparent 30px
     ),
     radial-gradient(
       circle at 80% 60%,
-      rgba(139, 119, 101, 0.01) 20px,
+      var(--paper-texture-color-light, rgba(139, 119, 101, 0.01)) 20px,
       transparent 20px
     ),
-    radial-gradient(circle at 25% 25%, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    radial-gradient(
+      circle at 25% 25%,
+      var(--paper-texture-color, rgba(0, 0, 0, 0.02)) 1px,
+      transparent 1px
+    );
   background-size:
     300px 250px,
     400px 300px,
