@@ -16,11 +16,9 @@ const characters: CollectionEntry<'characters'>[] =
 <BaseLayout lang={lang} title={t('characters.title')}>
   <section class="hero-section">
     <div class="container">
-      <h1 class="text-gradient">Personajes del Universo</h1>
+      <h1 class="text-gradient">{t('characters.hero.title')}</h1>
       <p class="lead">
-        Conoce a los habitantes de Neo-Cuernavaca y otros rincones del mundo
-        solarpunk. Cada personaje representa una faceta de la esperanza y la
-        innovación sostenible.
+        {t('characters.hero.subtitle')}
       </p>
     </div>
   </section>
@@ -28,15 +26,20 @@ const characters: CollectionEntry<'characters'>[] =
   <section class="filters-section">
     <div class="container">
       <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn active" data-filter="todos"
+          >{t('characters.filters.all')}</button
+        >
         <button class="filter-btn" data-filter="protagonista">
-          <span class="emoji-cutout emoji-sm theme-solar">⭐</span> Protagonistas
+          <span class="emoji-cutout emoji-sm theme-solar">⭐</span>
+          {t('characters.filters.protagonists')}
         </button>
         <button class="filter-btn" data-filter="evangelista">
-          <span class="emoji-cutout emoji-sm theme-green">📢</span> Evangelistas
+          <span class="emoji-cutout emoji-sm theme-green">📢</span>
+          {t('characters.filters.evangelists')}
         </button>
         <button class="filter-btn" data-filter="apoyo">
-          <span class="emoji-cutout emoji-sm theme-purple">🤝</span> Apoyo
+          <span class="emoji-cutout emoji-sm theme-purple">🤝</span>
+          {t('characters.filters.support')}
         </button>
       </div>
     </div>
@@ -93,11 +96,12 @@ const characters: CollectionEntry<'characters'>[] =
 
   <section class="cta-section">
     <div class="container text-center">
-      <h2>¿Quieres conocer más sobre estos personajes?</h2>
+      <h2>{t('characters.cta.title')}</h2>
       <p class="text-muted mb-3">
-        Explora los guiones para ver a estos personajes en acción
+        {t('characters.cta.description')}
       </p>
-      <a href={`${basePath}/en/scripts/`} class="btn btn-primary">Ver Guiones</a
+      <a href={`${basePath}/en/scripts/`} class="btn btn-primary"
+        >{t('characters.cta.scripts')}</a
       >
     </div>
   </section>

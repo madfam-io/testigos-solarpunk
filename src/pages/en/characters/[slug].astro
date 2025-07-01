@@ -4,7 +4,7 @@ import { useTranslations } from '@/i18n/config';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 const lang = 'en';
-const _t = useTranslations(lang);
+const t = useTranslations(lang);
 // Define types for better clarity
 type CharacterPath = {
   params: { slug: string };
@@ -47,11 +47,16 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
 
 <BaseLayout lang={lang} title={pageTitle} description={pageDescription}>
   <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb navigation">
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href={`${basePath}/`}>Inicio</a></li>
-        <li><a href={`${basePath}/en/characters/`}>Personajes</a></li>
+        <li>
+          <a href={`${basePath}/en/`}>{t('characters.breadcrumb.home')}</a>
+        </li>
+        <li>
+          <a href={`${basePath}/en/characters/`}
+            >{t('characters.breadcrumb.characters')}</a>
+        </li>
         <li aria-current="page">{nombre}</li>
       </ol>
     </div>
@@ -97,7 +102,7 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-solar">📖</span>
-        Historia
+        {t('characters.section.story')}
       </h2>
       <div class="story-content card">
         <p>{historia}</p>
@@ -110,7 +115,7 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-purple">🎭</span>
-        Personalidad
+        {t('characters.section.personality')}
       </h2>
       <div class="personality-traits">
         {
@@ -132,7 +137,7 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
         <div class="container">
           <h2>
             <span class="emoji-cutout emoji-md theme-community">🤝</span>
-            Relaciones
+            {t('characters.section.relationships')}
           </h2>
           <div class="relationships-grid">
             {relaciones.map(
@@ -168,7 +173,7 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
         <div class="container">
           <h2>
             <span class="emoji-cutout emoji-md theme-purple">💬</span>
-            Frases Memorables
+            {t('characters.section.quotes')}
           </h2>
           <div class="quotes-list">
             {frases_emblematicas.map((frase: string) => (
@@ -191,7 +196,7 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
         <div class="container">
           <h2>
             <span class="emoji-cutout emoji-md theme-green">🎬</span>
-            Apariciones
+            Appearances
           </h2>
           <div class="episodes-list">
             {data.episodios_destacados.map((episodio: string) => (
@@ -213,7 +218,7 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
         <div class="container">
           <h2>
             <span class="emoji-cutout emoji-md theme-solar">🌱</span>
-            Evolución del Personaje
+            Character Evolution
           </h2>
           <div class="evolution-content card">
             {typeof evolucion === 'string' ? (
@@ -252,11 +257,11 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
       <div class="nav-buttons">
         <a href={`${basePath}/en/characters/`} class="btn btn-secondary">
           <span class="emoji-cutout emoji-sm">👈</span>
-          Volver a Personajes
+          Back to Characters
         </a>
-        <a href={`${basePath}/guiones/`} class="btn btn-primary">
+        <a href={`${basePath}/en/scripts/`} class="btn btn-primary">
           <span class="emoji-cutout emoji-sm">📝</span>
-          Ver Guiones
+          View Scripts
         </a>
       </div>
     </div>

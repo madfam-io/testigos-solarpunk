@@ -14,8 +14,83 @@ export default defineConfig({
     locales: ['es', 'en'],
     routing: {
       prefixDefaultLocale: true, // Always show /es/ for Spanish
-      redirectToDefaultLocale: false,
+      redirectToDefaultLocale: true, // Enable automatic redirects to /es/
     },
+  },
+
+  // Redirects configuration for root paths to Spanish
+  redirects: {
+    // Main sections
+    '/recursos': '/es/recursos',
+    '/recursos/': '/es/recursos/',
+    '/recursos/creadores': '/es/recursos/creadores',
+    '/recursos/creadores/': '/es/recursos/creadores/',
+    '/recursos/creadores/plantillas': '/es/recursos/creadores/plantillas',
+    '/recursos/creadores/plantillas/': '/es/recursos/creadores/plantillas/',
+    '/recursos/creadores/personajes': '/es/recursos/creadores/personajes',
+    '/recursos/creadores/personajes/': '/es/recursos/creadores/personajes/',
+    '/recursos/creadores/worldbuilding': '/es/recursos/creadores/worldbuilding',
+    '/recursos/creadores/worldbuilding/': '/es/recursos/creadores/worldbuilding/',
+    '/recursos/actores': '/es/recursos/actores',
+    '/recursos/actores/': '/es/recursos/actores/',
+    '/recursos/actores/personajes': '/es/recursos/actores/personajes',
+    '/recursos/actores/personajes/': '/es/recursos/actores/personajes/',
+    '/recursos/actores/dialogo': '/es/recursos/actores/dialogo',
+    '/recursos/actores/dialogo/': '/es/recursos/actores/dialogo/',
+    '/recursos/actores/movimiento': '/es/recursos/actores/movimiento',
+    '/recursos/actores/movimiento/': '/es/recursos/actores/movimiento/',
+    '/recursos/patrocinadores': '/es/recursos/patrocinadores',
+    '/recursos/patrocinadores/': '/es/recursos/patrocinadores/',
+    '/recursos/patrocinadores/valores': '/es/recursos/patrocinadores/valores',
+    '/recursos/patrocinadores/valores/': '/es/recursos/patrocinadores/valores/',
+    '/recursos/patrocinadores/integracion': '/es/recursos/patrocinadores/integracion',
+    '/recursos/patrocinadores/integracion/': '/es/recursos/patrocinadores/integracion/',
+    '/recursos/patrocinadores/impacto': '/es/recursos/patrocinadores/impacto',
+    '/recursos/patrocinadores/impacto/': '/es/recursos/patrocinadores/impacto/',
+    
+    // Content sections
+    '/contenido': '/es/contenido',
+    '/contenido/': '/es/contenido/',
+    '/contenido/sketches': '/es/contenido/sketches',
+    '/contenido/sketches/': '/es/contenido/sketches/',
+    '/contenido/podcast': '/es/contenido/podcast',
+    '/contenido/podcast/': '/es/contenido/podcast/',
+    '/contenido/madlab': '/es/contenido/madlab',
+    '/contenido/madlab/': '/es/contenido/madlab/',
+    
+    // Universe sections
+    '/personajes': '/es/personajes',
+    '/personajes/': '/es/personajes/',
+    '/mundo': '/es/mundo',
+    '/mundo/': '/es/mundo/',
+    '/guiones': '/es/guiones',
+    '/guiones/': '/es/guiones/',
+    
+    // Project sections  
+    '/proyecto': '/es/proyecto',
+    '/proyecto/': '/es/proyecto/',
+    '/produccion': '/es/produccion',
+    '/produccion/': '/es/produccion/',
+    '/produccion/estilo-visual': '/es/produccion/estilo-visual',
+    '/produccion/estilo-visual/': '/es/produccion/estilo-visual/',
+    '/produccion/audio': '/es/produccion/audio',
+    '/produccion/audio/': '/es/produccion/audio/',
+    '/produccion/tono-voz': '/es/produccion/tono-voz',
+    '/produccion/tono-voz/': '/es/produccion/tono-voz/',
+    '/produccion/specs': '/es/produccion/specs',
+    '/produccion/specs/': '/es/produccion/specs/',
+    
+    // Other sections
+    '/comunidad': '/es/comunidad',
+    '/comunidad/': '/es/comunidad/',
+    '/impacto': '/es/impacto',
+    '/impacto/': '/es/impacto/',
+    '/filosofia': '/es/filosofia',
+    '/filosofia/': '/es/filosofia/',
+    '/formatos': '/es/formatos',
+    '/formatos/': '/es/formatos/',
+    '/guia-visual': '/es/guia-visual',
+    '/guia-visual/': '/es/guia-visual/',
   },
 
   // Integrations

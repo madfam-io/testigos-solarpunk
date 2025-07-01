@@ -297,6 +297,189 @@ export const ui = {
     'values.humor.description': 'Reír juntos mientras aprendemos y crecemos',
     'values.action.title': 'Acción',
     'values.action.description': 'Pequeños pasos que generan grandes cambios',
+
+    // World/Universe Page
+    'world.hero.title': 'El Mundo de Testigos de Solarpunk',
+    'world.hero.description':
+      'Un futuro cercano donde la humanidad ha aprendido a vivir en armonía con la naturaleza, combinando tecnología avanzada con prácticas ancestrales.',
+    'world.timeline.title': 'Línea Temporal',
+    'world.timeline.2025.title': 'El Despertar',
+    'world.timeline.2025.description':
+      'Primeras comunidades adoptan energía solar distribuida',
+    'world.timeline.2030.title': 'La Transición',
+    'world.timeline.2030.description':
+      'Neo-Cuernavaca se convierte en la primera ciudad carbono-negativa de México',
+    'world.timeline.2035.title': 'La Expansión',
+    'world.timeline.2035.description':
+      'El modelo solarpunk se replica en ciudades de todo el continente',
+    'world.timeline.2040.title': 'El Florecimiento',
+    'world.timeline.2040.description':
+      'Nueva era de cooperación global basada en sostenibilidad',
+    'world.locations.title': 'Ubicaciones Principales',
+    'world.locations.features': 'Características:',
+    'world.locations.explore': 'Explorar Ubicación',
+    'world.technology.title': 'Tecnologías Clave',
+    'world.tech.solar.title': 'Paneles Solares Orgánicos',
+    'world.tech.solar.description':
+      'Células fotovoltaicas biodegradables que imitan la fotosíntesis',
+    'world.tech.water.title': 'Captación Atmosférica',
+    'world.tech.water.description':
+      'Sistemas que extraen agua potable directamente del aire',
+    'world.tech.agriculture.title': 'Agricultura Vertical',
+    'world.tech.agriculture.description':
+      'Torres de cultivo que producen alimentos usando 90% menos agua',
+    'world.tech.batteries.title': 'Baterías de Sal',
+    'world.tech.batteries.description':
+      'Almacenamiento de energía usando materiales abundantes y no tóxicos',
+    'world.tech.bioconcrete.title': 'Bioconcreto',
+    'world.tech.bioconcrete.description':
+      'Material de construcción que se auto-repara y purifica el aire',
+    'world.tech.transport.title': 'Transporte Magnético',
+    'world.tech.transport.description':
+      'Sistemas de levitación magnética alimentados por energía solar',
+    'world.society.title': 'Sociedad y Cultura',
+    'world.society.economy.title': 'Economía Circular',
+    'world.society.economy.description':
+      'Los desechos de un proceso se convierten en recursos para otro. La basura es un concepto obsoleto en el mundo solarpunk.',
+    'world.society.governance.title': 'Gobernanza Participativa',
+    'world.society.governance.description':
+      'Las decisiones comunitarias se toman mediante asambleas locales y plataformas digitales de democracia directa.',
+    'world.society.education.title': 'Educación Holística',
+    'world.society.education.description':
+      'El aprendizaje combina conocimiento técnico con sabiduría ancestral, enfocándose en la resolución creativa de problemas.',
+    'world.society.time.title': 'Tiempo de Calidad',
+    'world.society.time.description':
+      'La semana laboral de 25 horas permite más tiempo para la familia, el arte y el desarrollo personal.',
+
+    // Green Roof Neo-Cuernavaca Page (Spanish)
+    'greenroof.title': 'Azotea Verde de Neo-Cuernavaca',
+    'greenroof.description':
+      'Descubre el corazón verde de la ciudad: la azotea comunitaria donde convergen tecnología, naturaleza y esperanza en el universo solarpunk',
+    'greenroof.breadcrumb.home': 'Inicio',
+    'greenroof.breadcrumb.world': 'Construcción del Mundo',
+    'greenroof.hero.title': 'Azotea Verde de Neo-Cuernavaca',
+    'greenroof.hero.description':
+      'El corazón pulsante de la revolución solarpunk: un oasis urbano donde la tecnología sostenible se encuentra con la sabiduría ancestral para crear el futuro que todos merecemos.',
+    'greenroof.overview.title': 'Un Nuevo Modelo de Comunidad',
+    'greenroof.overview.p1':
+      'La Azotea Verde no es solo un espacio físico; es una manifestación tangible de los principios solarpunk en acción. Ubicada en el corazón de Neo-Cuernavaca, esta azotea comunitaria de 2,500 metros cuadrados funciona como laboratorio social, centro de innovación y jardín comunitario.',
+    'greenroof.overview.p2':
+      'Aquí, los habitantes de la ciudad experimentan de primera mano cómo la tecnología apropiada puede mejorar sus vidas sin sacrificar su conexión con la naturaleza. Es el lugar donde Hermana Panelia realiza sus demostraciones más impactantes y donde Hermano Compostino enseña los ciclos eternos de regeneración.',
+    'greenroof.stats.area': 'Metros cuadrados',
+    'greenroof.stats.plants': 'Plantas nativas',
+    'greenroof.stats.renewable': 'Energía renovable',
+    'greenroof.stats.visitors': 'Visitantes semanales',
+    'greenroof.features.title': 'Características de la Azotea',
+    'greenroof.features.solar.title': 'Sistema de Energía Solar',
+    'greenroof.features.solar.description':
+      'Una instalación de 50kW de paneles solares de última generación que no solo abastece las necesidades energéticas de la azotea, sino que también alimenta el edificio de apartamentos comunitario de abajo.',
+    'greenroof.features.solar.feature1':
+      'Paneles bifaciales de alta eficiencia',
+    'greenroof.features.solar.feature2':
+      'Sistema de almacenamiento en baterías',
+    'greenroof.features.solar.feature3':
+      'Inversor inteligente con monitoreo en tiempo real',
+    'greenroof.features.solar.feature4':
+      'Excedente compartido con la red comunitaria',
+    'greenroof.features.gardens.title': 'Jardines Verticales y Huertos',
+    'greenroof.features.gardens.description':
+      'Un sistema integrado de agricultura urbana que combina permacultura tradicional con hidroponía moderna, produciendo alimentos frescos para más de 50 familias de la comunidad.',
+    'greenroof.features.gardens.feature1':
+      'Torres de cultivo hidropónico automatizadas',
+    'greenroof.features.gardens.feature2':
+      'Bancales elevados con compost comunitario',
+    'greenroof.features.gardens.feature3':
+      'Plantas medicinales y aromáticas nativas',
+    'greenroof.features.gardens.feature4':
+      'Sistema de recolección de agua de lluvia',
+    'greenroof.features.meeting.title': 'Espacio de Reunión Comunitaria',
+    'greenroof.features.meeting.description':
+      'Un anfiteatro al aire libre construido con materiales reciclados donde se realizan talleres, presentaciones y las famosas "Asambleas del Atardecer" donde la comunidad toma decisiones consensuadas.',
+    'greenroof.features.meeting.feature1':
+      'Capacidad para 80 personas sentadas',
+    'greenroof.features.meeting.feature2':
+      'Sistema de sonido alimentado por energía solar',
+    'greenroof.features.meeting.feature3': 'Escenario modular y adaptable',
+    'greenroof.features.meeting.feature4':
+      'Pérgola con plantas trepadoras para sombra natural',
+    'greenroof.features.compost.title': 'Centro de Compostaje Comunitario',
+    'greenroof.features.compost.description':
+      'El dominio de Hermano Compostino: un sistema de compostaje en capas que procesa los residuos orgánicos de todo el barrio, transformándolos en el "oro negro" que alimenta los jardines.',
+    'greenroof.features.compost.feature1':
+      'Compostera termofílica de tres cámaras',
+    'greenroof.features.compost.feature2':
+      'Vermicompostaje con lombrices californianas',
+    'greenroof.features.compost.feature3':
+      'Biodigestor para generación de biogás',
+    'greenroof.features.compost.feature4':
+      'Talleres semanales de compostaje doméstico',
+    'greenroof.dailylife.title': 'Un Día en la Azotea Verde',
+    'greenroof.dailylife.6am.title': 'Amanecer Solar',
+    'greenroof.dailylife.6am.description':
+      'Los primeros rayos del sol activan automáticamente el sistema de riego por goteo. Los madrugadores llegan para el "Ritual del Amanecer": yoga, meditación y revisión de las plantas antes de comenzar el día.',
+    'greenroof.dailylife.8am.title': 'Cosecha Matutina',
+    'greenroof.dailylife.8am.description':
+      'Las familias participantes recogen los vegetales frescos para el desayuno. Hermano Compostino suele estar aquí, enseñando sobre los ciclos naturales mientras revuelve el compost.',
+    'greenroof.dailylife.12pm.title': 'Almuerzo Comunitario',
+    'greenroof.dailylife.12pm.description':
+      'Los miércoles y sábados se organiza un almuerzo comunitario donde todos contribuyen con algo preparado con los ingredientes de la azotea. Es cuando más historias y conocimientos se comparten.',
+    'greenroof.dailylife.4pm.title': 'Talleres y Demostraciones',
+    'greenroof.dailylife.4pm.description':
+      'El momento favorito de Hermana Panelia. Aquí demuestra nuevas tecnologías, explica el funcionamiento de los paneles solares y enseña a otros cómo pueden implementar soluciones similares en sus hogares.',
+    'greenroof.dailylife.6pm.title': 'Asamblea del Atardecer',
+    'greenroof.dailylife.6pm.description':
+      'Los viernes, la comunidad se reúne para tomar decisiones importantes, planificar proyectos futuros y resolver conflictos de manera colaborativa. Es democracia directa en acción.',
+    'greenroof.dailylife.8pm.title': 'Noches de Estrellas',
+    'greenroof.dailylife.8pm.description':
+      'Con la contaminación lumínica reducida gracias al uso inteligente de la energía, las noches en la azotea permiten observar las estrellas mientras se comparten historias y sueños para el futuro.',
+    'greenroof.impact.title': 'Impacto Real y Medible',
+    'greenroof.impact.energy.number': '65%',
+    'greenroof.impact.energy.label': 'Reducción en costos de energía',
+    'greenroof.impact.energy.description':
+      'Las familias del edificio han visto una reducción promedio del 65% en sus facturas eléctricas desde la instalación del sistema solar.',
+    'greenroof.impact.co2.number': '2.5 Ton',
+    'greenroof.impact.co2.label': 'CO₂ evitado mensualmente',
+    'greenroof.impact.co2.description':
+      'La combinación de energía solar y compostaje evita la emisión de 2.5 toneladas de CO₂ cada mes.',
+    'greenroof.impact.waste.number': '80%',
+    'greenroof.impact.waste.label': 'Residuos orgánicos procesados',
+    'greenroof.impact.waste.description':
+      'El sistema de compostaje procesa el 80% de los residuos orgánicos del barrio, transformándolos en fertilizante natural.',
+    'greenroof.impact.food.number': '300kg',
+    'greenroof.impact.food.label': 'Alimentos frescos al mes',
+    'greenroof.impact.food.description':
+      'Los jardines urbanos producen 300kg de vegetales y hierbas frescas mensualmente para la comunidad.',
+    'greenroof.stories.title': 'Historias de Transformación',
+    'greenroof.stories.hernandez.title': 'La Familia Hernández',
+    'greenroof.stories.hernandez.quote':
+      '"Al principio éramos escépticos sobre esto de los paneles solares", cuenta María Hernández. "Pero cuando vimos que nuestra factura de luz bajó de $2,500 a $800 pesos, y además tenemos vegetales frescos cada semana... ya no hay vuelta atrás."',
+    'greenroof.stories.hernandez.impact':
+      '$20,400 pesos ahorrados en el primer año',
+    'greenroof.stories.carlos.title': 'Don Carlos, el Converso',
+    'greenroof.stories.carlos.quote':
+      'Ex-escéptico del cambio climático, Don Carlos ahora lidera los talleres de compostaje los sábados. "Compostino me enseñó que \'basura\' es solo una palabra para cosas que no sabemos aprovechar. Ahora veo oportunidades donde antes veía problemas."',
+    'greenroof.stories.carlos.impact':
+      '40 familias adoptaron compostaje doméstico',
+    'greenroof.stories.sofia.title': 'Sofía, de 8 años',
+    'greenroof.stories.sofia.quote':
+      '"Me gusta venir aquí porque las plantas me dicen secretos", explica Sofía mientras riega sus tomates cherry. "Y cuando crezca, voy a hacer una azotea así en toda la ciudad."',
+    'greenroof.stories.sofia.impact':
+      '25 niños participan en programas educativos semanales',
+    'greenroof.future.title': 'La Semilla del Futuro',
+    'greenroof.future.description':
+      'La Azotea Verde de Neo-Cuernavaca no es un destino, sino un punto de partida. Es la prueba viviente de que otro mundo es posible: uno donde la tecnología sirve a la vida, donde la comunidad prospera sin destruir el planeta, y donde cada persona puede ser protagonista del cambio que quiere ver.',
+    'greenroof.future.goal1.title': 'Red de 100 Azoteas',
+    'greenroof.future.goal1.description':
+      'Replicar el modelo en toda la ciudad para 2027',
+    'greenroof.future.goal2.title': 'Independencia Energética',
+    'greenroof.future.goal2.description':
+      'Barrio 100% autoabastecido con renovables para 2026',
+    'greenroof.future.goal3.title': 'Modelo Exportable',
+    'greenroof.future.goal3.description':
+      'Guías y recursos disponibles para cualquier comunidad',
+    'greenroof.nav.back': 'Volver al Mundo',
+    'greenroof.nav.characters': 'Conocer a los Personajes',
+
     'values.creativity.title': 'Creatividad',
     'values.creativity.description':
       'Soluciones innovadoras a problemas complejos',
@@ -492,7 +675,6 @@ export const ui = {
     'impact.cta.volunteer': 'Únete como Voluntario',
 
     // Characters Page
-    'characters.title2': 'Personajes',
     'characters.hero.title': 'Personajes del Universo',
     'characters.hero.subtitle': 'Conoce a los habitantes de Neo-Cuernavaca',
     'characters.filters.all': 'Todos',
@@ -503,6 +685,12 @@ export const ui = {
     'characters.cta.description':
       'Explora los guiones para ver a estos personajes en acción',
     'characters.cta.scripts': 'Ver Guiones',
+    'characters.breadcrumb.home': 'Inicio',
+    'characters.breadcrumb.characters': 'Personajes',
+    'characters.section.story': 'Historia',
+    'characters.section.personality': 'Personalidad',
+    'characters.section.relationships': 'Relaciones',
+    'characters.section.quotes': 'Frases Memorables',
 
     // Production Pages
     'production.visual.title': 'Guía de Estilo Visual',
@@ -529,16 +717,53 @@ export const ui = {
     // Podcast Page
     'podcast.title': 'Podcast - Fase 2',
     'podcast.hero.title': 'Podcast MADFAM',
+    'podcast.hero.description':
+      'Conversaciones de 20-30 minutos con expertos, activistas y visionarios del movimiento solarpunk',
+    'podcast.hero.status': 'Estado del Podcast',
     'podcast.coming.title': 'Lo que Viene',
+    'podcast.launch.date': 'Agosto 2025',
     'podcast.features.deep': 'Contenido Profundo',
+    'podcast.features.deep.description':
+      'Exploramos temas complejos de sostenibilidad, tecnología y sociedad con profundidad y rigor',
     'podcast.features.experts': 'Expertos Invitados',
+    'podcast.features.experts.description':
+      'Científicos, innovadores, activistas y pensadores que están construyendo el futuro sostenible',
     'podcast.features.solutions': 'Soluciones Prácticas',
+    'podcast.features.solutions.description':
+      'Cada episodio incluye acciones concretas que los oyentes pueden implementar en su vida diaria',
     'podcast.features.relevant': 'Temas Relevantes',
+    'podcast.features.relevant.description':
+      'Desde energías renovables hasta economía circular, agricultura urbana y justicia climática',
     'podcast.topics.title': 'Temas que Exploraremos',
+    'podcast.topic.urban.farming.title': 'Agricultura Urbana',
+    'podcast.topic.urban.farming.description':
+      'Cómo cultivar alimentos en la ciudad',
+    'podcast.topic.community.energy.title': 'Energía Comunitaria',
+    'podcast.topic.community.energy.description':
+      'Proyectos de energía renovable participativa',
+    'podcast.topic.circular.economy.title': 'Economía Circular',
+    'podcast.topic.circular.economy.description':
+      'Rediseñando sistemas para eliminar desperdicios',
+    'podcast.topic.sustainable.urbanism.title': 'Urbanismo Sostenible',
+    'podcast.topic.sustainable.urbanism.description':
+      'Ciudades diseñadas para personas y naturaleza',
+    'podcast.topic.climate.justice.title': 'Justicia Climática',
+    'podcast.topic.climate.justice.description':
+      'Equidad social en la transición ecológica',
+    'podcast.topic.green.innovation.title': 'Innovación Verde',
+    'podcast.topic.green.innovation.description':
+      'Tecnologías que regeneran el planeta',
     'podcast.notify.title': 'Sé el primero en escuchar',
+    'podcast.notify.description':
+      'Suscríbete para recibir notificaciones cuando lancemos el podcast',
+    'podcast.notify.placeholder': 'tu@email.com',
+    'podcast.notify.aria.label': 'Correo electrónico para notificaciones',
     'podcast.notify.cta': 'Notificarme',
+    'podcast.notify.alert':
+      '¡Gracias! Te notificaremos en {email} cuando lancemos el podcast.',
     'podcast.meanwhile.title': 'Mientras tanto...',
-    'podcast.meanwhile.description': 'Disfruta nuestros sketches de Fase 1',
+    'podcast.meanwhile.description': 'Disfruta nuestros sketches de la Fase 1',
+    'podcast.meanwhile.cta': 'Ver Sketches',
 
     // Formats Page
     'formats.title': 'Formatos de Contenido',
@@ -561,13 +786,24 @@ export const ui = {
 
     // Scripts Page
     'scripts.title': 'Guiones',
-    'scripts.hero.title': 'Guiones de Comedia',
-    'scripts.hero.subtitle': 'Descubre nuestros guiones de sketches',
+    'scripts.hero.title': 'Repositorio de Guiones',
+    'scripts.hero.description':
+      'Episodios diseñados específicamente para cada plataforma, optimizados para contar historias de esperanza y cambio.',
+    'scripts.stats.total': 'Episodios Totales',
+    'scripts.stats.tiktoks': 'TikToks',
+    'scripts.stats.instagram': 'Instagram Reels',
+    'scripts.stats.youtube': 'YouTube Videos',
+    'scripts.platform.episodes': 'episodios',
+    'scripts.actions.read': 'Leer Guión',
+    'scripts.resources.title': 'Recursos para Creadores',
+    'scripts.resources.description':
+      'Descarga plantillas y guías para crear tus propios episodios',
+    'scripts.download.tiktok': 'Plantilla TikTok',
+    'scripts.download.instagram': 'Plantilla Instagram',
+    'scripts.download.guide': 'Guía de Escritura',
 
     // Universe/World Page
     'universe.title': 'Universo',
-    'world.hero.title': 'El Mundo Solarpunk',
-    'world.hero.subtitle': 'Bienvenido a Neo-Cuernavaca',
 
     // Production Page
     'production.title': 'Producción',
@@ -658,10 +894,198 @@ export const ui = {
     'cta.connect': 'Connect',
 
     // Characters & Universe
-    'characters.title': 'Our Characters',
+    'characters.title': 'Characters',
     'characters.description': 'Meet the protagonists of the Solarpunk universe',
-    'world.title': 'The Solarpunk World',
+    'characters.hero.title': 'Universe Characters',
+    'characters.hero.subtitle': 'Meet the inhabitants of Neo-Cuernavaca',
+    'characters.filters.all': 'All',
+    'characters.filters.protagonists': 'Protagonists',
+    'characters.filters.evangelists': 'Evangelists',
+    'characters.filters.support': 'Support',
+    'characters.cta.title': 'Want to know more about these characters?',
+    'characters.cta.description':
+      'Explore the scripts to see these characters in action',
+    'characters.cta.scripts': 'View Scripts',
+    'characters.breadcrumb.home': 'Home',
+    'characters.breadcrumb.characters': 'Characters',
+    'characters.section.story': 'Story',
+    'characters.section.personality': 'Personality',
+    'characters.section.relationships': 'Relationships',
+    'characters.section.quotes': 'Memorable Quotes',
+
+    // World/Universe Page
+    'world.title': 'World',
     'world.description': 'A sustainable and hopeful future',
+    'world.hero.title': 'The World of Solarpunk Witnesses',
+    'world.hero.description':
+      'A near future where humanity has learned to live in harmony with nature, combining advanced technology with ancestral practices.',
+    'world.timeline.title': 'Timeline',
+    'world.timeline.2025.title': 'The Awakening',
+    'world.timeline.2025.description':
+      'First communities adopt distributed solar energy',
+    'world.timeline.2030.title': 'The Transition',
+    'world.timeline.2030.description':
+      "Neo-Cuernavaca becomes Mexico's first carbon-negative city",
+    'world.timeline.2035.title': 'The Expansion',
+    'world.timeline.2035.description':
+      'The solarpunk model replicates in cities across the continent',
+    'world.timeline.2040.title': 'The Flourishing',
+    'world.timeline.2040.description':
+      'New era of global cooperation based on sustainability',
+    'world.locations.title': 'Main Locations',
+    'world.locations.features': 'Features:',
+    'world.locations.explore': 'Explore Location',
+    'world.technology.title': 'Key Technologies',
+    'world.tech.solar.title': 'Organic Solar Panels',
+    'world.tech.solar.description':
+      'Biodegradable photovoltaic cells that mimic photosynthesis',
+    'world.tech.water.title': 'Atmospheric Capture',
+    'world.tech.water.description':
+      'Systems that extract drinking water directly from air',
+    'world.tech.agriculture.title': 'Vertical Agriculture',
+    'world.tech.agriculture.description':
+      'Cultivation towers that produce food using 90% less water',
+    'world.tech.batteries.title': 'Salt Batteries',
+    'world.tech.batteries.description':
+      'Energy storage using abundant and non-toxic materials',
+    'world.tech.bioconcrete.title': 'Bio-concrete',
+    'world.tech.bioconcrete.description':
+      'Construction material that self-repairs and purifies air',
+    'world.tech.transport.title': 'Magnetic Transport',
+    'world.tech.transport.description':
+      'Magnetic levitation systems powered by solar energy',
+    'world.society.title': 'Society and Culture',
+    'world.society.economy.title': 'Circular Economy',
+    'world.society.economy.description':
+      'Waste from one process becomes resources for another. Garbage is an obsolete concept in the solarpunk world.',
+    'world.society.governance.title': 'Participatory Governance',
+    'world.society.governance.description':
+      'Community decisions are made through local assemblies and digital direct democracy platforms.',
+    'world.society.education.title': 'Holistic Education',
+    'world.society.education.description':
+      'Learning combines technical knowledge with ancestral wisdom, focusing on creative problem solving.',
+    'world.society.time.title': 'Quality Time',
+    'world.society.time.description':
+      'The 25-hour work week allows more time for family, art and personal development.',
+
+    // Green Roof Neo-Cuernavaca Page (English)
+    'greenroof.title': 'Green Roof of Neo-Cuernavaca',
+    'greenroof.description':
+      'Discover the green heart of the city: the community rooftop where technology, nature and hope converge in the solarpunk universe',
+    'greenroof.breadcrumb.home': 'Home',
+    'greenroof.breadcrumb.world': 'World Building',
+    'greenroof.hero.title': 'Green Roof of Neo-Cuernavaca',
+    'greenroof.hero.description':
+      'The beating heart of the solarpunk revolution: an urban oasis where sustainable technology meets ancestral wisdom to create the future we all deserve.',
+    'greenroof.overview.title': 'A New Community Model',
+    'greenroof.overview.p1':
+      'The Green Roof is not just a physical space; it is a tangible manifestation of solarpunk principles in action. Located in the heart of Neo-Cuernavaca, this 2,500 square meter community rooftop functions as a social laboratory, innovation center and community garden.',
+    'greenroof.overview.p2':
+      'Here, city dwellers experience firsthand how appropriate technology can improve their lives without sacrificing their connection to nature. It is the place where Sister Panelia performs her most impactful demonstrations and where Brother Compostino teaches the eternal cycles of regeneration.',
+    'greenroof.stats.area': 'Square meters',
+    'greenroof.stats.plants': 'Native plants',
+    'greenroof.stats.renewable': 'Renewable energy',
+    'greenroof.stats.visitors': 'Weekly visitors',
+    'greenroof.features.title': 'Rooftop Features',
+    'greenroof.features.solar.title': 'Solar Energy System',
+    'greenroof.features.solar.description':
+      "A 50kW installation of state-of-the-art solar panels that not only supplies the rooftop's energy needs, but also powers the community apartment building below.",
+    'greenroof.features.solar.feature1': 'High-efficiency bifacial panels',
+    'greenroof.features.solar.feature2': 'Battery storage system',
+    'greenroof.features.solar.feature3':
+      'Smart inverter with real-time monitoring',
+    'greenroof.features.solar.feature4': 'Surplus shared with community grid',
+    'greenroof.features.gardens.title': 'Vertical Gardens and Orchards',
+    'greenroof.features.gardens.description':
+      'An integrated urban agriculture system that combines traditional permaculture with modern hydroponics, producing fresh food for more than 50 families in the community.',
+    'greenroof.features.gardens.feature1':
+      'Automated hydroponic growing towers',
+    'greenroof.features.gardens.feature2': 'Raised beds with community compost',
+    'greenroof.features.gardens.feature3':
+      'Native medicinal and aromatic plants',
+    'greenroof.features.gardens.feature4': 'Rainwater collection system',
+    'greenroof.features.meeting.title': 'Community Meeting Space',
+    'greenroof.features.meeting.description':
+      'An outdoor amphitheater built with recycled materials where workshops, presentations and the famous "Sunset Assemblies" are held where the community makes consensus decisions.',
+    'greenroof.features.meeting.feature1': 'Capacity for 80 seated people',
+    'greenroof.features.meeting.feature2': 'Solar-powered sound system',
+    'greenroof.features.meeting.feature3': 'Modular and adaptable stage',
+    'greenroof.features.meeting.feature4':
+      'Pergola with climbing plants for natural shade',
+    'greenroof.features.compost.title': 'Community Composting Center',
+    'greenroof.features.compost.description':
+      'Brother Compostino\'s domain: a layered composting system that processes organic waste from throughout the neighborhood, transforming it into the "black gold" that feeds the gardens.',
+    'greenroof.features.compost.feature1':
+      'Three-chamber thermophilic composter',
+    'greenroof.features.compost.feature2':
+      'Vermicomposting with California worms',
+    'greenroof.features.compost.feature3': 'Biodigester for biogas generation',
+    'greenroof.features.compost.feature4': 'Weekly home composting workshops',
+    'greenroof.dailylife.title': 'A Day on the Green Roof',
+    'greenroof.dailylife.6am.title': 'Solar Dawn',
+    'greenroof.dailylife.6am.description':
+      'The first rays of sun automatically activate the drip irrigation system. Early risers arrive for the "Dawn Ritual": yoga, meditation and plant check before starting the day.',
+    'greenroof.dailylife.8am.title': 'Morning Harvest',
+    'greenroof.dailylife.8am.description':
+      'Participating families pick fresh vegetables for breakfast. Brother Compostino is usually here, teaching about natural cycles while stirring the compost.',
+    'greenroof.dailylife.12pm.title': 'Community Lunch',
+    'greenroof.dailylife.12pm.description':
+      'On Wednesdays and Saturdays a community lunch is organized where everyone contributes something prepared with ingredients from the rooftop. This is when the most stories and knowledge are shared.',
+    'greenroof.dailylife.4pm.title': 'Workshops and Demonstrations',
+    'greenroof.dailylife.4pm.description':
+      "Sister Panelia's favorite time. Here she demonstrates new technologies, explains how solar panels work and teaches others how they can implement similar solutions in their homes.",
+    'greenroof.dailylife.6pm.title': 'Sunset Assembly',
+    'greenroof.dailylife.6pm.description':
+      'On Fridays, the community meets to make important decisions, plan future projects and resolve conflicts collaboratively. It is direct democracy in action.',
+    'greenroof.dailylife.8pm.title': 'Starry Nights',
+    'greenroof.dailylife.8pm.description':
+      'With light pollution reduced through intelligent energy use, nights on the rooftop allow stargazing while sharing stories and dreams for the future.',
+    'greenroof.impact.title': 'Real and Measurable Impact',
+    'greenroof.impact.energy.number': '65%',
+    'greenroof.impact.energy.label': 'Reduction in energy costs',
+    'greenroof.impact.energy.description':
+      'Building families have seen an average 65% reduction in their electric bills since the solar system installation.',
+    'greenroof.impact.co2.number': '2.5 Tons',
+    'greenroof.impact.co2.label': 'CO₂ avoided monthly',
+    'greenroof.impact.co2.description':
+      'The combination of solar energy and composting avoids the emission of 2.5 tons of CO₂ each month.',
+    'greenroof.impact.waste.number': '80%',
+    'greenroof.impact.waste.label': 'Organic waste processed',
+    'greenroof.impact.waste.description':
+      "The composting system processes 80% of the neighborhood's organic waste, transforming it into natural fertilizer.",
+    'greenroof.impact.food.number': '300kg',
+    'greenroof.impact.food.label': 'Fresh food per month',
+    'greenroof.impact.food.description':
+      'Urban gardens produce 300kg of fresh vegetables and herbs monthly for the community.',
+    'greenroof.stories.title': 'Transformation Stories',
+    'greenroof.stories.hernandez.title': 'The Hernández Family',
+    'greenroof.stories.hernandez.quote':
+      '"At first we were skeptical about this solar panel thing," says María Hernández. "But when we saw our electricity bill drop from $2,500 to $800 pesos, and we also have fresh vegetables every week... there\'s no going back."',
+    'greenroof.stories.hernandez.impact':
+      '$20,400 pesos saved in the first year',
+    'greenroof.stories.carlos.title': 'Don Carlos, the Convert',
+    'greenroof.stories.carlos.quote':
+      "Former climate change skeptic, Don Carlos now leads composting workshops on Saturdays. \"Compostino taught me that 'garbage' is just a word for things we don't know how to use. Now I see opportunities where I used to see problems.\"",
+    'greenroof.stories.carlos.impact': '40 families adopted home composting',
+    'greenroof.stories.sofia.title': 'Sofía, 8 years old',
+    'greenroof.stories.sofia.quote':
+      '"I like coming here because the plants tell me secrets," explains Sofía while watering her cherry tomatoes. "And when I grow up, I\'m going to make a rooftop like this all over the city."',
+    'greenroof.stories.sofia.impact':
+      '25 children participate in weekly educational programs',
+    'greenroof.future.title': 'The Seed of the Future',
+    'greenroof.future.description':
+      'The Green Roof of Neo-Cuernavaca is not a destination, but a starting point. It is living proof that another world is possible: one where technology serves life, where community thrives without destroying the planet, and where every person can be the protagonist of the change they want to see.',
+    'greenroof.future.goal1.title': 'Network of 100 Rooftops',
+    'greenroof.future.goal1.description':
+      'Replicate the model throughout the city by 2027',
+    'greenroof.future.goal2.title': 'Energy Independence',
+    'greenroof.future.goal2.description':
+      '100% renewable self-sufficient neighborhood by 2026',
+    'greenroof.future.goal3.title': 'Exportable Model',
+    'greenroof.future.goal3.description':
+      'Guides and resources available for any community',
+    'greenroof.nav.back': 'Back to World',
+    'greenroof.nav.characters': 'Meet the Characters',
 
     // Community & Impact
     'community.title': 'Our Community',
@@ -978,19 +1402,6 @@ export const ui = {
     'impact.cta.support': 'Support the Project',
     'impact.cta.volunteer': 'Join as Volunteer',
 
-    // Characters Page
-    'characters.title2': 'Characters',
-    'characters.hero.title': 'Universe Characters',
-    'characters.hero.subtitle': 'Meet the inhabitants of Neo-Cuernavaca',
-    'characters.filters.all': 'All',
-    'characters.filters.protagonists': 'Protagonists',
-    'characters.filters.evangelists': 'Evangelists',
-    'characters.filters.support': 'Support',
-    'characters.cta.title': 'Want to know more about these characters?',
-    'characters.cta.description':
-      'Explore the scripts to see these characters in action',
-    'characters.cta.scripts': 'View Scripts',
-
     // Production Pages
     'production.visual.title': 'Visual Style Guide',
     'production.visual.colors': 'Main Color Palette',
@@ -1016,16 +1427,52 @@ export const ui = {
     // Podcast Page
     'podcast.title': 'Podcast - Phase 2',
     'podcast.hero.title': 'MADFAM Podcast',
+    'podcast.hero.description':
+      '20-30 minute conversations with experts, activists and visionaries of the solarpunk movement',
+    'podcast.hero.status': 'Podcast Status',
     'podcast.coming.title': "What's Coming",
+    'podcast.launch.date': 'August 2025',
     'podcast.features.deep': 'Deep Content',
+    'podcast.features.deep.description':
+      'We explore complex topics of sustainability, technology and society with depth and rigor',
     'podcast.features.experts': 'Expert Guests',
+    'podcast.features.experts.description':
+      'Scientists, innovators, activists and thinkers who are building the sustainable future',
     'podcast.features.solutions': 'Practical Solutions',
+    'podcast.features.solutions.description':
+      'Each episode includes concrete actions that listeners can implement in their daily lives',
     'podcast.features.relevant': 'Relevant Topics',
+    'podcast.features.relevant.description':
+      'From renewable energy to circular economy, urban agriculture and climate justice',
     'podcast.topics.title': "Topics We'll Explore",
+    'podcast.topic.urban.farming.title': 'Urban Farming',
+    'podcast.topic.urban.farming.description': 'How to grow food in the city',
+    'podcast.topic.community.energy.title': 'Community Energy',
+    'podcast.topic.community.energy.description':
+      'Participatory renewable energy projects',
+    'podcast.topic.circular.economy.title': 'Circular Economy',
+    'podcast.topic.circular.economy.description':
+      'Redesigning systems to eliminate waste',
+    'podcast.topic.sustainable.urbanism.title': 'Sustainable Urbanism',
+    'podcast.topic.sustainable.urbanism.description':
+      'Cities designed for people and nature',
+    'podcast.topic.climate.justice.title': 'Climate Justice',
+    'podcast.topic.climate.justice.description':
+      'Social equity in the ecological transition',
+    'podcast.topic.green.innovation.title': 'Green Innovation',
+    'podcast.topic.green.innovation.description':
+      'Technologies that regenerate the planet',
     'podcast.notify.title': 'Be the first to listen',
+    'podcast.notify.description':
+      'Subscribe to receive notifications when we launch the podcast',
+    'podcast.notify.placeholder': 'your@email.com',
+    'podcast.notify.aria.label': 'Email for notifications',
     'podcast.notify.cta': 'Notify Me',
+    'podcast.notify.alert':
+      'Thank you! We will notify you at {email} when we launch the podcast.',
     'podcast.meanwhile.title': 'Meanwhile...',
     'podcast.meanwhile.description': 'Enjoy our Phase 1 sketches',
+    'podcast.meanwhile.cta': 'Watch Sketches',
 
     // Formats Page
     'formats.title': 'Content Formats',
@@ -1048,13 +1495,24 @@ export const ui = {
 
     // Scripts Page
     'scripts.title': 'Scripts',
-    'scripts.hero.title': 'Comedy Scripts',
-    'scripts.hero.subtitle': 'Discover our sketch scripts',
+    'scripts.hero.title': 'Scripts Repository',
+    'scripts.hero.description':
+      'Episodes designed specifically for each platform, optimized to tell stories of hope and change.',
+    'scripts.stats.total': 'Total Episodes',
+    'scripts.stats.tiktoks': 'TikToks',
+    'scripts.stats.instagram': 'Instagram Reels',
+    'scripts.stats.youtube': 'YouTube Videos',
+    'scripts.platform.episodes': 'episodes',
+    'scripts.actions.read': 'Read Script',
+    'scripts.resources.title': 'Resources for Creators',
+    'scripts.resources.description':
+      'Download templates and guides to create your own episodes',
+    'scripts.download.tiktok': 'TikTok Template',
+    'scripts.download.instagram': 'Instagram Template',
+    'scripts.download.guide': 'Writing Guide',
 
     // Universe/World Page
     'universe.title': 'Universe',
-    'world.hero.title': 'The Solarpunk World',
-    'world.hero.subtitle': 'Welcome to Neo-Cuernavaca',
 
     // Production Page
     'production.title': 'Production',

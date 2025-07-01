@@ -4,57 +4,55 @@ import { useTranslations } from '@/i18n/config';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 const lang = 'en';
-const _t = useTranslations(lang);
+const t = useTranslations(lang);
 const locations: CollectionEntry<'locations'>[] =
   await getCollection('locations');
 ---
 
-<BaseLayout lang={lang} title="Mundo">
+<BaseLayout lang={lang} title={t('world.title')}>
   <section class="hero-section gradient-solarpunk">
     <div class="container">
-      <h1 class="hero-title">El Mundo de Testigos de Solarpunk</h1>
+      <h1 class="hero-title">{t('world.hero.title')}</h1>
       <p class="hero-subtitle">
-        Un futuro cercano donde la humanidad ha aprendido a vivir en armonía con
-        la naturaleza, combinando tecnología avanzada con prácticas ancestrales.
+        {t('world.hero.description')}
       </p>
     </div>
   </section>
 
   <section class="timeline-section">
     <div class="container">
-      <h2 class="text-center">Línea Temporal</h2>
+      <h2 class="text-center">{t('world.timeline.title')}</h2>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-date">2025</div>
           <div class="timeline-content">
-            <h3>El Despertar</h3>
-            <p>Primeras comunidades adoptan energía solar distribuida</p>
+            <h3>{t('world.timeline.2025.title')}</h3>
+            <p>{t('world.timeline.2025.description')}</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-date">2030</div>
           <div class="timeline-content">
-            <h3>La Transición</h3>
+            <h3>{t('world.timeline.2030.title')}</h3>
             <p>
-              Neo-Cuernavaca se convierte en la primera ciudad carbono-negativa
-              de México
+              {t('world.timeline.2030.description')}
             </p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-date">2035</div>
           <div class="timeline-content">
-            <h3>La Expansión</h3>
+            <h3>{t('world.timeline.2035.title')}</h3>
             <p>
-              El modelo solarpunk se replica en ciudades de todo el continente
+              {t('world.timeline.2035.description')}
             </p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-date">2040</div>
           <div class="timeline-content">
-            <h3>El Florecimiento</h3>
-            <p>Nueva era de cooperación global basada en sostenibilidad</p>
+            <h3>{t('world.timeline.2040.title')}</h3>
+            <p>{t('world.timeline.2040.description')}</p>
           </div>
         </div>
       </div>
@@ -63,7 +61,7 @@ const locations: CollectionEntry<'locations'>[] =
 
   <section class="locations-section">
     <div class="container">
-      <h2>Ubicaciones Principales</h2>
+      <h2>{t('world.locations.title')}</h2>
       <div class="locations-grid">
         {
           locations.map((location) => (
@@ -78,7 +76,7 @@ const locations: CollectionEntry<'locations'>[] =
                 {location.data.descripcion.substring(0, 200)}...
               </p>
               <div class="location-features">
-                <h4>Características:</h4>
+                <h4>{t('world.locations.features')}</h4>
                 <ul>
                   {location.data.caracteristicas
                     .slice(0, 3)
@@ -87,8 +85,8 @@ const locations: CollectionEntry<'locations'>[] =
                     ))}
                 </ul>
               </div>
-              <a href={`/mundo/${location.id}`} class="btn btn-primary">
-                Explorar Ubicación
+              <a href={`/en/world/${location.id}`} class="btn btn-primary">
+                {t('world.locations.explore')}
               </a>
             </article>
           ))
@@ -99,41 +97,41 @@ const locations: CollectionEntry<'locations'>[] =
 
   <section class="technology-section">
     <div class="container">
-      <h2 class="text-center">Tecnologías Clave</h2>
+      <h2 class="text-center">{t('world.technology.title')}</h2>
       <div class="tech-grid">
         <div class="tech-card">
           <span class="emoji-cutout emoji-lg theme-solar tech-icon">☀️</span>
-          <h3>Paneles Solares Orgánicos</h3>
-          <p>Células fotovoltaicas biodegradables que imitan la fotosíntesis</p>
+          <h3>{t('world.tech.solar.title')}</h3>
+          <p>{t('world.tech.solar.description')}</p>
         </div>
         <div class="tech-card">
           <span class="emoji-cutout emoji-lg theme-community tech-icon">💧</span
           >
-          <h3>Captación Atmosférica</h3>
-          <p>Sistemas que extraen agua potable directamente del aire</p>
+          <h3>{t('world.tech.water.title')}</h3>
+          <p>{t('world.tech.water.description')}</p>
         </div>
         <div class="tech-card">
           <span class="emoji-cutout emoji-lg theme-green tech-icon">🌱</span>
-          <h3>Agricultura Vertical</h3>
-          <p>Torres de cultivo que producen alimentos usando 90% menos agua</p>
+          <h3>{t('world.tech.agriculture.title')}</h3>
+          <p>{t('world.tech.agriculture.description')}</p>
         </div>
         <div class="tech-card">
           <span class="emoji-cutout emoji-lg theme-purple tech-icon">🔋</span>
-          <h3>Baterías de Sal</h3>
+          <h3>{t('world.tech.batteries.title')}</h3>
           <p>
-            Almacenamiento de energía usando materiales abundantes y no tóxicos
+            {t('world.tech.batteries.description')}
           </p>
         </div>
         <div class="tech-card">
           <span class="emoji-cutout emoji-lg theme-community tech-icon">🏗️</span
           >
-          <h3>Bioconcreto</h3>
-          <p>Material de construcción que se auto-repara y purifica el aire</p>
+          <h3>{t('world.tech.bioconcrete.title')}</h3>
+          <p>{t('world.tech.bioconcrete.description')}</p>
         </div>
         <div class="tech-card">
           <span class="emoji-cutout emoji-lg theme-purple tech-icon">🚊</span>
-          <h3>Transporte Magnético</h3>
-          <p>Sistemas de levitación magnética alimentados por energía solar</p>
+          <h3>{t('world.tech.transport.title')}</h3>
+          <p>{t('world.tech.transport.description')}</p>
         </div>
       </div>
     </div>
@@ -141,34 +139,30 @@ const locations: CollectionEntry<'locations'>[] =
 
   <section class="society-section">
     <div class="container">
-      <h2>Sociedad y Cultura</h2>
+      <h2>{t('world.society.title')}</h2>
       <div class="society-grid">
         <div class="society-card">
-          <h3>Economía Circular</h3>
+          <h3>{t('world.society.economy.title')}</h3>
           <p>
-            Los desechos de un proceso se convierten en recursos para otro. La
-            basura es un concepto obsoleto en el mundo solarpunk.
+            {t('world.society.economy.description')}
           </p>
         </div>
         <div class="society-card">
-          <h3>Gobernanza Participativa</h3>
+          <h3>{t('world.society.governance.title')}</h3>
           <p>
-            Las decisiones comunitarias se toman mediante asambleas locales y
-            plataformas digitales de democracia directa.
+            {t('world.society.governance.description')}
           </p>
         </div>
         <div class="society-card">
-          <h3>Educación Holística</h3>
+          <h3>{t('world.society.education.title')}</h3>
           <p>
-            El aprendizaje combina conocimiento técnico con sabiduría ancestral,
-            enfocándose en la resolución creativa de problemas.
+            {t('world.society.education.description')}
           </p>
         </div>
         <div class="society-card">
-          <h3>Tiempo de Calidad</h3>
+          <h3>{t('world.society.time.title')}</h3>
           <p>
-            La semana laboral de 25 horas permite más tiempo para la familia, el
-            arte y el desarrollo personal.
+            {t('world.society.time.description')}
           </p>
         </div>
       </div>

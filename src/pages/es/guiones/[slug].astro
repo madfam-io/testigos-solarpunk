@@ -29,22 +29,453 @@ if (script == null) {
 }
 
 const { data } = script;
+const { Content } = await script.render();
 const titulo = data.titulo != null ? String(data.titulo) : 'Sin título';
 const episodio = data.episodio != null ? String(data.episodio) : 'EP000';
 const plataforma =
   data.plataforma != null ? String(data.plataforma) : 'Plataforma';
 const duracion = data.duracion != null ? String(data.duracion) : 'N/A';
-const body = script.body != null ? String(script.body) : '';
+const ubicacion = data.ubicacion != null ? String(data.ubicacion) : 'N/A';
+const estado = data.estado != null ? String(data.estado) : 'borrador';
+const fecha = data.fecha != null ? data.fecha : new Date();
+const temas = data.temas != null ? data.temas : [];
+const personajes = data.personajes != null ? data.personajes : [];
 
+const basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL.replace(/\/$/, '')
+    : '';
 const pageTitle = `${titulo} - ${episodio}`;
 const pageDescription = `Guion para ${plataforma}: ${titulo}. Duracion: ${duracion}.`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <div class="container">
-    <h1>{titulo}</h1>
-    <p>Episodio: {episodio}</p>
-    <p>Plataforma: {plataforma}</p>
-    <div set:html={body} />
-  </div>
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href={`${basePath}/es/`}>Inicio</a></li>
+        <li><a href={`${basePath}/es/guiones/`}>Guiones</a></li>
+        <li aria-current="page">{episodio}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Script Header -->
+  <section class="script-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="script-badge">
+          <span class="episode-number">{episodio}</span>
+          <span class="platform" data-platform={plataforma.toLowerCase()}
+            >{plataforma}</span
+          >
+        </div>
+        <h1 class="script-title">{titulo}</h1>
+        <div class="script-meta">
+          <div class="meta-item">
+            <span class="emoji-cutout emoji-sm theme-solar">⏱️</span>
+            <span>Duración: {duracion}</span>
+          </div>
+          <div class="meta-item">
+            <span class="emoji-cutout emoji-sm theme-community">📍</span>
+            <span>Ubicación: {ubicacion}</span>
+          </div>
+          <div class="meta-item">
+            <span class="status" data-status={estado}>{estado}</span>
+          </div>
+          <div class="meta-item">
+            <span class="emoji-cutout emoji-sm theme-purple">📅</span>
+            <span>{fecha.toLocaleDateString('es-MX')}</span>
+          </div>
+        </div>
+
+        <!-- Characters -->
+        {
+          personajes.length > 0 && (
+            <div class="script-characters">
+              <h3>Personajes:</h3>
+              <div class="characters-list">
+                {personajes.map((personaje: string) => (
+                  <a
+                    href={`${basePath}/es/personajes/${personaje}/`}
+                    class="character-chip"
+                  >
+                    <span class="emoji-cutout emoji-sm theme-green">👤</span>
+                    <span>
+                      {personaje
+                        .split('-')
+                        .map(
+                          (word) => word.charAt(0).toUpperCase() + word.slice(1)
+                        )
+                        .join(' ')}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )
+        }
+
+        <!-- Topics -->
+        {
+          temas.length > 0 && (
+            <div class="script-topics">
+              <div class="topics-list">
+                {temas.map((tema: string) => (
+                  <span class="topic-tag">#{tema}</span>
+                ))}
+              </div>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Script Content -->
+  <section class="script-content">
+    <div class="container">
+      <article class="script-body">
+        <Content />
+      </article>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="script-navigation">
+    <div class="container">
+      <div class="nav-buttons">
+        <a href={`${basePath}/es/guiones/`} class="btn btn-secondary">
+          <span class="emoji-cutout emoji-sm">👈</span>
+          Volver a Guiones
+        </a>
+        <a href={`${basePath}/es/personajes/`} class="btn btn-primary">
+          <span class="emoji-cutout emoji-sm">👥</span>
+          Ver Personajes
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-md) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb li {
+    color: var(--texto-secundario);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 var(--espacio-sm);
+    color: var(--texto-terciario);
+  }
+
+  .breadcrumb a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .script-header {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+  }
+
+  .script-badge {
+    display: flex;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    align-items: center;
+  }
+
+  .episode-number {
+    background: var(--purpura-creativo);
+    color: var(--text-on-accent, #000000);
+    padding: var(--espacio-sm) var(--espacio-lg);
+    border-radius: 25px;
+    font-family: var(--fuente-mono);
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .platform {
+    padding: var(--espacio-xs) var(--espacio-md);
+    border-radius: 15px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .platform[data-platform='tiktok'] {
+    background: rgba(255, 0, 80, 0.2);
+    color: #ff0050;
+  }
+
+  .platform[data-platform='instagram'] {
+    background: rgba(225, 48, 108, 0.2);
+    color: #e1306c;
+  }
+
+  .platform[data-platform='youtube'] {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff0000;
+  }
+
+  .platform[data-platform='facebook'] {
+    background: rgba(24, 119, 242, 0.2);
+    color: #1877f2;
+  }
+
+  .script-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-lg);
+    color: var(--texto-primario);
+    line-height: 1.2;
+  }
+
+  .script-meta {
+    display: flex;
+    gap: var(--espacio-lg);
+    margin-bottom: var(--espacio-xl);
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+  }
+
+  .status {
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .status[data-status='borrador'] {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: var(--warning, #ffb74d);
+  }
+
+  .status[data-status='revision'] {
+    background-color: rgba(100, 181, 246, 0.2);
+    color: var(--info, #64b5f6);
+  }
+
+  .status[data-status='aprobado'] {
+    background-color: rgba(129, 199, 132, 0.2);
+    color: var(--success, #81c784);
+  }
+
+  .status[data-status='filmado'] {
+    background-color: rgba(var(--azul-tecnologico-rgb, 33, 150, 243), 0.2);
+    color: var(--azul-tecnologico);
+  }
+
+  .script-characters {
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .script-characters h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-md);
+    font-size: 1.1rem;
+  }
+
+  .characters-list {
+    display: flex;
+    gap: var(--espacio-sm);
+    flex-wrap: wrap;
+  }
+
+  .character-chip {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+    padding: var(--espacio-xs) var(--espacio-md);
+    background: var(--fondo-secundario);
+    border: 2px solid var(--borde-claro);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--texto-primario);
+    transition: all var(--transicion-rapida);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .character-chip:hover {
+    border-color: var(--verde-sostenible);
+    background: rgba(76, 175, 80, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .script-topics {
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .topics-list {
+    display: flex;
+    gap: var(--espacio-sm);
+    flex-wrap: wrap;
+  }
+
+  .topic-tag {
+    background: var(--fondo-primario);
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: var(--azul-tecnologico);
+    font-weight: 500;
+  }
+
+  .script-content {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .script-body {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--fondo-secundario);
+    padding: var(--espacio-xxl);
+    border-radius: 12px;
+    border: 1px solid var(--borde-claro);
+    line-height: 1.7;
+  }
+
+  /* Markdown content styles */
+  .script-body :global(h1) {
+    color: var(--amarillo-solar);
+    border-bottom: 2px solid var(--borde-claro);
+    padding-bottom: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .script-body :global(h2) {
+    color: var(--verde-sostenible);
+    margin-top: var(--espacio-xl);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .script-body :global(h3) {
+    color: var(--purpura-creativo);
+    margin-top: var(--espacio-lg);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .script-body :global(p) {
+    margin-bottom: var(--espacio-md);
+    color: var(--texto-secundario);
+  }
+
+  .script-body :global(strong) {
+    color: var(--texto-primario);
+  }
+
+  .script-body :global(em) {
+    color: var(--texto-terciario);
+    font-style: italic;
+  }
+
+  .script-body :global(ul),
+  .script-body :global(ol) {
+    margin-bottom: var(--espacio-lg);
+    padding-left: var(--espacio-xl);
+  }
+
+  .script-body :global(li) {
+    margin-bottom: var(--espacio-sm);
+    color: var(--texto-secundario);
+  }
+
+  .script-body :global(hr) {
+    border: none;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--borde-claro),
+      transparent
+    );
+    margin: var(--espacio-xl) 0;
+  }
+
+  .script-body :global(blockquote) {
+    border-left: 4px solid var(--amarillo-solar);
+    padding-left: var(--espacio-lg);
+    margin: var(--espacio-lg) 0;
+    font-style: italic;
+    color: var(--texto-secundario);
+  }
+
+  .script-navigation {
+    padding: var(--espacio-xxl) 0;
+    background: var(--fondo-secundario);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--espacio-lg);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .script-title {
+      font-size: 2rem;
+    }
+
+    .script-meta {
+      flex-direction: column;
+      gap: var(--espacio-md);
+    }
+
+    .script-badge {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .characters-list,
+    .topics-list {
+      flex-direction: column;
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .script-body {
+      padding: var(--espacio-lg);
+    }
+  }
+</style>

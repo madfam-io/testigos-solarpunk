@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 
 const lang = 'en';
-const _t = useTranslations(lang);
+const t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -17,16 +17,21 @@ if (basePath.endsWith('/')) {
 
 <BaseLayout
   lang={lang}
-  title="Azotea Verde de Neo-Cuernavaca"
-  description="Descubre el corazón verde de la ciudad: la azotea comunitaria donde convergen tecnología, naturaleza y esperanza en el universo solarpunk"
+  title={t('greenroof.title')}
+  description={t('greenroof.description')}
 >
   <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb navigation">
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href={`${basePath}/`}>Inicio</a></li>
-        <li><a href={`${basePath}/mundo/`}>Construcción del Mundo</a></li>
-        <li aria-current="page">Azotea Verde de Neo-Cuernavaca</li>
+        <li>
+          <a href={`${basePath}/en/`}>{t('greenroof.breadcrumb.home')}</a>
+        </li>
+        <li>
+          <a href={`${basePath}/en/world/`}
+            >{t('greenroof.breadcrumb.world')}</a>
+        </li>
+        <li aria-current="page">{t('greenroof.title')}</li>
       </ol>
     </div>
   </nav>
@@ -38,11 +43,9 @@ if (basePath.endsWith('/')) {
         <span class="emoji-cutout emoji-hero emoji-xl theme-green flutter"
           >🌿</span
         >
-        <h1>Azotea Verde de Neo-Cuernavaca</h1>
+        <h1>{t('greenroof.hero.title')}</h1>
         <p class="hero-description">
-          El corazón pulsante de la revolución solarpunk: un oasis urbano donde
-          la tecnología sostenible se encuentra con la sabiduría ancestral para
-          crear el futuro que todos merecemos.
+          {t('greenroof.hero.description')}
         </p>
       </div>
     </div>
@@ -55,39 +58,31 @@ if (basePath.endsWith('/')) {
         <div class="overview-text">
           <h2>
             <span class="emoji-cutout emoji-md theme-solar">☀️</span>
-            Un Nuevo Modelo de Comunidad
+            {t('greenroof.overview.title')}
           </h2>
           <p>
-            La Azotea Verde no es solo un espacio físico; es una manifestación
-            tangible de los principios solarpunk en acción. Ubicada en el
-            corazón de Neo-Cuernavaca, esta azotea comunitaria de 2,500 metros
-            cuadrados funciona como laboratorio social, centro de innovación y
-            jardín comunitario.
+            {t('greenroof.overview.p1')}
           </p>
           <p>
-            Aquí, los habitantes de la ciudad experimentan de primera mano cómo
-            la tecnología apropiada puede mejorar sus vidas sin sacrificar su
-            conexión con la naturaleza. Es el lugar donde Hermana Panelia
-            realiza sus demostraciones más impactantes y donde Hermano
-            Compostino enseña los ciclos eternos de regeneración.
+            {t('greenroof.overview.p2')}
           </p>
         </div>
         <div class="overview-stats">
           <div class="stat-card">
             <span class="stat-number">2.5K</span>
-            <span class="stat-label">Metros cuadrados</span>
+            <span class="stat-label">{t('greenroof.stats.area')}</span>
           </div>
           <div class="stat-card">
             <span class="stat-number">500+</span>
-            <span class="stat-label">Plantas nativas</span>
+            <span class="stat-label">{t('greenroof.stats.plants')}</span>
           </div>
           <div class="stat-card">
             <span class="stat-number">85%</span>
-            <span class="stat-label">Energía renovable</span>
+            <span class="stat-label">{t('greenroof.stats.renewable')}</span>
           </div>
           <div class="stat-card">
             <span class="stat-number">200</span>
-            <span class="stat-label">Visitantes semanales</span>
+            <span class="stat-label">{t('greenroof.stats.visitors')}</span>
           </div>
         </div>
       </div>
@@ -99,26 +94,23 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-purple">🏗️</span>
-        Características de la Azotea
+        {t('greenroof.features.title')}
       </h2>
       <div class="features-grid">
         <div class="feature-card card">
           <div class="feature-header">
             <span class="emoji-cutout emoji-lg theme-solar">⚡</span>
-            <h3>Sistema de Energía Solar</h3>
+            <h3>{t('greenroof.features.solar.title')}</h3>
           </div>
           <div class="feature-content">
             <p>
-              Una instalación de 50kW de paneles solares de última generación
-              que no solo abastece las necesidades energéticas de la azotea,
-              sino que también alimenta el edificio de apartamentos comunitario
-              de abajo.
+              {t('greenroof.features.solar.description')}
             </p>
             <ul>
-              <li>Paneles bifaciales de alta eficiencia</li>
-              <li>Sistema de almacenamiento en baterías</li>
-              <li>Inversor inteligente con monitoreo en tiempo real</li>
-              <li>Excedente compartido con la red comunitaria</li>
+              <li>{t('greenroof.features.solar.feature1')}</li>
+              <li>{t('greenroof.features.solar.feature2')}</li>
+              <li>{t('greenroof.features.solar.feature3')}</li>
+              <li>{t('greenroof.features.solar.feature4')}</li>
             </ul>
           </div>
         </div>
@@ -126,19 +118,17 @@ if (basePath.endsWith('/')) {
         <div class="feature-card card">
           <div class="feature-header">
             <span class="emoji-cutout emoji-lg theme-green">🌱</span>
-            <h3>Jardines Verticales y Huertos</h3>
+            <h3>{t('greenroof.features.gardens.title')}</h3>
           </div>
           <div class="feature-content">
             <p>
-              Un sistema integrado de agricultura urbana que combina
-              permacultura tradicional con hidroponía moderna, produciendo
-              alimentos frescos para más de 50 familias de la comunidad.
+              {t('greenroof.features.gardens.description')}
             </p>
             <ul>
-              <li>Torres de cultivo hidropónico automatizadas</li>
-              <li>Bancales elevados con compost comunitario</li>
-              <li>Plantas medicinales y aromáticas nativas</li>
-              <li>Sistema de recolección de agua de lluvia</li>
+              <li>{t('greenroof.features.gardens.feature1')}</li>
+              <li>{t('greenroof.features.gardens.feature2')}</li>
+              <li>{t('greenroof.features.gardens.feature3')}</li>
+              <li>{t('greenroof.features.gardens.feature4')}</li>
             </ul>
           </div>
         </div>
@@ -146,20 +136,17 @@ if (basePath.endsWith('/')) {
         <div class="feature-card card">
           <div class="feature-header">
             <span class="emoji-cutout emoji-lg theme-community">🏛️</span>
-            <h3>Espacio de Reunión Comunitaria</h3>
+            <h3>{t('greenroof.features.meeting.title')}</h3>
           </div>
           <div class="feature-content">
             <p>
-              Un anfiteatro al aire libre construido con materiales reciclados
-              donde se realizan talleres, presentaciones y las famosas
-              "Asambleas del Atardecer" donde la comunidad toma decisiones
-              consensuadas.
+              {t('greenroof.features.meeting.description')}
             </p>
             <ul>
-              <li>Capacidad para 80 personas sentadas</li>
-              <li>Sistema de sonido alimentado por energía solar</li>
-              <li>Escenario modular y adaptable</li>
-              <li>Pérgola con plantas trepadoras para sombra natural</li>
+              <li>{t('greenroof.features.meeting.feature1')}</li>
+              <li>{t('greenroof.features.meeting.feature2')}</li>
+              <li>{t('greenroof.features.meeting.feature3')}</li>
+              <li>{t('greenroof.features.meeting.feature4')}</li>
             </ul>
           </div>
         </div>
@@ -167,19 +154,17 @@ if (basePath.endsWith('/')) {
         <div class="feature-card card">
           <div class="feature-header">
             <span class="emoji-cutout emoji-lg theme-purple">♻️</span>
-            <h3>Centro de Compostaje Comunitario</h3>
+            <h3>{t('greenroof.features.compost.title')}</h3>
           </div>
           <div class="feature-content">
             <p>
-              El dominio de Hermano Compostino: un sistema de compostaje en
-              capas que procesa los residuos orgánicos de todo el barrio,
-              transformándolos en el "oro negro" que alimenta los jardines.
+              {t('greenroof.features.compost.description')}
             </p>
             <ul>
-              <li>Compostera termofílica de tres cámaras</li>
-              <li>Vermicompostaje con lombrices californianas</li>
-              <li>Biodigestor para generación de biogás</li>
-              <li>Talleres semanales de compostaje doméstico</li>
+              <li>{t('greenroof.features.compost.feature1')}</li>
+              <li>{t('greenroof.features.compost.feature2')}</li>
+              <li>{t('greenroof.features.compost.feature3')}</li>
+              <li>{t('greenroof.features.compost.feature4')}</li>
             </ul>
           </div>
         </div>
@@ -192,18 +177,15 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-solar">🌅</span>
-        Un Día en la Azotea Verde
+        {t('greenroof.dailylife.title')}
       </h2>
       <div class="timeline">
         <div class="timeline-item">
           <div class="time-marker">6:00 AM</div>
           <div class="timeline-content">
-            <h3>Amanecer Solar</h3>
+            <h3>{t('greenroof.dailylife.6am.title')}</h3>
             <p>
-              Los primeros rayos del sol activan automáticamente el sistema de
-              riego por goteo. Los madrugadores llegan para el "Ritual del
-              Amanecer": yoga, meditación y revisión de las plantas antes de
-              comenzar el día.
+              {t('greenroof.dailylife.6am.description')}
             </p>
           </div>
         </div>
@@ -211,11 +193,9 @@ if (basePath.endsWith('/')) {
         <div class="timeline-item">
           <div class="time-marker">8:00 AM</div>
           <div class="timeline-content">
-            <h3>Cosecha Matutina</h3>
+            <h3>{t('greenroof.dailylife.8am.title')}</h3>
             <p>
-              Las familias participantes recogen los vegetales frescos para el
-              desayuno. Hermano Compostino suele estar aquí, enseñando sobre los
-              ciclos naturales mientras revuelve el compost.
+              {t('greenroof.dailylife.8am.description')}
             </p>
           </div>
         </div>
@@ -223,11 +203,9 @@ if (basePath.endsWith('/')) {
         <div class="timeline-item">
           <div class="time-marker">12:00 PM</div>
           <div class="timeline-content">
-            <h3>Almuerzo Comunitario</h3>
+            <h3>{t('greenroof.dailylife.12pm.title')}</h3>
             <p>
-              Los miércoles y sábados se organiza un almuerzo comunitario donde
-              todos contribuyen con algo preparado con los ingredientes de la
-              azotea. Es cuando más historias y conocimientos se comparten.
+              {t('greenroof.dailylife.12pm.description')}
             </p>
           </div>
         </div>
@@ -235,12 +213,9 @@ if (basePath.endsWith('/')) {
         <div class="timeline-item">
           <div class="time-marker">4:00 PM</div>
           <div class="timeline-content">
-            <h3>Talleres y Demostraciones</h3>
+            <h3>{t('greenroof.dailylife.4pm.title')}</h3>
             <p>
-              El momento favorito de Hermana Panelia. Aquí demuestra nuevas
-              tecnologías, explica el funcionamiento de los paneles solares y
-              enseña a otros cómo pueden implementar soluciones similares en sus
-              hogares.
+              {t('greenroof.dailylife.4pm.description')}
             </p>
           </div>
         </div>
@@ -248,11 +223,9 @@ if (basePath.endsWith('/')) {
         <div class="timeline-item">
           <div class="time-marker">6:00 PM</div>
           <div class="timeline-content">
-            <h3>Asamblea del Atardecer</h3>
+            <h3>{t('greenroof.dailylife.6pm.title')}</h3>
             <p>
-              Los viernes, la comunidad se reúne para tomar decisiones
-              importantes, planificar proyectos futuros y resolver conflictos de
-              manera colaborativa. Es democracia directa en acción.
+              {t('greenroof.dailylife.6pm.description')}
             </p>
           </div>
         </div>
@@ -260,11 +233,9 @@ if (basePath.endsWith('/')) {
         <div class="timeline-item">
           <div class="time-marker">8:00 PM</div>
           <div class="timeline-content">
-            <h3>Noches de Estrellas</h3>
+            <h3>{t('greenroof.dailylife.8pm.title')}</h3>
             <p>
-              Con la contaminación lumínica reducida gracias al uso inteligente
-              de la energía, las noches en la azotea permiten observar las
-              estrellas mientras se comparten historias y sueños para el futuro.
+              {t('greenroof.dailylife.8pm.description')}
             </p>
           </div>
         </div>
@@ -277,42 +248,38 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-green">📊</span>
-        Impacto Real y Medible
+        {t('greenroof.impact.title')}
       </h2>
       <div class="impact-grid">
         <div class="impact-card">
-          <div class="impact-number">65%</div>
-          <div class="impact-label">Reducción en costos de energía</div>
+          <div class="impact-number">{t('greenroof.impact.energy.number')}</div>
+          <div class="impact-label">{t('greenroof.impact.energy.label')}</div>
           <p>
-            Las familias del edificio han visto una reducción promedio del 65%
-            en sus facturas eléctricas desde la instalación del sistema solar.
+            {t('greenroof.impact.energy.description')}
           </p>
         </div>
 
         <div class="impact-card">
-          <div class="impact-number">2.5 Ton</div>
-          <div class="impact-label">CO₂ evitado mensualmente</div>
+          <div class="impact-number">{t('greenroof.impact.co2.number')}</div>
+          <div class="impact-label">{t('greenroof.impact.co2.label')}</div>
           <p>
-            La combinación de energía solar y compostaje evita la emisión de 2.5
-            toneladas de CO₂ cada mes.
+            {t('greenroof.impact.co2.description')}
           </p>
         </div>
 
         <div class="impact-card">
-          <div class="impact-number">80%</div>
-          <div class="impact-label">Residuos orgánicos procesados</div>
+          <div class="impact-number">{t('greenroof.impact.waste.number')}</div>
+          <div class="impact-label">{t('greenroof.impact.waste.label')}</div>
           <p>
-            El sistema de compostaje procesa el 80% de los residuos orgánicos
-            del barrio, transformándolos en fertilizante natural.
+            {t('greenroof.impact.waste.description')}
           </p>
         </div>
 
         <div class="impact-card">
-          <div class="impact-number">300kg</div>
-          <div class="impact-label">Alimentos frescos al mes</div>
+          <div class="impact-number">{t('greenroof.impact.food.number')}</div>
+          <div class="impact-label">{t('greenroof.impact.food.label')}</div>
           <p>
-            Los jardines urbanos producen 300kg de vegetales y hierbas frescas
-            mensualmente para la comunidad.
+            {t('greenroof.impact.food.description')}
           </p>
         </div>
       </div>
@@ -324,23 +291,21 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-purple">📖</span>
-        Historias de Transformación
+        {t('greenroof.stories.title')}
       </h2>
       <div class="stories-grid">
         <div class="story-card card">
           <div class="story-header">
             <span class="emoji-cutout emoji-lg theme-community">👩‍👧‍👦</span>
-            <h3>La Familia Hernández</h3>
+            <h3>{t('greenroof.stories.hernandez.title')}</h3>
           </div>
           <div class="story-content">
             <p>
-              "Al principio éramos escépticos sobre esto de los paneles
-              solares", cuenta María Hernández. "Pero cuando vimos que nuestra
-              factura de luz bajó de $2,500 a $800 pesos, y además tenemos
-              vegetales frescos cada semana... ya no hay vuelta atrás."
+              {t('greenroof.stories.hernandez.quote')}
             </p>
             <div class="story-impact">
-              <strong>Impacto:</strong> $20,400 pesos ahorrados en el primer año
+              <strong>Impact:</strong>
+              {t('greenroof.stories.hernandez.impact')}
             </div>
           </div>
         </div>
@@ -348,17 +313,15 @@ if (basePath.endsWith('/')) {
         <div class="story-card card">
           <div class="story-header">
             <span class="emoji-cutout emoji-lg theme-green">👨‍🌾</span>
-            <h3>Don Carlos, el Converso</h3>
+            <h3>{t('greenroof.stories.carlos.title')}</h3>
           </div>
           <div class="story-content">
             <p>
-              Ex-escéptico del cambio climático, Don Carlos ahora lidera los
-              talleres de compostaje los sábados. "Compostino me enseñó que
-              'basura' es solo una palabra para cosas que no sabemos aprovechar.
-              Ahora veo oportunidades donde antes veía problemas."
+              {t('greenroof.stories.carlos.quote')}
             </p>
             <div class="story-impact">
-              <strong>Impacto:</strong> 40 familias adoptaron compostaje doméstico
+              <strong>Impact:</strong>
+              {t('greenroof.stories.carlos.impact')}
             </div>
           </div>
         </div>
@@ -366,17 +329,15 @@ if (basePath.endsWith('/')) {
         <div class="story-card card">
           <div class="story-header">
             <span class="emoji-cutout emoji-lg theme-solar">👧</span>
-            <h3>Sofía, de 8 años</h3>
+            <h3>{t('greenroof.stories.sofia.title')}</h3>
           </div>
           <div class="story-content">
             <p>
-              "Me gusta venir aquí porque las plantas me dicen secretos",
-              explica Sofía mientras riega sus tomates cherry. "Y cuando crezca,
-              voy a hacer una azotea así en toda la ciudad."
+              {t('greenroof.stories.sofia.quote')}
             </p>
             <div class="story-impact">
-              <strong>Impacto:</strong> 25 niños participan en programas educativos
-              semanales
+              <strong>Impact:</strong>
+              {t('greenroof.stories.sofia.impact')}
             </div>
           </div>
         </div>
@@ -390,30 +351,26 @@ if (basePath.endsWith('/')) {
       <div class="future-content">
         <h2>
           <span class="emoji-cutout emoji-md theme-solar">🚀</span>
-          La Semilla del Futuro
+          {t('greenroof.future.title')}
         </h2>
         <p class="future-description">
-          La Azotea Verde de Neo-Cuernavaca no es un destino, sino un punto de
-          partida. Es la prueba viviente de que otro mundo es posible: uno donde
-          la tecnología sirve a la vida, donde la comunidad prospera sin
-          destruir el planeta, y donde cada persona puede ser protagonista del
-          cambio que quiere ver.
+          {t('greenroof.future.description')}
         </p>
         <div class="future-goals">
           <div class="goal-item">
             <span class="emoji-cutout emoji-md theme-green">🌱</span>
-            <h3>Red de 100 Azoteas</h3>
-            <p>Replicar el modelo en toda la ciudad para 2027</p>
+            <h3>{t('greenroof.future.goal1.title')}</h3>
+            <p>{t('greenroof.future.goal1.description')}</p>
           </div>
           <div class="goal-item">
             <span class="emoji-cutout emoji-md theme-solar">⚡</span>
-            <h3>Independencia Energética</h3>
-            <p>Barrio 100% autoabastecido con renovables para 2026</p>
+            <h3>{t('greenroof.future.goal2.title')}</h3>
+            <p>{t('greenroof.future.goal2.description')}</p>
           </div>
           <div class="goal-item">
             <span class="emoji-cutout emoji-md theme-community">🤝</span>
-            <h3>Modelo Exportable</h3>
-            <p>Guías y recursos disponibles para cualquier comunidad</p>
+            <h3>{t('greenroof.future.goal3.title')}</h3>
+            <p>{t('greenroof.future.goal3.description')}</p>
           </div>
         </div>
       </div>
@@ -424,13 +381,13 @@ if (basePath.endsWith('/')) {
   <section class="location-navigation">
     <div class="container">
       <div class="nav-buttons">
-        <a href={`${basePath}/mundo/`} class="btn btn-secondary">
+        <a href={`${basePath}/en/world/`} class="btn btn-secondary">
           <span class="emoji-cutout emoji-sm">🌍</span>
-          Volver al Mundo
+          {t('greenroof.nav.back')}
         </a>
         <a href={`${basePath}/en/characters/`} class="btn btn-primary">
           <span class="emoji-cutout emoji-sm">👥</span>
-          Conocer a los Personajes
+          {t('greenroof.nav.characters')}
         </a>
       </div>
     </div>

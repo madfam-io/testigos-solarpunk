@@ -3,7 +3,11 @@
 import UnderConstructionModal from '../components/UnderConstructionModal.astro';
 import ThemeSelector from '../components/ThemeSelector.astro';
 import LanguageSelector from '../components/LanguageSelector.astro';
-import { detectLanguage, useTranslations } from '@/i18n/config';
+import {
+  detectLanguage,
+  useTranslations,
+  getLocalizedPath,
+} from '@/i18n/config';
 import '../styles/critical.css';
 import '../styles/emoji-magazine-cutout.css';
 import '../styles/magazine-cutout-cards.css';
@@ -50,12 +54,13 @@ const currentLang = detectLanguage(currentPath);
 // Get translation function for current language
 const t = useTranslations(currentLang);
 
-// Helper function to generate language-aware URLs
+// Helper function to generate language-aware URLs with proper route translation
 const getLangPath = (path: string): string => {
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  // Always prepend the current language to the path
-  return `${basePath}/${currentLang}/${cleanPath}`;
+  // Use the proper localized path function that translates routes
+  const localizedPath = getLocalizedPath(cleanPath, currentLang);
+  return `${basePath}${localizedPath}`;
 };
 ---
 
