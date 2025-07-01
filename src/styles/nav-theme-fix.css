@@ -41,4 +41,10 @@
   align-items: center;
   gap: var(--space-sm, 0.5rem);
   z-index: 100;
+  transition: gap 0.3s ease;
+}
+
+/* Compact navigation state adjustments */
+.nav-compact .nav-actions {
+  gap: var(--space-xs, 0.25rem);
 }

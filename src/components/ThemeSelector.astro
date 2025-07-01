@@ -222,6 +222,21 @@ const t = useTranslations(lang);
     transform: scale(0.5) rotate(180deg);
   }
 
+  /* Compact navigation state */
+  :global(.nav-compact) .theme-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-width: 2px;
+  }
+
+  :global(.nav-compact) .theme-icon {
+    font-size: 1.125rem;
+  }
+
+  :global(.nav-compact) .theme-selector {
+    margin-bottom: 6px; /* Reduced space for indicator dots */
+  }
+
   /* Show only active theme icon with smooth transitions */
   :root[data-theme-selection='light'] .theme-icon--light,
   :root[data-theme-selection='dark'] .theme-icon--dark,
@@ -296,6 +311,44 @@ const t = useTranslations(lang);
     .theme-btn:hover {
       background: var(--bg-elevated);
     }
+  }
+
+  /* Visual indicator dots */
+  .theme-indicator {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  :global(.nav-compact) .theme-indicator {
+    bottom: -6px;
+    gap: 3px;
+  }
+
+  .indicator-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-subtle);
+    transition: all 0.3s ease;
+  }
+
+  :global(.nav-compact) .indicator-dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  /* Active indicator dot */
+  :root[data-theme-selection='light'] .indicator-dot--light,
+  :root[data-theme-selection='dark'] .indicator-dot--dark,
+  :root[data-theme-selection='auto'] .indicator-dot--auto {
+    background: var(--madfam-yellow);
+    box-shadow: 0 0 6px var(--madfam-yellow);
   }
 
   /* Dark theme specific adjustments */

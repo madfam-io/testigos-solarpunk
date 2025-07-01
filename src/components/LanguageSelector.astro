@@ -217,6 +217,31 @@ const alternateUrls = Object.keys(languages).map((lang) => {
     margin-top: 0.125rem;
   }
 
+  /* Compact navigation state adjustments */
+  :global(.nav-compact) .language-option {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.625rem;
+  }
+
+  :global(.nav-compact) .language-selector--compact .language-option {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  :global(.nav-compact) .language-code {
+    font-size: 0.625rem;
+  }
+
+  :global(.nav-compact) .language-label {
+    font-size: 0.5rem;
+  }
+
+  :global(.nav-compact) .language-toggle-group {
+    padding: 0.25rem;
+    gap: 0.125rem;
+  }
+
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .language-toggle-group,
