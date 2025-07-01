@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
+// import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -65,20 +65,21 @@ export default defineConfig({
 
   // Integrations
   integrations: [
-    // Generate automatic sitemap with i18n support
-    sitemap({
-      filter: (page) => !page.includes('404'),
-      changefreq: 'weekly',
-      priority: 0.7,
-      lastmod: new Date(),
-      i18n: {
-        defaultLocale: 'es',
-        locales: {
-          es: 'es-MX',
-          en: 'en-US',
-        },
-      },
-    }),
+    // Sitemap temporarily disabled to reduce bundle size
+    // TODO: Re-enable after bundle optimization
+    // sitemap({
+    //   filter: (page) => !page.includes('404'),
+    //   changefreq: 'weekly',
+    //   priority: 0.7,
+    //   lastmod: new Date(),
+    //   i18n: {
+    //     defaultLocale: 'es',
+    //     locales: {
+    //       es: 'es-MX',
+    //       en: 'en-US',
+    //     },
+    //   },
+    // }),
   ],
 
   // Build configuration optimized for performance
@@ -104,14 +105,28 @@ export default defineConfig({
     build: {
       // Enable CSS code splitting for better caching
       cssCodeSplit: true,
-      // Enable minification for smaller bundles (using esbuild default)
-      minify: true,
+      // Enable minification for smaller bundles
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+          pure_funcs: ['console.log', 'console.info', 'console.debug'],
+        },
+        mangle: true,
+        format: {
+          comments: false,
+        },
+      },
       // Configure manual chunks for better caching
       rollupOptions: {
         output: {
           assetFileNames: '_assets/[name].[hash][extname]',
           chunkFileNames: '_assets/chunks/[name].[hash].js',
           entryFileNames: '_assets/[name].[hash].js',
+          manualChunks: {
+            'theme': ['/src/utils/theme-manager.ts'],
+          },
         },
       },
     },
