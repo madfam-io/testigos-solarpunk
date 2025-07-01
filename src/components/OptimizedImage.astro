@@ -1,0 +1,331 @@
+---
+/**
+ * Optimized Image Component - Testigos de Solarpunk
+ * Enterprise-grade performance image component with magazine cutout aesthetic
+ *
+ * @component OptimizedImage
+ * @description High-performance image component with automatic format optimization
+ * @author MADFAM
+ * @version 0.3.0+performance
+ */
+
+import { Image } from 'astro:assets';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'img'> {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  quality?: number;
+  format?: 'webp' | 'avif' | 'jpeg' | 'png';
+  class?: string;
+  // Magazine cutout specific props
+  cutoutStyle?: 'emoji-sm' | 'emoji-md' | 'emoji-lg' | 'emoji-xl';
+  theme?: 'solar' | 'green' | 'purple' | 'community';
+  context?: 'nav' | 'hero' | 'card' | 'button';
+  interactive?: boolean;
+  flutter?: boolean;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  sizes = `(max-width: 768px) ${Math.round(width * 0.8)}px, ${width}px`,
+  loading = 'lazy',
+  quality = 85,
+  format = 'webp',
+  class: className = '',
+  cutoutStyle = 'emoji-md',
+  theme,
+  context,
+  interactive = false,
+  flutter = false,
+  ...attrs
+} = Astro.props;
+
+// Generate responsive sizes for srcset
+const responsiveSizes = [
+  Math.round(width * 0.5), // 50%
+  Math.round(width * 0.8), // 80%
+  width, // 100%
+  Math.round(width * 1.5), // 150% for high-DPI
+].filter((size, index, array) => array.indexOf(size) === index); // Remove duplicates
+
+// CSS class construction
+const cssClasses = [
+  'optimized-image',
+  `emoji-cutout ${cutoutStyle}`,
+  theme ? `theme-${theme}` : '',
+  context ? `emoji-${context}` : '',
+  interactive ? 'interactive' : '',
+  flutter ? 'flutter' : '',
+  className,
+]
+  .filter((cls) => cls !== '')
+  .join(' ');
+
+// Aesthetic properties for magazine cutout effect
+const aesthetic = {
+  rotation: Math.random() * 6 - 3, // -3 to 3 degrees
+  translateX: Math.random() * 3 - 1.5, // -1.5 to 1.5 pixels
+  translateY: Math.random() * 3 - 1.5, // -1.5 to 1.5 pixels
+  hasDecorations: Math.random() > 0.6, // 40% chance of tape
+};
+
+const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.translateX}px, ${aesthetic.translateY}px)`;
+---
+
+<div
+  class="optimized-image-wrapper"
+  style={`--magazine-transform: ${transform}; --magazine-rotation: ${aesthetic.rotation}deg;`}
+  data-optimized-image
+>
+  <div class="optimized-image-inner">
+    <!-- Use Astro's Image component for automatic optimization -->
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      widths={responsiveSizes}
+      sizes={sizes}
+      loading={loading}
+      quality={quality}
+      format={format}
+      class:list={cssClasses}
+      {...attrs}
+    />
+  </div>
+
+  <!-- Magazine cutout decorations -->
+  {
+    aesthetic.hasDecorations && (
+      <>
+        <div
+          class="tape tape-1"
+          style={`--tape-rotation: ${Math.random() * 30 - 15}deg;`}
+        />
+        <div
+          class="tape tape-2"
+          style={`--tape-rotation: ${Math.random() * 30 - 15}deg;`}
+        />
+      </>
+    )
+  }
+</div>
+
+<style>
+  .optimized-image-wrapper {
+    position: relative;
+    display: inline-block;
+    transform: var(--magazine-transform);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.15));
+  }
+
+  .optimized-image-wrapper:hover {
+    transform: rotate(calc(var(--magazine-rotation) * 0.4)) translate(0, -2px);
+    filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.2));
+  }
+
+  .optimized-image-inner {
+    position: relative;
+    background: linear-gradient(135deg, #f4e5d3 0%, #e8d5b7 50%, #d4c5a0 100%);
+    padding: 0.4rem;
+    border-radius: 2px;
+
+    /* Paper texture effect */
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.1) 1px,
+      rgba(255, 255, 255, 0.1) 2px
+    );
+
+    /* Multiple shadows for depth */
+    box-shadow:
+      0 3px 6px rgba(0, 0, 0, 0.12),
+      inset 0 1px 2px rgba(255, 255, 255, 0.3),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .optimized-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1px;
+
+    /* Torn edge effect using simplified clip-path for performance */
+    clip-path: polygon(
+      2% 0%,
+      98% 1%,
+      100% 7%,
+      98% 93%,
+      100% 99%,
+      93% 100%,
+      7% 99%,
+      0% 93%,
+      2% 7%
+    );
+
+    /* Vintage filter for authenticity */
+    filter: sepia(0.15) contrast(1.03) brightness(1.01) saturate(0.97);
+
+    /* Performance optimizations */
+    will-change: transform, filter;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Tape decorations */
+  .tape {
+    position: absolute;
+    background: linear-gradient(
+      45deg,
+      transparent 15%,
+      rgba(245, 222, 179, 0.85) 15%,
+      rgba(245, 222, 179, 0.85) 85%,
+      transparent 85%
+    );
+    width: 60px;
+    height: 20px;
+    transform: rotate(var(--tape-rotation));
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15));
+    z-index: 2;
+    pointer-events: none;
+
+    /* Tape texture */
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.1) 2px,
+      rgba(255, 255, 255, 0.1) 3px
+    );
+  }
+
+  .tape-1 {
+    top: -10px;
+    left: 15%;
+  }
+
+  .tape-2 {
+    bottom: -10px;
+    right: 20%;
+  }
+
+  /* Enhanced hover effects */
+  .optimized-image-wrapper:hover .optimized-image {
+    filter: sepia(0.1) contrast(1.05) brightness(1.02) saturate(1.0);
+  }
+
+  .optimized-image-wrapper:hover .tape {
+    transform: rotate(calc(var(--tape-rotation) * 0.8)) scale(1.01);
+  }
+
+  /* Interactive variant */
+  .optimized-image-wrapper.interactive {
+    cursor: pointer;
+  }
+
+  .optimized-image-wrapper.interactive:active {
+    transform: rotate(calc(var(--magazine-rotation) * 0.9)) translate(1px, 1px)
+      scale(0.98);
+  }
+
+  /* Flutter animation */
+  .optimized-image-wrapper.flutter {
+    animation: paperFloat 4s ease-in-out infinite;
+  }
+
+  @keyframes paperFloat {
+    0%,
+    100% {
+      transform: var(--magazine-transform) translateY(0px);
+    }
+    25% {
+      transform: var(--magazine-transform) translateY(-1px) rotate(0.2deg);
+    }
+    75% {
+      transform: var(--magazine-transform) translateY(-2px) rotate(-0.2deg);
+    }
+  }
+
+  /* Responsive optimizations */
+  @media (max-width: 768px) {
+    .optimized-image-wrapper {
+      filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.12));
+    }
+
+    .tape {
+      width: 45px;
+      height: 16px;
+    }
+
+    /* Simplified clip-path for mobile performance */
+    .optimized-image {
+      clip-path: polygon(
+        1% 0%,
+        99% 1%,
+        100% 5%,
+        99% 95%,
+        100% 99%,
+        95% 100%,
+        5% 99%,
+        0% 95%,
+        1% 5%
+      );
+    }
+  }
+
+  /* Performance optimizations for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .optimized-image-wrapper,
+    .optimized-image-wrapper:hover,
+    .tape,
+    .optimized-image-wrapper.flutter {
+      animation: none;
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .optimized-image {
+      filter: none;
+      border: 2px solid currentColor;
+      clip-path: none;
+      border-radius: 4px;
+    }
+
+    .tape {
+      background: currentColor;
+      opacity: 0.3;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .optimized-image-wrapper {
+      filter: none;
+      transform: none;
+    }
+
+    .optimized-image {
+      filter: none;
+      clip-path: none;
+    }
+
+    .tape {
+      display: none;
+    }
+  }
+</style>

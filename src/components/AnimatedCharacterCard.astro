@@ -239,25 +239,68 @@ const fraseAleatoria =
     transform: translate(-50%, -50%);
     width: 150px;
     height: 150px;
-    border-radius: 50%;
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
+    /* Organic mystical shape instead of circle */
+    clip-path: polygon(
+      50% 0%,
+      75% 10%,
+      90% 30%,
+      95% 50%,
+      85% 75%,
+      65% 90%,
+      40% 95%,
+      20% 85%,
+      5% 65%,
+      0% 40%,
+      10% 20%,
+      30% 5%
+    );
+    filter: blur(20px);
   }
 
   /* Activate halo with pulsing animation on hover */
   .animated-character-card:hover .character-halo {
     opacity: 0.5;
-    animation: pulse-glow 2s infinite;
+    animation: organic-morph 4s ease-in-out infinite;
   }
 
-  @keyframes pulse-glow {
+  @keyframes organic-morph {
     0%,
     100% {
       transform: translate(-50%, -50%) scale(1);
+      clip-path: polygon(
+        50% 0%,
+        75% 10%,
+        90% 30%,
+        95% 50%,
+        85% 75%,
+        65% 90%,
+        40% 95%,
+        20% 85%,
+        5% 65%,
+        0% 40%,
+        10% 20%,
+        30% 5%
+      );
     }
     50% {
-      transform: translate(-50%, -50%) scale(1.2);
+      transform: translate(-50%, -50%) scale(1.15);
+      clip-path: polygon(
+        45% 5%,
+        70% 0%,
+        95% 25%,
+        100% 45%,
+        90% 70%,
+        70% 95%,
+        45% 100%,
+        25% 90%,
+        0% 70%,
+        5% 45%,
+        15% 25%,
+        25% 10%
+      );
     }
   }
 

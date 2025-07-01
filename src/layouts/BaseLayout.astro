@@ -4,9 +4,11 @@ import UnderConstructionModal from '../components/UnderConstructionModal.astro';
 import ThemeSelector from '../components/ThemeSelector.astro';
 import LanguageSelector from '../components/LanguageSelector.astro';
 import { detectLanguage } from '@/i18n/config';
+import '../styles/critical.css';
 import '../styles/emoji-magazine-cutout.css';
 import '../styles/magazine-cutout-cards.css';
 import '../styles/newspaper-background.css';
+import '../styles/magazine-cutout-utilities.css';
 
 export interface Props {
   title: string;
@@ -44,6 +46,14 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
 
 // Detect current language from path
 const currentLang = detectLanguage(currentPath);
+
+// Helper function to generate language-aware URLs
+const getLangPath = (path: string): string => {
+  // Remove leading slash if present
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  // Always prepend the current language to the path
+  return `${basePath}/${currentLang}/${cleanPath}`;
+};
 ---
 
 <!doctype html>
@@ -195,6 +205,36 @@ const currentLang = detectLanguage(currentPath);
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
+    <!-- Optimized Font Loading with font-display: swap -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+      />
+    </noscript>
+
+    <!-- Preload critical font files for even faster loading -->
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjg.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDTbtXK-F2qO0isEw.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <!-- JSON-LD Structured Data -->
     <script
       type="application/ld+json"
@@ -222,15 +262,30 @@ const currentLang = detectLanguage(currentPath);
   </head>
   <body>
     <!-- Skip Links for Accessibility -->
-    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-    <a href="#nav-menu" class="skip-link">Saltar al menú de navegación</a>
+    <a href="#main-content" class="skip-link">
+      {currentLang === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
+    </a>
+    <a href="#nav-menu" class="skip-link">
+      {currentLang === 'es' ? 'Saltar al menú de navegación' : 'Skip to navigation menu'}
+    </a>
+    <a href="#footer" class="skip-link">
+      {currentLang === 'es' ? 'Saltar al pie de página' : 'Skip to footer'}
+    </a>
+
+    <!-- Live region for screen reader announcements -->
+    <div
+      id="aria-live-region"
+      aria-live="polite"
+      aria-atomic="true"
+      class="sr-only"
+    ></div>
 
     <nav role="navigation" aria-label="Navegación principal">
       <div class="container">
         <div class="nav-brand">
           <a
-            href={`${basePath}/`}
-            class:list={currentPath === '/' ? 'active' : ''}
+            href={getLangPath('')}
+            class:list={currentPath === `/${currentLang}/` || currentPath === '/' ? 'active' : ''}
             aria-label="Testigos de Solarpunk - Ir a la página principal"
           >
             <picture>
@@ -274,15 +329,15 @@ const currentLang = detectLanguage(currentPath);
         <ul class="nav-menu" id="nav-menu" role="menubar">
           <li role="none">
             <a
-              href={`${basePath}/proyecto/`}
-              class:list={currentPath.startsWith('/proyecto') ? 'active' : ''}
+              href={getLangPath('proyecto/')}
+              class:list={currentPath.includes('/proyecto') ? 'active' : ''}
               role="menuitem">El Proyecto</a
             >
           </li>
           <li class="nav-dropdown" role="none">
             <a
-              href={`${basePath}/contenido/`}
-              class:list={currentPath.startsWith('/contenido') ? 'active' : ''}
+              href={getLangPath('contenido/')}
+              class:list={currentPath.includes('/contenido') ? 'active' : ''}
               role="menuitem"
               aria-haspopup="true"
               aria-expanded="false"
@@ -293,23 +348,23 @@ const currentLang = detectLanguage(currentPath);
               role="menu"
               aria-label="Submenu de Contenido"
             >
-              <a href={`${basePath}/contenido/sketches/`} role="menuitem"
+              <a href={getLangPath('contenido/sketches/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🎬</span> Sketches</a
               >
-              <a href={`${basePath}/contenido/podcast/`} role="menuitem"
+              <a href={getLangPath('contenido/podcast/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🎙️</span> Podcast</a
               >
-              <a href={`${basePath}/contenido/madlab/`} role="menuitem"
+              <a href={getLangPath('contenido/madlab/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🔬</span> MADLAB</a
               >
             </div>
           </li>
           <li class="nav-dropdown" role="none">
             <a
-              href={`${basePath}/personajes/`}
-              class:list={currentPath.startsWith('/personajes') ||
-              currentPath.startsWith('/mundo') ||
-              currentPath.startsWith('/guiones')
+              href={getLangPath('personajes/')}
+              class:list={currentPath.includes('/personajes') ||
+              currentPath.includes('/mundo') ||
+              currentPath.includes('/guiones')
                 ? 'active'
                 : ''}
               role="menuitem"
@@ -322,22 +377,22 @@ const currentLang = detectLanguage(currentPath);
               role="menu"
               aria-label="Submenu de Universo"
             >
-              <a href={`${basePath}/personajes/`} role="menuitem"
+              <a href={getLangPath('personajes/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">👥</span> Personajes</a
               >
-              <a href={`${basePath}/mundo/`} role="menuitem"
+              <a href={getLangPath('mundo/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🌍</span> Construcción
                 del Mundo</a
               >
-              <a href={`${basePath}/guiones/`} role="menuitem"
+              <a href={getLangPath('guiones/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">📝</span> Guiones</a
               >
             </div>
           </li>
           <li class="nav-dropdown" role="none">
             <a
-              href={`${basePath}/recursos/`}
-              class:list={currentPath.startsWith('/recursos') ? 'active' : ''}
+              href={getLangPath('recursos/')}
+              class:list={currentPath.includes('/recursos') ? 'active' : ''}
               role="menuitem"
               aria-haspopup="true"
               aria-expanded="false"
@@ -348,28 +403,28 @@ const currentLang = detectLanguage(currentPath);
               role="menu"
               aria-label="Submenu de Recursos"
             >
-              <a href={`${basePath}/recursos/creadores/`} role="menuitem"
+              <a href={getLangPath('recursos/creadores/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🎬</span> Creadores</a
               >
-              <a href={`${basePath}/recursos/actores/`} role="menuitem"
+              <a href={getLangPath('recursos/actores/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🎭</span> Actores</a
               >
-              <a href={`${basePath}/recursos/patrocinadores/`} role="menuitem"
+              <a href={getLangPath('recursos/patrocinadores/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">💼</span> Patrocinadores</a
               >
             </div>
           </li>
           <li role="none">
             <a
-              href={`${basePath}/comunidad/`}
-              class:list={currentPath.startsWith('/comunidad') ? 'active' : ''}
+              href={getLangPath('comunidad/')}
+              class:list={currentPath.includes('/comunidad') ? 'active' : ''}
               role="menuitem">Comunidad</a
             >
           </li>
           <li class="nav-dropdown" role="none">
             <a
-              href={`${basePath}/produccion/`}
-              class:list={currentPath.startsWith('/produccion') ? 'active' : ''}
+              href={getLangPath('produccion/')}
+              class:list={currentPath.includes('/produccion') ? 'active' : ''}
               role="menuitem"
               aria-haspopup="true"
               aria-expanded="false"
@@ -380,25 +435,25 @@ const currentLang = detectLanguage(currentPath);
               role="menu"
               aria-label="Submenu de Producción"
             >
-              <a href={`${basePath}/produccion/estilo-visual/`} role="menuitem"
+              <a href={getLangPath('produccion/estilo-visual/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🎨</span> Estilo Visual</a
               >
-              <a href={`${basePath}/produccion/tono-voz/`} role="menuitem"
+              <a href={getLangPath('produccion/tono-voz/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🗣️</span> Tono de
                 Voz</a
               >
-              <a href={`${basePath}/produccion/audio/`} role="menuitem"
+              <a href={getLangPath('produccion/audio/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🎵</span> Audio</a
               >
-              <a href={`${basePath}/produccion/specs/`} role="menuitem"
+              <a href={getLangPath('produccion/specs/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">📋</span> Especificaciones</a
               >
             </div>
           </li>
           <li role="none">
             <a
-              href={`${basePath}/impacto/`}
-              class:list={currentPath.startsWith('/impacto') ? 'active' : ''}
+              href={getLangPath('impacto/')}
+              class:list={currentPath.includes('/impacto') ? 'active' : ''}
               role="menuitem">Impacto</a
             >
           </li>
@@ -591,25 +646,25 @@ const currentLang = detectLanguage(currentPath);
             <h4>Universo Creativo</h4>
             <ul>
               <li>
-                <a href={`${basePath}/personajes/`}>Biblia de Personajes</a>
+                <a href={getLangPath('personajes/')}>Biblia de Personajes</a>
               </li>
               <li>
-                <a href={`${basePath}/guiones/`}>Repositorio de Guiones</a>
+                <a href={getLangPath('guiones/')}>Repositorio de Guiones</a>
               </li>
-              <li><a href={`${basePath}/mundo/`}>Construcción del Mundo</a></li>
+              <li><a href={getLangPath('mundo/')}>Construcción del Mundo</a></li>
             </ul>
           </div>
           <div>
             <h4>Para Creadores</h4>
             <ul>
-              <li><a href={`${basePath}/recursos/`}>Guías y Plantillas</a></li>
-              <li><a href={`${basePath}/produccion/`}>Guía de Estilo</a></li>
-              <li><a href={`${basePath}/guia-visual/`}>Guía Visual</a></li>
+              <li><a href={getLangPath('recursos/')}>Guías y Plantillas</a></li>
+              <li><a href={getLangPath('produccion/')}>Guía de Estilo</a></li>
+              <li><a href={getLangPath('guia-visual/')}>Guía Visual</a></li>
               <li>
-                <a href={`${basePath}/filosofia/`}>Filosofía del Proyecto</a>
+                <a href={getLangPath('filosofia/')}>Filosofía del Proyecto</a>
               </li>
               <li>
-                <a href={`${basePath}/formatos/`}>Formatos de Contenido</a>
+                <a href={getLangPath('formatos/')}>Formatos de Contenido</a>
               </li>
             </ul>
           </div>
@@ -617,9 +672,9 @@ const currentLang = detectLanguage(currentPath);
             <h4>Conecta</h4>
             <ul>
               <li>
-                <a href={`${basePath}/comunidad/`}>Únete a la Comunidad</a>
+                <a href={getLangPath('comunidad/')}>Únete a la Comunidad</a>
               </li>
-              <li><a href={`${basePath}/impacto/`}>Nuestro Impacto</a></li>
+              <li><a href={getLangPath('impacto/')}>Nuestro Impacto</a></li>
               <li>
                 <a
                   href="https://github.com/madfam-io/testigos-solarpunk"

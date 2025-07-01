@@ -444,10 +444,23 @@ const painPoints = [
   .persona-avatar {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
     overflow: hidden;
     background: var(--fondo-secundario);
     flex-shrink: 0;
+    /* Magazine cutout portrait style */
+    clip-path: polygon(
+      15% 0%,
+      85% 3%,
+      100% 15%,
+      98% 85%,
+      85% 100%,
+      15% 97%,
+      0% 85%,
+      2% 15%
+    );
+    transform: rotate(-3deg);
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+    position: relative;
   }
 
   .persona-info h3 {
@@ -605,7 +618,6 @@ const painPoints = [
   .social-link {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
     background: var(--bg-secondary, #1a1a1b);
     color: var(--text-primary, #ffffff);
     display: flex;
@@ -616,6 +628,13 @@ const painPoints = [
     border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+    
+    /* DIY Magazine Cutout aesthetic for social links */
+    clip-path: polygon(
+      20% 0%, 80% 5%, 95% 20%, 100% 40%, 
+      95% 75%, 85% 95%, 60% 100%, 25% 95%, 
+      5% 80%, 0% 55%, 5% 25%, 15% 5%
+    );
   }
 
   .social-link:hover {

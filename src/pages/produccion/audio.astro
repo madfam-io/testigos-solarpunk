@@ -1136,13 +1136,19 @@ if (basePath.endsWith('/')) {
     padding: var(--espacio-sm) var(--espacio-md);
     background: var(--purpura-creativo);
     color: var(--text-on-accent, #000000);
-    border-radius: 50%;
     font-weight: 500;
     font-size: 0.9rem;
     min-width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    /* DIY Magazine Cutout aesthetic for musical notes */
+    clip-path: polygon(
+      25% 0%, 75% 5%, 90% 20%, 95% 45%, 
+      100% 70%, 85% 90%, 60% 95%, 30% 100%, 
+      10% 85%, 0% 60%, 5% 35%, 15% 15%
+    );
   }
 
   /* Soundscapes section */

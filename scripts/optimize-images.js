@@ -15,7 +15,7 @@
  */
 
 import sharp from 'sharp';
-import { globby } from 'globby';
+import globby from 'globby';
 import path from 'path';
 import fs from 'fs/promises';
 import { fileURLToPath } from 'url';

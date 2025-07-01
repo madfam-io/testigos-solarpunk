@@ -374,10 +374,37 @@ if (basePath.endsWith('/')) {
   .color-swatch {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
     margin: 0 auto var(--espacio-md);
-    border: 3px solid white;
+    border: 3px solid var(--bg-primary, white);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    /* DIY Magazine Cutout aesthetic */
+    clip-path: polygon(
+      10% 2%, 88% 0%, 98% 12%, 100% 35%, 
+      95% 65%, 100% 88%, 85% 98%, 60% 95%, 
+      35% 100%, 12% 95%, 0% 75%, 5% 45%, 
+      0% 15%, 15% 5%
+    );
+    
+    /* Paper texture overlay */
+    position: relative;
+  }
+  
+  .color-swatch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.05) 1px,
+      rgba(255, 255, 255, 0.05) 2px
+    );
+    clip-path: inherit;
   }
 
   .color-card h3 {
@@ -594,9 +621,15 @@ if (basePath.endsWith('/')) {
   .mood-color {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
     border: 2px solid white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* DIY Magazine Cutout aesthetic */
+    clip-path: polygon(
+      15% 0%, 85% 5%, 95% 25%, 100% 60%, 
+      90% 85%, 70% 95%, 30% 100%, 10% 80%, 
+      0% 50%, 5% 20%
+    );
   }
 
   .tokens-section {

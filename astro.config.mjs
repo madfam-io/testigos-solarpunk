@@ -36,23 +36,23 @@ export default defineConfig({
     }),
   ],
 
-  // Build configuration (simplified to reduce bundle size)
+  // Build configuration optimized for performance
   build: {
     // Optimize asset file names
     assets: '_assets',
-    // Disable inline stylesheets to reduce bundle size
-    inlineStylesheets: 'never',
+    // Enable inline stylesheets for critical CSS
+    inlineStylesheets: 'auto',
   },
 
-  // Image optimization configuration (disabled to reduce bundle size)
-  // image: {
-  //   service: {
-  //     entrypoint: 'astro/assets/services/sharp',
-  //     config: {
-  //       limitInputPixels: false,
-  //     },
-  //   },
-  // },
+  // Image optimization configuration with Sharp
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        limitInputPixels: false,
+      },
+    },
+  },
 
   // Vite configuration
   vite: {

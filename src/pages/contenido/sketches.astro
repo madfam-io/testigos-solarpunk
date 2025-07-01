@@ -384,13 +384,30 @@ const sketches = [
   .play-btn {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
     background: var(--amarillo-solar);
     color: var(--text-on-accent, #000000);
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
     transition: transform 0.3s ease;
+    
+    /* DIY Magazine Cutout aesthetic */
+    clip-path: polygon(
+      8% 0%, 92% 0%, 100% 15%, 97% 45%, 
+      100% 70%, 85% 100%, 15% 100%, 
+      0% 85%, 3% 55%, 0% 30%
+    );
+    
+    /* Paper texture */
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 1px,
+        rgba(255, 255, 255, 0.03) 1px,
+        rgba(255, 255, 255, 0.03) 2px
+      );
   }
 
   .play-btn:hover {

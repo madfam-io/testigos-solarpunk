@@ -1,0 +1,424 @@
+---
+/**
+ * Error Boundary Component - Testigos de Solarpunk
+ * Enterprise-grade error handling with magazine cutout aesthetic
+ *
+ * @component ErrorBoundary
+ * @description Graceful error handling with user-friendly fallbacks
+ * @author MADFAM
+ * @version 0.3.0+enterprise
+ */
+
+import { useTranslations } from '@/i18n/config';
+import type { Language } from '@/i18n/config';
+
+interface Props {
+  lang?: Language;
+  fallbackMessage?: string;
+  showDetails?: boolean;
+}
+
+const {
+  lang = 'es',
+  fallbackMessage,
+  showDetails = false,
+} = Astro.props;
+
+const defaultMessage = fallbackMessage ?? (lang === 'es' 
+  ? 'Ups, algo salió mal. Nuestros evangelistas solares están trabajando para solucionarlo.'
+  : 'Oops, something went wrong. Our solar evangelists are working to fix it.');
+---
+
+<div class="error-boundary" role="alert" aria-live="assertive">
+  <div class="error-content">
+    <!-- Error icon with magazine cutout style -->
+    <div class="error-icon">
+      <span class="emoji-cutout emoji-xl theme-solar flutter" role="img" aria-label="Warning">⚠️</span>
+    </div>
+    
+    <h2 class="error-title">
+      {lang === 'es' ? 'Error del Sistema' : 'System Error'}
+    </h2>
+    
+    <p class="error-message" id="error-message">
+      {defaultMessage}
+    </p>
+    
+    <div class="error-actions">
+      <button 
+        class="magazine-btn primary" 
+        onclick="window.location.reload()"
+        aria-label={lang === 'es' ? 'Recargar página' : 'Reload page'}
+      >
+        <span class="emoji-cutout emoji-button emoji-sm theme-solar">🔄</span>
+        {lang === 'es' ? 'Intentar de nuevo' : 'Try again'}
+      </button>
+      
+      <a 
+        href={lang === 'es' ? '/es/' : '/en/'} 
+        class="magazine-btn secondary"
+        aria-label={lang === 'es' ? 'Ir al inicio' : 'Go to home'}
+      >
+        <span class="emoji-cutout emoji-button emoji-sm theme-green">🏠</span>
+        {lang === 'es' ? 'Ir al inicio' : 'Go home'}
+      </a>
+    </div>
+    
+    {showDetails && (
+      <details class="error-details">
+        <summary>{lang === 'es' ? 'Detalles técnicos' : 'Technical details'}</summary>
+        <pre id="error-stack"></pre>
+      </details>
+    )}
+  </div>
+</div>
+
+<script>
+  /**
+   * Enhanced error boundary with client-side error handling
+   */
+  class ErrorBoundaryManager {
+    private static instance: ErrorBoundaryManager;
+    private errorCount = 0;
+    private maxErrors = 5;
+    
+    static getInstance(): ErrorBoundaryManager {
+      if (!ErrorBoundaryManager.instance) {
+        ErrorBoundaryManager.instance = new ErrorBoundaryManager();
+      }
+      return ErrorBoundaryManager.instance;
+    }
+    
+    init(): void {
+      // Global error handler
+      window.addEventListener('error', (event) => {
+        this.handleError(event.error, event.filename, event.lineno);
+      });
+      
+      // Unhandled promise rejection handler
+      window.addEventListener('unhandledrejection', (event) => {
+        this.handleError(event.reason, 'Promise rejection');
+      });
+      
+      // Network error handler
+      window.addEventListener('offline', () => {
+        this.handleNetworkError();
+      });
+      
+      // Resource loading error handler
+      document.addEventListener('error', (event) => {
+        if (event.target && event.target !== window) {
+          this.handleResourceError(event.target as HTMLElement);
+        }
+      }, true);
+    }
+    
+    handleError(error: Error | string, source?: string, line?: number): void {
+      this.errorCount++;
+      
+      // Prevent error loops
+      if (this.errorCount > this.maxErrors) {
+        console.error('Too many errors, stopping error handling');
+        return;
+      }
+      
+      const errorMessage = typeof error === 'string' ? error : error.message;
+      const errorStack = typeof error === 'object' && error.stack ? error.stack : '';
+      
+      // Update error display
+      this.updateErrorDisplay(errorMessage, errorStack, source, line);
+      
+      // Send telemetry if available
+      this.sendErrorTelemetry(errorMessage, errorStack, source, line);
+      
+      console.error('Error caught by boundary:', {
+        message: errorMessage,
+        source,
+        line,
+        stack: errorStack,
+      });
+    }
+    
+    handleNetworkError(): void {
+      const errorBoundary = document.querySelector('.error-boundary');
+      if (errorBoundary) {
+        const message = document.getElementById('error-message');
+        if (message) {
+          const lang = document.documentElement.lang.startsWith('es') ? 'es' : 'en';
+          message.textContent = lang === 'es' 
+            ? 'Sin conexión a internet. Revisa tu conexión y vuelve a intentar.'
+            : 'No internet connection. Please check your connection and try again.';
+        }
+      }
+    }
+    
+    handleResourceError(element: HTMLElement): void {
+      if (element.tagName === 'IMG') {
+        const img = element as HTMLImageElement;
+        // Try to fallback to a default image
+        if (!img.src.includes('placeholder')) {
+          img.src = '/images/placeholder.jpg';
+          img.alt = 'Image not available';
+        }
+      } else if (element.tagName === 'SCRIPT') {
+        console.warn('Script failed to load:', element.getAttribute('src'));
+      }
+    }
+    
+    updateErrorDisplay(message: string, stack: string, source?: string, line?: number): void {
+      const errorMessage = document.getElementById('error-message');
+      const errorStack = document.getElementById('error-stack');
+      
+      if (errorMessage) {
+        errorMessage.textContent = message;
+      }
+      
+      if (errorStack && stack) {
+        errorStack.textContent = `${stack}\n\nSource: ${source || 'Unknown'}\nLine: ${line || 'Unknown'}`;
+      }
+    }
+    
+    sendErrorTelemetry(message: string, stack: string, source?: string, line?: number): void {
+      // Only in production and if telemetry is enabled
+      if (import.meta.env.PROD && window.navigator.sendBeacon) {
+        const errorData = {
+          message,
+          stack,
+          source,
+          line,
+          url: window.location.href,
+          userAgent: navigator.userAgent,
+          timestamp: new Date().toISOString(),
+        };
+        
+        try {
+          // Send to error tracking service (implement as needed)
+          // navigator.sendBeacon('/api/errors', JSON.stringify(errorData));
+          console.log('Error telemetry:', errorData);
+        } catch (e) {
+          console.warn('Failed to send error telemetry:', e);
+        }
+      }
+    }
+    
+    reset(): void {
+      this.errorCount = 0;
+    }
+  }
+  
+  // Initialize error boundary
+  document.addEventListener('DOMContentLoaded', () => {
+    ErrorBoundaryManager.getInstance().init();
+  });
+  
+  // Export for manual error reporting
+  (window as any).reportError = (error: Error | string) => {
+    ErrorBoundaryManager.getInstance().handleError(error);
+  };
+</script>
+
+<style>
+  .error-boundary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    padding: var(--space-xl);
+    background: linear-gradient(
+      135deg,
+      var(--bg-secondary) 0%,
+      var(--bg-tertiary) 100%
+    );
+  }
+  
+  .error-content {
+    max-width: 600px;
+    text-align: center;
+    background: var(--bg-primary);
+    padding: var(--space-xxl);
+    border-radius: 12px;
+    box-shadow: 
+      0 10px 25px rgba(0, 0, 0, 0.15),
+      0 5px 10px rgba(0, 0, 0, 0.1);
+    
+    /* Magazine cutout effect */
+    position: relative;
+    transform: rotate(-1deg);
+    
+    /* Paper texture */
+    background-image: 
+      radial-gradient(circle at 20% 50%, transparent 20%, rgba(255, 255, 255, 0.03) 21%),
+      linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%);
+  }
+  
+  .error-content::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 10%;
+    width: 60px;
+    height: 20px;
+    background: var(--tape-color, rgba(255, 193, 7, 0.8));
+    transform: rotate(-15deg);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-content::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 15%;
+    width: 60px;
+    height: 20px;
+    background: var(--tape-color, rgba(255, 193, 7, 0.8));
+    transform: rotate(15deg);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-icon {
+    margin-bottom: var(--space-lg);
+  }
+  
+  .error-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .error-message {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .error-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .magazine-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--bg-primary);
+    border: 3px solid currentColor;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    transition: all 0.3s ease;
+    transform: rotate(-1deg);
+    box-shadow: 3px 3px 0 currentColor;
+    cursor: pointer;
+    font-size: 0.875rem;
+  }
+  
+  .magazine-btn.primary {
+    color: var(--madfam-yellow);
+  }
+  
+  .magazine-btn.secondary {
+    color: var(--madfam-green);
+  }
+  
+  .magazine-btn:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow: 4px 4px 0 currentColor;
+  }
+  
+  .magazine-btn:focus {
+    outline: 3px solid var(--madfam-yellow);
+    outline-offset: 3px;
+  }
+  
+  .error-details {
+    text-align: left;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+  
+  .error-details summary {
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--text-secondary);
+  }
+  
+  .error-details pre {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .error-boundary {
+      min-height: 60vh;
+      padding: var(--space-md);
+    }
+    
+    .error-content {
+      padding: var(--space-xl);
+    }
+    
+    .error-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .magazine-btn {
+      width: 100%;
+      max-width: 250px;
+      justify-content: center;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .error-content {
+      transform: none;
+    }
+    
+    .magazine-btn {
+      transform: none;
+      transition: none;
+    }
+    
+    .magazine-btn:hover {
+      transform: none;
+    }
+  }
+  
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .error-content {
+      border: 3px solid currentColor;
+      background: var(--bg-primary);
+    }
+    
+    .magazine-btn {
+      border-width: 4px;
+    }
+  }
+  
+  /* Dark theme adjustments */
+  [data-theme='dark'] .error-content::before,
+  [data-theme='dark'] .error-content::after {
+    background: var(--tape-color, rgba(255, 213, 79, 0.8));
+  }
+</style>

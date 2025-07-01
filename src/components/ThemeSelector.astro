@@ -30,7 +30,7 @@ const {
   {...attrs}
 >
   <button
-    class="theme-btn emoji-cutout"
+    class="theme-btn emoji-cutout cutout-button"
     aria-label="Toggle theme"
     title="Switch between light, dark, and auto themes"
     data-theme-toggle
@@ -147,7 +147,6 @@ const {
     /* Base button styles */
     background: transparent;
     border: 3px solid var(--madfam-yellow, #ffc107);
-    border-radius: 50%;
     width: 3rem;
     height: 3rem;
     display: flex;
@@ -156,12 +155,6 @@ const {
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
-
-    /* Magazine cutout effect */
-    transform: rotate(-2deg);
-    box-shadow:
-      3px 3px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
-      0 0 0 2px var(--tape-color, rgba(255, 193, 7, 0.7)) inset;
 
     /* Paper texture from existing magazine cutout system */
     background: radial-gradient(
@@ -339,11 +332,21 @@ const {
   .indicator-dot {
     width: 8px;
     height: 8px;
-    border-radius: 50%;
     background: var(--text-disabled, rgba(255, 255, 255, 0.38));
     transition: all 0.3s ease;
     opacity: 0.5;
     border: 1px solid transparent;
+    /* Apply cutout dot style */
+    clip-path: polygon(
+      30% 0%,
+      70% 5%,
+      100% 35%,
+      95% 70%,
+      65% 100%,
+      35% 95%,
+      0% 65%,
+      5% 30%
+    );
   }
 
   /* Highlight active theme indicator */

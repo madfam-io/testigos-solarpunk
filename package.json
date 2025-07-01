@@ -26,6 +26,8 @@
     "test:ui": "vitest --ui",
     "analyze": "astro build",
     "lighthouse": "lhci autorun",
+    "lighthouse:multi": "node scripts/lighthouse-multi-test.js",
+    "health:check": "npm run lighthouse:multi",
     "update-deps": "npm-check-updates -u",
     "clean": "rm -rf dist .astro node_modules",
     "deploy": "npm run build && gh-pages -d dist",

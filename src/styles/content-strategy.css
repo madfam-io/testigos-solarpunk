@@ -200,7 +200,17 @@
   left: 50%;
   width: 0;
   height: 0;
-  border-radius: 50%;
+  /* Organic ripple shape */
+  clip-path: polygon(
+    50% 0%,
+    75% 15%,
+    100% 50%,
+    75% 85%,
+    50% 100%,
+    25% 85%,
+    0% 50%,
+    25% 15%
+  );
   background: rgba(255, 255, 255, 0.3);
   transform: translate(-50%, -50%);
   transition:
@@ -263,7 +273,17 @@
   left: 0.5rem;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  /* Small cutout dot */
+  clip-path: polygon(
+    30% 0%,
+    70% 5%,
+    100% 35%,
+    95% 70%,
+    65% 100%,
+    35% 95%,
+    0% 65%,
+    5% 30%
+  );
   transform: translateY(-50%);
   animation: statusPulse 2s ease-in-out infinite;
 }

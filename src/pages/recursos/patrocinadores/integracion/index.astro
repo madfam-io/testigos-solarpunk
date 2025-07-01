@@ -853,13 +853,20 @@ if (basePath.endsWith('/')) {
     height: 60px;
     background: var(--amarillo-solar);
     border: 3px solid var(--verde-sostenible);
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--negro-profundo);
+    
+    /* DIY Magazine Cutout aesthetic for timeline markers */
+    clip-path: polygon(
+      15% 0%, 85% 3%, 98% 15%, 100% 35%, 
+      95% 60%, 100% 85%, 85% 97%, 60% 100%, 
+      35% 98%, 15% 95%, 0% 75%, 2% 50%, 
+      0% 25%, 12% 5%
+    );
   }
 
   .timeline-content {

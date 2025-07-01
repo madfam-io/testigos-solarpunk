@@ -560,7 +560,6 @@ if (basePath.endsWith('/')) {
   .timeline-marker {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     background: var(--dorado-solar);
     color: var(--text-on-accent, #000000);
     display: flex;
@@ -572,6 +571,13 @@ if (basePath.endsWith('/')) {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    
+    /* DIY Magazine Cutout aesthetic for format timeline */
+    clip-path: polygon(
+      18% 0%, 82% 6%, 94% 22%, 100% 48%, 
+      95% 72%, 85% 94%, 55% 100%, 25% 96%, 
+      8% 78%, 0% 52%, 6% 28%, 22% 6%
+    );
   }
 
   .timeline-content {

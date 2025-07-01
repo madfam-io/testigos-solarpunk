@@ -1,0 +1,333 @@
+/**
+ * Magazine Cutout Utilities
+ * Replacements for circular elements to maintain DIY aesthetic
+ * 
+ * @author MADFAM
+ * @version 1.0.0
+ */
+
+/* ===========================
+   Cutout Shape Replacements
+   =========================== */
+
+/* Replace circular buttons with magazine cutout style */
+.cutout-button {
+  /* Remove any circular border radius */
+  border-radius: 0 !important;
+
+  /* Apply irregular polygon shape */
+  clip-path: polygon(5% 0%, 95% 2%, 100% 95%, 97% 100%, 3% 98%, 0% 5%);
+
+  /* Paper texture effect */
+  background-image: radial-gradient(
+      circle at 20% 50%,
+      transparent 20%,
+      rgba(255, 255, 255, 0.03) 21%,
+      rgba(255, 255, 255, 0.03) 34%,
+      transparent 35%,
+      transparent
+    ),
+    linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.05) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(255, 255, 255, 0.03) 75%,
+      rgba(255, 255, 255, 0.03) 76%,
+      transparent 77%,
+      transparent
+    );
+
+  /* Slight rotation for organic feel */
+  transform: rotate(-2deg);
+
+  /* Magazine shadow */
+  box-shadow:
+    3px 3px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
+    0 0 0 2px var(--tape-color, rgba(255, 193, 7, 0.7)) inset;
+}
+
+.cutout-button:hover {
+  transform: rotate(2deg) scale(1.05);
+}
+
+/* Replace circular avatars with cutout portraits */
+.cutout-avatar {
+  /* Remove circular shape */
+  border-radius: 0 !important;
+
+  /* Irregular portrait shape */
+  clip-path: polygon(
+    15% 0%,
+    85% 3%,
+    100% 15%,
+    98% 85%,
+    85% 100%,
+    15% 97%,
+    0% 85%,
+    2% 15%
+  );
+
+  /* Torn edge effect */
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+
+  /* Slight tilt */
+  transform: rotate(-3deg);
+
+  /* Magazine border simulation */
+  position: relative;
+}
+
+.cutout-avatar::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: var(--tape-color, rgba(255, 193, 7, 0.5));
+  z-index: -1;
+  clip-path: polygon(
+    14% -1%,
+    86% 2%,
+    101% 14%,
+    99% 86%,
+    86% 101%,
+    14% 98%,
+    -1% 86%,
+    1% 14%
+  );
+}
+
+/* Replace circular indicators with cutout dots */
+.cutout-dot {
+  /* Remove perfect circle */
+  border-radius: 0 !important;
+
+  /* Small irregular shape */
+  clip-path: polygon(
+    30% 0%,
+    70% 5%,
+    100% 35%,
+    95% 70%,
+    65% 100%,
+    35% 95%,
+    0% 65%,
+    5% 30%
+  );
+
+  /* Subtle animation */
+  animation: cutout-flutter 3s ease-in-out infinite;
+}
+
+@keyframes cutout-flutter {
+  0%,
+  100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+/* Replace circular badges with cutout numbers */
+.cutout-number {
+  /* Remove circle */
+  border-radius: 0 !important;
+
+  /* Badge-like cutout shape */
+  clip-path: polygon(
+    20% 0%,
+    80% 0%,
+    100% 20%,
+    100% 80%,
+    80% 100%,
+    20% 100%,
+    0% 80%,
+    0% 20%
+  );
+
+  /* Paper texture */
+  background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%
+    ),
+    var(--bg-primary, #0a0a0b);
+
+  /* Tape effect on border */
+  box-shadow:
+    inset 0 0 0 3px var(--amarillo-solar),
+    3px 3px 5px rgba(0, 0, 0, 0.3);
+
+  /* Slight rotation */
+  transform: rotate(-5deg);
+  transition: transform 0.3s ease;
+}
+
+.cutout-number:hover {
+  transform: rotate(3deg) scale(1.1);
+}
+
+/* Replace circular halos with organic shapes */
+.cutout-halo {
+  /* Remove circle */
+  border-radius: 0 !important;
+
+  /* Organic, mystical shape */
+  clip-path: polygon(
+    50% 0%,
+    75% 10%,
+    90% 30%,
+    95% 50%,
+    85% 75%,
+    65% 90%,
+    40% 95%,
+    20% 85%,
+    5% 65%,
+    0% 40%,
+    10% 20%,
+    30% 5%
+  );
+
+  /* Soft glow remains */
+  filter: blur(20px);
+
+  /* Organic movement */
+  animation: cutout-morph 8s ease-in-out infinite;
+}
+
+@keyframes cutout-morph {
+  0%,
+  100% {
+    clip-path: polygon(
+      50% 0%,
+      75% 10%,
+      90% 30%,
+      95% 50%,
+      85% 75%,
+      65% 90%,
+      40% 95%,
+      20% 85%,
+      5% 65%,
+      0% 40%,
+      10% 20%,
+      30% 5%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      45% 5%,
+      70% 0%,
+      95% 25%,
+      100% 45%,
+      90% 70%,
+      70% 95%,
+      45% 100%,
+      25% 90%,
+      0% 70%,
+      5% 45%,
+      15% 25%,
+      25% 10%
+    );
+  }
+}
+
+/* Utility class to force magazine cutout on any element */
+.force-cutout {
+  border-radius: 0 !important;
+  clip-path: polygon(2% 0%, 98% 1%, 100% 98%, 99% 100%, 1% 99%, 0% 2%);
+}
+
+/* Different cutout variations for variety */
+.cutout-variant-1 {
+  clip-path: polygon(
+    0% 5%,
+    5% 0%,
+    95% 2%,
+    100% 8%,
+    98% 95%,
+    92% 100%,
+    8% 98%,
+    2% 92%
+  );
+}
+
+.cutout-variant-2 {
+  clip-path: polygon(
+    3% 0%,
+    97% 3%,
+    100% 15%,
+    97% 97%,
+    85% 100%,
+    15% 97%,
+    0% 85%,
+    3% 15%
+  );
+}
+
+.cutout-variant-3 {
+  clip-path: polygon(
+    10% 0%,
+    90% 5%,
+    100% 25%,
+    95% 90%,
+    75% 100%,
+    25% 95%,
+    0% 75%,
+    5% 10%
+  );
+}
+
+/* Integration with existing magazine cutout system */
+.cutout-button.emoji-cutout,
+.cutout-avatar.emoji-cutout,
+.cutout-dot.emoji-cutout,
+.cutout-number.emoji-cutout {
+  /* Inherits all emoji-cutout properties */
+  /* Overrides only the circular aspects */
+}
+
+/* Theme-specific adjustments */
+[data-theme='dark'] .cutout-button,
+[data-theme='dark'] .cutout-number {
+  box-shadow:
+    3px 3px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.3)),
+    0 0 0 2px var(--tape-color, rgba(255, 213, 79, 0.8)) inset;
+}
+
+[data-theme='light'] .cutout-avatar::before {
+  background: var(--tape-color, rgba(255, 193, 7, 0.4));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cutout-button,
+  .cutout-avatar,
+  .cutout-number {
+    transform: rotate(0deg); /* Less rotation on mobile for stability */
+  }
+}
+
+/* Accessibility - maintain focus states */
+.cutout-button:focus-visible,
+.cutout-avatar:focus-visible,
+.cutout-number:focus-visible {
+  outline: 3px solid var(--madfam-yellow, #ffc107);
+  outline-offset: 4px;
+}
+
+/* Print styles */
+@media print {
+  .cutout-button,
+  .cutout-avatar,
+  .cutout-dot,
+  .cutout-number,
+  .cutout-halo {
+    clip-path: none;
+    border-radius: 8px !important; /* Fallback for print */
+  }
+}
