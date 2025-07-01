@@ -228,7 +228,15 @@ if (basePath.endsWith('/')) {
   }
 
   :global([data-theme='dark']) .hero-proyecto {
-    color: #ffffff;
+    /* Use dark text on the yellow-green gradient for better contrast */
+    color: #000000;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Make sure all text elements inherit the color */
+  .hero-proyecto h1,
+  .hero-proyecto p {
+    color: inherit;
   }
 
   .hero-proyecto::before {
