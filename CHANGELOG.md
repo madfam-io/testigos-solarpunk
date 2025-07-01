@@ -5,6 +5,68 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2025-07-01
+
+### Added
+
+- **Comprehensive Documentation Suite**
+
+  - Fully bilingual README.md with complete project overview
+  - i18n.md - Complete internationalization guide with examples
+  - themes.md - Theme system documentation with customization guide
+  - TESTING.md - 6x matrix testing strategy documentation
+  - Component catalog with 30+ documented components
+  - Added troubleshooting sections to all major docs
+  - Code examples for every documented feature
+
+- **Health Check System**
+
+  - i18n health check validating translation completeness
+  - Theme system health check for consistency
+  - Performance health check with Lighthouse integration
+  - Accessibility health check for WCAG AAA compliance
+  - Comprehensive health check runner with HTML reports
+
+- **Developer Experience**
+  - Enhanced TypeScript types for all health check scripts
+  - Added @types/pa11y for accessibility testing
+  - Improved error handling with instanceof checks
+  - Fixed all ESLint errors (0 errors)
+  - Fixed all TypeScript errors (0 errors)
+
+### Changed
+
+- **Documentation Improvements**
+
+  - Enhanced README with badges for coverage, Lighthouse, i18n, and themes
+  - Added visual project structure diagrams
+  - Expanded 3-phase strategy with timelines and KPIs
+  - Added comprehensive troubleshooting guides
+  - Improved API documentation with complete examples
+
+- **Code Quality**
+  - Fixed unused variable warnings in 20+ English pages
+  - Updated useTranslations to support template parameters
+  - Fixed strict boolean expression errors throughout
+  - Improved type exports with 'export type' syntax
+  - Commented out unused imports to maintain clean codebase
+
+### Fixed
+
+- **TypeScript Issues**
+
+  - Resolved type annotation errors in health check scripts
+  - Fixed pa11y type mapping for AccessibilityIssue
+  - Fixed route type assertions in i18n health check
+  - Resolved deprecated MediaQueryList.addListener warnings
+  - Fixed ESLint unused CSS selector warnings
+
+- **Build & Testing**
+  - All tests passing (141 tests)
+  - Maintained 99.73% test coverage
+  - 0 TypeScript errors
+  - 0 ESLint errors
+
 ## [0.3.0](https://github.com/madfam-io/testigos-solarpunk/compare/v0.2.1...v0.3.0) (2025-06-30)
 
 ### Features
