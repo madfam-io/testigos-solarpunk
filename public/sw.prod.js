@@ -1,5 +1,5 @@
-const CACHE_NAME = 'testigos-solarpunk-v1';
-const RUNTIME_CACHE = 'testigos-runtime-v1';
+const CACHE_NAME = 'testigos-solarpunk-v2';
+const RUNTIME_CACHE = 'testigos-runtime-v2';
 const STATIC_CACHE_URLS = [
   '/testigos-solarpunk/',
   '/testigos-solarpunk/index.html',
