@@ -716,47 +716,59 @@ export const ui = {
 
     // Podcast Page
     'podcast.title': 'Podcast - Fase 2',
+    'podcast.description':
+      'MADFAM Podcast: Conversaciones profundas sobre ciencia, tecnología y sostenibilidad',
+    'podcast.hero.phase': 'Fase 2: Conexión',
     'podcast.hero.title': 'Podcast MADFAM',
     'podcast.hero.description':
       'Conversaciones de 20-30 minutos con expertos, activistas y visionarios del movimiento solarpunk',
     'podcast.hero.status': 'Estado del Podcast',
+    'podcast.status.title': 'Estado del Podcast',
+    'podcast.status.date': 'Lanzamiento: Agosto 2025',
     'podcast.coming.title': 'Lo que Viene',
     'podcast.launch.date': 'Agosto 2025',
-    'podcast.features.deep': 'Contenido Profundo',
-    'podcast.features.deep.description':
+    'podcast.features.title': 'Lo que Hace Único a Nuestro Podcast',
+    'podcast.features.depth.title': 'Contenido Profundo',
+    'podcast.features.depth.description':
       'Exploramos temas complejos de sostenibilidad, tecnología y sociedad con profundidad y rigor',
-    'podcast.features.experts': 'Expertos Invitados',
+    'podcast.features.experts.title': 'Expertos Invitados',
     'podcast.features.experts.description':
       'Científicos, innovadores, activistas y pensadores que están construyendo el futuro sostenible',
-    'podcast.features.solutions': 'Soluciones Prácticas',
-    'podcast.features.solutions.description':
+    'podcast.features.practical.title': 'Soluciones Prácticas',
+    'podcast.features.practical.description':
       'Cada episodio incluye acciones concretas que los oyentes pueden implementar en su vida diaria',
-    'podcast.features.relevant': 'Temas Relevantes',
-    'podcast.features.relevant.description':
+    'podcast.features.topics.title': 'Temas Relevantes',
+    'podcast.features.topics.description':
       'Desde energías renovables hasta economía circular, agricultura urbana y justicia climática',
     'podcast.topics.title': 'Temas que Exploraremos',
-    'podcast.topic.urban.farming.title': 'Agricultura Urbana',
-    'podcast.topic.urban.farming.description':
+    'podcast.topics.urban_farming.title': 'Agricultura Urbana',
+    'podcast.topics.urban_farming.description':
       'Cómo cultivar alimentos en la ciudad',
-    'podcast.topic.community.energy.title': 'Energía Comunitaria',
-    'podcast.topic.community.energy.description':
+    'podcast.topics.community_energy.title': 'Energía Comunitaria',
+    'podcast.topics.community_energy.description':
       'Proyectos de energía renovable participativa',
-    'podcast.topic.circular.economy.title': 'Economía Circular',
-    'podcast.topic.circular.economy.description':
+    'podcast.topics.circular_economy.title': 'Economía Circular',
+    'podcast.topics.circular_economy.description':
       'Rediseñando sistemas para eliminar desperdicios',
-    'podcast.topic.sustainable.urbanism.title': 'Urbanismo Sostenible',
-    'podcast.topic.sustainable.urbanism.description':
+    'podcast.topics.sustainable_urbanism.title': 'Urbanismo Sostenible',
+    'podcast.topics.sustainable_urbanism.description':
       'Ciudades diseñadas para personas y naturaleza',
-    'podcast.topic.climate.justice.title': 'Justicia Climática',
-    'podcast.topic.climate.justice.description':
+    'podcast.topics.climate_justice.title': 'Justicia Climática',
+    'podcast.topics.climate_justice.description':
       'Equidad social en la transición ecológica',
-    'podcast.topic.green.innovation.title': 'Innovación Verde',
-    'podcast.topic.green.innovation.description':
+    'podcast.topics.green_innovation.title': 'Innovación Verde',
+    'podcast.topics.green_innovation.description':
       'Tecnologías que regeneran el planeta',
     'podcast.notify.title': 'Sé el primero en escuchar',
     'podcast.notify.description':
       'Suscríbete para recibir notificaciones cuando lancemos el podcast',
     'podcast.notify.placeholder': 'tu@email.com',
+    'podcast.notify.aria_label': 'Correo electrónico para notificaciones',
+    'podcast.notify.button': 'Notifícame',
+    'podcast.cta.title': 'Mientras esperas el podcast...',
+    'podcast.cta.description':
+      'Comienza con la Fase 1: Nuestros sketches virales que hacen reír mientras educan',
+    'podcast.cta.button': 'Ver Sketches',
     'podcast.notify.aria.label': 'Correo electrónico para notificaciones',
     'podcast.notify.cta': 'Notificarme',
     'podcast.notify.alert':
@@ -808,9 +820,6 @@ export const ui = {
     // Production Page
     'production.title': 'Producción',
     'production.hero.title': 'Guía de Producción',
-
-    // Production Visual Style Page
-    'production.visual.title': 'Guía de Estilo Visual',
     'production.visual.breadcrumb.home': 'Inicio',
     'production.visual.breadcrumb.production': 'Producción',
     'production.visual.breadcrumb.current': 'Estilo Visual',
@@ -1504,46 +1513,58 @@ export const ui = {
 
     // Podcast Page
     'podcast.title': 'Podcast - Phase 2',
+    'podcast.description':
+      'MADFAM Podcast: Deep conversations about science, technology and sustainability',
+    'podcast.hero.phase': 'Phase 2: Connection',
     'podcast.hero.title': 'MADFAM Podcast',
     'podcast.hero.description':
       '20-30 minute conversations with experts, activists and visionaries of the solarpunk movement',
     'podcast.hero.status': 'Podcast Status',
+    'podcast.status.title': 'Podcast Status',
+    'podcast.status.date': 'Launch: August 2025',
     'podcast.coming.title': "What's Coming",
     'podcast.launch.date': 'August 2025',
-    'podcast.features.deep': 'Deep Content',
-    'podcast.features.deep.description':
+    'podcast.features.title': 'What Makes Our Podcast Unique',
+    'podcast.features.depth.title': 'Deep Content',
+    'podcast.features.depth.description':
       'We explore complex topics of sustainability, technology and society with depth and rigor',
-    'podcast.features.experts': 'Expert Guests',
+    'podcast.features.experts.title': 'Expert Guests',
     'podcast.features.experts.description':
       'Scientists, innovators, activists and thinkers who are building the sustainable future',
-    'podcast.features.solutions': 'Practical Solutions',
-    'podcast.features.solutions.description':
+    'podcast.features.practical.title': 'Practical Solutions',
+    'podcast.features.practical.description':
       'Each episode includes concrete actions that listeners can implement in their daily lives',
-    'podcast.features.relevant': 'Relevant Topics',
-    'podcast.features.relevant.description':
+    'podcast.features.topics.title': 'Relevant Topics',
+    'podcast.features.topics.description':
       'From renewable energy to circular economy, urban agriculture and climate justice',
     'podcast.topics.title': "Topics We'll Explore",
-    'podcast.topic.urban.farming.title': 'Urban Farming',
-    'podcast.topic.urban.farming.description': 'How to grow food in the city',
-    'podcast.topic.community.energy.title': 'Community Energy',
-    'podcast.topic.community.energy.description':
+    'podcast.topics.urban_farming.title': 'Urban Farming',
+    'podcast.topics.urban_farming.description': 'How to grow food in the city',
+    'podcast.topics.community_energy.title': 'Community Energy',
+    'podcast.topics.community_energy.description':
       'Participatory renewable energy projects',
-    'podcast.topic.circular.economy.title': 'Circular Economy',
-    'podcast.topic.circular.economy.description':
+    'podcast.topics.circular_economy.title': 'Circular Economy',
+    'podcast.topics.circular_economy.description':
       'Redesigning systems to eliminate waste',
-    'podcast.topic.sustainable.urbanism.title': 'Sustainable Urbanism',
-    'podcast.topic.sustainable.urbanism.description':
+    'podcast.topics.sustainable_urbanism.title': 'Sustainable Urbanism',
+    'podcast.topics.sustainable_urbanism.description':
       'Cities designed for people and nature',
-    'podcast.topic.climate.justice.title': 'Climate Justice',
-    'podcast.topic.climate.justice.description':
+    'podcast.topics.climate_justice.title': 'Climate Justice',
+    'podcast.topics.climate_justice.description':
       'Social equity in the ecological transition',
-    'podcast.topic.green.innovation.title': 'Green Innovation',
-    'podcast.topic.green.innovation.description':
+    'podcast.topics.green_innovation.title': 'Green Innovation',
+    'podcast.topics.green_innovation.description':
       'Technologies that regenerate the planet',
     'podcast.notify.title': 'Be the first to listen',
     'podcast.notify.description':
       'Subscribe to receive notifications when we launch the podcast',
     'podcast.notify.placeholder': 'your@email.com',
+    'podcast.notify.aria_label': 'Email for notifications',
+    'podcast.notify.button': 'Notify Me',
+    'podcast.cta.title': 'While you wait for the podcast...',
+    'podcast.cta.description':
+      'Start with Phase 1: Our viral sketches that make you laugh while educating',
+    'podcast.cta.button': 'Watch Sketches',
     'podcast.notify.aria.label': 'Email for notifications',
     'podcast.notify.cta': 'Notify Me',
     'podcast.notify.alert':
@@ -1595,9 +1616,6 @@ export const ui = {
     // Production Page
     'production.title': 'Production',
     'production.hero.title': 'Production Guide',
-
-    // Production Visual Style Page
-    'production.visual.title': 'Visual Style Guide',
     'production.visual.breadcrumb.home': 'Home',
     'production.visual.breadcrumb.production': 'Production',
     'production.visual.breadcrumb.current': 'Visual Style',
