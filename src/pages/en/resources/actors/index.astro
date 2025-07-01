@@ -1,0 +1,633 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  lang="en"
+  title="Recursos para Actores"
+  description="Herramientas especializadas para dar vida a los personajes del universo Testigos de Solarpunk"
+>
+  <!-- Hero Section -->
+  <section class="resource-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="emoji-cutout emoji-hero emoji-xl theme-purple flutter"
+          >🎭</span
+        >
+        <h1>Recursos para Actores</h1>
+        <p class="hero-description">
+          Herramientas especializadas para dar vida auténtica a los personajes
+          del universo solarpunk: análisis profundos, guías de diálogo y
+          referencias de movimiento.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Grid -->
+  <section class="resources-section">
+    <div class="container">
+      <div class="resources-grid">
+        <div class="resource-card card">
+          <div class="resource-header">
+            <span class="emoji-cutout emoji-lg theme-solar">🎯</span>
+            <h2>Análisis de Personajes</h2>
+          </div>
+          <div class="resource-content">
+            <p>
+              Perfiles psicológicos profundos de cada personaje: motivaciones
+              internas, traumas, aspiraciones y arcos de transformación para
+              interpretaciones auténticas y matizadas.
+            </p>
+            <ul class="feature-list">
+              <li>Biografías detalladas y trasfondos emocionales</li>
+              <li>Motivaciones conscientes e inconscientes</li>
+              <li>Relaciones interpersonales y dinámicas</li>
+              <li>Arcos de desarrollo y evolución</li>
+            </ul>
+            <a
+              href={`${basePath}/recursos/actores/personajes/`}
+              class="btn btn-primary"
+            >
+              <span class="emoji-cutout emoji-sm">🔍</span>
+              Analizar Personajes
+            </a>
+          </div>
+        </div>
+
+        <div class="resource-card card">
+          <div class="resource-header">
+            <span class="emoji-cutout emoji-lg theme-purple">💬</span>
+            <h2>Guías de Diálogo</h2>
+          </div>
+          <div class="resource-content">
+            <p>
+              Patrones de habla únicos, ritmo vocal, vocabulario específico y
+              técnicas de improvisación para mantener la consistencia del
+              personaje en cualquier situación.
+            </p>
+            <ul class="feature-list">
+              <li>Patrones de entonación y ritmo vocal</li>
+              <li>Vocabulario y expresiones características</li>
+              <li>Técnicas de improvisación en personaje</li>
+              <li>Ejemplos de diálogos y situaciones tipo</li>
+            </ul>
+            <a
+              href={`${basePath}/recursos/actores/dialogo/`}
+              class="btn btn-primary"
+            >
+              <span class="emoji-cutout emoji-sm">🗣️</span>
+              Dominar Diálogos
+            </a>
+          </div>
+        </div>
+
+        <div class="resource-card card">
+          <div class="resource-header">
+            <span class="emoji-cutout emoji-lg theme-community">🚶</span>
+            <h2>Referencias de Movimiento</h2>
+          </div>
+          <div class="resource-content">
+            <p>
+              Gestualidad característica, postura corporal, ritmo de movimiento
+              y presencia física que definen la esencia de cada personaje en
+              pantalla.
+            </p>
+            <ul class="feature-list">
+              <li>Postura y presencia física característica</li>
+              <li>Gestualidad y expresiones faciales</li>
+              <li>Ritmo de movimiento y energía corporal</li>
+              <li>Referencias visuales y ejercicios prácticos</li>
+            </ul>
+            <a
+              href={`${basePath}/recursos/actores/movimiento/`}
+              class="btn btn-primary"
+            >
+              <span class="emoji-cutout emoji-sm">🎪</span>
+              Explorar Movimiento
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Character Gallery -->
+  <section class="character-gallery">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">👥</span>
+        Galería de Personajes
+      </h2>
+      <div class="character-grid">
+        <div class="character-card">
+          <div class="character-avatar">
+            <span class="emoji-cutout emoji-xl theme-solar">☀️</span>
+          </div>
+          <h3>Hermana Panelia</h3>
+          <p class="character-role">La Evangelista Solar</p>
+          <p class="character-trait">
+            Energética, optimista, contagia esperanza con cada palabra
+          </p>
+          <div class="character-stats">
+            <div class="stat">
+              <span class="stat-label">Energía:</span>
+              <div class="stat-bar">
+                <div class="stat-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Sabiduría:</span>
+              <div class="stat-bar">
+                <div class="stat-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Carisma:</span>
+              <div class="stat-bar">
+                <div class="stat-fill" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="character-card">
+          <div class="character-avatar">
+            <span class="emoji-cutout emoji-xl theme-green">🌱</span>
+          </div>
+          <h3>Hermano Compostino</h3>
+          <p class="character-role">El Sabio de la Tierra</p>
+          <p class="character-trait">
+            Pausado, reflexivo, conecta con la sabiduría natural
+          </p>
+          <div class="character-stats">
+            <div class="stat">
+              <span class="stat-label">Energía:</span>
+              <div class="stat-bar">
+                <div class="stat-fill" style="width: 70%"></div>
+              </div>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Sabiduría:</span>
+              <div class="stat-bar">
+                <div class="stat-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Calma:</span>
+              <div class="stat-bar">
+                <div class="stat-fill" style="width: 98%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="character-card">
+          <div class="character-avatar">
+            <span class="emoji-cutout emoji-xl theme-purple">🔬</span>
+          </div>
+          <h3>Lucía Solar</h3>
+          <p class="character-role">La Maestra Innovadora</p>
+          <p class="character-trait">
+            Curiosa, metódica, transforma conocimiento en acción
+          </p>
+          <div class="character-stats">
+            <div class="stat">
+              <span class="stat-label">Inteligencia:</span>
+              <div class="stat-bar">
+                <div class="stat-fill" style="width: 92%"></div>
+              </div>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Innovación:</span>
+              <div class="stat-bar">
+                <div class="stat-fill" style="width: 88%"></div>
+              </div>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Empatía:</span>
+              <div class="stat-bar">
+                <div class="stat-fill" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Acting Workshops -->
+  <section class="workshops-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-community">🎪</span>
+        Talleres y Ejercicios
+      </h2>
+      <div class="workshops-grid">
+        <div class="workshop-card">
+          <h3>Calentamiento Vocal</h3>
+          <p>Ejercicios específicos para encontrar la voz de cada personaje</p>
+          <button class="btn btn-secondary" onclick="startVocalWarmup()">
+            <span class="emoji-cutout emoji-sm">🎵</span>
+            Comenzar Ejercicio
+          </button>
+          <div id="vocal-exercise" class="exercise-content"></div>
+        </div>
+
+        <div class="workshop-card">
+          <h3>Improvisación Guiada</h3>
+          <p>Situaciones para practicar la consistencia del personaje</p>
+          <button class="btn btn-secondary" onclick="generateScenario()">
+            <span class="emoji-cutout emoji-sm">🎭</span>
+            Nueva Situación
+          </button>
+          <div id="improv-scenario" class="exercise-content"></div>
+        </div>
+
+        <div class="workshop-card">
+          <h3>Análisis de Escena</h3>
+          <p>Framework para desglosar motivaciones en cada escena</p>
+          <details class="analysis-framework">
+            <summary>Ver Framework</summary>
+            <ol>
+              <li>¿Qué quiere mi personaje en esta escena?</li>
+              <li>¿Qué obstáculos enfrenta?</li>
+              <li>¿Cómo se relaciona con su arco general?</li>
+              <li>¿Qué emociones subyacen a las palabras?</li>
+              <li>¿Cómo termina diferente de como empezó?</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section class="community-section">
+    <div class="container">
+      <div class="community-content">
+        <h2>Conecta con Otros Actores</h2>
+        <p>
+          Únete a nuestra comunidad de actores comprometidos con el solarpunk.
+          Comparte interpretaciones, recibe feedback y colabora en proyectos.
+        </p>
+        <div class="community-actions">
+          <a href={`${basePath}/comunidad/`} class="btn btn-primary">
+            <span class="emoji-cutout emoji-sm">💬</span>
+            Unirse al Discord
+          </a>
+          <a href={`${basePath}/recursos/`} class="btn btn-secondary">
+            <span class="emoji-cutout emoji-sm">📚</span>
+            Ver Todos los Recursos
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .resource-hero {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin: var(--espacio-lg) 0;
+    color: var(--purpura-creativo);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .resources-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .resource-card {
+    padding: var(--espacio-xl);
+  }
+
+  .resource-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .resource-header h2 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .resource-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+    line-height: 1.6;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .feature-list li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+    position: relative;
+    padding-left: var(--espacio-lg);
+  }
+
+  .feature-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--verde-sostenible);
+    font-weight: bold;
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .character-gallery {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .character-gallery h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .character-card {
+    background: var(--fondo-primario);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+    text-align: center;
+  }
+
+  .character-avatar {
+    margin-bottom: var(--espacio-md);
+  }
+
+  .character-card h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-xs);
+  }
+
+  .character-role {
+    color: var(--amarillo-solar);
+    font-weight: 600;
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .character-trait {
+    color: var(--texto-secundario);
+    font-style: italic;
+    margin-bottom: var(--espacio-lg);
+    font-size: 0.9rem;
+  }
+
+  .character-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-sm);
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--texto-secundario);
+    min-width: 70px;
+    text-align: left;
+  }
+
+  .stat-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .stat-fill {
+    height: 100%;
+    background: var(--verde-sostenible);
+    transition: width 0.3s ease;
+  }
+
+  .workshops-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .workshops-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .workshops-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .workshop-card {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+    text-align: center;
+  }
+
+  .workshop-card h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .workshop-card p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .exercise-content {
+    margin-top: var(--espacio-md);
+    padding: var(--espacio-md);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--verde-sostenible);
+    font-style: italic;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .analysis-framework {
+    text-align: left;
+    margin-top: var(--espacio-md);
+  }
+
+  .analysis-framework summary {
+    color: var(--amarillo-solar);
+    cursor: pointer;
+    margin-bottom: var(--espacio-md);
+    text-align: center;
+  }
+
+  .analysis-framework ol {
+    color: var(--texto-secundario);
+    padding-left: var(--espacio-lg);
+  }
+
+  .analysis-framework li {
+    margin-bottom: var(--espacio-sm);
+    line-height: 1.5;
+  }
+
+  .community-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+    text-align: center;
+  }
+
+  .community-content h2 {
+    color: var(--amarillo-solar);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .community-content p {
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto var(--espacio-xl);
+    line-height: 1.6;
+  }
+
+  .community-actions {
+    display: flex;
+    gap: var(--espacio-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .resources-grid,
+    .character-grid,
+    .workshops-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .community-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .community-actions .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>
+
+<script>
+  declare global {
+    interface Window {
+      startVocalWarmup: () => void;
+      generateScenario: () => void;
+    }
+  }
+
+  window.startVocalWarmup = function startVocalWarmup() {
+    const exercises = [
+      'Repite "Ma-me-mi-mo-mu" con el tono optimista de Panelia, subiendo y bajando la entonación.',
+      'Practica decir "La tierra nos enseña..." con la cadencia pausada de Compostino.',
+      'Experimenta con diferentes velocidades: rápido como Panelia emocionada, lento como Compostino reflexivo.',
+      'Ejercita respiración diafragmática: 4 segundos inhalar, 4 mantener, 8 exhalar mientras dices "Solarpunk".',
+      'Practica transiciones: comienza como Panelia energética y ve ralentizando hasta la calma de Compostino.',
+    ];
+
+    const exercise = exercises[Math.floor(Math.random() * exercises.length)];
+    const output = document.getElementById('vocal-exercise');
+    if (output) {
+      output.textContent = exercise;
+    }
+  };
+
+  window.generateScenario = function generateScenario() {
+    const scenarios = [
+      'Estás en un mercado local y alguien se acerca preguntando sobre los paneles solares que viste instalando.',
+      'Un niño te pregunta por qué es importante separar la basura. Responde como tu personaje.',
+      'Llueve fuerte y tu evento al aire libre se cancela. Mantén el optimismo de tu personaje.',
+      'Alguien dice que el cambio climático es mentira. Responde con la sabiduría de tu personaje.',
+      'Te encuentras con un político escéptico en una reunión comunitaria. Convéncelo sin confrontación.',
+      'Un influencer te pide colaborar pero sus valores no parecen alineados. Maneja la situación.',
+    ];
+
+    const scenario = scenarios[Math.floor(Math.random() * scenarios.length)];
+    const output = document.getElementById('improv-scenario');
+    if (output) {
+      output.textContent = scenario;
+    }
+  };
+</script>

@@ -21,6 +21,7 @@ export const showDefaultLang = true; // Always show /es/ in URLs for clarity
  */
 export const routes = {
   es: {
+    // Main routes
     proyecto: 'proyecto',
     contenido: 'contenido',
     sketches: 'sketches',
@@ -36,8 +37,21 @@ export const routes = {
     impacto: 'impacto',
     equipo: 'equipo',
     filosofia: 'filosofia',
+    formatos: 'formatos',
+    'guia-visual': 'guia-visual',
+    // Nested routes
+    actores: 'actores',
+    creadores: 'creadores',
+    patrocinadores: 'patrocinadores',
+    dialogo: 'dialogo',
+    movimiento: 'movimiento',
+    plantillas: 'plantillas',
+    worldbuilding: 'worldbuilding',
+    valores: 'valores',
+    integracion: 'integracion',
   },
   en: {
+    // Main routes
     proyecto: 'project',
     contenido: 'content',
     sketches: 'sketches',
@@ -53,6 +67,18 @@ export const routes = {
     impacto: 'impact',
     equipo: 'team',
     filosofia: 'philosophy',
+    formatos: 'formats',
+    'guia-visual': 'visual-guide',
+    // Nested routes
+    actores: 'actors',
+    creadores: 'creators',
+    patrocinadores: 'sponsors',
+    dialogo: 'dialogue',
+    movimiento: 'movement',
+    plantillas: 'templates',
+    worldbuilding: 'worldbuilding',
+    valores: 'values',
+    integracion: 'integration',
   },
 } as const;
 
@@ -376,16 +402,26 @@ export function getLocalizedPath(
 ): string {
   const segments = path.split('/').filter(Boolean);
   const translatedSegments = segments.map((segment) => {
-    // Find the key for this segment in default language
-    const routeEntry = Object.entries(routes[defaultLang]).find(
-      ([, value]) => value === segment
-    );
-    const routeKey = routeEntry?.[0];
+    // First, check all languages to find which route key this segment belongs to
+    let routeKey: string | undefined;
 
+    // Search in all language routes to find the key
+    for (const [, searchRoutes] of Object.entries(routes)) {
+      const entry = Object.entries(searchRoutes).find(
+        ([, value]) => value === segment
+      );
+      if (entry) {
+        routeKey = entry[0];
+        break;
+      }
+    }
+
+    // If we found a route key and it exists in target language, use the translation
     if (routeKey !== undefined && routeKey in routes[lang]) {
       return routes[lang][routeKey as keyof (typeof routes)[typeof lang]];
     }
 
+    // Otherwise, return the segment as-is
     return segment;
   });
 

@@ -1,0 +1,622 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MagazineCutoutImage from '../../../components/MagazineCutoutImage.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+
+// Demo sketches data - this will be moved to content collections later
+const sketches = [
+  {
+    id: 'ep1',
+    episodio: 'Episodio 1',
+    titulo: 'Día 237 intentando ser sostenible',
+    personajes: ['Luna García', 'Hermana Panelia'],
+    duracion: '1:30',
+    thumbnail: '/images/sketches/ep1-thumb.jpg',
+    tema: 'sostenibilidad',
+    descripcion:
+      'Luna intenta compostar pero termina creando un ecosistema en su cocina',
+    views: '25.3K',
+    likes: '2.1K',
+  },
+  {
+    id: 'ep2',
+    episodio: 'Episodio 2',
+    titulo: 'El Evangelio según los Paneles',
+    personajes: ['Hermana Panelia', 'Hermano Eolo'],
+    duracion: '1:45',
+    thumbnail: '/images/sketches/ep2-thumb.jpg',
+    tema: 'tecnologia',
+    descripcion:
+      'Los evangelistas solares predican en el mercado sobre la salvación energética',
+    views: '18.7K',
+    likes: '1.8K',
+  },
+  {
+    id: 'ep3',
+    episodio: 'Episodio 3',
+    titulo: 'La App que salva el mundo... o no',
+    personajes: ['Alex Rivera', 'Zara'],
+    duracion: '1:20',
+    thumbnail: '/images/sketches/ep3-thumb.jpg',
+    tema: 'tecnologia',
+    descripcion:
+      'Alex presenta su nueva app eco-friendly que consume más batería que Bitcoin',
+    views: '32.1K',
+    likes: '3.5K',
+  },
+];
+---
+
+<BaseLayout
+  title="Sketches - Fase 1"
+  description="Sketches de comedia que instruyen desde el humor sobre sostenibilidad"
+>
+  <section class="hero-sketches">
+    <div class="container">
+      <span class="fase-label">Fase 1: Atracción</span>
+      <h1>Testigos de Solarpunk</h1>
+      <p class="hero-description">
+        Sketches de 60-90 segundos que rompen barreras culturales y enseñan
+        sostenibilidad con humor
+      </p>
+
+      <div class="sketches-stats">
+        <div class="stat">
+          <span class="stat-value">25</span>
+          <span class="stat-label">Episodios</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">500K+</span>
+          <span class="stat-label">Vistas</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">89%</span>
+          <span class="stat-label">Engagement</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sketches-filters">
+    <div class="container">
+      <div class="filter-group">
+        <button class="filter-btn active" data-filter="todos"> Todos </button>
+        <button class="filter-btn" data-filter="sostenibilidad">
+          <span class="emoji-cutout emoji-sm theme-green">🌱</span> Sostenibilidad
+        </button>
+        <button class="filter-btn" data-filter="tecnologia">
+          <span class="emoji-cutout emoji-sm theme-purple">💡</span> Tecnología
+        </button>
+        <button class="filter-btn" data-filter="social">
+          <span class="emoji-cutout emoji-sm theme-community">👥</span> Social
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sketches-grid-section">
+    <h2 class="section-title">Nuestros Sketches</h2>
+    <div class="container">
+      <div class="sketches-grid">
+        {
+          sketches.map((sketch) => (
+            <article class="sketch-card" data-tema={sketch.tema}>
+              <div class="sketch-thumbnail">
+                <MagazineCutoutImage
+                  src={`${basePath}${sketch.thumbnail}`}
+                  alt={`Thumbnail de ${sketch.titulo} - ${sketch.descripcion}`}
+                  width={640}
+                  height={360}
+                  type="sketch"
+                  prompt={`${sketch.titulo}, ${sketch.tema}, comedy sketch about ${sketch.descripcion}`}
+                  cutoutStyle="emoji-md"
+                  theme={
+                    sketch.tema === 'sostenibilidad'
+                      ? 'green'
+                      : sketch.tema === 'tecnologia'
+                        ? 'purple'
+                        : 'solar'
+                  }
+                  context="card"
+                  interactive={true}
+                  class="sketch-image"
+                />
+                <span class="duracion emoji-cutout emoji-sm">
+                  {sketch.duracion}
+                </span>
+                <div class="play-overlay">
+                  <button class="play-btn emoji-cutout emoji-md theme-solar interactive">
+                    ▶
+                  </button>
+                </div>
+              </div>
+
+              <div class="sketch-content">
+                <span class="episodio-tag">{sketch.episodio}</span>
+                <h3>{sketch.titulo}</h3>
+                <p class="sketch-descripcion">{sketch.descripcion}</p>
+
+                <div class="sketch-meta">
+                  <span class="tema-badge" data-tema={sketch.tema}>
+                    {sketch.tema === 'sostenibilidad' && (
+                      <span class="emoji-cutout emoji-sm theme-green">🌱</span>
+                    )}
+                    {sketch.tema === 'tecnologia' && (
+                      <span class="emoji-cutout emoji-sm theme-purple">💡</span>
+                    )}
+                    {sketch.tema === 'social' && (
+                      <span class="emoji-cutout emoji-sm theme-community">
+                        👥
+                      </span>
+                    )}
+                    {sketch.tema}
+                  </span>
+
+                  <div class="sketch-stats">
+                    <span>
+                      <span class="emoji-cutout emoji-sm">👁</span>{' '}
+                      {sketch.views}
+                    </span>
+                    <span>
+                      <span class="emoji-cutout emoji-sm theme-community">
+                        ❤️
+                      </span>{' '}
+                      {sketch.likes}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="personajes-list">
+                  {sketch.personajes.map((p) => (
+                    <span class="personaje-chip">{p}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div class="sketch-actions">
+                <button class="btn-play">▶ Ver Sketch</button>
+                <button class="btn-share">
+                  <span class="emoji-cutout emoji-sm">📤</span> Compartir
+                </button>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="load-more">
+        <button class="btn btn-secondary">Cargar más sketches</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sketches-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Te gusta lo que ves?</h2>
+        <p>Suscríbete para no perderte ningún episodio</p>
+        <div class="cta-actions">
+          <a
+            href="https://youtube.com/@testigosdesolarpunk"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span class="emoji-cutout emoji-button emoji-md theme-solar"
+              >🔔</span
+            > Suscribirse al Canal</a
+          >
+          <a href={`${basePath}/comunidad/`} class="btn btn-secondary">
+            <span class="emoji-cutout emoji-button emoji-md theme-community"
+              >👥</span
+            > Unirse a la Comunidad
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-sketches {
+    background: linear-gradient(
+      135deg,
+      var(--amarillo-solar) 0%,
+      rgba(255, 193, 7, 0.2) 100%
+    );
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+  }
+
+  .fase-label {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .hero-sketches h1 {
+    font-size: 3rem;
+    margin-bottom: var(--espacio-md);
+    color: var(--texto-primario);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto var(--espacio-xl);
+  }
+
+  .sketches-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--espacio-xxl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--texto-primario);
+  }
+
+  .stat-label {
+    display: block;
+    color: var(--texto-secundario);
+    margin-top: var(--espacio-xs);
+  }
+
+  /* Filtros */
+  .sketches-filters {
+    padding: var(--espacio-lg) 0;
+    background: var(--fondo-secundario);
+    position: sticky;
+    top: 60px;
+    z-index: 50;
+  }
+
+  .filter-group {
+    display: flex;
+    gap: var(--espacio-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    padding: var(--espacio-sm) var(--espacio-lg);
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--amarillo-solar);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .filter-btn.active {
+    background: var(--amarillo-solar);
+    color: var(--text-on-accent, #000000);
+    border-color: var(--amarillo-solar);
+  }
+
+  /* Grid de Sketches */
+  .sketches-grid-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .sketches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--espacio-xl);
+    margin-bottom: var(--espacio-xxl);
+  }
+
+  .sketch-card {
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .sketch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .sketch-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--fondo-secundario);
+  }
+
+  .duracion {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--text-primary, #ffffff);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .sketch-card:hover .play-overlay {
+    opacity: 1;
+  }
+
+  .play-btn {
+    width: 60px;
+    height: 60px;
+    background: var(--amarillo-solar);
+    color: var(--text-on-accent, #000000);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    /* DIY Magazine Cutout aesthetic */
+    clip-path: polygon(
+      8% 0%,
+      92% 0%,
+      100% 15%,
+      97% 45%,
+      100% 70%,
+      85% 100%,
+      15% 100%,
+      0% 85%,
+      3% 55%,
+      0% 30%
+    );
+
+    /* Paper texture */
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%
+      ),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 1px,
+        rgba(255, 255, 255, 0.03) 1px,
+        rgba(255, 255, 255, 0.03) 2px
+      );
+  }
+
+  .play-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .sketch-content {
+    padding: var(--espacio-lg);
+  }
+
+  .episodio-tag {
+    background: var(--fondo-secundario);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .sketch-content h3 {
+    margin: var(--espacio-md) 0;
+    font-size: 1.25rem;
+  }
+
+  .sketch-descripcion {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .sketch-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .tema-badge {
+    background: var(--fondo-secundario);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .tema-badge[data-tema='sostenibilidad'] {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--verde-sostenible);
+  }
+
+  .tema-badge[data-tema='tecnologia'] {
+    background: rgba(33, 150, 243, 0.1);
+    color: var(--azul-tecnologico);
+  }
+
+  .tema-badge[data-tema='social'] {
+    background: rgba(255, 111, 53, 0.1);
+    color: var(--naranja-comunidad);
+  }
+
+  .sketch-stats {
+    display: flex;
+    gap: var(--espacio-md);
+    font-size: 0.875rem;
+    color: var(--texto-secundario);
+  }
+
+  .personajes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-sm);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .personaje-chip {
+    background: var(--fondo-secundario);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+  }
+
+  .sketch-actions {
+    padding: var(--espacio-md);
+    border-top: 1px solid var(--borde-claro);
+    display: flex;
+    gap: var(--espacio-sm);
+  }
+
+  .btn-play,
+  .btn-share {
+    flex: 1;
+    padding: var(--espacio-sm);
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-play {
+    background: var(--amarillo-solar);
+    color: var(--text-on-accent, #000000);
+  }
+
+  .btn-share {
+    background: var(--fondo-secundario);
+    color: var(--texto-primario);
+  }
+
+  .btn-play:hover {
+    background: var(--dorado-solar);
+  }
+
+  .btn-share:hover {
+    background: var(--borde-claro);
+  }
+
+  .load-more {
+    text-align: center;
+  }
+
+  /* CTA Section */
+  .sketches-cta {
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      rgba(255, 193, 7, 0.05) 100%
+    );
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .sketches-cta .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .sketches-cta h2 {
+    font-size: 2rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .sketches-cta p {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  @media (max-width: 768px) {
+    .hero-sketches h1 {
+      font-size: 2rem;
+    }
+
+    .sketches-stats {
+      gap: var(--espacio-lg);
+    }
+
+    .stat-value {
+      font-size: 2rem;
+    }
+
+    .sketches-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filter-group {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      flex-wrap: nowrap;
+    }
+  }
+</style>
+
+<script>
+  // Filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const sketchCards = document.querySelectorAll('.sketch-card');
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filterBtn = btn as HTMLElement;
+        const filter = filterBtn.dataset.filter;
+
+        // Update active button
+        filterBtns.forEach((b) => b.classList.remove('active'));
+        filterBtn.classList.add('active');
+
+        // Filter cards
+        sketchCards.forEach((card) => {
+          const sketchCard = card as HTMLElement;
+          if (filter === 'todos' || sketchCard.dataset.tema === filter) {
+            sketchCard.style.display = 'block';
+          } else {
+            sketchCard.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

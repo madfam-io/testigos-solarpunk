@@ -1,0 +1,1060 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  title="Oportunidades de Integración"
+  description="Formas orgánicas de participar en las historias - Guía de colaboración para patrocinadores en el universo Testigos de Solarpunk"
+>
+  <!-- Hero Section -->
+  <section class="resource-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="emoji-cutout emoji-hero emoji-xl theme-community flutter"
+          >🤝</span
+        >
+        <h1>Oportunidades de Integración</h1>
+        <p class="hero-description">
+          Descubre formas orgánicas y auténticas de participar en las historias
+          del universo Testigos de Solarpunk, creando valor real para tu marca y
+          nuestra audiencia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration Philosophy -->
+  <section class="philosophy-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">🌱</span>
+        Filosofía de Integración
+      </h2>
+      <div class="philosophy-content card">
+        <div class="philosophy-grid">
+          <div class="principle-item">
+            <h3>Autenticidad Narrativa</h3>
+            <p>
+              Toda integración debe sentirse natural dentro del universo
+              solarpunk, no como publicidad forzada sino como parte orgánica de
+              la historia.
+            </p>
+          </div>
+          <div class="principle-item">
+            <h3>Valor Educativo</h3>
+            <p>
+              Las marcas participan proporcionando conocimiento real, soluciones
+              prácticas y herramientas que mejoran la vida de nuestra audiencia.
+            </p>
+          </div>
+          <div class="principle-item">
+            <h3>Coherencia de Valores</h3>
+            <p>
+              Solo colaboramos con organizaciones que genuinamente comparten los
+              valores de sostenibilidad, innovación y bienestar comunitario.
+            </p>
+          </div>
+          <div class="principle-item">
+            <h3>Transparencia Total</h3>
+            <p>
+              Siempre revelamos las colaboraciones de manera clara, manteniendo
+              la confianza con nuestra audiencia como prioridad absoluta.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration Types -->
+  <section class="types-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">🎯</span>
+        Tipos de Integración
+      </h2>
+      <div class="types-grid">
+        <div class="type-card card">
+          <div class="type-header">
+            <span class="emoji-cutout emoji-lg theme-purple">🎬</span>
+            <h3>Integración Narrativa</h3>
+          </div>
+          <div class="type-content">
+            <h4>¿Cómo funciona?</h4>
+            <p>
+              Tu producto o servicio se convierte en parte natural de la
+              historia. Los personajes lo usan, lo recomiendan o lo descubren
+              como solución a un problema real.
+            </p>
+
+            <h4>Ejemplos de Aplicación</h4>
+            <ul>
+              <li>
+                <strong>Paneles solares:</strong> Hermana Panelia instala el sistema
+                en casa de converso
+              </li>
+              <li>
+                <strong>Apps de sostenibilidad:</strong> Lucía las usa para calcular
+                impacto ambiental
+              </li>
+              <li>
+                <strong>Productos orgánicos:</strong> Compostino los recomienda en
+                su huerto
+              </li>
+              <li>
+                <strong>Transporte eléctrico:</strong> Los evangelistas lo usan en
+                sus misiones
+              </li>
+            </ul>
+
+            <h4>Beneficios</h4>
+            <ul>
+              <li>Demostración práctica del producto</li>
+              <li>Asociación con personajes queridos</li>
+              <li>Contexto de uso real y creíble</li>
+              <li>Contenido evergreen</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="type-card card">
+          <div class="type-header">
+            <span class="emoji-cutout emoji-lg theme-solar">🏫</span>
+            <h3>Patrocinio Educativo</h3>
+          </div>
+          <div class="type-content">
+            <h4>¿Cómo funciona?</h4>
+            <p>
+              Tu marca patrocina contenido educativo específico, proporcionando
+              expertise técnico y recursos para crear contenido de máxima
+              calidad.
+            </p>
+
+            <h4>Formatos Disponibles</h4>
+            <ul>
+              <li>
+                <strong>Series temáticas:</strong> "Energía Solar 101 con [Tu Marca]"
+              </li>
+              <li>
+                <strong>Webinars en vivo:</strong> Q&A con expertos de tu empresa
+              </li>
+              <li>
+                <strong>Guías descargables:</strong> PDFs co-branded con tu logo
+              </li>
+              <li>
+                <strong>Workshops virtuales:</strong> Hands-on con tus productos
+              </li>
+            </ul>
+
+            <h4>Beneficios</h4>
+            <ul>
+              <li>Posicionamiento como thought leader</li>
+              <li>Acceso directo a audiencia interesada</li>
+              <li>Generación de leads cualificados</li>
+              <li>Content marketing de alto valor</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="type-card card">
+          <div class="type-header">
+            <span class="emoji-cutout emoji-lg theme-green">🔬</span>
+            <h3>Co-desarrollo de Productos</h3>
+          </div>
+          <div class="type-content">
+            <h4>¿Cómo funciona?</h4>
+            <p>
+              Nuestra audiencia se convierte en tu laboratorio de innovación,
+              proporcionando feedback directo para el desarrollo de productos
+              sostenibles.
+            </p>
+
+            <h4>Proceso de Colaboración</h4>
+            <ul>
+              <li>
+                <strong>Fase 1:</strong> Presentación del concepto a la comunidad
+              </li>
+              <li>
+                <strong>Fase 2:</strong> Recolección de feedback y sugerencias
+              </li>
+              <li>
+                <strong>Fase 3:</strong> Testing con grupo selecto de seguidores
+              </li>
+              <li>
+                <strong>Fase 4:</strong> Lanzamiento documentado en contenido
+              </li>
+            </ul>
+
+            <h4>Beneficios</h4>
+            <ul>
+              <li>Reducción de riesgo de producto</li>
+              <li>Validación de mercado pre-lanzamiento</li>
+              <li>Comunidad de early adopters</li>
+              <li>Buzz orgánico de lanzamiento</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="type-card card">
+          <div class="type-header">
+            <span class="emoji-cutout emoji-lg theme-community">🎪</span>
+            <h3>Eventos y Experiencias</h3>
+          </div>
+          <div class="type-content">
+            <h4>¿Cómo funciona?</h4>
+            <p>
+              Creamos experiencias inmersivas donde tu marca tiene presencia
+              central, desde workshops hasta festivales de sostenibilidad.
+            </p>
+
+            <h4>Tipos de Eventos</h4>
+            <ul>
+              <li>
+                <strong>SolarFest:</strong> Festival anual de sostenibilidad
+              </li>
+              <li>
+                <strong>Talleres MADLAB:</strong> Hands-on workshops en escuelas
+              </li>
+              <li>
+                <strong>Pop-ups urbanos:</strong> Activaciones en espacios públicos
+              </li>
+              <li>
+                <strong>Tours virtuales:</strong> Visitas 360° a instalaciones
+              </li>
+            </ul>
+
+            <h4>Beneficios</h4>
+            <ul>
+              <li>Interacción directa con audiencia</li>
+              <li>Demostración práctica de productos</li>
+              <li>Generación de contenido UGC</li>
+              <li>Networking con stakeholders clave</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="cases-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">📋</span>
+        Casos de Éxito
+      </h2>
+      <div class="cases-grid">
+        <div class="case-card card">
+          <div class="case-header">
+            <h3>SolarTech Solutions</h3>
+            <span class="case-type">Integración Narrativa</span>
+          </div>
+          <div class="case-content">
+            <h4>La Colaboración</h4>
+            <p>
+              SolarTech proporcionó paneles solares para la instalación que
+              Hermana Panelia realizó en casa de una familia escéptica,
+              documentando todo el proceso.
+            </p>
+
+            <h4>Resultados</h4>
+            <div class="results-grid">
+              <div class="result-item">
+                <div class="result-number">2.3M</div>
+                <p>Views en la serie</p>
+              </div>
+              <div class="result-item">
+                <div class="result-number">340</div>
+                <p>Leads generados</p>
+              </div>
+              <div class="result-item">
+                <div class="result-number">85%</div>
+                <p>Sentiment positivo</p>
+              </div>
+              <div class="result-item">
+                <div class="result-number">45</div>
+                <p>Instalaciones directas</p>
+              </div>
+            </div>
+
+            <h4>Qué Funcionó</h4>
+            <ul>
+              <li>Historia auténtica de transformación familiar</li>
+              <li>Demostración real de ahorros económicos</li>
+              <li>Follow-up 6 meses después mostrando resultados</li>
+              <li>Testimonial genuino de la familia</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-card card">
+          <div class="case-header">
+            <h3>EcoApp</h3>
+            <span class="case-type">Patrocinio Educativo</span>
+          </div>
+          <div class="case-content">
+            <h4>La Colaboración</h4>
+            <p>
+              EcoApp patrocinó la serie "Midiendo Tu Impacto" donde Lucía Solar
+              usaba la app para calcular y reducir su huella de carbono
+              personal.
+            </p>
+
+            <h4>Resultados</h4>
+            <div class="results-grid">
+              <div class="result-item">
+                <div class="result-number">45K</div>
+                <p>Descargas de la app</p>
+              </div>
+              <div class="result-item">
+                <div class="result-number">78%</div>
+                <p>Retention a 30 días</p>
+              </div>
+              <div class="result-item">
+                <div class="result-number">4.9</div>
+                <p>Rating en app stores</p>
+              </div>
+              <div class="result-item">
+                <div class="result-number">230%</div>
+                <p>ROI del patrocinio</p>
+              </div>
+            </div>
+
+            <h4>Qué Funcionó</h4>
+            <ul>
+              <li>Tutorial paso a paso genuinamente útil</li>
+              <li>Lucía como usuaria escéptica convertida</li>
+              <li>Datos reales y comparaciones honestas</li>
+              <li>CTA natural al final de cada episodio</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-card card">
+          <div class="case-header">
+            <h3>BioMaterials Corp</h3>
+            <span class="case-type">Co-desarrollo</span>
+          </div>
+          <div class="case-content">
+            <h4>La Colaboración</h4>
+            <p>
+              BioMaterials involucró a nuestra comunidad en el desarrollo de
+              empaques biodegradables, desde ideación hasta testing final.
+            </p>
+
+            <h4>Resultados</h4>
+            <div class="results-grid">
+              <div class="result-item">
+                <div class="result-number">1,200</div>
+                <p>Participantes en feedback</p>
+              </div>
+              <div class="result-item">
+                <div class="result-number">67</div>
+                <p>Mejoras implementadas</p>
+              </div>
+              <div class="result-item">
+                <div class="result-number">92%</div>
+                <p>Satisfacción final</p>
+              </div>
+              <div class="result-item">
+                <div class="result-number">6 meses</div>
+                <p>Reducción en time-to-market</p>
+              </div>
+            </div>
+
+            <h4>Qué Funcionó</h4>
+            <ul>
+              <li>Transparencia total en el proceso</li>
+              <li>Feedback incorporado visiblemente</li>
+              <li>Reconocimiento a contribuidores de la comunidad</li>
+              <li>Lanzamiento como "producto comunitario"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration Process -->
+  <section class="process-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">⚙️</span>
+        Proceso de Colaboración
+      </h2>
+      <div class="process-timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">1</div>
+          <div class="timeline-content">
+            <h3>Descubrimiento y Alineación</h3>
+            <div class="timeline-details">
+              <h4>Duración: 1-2 semanas</h4>
+              <p>
+                Evaluamos la compatibilidad de valores, objetivos y audiencia.
+                Identificamos oportunidades específicas de integración.
+              </p>
+              <ul>
+                <li>Análisis de marca y valores</li>
+                <li>Review de productos/servicios</li>
+                <li>Definición de objetivos compartidos</li>
+                <li>Propuesta inicial de integración</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">2</div>
+          <div class="timeline-content">
+            <h3>Desarrollo de Estrategia</h3>
+            <div class="timeline-details">
+              <h4>Duración: 2-3 semanas</h4>
+              <p>
+                Creamos una estrategia detallada de integración que maximice el
+                valor para ambas partes y la audiencia.
+              </p>
+              <ul>
+                <li>Desarrollo de narrativa integrada</li>
+                <li>Definición de KPIs y métricas</li>
+                <li>Planning de contenido y calendario</li>
+                <li>Creación de assets y materiales</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">3</div>
+          <div class="timeline-content">
+            <h3>Producción de Contenido</h3>
+            <div class="timeline-details">
+              <h4>Duración: 4-8 semanas</h4>
+              <p>
+                Ejecutamos la producción de contenido con tu marca integrada de
+                manera orgánica y auténtica.
+              </p>
+              <ul>
+                <li>Pre-producción y guiones</li>
+                <li>Grabación y captura de contenido</li>
+                <li>Post-producción y edición</li>
+                <li>Revisión y aprobación conjunta</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">4</div>
+          <div class="timeline-content">
+            <h3>Lanzamiento y Distribución</h3>
+            <div class="timeline-details">
+              <h4>Duración: 2-4 semanas</h4>
+              <p>
+                Coordinamos el lanzamiento estratégico del contenido maximizando
+                el alcance y engagement.
+              </p>
+              <ul>
+                <li>Lanzamiento escalonado por plataformas</li>
+                <li>Amplificación en redes sociales</li>
+                <li>Cross-promotion con canales de marca</li>
+                <li>Engagement activo con comentarios</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">5</div>
+          <div class="timeline-content">
+            <h3>Análisis y Optimización</h3>
+            <div class="timeline-details">
+              <h4>Duración: Ongoing</h4>
+              <p>
+                Monitoreamos performance, analizamos resultados y optimizamos
+                para futuras colaboraciones.
+              </p>
+              <ul>
+                <li>Tracking de métricas y KPIs</li>
+                <li>Análisis de sentiment y feedback</li>
+                <li>Reporte detallado de resultados</li>
+                <li>Recomendaciones para futuras campañas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment Tiers -->
+  <section class="tiers-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-community">💎</span>
+        Niveles de Colaboración
+      </h2>
+      <div class="tiers-grid">
+        <div class="tier-card card">
+          <div class="tier-header">
+            <h3>Colaborador Semilla</h3>
+            <div class="tier-price">$5K - $15K</div>
+          </div>
+          <div class="tier-content">
+            <h4>Qué Incluye</h4>
+            <ul>
+              <li>1-2 menciones orgánicas en contenido</li>
+              <li>Logo en descripción de videos relevantes</li>
+              <li>Shout-out en redes sociales</li>
+              <li>Reporte básico de métricas</li>
+            </ul>
+            <h4>Ideal Para</h4>
+            <p>
+              Startups y pequeñas empresas que buscan primera exposición en el
+              espacio de sostenibilidad.
+            </p>
+          </div>
+        </div>
+
+        <div class="tier-card card featured">
+          <div class="tier-header">
+            <h3>Socio de Crecimiento</h3>
+            <div class="tier-price">$15K - $50K</div>
+            <div class="tier-badge">Más Popular</div>
+          </div>
+          <div class="tier-content">
+            <h4>Qué Incluye</h4>
+            <ul>
+              <li>Integración narrativa completa (3-5 videos)</li>
+              <li>Contenido educativo co-branded</li>
+              <li>Participación en eventos virtuales</li>
+              <li>Acceso a comunidad para feedback</li>
+              <li>Reporte detallado con insights</li>
+            </ul>
+            <h4>Ideal Para</h4>
+            <p>
+              Empresas establecidas que buscan posicionamiento sólido y
+              generación de leads cualificados.
+            </p>
+          </div>
+        </div>
+
+        <div class="tier-card card">
+          <div class="tier-header">
+            <h3>Aliado Estratégico</h3>
+            <div class="tier-price">$50K+</div>
+          </div>
+          <div class="tier-content">
+            <h4>Qué Incluye</h4>
+            <ul>
+              <li>Serie completa dedicada a tu marca</li>
+              <li>Co-desarrollo de productos con comunidad</li>
+              <li>Presencia en eventos presenciales</li>
+              <li>Contenido multiplataforma coordinado</li>
+              <li>Acceso directo al equipo creativo</li>
+              <li>Reportes personalizados y insights estratégicos</li>
+            </ul>
+            <h4>Ideal Para</h4>
+            <p>
+              Grandes corporaciones que buscan transformar su imagen de marca y
+              liderar en sostenibilidad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="resource-navigation">
+    <div class="container">
+      <div class="nav-buttons">
+        <a
+          href={`${basePath}/recursos/patrocinadores/impacto/`}
+          class="btn btn-secondary"
+        >
+          <span class="emoji-cutout emoji-sm">📊</span>
+          Reporte de Impacto
+        </a>
+        <a
+          href={`${basePath}/recursos/patrocinadores/valores/`}
+          class="btn btn-primary"
+        >
+          <span class="emoji-cutout emoji-sm">🌱</span>
+          Alineación de Valores
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .resource-hero {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin: var(--espacio-lg) 0;
+    color: var(--naranja-comunidad);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .philosophy-section,
+  .types-section,
+  .cases-section,
+  .process-section,
+  .tiers-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .types-section,
+  .process-section {
+    background-color: var(--fondo-secundario);
+  }
+
+  .philosophy-section h2,
+  .types-section h2,
+  .cases-section h2,
+  .process-section h2,
+  .tiers-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .philosophy-content {
+    padding: var(--espacio-xxl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-xl);
+  }
+
+  .principle-item {
+    text-align: center;
+  }
+
+  .principle-item h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-md);
+    font-size: 1.1rem;
+  }
+
+  .principle-item p {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .type-card {
+    padding: var(--espacio-xl);
+  }
+
+  .type-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .type-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .type-content h4 {
+    color: var(--amarillo-solar);
+    margin: var(--espacio-lg) 0 var(--espacio-md) 0;
+    font-size: 1rem;
+  }
+
+  .type-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-md);
+    line-height: 1.6;
+  }
+
+  .type-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .type-content li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+  }
+
+  .type-content li:last-child {
+    border-bottom: none;
+  }
+
+  .type-content li strong {
+    color: var(--amarillo-solar);
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .case-card {
+    padding: var(--espacio-xl);
+  }
+
+  .case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .case-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .case-type {
+    background: var(--purpura-creativo);
+    color: var(--text-on-accent, #000000);
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .case-content h4 {
+    color: var(--amarillo-solar);
+    margin: var(--espacio-lg) 0 var(--espacio-md) 0;
+    font-size: 1rem;
+  }
+
+  .case-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+    line-height: 1.6;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .result-item {
+    text-align: center;
+    padding: var(--espacio-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+  }
+
+  .result-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-xs);
+  }
+
+  .result-item p {
+    color: var(--texto-secundario);
+    margin: 0;
+    font-size: 0.85rem;
+  }
+
+  .case-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .case-content li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+  }
+
+  .case-content li:last-child {
+    border-bottom: none;
+  }
+
+  .process-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: var(--espacio-xl) auto 0;
+  }
+
+  .process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--verde-sostenible);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: var(--espacio-xxl);
+    padding-left: 80px;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--amarillo-solar);
+    border: 3px solid var(--verde-sostenible);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--negro-profundo);
+
+    /* DIY Magazine Cutout aesthetic for timeline markers */
+    clip-path: polygon(
+      15% 0%,
+      85% 3%,
+      98% 15%,
+      100% 35%,
+      95% 60%,
+      100% 85%,
+      85% 97%,
+      60% 100%,
+      35% 98%,
+      15% 95%,
+      0% 75%,
+      2% 50%,
+      0% 25%,
+      12% 5%
+    );
+  }
+
+  .timeline-content {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-xl);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+  }
+
+  .timeline-content h3 {
+    color: var(--verde-sostenible);
+    margin: 0 0 var(--espacio-md) 0;
+    font-size: 1.2rem;
+  }
+
+  .timeline-details h4 {
+    color: var(--amarillo-solar);
+    margin: 0 0 var(--espacio-sm) 0;
+    font-size: 0.9rem;
+  }
+
+  .timeline-details p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-md);
+    line-height: 1.6;
+  }
+
+  .timeline-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .timeline-details li {
+    padding: var(--espacio-xs) 0;
+    color: var(--texto-secundario);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .timeline-details li:last-child {
+    border-bottom: none;
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .tier-card {
+    padding: var(--espacio-xl);
+    position: relative;
+  }
+
+  .tier-card.featured {
+    border-color: var(--amarillo-solar);
+    transform: scale(1.05);
+  }
+
+  .tier-header {
+    text-align: center;
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-lg);
+    border-bottom: 2px solid var(--borde-claro);
+    position: relative;
+  }
+
+  .tier-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0 0 var(--espacio-md) 0;
+    font-size: 1.3rem;
+  }
+
+  .tier-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--amarillo-solar);
+  }
+
+  .tier-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--amarillo-solar);
+    color: var(--negro-profundo);
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .tier-content h4 {
+    color: var(--purpura-creativo);
+    margin: 0 0 var(--espacio-md) 0;
+    font-size: 1rem;
+  }
+
+  .tier-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .tier-content li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+  }
+
+  .tier-content li:last-child {
+    border-bottom: none;
+  }
+
+  .tier-content p {
+    color: var(--texto-secundario);
+    margin: 0;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .resource-navigation {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--espacio-lg);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .philosophy-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .types-grid,
+    .cases-grid,
+    .tiers-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tier-card.featured {
+      transform: none;
+    }
+
+    .process-timeline::before {
+      left: 15px;
+    }
+
+    .timeline-item {
+      padding-left: 50px;
+    }
+
+    .timeline-marker {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+
+    .results-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>

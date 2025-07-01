@@ -1,0 +1,930 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  lang="en"
+  title="Azotea Verde de Neo-Cuernavaca"
+  description="Descubre el corazón verde de la ciudad: la azotea comunitaria donde convergen tecnología, naturaleza y esperanza en el universo solarpunk"
+>
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href={`${basePath}/`}>Inicio</a></li>
+        <li><a href={`${basePath}/mundo/`}>Construcción del Mundo</a></li>
+        <li aria-current="page">Azotea Verde de Neo-Cuernavaca</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="location-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="emoji-cutout emoji-hero emoji-xl theme-green flutter"
+          >🌿</span
+        >
+        <h1>Azotea Verde de Neo-Cuernavaca</h1>
+        <p class="hero-description">
+          El corazón pulsante de la revolución solarpunk: un oasis urbano donde
+          la tecnología sostenible se encuentra con la sabiduría ancestral para
+          crear el futuro que todos merecemos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="overview-section">
+    <div class="container">
+      <div class="overview-content">
+        <div class="overview-text">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-solar">☀️</span>
+            Un Nuevo Modelo de Comunidad
+          </h2>
+          <p>
+            La Azotea Verde no es solo un espacio físico; es una manifestación
+            tangible de los principios solarpunk en acción. Ubicada en el
+            corazón de Neo-Cuernavaca, esta azotea comunitaria de 2,500 metros
+            cuadrados funciona como laboratorio social, centro de innovación y
+            jardín comunitario.
+          </p>
+          <p>
+            Aquí, los habitantes de la ciudad experimentan de primera mano cómo
+            la tecnología apropiada puede mejorar sus vidas sin sacrificar su
+            conexión con la naturaleza. Es el lugar donde Hermana Panelia
+            realiza sus demostraciones más impactantes y donde Hermano
+            Compostino enseña los ciclos eternos de regeneración.
+          </p>
+        </div>
+        <div class="overview-stats">
+          <div class="stat-card">
+            <span class="stat-number">2.5K</span>
+            <span class="stat-label">Metros cuadrados</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Plantas nativas</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">85%</span>
+            <span class="stat-label">Energía renovable</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">200</span>
+            <span class="stat-label">Visitantes semanales</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">🏗️</span>
+        Características de la Azotea
+      </h2>
+      <div class="features-grid">
+        <div class="feature-card card">
+          <div class="feature-header">
+            <span class="emoji-cutout emoji-lg theme-solar">⚡</span>
+            <h3>Sistema de Energía Solar</h3>
+          </div>
+          <div class="feature-content">
+            <p>
+              Una instalación de 50kW de paneles solares de última generación
+              que no solo abastece las necesidades energéticas de la azotea,
+              sino que también alimenta el edificio de apartamentos comunitario
+              de abajo.
+            </p>
+            <ul>
+              <li>Paneles bifaciales de alta eficiencia</li>
+              <li>Sistema de almacenamiento en baterías</li>
+              <li>Inversor inteligente con monitoreo en tiempo real</li>
+              <li>Excedente compartido con la red comunitaria</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-card card">
+          <div class="feature-header">
+            <span class="emoji-cutout emoji-lg theme-green">🌱</span>
+            <h3>Jardines Verticales y Huertos</h3>
+          </div>
+          <div class="feature-content">
+            <p>
+              Un sistema integrado de agricultura urbana que combina
+              permacultura tradicional con hidroponía moderna, produciendo
+              alimentos frescos para más de 50 familias de la comunidad.
+            </p>
+            <ul>
+              <li>Torres de cultivo hidropónico automatizadas</li>
+              <li>Bancales elevados con compost comunitario</li>
+              <li>Plantas medicinales y aromáticas nativas</li>
+              <li>Sistema de recolección de agua de lluvia</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-card card">
+          <div class="feature-header">
+            <span class="emoji-cutout emoji-lg theme-community">🏛️</span>
+            <h3>Espacio de Reunión Comunitaria</h3>
+          </div>
+          <div class="feature-content">
+            <p>
+              Un anfiteatro al aire libre construido con materiales reciclados
+              donde se realizan talleres, presentaciones y las famosas
+              "Asambleas del Atardecer" donde la comunidad toma decisiones
+              consensuadas.
+            </p>
+            <ul>
+              <li>Capacidad para 80 personas sentadas</li>
+              <li>Sistema de sonido alimentado por energía solar</li>
+              <li>Escenario modular y adaptable</li>
+              <li>Pérgola con plantas trepadoras para sombra natural</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-card card">
+          <div class="feature-header">
+            <span class="emoji-cutout emoji-lg theme-purple">♻️</span>
+            <h3>Centro de Compostaje Comunitario</h3>
+          </div>
+          <div class="feature-content">
+            <p>
+              El dominio de Hermano Compostino: un sistema de compostaje en
+              capas que procesa los residuos orgánicos de todo el barrio,
+              transformándolos en el "oro negro" que alimenta los jardines.
+            </p>
+            <ul>
+              <li>Compostera termofílica de tres cámaras</li>
+              <li>Vermicompostaje con lombrices californianas</li>
+              <li>Biodigestor para generación de biogás</li>
+              <li>Talleres semanales de compostaje doméstico</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Life Section -->
+  <section class="daily-life-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">🌅</span>
+        Un Día en la Azotea Verde
+      </h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-marker">6:00 AM</div>
+          <div class="timeline-content">
+            <h3>Amanecer Solar</h3>
+            <p>
+              Los primeros rayos del sol activan automáticamente el sistema de
+              riego por goteo. Los madrugadores llegan para el "Ritual del
+              Amanecer": yoga, meditación y revisión de las plantas antes de
+              comenzar el día.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time-marker">8:00 AM</div>
+          <div class="timeline-content">
+            <h3>Cosecha Matutina</h3>
+            <p>
+              Las familias participantes recogen los vegetales frescos para el
+              desayuno. Hermano Compostino suele estar aquí, enseñando sobre los
+              ciclos naturales mientras revuelve el compost.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time-marker">12:00 PM</div>
+          <div class="timeline-content">
+            <h3>Almuerzo Comunitario</h3>
+            <p>
+              Los miércoles y sábados se organiza un almuerzo comunitario donde
+              todos contribuyen con algo preparado con los ingredientes de la
+              azotea. Es cuando más historias y conocimientos se comparten.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time-marker">4:00 PM</div>
+          <div class="timeline-content">
+            <h3>Talleres y Demostraciones</h3>
+            <p>
+              El momento favorito de Hermana Panelia. Aquí demuestra nuevas
+              tecnologías, explica el funcionamiento de los paneles solares y
+              enseña a otros cómo pueden implementar soluciones similares en sus
+              hogares.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time-marker">6:00 PM</div>
+          <div class="timeline-content">
+            <h3>Asamblea del Atardecer</h3>
+            <p>
+              Los viernes, la comunidad se reúne para tomar decisiones
+              importantes, planificar proyectos futuros y resolver conflictos de
+              manera colaborativa. Es democracia directa en acción.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time-marker">8:00 PM</div>
+          <div class="timeline-content">
+            <h3>Noches de Estrellas</h3>
+            <p>
+              Con la contaminación lumínica reducida gracias al uso inteligente
+              de la energía, las noches en la azotea permiten observar las
+              estrellas mientras se comparten historias y sueños para el futuro.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="impact-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">📊</span>
+        Impacto Real y Medible
+      </h2>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-number">65%</div>
+          <div class="impact-label">Reducción en costos de energía</div>
+          <p>
+            Las familias del edificio han visto una reducción promedio del 65%
+            en sus facturas eléctricas desde la instalación del sistema solar.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-number">2.5 Ton</div>
+          <div class="impact-label">CO₂ evitado mensualmente</div>
+          <p>
+            La combinación de energía solar y compostaje evita la emisión de 2.5
+            toneladas de CO₂ cada mes.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-number">80%</div>
+          <div class="impact-label">Residuos orgánicos procesados</div>
+          <p>
+            El sistema de compostaje procesa el 80% de los residuos orgánicos
+            del barrio, transformándolos en fertilizante natural.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-number">300kg</div>
+          <div class="impact-label">Alimentos frescos al mes</div>
+          <p>
+            Los jardines urbanos producen 300kg de vegetales y hierbas frescas
+            mensualmente para la comunidad.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stories Section -->
+  <section class="stories-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">📖</span>
+        Historias de Transformación
+      </h2>
+      <div class="stories-grid">
+        <div class="story-card card">
+          <div class="story-header">
+            <span class="emoji-cutout emoji-lg theme-community">👩‍👧‍👦</span>
+            <h3>La Familia Hernández</h3>
+          </div>
+          <div class="story-content">
+            <p>
+              "Al principio éramos escépticos sobre esto de los paneles
+              solares", cuenta María Hernández. "Pero cuando vimos que nuestra
+              factura de luz bajó de $2,500 a $800 pesos, y además tenemos
+              vegetales frescos cada semana... ya no hay vuelta atrás."
+            </p>
+            <div class="story-impact">
+              <strong>Impacto:</strong> $20,400 pesos ahorrados en el primer año
+            </div>
+          </div>
+        </div>
+
+        <div class="story-card card">
+          <div class="story-header">
+            <span class="emoji-cutout emoji-lg theme-green">👨‍🌾</span>
+            <h3>Don Carlos, el Converso</h3>
+          </div>
+          <div class="story-content">
+            <p>
+              Ex-escéptico del cambio climático, Don Carlos ahora lidera los
+              talleres de compostaje los sábados. "Compostino me enseñó que
+              'basura' es solo una palabra para cosas que no sabemos aprovechar.
+              Ahora veo oportunidades donde antes veía problemas."
+            </p>
+            <div class="story-impact">
+              <strong>Impacto:</strong> 40 familias adoptaron compostaje doméstico
+            </div>
+          </div>
+        </div>
+
+        <div class="story-card card">
+          <div class="story-header">
+            <span class="emoji-cutout emoji-lg theme-solar">👧</span>
+            <h3>Sofía, de 8 años</h3>
+          </div>
+          <div class="story-content">
+            <p>
+              "Me gusta venir aquí porque las plantas me dicen secretos",
+              explica Sofía mientras riega sus tomates cherry. "Y cuando crezca,
+              voy a hacer una azotea así en toda la ciudad."
+            </p>
+            <div class="story-impact">
+              <strong>Impacto:</strong> 25 niños participan en programas educativos
+              semanales
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Vision Section -->
+  <section class="future-section">
+    <div class="container">
+      <div class="future-content">
+        <h2>
+          <span class="emoji-cutout emoji-md theme-solar">🚀</span>
+          La Semilla del Futuro
+        </h2>
+        <p class="future-description">
+          La Azotea Verde de Neo-Cuernavaca no es un destino, sino un punto de
+          partida. Es la prueba viviente de que otro mundo es posible: uno donde
+          la tecnología sirve a la vida, donde la comunidad prospera sin
+          destruir el planeta, y donde cada persona puede ser protagonista del
+          cambio que quiere ver.
+        </p>
+        <div class="future-goals">
+          <div class="goal-item">
+            <span class="emoji-cutout emoji-md theme-green">🌱</span>
+            <h3>Red de 100 Azoteas</h3>
+            <p>Replicar el modelo en toda la ciudad para 2027</p>
+          </div>
+          <div class="goal-item">
+            <span class="emoji-cutout emoji-md theme-solar">⚡</span>
+            <h3>Independencia Energética</h3>
+            <p>Barrio 100% autoabastecido con renovables para 2026</p>
+          </div>
+          <div class="goal-item">
+            <span class="emoji-cutout emoji-md theme-community">🤝</span>
+            <h3>Modelo Exportable</h3>
+            <p>Guías y recursos disponibles para cualquier comunidad</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="location-navigation">
+    <div class="container">
+      <div class="nav-buttons">
+        <a href={`${basePath}/mundo/`} class="btn btn-secondary">
+          <span class="emoji-cutout emoji-sm">🌍</span>
+          Volver al Mundo
+        </a>
+        <a href={`${basePath}/personajes/`} class="btn btn-primary">
+          <span class="emoji-cutout emoji-sm">👥</span>
+          Conocer a los Personajes
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-md) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb li {
+    color: var(--texto-secundario);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 var(--espacio-sm);
+    color: var(--texto-terciario);
+  }
+
+  .breadcrumb a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .location-hero {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--verde-sostenible) 0%,
+      rgba(76, 175, 80, 0.1) 100%
+    );
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .location-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.05) 10px,
+      rgba(255, 255, 255, 0.05) 20px
+    );
+    pointer-events: none;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin: var(--espacio-lg) 0;
+    color: var(--texto-primario);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .overview-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .overview-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--espacio-xxl);
+    align-items: start;
+  }
+
+  .overview-text h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .overview-text p {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .overview-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espacio-md);
+  }
+
+  .stat-card {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid var(--borde-claro);
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-xs);
+  }
+
+  .stat-label {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+  }
+
+  .features-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .features-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .feature-card {
+    padding: var(--espacio-xl);
+  }
+
+  .feature-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .feature-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .feature-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+    line-height: 1.6;
+  }
+
+  .feature-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .feature-content li {
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+    position: relative;
+    padding-left: var(--espacio-lg);
+  }
+
+  .feature-content li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--verde-sostenible);
+    font-weight: bold;
+  }
+
+  .feature-content li:last-child {
+    border-bottom: none;
+  }
+
+  .daily-life-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .daily-life-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: var(--espacio-xl) auto 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 80px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--verde-sostenible);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: var(--espacio-xl);
+    padding-left: 140px;
+  }
+
+  .time-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 120px;
+    padding: var(--espacio-sm);
+    background: var(--amarillo-solar);
+    color: var(--negro-profundo);
+    border-radius: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .timeline-content {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+  }
+
+  .timeline-content h3 {
+    color: var(--verde-sostenible);
+    margin: 0 0 var(--espacio-md) 0;
+  }
+
+  .timeline-content p {
+    color: var(--texto-secundario);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .impact-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .impact-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .impact-card {
+    background: var(--fondo-primario);
+    padding: var(--espacio-xl);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+    text-align: center;
+  }
+
+  .impact-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--verde-sostenible);
+    display: block;
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .impact-label {
+    color: var(--amarillo-solar);
+    font-weight: 600;
+    margin-bottom: var(--espacio-md);
+    display: block;
+  }
+
+  .impact-card p {
+    color: var(--texto-secundario);
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+
+  .stories-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .stories-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .story-card {
+    padding: var(--espacio-xl);
+  }
+
+  .story-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .story-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .story-content p {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+    margin-bottom: var(--espacio-lg);
+    font-style: italic;
+  }
+
+  .story-impact {
+    color: var(--amarillo-solar);
+    font-size: 0.9rem;
+    padding: var(--espacio-sm);
+    background: rgba(255, 193, 7, 0.1);
+    border-radius: 6px;
+  }
+
+  .future-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+    text-align: center;
+  }
+
+  .future-content h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .future-description {
+    color: var(--texto-secundario);
+    max-width: 700px;
+    margin: 0 auto var(--espacio-xxl);
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+
+  .future-goals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .goal-item {
+    padding: var(--espacio-lg);
+    background: var(--fondo-primario);
+    border-radius: 8px;
+    border: 2px solid var(--borde-claro);
+  }
+
+  .goal-item h3 {
+    color: var(--verde-sostenible);
+    margin: var(--espacio-md) 0;
+  }
+
+  .goal-item p {
+    color: var(--texto-secundario);
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .location-navigation {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--espacio-lg);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .overview-content {
+      grid-template-columns: 1fr;
+      gap: var(--espacio-lg);
+    }
+
+    .overview-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .features-grid,
+    .stories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .impact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .future-goals {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline::before {
+      left: 20px;
+    }
+
+    .timeline-item {
+      padding-left: 60px;
+    }
+
+    .time-marker {
+      width: 80px;
+      font-size: 0.8rem;
+      padding: var(--espacio-xs);
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .impact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .overview-stats {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

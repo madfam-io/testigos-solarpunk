@@ -1,0 +1,415 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  lang="en"
+  title="Contenido"
+  description="Explora todas las fases de contenido de Testigos de Solarpunk: Sketches, Podcast y MADLAB"
+>
+  <section class="hero-contenido">
+    <div class="container">
+      <h1>Contenido Testigos de Solarpunk</h1>
+      <p class="hero-description">
+        Una estrategia de contenido en tres fases para conectar, concientizar y
+        crear comunidad
+      </p>
+    </div>
+  </section>
+
+  <section class="contenido-overview">
+    <div class="container">
+      <div class="fases-grid">
+        <article class="fase-card" data-fase="1">
+          <div class="fase-header">
+            <span class="fase-icon"
+              ><span
+                class="emoji-cutout emoji-card emoji-xl theme-solar flutter"
+                >🎭</span
+              ></span
+            >
+            <div>
+              <h2>Fase 1: Sketches</h2>
+              <span class="fase-status active">En Producción</span>
+            </div>
+          </div>
+
+          <div class="fase-content">
+            <p class="fase-description">
+              Sketches de comedia viral de 60-90 segundos que rompen barreras
+              culturales sobre sostenibilidad. Con personajes memorables y humor
+              inteligente, llevamos el mensaje ecológico a las masas.
+            </p>
+
+            <div class="fase-stats">
+              <div class="stat-item">
+                <span class="stat-value">25</span>
+                <span class="stat-label">Episodios</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">500K+</span>
+                <span class="stat-label">Vistas</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">89%</span>
+                <span class="stat-label">Engagement</span>
+              </div>
+            </div>
+
+            <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary">
+              Ver Sketches
+            </a>
+          </div>
+        </article>
+
+        <article class="fase-card" data-fase="2">
+          <div class="fase-header">
+            <span class="fase-icon"
+              ><span
+                class="emoji-cutout emoji-card emoji-xl theme-purple flutter"
+                >🎙️</span
+              ></span
+            >
+            <div>
+              <h2>Fase 2: Podcast</h2>
+              <span class="fase-status upcoming">Próximamente</span>
+            </div>
+          </div>
+
+          <div class="fase-content">
+            <p class="fase-description">
+              MADFAM Podcast profundiza en conversaciones de 20-30 minutos con
+              expertos, activistas y visionarios. Exploramos soluciones
+              prácticas y escalables para los desafíos ambientales actuales.
+            </p>
+
+            <div class="fase-stats">
+              <div class="stat-item">
+                <span class="stat-value">0</span>
+                <span class="stat-label">Episodios</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">Ene</span>
+                <span class="stat-label">2025</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">20-30</span>
+                <span class="stat-label">Minutos</span>
+              </div>
+            </div>
+
+            <a
+              href={`${basePath}/contenido/podcast/`}
+              class="btn btn-secondary"
+            >
+              Conocer Más
+            </a>
+          </div>
+        </article>
+
+        <article class="fase-card" data-fase="3">
+          <div class="fase-header">
+            <span class="fase-icon"
+              ><span
+                class="emoji-cutout emoji-card emoji-xl theme-green flutter"
+                >🔬</span
+              ></span
+            >
+            <div>
+              <h2>Fase 3: MADLAB</h2>
+              <span class="fase-status development">En Desarrollo</span>
+            </div>
+          </div>
+
+          <div class="fase-content">
+            <p class="fase-description">
+              Laboratorios de innovación sostenible: eventos presenciales y
+              experiencias educativas en escuelas que transforman comunidades.
+              Llevamos la teoría a la práctica con talleres y activaciones.
+            </p>
+
+            <div class="fase-stats">
+              <div class="stat-item">
+                <span class="stat-value">10</span>
+                <span class="stat-label">Escuelas</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">5K+</span>
+                <span class="stat-label">Estudiantes</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Impacto</span>
+              </div>
+            </div>
+
+            <a href={`${basePath}/contenido/madlab/`} class="btn btn-secondary">
+              Descubrir
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contenido-strategy">
+    <div class="container">
+      <h2 class="text-center">Estrategia de Contenido Integral</h2>
+      <div class="strategy-flow">
+        <div class="flow-item">
+          <div class="flow-icon">
+            <span
+              class="emoji-cutout emoji-hero emoji-lg theme-solar interactive"
+              >👀</span
+            >
+          </div>
+          <h3>Atraer</h3>
+          <p>Sketches virales que capturan atención</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">
+          <div class="flow-icon">
+            <span
+              class="emoji-cutout emoji-hero emoji-lg theme-purple interactive"
+              >🧠</span
+            >
+          </div>
+          <h3>Educar</h3>
+          <p>Podcasts que profundizan el mensaje</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">
+          <div class="flow-icon">
+            <span
+              class="emoji-cutout emoji-hero emoji-lg theme-green interactive"
+              >🙌</span
+            >
+          </div>
+          <h3>Activar</h3>
+          <p>Eventos que generan cambio real</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-contenido {
+    background: linear-gradient(
+      135deg,
+      var(--verde-sostenible) 0%,
+      var(--azul-tecnologico) 100%
+    );
+    color: var(--text-on-accent, #000000);
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+  }
+
+  .hero-contenido h1 {
+    color: var(--text-on-accent, #000000);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contenido-overview {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .fases-grid {
+    display: grid;
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .fase-card {
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
+    border-radius: 16px;
+    padding: var(--espacio-xl);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .fase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .fase-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--amarillo-solar);
+  }
+
+  .fase-card[data-fase='1']::before {
+    background: var(--amarillo-solar);
+  }
+
+  .fase-card[data-fase='2']::before {
+    background: var(--purpura-creativo);
+  }
+
+  .fase-card[data-fase='3']::before {
+    background: var(--verde-sostenible);
+  }
+
+  .fase-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-lg);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .fase-icon {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: var(--fondo-secundario);
+    border-radius: 16px;
+  }
+
+  .fase-header h2 {
+    margin: 0;
+    color: var(--texto-primario);
+  }
+
+  .fase-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: var(--espacio-xs);
+  }
+
+  .fase-status.active {
+    background: var(--verde-sostenible);
+    color: var(--text-on-accent, #000000);
+  }
+
+  .fase-status.upcoming {
+    background: var(--azul-tecnologico);
+    color: var(--text-on-accent, #000000);
+  }
+
+  .fase-status.development {
+    background: var(--naranja-comunidad);
+    color: var(--text-on-accent, #000000);
+  }
+
+  .fase-content {
+    margin-top: var(--espacio-lg);
+  }
+
+  .fase-description {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-lg);
+    line-height: 1.8;
+  }
+
+  .fase-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    text-align: center;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--texto-primario);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--texto-secundario);
+  }
+
+  /* Strategy Section */
+  .contenido-strategy {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .strategy-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .flow-item {
+    text-align: center;
+    flex: 1;
+    max-width: 250px;
+  }
+
+  .flow-icon {
+    font-size: 3rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .flow-item h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .flow-arrow {
+    font-size: 2rem;
+    color: var(--amarillo-solar);
+  }
+
+  @media (max-width: 768px) {
+    .strategy-flow {
+      flex-direction: column;
+    }
+
+    .flow-arrow {
+      transform: rotate(90deg);
+    }
+
+    .fase-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .fase-stats {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

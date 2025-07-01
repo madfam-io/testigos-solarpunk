@@ -1,0 +1,724 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout lang="en" title="Guía de Estilo Visual">
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href={`${basePath}/`}>Inicio</a></li>
+        <li><a href={`${basePath}/produccion/`}>Producción</a></li>
+        <li aria-current="page">Estilo Visual</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="text-gradient">
+        <span class="emoji-cutout emoji-lg theme-solar">🎨</span>
+        Guía de Estilo Visual
+      </h1>
+      <p class="lead">
+        Mantén la consistencia estética del universo Testigos de Solarpunk en
+        todas tus creaciones
+      </p>
+    </div>
+  </section>
+
+  <!-- Color Palette -->
+  <section class="color-palette-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">🌈</span>
+        Paleta de Colores Principal
+      </h2>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background-color: #FFC107"></div>
+          <h3>Amarillo Solar</h3>
+          <p class="color-code">#FFC107</p>
+          <p class="color-usage">Acentos principales, CTAs, highlights</p>
+        </div>
+
+        <div class="color-card">
+          <div class="color-swatch" style="background-color: #4CAF50"></div>
+          <h3>Verde Sostenible</h3>
+          <p class="color-code">#4CAF50</p>
+          <p class="color-usage">Elementos naturales, botones secundarios</p>
+        </div>
+
+        <div class="color-card">
+          <div class="color-swatch" style="background-color: #9C27B0"></div>
+          <h3>Púrpura Creativo</h3>
+          <p class="color-code">#9C27B0</p>
+          <p class="color-usage">Elementos artísticos, badges, creatividad</p>
+        </div>
+
+        <div class="color-card">
+          <div class="color-swatch" style="background-color: #2196F3"></div>
+          <h3>Azul Tecnológico</h3>
+          <p class="color-code">#2196F3</p>
+          <p class="color-usage">Enlaces, elementos tech, datos</p>
+        </div>
+
+        <div class="color-card">
+          <div class="color-swatch" style="background-color: #FF5722"></div>
+          <h3>Naranja Comunidad</h3>
+          <p class="color-code">#FF5722</p>
+          <p class="color-usage">Elementos sociales, calor humano</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section class="typography-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">📝</span>
+        Tipografía
+      </h2>
+      <div class="typography-grid">
+        <div class="typography-card card">
+          <h3>Títulos Principales</h3>
+          <div class="type-example large-title">Testigos de Solarpunk</div>
+          <p class="type-details">
+            <strong>Fuente:</strong> Poppins Bold<br />
+            <strong>Tamaño:</strong> 2.5rem - 4rem<br />
+            <strong>Uso:</strong> H1, títulos hero
+          </p>
+        </div>
+
+        <div class="typography-card card">
+          <h3>Subtítulos</h3>
+          <div class="type-example medium-title">Connecting Communities</div>
+          <p class="type-details">
+            <strong>Fuente:</strong> Poppins SemiBold<br />
+            <strong>Tamaño:</strong> 1.5rem - 2rem<br />
+            <strong>Uso:</strong> H2, H3, secciones
+          </p>
+        </div>
+
+        <div class="typography-card card">
+          <h3>Texto Cuerpo</h3>
+          <div class="type-example body-text">
+            Un futuro donde la tecnología y la naturaleza trabajan en armonía
+            para crear comunidades sostenibles y prósperas.
+          </div>
+          <p class="type-details">
+            <strong>Fuente:</strong> Poppins Regular<br />
+            <strong>Tamaño:</strong> 1rem<br />
+            <strong>Uso:</strong> Párrafos, contenido
+          </p>
+        </div>
+
+        <div class="typography-card card">
+          <h3>Código/Técnico</h3>
+          <div class="type-example code-text">EP001-TT | 45s | TikTok</div>
+          <p class="type-details">
+            <strong>Fuente:</strong> JetBrains Mono<br />
+            <strong>Tamaño:</strong> 0.875rem<br />
+            <strong>Uso:</strong> Códigos, metadatos
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Magazine Cutout Aesthetic -->
+  <section class="cutout-aesthetic-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-community">✂️</span>
+        Estética Magazine Cutout
+      </h2>
+      <div class="aesthetic-explanation">
+        <div class="explanation-text">
+          <h3>Principios Clave</h3>
+          <ul>
+            <li>
+              <span class="emoji-cutout emoji-sm theme-solar">📄</span>
+              <strong>Bordes Irregulares:</strong> Usa clip-path para crear bordes
+              de papel recortado
+            </li>
+            <li>
+              <span class="emoji-cutout emoji-sm theme-green">🎨</span>
+              <strong>Texturas de Papel:</strong> Efectos de ruido y grano para simular
+              papel real
+            </li>
+            <li>
+              <span class="emoji-cutout emoji-sm theme-purple">💫</span>
+              <strong>Sombras Realistas:</strong> Drop shadows que simulan papel
+              sobre superficie
+            </li>
+            <li>
+              <span class="emoji-cutout emoji-sm theme-community">🎭</span>
+              <strong>Colores Vibrantes:</strong> Paleta saturada como revistas de
+              los 70s
+            </li>
+          </ul>
+        </div>
+        <div class="aesthetic-example">
+          <div class="cutout-example emoji-cutout emoji-xl theme-solar">🌞</div>
+          <p class="example-caption">Ejemplo de emoji con estética cutout</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual References -->
+  <section class="references-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">📸</span>
+        Referencias Visuales por Contexto
+      </h2>
+      <div class="references-grid">
+        <div class="reference-category card">
+          <h3>Neo-Cuernavaca Urbano</h3>
+          <div class="reference-mood">
+            <span class="emoji-cutout emoji-lg theme-green">🏙️</span>
+          </div>
+          <ul>
+            <li>Arquitectura bioclimática</li>
+            <li>Jardines verticales</li>
+            <li>Transporte limpio</li>
+            <li>Plazas comunitarias</li>
+          </ul>
+          <div class="mood-colors">
+            <span class="mood-color" style="background: #4CAF50"></span>
+            <span class="mood-color" style="background: #81C784"></span>
+            <span class="mood-color" style="background: #FFC107"></span>
+          </div>
+        </div>
+
+        <div class="reference-category card">
+          <h3>Espacios Tecnológicos</h3>
+          <div class="reference-mood">
+            <span class="emoji-cutout emoji-lg theme-purple">🔬</span>
+          </div>
+          <ul>
+            <li>Laboratorios bio-tech</li>
+            <li>Paneles solares integrados</li>
+            <li>Interfaces holográficas</li>
+            <li>Diseño minimalista</li>
+          </ul>
+          <div class="mood-colors">
+            <span class="mood-color" style="background: #2196F3"></span>
+            <span class="mood-color" style="background: #9C27B0"></span>
+            <span class="mood-color" style="background: #E1F5FE"></span>
+          </div>
+        </div>
+
+        <div class="reference-category card">
+          <h3>Vestuario Personajes</h3>
+          <div class="reference-mood">
+            <span class="emoji-cutout emoji-lg theme-community">👕</span>
+          </div>
+          <ul>
+            <li>Materiales sostenibles</li>
+            <li>Colores tierra + vibrantes</li>
+            <li>Accesorios tecnológicos</li>
+            <li>Estilo funcional-estético</li>
+          </ul>
+          <div class="mood-colors">
+            <span class="mood-color" style="background: #8D6E63"></span>
+            <span class="mood-color" style="background: #FF5722"></span>
+            <span class="mood-color" style="background: #FFC107"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Tokens -->
+  <section class="tokens-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">⚙️</span>
+        Design Tokens CSS
+      </h2>
+      <div class="tokens-code card">
+        <pre><code>/* Colores Principales */
+--amarillo-solar: #FFC107;
+--verde-sostenible: #4CAF50;
+--purpura-creativo: #9C27B0;
+--azul-tecnologico: #2196F3;
+--naranja-comunidad: #FF5722;
+
+/* Espaciado */
+--espacio-xs: 0.25rem;
+--espacio-sm: 0.5rem;
+--espacio-md: 1rem;
+--espacio-lg: 1.5rem;
+--espacio-xl: 2rem;
+--espacio-xxl: 3rem;
+
+/* Magazine Cutout */
+--cutout-border: polygon(
+  2% 0%, 98% 2%, 100% 8%, 98% 92%, 
+  100% 98%, 92% 100%, 8% 98%, 0% 92%, 2% 8%
+);
+
+/* Transiciones */
+--transicion-rapida: 0.2s ease;
+--transicion-normal: 0.3s ease;
+--transicion-lenta: 0.5s ease;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back Navigation -->
+  <section class="back-navigation">
+    <div class="container text-center">
+      <a href={`${basePath}/produccion/`} class="btn btn-secondary">
+        <span class="emoji-cutout emoji-sm">👈</span>
+        Volver a Producción
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-md) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb li {
+    color: var(--texto-secundario);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 var(--espacio-sm);
+    color: var(--texto-terciario);
+  }
+
+  .breadcrumb a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .hero-section {
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--texto-secundario);
+  }
+
+  .color-palette-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .color-palette-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .color-card {
+    text-align: center;
+    padding: var(--espacio-lg);
+    background: var(--fondo-secundario);
+    border-radius: 12px;
+    border: 2px solid var(--borde-claro);
+
+    /* Magazine cutout effect */
+    clip-path: polygon(2% 0%, 98% 1%, 99% 98%, 1% 99%);
+  }
+
+  .color-swatch {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--espacio-md);
+    border: 3px solid var(--bg-primary, white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* DIY Magazine Cutout aesthetic */
+    clip-path: polygon(
+      10% 2%,
+      88% 0%,
+      98% 12%,
+      100% 35%,
+      95% 65%,
+      100% 88%,
+      85% 98%,
+      60% 95%,
+      35% 100%,
+      12% 95%,
+      0% 75%,
+      5% 45%,
+      0% 15%,
+      15% 5%
+    );
+
+    /* Paper texture overlay */
+    position: relative;
+  }
+
+  .color-swatch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.05) 1px,
+      rgba(255, 255, 255, 0.05) 2px
+    );
+    clip-path: inherit;
+  }
+
+  .color-card h3 {
+    color: var(--texto-primario);
+    margin-bottom: var(--espacio-sm);
+    font-size: 1.1rem;
+  }
+
+  .color-code {
+    font-family: var(--fuente-mono);
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .color-usage {
+    font-size: 0.85rem;
+    color: var(--texto-terciario);
+    margin: 0;
+  }
+
+  .typography-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .typography-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .typography-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .typography-card {
+    padding: var(--espacio-xl);
+  }
+
+  .typography-card h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .type-example {
+    margin: var(--espacio-lg) 0;
+    padding: var(--espacio-md);
+    background: var(--fondo-primario);
+    border-radius: 8px;
+    border-left: 4px solid var(--amarillo-solar);
+  }
+
+  .large-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--texto-primario);
+  }
+
+  .medium-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--texto-primario);
+  }
+
+  .body-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--texto-primario);
+  }
+
+  .code-text {
+    font-family: var(--fuente-mono);
+    font-size: 0.875rem;
+    color: var(--azul-tecnologico);
+  }
+
+  .type-details {
+    font-size: 0.875rem;
+    color: var(--texto-secundario);
+    margin: 0;
+  }
+
+  .cutout-aesthetic-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .cutout-aesthetic-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .aesthetic-explanation {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--espacio-xxl);
+    align-items: start;
+  }
+
+  .explanation-text h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .explanation-text ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .explanation-text li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    padding: var(--espacio-md);
+    background: var(--fondo-secundario);
+    border-radius: 8px;
+  }
+
+  .aesthetic-example {
+    text-align: center;
+    padding: var(--espacio-xxl);
+    background: var(--fondo-secundario);
+    border-radius: 12px;
+    border: 2px solid var(--borde-claro);
+  }
+
+  .cutout-example {
+    display: inline-block;
+    margin-bottom: var(--espacio-md);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .example-caption {
+    color: var(--texto-secundario);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .references-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .references-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .references-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .reference-category {
+    padding: var(--espacio-xl);
+    text-align: center;
+  }
+
+  .reference-category h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .reference-mood {
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .reference-category ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+    text-align: left;
+  }
+
+  .reference-category li {
+    padding: var(--espacio-xs) 0;
+    color: var(--texto-secundario);
+  }
+
+  .reference-category li::before {
+    content: '• ';
+    color: var(--amarillo-solar);
+    font-weight: bold;
+  }
+
+  .mood-colors {
+    display: flex;
+    justify-content: center;
+    gap: var(--espacio-sm);
+  }
+
+  .mood-color {
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* DIY Magazine Cutout aesthetic */
+    clip-path: polygon(
+      15% 0%,
+      85% 5%,
+      95% 25%,
+      100% 60%,
+      90% 85%,
+      70% 95%,
+      30% 100%,
+      10% 80%,
+      0% 50%,
+      5% 20%
+    );
+  }
+
+  .tokens-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .tokens-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .tokens-code {
+    padding: 0;
+    background: var(--fondo-primario);
+    border: 2px solid var(--borde-claro);
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+
+  .tokens-code pre {
+    margin: 0;
+    padding: var(--espacio-xl);
+    font-family: var(--fuente-mono);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--texto-primario);
+    background: none;
+  }
+
+  .tokens-code code {
+    background: none;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  .back-navigation {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .color-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .typography-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .aesthetic-explanation {
+      grid-template-columns: 1fr;
+      gap: var(--espacio-xl);
+    }
+
+    .references-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .large-title {
+      font-size: 2rem;
+    }
+
+    .medium-title {
+      font-size: 1.25rem;
+    }
+
+    .tokens-code pre {
+      padding: var(--espacio-lg);
+      font-size: 0.75rem;
+    }
+  }
+</style>

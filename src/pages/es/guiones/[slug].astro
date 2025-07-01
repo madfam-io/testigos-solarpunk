@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+// Define types for better clarity
+type ScriptPath = {
+  params: { slug: string };
+  props: { script: CollectionEntry<'scripts'> };
+};
+
+export async function getStaticPaths(): Promise<ScriptPath[]> {
+  const scripts = await getCollection('scripts');
+  return scripts.map(
+    (script: CollectionEntry<'scripts'>): ScriptPath => ({
+      params: { slug: script.id },
+      props: { script },
+    })
+  );
+}
+
+interface Props {
+  script: CollectionEntry<'scripts'>;
+}
+
+const { script }: Props = Astro.props;
+
+if (script == null) {
+  throw new Error('Script not found');
+}
+
+const { data } = script;
+const titulo = data.titulo != null ? String(data.titulo) : 'Sin título';
+const episodio = data.episodio != null ? String(data.episodio) : 'EP000';
+const plataforma =
+  data.plataforma != null ? String(data.plataforma) : 'Plataforma';
+const duracion = data.duracion != null ? String(data.duracion) : 'N/A';
+const body = script.body != null ? String(script.body) : '';
+
+const pageTitle = `${titulo} - ${episodio}`;
+const pageDescription = `Guion para ${plataforma}: ${titulo}. Duracion: ${duracion}.`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="container">
+    <h1>{titulo}</h1>
+    <p>Episodio: {episodio}</p>
+    <p>Plataforma: {plataforma}</p>
+    <div set:html={body} />
+  </div>
+</BaseLayout>

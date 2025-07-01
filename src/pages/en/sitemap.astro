@@ -1,0 +1,661 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+
+// Site structure organized by sections and languages
+const siteStructure = {
+  es: [
+    {
+      title: 'Inicio',
+      emoji: '🏠',
+      href: `${basePath}/en/`,
+      description: 'Página principal del universo Testigos de Solarpunk',
+      theme: 'solar',
+    },
+    {
+      title: 'El Proyecto',
+      emoji: '🌱',
+      href: `${basePath}/en/proyecto/`,
+      description:
+        'Estrategia de 3 fases para transformar la percepción sobre sostenibilidad',
+      theme: 'green',
+      subsections: [
+        {
+          title: 'Versión Unificada',
+          href: `${basePath}/en/proyecto-unified/`,
+          description: 'Vista consolidada del proyecto completo',
+        },
+      ],
+    },
+    {
+      title: 'Contenido',
+      emoji: '🎬',
+      href: `${basePath}/en/contenido/`,
+      description: 'Todo el contenido del universo narrativo',
+      theme: 'purple',
+      subsections: [
+        {
+          title: 'Sketches (Fase 1)',
+          href: `${basePath}/en/contenido/sketches/`,
+          description: 'Sketches virales de humor sostenible',
+        },
+        {
+          title: 'Podcast (Fase 2)',
+          href: `${basePath}/en/contenido/podcast/`,
+          description: 'Conversaciones profundas sobre sostenibilidad',
+        },
+        {
+          title: 'MADLAB (Fase 3)',
+          href: `${basePath}/en/contenido/madlab/`,
+          description: 'Experiencias educativas en escuelas',
+        },
+      ],
+    },
+    {
+      title: 'Personajes',
+      emoji: '👥',
+      href: `${basePath}/en/personajes/`,
+      description: 'Habitantes del universo solarpunk',
+      theme: 'community',
+    },
+    {
+      title: 'Comunidad',
+      emoji: '🤝',
+      href: `${basePath}/en/comunidad/`,
+      description: 'Buyer personas y audiencia objetivo',
+      theme: 'community',
+    },
+    {
+      title: 'Mundo',
+      emoji: '🌍',
+      href: `${basePath}/en/mundo/`,
+      description: 'Neo-Cuernavaca y el universo solarpunk',
+      theme: 'green',
+    },
+    {
+      title: 'Filosofía',
+      emoji: '💭',
+      href: `${basePath}/en/filosofia/`,
+      description: 'Principios y valores del movimiento',
+      theme: 'purple',
+    },
+    {
+      title: 'Guía Visual',
+      emoji: '🎨',
+      href: `${basePath}/en/guia-visual/`,
+      description: 'Estética y branding del proyecto',
+      theme: 'solar',
+    },
+    {
+      title: 'Formatos',
+      emoji: '📱',
+      href: `${basePath}/en/formatos/`,
+      description: 'Adaptaciones para diferentes plataformas',
+      theme: 'purple',
+    },
+    {
+      title: 'Guiones',
+      emoji: '📝',
+      href: `${basePath}/en/guiones/`,
+      description: 'Scripts y narrativas del universo',
+      theme: 'green',
+    },
+    {
+      title: 'Producción',
+      emoji: '🎥',
+      href: `${basePath}/en/produccion/`,
+      description: 'Proceso de creación de contenido',
+      theme: 'solar',
+    },
+    {
+      title: 'Recursos',
+      emoji: '📚',
+      href: `${basePath}/en/recursos/`,
+      description: 'Materiales y herramientas',
+      theme: 'community',
+    },
+    {
+      title: 'Impacto',
+      emoji: '📊',
+      href: `${basePath}/en/impacto/`,
+      description: 'Métricas y resultados del proyecto',
+      theme: 'green',
+    },
+  ],
+  en: [
+    {
+      title: 'Home',
+      emoji: '🏠',
+      href: `${basePath}/en/`,
+      description: 'Main page of the Solarpunk Witnesses universe',
+      theme: 'solar',
+    },
+    {
+      title: 'The Project',
+      emoji: '🌱',
+      href: `${basePath}/en/proyecto/`,
+      description:
+        '3-phase strategy to transform perception about sustainability',
+      theme: 'green',
+      subsections: [
+        {
+          title: 'Unified Version',
+          href: `${basePath}/en/proyecto-unified/`,
+          description: 'Consolidated view of the complete project',
+        },
+      ],
+    },
+    {
+      title: 'Content',
+      emoji: '🎬',
+      href: `${basePath}/en/contenido/`,
+      description: 'All content from the narrative universe',
+      theme: 'purple',
+      subsections: [
+        {
+          title: 'Sketches (Phase 1)',
+          href: `${basePath}/en/contenido/sketches/`,
+          description: 'Viral sketches with sustainable humor',
+        },
+        {
+          title: 'Podcast (Phase 2)',
+          href: `${basePath}/en/contenido/podcast/`,
+          description: 'Deep conversations about sustainability',
+        },
+        {
+          title: 'MADLAB (Phase 3)',
+          href: `${basePath}/en/contenido/madlab/`,
+          description: 'Educational experiences in schools',
+        },
+      ],
+    },
+    {
+      title: 'Characters',
+      emoji: '👥',
+      href: `${basePath}/en/personajes/`,
+      description: 'Inhabitants of the solarpunk universe',
+      theme: 'community',
+    },
+    {
+      title: 'Community',
+      emoji: '🤝',
+      href: `${basePath}/en/comunidad/`,
+      description: 'Buyer personas and target audience',
+      theme: 'community',
+    },
+    {
+      title: 'World',
+      emoji: '🌍',
+      href: `${basePath}/en/mundo/`,
+      description: 'Neo-Cuernavaca and the solarpunk universe',
+      theme: 'green',
+    },
+    {
+      title: 'Philosophy',
+      emoji: '💭',
+      href: `${basePath}/en/filosofia/`,
+      description: 'Principles and values of the movement',
+      theme: 'purple',
+    },
+    {
+      title: 'Visual Guide',
+      emoji: '🎨',
+      href: `${basePath}/en/guia-visual/`,
+      description: 'Aesthetics and project branding',
+      theme: 'solar',
+    },
+    {
+      title: 'Formats',
+      emoji: '📱',
+      href: `${basePath}/en/formatos/`,
+      description: 'Adaptations for different platforms',
+      theme: 'purple',
+    },
+    {
+      title: 'Scripts',
+      emoji: '📝',
+      href: `${basePath}/en/guiones/`,
+      description: 'Scripts and narratives of the universe',
+      theme: 'green',
+    },
+    {
+      title: 'Production',
+      emoji: '🎥',
+      href: `${basePath}/en/produccion/`,
+      description: 'Content creation process',
+      theme: 'solar',
+    },
+    {
+      title: 'Resources',
+      emoji: '📚',
+      href: `${basePath}/en/recursos/`,
+      description: 'Materials and tools',
+      theme: 'community',
+    },
+    {
+      title: 'Impact',
+      emoji: '📊',
+      href: `${basePath}/en/impacto/`,
+      description: 'Project metrics and results',
+      theme: 'green',
+    },
+  ],
+};
+
+// Get current language from URL or default to Spanish
+const currentPath = Astro.url.pathname;
+const langMatch = currentPath.match(/\/(es|en)\//);
+const currentLang: 'es' | 'en' = (langMatch?.[1] as 'es' | 'en') ?? 'es';
+const currentStructure = siteStructure[currentLang] ?? siteStructure.es;
+---
+
+<BaseLayout
+  lang="en"
+  title={currentLang === 'en' ? 'Site Map' : 'Mapa del Sitio'}
+  description={currentLang === 'en'
+    ? 'Complete navigation of the Solarpunk Witnesses universe - all available sections and pages'
+    : 'Navegación completa del universo Testigos de Solarpunk - todas las secciones y páginas disponibles'}
+>
+  <!-- Skip to content for better accessibility -->
+  <a href="#sitemap-main" class="skip-link">
+    {
+      currentLang === 'en'
+        ? 'Skip to map content'
+        : 'Saltar al contenido del mapa'
+    }
+  </a>
+
+  <section class="sitemap-hero">
+    <div class="container">
+      <h1>
+        <span class="emoji-cutout emoji-hero emoji-xl theme-solar flutter"
+          >🗺️</span
+        >
+        {currentLang === 'en' ? 'Site Map' : 'Mapa del Sitio'}
+      </h1>
+      <p class="hero-description">
+        {
+          currentLang === 'en'
+            ? 'Explore the entire universe of the Solarpunk Witnesses. From viral sketches to educational experiences, here you will find every corner of our narrative world.'
+            : 'Explora todo el universo de los Testigos de Solarpunk. Desde sketches virales hasta experiencias educativas, aquí encontrarás cada rincón de nuestro mundo narrativo.'
+        }
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="sitemap-content"
+    aria-labelledby="sitemap-heading"
+    id="sitemap-main"
+  >
+    <div class="container">
+      <h2 id="sitemap-heading" class="sr-only">
+        {
+          currentLang === 'en'
+            ? 'All website sections'
+            : 'Todas las secciones del sitio web'
+        }
+      </h2>
+      <div class="sitemap-grid" role="list">
+        {
+          currentStructure.map((section) => (
+            <div class="sitemap-section" role="listitem">
+              <div class="section-header">
+                <a
+                  href={section.href}
+                  class:list={[`section-link`, `theme-${section.theme}`]}
+                  aria-describedby={`desc-${section.title.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <span
+                    class:list={[
+                      `emoji-cutout`,
+                      `emoji-lg`,
+                      `theme-${section.theme}`,
+                    ]}
+                    aria-hidden="true"
+                  >
+                    {section.emoji}
+                  </span>
+                  <div class="section-info">
+                    <h2>{section.title}</h2>
+                    <p
+                      id={`desc-${section.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {section.description}
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+              {section.subsections != null && (
+                <nav
+                  class="subsections"
+                  aria-label={`Subsecciones de ${section.title}`}
+                >
+                  {section.subsections.map((sub) => (
+                    <a
+                      href={sub.href}
+                      class="subsection-link"
+                      aria-describedby={`subdesc-${sub.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      <span
+                        class="emoji-cutout emoji-sm theme-green"
+                        aria-hidden="true"
+                      >
+                        📄
+                      </span>
+                      <div>
+                        <strong>{sub.title}</strong>
+                        <p
+                          id={`subdesc-${sub.title.toLowerCase().replace(/\s+/g, '-')}`}
+                        >
+                          {sub.description}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
+                </nav>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="sitemap-footer">
+    <div class="container">
+      <div class="footer-content">
+        <h2>
+          {
+            currentLang === 'en'
+              ? "Didn't find what you were looking for?"
+              : '¿No encontraste lo que buscabas?'
+          }
+        </h2>
+        <p>
+          {
+            currentLang === 'en'
+              ? 'We are constantly growing. Some sections may be in development or coming soon.'
+              : 'Estamos en constante crecimiento. Algunas secciones pueden estar en desarrollo o próximamente disponibles.'
+          }
+        </p>
+        <div class="footer-actions">
+          <a href={`${basePath}/${currentLang}/`} class="btn btn-primary">
+            <span class="emoji-cutout emoji-sm theme-solar">🏠</span>
+            {currentLang === 'en' ? 'Back to Home' : 'Volver al Inicio'}
+          </a>
+          <a
+            href={`${basePath}/${currentLang}/comunidad/`}
+            class="btn btn-secondary"
+          >
+            <span class="emoji-cutout emoji-sm theme-community">💬</span>
+            {currentLang === 'en' ? 'Contact Us' : 'Contáctanos'}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .sitemap-hero {
+    background: linear-gradient(
+      135deg,
+      var(--verde-sostenible) 0%,
+      rgba(76, 175, 80, 0.1) 100%
+    );
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sitemap-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.05) 10px,
+      rgba(255, 255, 255, 0.05) 20px
+    );
+    pointer-events: none;
+  }
+
+  .sitemap-hero h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    font-size: 3rem;
+    color: var(--texto-primario);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .sitemap-content {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--espacio-xl);
+  }
+
+  .sitemap-section {
+    background: var(--fondo-secundario);
+    border: 2px solid var(--borde-claro);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    /* Magazine cutout effect */
+    clip-path: polygon(
+      1% 3%,
+      3% 0%,
+      97% 2%,
+      100% 8%,
+      98% 92%,
+      100% 97%,
+      97% 100%,
+      3% 98%,
+      0% 92%,
+      2% 8%
+    );
+
+    /* Paper texture */
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.02) 2px,
+      rgba(255, 255, 255, 0.02) 4px
+    );
+  }
+
+  .sitemap-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: var(--verde-sostenible);
+  }
+
+  .section-header {
+    position: relative;
+  }
+
+  .section-link {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-lg);
+    padding: var(--espacio-xl);
+    text-decoration: none;
+    color: var(--texto-primario);
+    transition: all 0.3s ease;
+  }
+
+  .section-link:hover {
+    background: rgba(76, 175, 80, 0.05);
+    color: var(--verde-sostenible);
+  }
+
+  .section-info h2 {
+    margin: 0 0 var(--espacio-sm) 0;
+    font-size: 1.5rem;
+    color: var(--verde-sostenible);
+  }
+
+  .section-info p {
+    margin: 0;
+    color: var(--texto-secundario);
+    line-height: 1.5;
+  }
+
+  .subsections {
+    border-top: 1px solid var(--borde-claro);
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .subsection-link {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    padding: var(--espacio-md) var(--espacio-xl);
+    text-decoration: none;
+    color: var(--texto-primario);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .subsection-link:last-child {
+    border-bottom: none;
+  }
+
+  .subsection-link:hover {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--verde-sostenible);
+    padding-left: calc(var(--espacio-xl) + var(--espacio-sm));
+  }
+
+  .subsection-link strong {
+    display: block;
+    margin-bottom: var(--espacio-xs);
+    color: var(--texto-primario);
+  }
+
+  .subsection-link p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+  }
+
+  .sitemap-footer {
+    background: var(--fondo-primario);
+    padding: var(--espacio-xxl) 0;
+    border-top: 2px solid var(--borde-claro);
+  }
+
+  .footer-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .footer-content h2 {
+    color: var(--amarillo-solar);
+    margin-bottom: var(--espacio-md);
+  }
+
+  .footer-content p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-xl);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .footer-actions {
+    display: flex;
+    gap: var(--espacio-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .sitemap-hero h1 {
+      font-size: 2.5rem;
+      flex-direction: column;
+      gap: var(--espacio-sm);
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+    }
+
+    .sitemap-grid {
+      grid-template-columns: 1fr;
+      gap: var(--espacio-lg);
+    }
+
+    .section-link {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--espacio-md);
+    }
+
+    .subsection-link {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--espacio-sm);
+    }
+
+    .footer-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-actions .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  /* Theme-specific hover effects */
+  .section-link.theme-solar:hover {
+    color: var(--amarillo-solar);
+  }
+
+  .section-link.theme-green:hover {
+    color: var(--verde-sostenible);
+  }
+
+  .section-link.theme-purple:hover {
+    color: var(--purpura-creativo);
+  }
+
+  .section-link.theme-community:hover {
+    color: var(--naranja-comunidad);
+  }
+</style>

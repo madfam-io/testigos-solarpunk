@@ -1,0 +1,410 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const locations: CollectionEntry<'locations'>[] =
+  await getCollection('locations');
+---
+
+<BaseLayout title="Mundo">
+  <section class="hero-section gradient-solarpunk">
+    <div class="container">
+      <h1 class="hero-title">El Mundo de Testigos de Solarpunk</h1>
+      <p class="hero-subtitle">
+        Un futuro cercano donde la humanidad ha aprendido a vivir en armonía con
+        la naturaleza, combinando tecnología avanzada con prácticas ancestrales.
+      </p>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+    <div class="container">
+      <h2 class="text-center">Línea Temporal</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div class="timeline-content">
+            <h3>El Despertar</h3>
+            <p>Primeras comunidades adoptan energía solar distribuida</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2030</div>
+          <div class="timeline-content">
+            <h3>La Transición</h3>
+            <p>
+              Neo-Cuernavaca se convierte en la primera ciudad carbono-negativa
+              de México
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2035</div>
+          <div class="timeline-content">
+            <h3>La Expansión</h3>
+            <p>
+              El modelo solarpunk se replica en ciudades de todo el continente
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2040</div>
+          <div class="timeline-content">
+            <h3>El Florecimiento</h3>
+            <p>Nueva era de cooperación global basada en sostenibilidad</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="locations-section">
+    <div class="container">
+      <h2>Ubicaciones Principales</h2>
+      <div class="locations-grid">
+        {
+          locations.map((location) => (
+            <article class="location-card card">
+              <div class="location-type">{location.data.tipo}</div>
+              <h3>{location.data.nombre}</h3>
+              <p class="location-district">
+                <span class="emoji-cutout emoji-sm theme-community">📍</span>{' '}
+                {location.data.distrito}
+              </p>
+              <p class="location-description">
+                {location.data.descripcion.substring(0, 200)}...
+              </p>
+              <div class="location-features">
+                <h4>Características:</h4>
+                <ul>
+                  {location.data.caracteristicas
+                    .slice(0, 3)
+                    .map((feat: string) => (
+                      <li>{feat}</li>
+                    ))}
+                </ul>
+              </div>
+              <a href={`/mundo/${location.id}`} class="btn btn-primary">
+                Explorar Ubicación
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="technology-section">
+    <div class="container">
+      <h2 class="text-center">Tecnologías Clave</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <span class="emoji-cutout emoji-lg theme-solar tech-icon">☀️</span>
+          <h3>Paneles Solares Orgánicos</h3>
+          <p>Células fotovoltaicas biodegradables que imitan la fotosíntesis</p>
+        </div>
+        <div class="tech-card">
+          <span class="emoji-cutout emoji-lg theme-community tech-icon">💧</span
+          >
+          <h3>Captación Atmosférica</h3>
+          <p>Sistemas que extraen agua potable directamente del aire</p>
+        </div>
+        <div class="tech-card">
+          <span class="emoji-cutout emoji-lg theme-green tech-icon">🌱</span>
+          <h3>Agricultura Vertical</h3>
+          <p>Torres de cultivo que producen alimentos usando 90% menos agua</p>
+        </div>
+        <div class="tech-card">
+          <span class="emoji-cutout emoji-lg theme-purple tech-icon">🔋</span>
+          <h3>Baterías de Sal</h3>
+          <p>
+            Almacenamiento de energía usando materiales abundantes y no tóxicos
+          </p>
+        </div>
+        <div class="tech-card">
+          <span class="emoji-cutout emoji-lg theme-community tech-icon">🏗️</span
+          >
+          <h3>Bioconcreto</h3>
+          <p>Material de construcción que se auto-repara y purifica el aire</p>
+        </div>
+        <div class="tech-card">
+          <span class="emoji-cutout emoji-lg theme-purple tech-icon">🚊</span>
+          <h3>Transporte Magnético</h3>
+          <p>Sistemas de levitación magnética alimentados por energía solar</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="society-section">
+    <div class="container">
+      <h2>Sociedad y Cultura</h2>
+      <div class="society-grid">
+        <div class="society-card">
+          <h3>Economía Circular</h3>
+          <p>
+            Los desechos de un proceso se convierten en recursos para otro. La
+            basura es un concepto obsoleto en el mundo solarpunk.
+          </p>
+        </div>
+        <div class="society-card">
+          <h3>Gobernanza Participativa</h3>
+          <p>
+            Las decisiones comunitarias se toman mediante asambleas locales y
+            plataformas digitales de democracia directa.
+          </p>
+        </div>
+        <div class="society-card">
+          <h3>Educación Holística</h3>
+          <p>
+            El aprendizaje combina conocimiento técnico con sabiduría ancestral,
+            enfocándose en la resolución creativa de problemas.
+          </p>
+        </div>
+        <div class="society-card">
+          <h3>Tiempo de Calidad</h3>
+          <p>
+            La semana laboral de 25 horas permite más tiempo para la familia, el
+            arte y el desarrollo personal.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section {
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+    color: var(--text-on-accent, #000000);
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: var(--espacio-lg);
+    color: var(--text-on-accent, #000000);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .timeline-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: var(--espacio-xl) auto;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--verde-sostenible);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: var(--espacio-xl);
+    display: flex;
+    align-items: center;
+  }
+
+  .timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+
+  .timeline-date {
+    flex: 0 0 100px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--verde-sostenible);
+    font-size: 1.25rem;
+  }
+
+  .timeline-content {
+    flex: 1;
+    background-color: var(--bg-tertiary, #1c1c1f);
+    color: var(--text-primary, #ffffff);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    margin: 0 var(--espacio-lg);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+  }
+
+  .timeline-content h3 {
+    color: var(--text-primary, #ffffff);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .timeline-content p {
+    color: var(--text-secondary, rgba(255, 255, 255, 0.87));
+  }
+
+  .locations-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .location-card {
+    position: relative;
+  }
+
+  .location-type {
+    position: absolute;
+    top: var(--espacio-md);
+    right: var(--espacio-md);
+    background-color: var(--azul-tecnologico);
+    color: var(--text-on-accent, #000000);
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .location-district {
+    color: var(--texto-secundario);
+    font-size: 0.875rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .location-description {
+    margin-bottom: var(--espacio-md);
+  }
+
+  .location-features h4 {
+    font-size: 0.875rem;
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .location-features ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .location-features li {
+    font-size: 0.875rem;
+    color: var(--texto-secundario);
+    padding-left: var(--espacio-md);
+    position: relative;
+  }
+
+  .location-features li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--verde-sostenible);
+  }
+
+  .technology-section {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .tech-card {
+    background-color: var(--bg-tertiary, #1c1c1f);
+    color: var(--text-primary, #ffffff);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    text-align: center;
+    transition: transform var(--transicion-normal);
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .tech-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px var(--sombra-suave);
+  }
+
+  .tech-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .tech-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--espacio-sm);
+    color: var(--text-primary, #ffffff);
+  }
+
+  .tech-card p {
+    color: var(--text-secondary, rgba(255, 255, 255, 0.87));
+  }
+
+  .society-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .society-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+  }
+
+  .society-card {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border-left: 4px solid var(--verde-sostenible);
+  }
+
+  .society-card h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-md);
+  }
+
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 20px;
+    }
+
+    .timeline-item {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      padding-left: 40px;
+    }
+
+    .timeline-date {
+      margin-bottom: var(--espacio-sm);
+    }
+
+    .timeline-content {
+      margin: 0;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+  }
+</style>

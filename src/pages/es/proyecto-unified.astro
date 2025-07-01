@@ -1,0 +1,494 @@
+---
+import UnifiedLayout from '../../layouts/UnifiedLayout.astro';
+import Breadcrumbs from '../../components/layout/Breadcrumbs.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+
+const breadcrumbItems = [
+  { label: 'Inicio', href: '/' },
+  { label: 'El Proyecto' },
+];
+---
+
+<UnifiedLayout
+  title="El Proyecto"
+  description="Conectar, Concientizar y Crear Comunidad a través del humor y la sostenibilidad"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="hero-proyecto">
+    <div class="container">
+      <h1 class="hero-title animate-fadeInUp">
+        Conectar, Concientizar y Crear Comunidad
+      </h1>
+      <p class="tagline animate-fadeInUp">Instruir desde el humor</p>
+
+      <h2 class="sr-only">Misión y Visión</h2>
+      <div class="mision-vision">
+        <div class="card mision-card animate-fadeInUp">
+          <h3>
+            <span class="emoji emoji-md emoji-card">🎯</span> Nuestra Misión
+          </h3>
+          <p>
+            Transformar la percepción sobre la sostenibilidad a través del
+            humor, creando contenido que conecte, eduque y construya una
+            comunidad comprometida con el futuro del planeta.
+          </p>
+        </div>
+        <div class="card vision-card animate-fadeInUp">
+          <h3>
+            <span class="emoji emoji-md emoji-card">🌟</span> Visión Solarpunk
+          </h3>
+          <p>
+            Un mundo donde la tecnología y la naturaleza coexisten en armonía,
+            donde cada persona es un agente de cambio positivo, y donde el
+            futuro es brillante, sostenible y lleno de esperanza.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fases-section">
+    <div class="container">
+      <h2 class="section-title">Estrategia de 3 Fases</h2>
+      <p class="section-intro text-secondary">
+        Un viaje de transformación que comienza con una sonrisa y termina con
+        acción real
+      </p>
+
+      <div class="fases-grid">
+        <div class="card fase-card" data-fase="1">
+          <span class="fase-number">01</span>
+          <span class="fase-icon emoji emoji-xl emoji-card theme-solar">🎭</span
+          >
+          <h3>Testigos de Solarpunk</h3>
+          <p class="fase-descripcion">
+            Sketches de comedia con contenido relevante para reflexionar sobre
+            hábitos y ciencia cotidiana
+          </p>
+          <div class="fase-meta">
+            <span class="badge badge-success">En Producción</span>
+            <span class="badge badge-secondary">60-90 segundos</span>
+          </div>
+          <ul class="fase-features">
+            <li>Contenido viral para redes sociales</li>
+            <li>Humor que rompe barreras culturales</li>
+            <li>Tips prácticos de sostenibilidad</li>
+          </ul>
+          <a href={`${basePath}/contenido/sketches`} class="btn btn-primary">
+            Ver Sketches
+          </a>
+        </div>
+
+        <div class="card fase-card" data-fase="2">
+          <span class="fase-number">02</span>
+          <span class="fase-icon emoji emoji-xl emoji-card theme-purple"
+            >🎙️</span
+          >
+          <h3>MADFAM Podcast</h3>
+          <p class="fase-descripcion">
+            Contenido de profundidad media sobre ciencia, tecnología y calidad
+            de vida con expertos invitados
+          </p>
+          <div class="fase-meta">
+            <span class="badge badge-primary">Próximamente</span>
+            <span class="badge badge-secondary">20-30 minutos</span>
+          </div>
+          <ul class="fase-features">
+            <li>Conversaciones profundas con expertos</li>
+            <li>Temas de actualidad ambiental</li>
+            <li>Soluciones prácticas y escalables</li>
+          </ul>
+          <a href={`${basePath}/contenido/podcast`} class="btn btn-secondary">
+            Saber Más
+          </a>
+        </div>
+
+        <div class="card fase-card" data-fase="3">
+          <span class="fase-number">03</span>
+          <span class="fase-icon emoji emoji-xl emoji-card theme-green">🔬</span
+          >
+          <h3>MADLAB</h3>
+          <p class="fase-descripcion">
+            Eventos, experiencias y activaciones en escuelas con apoyo de
+            patrocinadores para impacto directo
+          </p>
+          <div class="fase-meta">
+            <span class="badge badge-warning">En Desarrollo</span>
+            <span class="badge badge-secondary">Eventos presenciales</span>
+          </div>
+          <ul class="fase-features">
+            <li>Experiencias educativas inmersivas</li>
+            <li>Laboratorios de innovación</li>
+            <li>Impacto directo en comunidades</li>
+          </ul>
+          <a href={`${basePath}/contenido/madlab`} class="btn btn-secondary">
+            Descubrir
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proceso-section">
+    <div class="container">
+      <h2>Nuestro Proceso Creativo</h2>
+      <div class="proceso-timeline">
+        <div class="proceso-step">
+          <div class="step-number">1</div>
+          <h3>Investigación</h3>
+          <p class="text-secondary">
+            Identificamos pain points y barreras culturales
+          </p>
+        </div>
+        <div class="proceso-step">
+          <div class="step-number">2</div>
+          <h3>Diseño</h3>
+          <p class="text-secondary">Creamos contenido que conecta y educa</p>
+        </div>
+        <div class="proceso-step">
+          <div class="step-number">3</div>
+          <h3>Producción</h3>
+          <p class="text-secondary">Grabamos con calidad MADFAM</p>
+        </div>
+        <div class="proceso-step">
+          <div class="step-number">4</div>
+          <h3>Distribución</h3>
+          <p class="text-secondary">
+            Alcanzamos audiencias en múltiples plataformas
+          </p>
+        </div>
+        <div class="proceso-step">
+          <div class="step-number">5</div>
+          <h3>Impacto</h3>
+          <p class="text-secondary">Medimos y optimizamos resultados</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-proyecto">
+    <div class="container text-center">
+      <h2>¿Listo para ser parte del cambio?</h2>
+      <p class="cta-subtitle text-secondary">
+        Únete a la revolución del humor sostenible
+      </p>
+      <div class="cta-actions">
+        <a href={`${basePath}/comunidad`} class="btn btn-primary">
+          <span class="emoji emoji-button">🤝</span> Únete a la Comunidad
+        </a>
+        <a href={`${basePath}/contenido/sketches`} class="btn btn-secondary">
+          <span class="emoji emoji-button">🎬</span> Ver Contenido
+        </a>
+      </div>
+    </div>
+  </section>
+</UnifiedLayout>
+
+<style>
+  .hero-proyecto {
+    padding: var(--space-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--madfam-yellow-dark) 0%,
+      var(--madfam-green-dark) 100%
+    );
+    color: var(--text-primary, #ffffff);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-proyecto::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 70%
+    );
+    opacity: 0.3;
+    transform: rotate(45deg);
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: var(--space-md);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: var(--space-xl);
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mision-vision {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mision-card,
+  .vision-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .mision-card h3,
+  .vision-card h3 {
+    color: var(--text-primary, #ffffff);
+  }
+
+  .mision-card p,
+  .vision-card p {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Sección de Fases */
+  .fases-section {
+    padding: var(--space-xxl) 0;
+    background-color: var(--bg-secondary);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+  }
+
+  .section-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .fases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+  }
+
+  .fase-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fase-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--madfam-yellow-dark);
+  }
+
+  .fase-card[data-fase='1']::before {
+    background: var(--madfam-yellow-dark);
+  }
+
+  .fase-card[data-fase='2']::before {
+    background: var(--madfam-purple-dark);
+  }
+
+  .fase-card[data-fase='3']::before {
+    background: var(--madfam-green-dark);
+  }
+
+  .fase-number {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-size: 3rem;
+    font-weight: 900;
+    opacity: 0.1;
+    color: var(--text-primary);
+  }
+
+  .fase-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+
+  .fase-card h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+  }
+
+  .fase-descripcion {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .fase-meta {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .fase-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--space-lg);
+  }
+
+  .fase-features li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+  }
+
+  .fase-features li:last-child {
+    border-bottom: none;
+  }
+
+  .fase-features li::before {
+    content: '✓';
+    color: var(--madfam-green-dark);
+    font-weight: bold;
+    margin-right: var(--space-sm);
+  }
+
+  /* Proceso Timeline */
+  .proceso-section {
+    padding: var(--space-xxl) 0;
+  }
+
+  .proceso-timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: var(--space-xl);
+    padding: 0 var(--space-md);
+  }
+
+  .proceso-timeline::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      var(--madfam-yellow-dark),
+      var(--madfam-green-dark)
+    );
+    z-index: 0;
+  }
+
+  .proceso-step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--bg-primary);
+    border: 3px solid var(--madfam-yellow-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-md);
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--madfam-yellow-dark);
+
+    /* DIY Magazine Cutout aesthetic for process steps */
+    clip-path: polygon(
+      12% 0%,
+      88% 2%,
+      96% 18%,
+      100% 42%,
+      98% 65%,
+      100% 88%,
+      82% 98%,
+      58% 100%,
+      35% 95%,
+      12% 100%,
+      0% 75%,
+      4% 45%,
+      0% 22%,
+      18% 4%
+    );
+  }
+
+  .proceso-step h3 {
+    margin-bottom: var(--space-sm);
+  }
+
+  /* CTA Section */
+  .cta-proyecto {
+    padding: var(--space-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--bg-primary) 0%,
+      rgba(255, 193, 7, 0.05) 100%
+    );
+  }
+
+  .cta-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .proceso-timeline {
+      flex-direction: column;
+      gap: var(--space-xl);
+    }
+
+    .proceso-timeline::before {
+      display: none;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

@@ -28,19 +28,34 @@ const {
   ...attrs
 } = Astro.props;
 
-// Get current path without language prefix for proper alternate URLs
-const pathWithoutLang =
-  currentPath.replace(/^\/(es|en)/, '') !== ''
-    ? currentPath.replace(/^\/(es|en)/, '')
-    : '/';
+// Get current path without language prefix and base path for proper alternate URLs
+const cleanPath = currentPath
+  .replace(/^\/testigos-solarpunk/, '') // Remove base path if present
+  .replace(/^\/(es|en)/, '') // Remove language prefix
+  .replace(/\/$/, ''); // Remove trailing slash
+
+// Ensure we have a clean path to translate
+const pathToTranslate = cleanPath.length > 0 ? cleanPath : '/';
 
 // Generate alternate language URLs
-const alternateUrls = Object.keys(languages).map((lang) => ({
-  lang: lang as Language,
-  url: getLocalizedPath(pathWithoutLang, lang as Language),
-  label: languages[lang as Language],
-  isActive: lang === currentLang,
-}));
+const alternateUrls = Object.keys(languages).map((lang) => {
+  const targetLang = lang as Language;
+  const localizedPath = getLocalizedPath(pathToTranslate, targetLang);
+
+  // Add base path for GitHub Pages if needed
+  const baseUrl = import.meta.env.BASE_URL ?? '';
+  const fullUrl =
+    baseUrl.length > 0
+      ? `${baseUrl}${localizedPath}`.replace(/\/+/g, '/')
+      : localizedPath;
+
+  return {
+    lang: targetLang,
+    url: fullUrl,
+    label: languages[targetLang],
+    isActive: targetLang === currentLang,
+  };
+});
 ---
 
 <div

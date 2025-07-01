@@ -1,10 +1,10 @@
 ---
 /**
- * English Homepage - Solarpunk Witnesses
+ * Spanish Homepage - Testigos de Solarpunk
  * Enterprise-grade bilingual homepage with DIY Magazine Cutout aesthetic
  *
- * @page EnglishHomepage
- * @description Main homepage for English-speaking users
+ * @page SpanishHomepage
+ * @description Main homepage for Spanish-speaking users
  * @author MADFAM
  * @version 0.3.0+i18n
  */
@@ -13,7 +13,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import QuoteBlock from '../../components/QuoteBlock.astro';
 import { useTranslations } from '@/i18n/config';
 
-const lang = 'en';
+const lang = 'es';
 const t = useTranslations(lang);
 
 // Detect deployment environment and set base path accordingly
@@ -75,6 +75,21 @@ if (isVercel === true) {
           <!-- Magazine cutout title -->
           <h1 class="magazine-title-hero animate-fade-in">
             <span class="word-group">
+              <span class="letter-cutout">T</span>
+              <span class="letter-cutout">e</span>
+              <span class="letter-cutout">s</span>
+              <span class="letter-cutout">t</span>
+              <span class="letter-cutout">i</span>
+              <span class="letter-cutout">g</span>
+              <span class="letter-cutout">o</span>
+              <span class="letter-cutout">s</span>
+            </span>
+            <span class="word-group">
+              <span class="letter-cutout">d</span>
+              <span class="letter-cutout">e</span>
+            </span>
+            <br class="mobile-break" />
+            <span class="word-group">
               <span class="letter-cutout">S</span>
               <span class="letter-cutout">o</span>
               <span class="letter-cutout">l</span>
@@ -84,18 +99,6 @@ if (isVercel === true) {
               <span class="letter-cutout">u</span>
               <span class="letter-cutout">n</span>
               <span class="letter-cutout">k</span>
-            </span>
-            <br class="mobile-break" />
-            <span class="word-group">
-              <span class="letter-cutout">W</span>
-              <span class="letter-cutout">i</span>
-              <span class="letter-cutout">t</span>
-              <span class="letter-cutout">n</span>
-              <span class="letter-cutout">e</span>
-              <span class="letter-cutout">s</span>
-              <span class="letter-cutout">s</span>
-              <span class="letter-cutout">e</span>
-              <span class="letter-cutout">s</span>
             </span>
           </h1>
 
@@ -109,7 +112,7 @@ if (isVercel === true) {
 
           <div class="hero-actions animate-fade-in">
             <a
-              href={`${basePath}/en/content/sketches/`}
+              href={`${basePath}/en/contenido/sketches/`}
               class="magazine-btn primary"
             >
               <span class="emoji-cutout emoji-button emoji-md theme-solar"
@@ -117,7 +120,7 @@ if (isVercel === true) {
               >
               <span class="btn-text">{t('hero.cta.primary')}</span>
             </a>
-            <a href={`${basePath}/en/project/`} class="magazine-btn secondary">
+            <a href={`${basePath}/en/proyecto/`} class="magazine-btn secondary">
               <span class="btn-text">{t('hero.cta.secondary')}</span>
             </a>
           </div>
@@ -131,7 +134,9 @@ if (isVercel === true) {
       aria-labelledby="strategy-heading"
     >
       <div class="container">
-        <h2 id="strategy-heading" class="text-center">Our Impact Strategy</h2>
+        <h2 id="strategy-heading" class="text-center">
+          Nuestra Estrategia de Impacto
+        </h2>
         <div class="grid grid-3" role="list">
           <!-- Phase 1: Attraction -->
           <article
@@ -143,7 +148,7 @@ if (isVercel === true) {
                 <span
                   class="emoji-cutout emoji-card emoji-xl theme-solar flutter"
                   role="img"
-                  aria-label="Theater masks">🎭</span
+                  aria-label="Teatro">🎭</span
                 >
               </span>
               <h3>{t('phase1.title')}</h3>
@@ -152,7 +157,7 @@ if (isVercel === true) {
             <div class="card-footer">
               <span class="fase-status active">{t('phase1.status')}</span>
               <a
-                href={`${basePath}/en/content/sketches/`}
+                href={`${basePath}/en/contenido/sketches/`}
                 class="btn btn-primary"
               >
                 {t('cta.watch')}
@@ -170,7 +175,7 @@ if (isVercel === true) {
                 <span
                   class="emoji-cutout emoji-card emoji-xl theme-purple flutter"
                   role="img"
-                  aria-label="Microphone">🎙️</span
+                  aria-label="Micrófono">🎙️</span
                 >
               </span>
               <h3>{t('phase2.title')}</h3>
@@ -179,7 +184,7 @@ if (isVercel === true) {
             <div class="card-footer">
               <span class="fase-status upcoming">{t('phase2.status')}</span>
               <a
-                href={`${basePath}/en/content/podcast/`}
+                href={`${basePath}/en/contenido/podcast/`}
                 class="btn btn-secondary"
               >
                 {t('cta.learn')}
@@ -197,7 +202,7 @@ if (isVercel === true) {
                 <span
                   class="emoji-cutout emoji-card emoji-xl theme-green flutter"
                   role="img"
-                  aria-label="Microscope">🔬</span
+                  aria-label="Microscopio">🔬</span
                 >
               </span>
               <h3>{t('phase3.title')}</h3>
@@ -206,7 +211,7 @@ if (isVercel === true) {
             <div class="card-footer">
               <span class="fase-status development">{t('phase3.status')}</span>
               <a
-                href={`${basePath}/en/content/madlab/`}
+                href={`${basePath}/en/contenido/madlab/`}
                 class="btn btn-secondary"
               >
                 {t('cta.discover')}
@@ -217,15 +222,15 @@ if (isVercel === true) {
       </div>
     </section>
 
-    <!-- Evangelists Section -->
+    <!-- Evangelistas Section -->
     <section class="evangelista-section" aria-labelledby="evangelistas-heading">
       <div class="container">
         <h2 id="evangelistas-heading" class="text-center evangelista-title">
-          The Solar Gospel
+          El Evangelio Solar
         </h2>
         <QuoteBlock
-          quote="Brothers and sisters, the Sun loves us and wants to see us illuminated. Every panel is a prayer to the star king."
-          author="Sister Panelia"
+          quote="Hermanos, el Sol nos ama y quiere vernos iluminados. Cada panel es una oración al astro rey."
+          author="Hermana Panelia"
           variant="solar"
         />
         <div class="evangelista-grid" role="list">
@@ -237,16 +242,16 @@ if (isVercel === true) {
               <span
                 class="emoji-cutout emoji-card emoji-lg theme-solar"
                 role="img"
-                aria-label="Star">🌟</span
+                aria-label="Estrella">🌟</span
               >
-              {t('characters.title')}
+              Los Evangelistas
             </h3>
             <p>
-              Three missionaries dedicated to preaching ecological salvation and
-              humanity's energetic redemption.
+              Tres misioneros dedicados a predicar la salvación ecológica y la
+              redención energética de la humanidad.
             </p>
-            <a href={`${basePath}/en/characters/`} class="btn btn-primary">
-              Meet the Evangelists
+            <a href={`${basePath}/en/personajes/`} class="btn btn-primary">
+              Conocer Evangelistas
             </a>
           </article>
 
@@ -258,16 +263,16 @@ if (isVercel === true) {
               <span
                 class="emoji-cutout emoji-card emoji-lg theme-solar"
                 role="img"
-                aria-label="Book">📖</span
+                aria-label="Libro">📖</span
               >
-              The Message
+              El Mensaje
             </h3>
             <p>
-              Spiritual transformation through sustainable technology and
-              reconnection with natural cycles.
+              Transformación espiritual a través de la tecnología sostenible y
+              la reconexión con los ciclos naturales.
             </p>
-            <a href={`${basePath}/en/philosophy/`} class="btn btn-primary">
-              Read Philosophy
+            <a href={`${basePath}/en/filosofia/`} class="btn btn-primary">
+              Leer Filosofía
             </a>
           </article>
 
@@ -279,16 +284,16 @@ if (isVercel === true) {
               <span
                 class="emoji-cutout emoji-card emoji-lg theme-solar"
                 role="img"
-                aria-label="Camera">🎬</span
+                aria-label="Cámara">🎬</span
               >
-              The Formats
+              Los Formatos
             </h3>
             <p>
-              Multiple ways to bring solar light to every home: videos,
-              podcasts, sketches and more.
+              Múltiples maneras de llevar la luz solar a cada hogar: videos,
+              podcasts, sketches y más.
             </p>
-            <a href={`${basePath}/en/formats/`} class="btn btn-primary">
-              View Formats
+            <a href={`${basePath}/en/formatos/`} class="btn btn-primary">
+              Ver Formatos
             </a>
           </article>
         </div>
@@ -301,18 +306,20 @@ if (isVercel === true) {
       aria-labelledby="vision-heading"
     >
       <div class="container">
-        <h2 id="vision-heading" class="text-center">Our Vision</h2>
+        <h2 id="vision-heading" class="text-center">Nuestra Visión</h2>
         <div class="vision-grid" role="list">
           <article class="vision-item float-animation" role="listitem">
             <span class="vision-icon">
               <span
                 class="emoji-cutout emoji-hero emoji-xl theme-solar interactive"
                 role="img"
-                aria-label="Sun">☀️</span
+                aria-label="Sol">☀️</span
               >
             </span>
-            <h3>Clean Energy</h3>
-            <p>A world powered by sun, wind and human creativity</p>
+            <h3>Energía Limpia</h3>
+            <p>
+              Un mundo impulsado por el sol, el viento y la creatividad humana
+            </p>
           </article>
 
           <article
@@ -324,11 +331,11 @@ if (isVercel === true) {
               <span
                 class="emoji-cutout emoji-hero emoji-xl theme-community interactive"
                 role="img"
-                aria-label="Handshake">🤝</span
+                aria-label="Apretón de manos">🤝</span
               >
             </span>
-            <h3>Strong Community</h3>
-            <p>Solutions are born from collaboration and mutual support</p>
+            <h3>Comunidad Fuerte</h3>
+            <p>Las soluciones nacen de la colaboración y el apoyo mutuo</p>
           </article>
 
           <article
@@ -340,11 +347,11 @@ if (isVercel === true) {
               <span
                 class="emoji-cutout emoji-hero emoji-xl theme-green interactive"
                 role="img"
-                aria-label="Flower">🌺</span
+                aria-label="Flor">🌺</span
               >
             </span>
-            <h3>Natural Harmony</h3>
-            <p>Technology and nature coexist in balance</p>
+            <h3>Armonía Natural</h3>
+            <p>La tecnología y la naturaleza coexisten en equilibrio</p>
           </article>
 
           <article
@@ -356,11 +363,11 @@ if (isVercel === true) {
               <span
                 class="emoji-cutout emoji-hero emoji-xl theme-solar interactive"
                 role="img"
-                aria-label="Theater masks">🎭</span
+                aria-label="Teatro">🎭</span
               >
             </span>
-            <h3>Inspiring Stories</h3>
-            <p>Narratives that show possible and desirable futures</p>
+            <h3>Historias que Inspiran</h3>
+            <p>Narrativas que muestran futuros posibles y deseables</p>
           </article>
         </div>
       </div>
@@ -369,26 +376,26 @@ if (isVercel === true) {
     <!-- CTA Section -->
     <section class="cta-section" aria-labelledby="cta-heading">
       <div class="container text-center">
-        <h2 id="cta-heading">Ready to change the world with humor?</h2>
+        <h2 id="cta-heading">¿Listo para cambiar el mundo con humor?</h2>
         <p class="text-muted mb-3">
-          Join the Solarpunk Witnesses and be part of the movement
+          Únete a los Testigos de Solarpunk y sé parte del movimiento
         </p>
         <div class="cta-actions">
-          <a href={`${basePath}/en/community/`} class="btn btn-primary">
+          <a href={`${basePath}/en/comunidad/`} class="btn btn-primary">
             <span
               class="emoji-cutout emoji-button emoji-md theme-community"
               role="img"
-              aria-label="Handshake">🤝</span
+              aria-label="Apretón de manos">🤝</span
             >
             {t('cta.connect')}
           </a>
-          <a href={`${basePath}/en/impact/`} class="btn btn-secondary">
+          <a href={`${basePath}/en/impacto/`} class="btn btn-secondary">
             <span
               class="emoji-cutout emoji-button emoji-md theme-green"
               role="img"
-              aria-label="Chart">📊</span
+              aria-label="Gráfica">📊</span
             >
-            View Our Impact
+            Ver Nuestro Impacto
           </a>
         </div>
       </div>
@@ -560,6 +567,24 @@ if (isVercel === true) {
     font-weight: 600;
   }
 
+  .hero-description {
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    margin-bottom: var(--espacio-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--espacio-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   /* Magazine buttons */
   .magazine-btn {
     display: inline-flex;
@@ -726,36 +751,19 @@ if (isVercel === true) {
     --rotate: -2deg;
     animation-delay: 1.7s;
   }
+  .letter-cutout:nth-child(19) {
+    --float-y: 2px;
+    --rotate: 1deg;
+    animation-delay: 1.8s;
+  }
+  .letter-cutout:nth-child(20) {
+    --float-y: -1px;
+    --rotate: -1deg;
+    animation-delay: 1.9s;
+  }
 
   .mobile-break {
     display: none;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1.25rem, 3vw, 1.5rem);
-    margin-bottom: var(--espacio-md);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 600;
-  }
-
-  .hero-description {
-    font-size: clamp(1rem, 2.5vw, 1.125rem);
-    margin-bottom: var(--espacio-xl);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.95;
-    line-height: 1.6;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: var(--espacio-lg);
-    justify-content: center;
-    flex-wrap: wrap;
   }
 
   /* Sections */

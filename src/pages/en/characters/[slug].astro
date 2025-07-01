@@ -1,0 +1,643 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+// Define types for better clarity
+type CharacterPath = {
+  params: { slug: string };
+  props: { character: CollectionEntry<'characters'> };
+};
+
+export async function getStaticPaths(): Promise<CharacterPath[]> {
+  const characters = await getCollection('characters');
+  return characters.map(
+    (character: CollectionEntry<'characters'>): CharacterPath => ({
+      params: { slug: character.id },
+      props: { character },
+    })
+  );
+}
+
+interface Props {
+  character: CollectionEntry<'characters'>;
+}
+
+const { character }: Props = Astro.props;
+const data = character != null ? character.data : {};
+
+// Ensure all values are defined with fallbacks
+const nombre = data.nombre ?? 'Personaje';
+const rol = data.rol ?? 'Rol';
+const ocupacion = data.ocupacion ?? 'Ocupación';
+const edad = data.edad ?? 0;
+const rasgos = data.rasgos ?? [];
+const historia = data.historia ?? '';
+const relaciones = data.relaciones ?? [];
+const episodios_destacados = data.episodios_destacados ?? [];
+const evolucion = data.evolucion ?? {};
+const frases_emblematicas = data.frases_emblematicas ?? [];
+
+const basePath = import.meta.env.BASE_URL ?? '';
+const pageTitle = `${nombre} - ${rol}`;
+const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
+---
+
+<BaseLayout lang="en" title={pageTitle} description={pageDescription}>
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href={`${basePath}/`}>Inicio</a></li>
+        <li><a href={`${basePath}/personajes/`}>Personajes</a></li>
+        <li aria-current="page">{nombre}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Character Profile Header -->
+  <section class="character-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="character-visual">
+          <div class="character-portrait">
+            <span class="emoji-cutout emoji-xxl theme-purple"> 👤 </span>
+          </div>
+        </div>
+
+        <div class="character-basics">
+          <h1 class="character-name text-gradient">{nombre}</h1>
+          <p class="character-role">{rol}</p>
+
+          <div class="character-stats">
+            <div class="stat-item">
+              <span class="emoji-cutout emoji-sm theme-green">🎂</span>
+              <span>{edad} años</span>
+            </div>
+            <div class="stat-item">
+              <span class="emoji-cutout emoji-sm theme-community">💼</span>
+              <span>{ocupacion}</span>
+            </div>
+            <div class="stat-item">
+              <span class="emoji-cutout emoji-sm theme-purple">📍</span>
+              <span>Neo-Cuernavaca</span>
+            </div>
+          </div>
+
+          <p class="character-brief">{data.descripcionBreve ?? ''}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Character Story -->
+  <section class="character-story">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">📖</span>
+        Historia
+      </h2>
+      <div class="story-content card">
+        <p>{historia}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Character Personality -->
+  <section class="character-personality">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">🎭</span>
+        Personalidad
+      </h2>
+      <div class="personality-traits">
+        {
+          rasgos.map((rasgo: string) => (
+            <div class="trait-card card">
+              <span class="emoji-cutout emoji-sm theme-green">✨</span>
+              <span>{rasgo}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Character Relationships -->
+  {
+    relaciones.length > 0 && (
+      <section class="character-relationships">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-community">🤝</span>
+            Relaciones
+          </h2>
+          <div class="relationships-grid">
+            {relaciones.map(
+              (relacion: {
+                personaje: string;
+                tipo: string;
+                descripcion: string;
+              }) => (
+                <div class="relationship-card card">
+                  <h3>
+                    {relacion.personaje
+                      .split('-')
+                      .map(
+                        (word: string) =>
+                          word.charAt(0).toUpperCase() + word.slice(1)
+                      )
+                      .join(' ')}
+                  </h3>
+                  <p>{relacion.descripcion}</p>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Character Quotes -->
+  {
+    frases_emblematicas.length > 0 && (
+      <section class="character-quotes">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-purple">💬</span>
+            Frases Memorables
+          </h2>
+          <div class="quotes-list">
+            {frases_emblematicas.map((frase: string) => (
+              <blockquote class="quote-card card">
+                <span class="emoji-cutout emoji-sm theme-solar">❝</span>
+                <p>{frase}</p>
+                <cite>— {nombre}</cite>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Character Episodes -->
+  {
+    episodios_destacados.length > 0 && (
+      <section class="character-episodes">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-green">🎬</span>
+            Apariciones
+          </h2>
+          <div class="episodes-list">
+            {data.episodios_destacados.map((episodio: string) => (
+              <a href={`${basePath}/guiones/${episodio}/`} class="episode-chip">
+                <span class="emoji-cutout emoji-sm theme-purple">📺</span>
+                <span>{episodio}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Character Evolution -->
+  {
+    Object.keys(evolucion).length > 0 && (
+      <section class="character-evolution">
+        <div class="container">
+          <h2>
+            <span class="emoji-cutout emoji-md theme-solar">🌱</span>
+            Evolución del Personaje
+          </h2>
+          <div class="evolution-content card">
+            {typeof evolucion === 'string' ? (
+              <p>{evolucion}</p>
+            ) : Array.isArray(evolucion) ? (
+              <div>
+                {evolucion.map((item: unknown) => (
+                  <p>
+                    {typeof item === 'string' ? item : JSON.stringify(item)}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <div>
+                {Object.entries(evolucion).map(([key, value]) => (
+                  <div class="evolution-phase">
+                    <h4>{key}</h4>
+                    <p>
+                      {typeof value === 'string'
+                        ? value
+                        : JSON.stringify(value)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Navigation -->
+  <section class="character-navigation">
+    <div class="container">
+      <div class="nav-buttons">
+        <a href={`${basePath}/personajes/`} class="btn btn-secondary">
+          <span class="emoji-cutout emoji-sm">👈</span>
+          Volver a Personajes
+        </a>
+        <a href={`${basePath}/guiones/`} class="btn btn-primary">
+          <span class="emoji-cutout emoji-sm">📝</span>
+          Ver Guiones
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    background-color: var(--fondo-secundario);
+    padding: var(--espacio-md) 0;
+    border-bottom: 1px solid var(--borde-claro);
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb li {
+    color: var(--texto-secundario);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 var(--espacio-sm);
+    color: var(--texto-terciario);
+  }
+
+  .breadcrumb a {
+    color: var(--azul-tecnologico);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .character-header {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+  }
+
+  .header-content {
+    display: flex;
+    gap: var(--espacio-xxl);
+    align-items: flex-start;
+  }
+
+  .character-visual {
+    flex-shrink: 0;
+    text-align: center;
+  }
+
+  .character-portrait {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--fondo-secundario);
+    border: 4px solid var(--borde-claro);
+    margin-bottom: var(--espacio-lg);
+    position: relative;
+
+    /* Magazine cutout effect */
+    clip-path: polygon(
+      5% 0%,
+      95% 3%,
+      100% 15%,
+      98% 85%,
+      100% 95%,
+      85% 100%,
+      15% 98%,
+      0% 90%,
+      3% 10%
+    );
+  }
+
+  .character-basics {
+    flex: 1;
+  }
+
+  .character-name {
+    font-size: 3rem;
+    margin-bottom: var(--espacio-sm);
+    line-height: 1.1;
+  }
+
+  .character-role {
+    font-size: 1.5rem;
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .character-stats {
+    display: flex;
+    gap: var(--espacio-xl);
+    margin-bottom: var(--espacio-xl);
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    font-size: 1.1rem;
+    color: var(--texto-secundario);
+  }
+
+  .character-brief {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--texto-primario);
+  }
+
+  .character-story {
+    padding: var(--espacio-xl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .character-story h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .story-content {
+    padding: var(--espacio-xl);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .character-personality {
+    padding: var(--espacio-xl) 0;
+  }
+
+  .character-personality h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .personality-traits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-xxl);
+  }
+
+  .trait-card {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    padding: var(--espacio-md);
+    background: var(--fondo-secundario);
+    font-weight: 500;
+
+    /* Mini magazine cutout effect */
+    clip-path: polygon(2% 0%, 98% 1%, 99% 98%, 1% 99%);
+  }
+
+  .character-relationships {
+    padding: var(--espacio-xl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .character-relationships h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .relationships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+  }
+
+  .relationship-card {
+    padding: var(--espacio-lg);
+  }
+
+  .relationship-card h3 {
+    color: var(--purpura-creativo);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .relationship-card p {
+    line-height: 1.6;
+    color: var(--texto-secundario);
+  }
+
+  .character-quotes {
+    padding: var(--espacio-xl) 0;
+  }
+
+  .character-quotes h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .quotes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+  }
+
+  .quote-card {
+    position: relative;
+    padding: var(--espacio-xl);
+    margin: 0;
+    background: var(--fondo-secundario);
+    border-left: 4px solid var(--amarillo-solar);
+  }
+
+  .quote-card .emoji-cutout {
+    position: absolute;
+    top: var(--espacio-lg);
+    left: var(--espacio-lg);
+    opacity: 0.3;
+  }
+
+  .quote-card p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: var(--espacio-md);
+    padding-left: var(--espacio-xl);
+  }
+
+  .quote-card cite {
+    display: block;
+    text-align: right;
+    color: var(--texto-secundario);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .character-episodes {
+    padding: var(--espacio-xl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .character-episodes h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .episodes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-md);
+  }
+
+  .episode-chip {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-sm) var(--espacio-md);
+    background: var(--fondo-primario);
+    border: 2px solid var(--borde-claro);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--texto-primario);
+    transition: all var(--transicion-rapida);
+    font-weight: 500;
+  }
+
+  .episode-chip:hover {
+    border-color: var(--purpura-creativo);
+    background: rgba(156, 39, 176, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .character-evolution {
+    padding: var(--espacio-xl) 0;
+  }
+
+  .character-evolution h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    color: var(--amarillo-solar);
+  }
+
+  .evolution-content {
+    padding: var(--espacio-xl);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    background: linear-gradient(
+      135deg,
+      rgba(76, 175, 80, 0.05) 0%,
+      transparent 100%
+    );
+  }
+
+  .character-navigation {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--espacio-lg);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--espacio-xl);
+    }
+
+    .character-name {
+      font-size: 2.5rem;
+    }
+
+    .character-stats {
+      justify-content: center;
+      gap: var(--espacio-md);
+    }
+
+    .stat-item {
+      font-size: 1rem;
+    }
+
+    .personality-traits {
+      grid-template-columns: 1fr;
+    }
+
+    .relationships-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .character-name {
+      font-size: 2rem;
+    }
+
+    .character-role {
+      font-size: 1.25rem;
+    }
+
+    .character-stats {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .quote-card p {
+      font-size: 1.1rem;
+      padding-left: var(--espacio-md);
+    }
+  }
+</style>

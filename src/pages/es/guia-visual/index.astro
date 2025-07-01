@@ -1,0 +1,913 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout title="Guía de Estilo Visual">
+  <section class="hero-section">
+    <div class="container">
+      <div class="float-animation">
+        <i
+          class="fas fa-palette icon-glow"
+          style="font-size: 4rem; color: var(--purpura-creativo); margin-bottom: 1rem; display: block;"
+        ></i>
+      </div>
+      <h1 class="hero-title text-gradient">Guía de Estilo Visual</h1>
+      <p class="hero-subtitle">
+        La estética evangelista del movimiento Testigos de Solar Punk
+      </p>
+    </div>
+  </section>
+
+  <section class="colors-section">
+    <div class="container">
+      <h2 class="section-title">Paletas de Color</h2>
+
+      <div class="palette-container">
+        <h3>Paleta Evangelista Principal</h3>
+        <div class="color-grid">
+          <div class="color-card">
+            <div class="color-swatch" style="background-color: #00FF7F;"></div>
+            <h3>Verde Brillante</h3>
+            <p class="color-code">#00FF7F</p>
+            <p class="color-usage">Esperanza y renovación</p>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background-color: #FFD700;"></div>
+            <h3>Dorado Solar</h3>
+            <p class="color-code">#FFD700</p>
+            <p class="color-usage">Divinidad y energía</p>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background-color: #D2691E;"></div>
+            <h3>Marrón Tierra</h3>
+            <p class="color-code">#D2691E</p>
+            <p class="color-usage">Conexión terrenal</p>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background-color: #9370DB;"></div>
+            <h3>Púrpura Místico</h3>
+            <p class="color-code">#9370DB</p>
+            <p class="color-usage">Espiritualidad tech</p>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background-color: #FFFAFA;"></div>
+            <h3>Blanco Divino</h3>
+            <p class="color-code">#FFFAFA</p>
+            <p class="color-usage">Pureza y claridad</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="palette-container">
+        <h3>Paleta Complementaria</h3>
+        <div class="color-grid">
+          <div class="color-card">
+            <div class="color-swatch" style="background-color: #7FFF00;"></div>
+            <h3>Bio-luminiscente</h3>
+            <p class="color-code">#7FFF00</p>
+            <p class="color-usage">Vida sintética</p>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background-color: #FFA500;"></div>
+            <h3>Naranja Solar</h3>
+            <p class="color-code">#FFA500</p>
+            <p class="color-usage">Atardecer místico</p>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background-color: #87CEEB;"></div>
+            <h3>Cielo Esperanza</h3>
+            <p class="color-code">#87CEEB</p>
+            <p class="color-usage">Futuro brillante</p>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background-color: #00CED1;"></div>
+            <h3>Agua Clara</h3>
+            <p class="color-code">#00CED1</p>
+            <p class="color-usage">Fluidez y cambio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gradients-section">
+    <div class="container">
+      <h2 class="section-title">Gradientes Sagrados</h2>
+
+      <div class="gradients-grid">
+        <div class="gradient-card">
+          <div class="gradient-sample gradient-evangelista"></div>
+          <h3>Evangelista</h3>
+          <p>Dorado → Verde → Púrpura</p>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-sample gradient-solarpunk"></div>
+          <h3>Solarpunk</h3>
+          <p>Verde → Amarillo Solar</p>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-sample gradient-mystical"></div>
+          <h3>Místico</h3>
+          <p>Púrpura → Dorado</p>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-sample gradient-earth"></div>
+          <h3>Terrenal</h3>
+          <p>Marrón → Verde</p>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-sample gradient-dawn"></div>
+          <h3>Amanecer</h3>
+          <p>Naranja → Rosa → Amarillo</p>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-sample gradient-ocean"></div>
+          <h3>Océano</h3>
+          <p>Azul → Verde → Turquesa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="effects-section">
+    <div class="container">
+      <h2 class="section-title">Efectos Visuales</h2>
+
+      <div class="effects-grid">
+        <div class="effect-card">
+          <div class="effect-demo pulse-glow">
+            <i
+              class="fas fa-sun"
+              style="font-size: 3rem; color: var(--dorado-solar);"></i>
+          </div>
+          <h3>Pulse Glow</h3>
+          <p>Resplandor pulsante divino</p>
+          <code>pulse-glow</code>
+        </div>
+
+        <div class="effect-card">
+          <div class="effect-demo float-animation">
+            <i
+              class="fas fa-leaf"
+              style="font-size: 3rem; color: var(--verde-brillante);"></i>
+          </div>
+          <h3>Float Animation</h3>
+          <p>Levitación mística</p>
+          <code>float-animation</code>
+        </div>
+
+        <div class="effect-card">
+          <div class="effect-demo halo-effect" style="padding: 2rem;">
+            <i
+              class="fas fa-seedling"
+              style="font-size: 3rem; color: var(--verde-sostenible);"></i>
+          </div>
+          <h3>Halo Effect</h3>
+          <p>Aura sagrada</p>
+          <code>halo-effect</code>
+        </div>
+
+        <div class="effect-card">
+          <div class="effect-demo rotate-slow">
+            <i
+              class="fas fa-yin-yang"
+              style="font-size: 3rem; color: var(--purpura-mistico);"></i>
+          </div>
+          <h3>Rotate Slow</h3>
+          <p>Rotación cósmica</p>
+          <code>rotate-slow</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="typography-section">
+    <div class="container">
+      <h2 class="section-title">Tipografía</h2>
+
+      <div class="typography-samples">
+        <div class="type-sample">
+          <h1 class="evangelista-title">Título Evangelista</h1>
+          <p class="type-info">
+            Font: System UI • Weight: Bold • Gradient: Dorado → Verde
+          </p>
+        </div>
+
+        <div class="type-sample">
+          <h2 style="color: var(--verde-sostenible);">Subtítulo Ecológico</h2>
+          <p class="type-info">
+            Font: System UI • Weight: 600 • Color: Verde Sostenible
+          </p>
+        </div>
+
+        <div class="type-sample">
+          <p
+            style="font-size: 1.25rem; font-style: italic; color: var(--dorado-solar);"
+          >
+            "La salvación no está en los cielos, está en el tejado con paneles
+            solares"
+          </p>
+          <p class="type-info">
+            Citas: Italic • Size: 1.25rem • Color: Dorado Solar
+          </p>
+        </div>
+
+        <div class="type-sample">
+          <p class="mono" style="color: var(--purpura-mistico);">
+            #TestigosDeSolarPunk
+          </p>
+          <p class="type-info">Hashtags: Monospace • Color: Púrpura Místico</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="components-section">
+    <div class="container">
+      <h2 class="section-title">Componentes de UI</h2>
+
+      <div class="components-grid">
+        <div class="component-demo">
+          <h3>Botones Evangelistas</h3>
+          <div class="demo-buttons">
+            <button class="btn btn-evangelista">
+              <i class="fas fa-sun"></i> Convertirse
+            </button>
+            <button class="btn btn-evangelista-outline">
+              <i class="fas fa-book"></i> Aprender Más
+            </button>
+          </div>
+        </div>
+
+        <div class="component-demo">
+          <h3>Tarjetas Sagradas</h3>
+          <div class="card-evangelista halo-effect" style="padding: 1.5rem;">
+            <h4 style="color: var(--dorado-solar);">Tarjeta Evangelista</h4>
+            <p>Con efecto halo y bordes dorados</p>
+          </div>
+        </div>
+
+        <div class="component-demo">
+          <h3>Insignias de Plataforma</h3>
+          <div class="platform-badges">
+            <span class="platform-badge" style="background: #FF0050;"
+              >TikTok</span
+            >
+            <span class="platform-badge" style="background: #E4405F;"
+              >Instagram</span
+            >
+            <span class="platform-badge" style="background: #FF0000;"
+              >YouTube</span
+            >
+          </div>
+        </div>
+
+        <div class="component-demo">
+          <h3>Iconos Temáticos</h3>
+          <div class="icon-grid">
+            <i class="fas fa-solar-panel icon-theme"></i>
+            <i class="fas fa-seedling icon-theme"></i>
+            <i class="fas fa-bicycle icon-theme"></i>
+            <i class="fas fa-recycle icon-theme"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="patterns-section">
+    <div class="container">
+      <h2 class="section-title">Patrones y Texturas</h2>
+
+      <div class="patterns-grid">
+        <div class="pattern-card">
+          <div class="pattern-sample pattern-solar"></div>
+          <h3>Patrón Solar</h3>
+          <p>Hexágonos inspirados en paneles</p>
+        </div>
+        <div class="pattern-card">
+          <div class="pattern-sample pattern-organic"></div>
+          <h3>Patrón Orgánico</h3>
+          <p>Formas naturales y fluidas</p>
+        </div>
+        <div class="pattern-card">
+          <div class="pattern-sample pattern-circuit"></div>
+          <h3>Patrón Circuito</h3>
+          <p>Tecnología meets naturaleza</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles-section gradient-evangelista">
+    <div class="container">
+      <h2
+        class="text-center"
+        style="color: var(--blanco-divino); margin-bottom: 3rem;"
+      >
+        Principios de Diseño Evangelista
+      </h2>
+
+      <div class="principles-grid">
+        <div class="principle-card">
+          <i class="fas fa-eye"></i>
+          <h3>Visibilidad Divina</h3>
+          <p>Todo elemento debe brillar con propósito</p>
+        </div>
+        <div class="principle-card">
+          <i class="fas fa-hands"></i>
+          <h3>Accesibilidad Universal</h3>
+          <p>El mensaje debe llegar a todos</p>
+        </div>
+        <div class="principle-card">
+          <i class="fas fa-leaf"></i>
+          <h3>Sostenibilidad Visual</h3>
+          <p>Diseño que no contamina los ojos</p>
+        </div>
+        <div class="principle-card">
+          <i class="fas fa-heart"></i>
+          <h3>Emoción Contagiosa</h3>
+          <p>Cada pixel predica esperanza</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="download-section">
+    <div class="container text-center">
+      <h2>Recursos de Diseño</h2>
+      <p class="text-muted mb-4">
+        Descarga los assets y guías para mantener la coherencia visual
+      </p>
+      <div class="download-grid">
+        <a
+          href={`${basePath}/downloads/paleta-colores.ase`}
+          class="download-card"
+        >
+          <i class="fas fa-palette"></i>
+          <h3>Paleta de Colores</h3>
+          <p>Adobe Swatch Exchange</p>
+        </a>
+        <a
+          href={`${basePath}/downloads/iconos-evangelistas.svg`}
+          class="download-card"
+        >
+          <i class="fas fa-icons"></i>
+          <h3>Pack de Iconos</h3>
+          <p>SVG Vectoriales</p>
+        </a>
+        <a
+          href={`${basePath}/downloads/plantillas-ui.fig`}
+          class="download-card"
+        >
+          <i class="fas fa-object-group"></i>
+          <h3>UI Kit Figma</h3>
+          <p>Componentes listos</p>
+        </a>
+        <a href={`${basePath}/downloads/guia-visual.pdf`} class="download-card">
+          <i class="fas fa-book"></i>
+          <h3>Manual Completo</h3>
+          <p>PDF - 120 páginas</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section {
+    background: linear-gradient(
+      135deg,
+      var(--fondo-secundario) 0%,
+      rgba(147, 112, 219, 0.1) 100%
+    );
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-xxl);
+    color: var(--verde-sostenible);
+  }
+
+  /* Colors Section */
+  .colors-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .palette-container {
+    margin-bottom: var(--espacio-xxl);
+  }
+
+  .palette-container h3 {
+    text-align: center;
+    color: var(--purpura-creativo);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--espacio-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .color-card {
+    text-align: center;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .color-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .color-swatch {
+    height: 120px;
+    width: 100%;
+  }
+
+  .color-card h3 {
+    margin: var(--espacio-md) 0 var(--espacio-sm);
+    color: var(--text-primary, #ffffff);
+  }
+
+  .color-code {
+    font-family: var(--fuente-mono);
+    font-size: 0.875rem;
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .color-usage {
+    font-size: 0.875rem;
+    color: var(--texto-secundario);
+    padding: 0 var(--espacio-md) var(--espacio-md);
+  }
+
+  /* Gradients Section */
+  .gradients-section {
+    padding: var(--espacio-xxl) 0;
+    background: var(--fondo-secundario);
+  }
+
+  .gradients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .gradient-card {
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .gradient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .gradient-sample {
+    height: 150px;
+    width: 100%;
+  }
+
+  .gradient-evangelista {
+    background: linear-gradient(
+      135deg,
+      var(--dorado-solar) 0%,
+      var(--verde-brillante) 50%,
+      var(--purpura-mistico) 100%
+    );
+  }
+
+  .gradient-mystical {
+    background: linear-gradient(
+      135deg,
+      var(--purpura-mistico),
+      var(--dorado-solar)
+    );
+  }
+
+  .gradient-earth {
+    background: linear-gradient(
+      135deg,
+      var(--marron-tierra),
+      var(--verde-sostenible)
+    );
+  }
+
+  .gradient-dawn {
+    background: linear-gradient(135deg, #ffa500, #ffb6c1, #ffd700);
+  }
+
+  .gradient-ocean {
+    background: linear-gradient(135deg, #2196f3, #4caf50, #00ced1);
+  }
+
+  .gradient-card h3 {
+    margin: var(--espacio-md);
+    color: var(--negro-profundo);
+  }
+
+  .gradient-card p {
+    color: var(--texto-secundario);
+    padding: 0 var(--espacio-md) var(--espacio-md);
+    font-size: 0.875rem;
+  }
+
+  /* Effects Section */
+  .effects-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .effects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--espacio-xl);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .effect-card {
+    text-align: center;
+  }
+
+  .effect-demo {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--fondo-secundario);
+    border-radius: 12px;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .effect-card h3 {
+    color: var(--negro-profundo);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .effect-card p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .effect-card code {
+    display: inline-block;
+    padding: var(--espacio-xs) var(--espacio-sm);
+    background: var(--fondo-secundario);
+    border-radius: 4px;
+    font-family: var(--fuente-mono);
+    font-size: 0.875rem;
+    color: var(--purpura-creativo);
+  }
+
+  /* Typography Section */
+  .typography-section {
+    padding: var(--espacio-xxl) 0;
+    background: var(--fondo-secundario);
+  }
+
+  .typography-samples {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .type-sample {
+    margin-bottom: var(--espacio-xxl);
+    text-align: center;
+  }
+
+  .type-info {
+    margin-top: var(--espacio-md);
+    font-size: 0.875rem;
+    color: var(--texto-secundario);
+    font-family: var(--fuente-mono);
+  }
+
+  /* Components Section */
+  .components-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .component-demo {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-xl);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .component-demo h4,
+  .component-demo h3 {
+    color: var(--negro-profundo);
+    margin-bottom: var(--espacio-lg);
+  }
+
+  .demo-buttons {
+    display: flex;
+    gap: var(--espacio-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-evangelista {
+    background: var(--dorado-solar);
+    color: var(--negro-profundo);
+    padding: var(--espacio-sm) var(--espacio-lg);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-evangelista:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  }
+
+  .btn-evangelista-outline {
+    background: transparent;
+    color: var(--dorado-solar);
+    border: 2px solid var(--dorado-solar);
+    padding: var(--espacio-sm) var(--espacio-lg);
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-evangelista-outline:hover {
+    background: var(--dorado-solar);
+    color: var(--negro-profundo);
+  }
+
+  .platform-badges {
+    display: flex;
+    gap: var(--espacio-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .platform-badge {
+    padding: var(--espacio-xs) var(--espacio-md);
+    border-radius: 20px;
+    color: var(--text-on-accent, #000000);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .icon-grid {
+    display: flex;
+    gap: var(--espacio-lg);
+    justify-content: center;
+    font-size: 2rem;
+  }
+
+  .icon-theme {
+    color: var(--verde-sostenible);
+    transition: all 0.3s ease;
+  }
+
+  .icon-theme:hover {
+    color: var(--dorado-solar);
+    transform: scale(1.2);
+  }
+
+  /* Patterns Section */
+  .patterns-section {
+    padding: var(--espacio-xxl) 0;
+    background: var(--fondo-secundario);
+  }
+
+  .patterns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .pattern-card {
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .pattern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .pattern-sample {
+    height: 200px;
+    width: 100%;
+  }
+
+  .pattern-solar {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFD700' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: var(--bg-tertiary, #1c1c1f);
+  }
+
+  .pattern-organic {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234CAF50' fill-opacity='0.1'%3E%3Cpath d='M50 30c0-11.046 8.954-20 20-20s20 8.954 20 20c0 11.046-8.954 20-20 20-11.046 0-20-8.954-20-20z'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: var(--bg-tertiary, #1c1c1f);
+  }
+
+  .pattern-circuit {
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239370DB' fill-opacity='0.1'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40z'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: var(--bg-tertiary, #1c1c1f);
+  }
+
+  .pattern-card h3 {
+    margin: var(--espacio-md);
+    color: var(--negro-profundo);
+  }
+
+  .pattern-card p {
+    color: var(--texto-secundario);
+    padding: 0 var(--espacio-md) var(--espacio-md);
+    font-size: 0.875rem;
+  }
+
+  /* Principles Section */
+  .principles-section {
+    padding: var(--espacio-xxl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .principle-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: var(--espacio-xl);
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .principle-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+  }
+
+  .principle-card i {
+    font-size: 3rem;
+    color: var(--blanco-divino);
+    margin-bottom: var(--espacio-md);
+    display: block;
+  }
+
+  .principle-card h3 {
+    color: var(--blanco-divino);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .principle-card p {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Download Section */
+  .download-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--espacio-lg);
+    max-width: 800px;
+    margin: var(--espacio-xl) auto 0;
+  }
+
+  .download-card {
+    background: var(--fondo-secundario);
+    padding: var(--espacio-xl) var(--espacio-lg);
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .download-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px var(--sombra-suave);
+  }
+
+  .download-card i {
+    font-size: 3rem;
+    color: var(--purpura-creativo);
+    margin-bottom: var(--espacio-md);
+    display: block;
+  }
+
+  .download-card h3 {
+    color: var(--negro-profundo);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .download-card p {
+    color: var(--texto-secundario);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .color-grid,
+    .gradients-grid,
+    .effects-grid,
+    .components-grid,
+    .patterns-grid,
+    .principles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .demo-buttons {
+      flex-direction: column;
+    }
+
+    .demo-buttons button {
+      width: 100%;
+    }
+  }
+</style>

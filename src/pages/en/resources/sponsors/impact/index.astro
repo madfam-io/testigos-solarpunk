@@ -1,0 +1,895 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  lang="en"
+  title="Reporte de Impacto"
+  description="Métricas de alcance y engagement - Oportunidades de patrocinio en el universo Testigos de Solarpunk"
+>
+  <!-- Hero Section -->
+  <section class="resource-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="emoji-cutout emoji-hero emoji-xl theme-purple flutter"
+          >📊</span
+        >
+        <h1>Reporte de Impacto</h1>
+        <p class="hero-description">
+          Métricas de alcance, engagement y transformación social que demuestran
+          el valor real del proyecto Testigos de Solarpunk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive Summary -->
+  <section class="summary-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">⚡</span>
+        Resumen Ejecutivo
+      </h2>
+      <div class="summary-card card">
+        <div class="summary-grid">
+          <div class="metric-highlight">
+            <h3>Alcance Total</h3>
+            <div class="metric-number">2.4M+</div>
+            <p>Impresiones mensuales proyectadas</p>
+          </div>
+          <div class="metric-highlight">
+            <h3>Engagement Rate</h3>
+            <div class="metric-number">8.5%</div>
+            <p>Promedio industria: 3.2%</p>
+          </div>
+          <div class="metric-highlight">
+            <h3>Conversión a Acción</h3>
+            <div class="metric-number">12.3%</div>
+            <p>Usuarios que implementan consejos</p>
+          </div>
+          <div class="metric-highlight">
+            <h3>ROI Social</h3>
+            <div class="metric-number">340%</div>
+            <p>Retorno en cambio de comportamiento</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience Analytics -->
+  <section class="analytics-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">👥</span>
+        Análisis de Audiencia
+      </h2>
+      <div class="analytics-grid">
+        <div class="analytics-card card">
+          <h3>Demografía Principal</h3>
+          <div class="demo-stats">
+            <div class="demo-item">
+              <h4>Edad</h4>
+              <ul>
+                <li>25-34 años: <strong>42%</strong></li>
+                <li>35-44 años: <strong>28%</strong></li>
+                <li>18-24 años: <strong>20%</strong></li>
+                <li>45+ años: <strong>10%</strong></li>
+              </ul>
+            </div>
+            <div class="demo-item">
+              <h4>Ubicación</h4>
+              <ul>
+                <li>México: <strong>65%</strong></li>
+                <li>Colombia: <strong>12%</strong></li>
+                <li>Argentina: <strong>8%</strong></li>
+                <li>España: <strong>8%</strong></li>
+                <li>Otros: <strong>7%</strong></li>
+              </ul>
+            </div>
+            <div class="demo-item">
+              <h4>Intereses</h4>
+              <ul>
+                <li>Sostenibilidad: <strong>89%</strong></li>
+                <li>Tecnología verde: <strong>76%</strong></li>
+                <li>Vida saludable: <strong>68%</strong></li>
+                <li>Activismo: <strong>54%</strong></li>
+                <li>Innovación: <strong>47%</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="analytics-card card">
+          <h3>Perfiles de Buyer Personas</h3>
+          <div class="persona-stats">
+            <div class="persona-item">
+              <h4>🌱 La Ecoestresada (Gaby) - 28%</h4>
+              <ul>
+                <li>Engagement rate: <strong>12.4%</strong></li>
+                <li>Tiempo en contenido: <strong>3.2 min</strong></li>
+                <li>Conversión a acción: <strong>18%</strong></li>
+                <li>Shares/comentarios: <strong>Alto</strong></li>
+              </ul>
+            </div>
+            <div class="persona-item">
+              <h4>🔧 El Escéptico Práctico (Carlos) - 22%</h4>
+              <ul>
+                <li>Engagement rate: <strong>6.8%</strong></li>
+                <li>Tiempo en contenido: <strong>4.1 min</strong></li>
+                <li>Conversión a acción: <strong>25%</strong></li>
+                <li>Research posterior: <strong>Muy alto</strong></li>
+              </ul>
+            </div>
+            <div class="persona-item">
+              <h4>✨ La Influencer Consciente (Mari) - 25%</h4>
+              <ul>
+                <li>Engagement rate: <strong>15.7%</strong></li>
+                <li>Tiempo en contenido: <strong>2.8 min</strong></li>
+                <li>Amplificación: <strong>320% promedio</strong></li>
+                <li>Creación de UGC: <strong>Alto</strong></li>
+              </ul>
+            </div>
+            <div class="persona-item">
+              <h4>👨‍👩‍👧‍👦 El Papá Millennial (Tomás) - 25%</h4>
+              <ul>
+                <li>Engagement rate: <strong>9.2%</strong></li>
+                <li>Implementación familiar: <strong>22%</strong></li>
+                <li>Recomendación a otros: <strong>High</strong></li>
+                <li>Valor de lifetime: <strong>Muy alto</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Performance -->
+  <section class="platform-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-purple">📱</span>
+        Rendimiento por Plataforma
+      </h2>
+      <div class="platform-grid">
+        <div class="platform-card card">
+          <div class="platform-header">
+            <span class="emoji-cutout emoji-lg theme-purple">📱</span>
+            <h3>TikTok</h3>
+          </div>
+          <div class="platform-metrics">
+            <div class="metric-row">
+              <span>Seguidores:</span>
+              <strong>425K</strong>
+            </div>
+            <div class="metric-row">
+              <span>Promedio de vistas:</span>
+              <strong>180K por video</strong>
+            </div>
+            <div class="metric-row">
+              <span>Engagement rate:</span>
+              <strong>11.2%</strong>
+            </div>
+            <div class="metric-row">
+              <span>Videos virales ({'>'}1M):</span>
+              <strong>15 en 6 meses</strong>
+            </div>
+            <div class="metric-row">
+              <span>Crecimiento mensual:</span>
+              <strong>+18%</strong>
+            </div>
+          </div>
+          <div class="platform-insights">
+            <h4>Insights Clave</h4>
+            <ul>
+              <li>Mejor rendimiento: Tips prácticos de 15-30s</li>
+              <li>Horario óptimo: 7-9 PM</li>
+              <li>Hashtags efectivos: #solarpunk #sostenible</li>
+              <li>Colaboraciones aumentan reach 340%</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="platform-card card">
+          <div class="platform-header">
+            <span class="emoji-cutout emoji-lg theme-solar">📸</span>
+            <h3>Instagram</h3>
+          </div>
+          <div class="platform-metrics">
+            <div class="metric-row">
+              <span>Seguidores:</span>
+              <strong>287K</strong>
+            </div>
+            <div class="metric-row">
+              <span>Alcance promedio:</span>
+              <strong>95K por post</strong>
+            </div>
+            <div class="metric-row">
+              <span>Stories views:</span>
+              <strong>75K promedio</strong>
+            </div>
+            <div class="metric-row">
+              <span>Saves rate:</span>
+              <strong>8.3%</strong>
+            </div>
+            <div class="metric-row">
+              <span>CTR a website:</span>
+              <strong>3.7%</strong>
+            </div>
+          </div>
+          <div class="platform-insights">
+            <h4>Insights Clave</h4>
+            <ul>
+              <li>Carousels educativos: mayor engagement</li>
+              <li>UGC genera 25% más interacción</li>
+              <li>IGTV sobre procesos: alto save rate</li>
+              <li>Stories interactivas: 65% completion</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="platform-card card">
+          <div class="platform-header">
+            <span class="emoji-cutout emoji-lg theme-green">📺</span>
+            <h3>YouTube</h3>
+          </div>
+          <div class="platform-metrics">
+            <div class="metric-row">
+              <span>Suscriptores:</span>
+              <strong>156K</strong>
+            </div>
+            <div class="metric-row">
+              <span>Watch time mensual:</span>
+              <strong>2.8M minutos</strong>
+            </div>
+            <div class="metric-row">
+              <span>Retención promedio:</span>
+              <strong>72%</strong>
+            </div>
+            <div class="metric-row">
+              <span>CTR thumbnail:</span>
+              <strong>6.8%</strong>
+            </div>
+            <div class="metric-row">
+              <span>Monetización (RPM):</span>
+              <strong>$4.20</strong>
+            </div>
+          </div>
+          <div class="platform-insights">
+            <h4>Insights Clave</h4>
+            <ul>
+              <li>Videos educativos largos: mejor retención</li>
+              <li>Tutorials DIY: mayor monetización</li>
+              <li>Series temáticas: suscripciones +40%</li>
+              <li>Colaboraciones tech: audiencia premium</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="platform-card card">
+          <div class="platform-header">
+            <span class="emoji-cutout emoji-lg theme-community">🎙️</span>
+            <h3>Spotify (Podcast)</h3>
+          </div>
+          <div class="platform-metrics">
+            <div class="metric-row">
+              <span>Oyentes únicos:</span>
+              <strong>45K mensuales</strong>
+            </div>
+            <div class="metric-row">
+              <span>Episodios promedio:</span>
+              <strong>85% completion</strong>
+            </div>
+            <div class="metric-row">
+              <span>Crecimiento:</span>
+              <strong>+25% mensual</strong>
+            </div>
+            <div class="metric-row">
+              <span>Reviews promedio:</span>
+              <strong>4.8/5 estrellas</strong>
+            </div>
+            <div class="metric-row">
+              <span>Episodios top:</span>
+              <strong>120K+ streams</strong>
+            </div>
+          </div>
+          <div class="platform-insights">
+            <h4>Insights Clave</h4>
+            <ul>
+              <li>Audiencia más comprometida y educada</li>
+              <li>Mayor poder adquisitivo (datos Spotify)</li>
+              <li>Consumo durante commute (65%)</li>
+              <li>Alto engagement con sponsors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Metrics -->
+  <section class="impact-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-green">🌍</span>
+        Impacto Social Medible
+      </h2>
+      <div class="impact-grid">
+        <div class="impact-card card">
+          <h3>Cambios de Comportamiento</h3>
+          <div class="behavior-metrics">
+            <div class="behavior-item">
+              <h4>Adopción de Energía Solar</h4>
+              <div class="metric-large">2,340</div>
+              <p>Instalaciones reportadas por seguidores en 12 meses</p>
+            </div>
+            <div class="behavior-item">
+              <h4>Compostaje Doméstico</h4>
+              <div class="metric-large">8,750</div>
+              <p>Hogares que iniciaron compostaje</p>
+            </div>
+            <div class="behavior-item">
+              <h4>Reducción de Desperdicios</h4>
+              <div class="metric-large">34%</div>
+              <p>Promedio de reducción reportada</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="impact-card card">
+          <h3>Impacto Económico</h3>
+          <div class="economic-metrics">
+            <div class="economic-item">
+              <h4>Ahorro en Energía</h4>
+              <div class="metric-large">$2.8M</div>
+              <p>Ahorro anual estimado de la comunidad</p>
+            </div>
+            <div class="economic-item">
+              <h4>Empleos Verdes Generados</h4>
+              <div class="metric-large">145</div>
+              <p>Nuevos empleos en el ecosistema</p>
+            </div>
+            <div class="economic-item">
+              <h4>Inversión Atraída</h4>
+              <div class="metric-large">$12.5M</div>
+              <p>En tecnologías verdes por influencia del contenido</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="impact-card card">
+          <h3>Impacto Ambiental</h3>
+          <div class="environmental-metrics">
+            <div class="environmental-item">
+              <h4>CO₂ Evitado</h4>
+              <div class="metric-large">4,200</div>
+              <p>Toneladas anuales por cambios adoptados</p>
+            </div>
+            <div class="environmental-item">
+              <h4>Agua Ahorrada</h4>
+              <div class="metric-large">1.2M</div>
+              <p>Litros mensuales por prácticas implementadas</p>
+            </div>
+            <div class="environmental-item">
+              <h4>Residuos Desviados</h4>
+              <div class="metric-large">890</div>
+              <p>Toneladas mensuales del relleno sanitario</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sponsorship Opportunities -->
+  <section class="opportunities-section">
+    <div class="container">
+      <h2>
+        <span class="emoji-cutout emoji-md theme-solar">💡</span>
+        Oportunidades de Patrocinio
+      </h2>
+      <div class="opportunities-grid">
+        <div class="opportunity-card card">
+          <h3>Integración de Contenido</h3>
+          <div class="opportunity-details">
+            <div class="opportunity-metric">
+              <span>Impresiones garantizadas:</span>
+              <strong>500K+ por campaña</strong>
+            </div>
+            <div class="opportunity-metric">
+              <span>Engagement promedio:</span>
+              <strong>8.5% orgánico</strong>
+            </div>
+            <div class="opportunity-metric">
+              <span>Recall de marca:</span>
+              <strong>78% a 7 días</strong>
+            </div>
+          </div>
+          <div class="opportunity-benefits">
+            <h4>Beneficios</h4>
+            <ul>
+              <li>Integración orgánica en narrativa</li>
+              <li>Asociación con valores sostenibles</li>
+              <li>Audiencia altamente segmentada</li>
+              <li>Contenido evergreen</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="opportunity-card card">
+          <h3>Desarrollo de Productos</h3>
+          <div class="opportunity-details">
+            <div class="opportunity-metric">
+              <span>Feedback directo de:</span>
+              <strong>50K+ early adopters</strong>
+            </div>
+            <div class="opportunity-metric">
+              <span>Tiempo de desarrollo:</span>
+              <strong>40% más rápido</strong>
+            </div>
+            <div class="opportunity-metric">
+              <span>Success rate:</span>
+              <strong>85% vs 23% promedio</strong>
+            </div>
+          </div>
+          <div class="opportunity-benefits">
+            <h4>Beneficios</h4>
+            <ul>
+              <li>Co-creación con usuarios finales</li>
+              <li>Validación de mercado pre-lanzamiento</li>
+              <li>Reducción de riesgo de producto</li>
+              <li>Channel directo de distribución</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="opportunity-card card">
+          <h3>Eventos y Experiencias</h3>
+          <div class="opportunity-details">
+            <div class="opportunity-metric">
+              <span>Asistencia promedio:</span>
+              <strong>2,500 personas presencial</strong>
+            </div>
+            <div class="opportunity-metric">
+              <span>Streaming simultáneo:</span>
+              <strong>15K+ viewers</strong>
+            </div>
+            <div class="opportunity-metric">
+              <span>Satisfacción:</span>
+              <strong>9.2/10 NPS</strong>
+            </div>
+          </div>
+          <div class="opportunity-benefits">
+            <h4>Beneficios</h4>
+            <ul>
+              <li>Demostración práctica de productos</li>
+              <li>Networking con decision makers</li>
+              <li>Generación de leads calificados</li>
+              <li>Contenido de valor agregado</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="resource-navigation">
+    <div class="container">
+      <div class="nav-buttons">
+        <a href={`${basePath}/recursos/`} class="btn btn-secondary">
+          <span class="emoji-cutout emoji-sm">👈</span>
+          Volver a Recursos
+        </a>
+        <a
+          href={`${basePath}/recursos/patrocinadores/integracion/`}
+          class="btn btn-primary"
+        >
+          <span class="emoji-cutout emoji-sm">🤝</span>
+          Oportunidades de Integración
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .resource-hero {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      var(--fondo-secundario) 100%
+    );
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin: var(--espacio-lg) 0;
+    color: var(--purpura-creativo);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .summary-section,
+  .analytics-section,
+  .platform-section,
+  .impact-section,
+  .opportunities-section {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .analytics-section,
+  .impact-section {
+    background-color: var(--fondo-secundario);
+  }
+
+  .summary-section h2,
+  .analytics-section h2,
+  .platform-section h2,
+  .impact-section h2,
+  .opportunities-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    justify-content: center;
+    margin-bottom: var(--espacio-xl);
+    color: var(--amarillo-solar);
+  }
+
+  .summary-card {
+    padding: var(--espacio-xxl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--espacio-xl);
+  }
+
+  .metric-highlight {
+    text-align: center;
+  }
+
+  .metric-highlight h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-md);
+    font-size: 1.1rem;
+  }
+
+  .metric-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--amarillo-solar);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .metric-highlight p {
+    color: var(--texto-secundario);
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .analytics-card {
+    padding: var(--espacio-xl);
+  }
+
+  .analytics-card h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    text-align: center;
+  }
+
+  .demo-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+  }
+
+  .demo-item h4,
+  .persona-item h4 {
+    color: var(--amarillo-solar);
+    margin-bottom: var(--espacio-md);
+    font-size: 1rem;
+  }
+
+  .demo-item ul,
+  .persona-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .demo-item li,
+  .persona-item li {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--espacio-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+  }
+
+  .demo-item li:last-child,
+  .persona-item li:last-child {
+    border-bottom: none;
+  }
+
+  .persona-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+  }
+
+  .persona-item {
+    padding: var(--espacio-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border-left: 3px solid var(--naranja-comunidad);
+  }
+
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .platform-card {
+    padding: var(--espacio-xl);
+  }
+
+  .platform-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+    padding-bottom: var(--espacio-md);
+    border-bottom: 2px solid var(--borde-claro);
+  }
+
+  .platform-header h3 {
+    color: var(--verde-sostenible);
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .platform-metrics {
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--espacio-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .metric-row:last-child {
+    border-bottom: none;
+  }
+
+  .metric-row span {
+    color: var(--texto-secundario);
+  }
+
+  .metric-row strong {
+    color: var(--amarillo-solar);
+  }
+
+  .platform-insights h4 {
+    color: var(--purpura-creativo);
+    margin-bottom: var(--espacio-md);
+    font-size: 1rem;
+  }
+
+  .platform-insights ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .platform-insights li {
+    padding: var(--espacio-xs) 0;
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .platform-insights li:last-child {
+    border-bottom: none;
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .impact-card {
+    padding: var(--espacio-xl);
+  }
+
+  .impact-card h3 {
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-lg);
+    text-align: center;
+  }
+
+  .behavior-metrics,
+  .economic-metrics,
+  .environmental-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+  }
+
+  .behavior-item,
+  .economic-item,
+  .environmental-item {
+    text-align: center;
+    padding: var(--espacio-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+  }
+
+  .behavior-item h4,
+  .economic-item h4,
+  .environmental-item h4 {
+    color: var(--amarillo-solar);
+    margin: 0 0 var(--espacio-md) 0;
+    font-size: 1rem;
+  }
+
+  .metric-large {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--verde-sostenible);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .behavior-item p,
+  .economic-item p,
+  .environmental-item p {
+    color: var(--texto-secundario);
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+    margin-top: var(--espacio-xl);
+  }
+
+  .opportunity-card {
+    padding: var(--espacio-xl);
+  }
+
+  .opportunity-card h3 {
+    color: var(--naranja-comunidad);
+    margin-bottom: var(--espacio-lg);
+    text-align: center;
+  }
+
+  .opportunity-details {
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .opportunity-metric {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--espacio-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .opportunity-metric:last-child {
+    border-bottom: none;
+  }
+
+  .opportunity-metric span {
+    color: var(--texto-secundario);
+  }
+
+  .opportunity-metric strong {
+    color: var(--amarillo-solar);
+  }
+
+  .opportunity-benefits h4 {
+    color: var(--purpura-creativo);
+    margin-bottom: var(--espacio-md);
+    font-size: 1rem;
+  }
+
+  .opportunity-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .opportunity-benefits li {
+    padding: var(--espacio-xs) 0;
+    color: var(--texto-secundario);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .opportunity-benefits li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-navigation {
+    padding: var(--espacio-xxl) 0;
+    background-color: var(--fondo-secundario);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--espacio-lg);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .summary-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--espacio-lg);
+    }
+
+    .analytics-grid,
+    .platform-grid,
+    .impact-grid,
+    .opportunities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .metric-number {
+      font-size: 2rem;
+    }
+
+    .metric-large {
+      font-size: 1.5rem;
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>

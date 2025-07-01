@@ -1,0 +1,424 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+let basePath =
+  import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
+    ? import.meta.env.BASE_URL
+    : '/testigos-solarpunk';
+
+// Ensure basePath doesn't end with a slash
+if (basePath.endsWith('/')) {
+  basePath = basePath.slice(0, -1);
+}
+---
+
+<BaseLayout
+  lang="en"
+  title="Podcast - Fase 2"
+  description="MADFAM Podcast: Conversaciones profundas sobre ciencia, tecnología y sostenibilidad"
+>
+  <section class="hero-podcast">
+    <div class="container">
+      <span class="fase-label">Fase 2: Conexión</span>
+      <h1>MADFAM Podcast</h1>
+      <p class="hero-description">
+        Conversaciones de 20-30 minutos con expertos, activistas y visionarios
+        del movimiento solarpunk
+      </p>
+
+      <h2 class="sr-only">Estado del Podcast</h2>
+      <div class="podcast-preview">
+        <div class="preview-card">
+          <div class="preview-icon">
+            <span class="emoji-cutout emoji-hero emoji-xl theme-purple flutter"
+              >🎙️</span
+            >
+          </div>
+          <h3>Próximamente</h3>
+          <p>Agosto 2025</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="podcast-features">
+    <div class="container">
+      <h2>Lo que viene</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon"
+            ><span class="emoji-cutout emoji-card emoji-lg theme-purple"
+              >🧠</span
+            ></span
+          >
+          <h3>Contenido Profundo</h3>
+          <p>
+            Exploramos temas complejos de sostenibilidad, tecnología y sociedad
+            con profundidad y rigor
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon"
+            ><span class="emoji-cutout emoji-card emoji-lg theme-solar">🌟</span
+            ></span
+          >
+          <h3>Invitados Expertos</h3>
+          <p>
+            Científicos, innovadores, activistas y pensadores que están
+            construyendo el futuro sostenible
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon"
+            ><span class="emoji-cutout emoji-card emoji-lg theme-purple"
+              >💡</span
+            ></span
+          >
+          <h3>Soluciones Prácticas</h3>
+          <p>
+            Cada episodio incluye acciones concretas que los oyentes pueden
+            implementar en su vida diaria
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon"
+            ><span class="emoji-cutout emoji-card emoji-lg theme-solar">🎯</span
+            ></span
+          >
+          <h3>Temas Relevantes</h3>
+          <p>
+            Desde energías renovables hasta economía circular, agricultura
+            urbana y justicia climática
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="podcast-topics">
+    <div class="container">
+      <h2>Temas que Exploraremos</h2>
+      <div class="topics-list">
+        <div class="topic-item">
+          <h3>
+            <span class="emoji-cutout emoji-md theme-green">🌱</span> Agricultura
+            Urbana
+          </h3>
+          <p>Cómo cultivar alimentos en la ciudad</p>
+        </div>
+        <div class="topic-item">
+          <h3>
+            <span class="emoji-cutout emoji-md theme-solar">⚡</span> Energía Comunitaria
+          </h3>
+          <p>Proyectos de energía renovable participativa</p>
+        </div>
+        <div class="topic-item">
+          <h3>
+            <span class="emoji-cutout emoji-md theme-green">♻️</span> Economía Circular
+          </h3>
+          <p>Rediseñando sistemas para eliminar desperdicios</p>
+        </div>
+        <div class="topic-item">
+          <h3>
+            <span class="emoji-cutout emoji-md theme-green">🏘️</span> Urbanismo Sostenible
+          </h3>
+          <p>Ciudades diseñadas para personas y naturaleza</p>
+        </div>
+        <div class="topic-item">
+          <h3>
+            <span class="emoji-cutout emoji-md theme-community">🤝</span> Justicia
+            Climática
+          </h3>
+          <p>Equidad social en la transición ecológica</p>
+        </div>
+        <div class="topic-item">
+          <h3>
+            <span class="emoji-cutout emoji-md theme-green">🔬</span> Innovación
+            Verde
+          </h3>
+          <p>Tecnologías que regeneran el planeta</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="podcast-notify">
+    <div class="container">
+      <div class="notify-card">
+        <h3>Sé el primero en escuchar</h3>
+        <p>Suscríbete para recibir notificaciones cuando lancemos el podcast</p>
+        <form class="notify-form" enctype="application/x-www-form-urlencoded">
+          <input
+            type="email"
+            placeholder="tu@email.com"
+            class="email-input"
+            required
+            aria-required="true"
+            aria-label="Correo electrónico para notificaciones"
+          />
+          <button type="submit" class="btn btn-primary"> Notificarme </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="podcast-cta">
+    <div class="container text-center">
+      <h2>Mientras tanto...</h2>
+      <p>Disfruta nuestros sketches de la Fase 1</p>
+      <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary">
+        <span class="emoji-cutout emoji-button emoji-md theme-solar">🎬</span> Ver
+        Sketches
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-podcast {
+    background: linear-gradient(
+      135deg,
+      var(--purpura-creativo) 0%,
+      rgba(102, 51, 153, 0.2) 100%
+    );
+    padding: var(--espacio-xxl) 0;
+    text-align: center;
+    color: var(--text-on-accent, #000000);
+  }
+
+  .fase-label {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .hero-podcast h1 {
+    font-size: 3rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto var(--espacio-xl);
+    opacity: 0.9;
+  }
+
+  .podcast-preview {
+    margin-top: var(--espacio-xl);
+  }
+
+  .preview-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: var(--espacio-xl);
+    border-radius: 16px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .preview-icon {
+    font-size: 4rem;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .preview-card h3 {
+    color: var(--text-on-accent, #000000);
+    margin-bottom: var(--espacio-sm);
+  }
+
+  .preview-card p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+
+  /* Features */
+  .podcast-features {
+    padding: var(--espacio-xxl) 0;
+    background: var(--fondo-secundario);
+  }
+
+  .podcast-features h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-xl);
+  }
+
+  .feature-card {
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
+    padding: var(--espacio-xl);
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--espacio-md);
+  }
+
+  .feature-card h3 {
+    margin-bottom: var(--espacio-sm);
+    color: var(--purpura-creativo);
+  }
+
+  /* Topics */
+  .podcast-topics {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .podcast-topics h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .topics-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-lg);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .topic-item {
+    padding: var(--espacio-lg);
+    background: var(--fondo-secundario);
+    border-radius: 12px;
+    border-left: 4px solid var(--purpura-creativo);
+  }
+
+  .topic-item h3 {
+    margin-bottom: var(--espacio-sm);
+    color: var(--purpura-creativo);
+  }
+
+  /* Notify Section */
+  .podcast-notify {
+    padding: var(--espacio-xxl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--fondo-primario) 0%,
+      rgba(102, 51, 153, 0.05) 100%
+    );
+  }
+
+  .notify-card {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--bg-secondary, #1a1a1b);
+    color: var(--text-primary, #ffffff);
+    padding: var(--espacio-xxl);
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .notify-card h3 {
+    font-size: 2rem;
+    margin-bottom: var(--espacio-md);
+    color: var(--purpura-creativo);
+  }
+
+  .notify-card p {
+    font-size: 1.1rem;
+    color: var(--text-secondary, #cccccc);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  .notify-form {
+    display: flex;
+    gap: var(--espacio-md);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .email-input {
+    flex: 1;
+    padding: var(--espacio-md);
+    border: 2px solid var(--borde-claro);
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  .email-input:focus {
+    outline: none;
+    border-color: var(--purpura-creativo);
+  }
+
+  /* CTA */
+  .podcast-cta {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .podcast-cta h2 {
+    margin-bottom: var(--espacio-md);
+  }
+
+  .podcast-cta p {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    margin-bottom: var(--espacio-xl);
+  }
+
+  @media (max-width: 768px) {
+    .hero-podcast h1 {
+      font-size: 2rem;
+    }
+
+    .notify-form {
+      flex-direction: column;
+    }
+
+    .email-input {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Handle notify form
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.notify-form') as HTMLFormElement;
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const emailInput = form.querySelector(
+          '.email-input'
+        ) as HTMLInputElement;
+        if (emailInput) {
+          const email = emailInput.value;
+          alert(
+            `¡Gracias! Te notificaremos en ${email} cuando lancemos el podcast.`
+          );
+          form.reset();
+        }
+      });
+    }
+  });
+</script>
