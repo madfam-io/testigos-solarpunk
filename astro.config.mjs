@@ -137,16 +137,14 @@ export default defineConfig({
     build: {
       // Enable CSS code splitting for better caching
       cssCodeSplit: true,
+      // Enable minification for smaller bundles (using esbuild default)
+      minify: true,
       // Configure manual chunks for better caching
       rollupOptions: {
         output: {
           assetFileNames: '_assets/[name].[hash][extname]',
           chunkFileNames: '_assets/chunks/[name].[hash].js',
           entryFileNames: '_assets/[name].[hash].js',
-          manualChunks: {
-            // Group utilities for better caching
-            utils: ['./src/lib/utils', './src/lib/constants'],
-          },
         },
       },
     },
