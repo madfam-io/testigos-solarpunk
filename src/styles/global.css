@@ -35,11 +35,11 @@
   --blanco-divino: #fffafa;
   --purpura-mistico: #9370db;
 
-  --fondo-primario: var(--color-background);
-  --fondo-secundario: var(--color-surface-variant);
-  --texto-primario: var(--color-text-primary);
-  --texto-secundario: var(--color-text-secondary);
-  --borde-claro: var(--color-border);
+  --fondo-primario: var(--bg-primary, var(--color-background));
+  --fondo-secundario: var(--bg-secondary, var(--color-surface-variant));
+  --texto-primario: var(--text-primary, var(--color-text-primary));
+  --texto-secundario: var(--text-secondary, var(--color-text-secondary));
+  --borde-claro: var(--border-default, var(--color-border));
   --sombra-suave: var(--shadow-sm);
 
   --espacio-xs: var(--space-xs);
@@ -59,17 +59,7 @@
   --nav-height: 72px; /* Approx: 40px logo + 2*16px padding */
 }
 
-/* Modo Oscuro */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fondo-primario: #1a1a1a;
-    --fondo-secundario: #2a2a2a;
-    --texto-primario: #f5f5f5;
-    --texto-secundario: #b0b0b0;
-    --borde-claro: #606060;
-    --sombra-suave: rgba(0, 0, 0, 0.3);
-  }
-}
+/* Theme variables are now handled by unified-dark-theme.css and theme system */
 
 /* Reset y Base */
 * {

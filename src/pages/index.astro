@@ -146,12 +146,22 @@ if (
     // Check if user has a stored language preference
     // Always default to Spanish unless user explicitly chose English
     const storedLang = localStorage.getItem('preferred-language');
+    const hasVisitedBefore = localStorage.getItem('testigos-has-visited');
     const finalLang = storedLang || 'es'; // Always default to Spanish
 
     // Build redirect URL based on deployment environment
     const redirectUrl = basePath
       ? `${basePath}/${finalLang}/`
       : `/${finalLang}/`;
+
+    // If user has visited before, redirect immediately
+    if (hasVisitedBefore === 'true') {
+      window.location.href = redirectUrl;
+      return; // Exit early
+    }
+
+    // First time visitor - mark as visited and show premium loading experience
+    localStorage.setItem('testigos-has-visited', 'true');
 
     // Add smooth fade-out before redirect
     const magazineLoader = document.querySelector(

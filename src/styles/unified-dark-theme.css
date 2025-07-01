@@ -812,21 +812,68 @@ a.nav-link.active::after {
   font-size: 1.25rem;
 }
 
-/* Light theme overrides (for future implementation) */
+/* Light theme overrides - Complete implementation */
 [data-theme='light'] {
+  /* Background colors */
   --bg-primary: #ffffff;
   --bg-secondary: #f5f5f5;
   --bg-tertiary: #eeeeee;
-  --bg-elevated: #e0e0e0;
+  --bg-elevated: #fafafa;
+  --bg-inverse: #212121;
 
+  /* Text colors */
   --text-primary: #212121;
   --text-secondary: rgba(0, 0, 0, 0.87);
   --text-tertiary: rgba(0, 0, 0, 0.6);
   --text-disabled: rgba(0, 0, 0, 0.38);
+  --text-inverse: #ffffff;
+  --text-on-accent: #000000;
 
-  --border-subtle: rgba(0, 0, 0, 0.12);
-  --border-default: rgba(0, 0, 0, 0.23);
-  --border-strong: rgba(0, 0, 0, 0.35);
+  /* Border colors */
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-default: rgba(0, 0, 0, 0.12);
+  --border-strong: rgba(0, 0, 0, 0.23);
+
+  /* Surface colors */
+  --surface-overlay: rgba(255, 255, 255, 0.95);
+  --surface-scrim: rgba(0, 0, 0, 0.04);
+
+  /* Interactive states */
+  --hover-overlay: rgba(0, 0, 0, 0.04);
+  --focus-overlay: rgba(0, 0, 0, 0.08);
+  --pressed-overlay: rgba(0, 0, 0, 0.12);
+  --selected-overlay: rgba(0, 0, 0, 0.08);
+
+  /* Shadow adjustments for light theme */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.18);
+
+  /* Component-specific overrides */
+  --nav-bg: #fafafa;
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --input-bg: #ffffff;
+  --input-border: rgba(0, 0, 0, 0.23);
+  --button-bg: #f5f5f5;
+  --button-hover: #eeeeee;
+
+  /* Code blocks */
+  --code-bg: #f8f8f8;
+  --code-text: #333333;
+
+  /* Accent color adjustments */
+  --accent-primary-bg: var(--madfam-yellow);
+  --accent-primary-text: rgba(0, 0, 0, 0.87);
+  --accent-secondary-bg: var(--madfam-green);
+  --accent-secondary-text: rgba(0, 0, 0, 0.87);
+
+  /* Magazine cutout adjustments */
+  --cutout-shadow: rgba(0, 0, 0, 0.12);
+  --tape-color: rgba(255, 193, 7, 0.8);
+  --paper-texture: rgba(0, 0, 0, 0.02);
 }
 
 /* === PRINT STYLES === */
