@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '@/i18n/config';
 import MagazineCutoutImage from '../../components/MagazineCutoutImage.astro';
 
 let basePath =
@@ -102,10 +103,13 @@ const painPoints = [
     icon: '⏱️',
   },
 ];
+
+const lang = 'en';
+const _t = useTranslations(lang);
 ---
 
 <BaseLayout
-  lang="en"
+  lang={lang}
   title="Comunidad"
   description="Únete a la comunidad de Testigos de Solarpunk"
 >

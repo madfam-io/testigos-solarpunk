@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '@/i18n/config';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 // Define types for better clarity
@@ -40,9 +41,12 @@ const frases_emblematicas = data.frases_emblematicas ?? [];
 const basePath = import.meta.env.BASE_URL ?? '';
 const pageTitle = `${nombre} - ${rol}`;
 const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
+
+const lang = 'en';
+const _t = useTranslations(lang);
 ---
 
-<BaseLayout lang="en" title={pageTitle} description={pageDescription}>
+<BaseLayout lang={lang} title={pageTitle} description={pageDescription}>
   <!-- Breadcrumb Navigation -->
   <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
     <div class="container">

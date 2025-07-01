@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -10,10 +11,13 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
+
+const lang = 'en';
+const t = useTranslations(lang);
 ---
 
 <BaseLayout
-  lang="en"
+  lang={lang}
   title="Podcast - Fase 2"
   description="MADFAM Podcast: Conversaciones profundas sobre ciencia, tecnología y sostenibilidad"
 >
@@ -34,7 +38,7 @@ if (basePath.endsWith('/')) {
               >🎙️</span
             >
           </div>
-          <h3>Próximamente</h3>
+          <h3>{t('phase2.status')}</h3>
           <p>Agosto 2025</p>
         </div>
       </div>

@@ -1,12 +1,16 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '@/i18n/config';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 const locations: CollectionEntry<'locations'>[] =
   await getCollection('locations');
+
+const lang = 'en';
+const _t = useTranslations(lang);
 ---
 
-<BaseLayout lang="en" title="Mundo">
+<BaseLayout lang={lang} title="Mundo">
   <section class="hero-section gradient-solarpunk">
     <div class="container">
       <h1 class="hero-title">El Mundo de Testigos de Solarpunk</h1>

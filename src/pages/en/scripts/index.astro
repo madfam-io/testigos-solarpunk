@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '@/i18n/config';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { platformColors } from '../../../lib/script-constants';
 
@@ -18,9 +19,12 @@ scriptsByPlatform['Instagram'] = scripts.filter(
 scriptsByPlatform['YouTube'] = scripts.filter(
   (s) => s.data.plataforma === 'YouTube'
 );
+
+const lang = 'en';
+const _t = useTranslations(lang);
 ---
 
-<BaseLayout lang="en" title="Guiones">
+<BaseLayout lang={lang} title="Guiones">
   <section class="hero-section">
     <div class="container">
       <h1 class="text-gradient">Repositorio de Guiones</h1>

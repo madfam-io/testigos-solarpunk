@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '@/i18n/config';
 import QuoteBlock from '../../../components/QuoteBlock.astro';
 
 let basePath =
@@ -11,9 +12,12 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
+
+const lang = 'en';
+const _t = useTranslations(lang);
 ---
 
-<BaseLayout lang="en" title="Filosofía del Proyecto">
+<BaseLayout lang={lang} title="Filosofía del Proyecto">
   <section class="hero-section">
     <div class="container">
       <div class="hero-content">

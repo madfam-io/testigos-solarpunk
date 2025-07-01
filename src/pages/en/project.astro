@@ -1,5 +1,9 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '@/i18n/config';
+
+const lang = 'en';
+const t = useTranslations(lang);
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -13,16 +17,16 @@ if (basePath.endsWith('/')) {
 ---
 
 <BaseLayout
-  lang="en"
-  title="El Proyecto"
-  description="Conectar, Concientizar y Crear Comunidad a través del humor y la sostenibilidad"
+  lang={lang}
+  title={t('nav.project')}
+  description={t('project.hero.title')}
 >
   <section class="hero-proyecto">
     <div class="container">
       <h1 class="hero-title animate-fade-in">
-        Conectar, Concientizar y Crear Comunidad
+        {t('project.hero.title')}
       </h1>
-      <p class="tagline animate-fade-in">Instruir desde el humor</p>
+      <p class="tagline animate-fade-in">{t('project.hero.tagline')}</p>
 
       <h2 class="sr-only">Misión y Visión</h2>
       <div class="mision-vision">
@@ -31,12 +35,10 @@ if (basePath.endsWith('/')) {
         >
           <h3>
             <span class="emoji-cutout emoji-card emoji-lg theme-solar">🎯</span>
-            Nuestra Misión
+            {t('project.mission.title')}
           </h3>
           <p>
-            Transformar la percepción sobre la sostenibilidad a través del
-            humor, creando contenido que conecte, eduque y construya una
-            comunidad comprometida con el futuro del planeta.
+            {t('project.mission.description')}
           </p>
         </div>
         <div
@@ -44,12 +46,10 @@ if (basePath.endsWith('/')) {
         >
           <h3>
             <span class="emoji-cutout emoji-card emoji-lg theme-solar">🌟</span>
-            Visión Solarpunk
+            {t('project.vision.title')}
           </h3>
           <p>
-            Un mundo donde la tecnología y la naturaleza coexisten en armonía,
-            donde cada persona es un agente de cambio positivo, y donde el
-            futuro es brillante, sostenible y lleno de esperanza.
+            {t('project.vision.description')}
           </p>
         </div>
       </div>
@@ -58,10 +58,9 @@ if (basePath.endsWith('/')) {
 
   <section class="fases-section newspaper-bg with-headlines">
     <div class="container">
-      <h2 class="section-title">Estrategia de 3 Fases</h2>
+      <h2 class="section-title">{t('project.strategy.title')}</h2>
       <p class="section-intro">
-        Un viaje de transformación que comienza con una sonrisa y termina con
-        acción real
+        {t('project.strategy.intro')}
       </p>
 
       <div class="fases-grid">
@@ -78,7 +77,7 @@ if (basePath.endsWith('/')) {
             hábitos y ciencia cotidiana
           </p>
           <div class="fase-meta">
-            <span class="status active">En Producción</span>
+            <span class="status active">{t('phase1.status')}</span>
             <span class="formato">60-90 segundos</span>
           </div>
           <ul class="fase-features">
@@ -86,9 +85,9 @@ if (basePath.endsWith('/')) {
             <li>Humor que rompe barreras culturales</li>
             <li>Tips prácticos de sostenibilidad</li>
           </ul>
-          <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary">
-            Ver Sketches
-          </a>
+          <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary"
+            >{t('cta.watch')}</a
+          >
         </div>
 
         <div
@@ -106,7 +105,7 @@ if (basePath.endsWith('/')) {
             de vida con expertos invitados
           </p>
           <div class="fase-meta">
-            <span class="status upcoming">Próximamente</span>
+            <span class="status upcoming">{t('phase2.status')}</span>
             <span class="formato">20-30 minutos</span>
           </div>
           <ul class="fase-features">
@@ -114,9 +113,9 @@ if (basePath.endsWith('/')) {
             <li>Temas de actualidad ambiental</li>
             <li>Soluciones prácticas y escalables</li>
           </ul>
-          <a href={`${basePath}/contenido/podcast/`} class="btn btn-secondary">
-            Saber Más
-          </a>
+          <a href={`${basePath}/contenido/podcast/`} class="btn btn-secondary"
+            >{t('cta.learn')}</a
+          >
         </div>
 
         <div class="magazine-card card-xl theme-green interactive context-grid">
@@ -132,7 +131,7 @@ if (basePath.endsWith('/')) {
             patrocinadores para impacto directo
           </p>
           <div class="fase-meta">
-            <span class="status development">En Desarrollo</span>
+            <span class="status development">{t('phase3.status')}</span>
             <span class="formato">Eventos presenciales</span>
           </div>
           <ul class="fase-features">
@@ -140,9 +139,9 @@ if (basePath.endsWith('/')) {
             <li>Laboratorios de innovación</li>
             <li>Impacto directo en comunidades</li>
           </ul>
-          <a href={`${basePath}/contenido/madlab/`} class="btn btn-secondary">
-            Descubrir
-          </a>
+          <a href={`${basePath}/contenido/madlab/`} class="btn btn-secondary"
+            >{t('cta.discover')}</a
+          >
         </div>
       </div>
     </div>
@@ -189,12 +188,12 @@ if (basePath.endsWith('/')) {
         <a href={`${basePath}/comunidad/`} class="btn btn-primary">
           <span class="emoji-cutout emoji-button emoji-md theme-community"
             >🤝</span
-          > Únete a la Comunidad
-        </a>
+          >{t('cta.connect')}</a
+        >
         <a href={`${basePath}/contenido/sketches/`} class="btn btn-secondary">
-          <span class="emoji-cutout emoji-button emoji-md theme-solar">🎬</span>
-          Ver Contenido
-        </a>
+          <span class="emoji-cutout emoji-button emoji-md theme-solar">🎬</span
+          >{t('cta.watch')}</a
+        >
       </div>
     </div>
   </section>

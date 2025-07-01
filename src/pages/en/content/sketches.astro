@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '@/i18n/config';
 import MagazineCutoutImage from '../../../components/MagazineCutoutImage.astro';
 
 let basePath =
@@ -54,10 +55,13 @@ const sketches = [
     likes: '3.5K',
   },
 ];
+
+const lang = 'en';
+const _t = useTranslations(lang);
 ---
 
 <BaseLayout
-  lang="en"
+  lang={lang}
   title="Sketches - Fase 1"
   description="Sketches de comedia que instruyen desde el humor sobre sostenibilidad"
 >

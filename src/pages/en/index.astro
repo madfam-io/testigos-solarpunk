@@ -9,11 +9,11 @@
  * @version 0.3.0+i18n
  */
 
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteBlock from '../../components/QuoteBlock.astro';
 import { useTranslations } from '@/i18n/config';
 
-const lang = 'es';
+const lang = 'en';
 const t = useTranslations(lang);
 
 // Detect deployment environment and set base path accordingly
@@ -75,21 +75,6 @@ if (isVercel === true) {
           <!-- Magazine cutout title -->
           <h1 class="magazine-title-hero animate-fade-in">
             <span class="word-group">
-              <span class="letter-cutout">T</span>
-              <span class="letter-cutout">e</span>
-              <span class="letter-cutout">s</span>
-              <span class="letter-cutout">t</span>
-              <span class="letter-cutout">i</span>
-              <span class="letter-cutout">g</span>
-              <span class="letter-cutout">o</span>
-              <span class="letter-cutout">s</span>
-            </span>
-            <span class="word-group">
-              <span class="letter-cutout">d</span>
-              <span class="letter-cutout">e</span>
-            </span>
-            <br class="mobile-break" />
-            <span class="word-group">
               <span class="letter-cutout">S</span>
               <span class="letter-cutout">o</span>
               <span class="letter-cutout">l</span>
@@ -99,6 +84,18 @@ if (isVercel === true) {
               <span class="letter-cutout">u</span>
               <span class="letter-cutout">n</span>
               <span class="letter-cutout">k</span>
+            </span>
+            <br class="mobile-break" />
+            <span class="word-group">
+              <span class="letter-cutout">W</span>
+              <span class="letter-cutout">i</span>
+              <span class="letter-cutout">t</span>
+              <span class="letter-cutout">n</span>
+              <span class="letter-cutout">e</span>
+              <span class="letter-cutout">s</span>
+              <span class="letter-cutout">s</span>
+              <span class="letter-cutout">e</span>
+              <span class="letter-cutout">s</span>
             </span>
           </h1>
 
@@ -112,7 +109,7 @@ if (isVercel === true) {
 
           <div class="hero-actions animate-fade-in">
             <a
-              href={`${basePath}/en/contenido/sketches/`}
+              href={`${basePath}/en/content/sketches/`}
               class="magazine-btn primary"
             >
               <span class="emoji-cutout emoji-button emoji-md theme-solar"
@@ -120,7 +117,7 @@ if (isVercel === true) {
               >
               <span class="btn-text">{t('hero.cta.primary')}</span>
             </a>
-            <a href={`${basePath}/en/proyecto/`} class="magazine-btn secondary">
+            <a href={`${basePath}/en/project/`} class="magazine-btn secondary">
               <span class="btn-text">{t('hero.cta.secondary')}</span>
             </a>
           </div>
@@ -134,9 +131,7 @@ if (isVercel === true) {
       aria-labelledby="strategy-heading"
     >
       <div class="container">
-        <h2 id="strategy-heading" class="text-center">
-          Nuestra Estrategia de Impacto
-        </h2>
+        <h2 id="strategy-heading" class="text-center">Our Impact Strategy</h2>
         <div class="grid grid-3" role="list">
           <!-- Phase 1: Attraction -->
           <article
@@ -157,7 +152,7 @@ if (isVercel === true) {
             <div class="card-footer">
               <span class="fase-status active">{t('phase1.status')}</span>
               <a
-                href={`${basePath}/en/contenido/sketches/`}
+                href={`${basePath}/en/content/sketches/`}
                 class="btn btn-primary"
               >
                 {t('cta.watch')}
@@ -184,7 +179,7 @@ if (isVercel === true) {
             <div class="card-footer">
               <span class="fase-status upcoming">{t('phase2.status')}</span>
               <a
-                href={`${basePath}/en/contenido/podcast/`}
+                href={`${basePath}/en/content/podcast/`}
                 class="btn btn-secondary"
               >
                 {t('cta.learn')}
@@ -211,7 +206,7 @@ if (isVercel === true) {
             <div class="card-footer">
               <span class="fase-status development">{t('phase3.status')}</span>
               <a
-                href={`${basePath}/en/contenido/madlab/`}
+                href={`${basePath}/en/content/madlab/`}
                 class="btn btn-secondary"
               >
                 {t('cta.discover')}
@@ -226,11 +221,11 @@ if (isVercel === true) {
     <section class="evangelista-section" aria-labelledby="evangelistas-heading">
       <div class="container">
         <h2 id="evangelistas-heading" class="text-center evangelista-title">
-          El Evangelio Solar
+          {t('evangelistas.title')}
         </h2>
         <QuoteBlock
-          quote="Hermanos, el Sol nos ama y quiere vernos iluminados. Cada panel es una oración al astro rey."
-          author="Hermana Panelia"
+          quote={t('evangelistas.quote')}
+          author={t('evangelistas.author')}
           variant="solar"
         />
         <div class="evangelista-grid" role="list">
@@ -244,14 +239,13 @@ if (isVercel === true) {
                 role="img"
                 aria-label="Estrella">🌟</span
               >
-              Los Evangelistas
+              {t('evangelistas.card1.title')}
             </h3>
             <p>
-              Tres misioneros dedicados a predicar la salvación ecológica y la
-              redención energética de la humanidad.
+              {t('evangelistas.card1.description')}
             </p>
-            <a href={`${basePath}/en/personajes/`} class="btn btn-primary">
-              Conocer Evangelistas
+            <a href={`${basePath}/en/characters/`} class="btn btn-primary">
+              {t('evangelistas.card1.cta')}
             </a>
           </article>
 
@@ -265,14 +259,13 @@ if (isVercel === true) {
                 role="img"
                 aria-label="Libro">📖</span
               >
-              El Mensaje
+              {t('evangelistas.card2.title')}
             </h3>
             <p>
-              Transformación espiritual a través de la tecnología sostenible y
-              la reconexión con los ciclos naturales.
+              {t('evangelistas.card2.description')}
             </p>
-            <a href={`${basePath}/en/filosofia/`} class="btn btn-primary">
-              Leer Filosofía
+            <a href={`${basePath}/en/philosophy/`} class="btn btn-primary">
+              {t('evangelistas.card2.cta')}
             </a>
           </article>
 
@@ -286,14 +279,13 @@ if (isVercel === true) {
                 role="img"
                 aria-label="Cámara">🎬</span
               >
-              Los Formatos
+              {t('evangelistas.card3.title')}
             </h3>
             <p>
-              Múltiples maneras de llevar la luz solar a cada hogar: videos,
-              podcasts, sketches y más.
+              {t('evangelistas.card3.description')}
             </p>
-            <a href={`${basePath}/en/formatos/`} class="btn btn-primary">
-              Ver Formatos
+            <a href={`${basePath}/en/formats/`} class="btn btn-primary">
+              {t('evangelistas.card3.cta')}
             </a>
           </article>
         </div>
@@ -306,7 +298,7 @@ if (isVercel === true) {
       aria-labelledby="vision-heading"
     >
       <div class="container">
-        <h2 id="vision-heading" class="text-center">Nuestra Visión</h2>
+        <h2 id="vision-heading" class="text-center">{t('vision.title')}</h2>
         <div class="vision-grid" role="list">
           <article class="vision-item float-animation" role="listitem">
             <span class="vision-icon">
@@ -316,9 +308,9 @@ if (isVercel === true) {
                 aria-label="Sol">☀️</span
               >
             </span>
-            <h3>Energía Limpia</h3>
+            <h3>{t('vision.energy.title')}</h3>
             <p>
-              Un mundo impulsado por el sol, el viento y la creatividad humana
+              {t('vision.energy.description')}
             </p>
           </article>
 
@@ -334,8 +326,8 @@ if (isVercel === true) {
                 aria-label="Apretón de manos">🤝</span
               >
             </span>
-            <h3>Comunidad Fuerte</h3>
-            <p>Las soluciones nacen de la colaboración y el apoyo mutuo</p>
+            <h3>{t('vision.community.title')}</h3>
+            <p>{t('vision.community.description')}</p>
           </article>
 
           <article
@@ -350,8 +342,8 @@ if (isVercel === true) {
                 aria-label="Flor">🌺</span
               >
             </span>
-            <h3>Armonía Natural</h3>
-            <p>La tecnología y la naturaleza coexisten en equilibrio</p>
+            <h3>{t('vision.harmony.title')}</h3>
+            <p>{t('vision.harmony.description')}</p>
           </article>
 
           <article
@@ -366,8 +358,8 @@ if (isVercel === true) {
                 aria-label="Teatro">🎭</span
               >
             </span>
-            <h3>Historias que Inspiran</h3>
-            <p>Narrativas que muestran futuros posibles y deseables</p>
+            <h3>{t('vision.stories.title')}</h3>
+            <p>{t('vision.stories.description')}</p>
           </article>
         </div>
       </div>
@@ -376,12 +368,12 @@ if (isVercel === true) {
     <!-- CTA Section -->
     <section class="cta-section" aria-labelledby="cta-heading">
       <div class="container text-center">
-        <h2 id="cta-heading">¿Listo para cambiar el mundo con humor?</h2>
+        <h2 id="cta-heading">{t('cta.question')}</h2>
         <p class="text-muted mb-3">
-          Únete a los Testigos de Solarpunk y sé parte del movimiento
+          {t('cta.subtitle')}
         </p>
         <div class="cta-actions">
-          <a href={`${basePath}/en/comunidad/`} class="btn btn-primary">
+          <a href={`${basePath}/en/community/`} class="btn btn-primary">
             <span
               class="emoji-cutout emoji-button emoji-md theme-community"
               role="img"
@@ -389,13 +381,13 @@ if (isVercel === true) {
             >
             {t('cta.connect')}
           </a>
-          <a href={`${basePath}/en/impacto/`} class="btn btn-secondary">
+          <a href={`${basePath}/en/impact/`} class="btn btn-secondary">
             <span
               class="emoji-cutout emoji-button emoji-md theme-green"
               role="img"
               aria-label="Gráfica">📊</span
             >
-            Ver Nuestro Impacto
+            {t('cta.impact')}
           </a>
         </div>
       </div>

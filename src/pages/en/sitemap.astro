@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -24,14 +25,14 @@ const siteStructure = {
     {
       title: 'El Proyecto',
       emoji: '🌱',
-      href: `${basePath}/en/proyecto/`,
+      href: `${basePath}/en/project/`,
       description:
         'Estrategia de 3 fases para transformar la percepción sobre sostenibilidad',
       theme: 'green',
       subsections: [
         {
           title: 'Versión Unificada',
-          href: `${basePath}/en/proyecto-unified/`,
+          href: `${basePath}/en/project-unified/`,
           description: 'Vista consolidada del proyecto completo',
         },
       ],
@@ -45,17 +46,17 @@ const siteStructure = {
       subsections: [
         {
           title: 'Sketches (Fase 1)',
-          href: `${basePath}/en/contenido/sketches/`,
+          href: `${basePath}/en/content/sketches/`,
           description: 'Sketches virales de humor sostenible',
         },
         {
           title: 'Podcast (Fase 2)',
-          href: `${basePath}/en/contenido/podcast/`,
+          href: `${basePath}/en/content/podcast/`,
           description: 'Conversaciones profundas sobre sostenibilidad',
         },
         {
           title: 'MADLAB (Fase 3)',
-          href: `${basePath}/en/contenido/madlab/`,
+          href: `${basePath}/en/content/madlab/`,
           description: 'Experiencias educativas en escuelas',
         },
       ],
@@ -63,28 +64,28 @@ const siteStructure = {
     {
       title: 'Personajes',
       emoji: '👥',
-      href: `${basePath}/en/personajes/`,
+      href: `${basePath}/en/characters/`,
       description: 'Habitantes del universo solarpunk',
       theme: 'community',
     },
     {
       title: 'Comunidad',
       emoji: '🤝',
-      href: `${basePath}/en/comunidad/`,
+      href: `${basePath}/en/community/`,
       description: 'Buyer personas y audiencia objetivo',
       theme: 'community',
     },
     {
       title: 'Mundo',
       emoji: '🌍',
-      href: `${basePath}/en/mundo/`,
+      href: `${basePath}/en/world/`,
       description: 'Neo-Cuernavaca y el universo solarpunk',
       theme: 'green',
     },
     {
       title: 'Filosofía',
       emoji: '💭',
-      href: `${basePath}/en/filosofia/`,
+      href: `${basePath}/en/philosophy/`,
       description: 'Principios y valores del movimiento',
       theme: 'purple',
     },
@@ -98,35 +99,35 @@ const siteStructure = {
     {
       title: 'Formatos',
       emoji: '📱',
-      href: `${basePath}/en/formatos/`,
+      href: `${basePath}/en/formats/`,
       description: 'Adaptaciones para diferentes plataformas',
       theme: 'purple',
     },
     {
       title: 'Guiones',
       emoji: '📝',
-      href: `${basePath}/en/guiones/`,
+      href: `${basePath}/en/scripts/`,
       description: 'Scripts y narrativas del universo',
       theme: 'green',
     },
     {
       title: 'Producción',
       emoji: '🎥',
-      href: `${basePath}/en/produccion/`,
+      href: `${basePath}/en/production/`,
       description: 'Proceso de creación de contenido',
       theme: 'solar',
     },
     {
       title: 'Recursos',
       emoji: '📚',
-      href: `${basePath}/en/recursos/`,
+      href: `${basePath}/en/resources/`,
       description: 'Materiales y herramientas',
       theme: 'community',
     },
     {
       title: 'Impacto',
       emoji: '📊',
-      href: `${basePath}/en/impacto/`,
+      href: `${basePath}/en/impact/`,
       description: 'Métricas y resultados del proyecto',
       theme: 'green',
     },
@@ -142,14 +143,14 @@ const siteStructure = {
     {
       title: 'The Project',
       emoji: '🌱',
-      href: `${basePath}/en/proyecto/`,
+      href: `${basePath}/en/project/`,
       description:
         '3-phase strategy to transform perception about sustainability',
       theme: 'green',
       subsections: [
         {
           title: 'Unified Version',
-          href: `${basePath}/en/proyecto-unified/`,
+          href: `${basePath}/en/project-unified/`,
           description: 'Consolidated view of the complete project',
         },
       ],
@@ -163,17 +164,17 @@ const siteStructure = {
       subsections: [
         {
           title: 'Sketches (Phase 1)',
-          href: `${basePath}/en/contenido/sketches/`,
+          href: `${basePath}/en/content/sketches/`,
           description: 'Viral sketches with sustainable humor',
         },
         {
           title: 'Podcast (Phase 2)',
-          href: `${basePath}/en/contenido/podcast/`,
+          href: `${basePath}/en/content/podcast/`,
           description: 'Deep conversations about sustainability',
         },
         {
           title: 'MADLAB (Phase 3)',
-          href: `${basePath}/en/contenido/madlab/`,
+          href: `${basePath}/en/content/madlab/`,
           description: 'Educational experiences in schools',
         },
       ],
@@ -181,28 +182,28 @@ const siteStructure = {
     {
       title: 'Characters',
       emoji: '👥',
-      href: `${basePath}/en/personajes/`,
+      href: `${basePath}/en/characters/`,
       description: 'Inhabitants of the solarpunk universe',
       theme: 'community',
     },
     {
       title: 'Community',
       emoji: '🤝',
-      href: `${basePath}/en/comunidad/`,
+      href: `${basePath}/en/community/`,
       description: 'Buyer personas and target audience',
       theme: 'community',
     },
     {
       title: 'World',
       emoji: '🌍',
-      href: `${basePath}/en/mundo/`,
+      href: `${basePath}/en/world/`,
       description: 'Neo-Cuernavaca and the solarpunk universe',
       theme: 'green',
     },
     {
       title: 'Philosophy',
       emoji: '💭',
-      href: `${basePath}/en/filosofia/`,
+      href: `${basePath}/en/philosophy/`,
       description: 'Principles and values of the movement',
       theme: 'purple',
     },
@@ -216,35 +217,35 @@ const siteStructure = {
     {
       title: 'Formats',
       emoji: '📱',
-      href: `${basePath}/en/formatos/`,
+      href: `${basePath}/en/formats/`,
       description: 'Adaptations for different platforms',
       theme: 'purple',
     },
     {
       title: 'Scripts',
       emoji: '📝',
-      href: `${basePath}/en/guiones/`,
+      href: `${basePath}/en/scripts/`,
       description: 'Scripts and narratives of the universe',
       theme: 'green',
     },
     {
       title: 'Production',
       emoji: '🎥',
-      href: `${basePath}/en/produccion/`,
+      href: `${basePath}/en/production/`,
       description: 'Content creation process',
       theme: 'solar',
     },
     {
       title: 'Resources',
       emoji: '📚',
-      href: `${basePath}/en/recursos/`,
+      href: `${basePath}/en/resources/`,
       description: 'Materials and tools',
       theme: 'community',
     },
     {
       title: 'Impact',
       emoji: '📊',
-      href: `${basePath}/en/impacto/`,
+      href: `${basePath}/en/impact/`,
       description: 'Project metrics and results',
       theme: 'green',
     },
@@ -256,10 +257,13 @@ const currentPath = Astro.url.pathname;
 const langMatch = currentPath.match(/\/(es|en)\//);
 const currentLang: 'es' | 'en' = (langMatch?.[1] as 'es' | 'en') ?? 'es';
 const currentStructure = siteStructure[currentLang] ?? siteStructure.es;
+
+const lang = 'en';
+const _t = useTranslations(lang);
 ---
 
 <BaseLayout
-  lang="en"
+  lang={lang}
   title={currentLang === 'en' ? 'Site Map' : 'Mapa del Sitio'}
   description={currentLang === 'en'
     ? 'Complete navigation of the Solarpunk Witnesses universe - all available sections and pages'
