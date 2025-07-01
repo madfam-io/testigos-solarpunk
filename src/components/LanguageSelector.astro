@@ -55,7 +55,6 @@ const alternateUrls = Object.keys(languages).map((lang) => ({
           href={url}
           class:list={[
             'language-option',
-            'emoji-cutout',
             { 'language-option--active': isActive },
           ]}
           aria-label={`Switch to ${label}`}
@@ -108,98 +107,52 @@ const alternateUrls = Object.keys(languages).map((lang) => ({
   }
 
   .language-toggle-group {
-    display: flex;
+    display: inline-flex;
+    align-items: center;
     background: var(--bg-elevated, #242428);
-    border: 3px solid var(--madfam-green, #66bb6a);
+    border: 2px solid var(--border-default);
     border-radius: 2rem;
     padding: 0.25rem;
-    gap: 0.25rem;
-    transform: rotate(1deg);
-
-    /* Magazine cutout effect for container */
-    box-shadow:
-      3px 3px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
-      inset 0 0 0 2px var(--paper-texture, rgba(102, 187, 106, 0.05));
-
-    /* Paper texture background */
-    background-image: radial-gradient(
-        circle at 25% 25%,
-        transparent 20%,
-        rgba(255, 255, 255, 0.02) 21%,
-        rgba(255, 255, 255, 0.02) 34%,
-        transparent 35%
-      ),
-      linear-gradient(
-        45deg,
-        transparent 48%,
-        rgba(255, 255, 255, 0.03) 49%,
-        rgba(255, 255, 255, 0.03) 51%,
-        transparent 52%
-      );
+    gap: 0.375rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   .language-option {
     display: flex;
     align-items: center;
-    gap: var(--space-xs, 0.25rem);
-    padding: 0.5rem 1rem;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
     text-decoration: none;
     color: var(--text-secondary, rgba(255, 255, 255, 0.87));
-    border-radius: 1.5rem;
-    font-weight: 500;
+    border-radius: 50%;
+    font-weight: 600;
     font-size: 0.875rem;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     position: relative;
-
-    /* Magazine cutout torn edge effect */
-    clip-path: polygon(
-      3% 0%,
-      97% 2%,
-      100% 18%,
-      98% 32%,
-      100% 48%,
-      97% 65%,
-      99% 82%,
-      96% 100%,
-      82% 98%,
-      68% 100%,
-      52% 97%,
-      35% 99%,
-      18% 96%,
-      0% 85%,
-      2% 68%,
-      0% 52%,
-      3% 35%,
-      0% 18%,
-      2% 3%
-    );
+    background: transparent;
   }
 
   .language-option:hover {
-    background: var(--hover-overlay, rgba(255, 255, 255, 0.08));
-    color: var(--madfam-green, #66bb6a);
-    transform: scale(1.05) rotate(-1deg);
-    box-shadow:
-      2px 2px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
-      inset 0 0 10px rgba(102, 187, 106, 0.1);
+    background: var(--hover-overlay, rgba(255, 255, 255, 0.1));
+    transform: scale(1.1);
+    box-shadow: 0 0 0 2px var(--madfam-green);
   }
 
   .language-option--active {
     background: var(--madfam-green, #66bb6a);
-    color: var(--bg-primary, #0a0a0b);
-    font-weight: 600;
-    transform: rotate(-0.5deg);
-
-    /* Active state cutout shadow */
+    color: white;
+    font-weight: 700;
     box-shadow:
-      inset 0 2px 4px rgba(0, 0, 0, 0.2),
-      0 0 0 2px var(--madfam-yellow, #ffc107);
+      0 0 0 2px var(--bg-elevated),
+      0 0 0 4px var(--madfam-green);
   }
 
   .language-option--active:hover {
     background: var(--madfam-green, #66bb6a);
-    color: var(--bg-primary, #0a0a0b);
-    transform: scale(1.02) rotate(-0.5deg);
+    color: white;
+    transform: scale(1.05);
   }
 
   .language-option:focus-visible {
@@ -220,11 +173,13 @@ const alternateUrls = Object.keys(languages).map((lang) => ({
 
   /* Compact variant (default) */
   .language-selector--compact .language-option {
-    padding: 0.5rem 0.875rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 0.75rem;
   }
 
   .language-selector--compact .language-code {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
   }
 
   /* Expanded variant with more spacing */
@@ -234,9 +189,8 @@ const alternateUrls = Object.keys(languages).map((lang) => ({
   }
 
   .language-selector--expanded .language-option {
-    padding: 0.75rem 1.25rem;
-    flex-direction: column;
-    text-align: center;
+    width: 3rem;
+    height: 3rem;
   }
 
   .language-selector--expanded .language-code {
@@ -274,7 +228,6 @@ const alternateUrls = Object.keys(languages).map((lang) => ({
 
     .language-option {
       background: var(--bg-secondary);
-      clip-path: none;
     }
 
     .language-option--active {
@@ -284,53 +237,47 @@ const alternateUrls = Object.keys(languages).map((lang) => ({
   }
 
   /* Dark theme specific adjustments */
-  [data-theme='dark'] .language-toggle-group {
-    border-color: var(--madfam-green-dark, #66bb6a);
+  :global([data-theme='dark']) .language-toggle-group {
+    border-color: var(--border-subtle);
     background: var(--bg-tertiary, #1c1c1f);
   }
 
-  [data-theme='dark'] .language-option--active {
-    background: var(--madfam-green-dark, #66bb6a);
+  :global([data-theme='dark']) .language-option--active {
+    background: var(--madfam-green, #66bb6a);
     color: var(--bg-primary, #0a0a0b);
   }
 
   /* Light theme specific adjustments */
-  [data-theme='light'] .language-toggle-group {
-    border-color: var(--madfam-green, #4caf50);
-    background: var(--bg-tertiary, #eeeeee);
-    box-shadow:
-      3px 3px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
-      inset 0 0 0 2px var(--paper-texture, rgba(76, 175, 80, 0.03));
+  :global([data-theme='light']) .language-toggle-group {
+    border-color: var(--border-default);
+    background: var(--bg-tertiary, #f5f5f5);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
-  [data-theme='light'] .language-option {
-    color: var(--text-secondary, rgba(0, 0, 0, 0.87));
+  :global([data-theme='light']) .language-option {
+    color: var(--text-primary);
   }
 
-  [data-theme='light'] .language-option:hover {
-    background: var(--hover-overlay, rgba(0, 0, 0, 0.04));
-    color: var(--madfam-green, #4caf50);
+  :global([data-theme='light']) .language-option:hover {
+    background: rgba(0, 0, 0, 0.04);
   }
 
-  [data-theme='light'] .language-option--active {
+  :global([data-theme='light']) .language-option--active {
     background: var(--madfam-green, #4caf50);
-    color: var(--text-on-accent, #000000);
+    color: white;
   }
 
   /* Mobile responsive design */
   @media (max-width: 768px) {
-    .language-selector--expanded {
-      /* On mobile, make expanded variant more compact */
+    .language-selector--compact .language-option {
+      width: 2rem;
+      height: 2rem;
+      font-size: 0.7rem;
     }
 
-    .language-selector--expanded .language-option {
-      flex-direction: row;
-      padding: 0.5rem 1rem;
-    }
-
-    .language-selector--expanded .language-label {
-      margin-top: 0;
-      margin-left: 0.25rem;
+    .language-toggle-group {
+      padding: 0.2rem;
+      gap: 0.25rem;
     }
   }
 
