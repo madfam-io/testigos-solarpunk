@@ -18,18 +18,17 @@ if (basePath.endsWith('/')) {
 <BaseLayout
   lang={lang}
   title={t('podcast.title')}
-  description="MADFAM Podcast: Conversaciones profundas sobre ciencia, tecnología y sostenibilidad"
+  description={t('podcast.description')}
 >
   <section class="hero-podcast">
     <div class="container">
-      <span class="fase-label">Fase 2: Conexión</span>
-      <h1>MADFAM Podcast</h1>
+      <span class="fase-label">{t('podcast.hero.phase')}</span>
+      <h1>{t('podcast.hero.title')}</h1>
       <p class="hero-description">
-        Conversaciones de 20-30 minutos con expertos, activistas y visionarios
-        del movimiento solarpunk
+        {t('podcast.hero.description')}
       </p>
 
-      <h2 class="sr-only">Estado del Podcast</h2>
+      <h2 class="sr-only">{t('podcast.status.title')}</h2>
       <div class="podcast-preview">
         <div class="preview-card">
           <div class="preview-icon">
@@ -38,7 +37,7 @@ if (basePath.endsWith('/')) {
             >
           </div>
           <h3>{t('phase2.status')}</h3>
-          <p>Agosto 2025</p>
+          <p>{t('podcast.status.date')}</p>
         </div>
       </div>
     </div>
@@ -46,7 +45,7 @@ if (basePath.endsWith('/')) {
 
   <section class="podcast-features">
     <div class="container">
-      <h2>Lo que viene</h2>
+      <h2>{t('podcast.features.title')}</h2>
       <div class="features-grid">
         <div class="feature-card">
           <span class="feature-icon"
@@ -54,10 +53,9 @@ if (basePath.endsWith('/')) {
               >🧠</span
             ></span
           >
-          <h3>Contenido Profundo</h3>
+          <h3>{t('podcast.features.depth.title')}</h3>
           <p>
-            Exploramos temas complejos de sostenibilidad, tecnología y sociedad
-            con profundidad y rigor
+            {t('podcast.features.depth.description')}
           </p>
         </div>
 
@@ -66,10 +64,9 @@ if (basePath.endsWith('/')) {
             ><span class="emoji-cutout emoji-card emoji-lg theme-solar">🌟</span
             ></span
           >
-          <h3>Invitados Expertos</h3>
+          <h3>{t('podcast.features.experts.title')}</h3>
           <p>
-            Científicos, innovadores, activistas y pensadores que están
-            construyendo el futuro sostenible
+            {t('podcast.features.experts.description')}
           </p>
         </div>
 
@@ -79,10 +76,9 @@ if (basePath.endsWith('/')) {
               >💡</span
             ></span
           >
-          <h3>Soluciones Prácticas</h3>
+          <h3>{t('podcast.features.practical.title')}</h3>
           <p>
-            Cada episodio incluye acciones concretas que los oyentes pueden
-            implementar en su vida diaria
+            {t('podcast.features.practical.description')}
           </p>
         </div>
 
@@ -91,10 +87,9 @@ if (basePath.endsWith('/')) {
             ><span class="emoji-cutout emoji-card emoji-lg theme-solar">🎯</span
             ></span
           >
-          <h3>Temas Relevantes</h3>
+          <h3>{t('podcast.features.topics.title')}</h3>
           <p>
-            Desde energías renovables hasta economía circular, agricultura
-            urbana y justicia climática
+            {t('podcast.features.topics.description')}
           </p>
         </div>
       </div>
@@ -103,46 +98,49 @@ if (basePath.endsWith('/')) {
 
   <section class="podcast-topics">
     <div class="container">
-      <h2>Temas que Exploraremos</h2>
+      <h2>{t('podcast.topics.title')}</h2>
       <div class="topics-list">
         <div class="topic-item">
           <h3>
-            <span class="emoji-cutout emoji-md theme-green">🌱</span> Agricultura
-            Urbana
+            <span class="emoji-cutout emoji-md theme-green">🌱</span>
+            {t('podcast.topics.urban_farming.title')}
           </h3>
-          <p>Cómo cultivar alimentos en la ciudad</p>
+          <p>{t('podcast.topics.urban_farming.description')}</p>
         </div>
         <div class="topic-item">
           <h3>
-            <span class="emoji-cutout emoji-md theme-solar">⚡</span> Energía Comunitaria
+            <span class="emoji-cutout emoji-md theme-solar">⚡</span>
+            {t('podcast.topics.community_energy.title')}
           </h3>
-          <p>Proyectos de energía renovable participativa</p>
+          <p>{t('podcast.topics.community_energy.description')}</p>
         </div>
         <div class="topic-item">
           <h3>
-            <span class="emoji-cutout emoji-md theme-green">♻️</span> Economía Circular
+            <span class="emoji-cutout emoji-md theme-green">♻️</span>
+            {t('podcast.topics.circular_economy.title')}
           </h3>
-          <p>Rediseñando sistemas para eliminar desperdicios</p>
+          <p>{t('podcast.topics.circular_economy.description')}</p>
         </div>
         <div class="topic-item">
           <h3>
-            <span class="emoji-cutout emoji-md theme-green">🏘️</span> Urbanismo Sostenible
+            <span class="emoji-cutout emoji-md theme-green">🏘️</span>
+            {t('podcast.topics.sustainable_urbanism.title')}
           </h3>
-          <p>Ciudades diseñadas para personas y naturaleza</p>
+          <p>{t('podcast.topics.sustainable_urbanism.description')}</p>
         </div>
         <div class="topic-item">
           <h3>
-            <span class="emoji-cutout emoji-md theme-community">🤝</span> Justicia
-            Climática
+            <span class="emoji-cutout emoji-md theme-community">🤝</span>
+            {t('podcast.topics.climate_justice.title')}
           </h3>
-          <p>Equidad social en la transición ecológica</p>
+          <p>{t('podcast.topics.climate_justice.description')}</p>
         </div>
         <div class="topic-item">
           <h3>
-            <span class="emoji-cutout emoji-md theme-green">🔬</span> Innovación
-            Verde
+            <span class="emoji-cutout emoji-md theme-green">🔬</span>
+            {t('podcast.topics.green_innovation.title')}
           </h3>
-          <p>Tecnologías que regeneran el planeta</p>
+          <p>{t('podcast.topics.green_innovation.description')}</p>
         </div>
       </div>
     </div>
@@ -151,18 +149,20 @@ if (basePath.endsWith('/')) {
   <section class="podcast-notify">
     <div class="container">
       <div class="notify-card">
-        <h3>Sé el primero en escuchar</h3>
-        <p>Suscríbete para recibir notificaciones cuando lancemos el podcast</p>
+        <h3>{t('podcast.notify.title')}</h3>
+        <p>{t('podcast.notify.description')}</p>
         <form class="notify-form" enctype="application/x-www-form-urlencoded">
           <input
             type="email"
-            placeholder="tu@email.com"
+            placeholder={t('podcast.notify.placeholder')}
             class="email-input"
             required
             aria-required="true"
-            aria-label="Correo electrónico para notificaciones"
+            aria-label={t('podcast.notify.aria_label')}
           />
-          <button type="submit" class="btn btn-primary"> Notificarme </button>
+          <button type="submit" class="btn btn-primary"
+            >{t('podcast.notify.button')}</button
+          >
         </form>
       </div>
     </div>
@@ -170,11 +170,11 @@ if (basePath.endsWith('/')) {
 
   <section class="podcast-cta">
     <div class="container text-center">
-      <h2>Mientras tanto...</h2>
-      <p>Disfruta nuestros sketches de la Fase 1</p>
+      <h2>{t('podcast.cta.title')}</h2>
+      <p>{t('podcast.cta.description')}</p>
       <a href={`${basePath}/en/content/sketches/`} class="btn btn-primary">
-        <span class="emoji-cutout emoji-button emoji-md theme-solar">🎬</span> Ver
-        Sketches
+        <span class="emoji-cutout emoji-button emoji-md theme-solar">🎬</span>
+        {t('podcast.cta.button')}
       </a>
     </div>
   </section>
@@ -417,7 +417,7 @@ if (basePath.endsWith('/')) {
         if (emailInput) {
           const email = emailInput.value;
           alert(
-            `¡Gracias! Te notificaremos en ${email} cuando lancemos el podcast.`
+            `Thank you! We'll notify you at ${email} when we launch the podcast.`
           );
           form.reset();
         }

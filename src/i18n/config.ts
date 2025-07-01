@@ -809,6 +809,84 @@ export const ui = {
     'production.title': 'Producción',
     'production.hero.title': 'Guía de Producción',
 
+    // Production Visual Style Page
+    'production.visual.title': 'Guía de Estilo Visual',
+    'production.visual.breadcrumb.home': 'Inicio',
+    'production.visual.breadcrumb.production': 'Producción',
+    'production.visual.breadcrumb.current': 'Estilo Visual',
+    'production.visual.hero.title': 'Guía de Estilo Visual',
+    'production.visual.hero.description':
+      'Mantén la consistencia estética del universo Testigos de Solarpunk en todas tus creaciones',
+
+    'production.visual.colors.title': 'Paleta de Colores Principal',
+    'production.visual.colors.solar.name': 'Amarillo Solar',
+    'production.visual.colors.solar.usage':
+      'Acentos principales, CTAs, highlights',
+    'production.visual.colors.green.name': 'Verde Sostenible',
+    'production.visual.colors.green.usage':
+      'Elementos naturales, botones secundarios',
+    'production.visual.colors.purple.name': 'Púrpura Creativo',
+    'production.visual.colors.purple.usage':
+      'Elementos artísticos, badges, creatividad',
+    'production.visual.colors.blue.name': 'Azul Tecnológico',
+    'production.visual.colors.blue.usage': 'Enlaces, elementos tech, datos',
+    'production.visual.colors.orange.name': 'Naranja Comunidad',
+    'production.visual.colors.orange.usage': 'Elementos sociales, calor humano',
+
+    'production.visual.typography.title': 'Tipografía',
+    'production.visual.typography.font': 'Fuente',
+    'production.visual.typography.size': 'Tamaño',
+    'production.visual.typography.usage': 'Uso',
+    'production.visual.typography.main_titles.title': 'Títulos Principales',
+    'production.visual.typography.main_titles.usage': 'H1, títulos hero',
+    'production.visual.typography.subtitles.title': 'Subtítulos',
+    'production.visual.typography.subtitles.usage': 'H2, H3, secciones',
+    'production.visual.typography.body.title': 'Texto Cuerpo',
+    'production.visual.typography.body.usage': 'Párrafos, contenido',
+    'production.visual.typography.code.title': 'Código/Técnico',
+    'production.visual.typography.code.usage': 'Códigos, metadatos',
+
+    'production.visual.cutout.title': 'Estética Magazine Cutout',
+    'production.visual.cutout.principles.title': 'Principios Clave',
+    'production.visual.cutout.principles.borders.title': 'Bordes Irregulares',
+    'production.visual.cutout.principles.borders.description':
+      'Usa clip-path para crear bordes de papel recortado',
+    'production.visual.cutout.principles.textures.title': 'Texturas de Papel',
+    'production.visual.cutout.principles.textures.description':
+      'Efectos de ruido y grano para simular papel real',
+    'production.visual.cutout.principles.shadows.title': 'Sombras Realistas',
+    'production.visual.cutout.principles.shadows.description':
+      'Drop shadows que simulan papel sobre superficie',
+    'production.visual.cutout.principles.colors.title': 'Colores Vibrantes',
+    'production.visual.cutout.principles.colors.description':
+      'Paleta saturada como revistas de los 70s',
+    'production.visual.cutout.example_caption':
+      'Ejemplo de emoji con estética cutout',
+
+    'production.visual.references.title': 'Referencias Visuales por Contexto',
+    'production.visual.references.urban.title': 'Neo-Cuernavaca Urbano',
+    'production.visual.references.urban.item1': 'Arquitectura bioclimática',
+    'production.visual.references.urban.item2': 'Jardines verticales',
+    'production.visual.references.urban.item3': 'Transporte limpio',
+    'production.visual.references.urban.item4': 'Plazas comunitarias',
+    'production.visual.references.tech.title': 'Espacios Tecnológicos',
+    'production.visual.references.tech.item1': 'Laboratorios bio-tech',
+    'production.visual.references.tech.item2': 'Paneles solares integrados',
+    'production.visual.references.tech.item3': 'Interfaces holográficas',
+    'production.visual.references.tech.item4': 'Diseño minimalista',
+    'production.visual.references.wardrobe.title': 'Vestuario Personajes',
+    'production.visual.references.wardrobe.item1': 'Materiales sostenibles',
+    'production.visual.references.wardrobe.item2': 'Colores tierra + vibrantes',
+    'production.visual.references.wardrobe.item3': 'Accesorios tecnológicos',
+    'production.visual.references.wardrobe.item4': 'Estilo funcional-estético',
+
+    'production.visual.tokens.title': 'Design Tokens CSS',
+    'production.visual.tokens.main_colors': 'Colores Principales',
+    'production.visual.tokens.spacing': 'Espaciado',
+    'production.visual.tokens.cutout': 'Magazine Cutout',
+    'production.visual.tokens.transitions': 'Transiciones',
+    'production.visual.back_button': 'Volver a Producción',
+
     // Common page elements
     'page.back.home': 'Volver a Inicio',
     'page.more.info': 'Más Información',
@@ -1517,6 +1595,83 @@ export const ui = {
     // Production Page
     'production.title': 'Production',
     'production.hero.title': 'Production Guide',
+
+    // Production Visual Style Page
+    'production.visual.title': 'Visual Style Guide',
+    'production.visual.breadcrumb.home': 'Home',
+    'production.visual.breadcrumb.production': 'Production',
+    'production.visual.breadcrumb.current': 'Visual Style',
+    'production.visual.hero.title': 'Visual Style Guide',
+    'production.visual.hero.description':
+      'Maintain aesthetic consistency of the Solarpunk Witnesses universe in all your creations',
+
+    'production.visual.colors.title': 'Main Color Palette',
+    'production.visual.colors.solar.name': 'Solar Yellow',
+    'production.visual.colors.solar.usage': 'Main accents, CTAs, highlights',
+    'production.visual.colors.green.name': 'Sustainable Green',
+    'production.visual.colors.green.usage':
+      'Natural elements, secondary buttons',
+    'production.visual.colors.purple.name': 'Creative Purple',
+    'production.visual.colors.purple.usage':
+      'Artistic elements, badges, creativity',
+    'production.visual.colors.blue.name': 'Technological Blue',
+    'production.visual.colors.blue.usage': 'Links, tech elements, data',
+    'production.visual.colors.orange.name': 'Community Orange',
+    'production.visual.colors.orange.usage': 'Social elements, human warmth',
+
+    'production.visual.typography.title': 'Typography',
+    'production.visual.typography.font': 'Font',
+    'production.visual.typography.size': 'Size',
+    'production.visual.typography.usage': 'Usage',
+    'production.visual.typography.main_titles.title': 'Main Titles',
+    'production.visual.typography.main_titles.usage': 'H1, hero titles',
+    'production.visual.typography.subtitles.title': 'Subtitles',
+    'production.visual.typography.subtitles.usage': 'H2, H3, sections',
+    'production.visual.typography.body.title': 'Body Text',
+    'production.visual.typography.body.usage': 'Paragraphs, content',
+    'production.visual.typography.code.title': 'Code/Technical',
+    'production.visual.typography.code.usage': 'Codes, metadata',
+
+    'production.visual.cutout.title': 'Magazine Cutout Aesthetic',
+    'production.visual.cutout.principles.title': 'Key Principles',
+    'production.visual.cutout.principles.borders.title': 'Irregular Borders',
+    'production.visual.cutout.principles.borders.description':
+      'Use clip-path to create cut paper borders',
+    'production.visual.cutout.principles.textures.title': 'Paper Textures',
+    'production.visual.cutout.principles.textures.description':
+      'Noise and grain effects to simulate real paper',
+    'production.visual.cutout.principles.shadows.title': 'Realistic Shadows',
+    'production.visual.cutout.principles.shadows.description':
+      'Drop shadows that simulate paper on surface',
+    'production.visual.cutout.principles.colors.title': 'Vibrant Colors',
+    'production.visual.cutout.principles.colors.description':
+      'Saturated palette like 70s magazines',
+    'production.visual.cutout.example_caption':
+      'Example of emoji with cutout aesthetic',
+
+    'production.visual.references.title': 'Visual References by Context',
+    'production.visual.references.urban.title': 'Neo-Cuernavaca Urban',
+    'production.visual.references.urban.item1': 'Bioclimatic architecture',
+    'production.visual.references.urban.item2': 'Vertical gardens',
+    'production.visual.references.urban.item3': 'Clean transportation',
+    'production.visual.references.urban.item4': 'Community plazas',
+    'production.visual.references.tech.title': 'Technological Spaces',
+    'production.visual.references.tech.item1': 'Bio-tech laboratories',
+    'production.visual.references.tech.item2': 'Integrated solar panels',
+    'production.visual.references.tech.item3': 'Holographic interfaces',
+    'production.visual.references.tech.item4': 'Minimalist design',
+    'production.visual.references.wardrobe.title': 'Character Wardrobe',
+    'production.visual.references.wardrobe.item1': 'Sustainable materials',
+    'production.visual.references.wardrobe.item2': 'Earth + vibrant colors',
+    'production.visual.references.wardrobe.item3': 'Technological accessories',
+    'production.visual.references.wardrobe.item4': 'Functional-aesthetic style',
+
+    'production.visual.tokens.title': 'CSS Design Tokens',
+    'production.visual.tokens.main_colors': 'Main Colors',
+    'production.visual.tokens.spacing': 'Spacing',
+    'production.visual.tokens.cutout': 'Magazine Cutout',
+    'production.visual.tokens.transitions': 'Transitions',
+    'production.visual.back_button': 'Back to Production',
 
     // Common page elements
     'page.back.home': 'Back to Home',

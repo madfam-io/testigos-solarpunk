@@ -17,12 +17,20 @@ if (basePath.endsWith('/')) {
 
 <BaseLayout lang={lang} title={t('production.visual.title')}>
   <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb navigation">
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href={`${basePath}/`}>Inicio</a></li>
-        <li><a href={`${basePath}/en/production/`}>Producción</a></li>
-        <li aria-current="page">Estilo Visual</li>
+        <li>
+          <a href={`${basePath}/en/`}
+            >{t('production.visual.breadcrumb.home')}</a
+          >
+        </li>
+        <li>
+          <a href={`${basePath}/en/production/`}
+            >{t('production.visual.breadcrumb.production')}</a
+          >
+        </li>
+        <li aria-current="page">{t('production.visual.breadcrumb.current')}</li>
       </ol>
     </div>
   </nav>
@@ -31,11 +39,10 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h1 class="text-gradient">
         <span class="emoji-cutout emoji-lg theme-solar">🎨</span>
-        Guía de Estilo Visual
+        {t('production.visual.hero.title')}
       </h1>
       <p class="lead">
-        Mantén la consistencia estética del universo Testigos de Solarpunk en
-        todas tus creaciones
+        {t('production.visual.hero.description')}
       </p>
     </div>
   </section>
@@ -45,42 +52,46 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-purple">🌈</span>
-        Paleta de Colores Principal
+        {t('production.visual.colors.title')}
       </h2>
       <div class="color-grid">
         <div class="color-card">
           <div class="color-swatch" style="background-color: #FFC107"></div>
-          <h3>Amarillo Solar</h3>
+          <h3>{t('production.visual.colors.solar.name')}</h3>
           <p class="color-code">#FFC107</p>
-          <p class="color-usage">Acentos principales, CTAs, highlights</p>
+          <p class="color-usage">{t('production.visual.colors.solar.usage')}</p>
         </div>
 
         <div class="color-card">
           <div class="color-swatch" style="background-color: #4CAF50"></div>
-          <h3>Verde Sostenible</h3>
+          <h3>{t('production.visual.colors.green.name')}</h3>
           <p class="color-code">#4CAF50</p>
-          <p class="color-usage">Elementos naturales, botones secundarios</p>
+          <p class="color-usage">{t('production.visual.colors.green.usage')}</p>
         </div>
 
         <div class="color-card">
           <div class="color-swatch" style="background-color: #9C27B0"></div>
-          <h3>Púrpura Creativo</h3>
+          <h3>{t('production.visual.colors.purple.name')}</h3>
           <p class="color-code">#9C27B0</p>
-          <p class="color-usage">Elementos artísticos, badges, creatividad</p>
+          <p class="color-usage">
+            {t('production.visual.colors.purple.usage')}
+          </p>
         </div>
 
         <div class="color-card">
           <div class="color-swatch" style="background-color: #2196F3"></div>
-          <h3>Azul Tecnológico</h3>
+          <h3>{t('production.visual.colors.blue.name')}</h3>
           <p class="color-code">#2196F3</p>
-          <p class="color-usage">Enlaces, elementos tech, datos</p>
+          <p class="color-usage">{t('production.visual.colors.blue.usage')}</p>
         </div>
 
         <div class="color-card">
           <div class="color-swatch" style="background-color: #FF5722"></div>
-          <h3>Naranja Comunidad</h3>
+          <h3>{t('production.visual.colors.orange.name')}</h3>
           <p class="color-code">#FF5722</p>
-          <p class="color-usage">Elementos sociales, calor humano</p>
+          <p class="color-usage">
+            {t('production.visual.colors.orange.usage')}
+          </p>
         </div>
       </div>
     </div>
@@ -91,49 +102,61 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-green">📝</span>
-        Tipografía
+        {t('production.visual.typography.title')}
       </h2>
       <div class="typography-grid">
         <div class="typography-card card">
-          <h3>Títulos Principales</h3>
+          <h3>{t('production.visual.typography.main_titles.title')}</h3>
           <div class="type-example large-title">Testigos de Solarpunk</div>
           <p class="type-details">
-            <strong>Fuente:</strong> Poppins Bold<br />
-            <strong>Tamaño:</strong> 2.5rem - 4rem<br />
-            <strong>Uso:</strong> H1, títulos hero
+            <strong>{t('production.visual.typography.font')}:</strong> Poppins Bold<br
+            />
+            <strong>{t('production.visual.typography.size')}:</strong> 2.5rem - 4rem<br
+            />
+            <strong>{t('production.visual.typography.usage')}:</strong>
+            {t('production.visual.typography.main_titles.usage')}
           </p>
         </div>
 
         <div class="typography-card card">
-          <h3>Subtítulos</h3>
+          <h3>{t('production.visual.typography.subtitles.title')}</h3>
           <div class="type-example medium-title">Connecting Communities</div>
           <p class="type-details">
-            <strong>Fuente:</strong> Poppins SemiBold<br />
-            <strong>Tamaño:</strong> 1.5rem - 2rem<br />
-            <strong>Uso:</strong> H2, H3, secciones
+            <strong>{t('production.visual.typography.font')}:</strong> Poppins SemiBold<br
+            />
+            <strong>{t('production.visual.typography.size')}:</strong> 1.5rem - 2rem<br
+            />
+            <strong>{t('production.visual.typography.usage')}:</strong>
+            {t('production.visual.typography.subtitles.usage')}
           </p>
         </div>
 
         <div class="typography-card card">
-          <h3>Texto Cuerpo</h3>
+          <h3>{t('production.visual.typography.body.title')}</h3>
           <div class="type-example body-text">
             Un futuro donde la tecnología y la naturaleza trabajan en armonía
             para crear comunidades sostenibles y prósperas.
           </div>
           <p class="type-details">
-            <strong>Fuente:</strong> Poppins Regular<br />
-            <strong>Tamaño:</strong> 1rem<br />
-            <strong>Uso:</strong> Párrafos, contenido
+            <strong>{t('production.visual.typography.font')}:</strong> Poppins Regular<br
+            />
+            <strong>{t('production.visual.typography.size')}:</strong> 1rem<br
+            />
+            <strong>{t('production.visual.typography.usage')}:</strong>
+            {t('production.visual.typography.body.usage')}
           </p>
         </div>
 
         <div class="typography-card card">
-          <h3>Código/Técnico</h3>
+          <h3>{t('production.visual.typography.code.title')}</h3>
           <div class="type-example code-text">EP001-TT | 45s | TikTok</div>
           <p class="type-details">
-            <strong>Fuente:</strong> JetBrains Mono<br />
-            <strong>Tamaño:</strong> 0.875rem<br />
-            <strong>Uso:</strong> Códigos, metadatos
+            <strong>{t('production.visual.typography.font')}:</strong> JetBrains
+            Mono<br />
+            <strong>{t('production.visual.typography.size')}:</strong> 0.875rem<br
+            />
+            <strong>{t('production.visual.typography.usage')}:</strong>
+            {t('production.visual.typography.code.usage')}
           </p>
         </div>
       </div>
@@ -145,37 +168,55 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-community">✂️</span>
-        Estética Magazine Cutout
+        {t('production.visual.cutout.title')}
       </h2>
       <div class="aesthetic-explanation">
         <div class="explanation-text">
-          <h3>Principios Clave</h3>
+          <h3>{t('production.visual.cutout.principles.title')}</h3>
           <ul>
             <li>
               <span class="emoji-cutout emoji-sm theme-solar">📄</span>
-              <strong>Bordes Irregulares:</strong> Usa clip-path para crear bordes
-              de papel recortado
+              <strong
+                >{
+                  t('production.visual.cutout.principles.borders.title')
+                }:</strong
+              >
+              {t('production.visual.cutout.principles.borders.description')}
             </li>
             <li>
               <span class="emoji-cutout emoji-sm theme-green">🎨</span>
-              <strong>Texturas de Papel:</strong> Efectos de ruido y grano para simular
-              papel real
+              <strong
+                >{
+                  t('production.visual.cutout.principles.textures.title')
+                }:</strong
+              >
+              {t('production.visual.cutout.principles.textures.description')}
             </li>
             <li>
               <span class="emoji-cutout emoji-sm theme-purple">💫</span>
-              <strong>Sombras Realistas:</strong> Drop shadows que simulan papel
-              sobre superficie
+              <strong
+                >{
+                  t('production.visual.cutout.principles.shadows.title')
+                }:</strong
+              >
+              {t('production.visual.cutout.principles.shadows.description')}
             </li>
             <li>
               <span class="emoji-cutout emoji-sm theme-community">🎭</span>
-              <strong>Colores Vibrantes:</strong> Paleta saturada como revistas de
-              los 70s
+              <strong
+                >{
+                  t('production.visual.cutout.principles.colors.title')
+                }:</strong
+              >
+              {t('production.visual.cutout.principles.colors.description')}
             </li>
           </ul>
         </div>
         <div class="aesthetic-example">
           <div class="cutout-example emoji-cutout emoji-xl theme-solar">🌞</div>
-          <p class="example-caption">Ejemplo de emoji con estética cutout</p>
+          <p class="example-caption">
+            {t('production.visual.cutout.example_caption')}
+          </p>
         </div>
       </div>
     </div>
@@ -186,19 +227,19 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-solar">📸</span>
-        Referencias Visuales por Contexto
+        {t('production.visual.references.title')}
       </h2>
       <div class="references-grid">
         <div class="reference-category card">
-          <h3>Neo-Cuernavaca Urbano</h3>
+          <h3>{t('production.visual.references.urban.title')}</h3>
           <div class="reference-mood">
             <span class="emoji-cutout emoji-lg theme-green">🏙️</span>
           </div>
           <ul>
-            <li>Arquitectura bioclimática</li>
-            <li>Jardines verticales</li>
-            <li>Transporte limpio</li>
-            <li>Plazas comunitarias</li>
+            <li>{t('production.visual.references.urban.item1')}</li>
+            <li>{t('production.visual.references.urban.item2')}</li>
+            <li>{t('production.visual.references.urban.item3')}</li>
+            <li>{t('production.visual.references.urban.item4')}</li>
           </ul>
           <div class="mood-colors">
             <span class="mood-color" style="background: #4CAF50"></span>
@@ -208,15 +249,15 @@ if (basePath.endsWith('/')) {
         </div>
 
         <div class="reference-category card">
-          <h3>Espacios Tecnológicos</h3>
+          <h3>{t('production.visual.references.tech.title')}</h3>
           <div class="reference-mood">
             <span class="emoji-cutout emoji-lg theme-purple">🔬</span>
           </div>
           <ul>
-            <li>Laboratorios bio-tech</li>
-            <li>Paneles solares integrados</li>
-            <li>Interfaces holográficas</li>
-            <li>Diseño minimalista</li>
+            <li>{t('production.visual.references.tech.item1')}</li>
+            <li>{t('production.visual.references.tech.item2')}</li>
+            <li>{t('production.visual.references.tech.item3')}</li>
+            <li>{t('production.visual.references.tech.item4')}</li>
           </ul>
           <div class="mood-colors">
             <span class="mood-color" style="background: #2196F3"></span>
@@ -226,15 +267,15 @@ if (basePath.endsWith('/')) {
         </div>
 
         <div class="reference-category card">
-          <h3>Vestuario Personajes</h3>
+          <h3>{t('production.visual.references.wardrobe.title')}</h3>
           <div class="reference-mood">
             <span class="emoji-cutout emoji-lg theme-community">👕</span>
           </div>
           <ul>
-            <li>Materiales sostenibles</li>
-            <li>Colores tierra + vibrantes</li>
-            <li>Accesorios tecnológicos</li>
-            <li>Estilo funcional-estético</li>
+            <li>{t('production.visual.references.wardrobe.item1')}</li>
+            <li>{t('production.visual.references.wardrobe.item2')}</li>
+            <li>{t('production.visual.references.wardrobe.item3')}</li>
+            <li>{t('production.visual.references.wardrobe.item4')}</li>
           </ul>
           <div class="mood-colors">
             <span class="mood-color" style="background: #8D6E63"></span>
@@ -251,17 +292,17 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-purple">⚙️</span>
-        Design Tokens CSS
+        {t('production.visual.tokens.title')}
       </h2>
       <div class="tokens-code card">
-        <pre><code>/* Colores Principales */
+        <pre><code>/* {t('production.visual.tokens.main_colors')} */
 --amarillo-solar: #FFC107;
 --verde-sostenible: #4CAF50;
 --purpura-creativo: #9C27B0;
 --azul-tecnologico: #2196F3;
 --naranja-comunidad: #FF5722;
 
-/* Espaciado */
+/* {t('production.visual.tokens.spacing')} */
 --espacio-xs: 0.25rem;
 --espacio-sm: 0.5rem;
 --espacio-md: 1rem;
@@ -269,13 +310,13 @@ if (basePath.endsWith('/')) {
 --espacio-xl: 2rem;
 --espacio-xxl: 3rem;
 
-/* Magazine Cutout */
+/* {t('production.visual.tokens.cutout')} */
 --cutout-border: polygon(
   2% 0%, 98% 2%, 100% 8%, 98% 92%, 
   100% 98%, 92% 100%, 8% 98%, 0% 92%, 2% 8%
 );
 
-/* Transiciones */
+/* {t('production.visual.tokens.transitions')} */
 --transicion-rapida: 0.2s ease;
 --transicion-normal: 0.3s ease;
 --transicion-lenta: 0.5s ease;</code></pre>
@@ -288,7 +329,7 @@ if (basePath.endsWith('/')) {
     <div class="container text-center">
       <a href={`${basePath}/en/production/`} class="btn btn-secondary">
         <span class="emoji-cutout emoji-sm">👈</span>
-        Volver a Producción
+        {t('production.visual.back_button')}
       </a>
     </div>
   </section>
