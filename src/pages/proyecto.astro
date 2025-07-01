@@ -214,11 +214,11 @@ if (basePath.endsWith('/')) {
   }
   
   /* Ensure readable text on gradient in both themes */
-  [data-theme='light'] .hero-proyecto {
+  :global([data-theme='light']) .hero-proyecto {
     color: #000000;
   }
   
-  [data-theme='dark'] .hero-proyecto {
+  :global([data-theme='dark']) .hero-proyecto {
     color: #ffffff;
   }
 

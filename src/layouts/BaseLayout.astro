@@ -327,6 +327,13 @@ const getLangPath = (path: string): string => {
         </div>
 
         <ul class="nav-menu" id="nav-menu" role="menubar">
+          <button 
+            class="mobile-menu-close" 
+            aria-label={currentLang === 'es' ? 'Cerrar menú' : 'Close menu'}
+            data-menu-close
+          >
+            ✕
+          </button>
           <li role="none">
             <a
               href={getLangPath('proyecto/')}
@@ -528,7 +535,20 @@ const getLangPath = (path: string): string => {
         }
 
         if (mobileMenuToggle && navMenu) {
-          // Toggle mobile menu
+          // Get close button
+          const closeButton = navMenu.querySelector('[data-menu-close]');
+          
+          // Function to close menu
+          function closeMobileMenu() {
+            if (mobileMenuToggle && navMenu) {
+              mobileMenuToggle.classList.remove('active');
+              navMenu.classList.remove('active');
+              mobileMenuToggle.setAttribute('aria-expanded', 'false');
+              document.body.classList.remove('mobile-menu-open');
+            }
+          }
+          
+          // Toggle mobile menu with body scroll lock
           mobileMenuToggle.addEventListener('click', function () {
             const isActive = mobileMenuToggle.classList.contains('active');
             mobileMenuToggle.classList.toggle('active');
@@ -537,7 +557,19 @@ const getLangPath = (path: string): string => {
               'aria-expanded',
               (!isActive).toString()
             );
+            
+            // Toggle body scroll lock
+            if (!isActive) {
+              document.body.classList.add('mobile-menu-open');
+            } else {
+              document.body.classList.remove('mobile-menu-open');
+            }
           });
+          
+          // Close button handler
+          if (closeButton) {
+            closeButton.addEventListener('click', closeMobileMenu);
+          }
 
           // Handle dropdowns with proper ARIA attributes
           dropdowns.forEach((dropdown) => {
@@ -607,11 +639,7 @@ const getLangPath = (path: string): string => {
           const navLinks = navMenu.querySelectorAll('a');
           navLinks.forEach((link) => {
             if (!link.hasAttribute('data-dropdown-toggle')) {
-              link.addEventListener('click', function () {
-                mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-              });
+              link.addEventListener('click', closeMobileMenu);
             }
           });
 
@@ -622,9 +650,7 @@ const getLangPath = (path: string): string => {
               'closest' in event.target &&
               !(event.target as Element).closest('nav')
             ) {
-              mobileMenuToggle.classList.remove('active');
-              navMenu.classList.remove('active');
-              mobileMenuToggle.setAttribute('aria-expanded', 'false');
+              closeMobileMenu();
 
               dropdowns.forEach((dropdown) => {
                 const toggle = dropdown.querySelector('[data-dropdown-toggle]');
@@ -697,6 +723,7 @@ const getLangPath = (path: string): string => {
 
 <style is:global>
   @import '../styles/global.css';
+  @import '../styles/mobile-nav-enhanced.css';
 
   footer ul {
     list-style: none;

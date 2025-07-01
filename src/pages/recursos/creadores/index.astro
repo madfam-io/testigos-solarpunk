@@ -427,7 +427,13 @@ if (basePath.endsWith('/')) {
 </style>
 
 <script>
-  function generateIdea() {
+  declare global {
+    interface Window {
+      generateIdea: () => void;
+    }
+  }
+  
+  window.generateIdea = function generateIdea() {
     const personajes = [
       'Hermana Panelia',
       'Hermano Compostino',
@@ -462,5 +468,5 @@ if (basePath.endsWith('/')) {
     if (output) {
       output.textContent = `${personaje} ${situacion} en un ${formato}`;
     }
-  }
+  };
 </script>

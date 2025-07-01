@@ -332,6 +332,8 @@ export class ThemeManager {
     if (typeof mediaQuery.addEventListener === 'function') {
       mediaQuery.addEventListener('change', handleChange);
     } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore - Fallback for older browsers
       mediaQuery.addListener(handleChange);
     }
   }
@@ -361,6 +363,8 @@ export class ThemeManager {
     if (typeof mediaQuery.addEventListener === 'function') {
       mediaQuery.addEventListener('change', handleChange);
     } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore - Fallback for older browsers
       mediaQuery.addListener(handleChange);
     }
   }

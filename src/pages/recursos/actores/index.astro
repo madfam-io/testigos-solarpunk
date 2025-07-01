@@ -590,7 +590,14 @@ if (basePath.endsWith('/')) {
 </style>
 
 <script>
-  function startVocalWarmup() {
+  declare global {
+    interface Window {
+      startVocalWarmup: () => void;
+      generateScenario: () => void;
+    }
+  }
+  
+  window.startVocalWarmup = function startVocalWarmup() {
     const exercises = [
       'Repite "Ma-me-mi-mo-mu" con el tono optimista de Panelia, subiendo y bajando la entonación.',
       'Practica decir "La tierra nos enseña..." con la cadencia pausada de Compostino.',
@@ -604,9 +611,9 @@ if (basePath.endsWith('/')) {
     if (output) {
       output.textContent = exercise;
     }
-  }
+  };
 
-  function generateScenario() {
+  window.generateScenario = function generateScenario() {
     const scenarios = [
       'Estás en un mercado local y alguien se acerca preguntando sobre los paneles solares que viste instalando.',
       'Un niño te pregunta por qué es importante separar la basura. Responde como tu personaje.',
@@ -621,5 +628,5 @@ if (basePath.endsWith('/')) {
     if (output) {
       output.textContent = scenario;
     }
-  }
+  };
 </script>

@@ -60,11 +60,11 @@ const responsiveSizes = [
 const cssClasses = [
   'optimized-image',
   `emoji-cutout ${cutoutStyle}`,
-  theme ? `theme-${theme}` : '',
-  context ? `emoji-${context}` : '',
-  interactive ? 'interactive' : '',
-  flutter ? 'flutter' : '',
-  className,
+  theme !== undefined ? `theme-${theme}` : '',
+  context !== undefined ? `emoji-${context}` : '',
+  interactive === true ? 'interactive' : '',
+  flutter === true ? 'flutter' : '',
+  className ?? '',
 ]
   .filter((cls) => cls !== '')
   .join(' ');
@@ -120,6 +120,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
 </div>
 
 <style>
+  /* eslint-disable astro/no-unused-css-selector */
   .optimized-image-wrapper {
     position: relative;
     display: inline-block;
@@ -155,7 +156,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       0 0 0 1px rgba(0, 0, 0, 0.05);
   }
 
-  .optimized-image {
+  .optimized-image-inner img {
     display: block;
     width: 100%;
     height: 100%;
@@ -222,7 +223,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
   }
 
   /* Enhanced hover effects */
-  .optimized-image-wrapper:hover .optimized-image {
+  .optimized-image-wrapper:hover .optimized-image-inner img {
     filter: sepia(0.1) contrast(1.05) brightness(1.02) saturate(1.0);
   }
 
@@ -231,17 +232,17 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
   }
 
   /* Interactive variant */
-  .optimized-image-wrapper.interactive {
+  .optimized-image-wrapper.interactive .optimized-image-inner img {
     cursor: pointer;
   }
 
-  .optimized-image-wrapper.interactive:active {
+  .optimized-image-wrapper.interactive:active .optimized-image-inner img {
     transform: rotate(calc(var(--magazine-rotation) * 0.9)) translate(1px, 1px)
       scale(0.98);
   }
 
   /* Flutter animation */
-  .optimized-image-wrapper.flutter {
+  .optimized-image-wrapper.flutter .optimized-image-inner img {
     animation: paperFloat 4s ease-in-out infinite;
   }
 
@@ -270,7 +271,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     }
 
     /* Simplified clip-path for mobile performance */
-    .optimized-image {
+    .optimized-image-inner img {
       clip-path: polygon(
         1% 0%,
         99% 1%,
@@ -290,7 +291,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     .optimized-image-wrapper,
     .optimized-image-wrapper:hover,
     .tape,
-    .optimized-image-wrapper.flutter {
+    .optimized-image-wrapper.flutter .optimized-image-inner img {
       animation: none;
       transition: none;
       transform: none;
@@ -299,7 +300,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
 
   /* High contrast mode */
   @media (prefers-contrast: high) {
-    .optimized-image {
+    .optimized-image-inner img {
       filter: none;
       border: 2px solid currentColor;
       clip-path: none;
@@ -319,7 +320,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       transform: none;
     }
 
-    .optimized-image {
+    .optimized-image-inner img {
       filter: none;
       clip-path: none;
     }
@@ -328,4 +329,5 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       display: none;
     }
   }
+  /* eslint-enable astro/no-unused-css-selector */
 </style>

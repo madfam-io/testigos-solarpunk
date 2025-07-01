@@ -10,7 +10,7 @@
 interface TelemetryEvent {
   name: string;
   category: 'performance' | 'user' | 'error' | 'system';
-  properties?: Record<string, any>;
+  properties?: Record<string, unknown>;
   timestamp?: number;
   sessionId?: string;
 }
@@ -29,6 +29,7 @@ interface UserPreferences {
   language: string;
   reducedMotion: boolean;
   highContrast: boolean;
+  [key: string]: unknown; // Allow additional properties
 }
 
 /**
@@ -47,7 +48,7 @@ export class TelemetryManager {
   }
 
   static getInstance(): TelemetryManager {
-    if (!TelemetryManager.instance) {
+    if (TelemetryManager.instance === undefined) {
       TelemetryManager.instance = new TelemetryManager();
     }
     return TelemetryManager.instance;
@@ -61,7 +62,7 @@ export class TelemetryManager {
     this.isEnabled = import.meta.env.PROD && this.hasUserConsent();
 
     if (!this.isEnabled) {
-      console.log('📊 Telemetry disabled (dev mode or no consent)');
+      // Telemetry disabled (dev mode or no consent)
       return;
     }
 
@@ -70,7 +71,7 @@ export class TelemetryManager {
     this.trackUserPreferences();
     this.trackWebVitals();
     
-    console.log('📊 Telemetry initialized');
+    // Telemetry initialized successfully
   }
 
   /**
@@ -86,7 +87,7 @@ export class TelemetryManager {
    * Generate unique session ID
    */
   private generateSessionId(): string {
-    return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    return `${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
   }
 
   /**
@@ -132,14 +133,16 @@ export class TelemetryManager {
         });
         break;
       
-      case 'layout-shift':
-        if (!(entry as any).hadRecentInput) {
+      case 'layout-shift': {
+        const layoutShiftEntry = entry as PerformanceEntry & { hadRecentInput?: boolean; value?: number };
+        if (layoutShiftEntry.hadRecentInput !== true) {
           this.track('cumulative_layout_shift', 'performance', {
-            value: (entry as any).value,
+            value: layoutShiftEntry.value ?? 0,
             url: window.location.pathname,
           });
         }
         break;
+      }
     }
   }
 
@@ -160,8 +163,8 @@ export class TelemetryManager {
    */
   private trackUserPreferences(): void {
     const preferences: UserPreferences = {
-      theme: document.documentElement.getAttribute('data-theme') || 'auto',
-      language: document.documentElement.lang || 'es',
+      theme: document.documentElement.getAttribute('data-theme') ?? 'auto',
+      language: document.documentElement.lang !== '' ? document.documentElement.lang : 'es',
       reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
       highContrast: window.matchMedia('(prefers-contrast: high)').matches,
     };
@@ -176,11 +179,14 @@ export class TelemetryManager {
     // First Input Delay
     const fidObserver = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        const fid = entry.processingStart - entry.startTime;
-        this.track('first_input_delay', 'performance', {
-          value: fid,
-          url: window.location.pathname,
-        });
+        const fidEntry = entry as PerformanceEntry & { processingStart?: number };
+        if (fidEntry.processingStart !== undefined) {
+          const fid = fidEntry.processingStart - fidEntry.startTime;
+          this.track('first_input_delay', 'performance', {
+            value: fid,
+            url: window.location.pathname,
+          });
+        }
       }
     });
 
@@ -208,7 +214,7 @@ export class TelemetryManager {
   track(
     name: string, 
     category: TelemetryEvent['category'], 
-    properties?: Record<string, any>
+    properties?: Record<string, unknown>
   ): void {
     if (!this.isEnabled) return;
 
@@ -220,7 +226,7 @@ export class TelemetryManager {
         sessionId: this.sessionId,
         userAgent: navigator.userAgent,
         viewport: `${window.innerWidth}x${window.innerHeight}`,
-        connection: (navigator as any).connection?.effectiveType || 'unknown',
+        connection: (navigator as Navigator & { connection?: { effectiveType?: string } }).connection?.effectiveType ?? 'unknown',
       },
       timestamp: Date.now(),
       sessionId: this.sessionId,
@@ -233,10 +239,7 @@ export class TelemetryManager {
       this.flush();
     }
 
-    // Also log to console in development
-    if (import.meta.env.DEV) {
-      console.log('📊 Telemetry:', event);
-    }
+    // Telemetry event tracked successfully
   }
 
   /**
@@ -256,7 +259,7 @@ export class TelemetryManager {
   /**
    * Track user interaction
    */
-  trackInteraction(element: string, action: string, properties?: Record<string, any>): void {
+  trackInteraction(element: string, action: string, properties?: Record<string, unknown>): void {
     this.track('user_interaction', 'user', {
       element,
       action,
@@ -267,9 +270,9 @@ export class TelemetryManager {
   /**
    * Track error
    */
-  trackError(error: Error | string, context?: Record<string, any>): void {
+  trackError(error: Error | string, context?: Record<string, unknown>): void {
     const errorMessage = typeof error === 'string' ? error : error.message;
-    const errorStack = typeof error === 'object' && error.stack ? error.stack : undefined;
+    const errorStack = typeof error === 'object' && error !== null && 'stack' in error && typeof error.stack === 'string' ? error.stack : undefined;
 
     this.track('error', 'error', {
       message: errorMessage,
@@ -289,7 +292,7 @@ export class TelemetryManager {
     this.eventQueue = [];
 
     // Send to analytics endpoint (implement as needed)
-    if (navigator.sendBeacon) {
+    if (navigator.sendBeacon !== undefined) {
       const data = JSON.stringify({ events });
       navigator.sendBeacon('/api/telemetry', data);
     } else {
@@ -312,7 +315,7 @@ export class TelemetryManager {
     
     return {
       firstContentfulPaint: paint.find(p => p.name === 'first-contentful-paint')?.startTime,
-      timeToInteractive: navigation?.loadEventEnd || undefined,
+      timeToInteractive: navigation?.loadEventEnd !== 0 ? navigation.loadEventEnd : undefined,
     };
   }
 
@@ -354,13 +357,15 @@ export function initializeTelemetry(): TelemetryManager {
   const telemetry = TelemetryManager.getInstance();
   
   // Track theme changes
-  window.addEventListener('themeChange', (e: any) => {
-    telemetry.trackThemeChange(e.detail.from || 'unknown', e.detail.theme);
+  window.addEventListener('themeChange', (e: Event) => {
+    const customEvent = e as CustomEvent<{ from?: string; theme: string }>;
+    telemetry.trackThemeChange(customEvent.detail.from ?? 'unknown', customEvent.detail.theme);
   });
   
   // Track language changes
-  window.addEventListener('languageChange', (e: any) => {
-    telemetry.trackLanguageChange(e.detail.from, e.detail.to);
+  window.addEventListener('languageChange', (e: Event) => {
+    const customEvent = e as CustomEvent<{ from: string; to: string }>;
+    telemetry.trackLanguageChange(customEvent.detail.from, customEvent.detail.to);
   });
   
   // Track navigation
@@ -370,7 +375,8 @@ export function initializeTelemetry(): TelemetryManager {
   
   // Track errors
   window.addEventListener('error', (e) => {
-    telemetry.trackError(e.error, {
+    const errorObj = e.error instanceof Error ? e.error : new Error(String(e.error ?? 'Unknown error'));
+    telemetry.trackError(errorObj, {
       filename: e.filename,
       lineno: e.lineno,
       colno: e.colno,
@@ -378,7 +384,8 @@ export function initializeTelemetry(): TelemetryManager {
   });
   
   window.addEventListener('unhandledrejection', (e) => {
-    telemetry.trackError(e.reason);
+    const errorObj = e.reason instanceof Error ? e.reason : new Error(String(e.reason ?? 'Unhandled promise rejection'));
+    telemetry.trackError(errorObj);
   });
   
   return telemetry;

@@ -9,7 +9,6 @@
  * @version 0.3.0+enterprise
  */
 
-import { useTranslations } from '@/i18n/config';
 import type { Language } from '@/i18n/config';
 
 interface Props {
@@ -180,7 +179,7 @@ const defaultMessage = fallbackMessage ?? (lang === 'es'
     
     sendErrorTelemetry(message: string, stack: string, source?: string, line?: number): void {
       // Only in production and if telemetry is enabled
-      if (import.meta.env.PROD && window.navigator.sendBeacon) {
+      if (import.meta.env.PROD && typeof window.navigator.sendBeacon === 'function') {
         const errorData = {
           message,
           stack,
@@ -417,8 +416,8 @@ const defaultMessage = fallbackMessage ?? (lang === 'es'
   }
   
   /* Dark theme adjustments */
-  [data-theme='dark'] .error-content::before,
-  [data-theme='dark'] .error-content::after {
+  :global([data-theme='dark']) .error-content::before,
+  :global([data-theme='dark']) .error-content::after {
     background: var(--tape-color, rgba(255, 213, 79, 0.8));
   }
 </style>
