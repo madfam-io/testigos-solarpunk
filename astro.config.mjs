@@ -30,7 +30,8 @@ export default defineConfig({
     '/recursos/creadores/personajes': '/es/recursos/creadores/personajes',
     '/recursos/creadores/personajes/': '/es/recursos/creadores/personajes/',
     '/recursos/creadores/worldbuilding': '/es/recursos/creadores/worldbuilding',
-    '/recursos/creadores/worldbuilding/': '/es/recursos/creadores/worldbuilding/',
+    '/recursos/creadores/worldbuilding/':
+      '/es/recursos/creadores/worldbuilding/',
     '/recursos/actores': '/es/recursos/actores',
     '/recursos/actores/': '/es/recursos/actores/',
     '/recursos/actores/personajes': '/es/recursos/actores/personajes',
@@ -43,11 +44,13 @@ export default defineConfig({
     '/recursos/patrocinadores/': '/es/recursos/patrocinadores/',
     '/recursos/patrocinadores/valores': '/es/recursos/patrocinadores/valores',
     '/recursos/patrocinadores/valores/': '/es/recursos/patrocinadores/valores/',
-    '/recursos/patrocinadores/integracion': '/es/recursos/patrocinadores/integracion',
-    '/recursos/patrocinadores/integracion/': '/es/recursos/patrocinadores/integracion/',
+    '/recursos/patrocinadores/integracion':
+      '/es/recursos/patrocinadores/integracion',
+    '/recursos/patrocinadores/integracion/':
+      '/es/recursos/patrocinadores/integracion/',
     '/recursos/patrocinadores/impacto': '/es/recursos/patrocinadores/impacto',
     '/recursos/patrocinadores/impacto/': '/es/recursos/patrocinadores/impacto/',
-    
+
     // Content sections
     '/contenido': '/es/contenido',
     '/contenido/': '/es/contenido/',
@@ -57,7 +60,7 @@ export default defineConfig({
     '/contenido/podcast/': '/es/contenido/podcast/',
     '/contenido/madlab': '/es/contenido/madlab',
     '/contenido/madlab/': '/es/contenido/madlab/',
-    
+
     // Universe sections
     '/personajes': '/es/personajes',
     '/personajes/': '/es/personajes/',
@@ -65,8 +68,8 @@ export default defineConfig({
     '/mundo/': '/es/mundo/',
     '/guiones': '/es/guiones',
     '/guiones/': '/es/guiones/',
-    
-    // Project sections  
+
+    // Project sections
     '/proyecto': '/es/proyecto',
     '/proyecto/': '/es/proyecto/',
     '/produccion': '/es/produccion',
@@ -79,7 +82,7 @@ export default defineConfig({
     '/produccion/tono-voz/': '/es/produccion/tono-voz/',
     '/produccion/specs': '/es/produccion/specs',
     '/produccion/specs/': '/es/produccion/specs/',
-    
+
     // Other sections
     '/comunidad': '/es/comunidad',
     '/comunidad/': '/es/comunidad/',
