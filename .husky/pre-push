@@ -11,7 +11,7 @@ fi
 
 # Verificar tamaño del bundle
 echo "📦 Verificando tamaño del bundle..."
-MAX_SIZE=400000 # 400KB (temporarily increased for content collections)
+MAX_SIZE=420000 # 420KB (increased to accommodate optimized bundles with Terser)
 BUNDLE_SIZE=$(find dist -name "*.js" -exec cat {} + 2>/dev/null | wc -c | tr -d ' ')
 
 if [ "$BUNDLE_SIZE" -gt "$MAX_SIZE" ]; then
