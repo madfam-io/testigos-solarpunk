@@ -46,7 +46,7 @@ async function runHealthCheck(
 
   try {
     // Run the health check script
-    const output = execSync(`npx tsx ${script}`, {
+    execSync(`npx tsx ${script}`, {
       encoding: 'utf-8',
       stdio: 'pipe',
     });
@@ -544,4 +544,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 
-export { generateConsolidatedReport, OverallHealthReport };
+export { generateConsolidatedReport };
+export type { OverallHealthReport };

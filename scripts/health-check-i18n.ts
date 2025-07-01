@@ -152,13 +152,13 @@ async function auditI18n(): Promise<I18nIssues> {
   // 3. Verify route consistency
   console.log(chalk.yellow('Checking route consistency...'));
   Object.keys(routes.es).forEach((key) => {
-    if (!routes.en[key]) {
+    if (!routes.en[key as keyof typeof routes.en]) {
       issues.inconsistentRoutes.push(`Route missing in EN: ${key}`);
     }
   });
 
   Object.keys(routes.en).forEach((key) => {
-    if (!routes.es[key]) {
+    if (!routes.es[key as keyof typeof routes.es]) {
       issues.inconsistentRoutes.push(`Route missing in ES: ${key}`);
     }
   });
@@ -358,4 +358,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 
-export { auditI18n, I18nIssues };
+export { auditI18n };
+export type { I18nIssues };

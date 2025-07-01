@@ -491,7 +491,7 @@ async function main() {
     // Exit with appropriate code
     process.exit(failedTests === 0 ? 0 : 1);
   } finally {
-    await chrome.kill();
+    chrome.kill();
   }
 }
 

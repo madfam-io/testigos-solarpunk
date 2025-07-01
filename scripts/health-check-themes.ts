@@ -79,51 +79,51 @@ const requiredVariables = [
 ];
 
 // Minimum contrast ratios (WCAG AAA)
-const contrastRequirements = [
-  {
-    bg: '--bg-primary',
-    fg: '--text-primary',
-    minRatio: 7,
-    context: 'Main content',
-  },
-  {
-    bg: '--bg-secondary',
-    fg: '--text-primary',
-    minRatio: 7,
-    context: 'Cards/sections',
-  },
-  {
-    bg: '--bg-tertiary',
-    fg: '--text-secondary',
-    minRatio: 4.5,
-    context: 'Subtle elements',
-  },
-  {
-    bg: '--color-eco-green',
-    fg: '--text-on-accent',
-    minRatio: 4.5,
-    context: 'Green buttons',
-  },
-  {
-    bg: '--color-solar-yellow',
-    fg: '--text-primary',
-    minRatio: 4.5,
-    context: 'Yellow accents',
-  },
-  {
-    bg: '--color-comedy-purple',
-    fg: '--text-on-accent',
-    minRatio: 4.5,
-    context: 'Purple elements',
-  },
-];
+// const contrastRequirements = [
+//   {
+//     bg: '--bg-primary',
+//     fg: '--text-primary',
+//     minRatio: 7,
+//     context: 'Main content',
+//   },
+//   {
+//     bg: '--bg-secondary',
+//     fg: '--text-primary',
+//     minRatio: 7,
+//     context: 'Cards/sections',
+//   },
+//   {
+//     bg: '--bg-tertiary',
+//     fg: '--text-secondary',
+//     minRatio: 4.5,
+//     context: 'Subtle elements',
+//   },
+//   {
+//     bg: '--color-eco-green',
+//     fg: '--text-on-accent',
+//     minRatio: 4.5,
+//     context: 'Green buttons',
+//   },
+//   {
+//     bg: '--color-solar-yellow',
+//     fg: '--text-primary',
+//     minRatio: 4.5,
+//     context: 'Yellow accents',
+//   },
+//   {
+//     bg: '--color-comedy-purple',
+//     fg: '--text-on-accent',
+//     minRatio: 4.5,
+//     context: 'Purple elements',
+//   },
+// ];
 
 async function checkThemeVariables(): Promise<
   Pick<ThemeIssues, 'missingVariables'>
 > {
   console.log(chalk.yellow('Checking CSS variable completeness...'));
 
-  const issues = {
+  const issues: Pick<ThemeIssues, 'missingVariables'> = {
     missingVariables: [],
   };
 
@@ -159,7 +159,7 @@ async function checkContrastRatios(): Promise<
 > {
   console.log(chalk.yellow('Checking contrast ratios...'));
 
-  const issues = {
+  const issues: Pick<ThemeIssues, 'contrastIssues'> = {
     contrastIssues: [],
   };
 
@@ -177,7 +177,7 @@ async function checkHardcodedColors(): Promise<
 > {
   console.log(chalk.yellow('Checking for hardcoded colors...'));
 
-  const issues = {
+  const issues: Pick<ThemeIssues, 'hardcodedColors'> = {
     hardcodedColors: [],
   };
 
@@ -232,7 +232,7 @@ async function checkThemePerformance(): Promise<
 > {
   console.log(chalk.yellow('Checking theme switching performance...'));
 
-  const issues = {
+  const issues: Pick<ThemeIssues, 'performanceIssues'> = {
     performanceIssues: [],
   };
 
@@ -315,7 +315,7 @@ async function checkMagazineAesthetic(): Promise<
     chalk.yellow('Checking magazine cutout aesthetic preservation...')
   );
 
-  const issues = {
+  const issues: Pick<ThemeIssues, 'aestheticIssues'> = {
     aestheticIssues: [],
   };
 
@@ -522,4 +522,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 
-export { checkThemeVariables, checkHardcodedColors, ThemeIssues };
+export { checkThemeVariables, checkHardcodedColors };
+export type { ThemeIssues };

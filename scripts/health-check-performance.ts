@@ -109,8 +109,8 @@ async function runLighthouseTest(url: string, theme: string): Promise<any> {
 
   try {
     const options = {
-      logLevel: 'error',
-      output: 'json',
+      logLevel: 'error' as const,
+      output: 'json' as const,
       port: chrome.port,
       extraHeaders: {
         Cookie: `testigos-theme-preference=${theme}`,
@@ -125,7 +125,7 @@ async function runLighthouseTest(url: string, theme: string): Promise<any> {
     const runnerResult = await lighthouse(url, options);
     return runnerResult?.lhr;
   } finally {
-    await chrome.kill();
+    chrome.kill();
   }
 }
 
@@ -192,7 +192,9 @@ async function runPerformanceTests(): Promise<PerformanceTestResult[]> {
       }
     } catch (error) {
       console.error(
-        chalk.red(`    Failed to test ${lang}/${theme}: ${error.message}`)
+        chalk.red(
+          `    Failed to test ${lang}/${theme}: ${error instanceof Error ? error.message : String(error)}`
+        )
       );
     }
   }
@@ -489,4 +491,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 
-export { runPerformanceTests, PerformanceIssues };
+export { runPerformanceTests };
+export type { PerformanceIssues };

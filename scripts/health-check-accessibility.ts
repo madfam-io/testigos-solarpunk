@@ -100,12 +100,23 @@ async function runPa11yTest(
       actions: [`set cookie testigos-theme-preference=${theme}`],
       chromeLaunchConfig: {
         args: ['--no-sandbox'],
-      },
+      } as any,
     });
 
-    return results.issues as AccessibilityIssue[];
+    return results.issues.map((issue: any) => ({
+      code: issue.code,
+      type: issue.type,
+      message: issue.message,
+      selector: issue.selector,
+      context: issue.context,
+      runner: issue.runner || 'unknown',
+    })) as AccessibilityIssue[];
   } catch (error) {
-    console.error(chalk.red(`Failed to test ${url}: ${error.message}`));
+    console.error(
+      chalk.red(
+        `Failed to test ${url}: ${error instanceof Error ? error.message : String(error)}`
+      )
+    );
     return [];
   }
 }
@@ -264,7 +275,11 @@ async function runAccessibilityTests(): Promise<AccessibilityTestResult[]> {
           wcagLevel,
         });
       } catch (error) {
-        console.error(chalk.red(`    Failed: ${error.message}`));
+        console.error(
+          chalk.red(
+            `    Failed: ${error instanceof Error ? error.message : String(error)}`
+          )
+        );
       }
     }
   }
@@ -577,4 +592,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 
-export { runAccessibilityTests, AccessibilityReport };
+export { runAccessibilityTests };
+export type { AccessibilityReport };
