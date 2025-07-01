@@ -500,6 +500,12 @@ nav .container {
   gap: 4px;
 }
 
+/* Hide mobile-specific elements on desktop */
+.mobile-menu-close,
+.mobile-language-toggle {
+  display: none;
+}
+
 .mobile-menu-toggle span {
   width: 25px;
   height: 3px;

@@ -476,6 +476,27 @@ const getLangPath = (path: string): string => {
               role="menuitem">Impacto</a
             >
           </li>
+          <!-- Language toggle for mobile -->
+          <li class="mobile-language-toggle" role="none">
+            <div class="language-options">
+              <a
+                href={currentPath.replace(/^\/(es|en)/, '/es')}
+                class:list={currentLang === 'es' ? 'active' : ''}
+                role="menuitem"
+                aria-label="Cambiar a Español"
+              >
+                <span class="emoji-cutout emoji-nav emoji-sm">🇲🇽</span> Español
+              </a>
+              <a
+                href={currentPath.replace(/^\/(es|en)/, '/en')}
+                class:list={currentLang === 'en' ? 'active' : ''}
+                role="menuitem"
+                aria-label="Switch to English"
+              >
+                <span class="emoji-cutout emoji-nav emoji-sm">🇺🇸</span> English
+              </a>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>

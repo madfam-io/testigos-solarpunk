@@ -299,12 +299,12 @@
 
   /* Close button for mobile menu */
   .mobile-menu-close {
+    display: flex !important; /* Override desktop hide */
     position: absolute;
     top: var(--space-lg);
     right: var(--space-lg);
     width: 44px;
     height: 44px;
-    display: flex;
     align-items: center;
     justify-content: center;
     background: var(--bg-primary);
@@ -321,6 +321,55 @@
     transform: rotate(90deg);
     border-color: var(--madfam-yellow);
     color: var(--madfam-yellow);
+  }
+
+  /* Language toggle for mobile */
+  .mobile-language-toggle {
+    display: block !important; /* Override desktop hide */
+    width: 100%;
+    max-width: 300px;
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 2px solid var(--border-subtle);
+  }
+
+  .language-options {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+  }
+
+  .language-options a {
+    flex: 1;
+    max-width: 140px;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 1rem;
+    text-align: center;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-default);
+    transform: rotate(-1deg);
+  }
+
+  .language-options a:nth-child(2) {
+    transform: rotate(1deg);
+  }
+
+  .language-options a:hover {
+    transform: rotate(0deg) translateY(-2px);
+    border-color: var(--madfam-purple);
+    background: var(--bg-elevated);
+    box-shadow:
+      3px 3px 0 var(--madfam-purple),
+      6px 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .language-options a.active {
+    background: var(--madfam-purple);
+    color: var(--text-on-accent, white);
+    border-color: var(--madfam-purple);
+    box-shadow:
+      2px 2px 0 var(--madfam-yellow),
+      4px 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   /* Bottom decoration for mobile menu */
@@ -422,6 +471,15 @@
 }
 .nav-menu.active li:nth-child(5) {
   animation-delay: 0.3s;
+}
+.nav-menu.active li:nth-child(6) {
+  animation-delay: 0.35s;
+}
+.nav-menu.active li:nth-child(7) {
+  animation-delay: 0.4s;
+}
+.nav-menu.active li:nth-child(8) {
+  animation-delay: 0.45s;
 }
 
 /* Reduced motion support */
