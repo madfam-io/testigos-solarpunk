@@ -98,9 +98,6 @@ export function truncateText(text: string, maxLength: number): string {
  * suitable for meta descriptions and preview text.
  *
  * @export
- * @param {string} content - Markdown content to process
- * @param {number} [maxLength=160] - Maximum excerpt length (SEO optimal)
- * @returns {string} Plain text excerpt truncated to maxLength
  *
  * @example
  * ```typescript
@@ -256,9 +253,6 @@ export function stringToColor(str: string): string {
  *
  * @export
  * @template T - Object type with date field
- * @param {T[]} items - Array of items to sort
- * @param {string} [dateField='fecha_publicacion'] - Date field name to sort by
- * @returns {T[]} New array sorted by date descending
  *
  * @example
  * ```typescript

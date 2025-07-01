@@ -218,7 +218,7 @@ const getLangPath = (path: string): string => {
       rel="preload"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      id="font-preload"
     />
     <noscript>
       <link
@@ -226,6 +226,19 @@ const getLangPath = (path: string): string => {
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
       />
     </noscript>
+
+    <!-- Font loading optimization script -->
+    <script>
+      // Optimized font loading without TypeScript warnings
+      (() => {
+        const fontPreload = document.getElementById('font-preload');
+        if (fontPreload instanceof HTMLLinkElement) {
+          fontPreload.addEventListener('load', () => {
+            fontPreload.rel = 'stylesheet';
+          });
+        }
+      })();
+    </script>
 
     <!-- Preload critical font files for even faster loading -->
     <link
@@ -271,34 +284,41 @@ const getLangPath = (path: string): string => {
     <!-- Theme initialization script to prevent FOUC -->
     <script is:inline>
       // Initialize theme before render to prevent flash of unstyled content
-      (function() {
+      (function () {
         const STORAGE_KEY = 'testigos-theme-preference';
         const VARIANT_KEY = 'testigos-theme-variant';
         const SYSTEM_QUERY = '(prefers-color-scheme: dark)';
-        
+
         // Get saved theme or default to 'auto'
         const savedTheme = localStorage.getItem(STORAGE_KEY) || 'auto';
         const savedVariant = localStorage.getItem(VARIANT_KEY) || 'magazine';
         let resolvedTheme;
-        
+
         // Resolve auto theme based on system preference
         if (savedTheme === 'auto') {
-          const prefersDark = window.matchMedia && window.matchMedia(SYSTEM_QUERY).matches;
+          const prefersDark =
+            window.matchMedia && window.matchMedia(SYSTEM_QUERY).matches;
           resolvedTheme = prefersDark ? 'dark' : 'light';
         } else {
           resolvedTheme = savedTheme;
         }
-        
+
         // Apply theme immediately
         document.documentElement.setAttribute('data-theme', resolvedTheme);
-        document.documentElement.setAttribute('data-theme-selection', savedTheme);
-        document.documentElement.setAttribute('data-theme-variant', savedVariant);
-        
+        document.documentElement.setAttribute(
+          'data-theme-selection',
+          savedTheme
+        );
+        document.documentElement.setAttribute(
+          'data-theme-variant',
+          savedVariant
+        );
+
         // Add theme-initialized class for CSS targeting
         document.documentElement.classList.add('theme-initialized');
       })();
     </script>
-    
+
     <!-- Prevent theme flash on load -->
     <style is:inline>
       /* Prevent flash of unstyled content (FOUC) */
@@ -307,7 +327,7 @@ const getLangPath = (path: string): string => {
         --bg-primary: #ffffff;
         --text-primary: #212121;
       }
-      
+
       /* Override with dark theme if detected early */
       @media (prefers-color-scheme: dark) {
         html:not(.theme-initialized) {
@@ -315,10 +335,12 @@ const getLangPath = (path: string): string => {
           --text-primary: #ffffff;
         }
       }
-      
+
       /* Ensure smooth transition when theme loads */
       body {
-        transition: background-color 0.15s ease, color 0.15s ease;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
       }
     </style>
   </head>
@@ -351,7 +373,12 @@ const getLangPath = (path: string): string => {
     >
     </div>
 
-    <nav role="navigation" aria-label={t('aria.nav.main') !== '' ? t('aria.nav.main') : 'Main navigation'}>
+    <nav
+      role="navigation"
+      aria-label={t('aria.nav.main') !== ''
+        ? t('aria.nav.main')
+        : 'Main navigation'}
+    >
       <div class="container">
         <div class="nav-brand">
           <a
@@ -360,7 +387,9 @@ const getLangPath = (path: string): string => {
             currentPath === '/'
               ? 'active'
               : ''}
-            aria-label={t('aria.nav.brand') !== '' ? t('aria.nav.brand') : 'Testigos de Solarpunk home'}
+            aria-label={t('aria.nav.brand') !== ''
+              ? t('aria.nav.brand')
+              : 'Testigos de Solarpunk home'}
           >
             <picture>
               <source
@@ -369,7 +398,9 @@ const getLangPath = (path: string): string => {
               />
               <img
                 src={`${basePath}/images/logo.png`}
-                alt={t('aria.logo.alt') !== '' ? t('aria.logo.alt') : 'Testigos de Solarpunk logo'}
+                alt={t('aria.logo.alt') !== ''
+                  ? t('aria.logo.alt')
+                  : 'Testigos de Solarpunk logo'}
                 class="nav-logo"
                 loading="eager"
                 width="32"
@@ -429,7 +460,9 @@ const getLangPath = (path: string): string => {
             <div
               class="nav-dropdown-menu"
               role="menu"
-              aria-label={t('aria.submenu.content') !== '' ? t('aria.submenu.content') : 'Content submenu'}
+              aria-label={t('aria.submenu.content') !== ''
+                ? t('aria.submenu.content')
+                : 'Content submenu'}
             >
               <a href={getLangPath('contenido/sketches/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🎬</span>

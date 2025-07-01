@@ -20,19 +20,17 @@
 
 /**
  * Props interface for Breadcrumbs component
- *
- * @interface Props
- * @property {Array<BreadcrumbItem>} items - Ordered list of breadcrumb items
- *
- * @typedef {Object} BreadcrumbItem
- * @property {string} label - Display text for the breadcrumb
- * @property {string} [href] - Optional link URL. If omitted, item is treated as current page
  */
+interface BreadcrumbItem {
+  /** Display text for the breadcrumb */
+  label: string;
+  /** Optional link URL. If omitted, item is treated as current page */
+  href?: string;
+}
+
 export interface Props {
-  items: Array<{
-    label: string;
-    href?: string;
-  }>;
+  /** Ordered list of breadcrumb items */
+  items: Array<BreadcrumbItem>;
 }
 
 const { items } = Astro.props;
