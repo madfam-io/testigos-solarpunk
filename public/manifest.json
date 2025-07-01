@@ -14,20 +14,38 @@
   "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
   "icons": [
     {
+      "src": "/testigos-solarpunk/icon-57.png",
+      "sizes": "57x57",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/testigos-solarpunk/icon-60.png",
+      "sizes": "60x60",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "/testigos-solarpunk/icon-72.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/testigos-solarpunk/icon-96.png",
-      "sizes": "96x96",
+      "src": "/testigos-solarpunk/icon-76.png",
+      "sizes": "76x76",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/testigos-solarpunk/icon-128.png",
-      "sizes": "128x128",
+      "src": "/testigos-solarpunk/icon-114.png",
+      "sizes": "114x114",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/testigos-solarpunk/icon-120.png",
+      "sizes": "120x120",
       "type": "image/png",
       "purpose": "any"
     },
@@ -35,29 +53,11 @@
       "src": "/testigos-solarpunk/icon-144.png",
       "sizes": "144x144",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/testigos-solarpunk/icon-152.png",
       "sizes": "152x152",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/testigos-solarpunk/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/testigos-solarpunk/icon-384.png",
-      "sizes": "384x384",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/testigos-solarpunk/icon-512.png",
-      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
