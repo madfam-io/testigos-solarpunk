@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { useTranslations } from '@/i18n/config';
+// import { useTranslations } from '@/i18n/config';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { platformColors } from '../../../lib/script-constants';
 
 const lang = 'en';
-const _t = useTranslations(lang);
+// const _t = useTranslations(lang); // Commented out - unused variable
 const baseUrl = import.meta.env.BASE_URL ?? '';
 const basePath = baseUrl !== '' ? baseUrl.replace(/\/$/, '') : '';
 const scripts: CollectionEntry<'scripts'>[] = await getCollection('scripts');

@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import { useTranslations } from '@/i18n/config';
+// import { useTranslations } from '@/i18n/config';
 
 const lang = 'en';
-const _t = useTranslations(lang);
+// const _t = useTranslations(lang); // Commented out - unused variable
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL

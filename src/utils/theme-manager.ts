@@ -334,7 +334,8 @@ export class ThemeManager {
     } else {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore - Fallback for older browsers
-      mediaQuery.addListener(handleChange);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
+      (mediaQuery as any).addListener(handleChange);
     }
   }
 
@@ -365,7 +366,8 @@ export class ThemeManager {
     } else {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore - Fallback for older browsers
-      mediaQuery.addListener(handleChange);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
+      (mediaQuery as any).addListener(handleChange);
     }
   }
 

@@ -114,6 +114,12 @@
       }
     },
     {
+      "files": ["src/components/OptimizedImage.astro"],
+      "rules": {
+        "astro/no-unused-css-selector": "off"
+      }
+    },
+    {
       "files": ["scripts/*.ts"],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off",

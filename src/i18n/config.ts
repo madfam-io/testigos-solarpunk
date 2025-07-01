@@ -158,7 +158,7 @@ export const ui = {
     'metrics.reach': 'alcance',
 
     // Call to Actions
-    'cta.watch': 'Ver Sketches',
+    'cta.watchSketches': 'Ver Sketches',
     'cta.listen': 'Escuchar Podcast',
     'cta.join': 'Únete a MADLAB',
     'cta.explore': 'Explorar',
@@ -904,7 +904,8 @@ export const ui = {
     // Error pages
     'error.404.title': '404 - Página no encontrada',
     'error.404.heading': 'Página no encontrada',
-    'error.404.message': 'Parece que esta página se perdió en el multiverso solarpunk...',
+    'error.404.message':
+      'Parece que esta página se perdió en el multiverso solarpunk...',
     'error.404.home': 'Volver al Inicio',
     'error.404.explore': 'Explorar Personajes',
 
@@ -922,7 +923,8 @@ export const ui = {
 
     // Under construction
     'construction.title': '🚧 Próximamente',
-    'construction.message': 'Estamos trabajando en traerte algo increíble. Esta sección estará lista muy pronto.',
+    'construction.message':
+      'Estamos trabajando en traerte algo increíble. Esta sección estará lista muy pronto.',
     'construction.explore': '¿Qué tal si exploras esto mientras tanto?',
     'construction.back': 'Volver',
     'construction.close': 'Cerrar modal',
@@ -939,6 +941,9 @@ export const ui = {
 
     // CTAs
     'cta.watch': 'Ver',
+
+    // UI Elements
+    'ui.learn.more': 'Conocer más',
   },
   en: {
     // Site metadata
@@ -1010,7 +1015,7 @@ export const ui = {
     'metrics.reach': 'reach',
 
     // Call to Actions
-    'cta.watch': 'Watch Sketches',
+    'cta.watchSketches': 'Watch Sketches',
     'cta.listen': 'Listen to Podcast',
     'cta.join': 'Join MADLAB',
     'cta.explore': 'Explore',
@@ -1738,7 +1743,8 @@ export const ui = {
     // Error pages
     'error.404.title': '404 - Page not found',
     'error.404.heading': 'Page not found',
-    'error.404.message': 'It seems this page got lost in the solarpunk multiverse...',
+    'error.404.message':
+      'It seems this page got lost in the solarpunk multiverse...',
     'error.404.home': 'Back to Home',
     'error.404.explore': 'Explore Characters',
 
@@ -1756,7 +1762,8 @@ export const ui = {
 
     // Under construction
     'construction.title': '🚧 Coming Soon',
-    'construction.message': "We're working on bringing you something amazing. This section will be ready very soon.",
+    'construction.message':
+      "We're working on bringing you something amazing. This section will be ready very soon.",
     'construction.explore': 'How about exploring this in the meantime?',
     'construction.back': 'Go Back',
     'construction.close': 'Close modal',
@@ -1773,6 +1780,9 @@ export const ui = {
 
     // CTAs
     'cta.watch': 'Watch',
+
+    // UI Elements
+    'ui.learn.more': 'Learn more',
   },
 } as const;
 
@@ -1804,15 +1814,34 @@ export function detectLanguage(path: string): keyof typeof languages {
  * Translation helper function with fallback support
  */
 export function useTranslations(lang: keyof typeof languages) {
-  return function t(key: keyof (typeof ui)[typeof defaultLang]): string {
+  return function t(
+    key: keyof (typeof ui)[typeof defaultLang],
+    params?: Record<string, string | number>
+  ): string {
     const translation = ui[lang]?.[key];
+    let result = '';
+
     if (translation !== undefined && translation.length > 0) {
-      return translation;
+      result = translation;
+    } else {
+      const defaultTranslation = ui[defaultLang][key];
+      result =
+        defaultTranslation !== undefined && defaultTranslation.length > 0
+          ? defaultTranslation
+          : key;
     }
-    const defaultTranslation = ui[defaultLang][key];
-    return defaultTranslation !== undefined && defaultTranslation.length > 0
-      ? defaultTranslation
-      : key;
+
+    // Replace parameters if provided
+    if (params) {
+      Object.entries(params).forEach(([paramKey, value]) => {
+        result = result.replace(
+          new RegExp(`\\{${paramKey}\\}`, 'g'),
+          String(value)
+        );
+      });
+    }
+
+    return result;
   };
 }
 

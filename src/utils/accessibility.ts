@@ -481,9 +481,10 @@ export class A11yTesting {
    */
   static logReport(): void {
     if (import.meta.env.DEV) {
-      const _report = this.runBasicChecks();
+      // const _report = this.runBasicChecks();
       // Accessibility audit completed
       // Results: passed = _report.passed, issues = _report.issues
+      this.runBasicChecks(); // Run checks without storing result
     }
   }
 }
