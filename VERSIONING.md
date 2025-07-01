@@ -97,19 +97,18 @@ BREAKING CHANGE: All APIs have changed"                          # → 1.0.0
 
 ## Release Process
 
-### Automatic (via commit message):
-
-1. Make your changes and commit normally
-2. When ready to release, create a release commit with appropriate trigger
-3. Release Please will create a PR
-4. Merge the PR to create the release
-
-### Manual (via GitHub UI):
+### Manual Release (via GitHub UI):
 
 1. Go to Actions → Manual Release
-2. Select version bump type
-3. Add release notes (optional)
-4. The workflow creates a release commit and triggers Release Please
+2. Select version bump type (patch/minor/major)
+3. Add release notes describing the changes
+4. The workflow will create a new release and tag
+
+### Using Git Tags:
+
+1. Create a tag with the new version: `git tag v0.1.0`
+2. Push the tag: `git push origin v0.1.0`
+3. Create a release from the tag in GitHub UI
 
 ## Best Practices
 

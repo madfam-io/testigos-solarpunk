@@ -281,27 +281,30 @@ git push origin feature/tu-rama
 
 ## 🚢 Proceso de Release
 
-### Releases Automáticos
+### Sistema de Releases Controlados
 
-Este proyecto usa [Release Please](https://github.com/googleapis/release-please) para automatizar el proceso de release. Funciona así:
+Este proyecto usa un sistema de releases manuales controlados para mantener versiones significativas:
 
 1. **Commits con Conventional Commits**: Usa el formato estándar en tus commits
 
-   - `feat:` - Nueva característica (incrementa versión minor)
-   - `fix:` - Corrección de bug (incrementa versión patch)
-   - `feat!:` o `BREAKING CHANGE:` - Cambios breaking (incrementa versión major)
+   - `feat:` - Nueva característica
+   - `fix:` - Corrección de bug
+   - `docs:` - Cambios en documentación
+   - `style:` - Cambios de formato
+   - `refactor:` - Refactorización de código
+   - `test:` - Añadir o corregir tests
+   - `chore:` - Tareas de mantenimiento
 
-2. **Release Please Bot**: Automáticamente crea PRs de release cuando detecta cambios
+2. **Cuándo crear un Release**:
 
-   - Actualiza version en package.json
-   - Genera/actualiza CHANGELOG.md
-   - Crea tags y releases en GitHub
+   - **Patch (0.0.1)**: Features completas implementadas
+   - **Minor (0.1.0)**: Conjunto de features relacionadas
+   - **Major (1.0.0)**: Cambios arquitectónicos o breaking changes
 
-3. **Proceso**:
-   - Haz commits siguiendo Conventional Commits
-   - Release Please crea un PR con los cambios de versión
-   - Revisa y mergea el PR de release
-   - Se crea automáticamente el tag y release en GitHub
+3. **Proceso Manual**:
+   - Haz commits normalmente durante el desarrollo
+   - Cuando tengas un conjunto significativo de cambios, crea un release
+   - Usa el workflow manual en GitHub Actions o crea tags manualmente
 
 ### Ejemplo de Flujo
 
@@ -311,12 +314,14 @@ git commit -m "feat(characters): add new solar prophet character"
 git commit -m "fix(navigation): correct mobile menu overlap"
 git push
 
-# Release Please crea PR automáticamente
-# Revisa y aprueba el PR "chore(main): release X.Y.Z"
-# ¡Listo! Se crea el release
+# Cuando estés listo para release
+# Opción 1: Usar GitHub Actions → Manual Release
+# Opción 2: Crear tag manualmente
+git tag v0.3.1
+git push origin v0.3.1
 ```
 
-### Releases Manuales (Emergencia)
+### Releases Manuales
 
 Si necesitas crear un release manual:
 

@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Features
 
-- add Release Please automation for future releases ([85744a4](https://github.com/madfam-io/testigos-solarpunk/commit/85744a43f56a6b4071d35a75c2f7d473fca6121b))
+- add manual release workflow for controlled versioning ([85744a4](https://github.com/madfam-io/testigos-solarpunk/commit/85744a43f56a6b4071d35a75c2f7d473fca6121b))
 
 ### Bug Fixes
 
-- remove deprecated package-name parameter from Release Please workflow ([d6fa1de](https://github.com/madfam-io/testigos-solarpunk/commit/d6fa1de04cdfa9eb0eeb97601f26af9d5846152e))
+- update workflow configuration for better compatibility ([d6fa1de](https://github.com/madfam-io/testigos-solarpunk/commit/d6fa1de04cdfa9eb0eeb97601f26af9d5846152e))
 
 ## [0.2.1] - 2025-06-30
 
