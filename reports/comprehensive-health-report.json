@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-07-01T20:37:10.050Z",
+  "healthScore": 25,
+  "status": "critical",
+  "checks": [
+    {
+      "name": "i18n",
+      "status": "warning",
+      "score": 100,
+      "issues": 2813,
+      "criticalIssues": 0,
+      "summary": "2813 issues found (0 critical)"
+    },
+    {
+      "name": "Theme System",
+      "status": "failed",
+      "score": 0,
+      "issues": -1,
+      "criticalIssues": -1,
+      "summary": "Health check failed to run"
+    },
+    {
+      "name": "Performance",
+      "status": "failed",
+      "score": 0,
+      "issues": -1,
+      "criticalIssues": -1,
+      "summary": "Health check failed to run"
+    },
+    {
+      "name": "Accessibility",
+      "status": "failed",
+      "score": 0,
+      "issues": -1,
+      "criticalIssues": -1,
+      "summary": "Health check failed to run"
+    }
+  ],
+  "recommendations": [
+    "Complete theme variable definitions and fix contrast issues",
+    "Optimize bundle sizes and improve Core Web Vitals",
+    "Fix WCAG violations for compliance"
+  ],
+  "readyForProduction": false
+}

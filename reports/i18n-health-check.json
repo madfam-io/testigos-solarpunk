@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-07-01T16:40:30.199Z",
+  "timestamp": "2025-07-01T20:36:57.136Z",
   "missingTranslations": [],
   "unusedTranslations": [],
   "hardcodedText": [
@@ -36,192 +36,192 @@
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Saltar al contenido principal",
-      "line": 168
+      "line": 167
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "aria-label=\"Navegación principal\"",
-      "line": 171
+      "line": 170
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "aria-label=\"Inicio - Testigos de Solarpunk\"",
-      "line": 177
+      "line": 176
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Testigos de Solarpunk",
-      "line": 179
+      "line": 178
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "aria-label=\"Abrir menú de navegación\"",
-      "line": 185
+      "line": 184
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "aria-label=\"Cambiar tema\"",
-      "line": 302
+      "line": 301
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "title=\"Cambiar entre modo claro y oscuro\"",
-      "line": 303
+      "line": 302
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Universo Creativo",
-      "line": 321
+      "line": 320
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Biblia de Personajes",
-      "line": 324
+      "line": 323
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Repositorio de Guiones",
-      "line": 327
+      "line": 326
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Construcción del Mundo",
-      "line": 329
+      "line": 328
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Para Creadores",
-      "line": 333
+      "line": 332
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Guías y Plantillas",
+      "line": 334
+    },
+    {
+      "file": "layouts/UnifiedLayout.astro",
+      "text": "Guía de Estilo",
       "line": 335
     },
     {
       "file": "layouts/UnifiedLayout.astro",
-      "text": "Guía de Estilo",
-      "line": 336
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
       "text": "Filosofía del Proyecto",
-      "line": 338
+      "line": 337
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Guía Visual",
-      "line": 340
+      "line": 339
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Conecta",
-      "line": 344
+      "line": 343
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Únete a la Comunidad",
-      "line": 347
+      "line": 346
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "Nuestro Impacto",
-      "line": 349
+      "line": 348
     },
     {
       "file": "layouts/UnifiedLayout.astro",
       "text": "aria-label=\"GitHub del proyecto (se abre en nueva ventana)\"",
-      "line": 355
+      "line": 354
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Testigos de Solarpunk",
-      "line": 379
+      "line": 410
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Audio",
-      "line": 544
+      "line": 577
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "aria-label=\"Cambiar a Español\"",
-      "line": 572
+      "line": 605
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "aria-label=\"Switch to English\"",
-      "line": 580
+      "line": 613
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Universo Creativo",
-      "line": 791
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Biblia de Personajes",
-      "line": 794
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Repositorio de Guiones",
-      "line": 797
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Construcción del Mundo",
-      "line": 800
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Para Creadores",
-      "line": 805
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Guías y Plantillas",
-      "line": 807
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Guía de Estilo",
-      "line": 808
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Guía Visual",
-      "line": 809
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Filosofía del Proyecto",
-      "line": 811
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Formatos de Contenido",
-      "line": 814
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Conecta",
-      "line": 819
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Únete a la Comunidad",
-      "line": 822
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "text": "Nuestro Impacto",
       "line": 824
     },
     {
       "file": "layouts/BaseLayout.astro",
+      "text": "Biblia de Personajes",
+      "line": 827
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Repositorio de Guiones",
+      "line": 830
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Construcción del Mundo",
+      "line": 833
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Para Creadores",
+      "line": 838
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Guías y Plantillas",
+      "line": 840
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Guía de Estilo",
+      "line": 841
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Guía Visual",
+      "line": 842
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Filosofía del Proyecto",
+      "line": 844
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Formatos de Contenido",
+      "line": 847
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Conecta",
+      "line": 852
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Únete a la Comunidad",
+      "line": 855
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Nuestro Impacto",
+      "line": 857
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
       "text": "GitHub",
-      "line": 829
+      "line": 862
     },
     {
       "file": "components/UnderConstructionModal.astro",
@@ -1321,7 +1321,7 @@
     {
       "file": "components/layout/Breadcrumbs.astro",
       "text": "aria-label=\"Breadcrumb\"",
-      "line": 62
+      "line": 60
     },
     {
       "file": "pages/es/recursos/index.astro",
@@ -1477,41 +1477,6 @@
       "file": "pages/es/recursos/index.astro",
       "text": "Assets Visuales",
       "line": 238
-    },
-    {
-      "file": "pages/es/personajes/index.astro",
-      "text": "title=\"Personajes\"",
-      "line": 13
-    },
-    {
-      "file": "pages/es/personajes/index.astro",
-      "text": "Personajes del Universo",
-      "line": 16
-    },
-    {
-      "file": "pages/es/personajes/index.astro",
-      "text": "Todos",
-      "line": 28
-    },
-    {
-      "file": "pages/es/personajes/index.astro",
-      "text": "Ver Guiones",
-      "line": 97
-    },
-    {
-      "file": "pages/es/personajes/[slug].astro",
-      "text": "aria-label=\"Navegación de migas de pan\"",
-      "line": 47
-    },
-    {
-      "file": "pages/es/personajes/[slug].astro",
-      "text": "Inicio",
-      "line": 50
-    },
-    {
-      "file": "pages/es/personajes/[slug].astro",
-      "text": "Personajes",
-      "line": 51
     },
     {
       "file": "pages/es/produccion/tono-voz.astro",
@@ -2584,6 +2549,41 @@
       "line": 732
     },
     {
+      "file": "pages/es/personajes/index.astro",
+      "text": "title=\"Personajes\"",
+      "line": 13
+    },
+    {
+      "file": "pages/es/personajes/index.astro",
+      "text": "Personajes del Universo",
+      "line": 16
+    },
+    {
+      "file": "pages/es/personajes/index.astro",
+      "text": "Todos",
+      "line": 28
+    },
+    {
+      "file": "pages/es/personajes/index.astro",
+      "text": "Ver Guiones",
+      "line": 97
+    },
+    {
+      "file": "pages/es/personajes/[slug].astro",
+      "text": "aria-label=\"Navegación de migas de pan\"",
+      "line": 47
+    },
+    {
+      "file": "pages/es/personajes/[slug].astro",
+      "text": "Inicio",
+      "line": 50
+    },
+    {
+      "file": "pages/es/personajes/[slug].astro",
+      "text": "Personajes",
+      "line": 51
+    },
+    {
       "file": "pages/es/mundo/index.astro",
       "text": "title=\"Mundo\"",
       "line": 9
@@ -2907,6 +2907,56 @@
       "file": "pages/es/mundo/azotea-verde-neo-cuernavaca.astro",
       "text": "Guías y recursos disponibles para cualquier comunidad",
       "line": 412
+    },
+    {
+      "file": "pages/es/guiones/index.astro",
+      "text": "title=\"Guiones\"",
+      "line": 23
+    },
+    {
+      "file": "pages/es/guiones/index.astro",
+      "text": "Repositorio de Guiones",
+      "line": 26
+    },
+    {
+      "file": "pages/es/guiones/index.astro",
+      "text": "Episodios Totales",
+      "line": 39
+    },
+    {
+      "file": "pages/es/guiones/index.astro",
+      "text": "TikToks",
+      "line": 43
+    },
+    {
+      "file": "pages/es/guiones/index.astro",
+      "text": "Instagram Reels",
+      "line": 47
+    },
+    {
+      "file": "pages/es/guiones/index.astro",
+      "text": "YouTube Videos",
+      "line": 51
+    },
+    {
+      "file": "pages/es/guiones/index.astro",
+      "text": "Recursos para Creadores",
+      "line": 115
+    },
+    {
+      "file": "pages/es/guiones/[slug].astro",
+      "text": "aria-label=\"Navegación de migas de pan\"",
+      "line": 54
+    },
+    {
+      "file": "pages/es/guiones/[slug].astro",
+      "text": "Inicio",
+      "line": 57
+    },
+    {
+      "file": "pages/es/guiones/[slug].astro",
+      "text": "Guiones",
+      "line": 58
     },
     {
       "file": "pages/es/guia-visual/index.astro",
@@ -3279,56 +3329,6 @@
       "line": 379
     },
     {
-      "file": "pages/es/guiones/index.astro",
-      "text": "title=\"Guiones\"",
-      "line": 23
-    },
-    {
-      "file": "pages/es/guiones/index.astro",
-      "text": "Repositorio de Guiones",
-      "line": 26
-    },
-    {
-      "file": "pages/es/guiones/index.astro",
-      "text": "Episodios Totales",
-      "line": 39
-    },
-    {
-      "file": "pages/es/guiones/index.astro",
-      "text": "TikToks",
-      "line": 43
-    },
-    {
-      "file": "pages/es/guiones/index.astro",
-      "text": "Instagram Reels",
-      "line": 47
-    },
-    {
-      "file": "pages/es/guiones/index.astro",
-      "text": "YouTube Videos",
-      "line": 51
-    },
-    {
-      "file": "pages/es/guiones/index.astro",
-      "text": "Recursos para Creadores",
-      "line": 115
-    },
-    {
-      "file": "pages/es/guiones/[slug].astro",
-      "text": "aria-label=\"Navegación de migas de pan\"",
-      "line": 54
-    },
-    {
-      "file": "pages/es/guiones/[slug].astro",
-      "text": "Inicio",
-      "line": 57
-    },
-    {
-      "file": "pages/es/guiones/[slug].astro",
-      "text": "Guiones",
-      "line": 58
-    },
-    {
       "file": "pages/es/formatos/index.astro",
       "text": "title=\"Formatos de Contenido\"",
       "line": 16
@@ -3512,6 +3512,266 @@
       "file": "pages/es/formatos/index.astro",
       "text": "Merchandising y expansión comunitaria",
       "line": 233
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "title=\"Filosofía del Proyecto\"",
+      "line": 16
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "La Visión Evangelizadora",
+      "line": 26
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Concepto Central",
+      "line": 39
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Testigos de Solar Punk",
+      "line": 41
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Comedia Absurda",
+      "line": 48
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Humor que desarma mientras educa",
+      "line": 49
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Ciencia Ficción Utópica",
+      "line": 53
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Un futuro brillante y posible",
+      "line": 54
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Activismo Ambiental",
+      "line": 58
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Acción directa con sonrisas",
+      "line": 59
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Storytelling Educativo",
+      "line": 63
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Aprender sin darse cuenta",
+      "line": 64
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Objetivos del Proyecto",
+      "line": 73
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Satirizar",
+      "line": 80
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Difundir",
+      "line": 92
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Fomentar",
+      "line": 103
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Viralizar",
+      "line": 114
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Honrarás al Sol y sus paneles todos los días",
+      "line": 136
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "No desperdiciarás energía en vano",
+      "line": 140
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Compostarás religiosamente tus desechos orgánicos",
+      "line": 144
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Compartirás tu cosecha con el prójimo",
+      "line": 148
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "No comprarás lo que puedas reparar",
+      "line": 152
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Sembrarás donde otros solo ven concreto",
+      "line": 156
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Predicarás con el ejemplo sostenible",
+      "line": 160
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Pedalearás antes que contaminar",
+      "line": 164
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Amarás el futuro como a ti mismo",
+      "line": 172
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Palabras de los Profetas",
+      "line": 180
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Hoja de Ruta de la Evangelización",
+      "line": 212
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Guión piloto del primer sketch",
+      "line": 222
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Casting de evangelistas",
+      "line": 223
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Diseño de vestuario reciclado",
+      "line": 224
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Creación de perfiles de personajes",
+      "line": 225
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Lanzamiento en redes sociales",
+      "line": 237
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Creación de folletos digitales",
+      "line": 238
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Desarrollo del sitio web",
+      "line": 239
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Lanzamiento del podcast",
+      "line": 251
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Eventos de evangelización en vivo",
+      "line": 253
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Expansión a nuevas plataformas",
+      "line": 264
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Colaboraciones con influencers eco",
+      "line": 265
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Merchandising sustentable",
+      "line": 266
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Referencias Creativas",
+      "line": 276
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "The Yes Men",
+      "line": 281
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Activismo performático",
+      "line": 282
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Bo Burnham",
+      "line": 286
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Comedia existencial",
+      "line": 287
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Solarpunk Anthology",
+      "line": 291
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Estética y valores",
+      "line": 292
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Estilo visual único",
+      "line": 297
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "The Good Place",
+      "line": 301
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Filosofía accesible",
+      "line": 302
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Studio Ghibli",
+      "line": 306
+    },
+    {
+      "file": "pages/es/filosofia/index.astro",
+      "text": "Naturaleza animada",
+      "line": 307
     },
     {
       "file": "pages/es/contenido/sketches.astro",
@@ -3944,266 +4204,6 @@
       "line": 198
     },
     {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "title=\"Filosofía del Proyecto\"",
-      "line": 16
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "La Visión Evangelizadora",
-      "line": 26
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Concepto Central",
-      "line": 39
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Testigos de Solar Punk",
-      "line": 41
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Comedia Absurda",
-      "line": 48
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Humor que desarma mientras educa",
-      "line": 49
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Ciencia Ficción Utópica",
-      "line": 53
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Un futuro brillante y posible",
-      "line": 54
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Activismo Ambiental",
-      "line": 58
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Acción directa con sonrisas",
-      "line": 59
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Storytelling Educativo",
-      "line": 63
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Aprender sin darse cuenta",
-      "line": 64
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Objetivos del Proyecto",
-      "line": 73
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Satirizar",
-      "line": 80
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Difundir",
-      "line": 92
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Fomentar",
-      "line": 103
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Viralizar",
-      "line": 114
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Honrarás al Sol y sus paneles todos los días",
-      "line": 136
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "No desperdiciarás energía en vano",
-      "line": 140
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Compostarás religiosamente tus desechos orgánicos",
-      "line": 144
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Compartirás tu cosecha con el prójimo",
-      "line": 148
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "No comprarás lo que puedas reparar",
-      "line": 152
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Sembrarás donde otros solo ven concreto",
-      "line": 156
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Predicarás con el ejemplo sostenible",
-      "line": 160
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Pedalearás antes que contaminar",
-      "line": 164
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Amarás el futuro como a ti mismo",
-      "line": 172
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Palabras de los Profetas",
-      "line": 180
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Hoja de Ruta de la Evangelización",
-      "line": 212
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Guión piloto del primer sketch",
-      "line": 222
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Casting de evangelistas",
-      "line": 223
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Diseño de vestuario reciclado",
-      "line": 224
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Creación de perfiles de personajes",
-      "line": 225
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Lanzamiento en redes sociales",
-      "line": 237
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Creación de folletos digitales",
-      "line": 238
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Desarrollo del sitio web",
-      "line": 239
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Lanzamiento del podcast",
-      "line": 251
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Eventos de evangelización en vivo",
-      "line": 253
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Expansión a nuevas plataformas",
-      "line": 264
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Colaboraciones con influencers eco",
-      "line": 265
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Merchandising sustentable",
-      "line": 266
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Referencias Creativas",
-      "line": 276
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "The Yes Men",
-      "line": 281
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Activismo performático",
-      "line": 282
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Bo Burnham",
-      "line": 286
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Comedia existencial",
-      "line": 287
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Solarpunk Anthology",
-      "line": 291
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Estética y valores",
-      "line": 292
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Estilo visual único",
-      "line": 297
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "The Good Place",
-      "line": 301
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Filosofía accesible",
-      "line": 302
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Studio Ghibli",
-      "line": 306
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "text": "Naturaleza animada",
-      "line": 307
-    },
-    {
       "file": "pages/en/world/green-roof-neo-cuernavaca.astro",
       "text": "aria-label=\"Breadcrumb navigation\"",
       "line": 24
@@ -4624,6 +4624,161 @@
       "line": 61
     },
     {
+      "file": "pages/en/resources/index.astro",
+      "text": "title=\"Recursos\"",
+      "line": 18
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Centro de Recursos",
+      "line": 21
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Plantillas de Guiones",
+      "line": 50
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Formatos optimizados para cada plataforma",
+      "line": 51
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Fichas de Personajes",
+      "line": 62
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Perfiles detallados para desarrollo narrativo",
+      "line": 63
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Guía de Construcción del Mundo",
+      "line": 74
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Reglas y coherencia del universo solarpunk",
+      "line": 75
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Recursos para dar vida a los personajes",
+      "line": 86
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Análisis de Personajes",
+      "line": 97
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Guías de Diálogo",
+      "line": 109
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Referencias de Movimiento",
+      "line": 121
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Gestualidad y presencia física",
+      "line": 122
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Oportunidades de colaboración e impacto",
+      "line": 133
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Reporte de Impacto",
+      "line": 144
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Métricas de alcance y engagement",
+      "line": 145
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Oportunidades de Integración",
+      "line": 156
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Formas orgánicas de participar en las historias",
+      "line": 157
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Alineación de Valores",
+      "line": 168
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Filosofía y principios del proyecto",
+      "line": 169
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Filosofía Solarpunk",
+      "line": 180
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Optimismo Radical",
+      "line": 183
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Acción Local",
+      "line": 190
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Tecnología Apropiada",
+      "line": 197
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Diversidad Regenerativa",
+      "line": 204
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Descargas Rápidas",
+      "line": 215
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Accede a los recursos más utilizados",
+      "line": 216
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Biblia de Personajes",
+      "line": 223
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Guía del Mundo",
+      "line": 228
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Kit de Prensa",
+      "line": 233
+    },
+    {
+      "file": "pages/en/resources/index.astro",
+      "text": "Assets Visuales",
+      "line": 241
+    },
+    {
       "file": "pages/en/philosophy/index.astro",
       "text": "La Visión Evangelizadora",
       "line": 29
@@ -4877,161 +5032,6 @@
       "file": "pages/en/philosophy/index.astro",
       "text": "Naturaleza animada",
       "line": 310
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "title=\"Recursos\"",
-      "line": 18
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Centro de Recursos",
-      "line": 21
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Plantillas de Guiones",
-      "line": 50
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Formatos optimizados para cada plataforma",
-      "line": 51
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Fichas de Personajes",
-      "line": 62
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Perfiles detallados para desarrollo narrativo",
-      "line": 63
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Guía de Construcción del Mundo",
-      "line": 74
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Reglas y coherencia del universo solarpunk",
-      "line": 75
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Recursos para dar vida a los personajes",
-      "line": 86
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Análisis de Personajes",
-      "line": 97
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Guías de Diálogo",
-      "line": 109
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Referencias de Movimiento",
-      "line": 121
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Gestualidad y presencia física",
-      "line": 122
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Oportunidades de colaboración e impacto",
-      "line": 133
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Reporte de Impacto",
-      "line": 144
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Métricas de alcance y engagement",
-      "line": 145
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Oportunidades de Integración",
-      "line": 156
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Formas orgánicas de participar en las historias",
-      "line": 157
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Alineación de Valores",
-      "line": 168
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Filosofía y principios del proyecto",
-      "line": 169
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Filosofía Solarpunk",
-      "line": 180
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Optimismo Radical",
-      "line": 183
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Acción Local",
-      "line": 190
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Tecnología Apropiada",
-      "line": 197
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Diversidad Regenerativa",
-      "line": 204
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Descargas Rápidas",
-      "line": 215
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Accede a los recursos más utilizados",
-      "line": 216
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Biblia de Personajes",
-      "line": 223
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Guía del Mundo",
-      "line": 228
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Kit de Prensa",
-      "line": 233
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Assets Visuales",
-      "line": 241
     },
     {
       "file": "pages/en/production/visual-style.astro",
@@ -6144,6 +6144,11 @@
       "line": 236
     },
     {
+      "file": "pages/en/characters/[slug].astro",
+      "text": "aria-label=\"Breadcrumb navigation\"",
+      "line": 50
+    },
+    {
       "file": "pages/en/content/madlab.astro",
       "text": "Escuelas objetivo",
       "line": 39
@@ -6402,11 +6407,6 @@
       "file": "pages/en/content/index.astro",
       "text": "Eventos que generan cambio real",
       "line": 202
-    },
-    {
-      "file": "pages/en/characters/[slug].astro",
-      "text": "aria-label=\"Breadcrumb navigation\"",
-      "line": 50
     },
     {
       "file": "pages/es/recursos/patrocinadores/index.astro",
@@ -9219,6 +9219,281 @@
       "line": 325
     },
     {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "title=\"Plantillas de Guiones\"",
+      "line": 16
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Plantillas de Guiones",
+      "line": 26
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Estructura Básica",
+      "line": 46
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Captura atención inmediata",
+      "line": 48
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Elementos Clave",
+      "line": 59
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Lenguaje directo y coloquial",
+      "line": 62
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Visual dinámico con cortes rápidos",
+      "line": 63
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Subtítulos siempre incluidos",
+      "line": 64
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "YouTube Shorts",
+      "line": 72
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Estructura Extendida",
+      "line": 75
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Presentación del tema",
+      "line": 77
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Sketch principal",
+      "line": 78
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Características",
+      "line": 83
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Posibilidad de narración más profunda",
+      "line": 86
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Incluir elementos educativos",
+      "line": 87
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Hashtags estratégicos en descripción",
+      "line": 88
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Instagram Stories",
+      "line": 96
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Formato Secuencial",
+      "line": 99
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Desarrollo e interacción",
+      "line": 102
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Resolución y mensaje",
+      "line": 103
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Interactividad",
+      "line": 105
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Polls sobre decisiones sostenibles",
+      "line": 107
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Stickers de preguntas",
+      "line": 108
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Música de fondo acorde al tema",
+      "line": 110
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Estructura Narrativa",
+      "line": 121
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Presentación y contexto",
+      "line": 123
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Desarrollo del sketch",
+      "line": 124
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Elementos Audio",
+      "line": 132
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Efectos de sonido ambientales",
+      "line": 134
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Música de transición",
+      "line": 135
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Voces diferenciadas por personaje",
+      "line": 136
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Pausas dramáticas efectivas",
+      "line": 137
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Tono y Estilo",
+      "line": 154
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Humor optimista y esperanzador",
+      "line": 156
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Lenguaje inclusivo y accesible",
+      "line": 157
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Evitar predicar o ser condescendiente",
+      "line": 158
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Personajes",
+      "line": 164
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Mantener consistencia en personalidades",
+      "line": 166
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Usar relaciones establecidas entre personajes",
+      "line": 167
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Mostrar crecimiento y evolución",
+      "line": 168
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Incluir diversidad en representación",
+      "line": 169
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Mensaje Solarpunk",
+      "line": 174
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Soluciones prácticas y realizables",
+      "line": 176
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Comunidad como centro de cambio",
+      "line": 177
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Tecnología apropiada y sostenible",
+      "line": 178
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Aspectos Técnicos",
+      "line": 184
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Audio claro y comprensible",
+      "line": 186
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Subtítulos en todos los videos",
+      "line": 187
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Colores vibrantes y naturales",
+      "line": 188
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Transiciones suaves entre escenas",
+      "line": 189
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Formato PDF editable",
+      "line": 211
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Plantilla YouTube",
+      "line": 220
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Formato PDF editable",
+      "line": 221
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Plantilla Podcast",
+      "line": 230
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "text": "Formato PDF editable",
+      "line": 231
+    },
+    {
       "file": "pages/es/recursos/creadores/personajes/index.astro",
       "text": "title=\"Fichas de Personajes\"",
       "line": 16
@@ -9669,279 +9944,534 @@
       "line": 339
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "title=\"Plantillas de Guiones\"",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "title=\"Análisis de Personajes para Actores\"",
       "line": 16
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Plantillas de Guiones",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Análisis de Personajes",
       "line": 26
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Estructura Básica",
-      "line": 46
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Motivaciones Centrales",
+      "line": 45
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Captura atención inmediata",
-      "line": 48
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Transformar desesperanza en esperanza",
+      "line": 47
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Elementos Clave",
-      "line": 59
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Salvar el planeta a través de la comunidad",
+      "line": 55
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Lenguaje directo y coloquial",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Encontrar propósito espiritual en lo práctico",
       "line": 62
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Visual dinámico con cortes rápidos",
-      "line": 63
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Psicología del Personaje",
+      "line": 71
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Subtítulos siempre incluidos",
-      "line": 64
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Fortalezas",
+      "line": 73
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "YouTube Shorts",
-      "line": 72
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Estructura Extendida",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Optimismo contagioso e inquebrantable",
       "line": 75
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Presentación del tema",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Capacidad de conectar con extraños",
+      "line": 76
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Energía inagotable para la causa",
       "line": 77
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Sketch principal",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Creatividad para encontrar analogías",
       "line": 78
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Características",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Paciencia con los escépticos",
+      "line": 79
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Vulnerabilidades",
       "line": 83
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Posibilidad de narración más profunda",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Puede sonar predicadora sin intención",
+      "line": 85
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "A veces ignora señales de rechazo",
       "line": 86
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Incluir elementos educativos",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Necesita validación constante de su misión",
       "line": 87
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Hashtags estratégicos en descripción",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Miedo secreto al fracaso del movimiento",
       "line": 88
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Instagram Stories",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Tendencia a trabajar hasta el agotamiento",
+      "line": 89
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Arco de Desarrollo",
       "line": 96
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Formato Secuencial",
-      "line": 99
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Desarrollo e interacción",
-      "line": 102
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Resolución y mensaje",
-      "line": 103
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Interactividad",
-      "line": 105
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Polls sobre decisiones sostenibles",
-      "line": 107
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Stickers de preguntas",
-      "line": 108
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Música de fondo acorde al tema",
-      "line": 110
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Estructura Narrativa",
-      "line": 121
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Presentación y contexto",
-      "line": 123
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Desarrollo del sketch",
-      "line": 124
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Elementos Audio",
-      "line": 132
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Efectos de sonido ambientales",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Motivaciones Centrales",
       "line": 134
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Música de transición",
-      "line": 135
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Voces diferenciadas por personaje",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Demostrar la sabiduría de los ciclos naturales",
       "line": 136
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Pausas dramáticas efectivas",
-      "line": 137
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Sanar la relación humana con los residuos",
+      "line": 143
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Tono y Estilo",
-      "line": 154
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Ser el equilibrio terrenal del grupo",
+      "line": 150
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Humor optimista y esperanzador",
-      "line": 156
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Psicología del Personaje",
+      "line": 159
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Lenguaje inclusivo y accesible",
-      "line": 157
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Fortalezas",
+      "line": 161
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Evitar predicar o ser condescendiente",
-      "line": 158
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Paciencia infinita con los procesos",
+      "line": 163
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Personajes",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Conexión profunda con ritmos naturales",
       "line": 164
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Mantener consistencia en personalidades",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Humor sutil y sabio",
+      "line": 165
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Capacidad de encontrar belleza en lo ordinario",
       "line": 166
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Usar relaciones establecidas entre personajes",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Presencia calmante y estabilizadora",
       "line": 167
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Mostrar crecimiento y evolución",
-      "line": 168
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Vulnerabilidades",
+      "line": 171
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Incluir diversidad en representación",
-      "line": 169
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Puede parecer demasiado lento para urgencias",
+      "line": 173
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Mensaje Solarpunk",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "A veces es críptico en sus explicaciones",
       "line": 174
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Soluciones prácticas y realizables",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Resistencia al cambio rápido",
+      "line": 175
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Tendencia a filosofar en momentos prácticos",
       "line": 176
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Comunidad como centro de cambio",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Dificultad con tecnología muy avanzada",
       "line": 177
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Tecnología apropiada y sostenible",
-      "line": 178
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Aspectos Técnicos",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Arco de Desarrollo",
       "line": 184
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Audio claro y comprensible",
-      "line": 186
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Método de Construcción Emocional",
+      "line": 222
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Subtítulos en todos los videos",
-      "line": 187
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Para Panelia",
+      "line": 224
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Colores vibrantes y naturales",
-      "line": 188
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Para Compostino",
+      "line": 244
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Transiciones suaves entre escenas",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Construcción de Relaciones",
+      "line": 266
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Panelia busca la validación de Compostino",
+      "line": 273
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Compostino ancla la energía dispersa de Panelia",
+      "line": 274
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Con Conversos Potenciales",
+      "line": 281
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Leer el lenguaje corporal para adaptar la aproximación",
+      "line": 286
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Encontrar puntos de conexión personal antes del mensaje",
+      "line": 287
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Respetar el espacio y tiempo del otro",
+      "line": 288
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Celebrar pequeños progresos sin presionar",
+      "line": 289
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Improvisación Guiada",
+      "line": 295
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "El Approach Inicial",
+      "line": 337
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Manejo de Objeciones",
+      "line": 355
+    },
+    {
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "text": "Momentos de Celebración",
+      "line": 373
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "title=\"Guías de Diálogo\"",
+      "line": 16
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Guías de Diálogo",
+      "line": 26
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Características del Habla",
+      "line": 45
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Acelera al hablar de sus pasiones",
+      "line": 49
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Hace pausas dramáticas antes de revelaciones",
+      "line": 50
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Ralentiza al explicar conceptos complejos",
+      "line": 51
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Inflexiones ascendentes al hacer preguntas",
+      "line": 60
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Proyección clara sin ser agresiva",
+      "line": 62
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Vocabulario religioso transformado a ecológico",
+      "line": 70
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Ejemplos de Diálogos",
+      "line": 78
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Aproximación Inicial",
+      "line": 80
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Manejando Objeciones",
+      "line": 99
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Momento de Victoria",
+      "line": 123
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Características del Habla",
+      "line": 156
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Habla en el tiempo de la naturaleza",
+      "line": 160
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Silencios largos y cómodos",
+      "line": 161
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Respiración visible y profunda",
+      "line": 163
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Sabiduría folclórica y dichos terrenos",
+      "line": 182
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Analogías con procesos naturales",
+      "line": 183
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Ejemplos de Diálogos",
       "line": 189
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Formato PDF editable",
-      "line": 211
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Aproximación Inicial",
+      "line": 191
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Plantilla YouTube",
-      "line": 220
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Explicando el Proceso",
+      "line": 210
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Formato PDF editable",
-      "line": 221
-    },
-    {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Plantilla Podcast",
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Momento Filosófico",
       "line": 230
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
-      "text": "Formato PDF editable",
-      "line": 231
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "El Dúo Evangelista",
+      "line": 263
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Dinámica de Complemento",
+      "line": 265
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Usan el contacto visual para coordinar transiciones",
+      "line": 303
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Adaptación a la Audiencia",
+      "line": 309
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Lectura de Personalidades",
+      "line": 311
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "El Idealista Joven",
+      "line": 328
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "El Pragmático Ocupado",
+      "line": 339
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Gestión de Conflictos",
+      "line": 352
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Cuando Enfrentan Hostilidad",
+      "line": 354
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Nunca contradicen directamente",
+      "line": 383
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Reconocen la validez de las preocupaciones",
+      "line": 384
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Buscan puntos de acuerdo genuino",
+      "line": 385
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Transforman objeciones en oportunidades de diálogo",
+      "line": 386
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Velocidad de Habla",
+      "line": 406
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Ajustar según la duración del video",
+      "line": 412
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Pausas estratégicas para puntos clave",
+      "line": 413
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Proyección y Articulación",
+      "line": 416
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Consonantes claras para subtítulos automáticos",
+      "line": 418
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Proyección suficiente sin gritar",
+      "line": 419
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Modulación rica para mantener interés",
+      "line": 420
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Evitar monotonía en videos largos",
+      "line": 421
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Calidad de Voz",
+      "line": 429
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Evitar picos y distorsión",
+      "line": 432
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Mantener distancia consistente del micrófono",
+      "line": 433
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Ritmo Narrativo",
+      "line": 437
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Variación en velocidad según contenido",
+      "line": 439
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Pausas dramáticas más largas que en video",
+      "line": 440
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Transiciones suaves entre temas",
+      "line": 441
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Cliffhangers al final de segmentos",
+      "line": 442
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Improvisación Guiada",
+      "line": 449
     },
     {
       "file": "pages/es/recursos/actores/movimiento/index.astro",
@@ -10242,536 +10772,6 @@
       "file": "pages/es/recursos/actores/movimiento/index.astro",
       "text": "Ejercicios de Práctica",
       "line": 458
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "title=\"Guías de Diálogo\"",
-      "line": 16
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Guías de Diálogo",
-      "line": 26
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Características del Habla",
-      "line": 45
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Acelera al hablar de sus pasiones",
-      "line": 49
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Hace pausas dramáticas antes de revelaciones",
-      "line": 50
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Ralentiza al explicar conceptos complejos",
-      "line": 51
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Inflexiones ascendentes al hacer preguntas",
-      "line": 60
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Proyección clara sin ser agresiva",
-      "line": 62
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Vocabulario religioso transformado a ecológico",
-      "line": 70
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Ejemplos de Diálogos",
-      "line": 78
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Aproximación Inicial",
-      "line": 80
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Manejando Objeciones",
-      "line": 99
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Momento de Victoria",
-      "line": 123
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Características del Habla",
-      "line": 156
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Habla en el tiempo de la naturaleza",
-      "line": 160
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Silencios largos y cómodos",
-      "line": 161
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Respiración visible y profunda",
-      "line": 163
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Sabiduría folclórica y dichos terrenos",
-      "line": 182
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Analogías con procesos naturales",
-      "line": 183
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Ejemplos de Diálogos",
-      "line": 189
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Aproximación Inicial",
-      "line": 191
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Explicando el Proceso",
-      "line": 210
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Momento Filosófico",
-      "line": 230
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "El Dúo Evangelista",
-      "line": 263
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Dinámica de Complemento",
-      "line": 265
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Usan el contacto visual para coordinar transiciones",
-      "line": 303
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Adaptación a la Audiencia",
-      "line": 309
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Lectura de Personalidades",
-      "line": 311
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "El Idealista Joven",
-      "line": 328
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "El Pragmático Ocupado",
-      "line": 339
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Gestión de Conflictos",
-      "line": 352
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Cuando Enfrentan Hostilidad",
-      "line": 354
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Nunca contradicen directamente",
-      "line": 383
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Reconocen la validez de las preocupaciones",
-      "line": 384
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Buscan puntos de acuerdo genuino",
-      "line": 385
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Transforman objeciones en oportunidades de diálogo",
-      "line": 386
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Velocidad de Habla",
-      "line": 406
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Ajustar según la duración del video",
-      "line": 412
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Pausas estratégicas para puntos clave",
-      "line": 413
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Proyección y Articulación",
-      "line": 416
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Consonantes claras para subtítulos automáticos",
-      "line": 418
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Proyección suficiente sin gritar",
-      "line": 419
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Modulación rica para mantener interés",
-      "line": 420
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Evitar monotonía en videos largos",
-      "line": 421
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Calidad de Voz",
-      "line": 429
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Evitar picos y distorsión",
-      "line": 432
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Mantener distancia consistente del micrófono",
-      "line": 433
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Ritmo Narrativo",
-      "line": 437
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Variación en velocidad según contenido",
-      "line": 439
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Pausas dramáticas más largas que en video",
-      "line": 440
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Transiciones suaves entre temas",
-      "line": 441
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Cliffhangers al final de segmentos",
-      "line": 442
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Improvisación Guiada",
-      "line": 449
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "title=\"Análisis de Personajes para Actores\"",
-      "line": 16
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Análisis de Personajes",
-      "line": 26
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Motivaciones Centrales",
-      "line": 45
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Transformar desesperanza en esperanza",
-      "line": 47
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Salvar el planeta a través de la comunidad",
-      "line": 55
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Encontrar propósito espiritual en lo práctico",
-      "line": 62
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Psicología del Personaje",
-      "line": 71
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Fortalezas",
-      "line": 73
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Optimismo contagioso e inquebrantable",
-      "line": 75
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Capacidad de conectar con extraños",
-      "line": 76
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Energía inagotable para la causa",
-      "line": 77
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Creatividad para encontrar analogías",
-      "line": 78
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Paciencia con los escépticos",
-      "line": 79
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Vulnerabilidades",
-      "line": 83
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Puede sonar predicadora sin intención",
-      "line": 85
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "A veces ignora señales de rechazo",
-      "line": 86
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Necesita validación constante de su misión",
-      "line": 87
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Miedo secreto al fracaso del movimiento",
-      "line": 88
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Tendencia a trabajar hasta el agotamiento",
-      "line": 89
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Arco de Desarrollo",
-      "line": 96
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Motivaciones Centrales",
-      "line": 134
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Demostrar la sabiduría de los ciclos naturales",
-      "line": 136
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Sanar la relación humana con los residuos",
-      "line": 143
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Ser el equilibrio terrenal del grupo",
-      "line": 150
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Psicología del Personaje",
-      "line": 159
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Fortalezas",
-      "line": 161
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Paciencia infinita con los procesos",
-      "line": 163
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Conexión profunda con ritmos naturales",
-      "line": 164
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Humor sutil y sabio",
-      "line": 165
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Capacidad de encontrar belleza en lo ordinario",
-      "line": 166
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Presencia calmante y estabilizadora",
-      "line": 167
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Vulnerabilidades",
-      "line": 171
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Puede parecer demasiado lento para urgencias",
-      "line": 173
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "A veces es críptico en sus explicaciones",
-      "line": 174
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Resistencia al cambio rápido",
-      "line": 175
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Tendencia a filosofar en momentos prácticos",
-      "line": 176
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Dificultad con tecnología muy avanzada",
-      "line": 177
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Arco de Desarrollo",
-      "line": 184
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Método de Construcción Emocional",
-      "line": 222
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Para Panelia",
-      "line": 224
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Para Compostino",
-      "line": 244
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Construcción de Relaciones",
-      "line": 266
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Panelia busca la validación de Compostino",
-      "line": 273
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Compostino ancla la energía dispersa de Panelia",
-      "line": 274
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Con Conversos Potenciales",
-      "line": 281
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Leer el lenguaje corporal para adaptar la aproximación",
-      "line": 286
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Encontrar puntos de conexión personal antes del mensaje",
-      "line": 287
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Respetar el espacio y tiempo del otro",
-      "line": 288
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Celebrar pequeños progresos sin presionar",
-      "line": 289
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Improvisación Guiada",
-      "line": 295
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "El Approach Inicial",
-      "line": 337
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Manejo de Objeciones",
-      "line": 355
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "text": "Momentos de Celebración",
-      "line": 373
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
@@ -11349,321 +11349,6 @@
       "line": 535
     },
     {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "title=\"Reporte de Impacto\"",
-      "line": 20
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Reporte de Impacto",
-      "line": 30
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Alcance Total",
-      "line": 49
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Impresiones mensuales proyectadas",
-      "line": 51
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Engagement Rate",
-      "line": 54
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Conversión a Acción",
-      "line": 59
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Usuarios que implementan consejos",
-      "line": 61
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "ROI Social",
-      "line": 64
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Retorno en cambio de comportamiento",
-      "line": 66
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Demografía Principal",
-      "line": 82
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Edad",
-      "line": 85
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Ubicación",
-      "line": 94
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Intereses",
-      "line": 104
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Perfiles de Buyer Personas",
-      "line": 117
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Alto",
-      "line": 125
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Muy alto",
-      "line": 134
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Alto",
-      "line": 143
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "High",
-      "line": 151
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Muy alto",
-      "line": 152
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "TikTok",
-      "line": 172
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Insights Clave",
-      "line": 197
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Instagram",
-      "line": 210
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Insights Clave",
-      "line": 235
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "YouTube",
-      "line": 248
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Insights Clave",
-      "line": 273
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Insights Clave",
-      "line": 311
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Audiencia más comprometida y educada",
-      "line": 313
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Alto engagement con sponsors",
-      "line": 316
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Cambios de Comportamiento",
-      "line": 333
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Adopción de Energía Solar",
-      "line": 336
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Compostaje Doméstico",
-      "line": 341
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Hogares que iniciaron compostaje",
-      "line": 343
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Reducción de Desperdicios",
-      "line": 346
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Promedio de reducción reportada",
-      "line": 348
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Impacto Económico",
-      "line": 354
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Ahorro en Energía",
-      "line": 357
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Ahorro anual estimado de la comunidad",
-      "line": 359
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Empleos Verdes Generados",
-      "line": 362
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Nuevos empleos en el ecosistema",
-      "line": 364
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Inversión Atraída",
-      "line": 367
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "En tecnologías verdes por influencia del contenido",
-      "line": 369
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Impacto Ambiental",
-      "line": 375
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Toneladas anuales por cambios adoptados",
-      "line": 380
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Agua Ahorrada",
-      "line": 383
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Litros mensuales por prácticas implementadas",
-      "line": 385
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Residuos Desviados",
-      "line": 388
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Toneladas mensuales del relleno sanitario",
-      "line": 390
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Integración de Contenido",
-      "line": 407
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Beneficios",
-      "line": 423
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Integración orgánica en narrativa",
-      "line": 425
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Asociación con valores sostenibles",
-      "line": 426
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Audiencia altamente segmentada",
-      "line": 427
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Contenido evergreen",
-      "line": 428
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Desarrollo de Productos",
-      "line": 434
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Beneficios",
-      "line": 450
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Reducción de riesgo de producto",
-      "line": 454
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Channel directo de distribución",
-      "line": 455
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Eventos y Experiencias",
-      "line": 461
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Beneficios",
-      "line": 477
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Demostración práctica de productos",
-      "line": 479
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Networking con decision makers",
-      "line": 480
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Generación de leads calificados",
-      "line": 481
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Contenido de valor agregado",
-      "line": 482
-    },
-    {
       "file": "pages/en/resources/sponsors/integration/index.astro",
       "text": "title=\"Oportunidades de Integración\"",
       "line": 20
@@ -12197,6 +11882,321 @@
       "file": "pages/en/resources/sponsors/integration/index.astro",
       "text": "Ideal Para",
       "line": 570
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "title=\"Reporte de Impacto\"",
+      "line": 20
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Reporte de Impacto",
+      "line": 30
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Alcance Total",
+      "line": 49
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Impresiones mensuales proyectadas",
+      "line": 51
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Engagement Rate",
+      "line": 54
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Conversión a Acción",
+      "line": 59
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Usuarios que implementan consejos",
+      "line": 61
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "ROI Social",
+      "line": 64
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Retorno en cambio de comportamiento",
+      "line": 66
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Demografía Principal",
+      "line": 82
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Edad",
+      "line": 85
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Ubicación",
+      "line": 94
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Intereses",
+      "line": 104
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Perfiles de Buyer Personas",
+      "line": 117
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Alto",
+      "line": 125
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Muy alto",
+      "line": 134
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Alto",
+      "line": 143
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "High",
+      "line": 151
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Muy alto",
+      "line": 152
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "TikTok",
+      "line": 172
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Insights Clave",
+      "line": 197
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Instagram",
+      "line": 210
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Insights Clave",
+      "line": 235
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "YouTube",
+      "line": 248
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Insights Clave",
+      "line": 273
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Insights Clave",
+      "line": 311
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Audiencia más comprometida y educada",
+      "line": 313
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Alto engagement con sponsors",
+      "line": 316
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Cambios de Comportamiento",
+      "line": 333
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Adopción de Energía Solar",
+      "line": 336
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Compostaje Doméstico",
+      "line": 341
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Hogares que iniciaron compostaje",
+      "line": 343
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Reducción de Desperdicios",
+      "line": 346
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Promedio de reducción reportada",
+      "line": 348
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Impacto Económico",
+      "line": 354
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Ahorro en Energía",
+      "line": 357
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Ahorro anual estimado de la comunidad",
+      "line": 359
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Empleos Verdes Generados",
+      "line": 362
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Nuevos empleos en el ecosistema",
+      "line": 364
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Inversión Atraída",
+      "line": 367
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "En tecnologías verdes por influencia del contenido",
+      "line": 369
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Impacto Ambiental",
+      "line": 375
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Toneladas anuales por cambios adoptados",
+      "line": 380
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Agua Ahorrada",
+      "line": 383
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Litros mensuales por prácticas implementadas",
+      "line": 385
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Residuos Desviados",
+      "line": 388
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Toneladas mensuales del relleno sanitario",
+      "line": 390
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Integración de Contenido",
+      "line": 407
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Beneficios",
+      "line": 423
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Integración orgánica en narrativa",
+      "line": 425
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Asociación con valores sostenibles",
+      "line": 426
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Audiencia altamente segmentada",
+      "line": 427
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Contenido evergreen",
+      "line": 428
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Desarrollo de Productos",
+      "line": 434
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Beneficios",
+      "line": 450
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Reducción de riesgo de producto",
+      "line": 454
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Channel directo de distribución",
+      "line": 455
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Eventos y Experiencias",
+      "line": 461
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Beneficios",
+      "line": 477
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Demostración práctica de productos",
+      "line": 479
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Networking con decision makers",
+      "line": 480
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Generación de leads calificados",
+      "line": 481
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Contenido de valor agregado",
+      "line": 482
     },
     {
       "file": "pages/en/resources/creators/worldbuilding/index.astro",
@@ -13239,6 +13239,271 @@
       "line": 343
     },
     {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "title=\"Guías de Diálogo\"",
+      "line": 20
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Guías de Diálogo",
+      "line": 30
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Características del Habla",
+      "line": 49
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Acelera al hablar de sus pasiones",
+      "line": 53
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Hace pausas dramáticas antes de revelaciones",
+      "line": 54
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Ralentiza al explicar conceptos complejos",
+      "line": 55
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Inflexiones ascendentes al hacer preguntas",
+      "line": 64
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Proyección clara sin ser agresiva",
+      "line": 66
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Vocabulario religioso transformado a ecológico",
+      "line": 74
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Ejemplos de Diálogos",
+      "line": 82
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Aproximación Inicial",
+      "line": 84
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Manejando Objeciones",
+      "line": 103
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Momento de Victoria",
+      "line": 127
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Características del Habla",
+      "line": 160
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Habla en el tiempo de la naturaleza",
+      "line": 164
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Silencios largos y cómodos",
+      "line": 165
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Respiración visible y profunda",
+      "line": 167
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Sabiduría folclórica y dichos terrenos",
+      "line": 186
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Analogías con procesos naturales",
+      "line": 187
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Ejemplos de Diálogos",
+      "line": 193
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Aproximación Inicial",
+      "line": 195
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Explicando el Proceso",
+      "line": 214
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Momento Filosófico",
+      "line": 234
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "El Dúo Evangelista",
+      "line": 267
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Dinámica de Complemento",
+      "line": 269
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Usan el contacto visual para coordinar transiciones",
+      "line": 307
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Adaptación a la Audiencia",
+      "line": 313
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Lectura de Personalidades",
+      "line": 315
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "El Idealista Joven",
+      "line": 332
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "El Pragmático Ocupado",
+      "line": 343
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Gestión de Conflictos",
+      "line": 356
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Cuando Enfrentan Hostilidad",
+      "line": 358
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Nunca contradicen directamente",
+      "line": 387
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Reconocen la validez de las preocupaciones",
+      "line": 388
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Buscan puntos de acuerdo genuino",
+      "line": 389
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Transforman objeciones en oportunidades de diálogo",
+      "line": 390
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Velocidad de Habla",
+      "line": 410
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Ajustar según la duración del video",
+      "line": 416
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Pausas estratégicas para puntos clave",
+      "line": 417
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Proyección y Articulación",
+      "line": 420
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Consonantes claras para subtítulos automáticos",
+      "line": 422
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Proyección suficiente sin gritar",
+      "line": 423
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Modulación rica para mantener interés",
+      "line": 424
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Evitar monotonía en videos largos",
+      "line": 425
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Calidad de Voz",
+      "line": 433
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Evitar picos y distorsión",
+      "line": 436
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Mantener distancia consistente del micrófono",
+      "line": 437
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Ritmo Narrativo",
+      "line": 441
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Variación en velocidad según contenido",
+      "line": 443
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Pausas dramáticas más largas que en video",
+      "line": 444
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Transiciones suaves entre temas",
+      "line": 445
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Cliffhangers al final de segmentos",
+      "line": 446
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Improvisación Guiada",
+      "line": 453
+    },
+    {
       "file": "pages/en/resources/actors/movement/index.astro",
       "text": "title=\"Referencias de Movimiento\"",
       "line": 20
@@ -13539,271 +13804,6 @@
       "line": 462
     },
     {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "title=\"Guías de Diálogo\"",
-      "line": 20
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Guías de Diálogo",
-      "line": 30
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Características del Habla",
-      "line": 49
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Acelera al hablar de sus pasiones",
-      "line": 53
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Hace pausas dramáticas antes de revelaciones",
-      "line": 54
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Ralentiza al explicar conceptos complejos",
-      "line": 55
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Inflexiones ascendentes al hacer preguntas",
-      "line": 64
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Proyección clara sin ser agresiva",
-      "line": 66
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Vocabulario religioso transformado a ecológico",
-      "line": 74
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Ejemplos de Diálogos",
-      "line": 82
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Aproximación Inicial",
-      "line": 84
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Manejando Objeciones",
-      "line": 103
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Momento de Victoria",
-      "line": 127
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Características del Habla",
-      "line": 160
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Habla en el tiempo de la naturaleza",
-      "line": 164
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Silencios largos y cómodos",
-      "line": 165
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Respiración visible y profunda",
-      "line": 167
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Sabiduría folclórica y dichos terrenos",
-      "line": 186
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Analogías con procesos naturales",
-      "line": 187
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Ejemplos de Diálogos",
-      "line": 193
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Aproximación Inicial",
-      "line": 195
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Explicando el Proceso",
-      "line": 214
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Momento Filosófico",
-      "line": 234
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "El Dúo Evangelista",
-      "line": 267
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Dinámica de Complemento",
-      "line": 269
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Usan el contacto visual para coordinar transiciones",
-      "line": 307
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Adaptación a la Audiencia",
-      "line": 313
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Lectura de Personalidades",
-      "line": 315
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "El Idealista Joven",
-      "line": 332
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "El Pragmático Ocupado",
-      "line": 343
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Gestión de Conflictos",
-      "line": 356
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Cuando Enfrentan Hostilidad",
-      "line": 358
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Nunca contradicen directamente",
-      "line": 387
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Reconocen la validez de las preocupaciones",
-      "line": 388
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Buscan puntos de acuerdo genuino",
-      "line": 389
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Transforman objeciones en oportunidades de diálogo",
-      "line": 390
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Velocidad de Habla",
-      "line": 410
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Ajustar según la duración del video",
-      "line": 416
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Pausas estratégicas para puntos clave",
-      "line": 417
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Proyección y Articulación",
-      "line": 420
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Consonantes claras para subtítulos automáticos",
-      "line": 422
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Proyección suficiente sin gritar",
-      "line": 423
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Modulación rica para mantener interés",
-      "line": 424
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Evitar monotonía en videos largos",
-      "line": 425
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Calidad de Voz",
-      "line": 433
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Evitar picos y distorsión",
-      "line": 436
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Mantener distancia consistente del micrófono",
-      "line": 437
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Ritmo Narrativo",
-      "line": 441
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Variación en velocidad según contenido",
-      "line": 443
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Pausas dramáticas más largas que en video",
-      "line": 444
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Transiciones suaves entre temas",
-      "line": 445
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Cliffhangers al final de segmentos",
-      "line": 446
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Improvisación Guiada",
-      "line": 453
-    },
-    {
       "file": "pages/en/resources/actors/characters/index.astro",
       "text": "title=\"Análisis de Personajes para Actores\"",
       "line": 20
@@ -14072,7 +14072,7 @@
   "inconsistentRoutes": [],
   "missingAltText": [],
   "summary": {
-    "totalTranslations": 601,
+    "totalTranslations": 603,
     "translationCoverage": 100,
     "filesScanned": 90,
     "issuesFound": 2813
