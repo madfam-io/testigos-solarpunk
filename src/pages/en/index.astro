@@ -26,6 +26,14 @@ let basePath =
 if (basePath.endsWith('/') && basePath !== '/') {
   basePath = basePath.slice(0, -1);
 }
+
+// Check if we're on Vercel (BASE_URL would be '/' but we need empty string for Vercel)
+// Vercel doesn't set BASE_URL, so we check if we're at root without a base path
+const isVercel =
+  Boolean(import.meta.env.VERCEL) || (basePath === '/' && !import.meta.env.DEV);
+if (isVercel === true) {
+  basePath = '';
+}
 ---
 
 <BaseLayout title={t('site.title')} lang={lang}>
