@@ -331,6 +331,20 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: all 0.3s ease;
+  will-change: padding, backdrop-filter;
+}
+
+/* Compact navigation state */
+nav.nav-compact {
+  padding: var(--espacio-xs) 0;
+  backdrop-filter: blur(10px);
+  background-color: color-mix(
+    in srgb,
+    var(--fondo-secundario) 95%,
+    transparent
+  );
+  box-shadow: 0 2px 8px var(--sombra-suave);
 }
 
 nav .container {
@@ -353,6 +367,11 @@ nav .container {
   align-items: center;
   gap: var(--espacio-xs);
   font-size: 1.1rem;
+  transition: font-size 0.3s ease;
+}
+
+.nav-compact .nav-brand a {
+  font-size: 1rem;
 }
 
 .nav-logo {
@@ -360,6 +379,11 @@ nav .container {
   width: auto;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   object-fit: contain;
+  transition: height 0.3s ease;
+}
+
+.nav-compact .nav-logo {
+  height: 24px;
 }
 
 .nav-menu {
@@ -376,9 +400,17 @@ nav .container {
   color: var(--texto-primario);
   padding: var(--espacio-xs) var(--espacio-sm);
   border-radius: 4px;
-  transition: background-color var(--transicion-rapida);
+  transition:
+    background-color var(--transicion-rapida),
+    font-size 0.3s ease,
+    padding 0.3s ease;
   text-decoration: none;
   font-size: 0.95rem;
+}
+
+.nav-compact .nav-menu a {
+  font-size: 0.875rem;
+  padding: calc(var(--espacio-xs) * 0.75) var(--espacio-sm);
 }
 
 .nav-menu a:hover {
@@ -409,6 +441,11 @@ nav .container {
   transition: all 0.3s ease;
   z-index: 1000;
   margin-top: 8px;
+}
+
+/* Adjust dropdown positioning in compact mode */
+.nav-compact .nav-dropdown-menu {
+  margin-top: 4px;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
@@ -524,6 +561,15 @@ footer a:hover {
   /* Mobile navigation */
   .mobile-menu-toggle {
     display: flex;
+  }
+
+  /* Mobile compact navigation adjustments */
+  .nav-compact .nav-menu {
+    gap: calc(var(--espacio-xs) * 0.75);
+  }
+
+  .nav-compact .mobile-menu-toggle span {
+    height: 2px;
   }
 
   .nav-menu {

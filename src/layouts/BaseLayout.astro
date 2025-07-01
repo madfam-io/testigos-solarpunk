@@ -418,6 +418,59 @@ const currentLang = detectLanguage(currentPath);
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
         const dropdowns = document.querySelectorAll('.nav-dropdown');
+        const nav = document.querySelector('nav');
+
+        // Compact navigation on scroll
+        if (nav) {
+          let isCompact = false;
+          const heroThreshold = 100; // pixels to scroll before compacting
+
+          // Create IntersectionObserver for better performance
+          const observerOptions = {
+            rootMargin: '-100px 0px 0px 0px',
+            threshold: 0,
+          };
+
+          // Try to find hero section or use scroll threshold
+          const heroSection = document.querySelector(
+            '.hero, [role="banner"], section:first-of-type'
+          );
+
+          if (heroSection && 'IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting && !isCompact) {
+                  nav.classList.add('nav-compact');
+                  isCompact = true;
+                } else if (entry.isIntersecting && isCompact) {
+                  nav.classList.remove('nav-compact');
+                  isCompact = false;
+                }
+              });
+            }, observerOptions);
+
+            observer.observe(heroSection);
+          } else {
+            // Fallback to scroll event with throttling
+            let scrollTimer: ReturnType<typeof setTimeout>;
+
+            window.addEventListener('scroll', () => {
+              if (scrollTimer) clearTimeout(scrollTimer);
+
+              scrollTimer = setTimeout(() => {
+                const scrollY = window.scrollY;
+
+                if (scrollY > heroThreshold && !isCompact) {
+                  nav.classList.add('nav-compact');
+                  isCompact = true;
+                } else if (scrollY <= heroThreshold && isCompact) {
+                  nav.classList.remove('nav-compact');
+                  isCompact = false;
+                }
+              }, 10);
+            });
+          }
+        }
 
         if (mobileMenuToggle && navMenu) {
           // Toggle mobile menu
