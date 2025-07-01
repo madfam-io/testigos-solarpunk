@@ -202,10 +202,33 @@ const breadcrumbItems = [
       var(--madfam-yellow-dark) 0%,
       var(--madfam-green-dark) 100%
     );
-    color: var(--text-primary, #ffffff);
+    color: #000000; /* Always use black text on yellow-green gradient */
     text-align: center;
     position: relative;
     overflow: hidden;
+  }
+
+  /* Ensure readable text on gradient in all themes */
+  :global([data-theme='light']) .hero-proyecto,
+  :global([data-theme='dark']) .hero-proyecto,
+  :global([data-theme-selection='auto']) .hero-proyecto {
+    color: #000000 !important;
+  }
+
+  /* Dark mode specific styling */
+  :global([data-theme='dark']) .hero-proyecto,
+  :global([data-theme-selection='auto'][data-theme='dark']) .hero-proyecto {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Ensure all text elements use the correct color */
+  .hero-proyecto h1,
+  .hero-proyecto p,
+  .hero-proyecto h2,
+  .hero-proyecto h3,
+  .hero-proyecto .hero-title,
+  .hero-proyecto .tagline {
+    color: inherit !important;
   }
 
   .hero-proyecto::before {
@@ -262,13 +285,22 @@ const breadcrumbItems = [
   }
 
   .mision-card h3,
-  .vision-card h3 {
-    color: var(--text-primary, #ffffff);
-  }
-
+  .vision-card h3,
   .mision-card p,
   .vision-card p {
-    color: rgba(255, 255, 255, 0.9);
+    color: #000000 !important; /* Black text for readability */
+  }
+
+  /* Add subtle shadow in dark mode for better text readability */
+  :global([data-theme='dark']) .mision-card h3,
+  :global([data-theme='dark']) .vision-card h3,
+  :global([data-theme='dark']) .mision-card p,
+  :global([data-theme='dark']) .vision-card p,
+  :global([data-theme-selection='auto'][data-theme='dark']) .mision-card h3,
+  :global([data-theme-selection='auto'][data-theme='dark']) .vision-card h3,
+  :global([data-theme-selection='auto'][data-theme='dark']) .mision-card p,
+  :global([data-theme-selection='auto'][data-theme='dark']) .vision-card p {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
   }
 
   /* Sección de Fases */

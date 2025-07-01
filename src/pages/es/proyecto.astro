@@ -227,16 +227,36 @@ if (basePath.endsWith('/')) {
     color: #000000;
   }
 
-  :global([data-theme='dark']) .hero-proyecto {
+  /* Dark mode - both direct selection and auto theme with dark preference */
+  :global([data-theme='dark']) .hero-proyecto,
+  :global([data-theme-selection='auto'][data-theme='dark']) .hero-proyecto {
     /* Use dark text on the yellow-green gradient for better contrast */
-    color: #000000;
+    color: #000000 !important;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
   }
 
-  /* Make sure all text elements inherit the color */
+  /* Make sure all text elements inherit the color with high specificity */
   .hero-proyecto h1,
-  .hero-proyecto p {
-    color: inherit;
+  .hero-proyecto p,
+  .hero-proyecto .hero-title,
+  .hero-proyecto .tagline {
+    color: inherit !important;
+  }
+
+  /* Extra specificity for dark mode to override theme variables */
+  :global([data-theme='dark']) .hero-proyecto h1,
+  :global([data-theme='dark']) .hero-proyecto p,
+  :global([data-theme='dark']) .hero-proyecto .hero-title,
+  :global([data-theme='dark']) .hero-proyecto .tagline,
+  :global([data-theme-selection='auto'][data-theme='dark']) .hero-proyecto h1,
+  :global([data-theme-selection='auto'][data-theme='dark']) .hero-proyecto p,
+  :global([data-theme-selection='auto'][data-theme='dark'])
+    .hero-proyecto
+    .hero-title,
+  :global([data-theme-selection='auto'][data-theme='dark'])
+    .hero-proyecto
+    .tagline {
+    color: #000000 !important;
   }
 
   .hero-proyecto::before {
