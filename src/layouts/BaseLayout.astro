@@ -3,7 +3,7 @@
 import UnderConstructionModal from '../components/UnderConstructionModal.astro';
 import ThemeSelector from '../components/ThemeSelector.astro';
 import LanguageSelector from '../components/LanguageSelector.astro';
-import { detectLanguage } from '@/i18n/config';
+import { detectLanguage, useTranslations } from '@/i18n/config';
 import '../styles/critical.css';
 import '../styles/emoji-magazine-cutout.css';
 import '../styles/magazine-cutout-cards.css';
@@ -46,6 +46,9 @@ const imageUrl = `${baseUrl}${basePath}${image}`;
 
 // Detect current language from path
 const currentLang = detectLanguage(currentPath);
+
+// Get translation function for current language
+const t = useTranslations(currentLang);
 
 // Helper function to generate language-aware URLs
 const getLangPath = (path: string): string => {
@@ -327,7 +330,9 @@ const getLangPath = (path: string): string => {
           />
           <button
             class="mobile-menu-toggle"
-            aria-label="Abrir menú de navegación móvil"
+            aria-label={currentLang === 'es'
+              ? 'Abrir menú de navegación móvil'
+              : 'Open mobile navigation menu'}
             aria-expanded="false"
             aria-controls="nav-menu"
             data-menu-toggle
@@ -350,7 +355,7 @@ const getLangPath = (path: string): string => {
             <a
               href={getLangPath('proyecto/')}
               class:list={currentPath.includes('/proyecto') ? 'active' : ''}
-              role="menuitem">El Proyecto</a
+              role="menuitem">{t('nav.project')}</a
             >
           </li>
           <li class="nav-dropdown" role="none">
@@ -360,21 +365,26 @@ const getLangPath = (path: string): string => {
               role="menuitem"
               aria-haspopup="true"
               aria-expanded="false"
-              data-dropdown-toggle>Contenido</a
+              data-dropdown-toggle>{t('nav.content')}</a
             >
             <div
               class="nav-dropdown-menu"
               role="menu"
-              aria-label="Submenu de Contenido"
+              aria-label={currentLang === 'es'
+                ? 'Submenu de Contenido'
+                : 'Content Submenu'}
             >
               <a href={getLangPath('contenido/sketches/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">🎬</span> Sketches</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎬</span>
+                {t('nav.sketches')}</a
               >
               <a href={getLangPath('contenido/podcast/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">🎙️</span> Podcast</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎙️</span>
+                {t('nav.podcast')}</a
               >
               <a href={getLangPath('contenido/madlab/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">🔬</span> MADLAB</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">🔬</span>
+                {t('nav.madlab')}</a
               >
             </div>
           </li>
@@ -389,22 +399,26 @@ const getLangPath = (path: string): string => {
               role="menuitem"
               aria-haspopup="true"
               aria-expanded="false"
-              data-dropdown-toggle>Universo</a
+              data-dropdown-toggle>{t('nav.universe')}</a
             >
             <div
               class="nav-dropdown-menu"
               role="menu"
-              aria-label="Submenu de Universo"
+              aria-label={currentLang === 'es'
+                ? 'Submenu de Universo'
+                : 'Universe Submenu'}
             >
               <a href={getLangPath('personajes/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">👥</span> Personajes</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">👥</span>
+                {t('nav.characters')}</a
               >
               <a href={getLangPath('mundo/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">🌍</span> Construcción
-                del Mundo</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">🌍</span>
+                {t('nav.world')}</a
               >
               <a href={getLangPath('guiones/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">📝</span> Guiones</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">📝</span>
+                {t('nav.scripts')}</a
               >
             </div>
           </li>
@@ -415,21 +429,26 @@ const getLangPath = (path: string): string => {
               role="menuitem"
               aria-haspopup="true"
               aria-expanded="false"
-              data-dropdown-toggle>Recursos</a
+              data-dropdown-toggle>{t('nav.resources')}</a
             >
             <div
               class="nav-dropdown-menu"
               role="menu"
-              aria-label="Submenu de Recursos"
+              aria-label={currentLang === 'es'
+                ? 'Submenu de Recursos'
+                : 'Resources Submenu'}
             >
               <a href={getLangPath('recursos/creadores/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">🎬</span> Creadores</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎬</span>
+                {currentLang === 'es' ? 'Creadores' : 'Creators'}</a
               >
               <a href={getLangPath('recursos/actores/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">🎭</span> Actores</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎭</span>
+                {currentLang === 'es' ? 'Actores' : 'Actors'}</a
               >
               <a href={getLangPath('recursos/patrocinadores/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">💼</span> Patrocinadores</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">💼</span>
+                {currentLang === 'es' ? 'Patrocinadores' : 'Sponsors'}</a
               >
             </div>
           </li>
@@ -437,7 +456,7 @@ const getLangPath = (path: string): string => {
             <a
               href={getLangPath('comunidad/')}
               class:list={currentPath.includes('/comunidad') ? 'active' : ''}
-              role="menuitem">Comunidad</a
+              role="menuitem">{t('nav.community')}</a
             >
           </li>
           <li class="nav-dropdown" role="none">
@@ -447,25 +466,31 @@ const getLangPath = (path: string): string => {
               role="menuitem"
               aria-haspopup="true"
               aria-expanded="false"
-              data-dropdown-toggle>Producción</a
+              data-dropdown-toggle>{t('nav.production')}</a
             >
             <div
               class="nav-dropdown-menu"
               role="menu"
-              aria-label="Submenu de Producción"
+              aria-label={currentLang === 'es'
+                ? 'Submenu de Producción'
+                : 'Production Submenu'}
             >
               <a href={getLangPath('produccion/estilo-visual/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">🎨</span> Estilo Visual</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎨</span>
+                {currentLang === 'es' ? 'Estilo Visual' : 'Visual Style'}</a
               >
               <a href={getLangPath('produccion/tono-voz/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">🗣️</span> Tono de
-                Voz</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">🗣️</span>
+                {currentLang === 'es' ? 'Tono de Voz' : 'Tone of Voice'}</a
               >
               <a href={getLangPath('produccion/audio/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">🎵</span> Audio</a
               >
               <a href={getLangPath('produccion/specs/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">📋</span> Especificaciones</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">📋</span>
+                {
+                  currentLang === 'es' ? 'Especificaciones' : 'Specifications'
+                }</a
               >
             </div>
           </li>
@@ -473,7 +498,7 @@ const getLangPath = (path: string): string => {
             <a
               href={getLangPath('impacto/')}
               class:list={currentPath.includes('/impacto') ? 'active' : ''}
-              role="menuitem">Impacto</a
+              role="menuitem">{t('nav.impact')}</a
             >
           </li>
           <!-- Language toggle for mobile -->
