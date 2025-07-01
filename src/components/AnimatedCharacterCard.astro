@@ -22,6 +22,7 @@
  * ```
  */
 import MagazineCutoutImage from './MagazineCutoutImage.astro';
+import { useTranslations } from '@/i18n/config';
 
 /**
  * Props interface for AnimatedCharacterCard component
@@ -37,6 +38,7 @@ import MagazineCutoutImage from './MagazineCutoutImage.astro';
  * @property {'verde' | 'solar' | 'tierra' | 'mistico'} [colorTema='verde'] - Theme color affecting visuals
  * @property {string[]} [frases=[]] - Array of iconic phrases. One is randomly selected
  * @property {boolean} [isEvangelista=false] - Whether character is an evangelist (reserved for future use)
+ * @property {'es' | 'en'} [lang='es'] - Language for translations
  */
 export interface Props {
   id: string;
@@ -49,6 +51,7 @@ export interface Props {
   colorTema?: 'verde' | 'solar' | 'tierra' | 'mistico';
   frases?: string[];
   isEvangelista?: boolean;
+  lang?: 'es' | 'en';
 }
 
 // Extract props with defaults
@@ -63,7 +66,10 @@ const {
   colorTema = 'verde',
   frases = [],
   isEvangelista: _isEvangelista = false, // Reserved for future features
+  lang = 'es',
 } = Astro.props;
+
+const t = useTranslations(lang);
 
 /**
  * Color theme mapping to CSS classes
@@ -102,7 +108,7 @@ const fraseAleatoria =
     <!-- Magazine cutout style image with AI placeholder generation -->
     <MagazineCutoutImage
       src={imagen}
-      alt={`Retrato evangelista de ${nombre}, ${ocupacion}`}
+      alt={t('character.portrait.alt', { name: nombre, occupation: ocupacion })}
       width={400}
       height={300}
       type="character"
@@ -134,7 +140,7 @@ const fraseAleatoria =
     <div class="character-meta">
       <span class="meta-item">
         <i class="fas fa-birthday-cake" aria-hidden="true"></i>
-        {edad === 'Eterno' ? edad : `${edad} años`}
+        {edad === 'Eterno' ? edad : `${edad} ${t('ui.age')}`}
       </span>
       <span class="meta-separator" aria-hidden="true">•</span>
       <span class="meta-item">
@@ -157,7 +163,7 @@ const fraseAleatoria =
 
     <!-- Link to character detail page -->
     <a href={`/personajes/${id}`} class="character-link">
-      <span>Conocer más</span>
+      <span>{t('ui.learn.more')}</span>
       <i class="fas fa-arrow-right" aria-hidden="true"></i>
     </a>
   </div>

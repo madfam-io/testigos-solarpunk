@@ -112,6 +112,19 @@
       "rules": {
         "astro/no-unused-css-selector": "off"
       }
+    },
+    {
+      "files": ["scripts/*.ts"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-argument": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "no-console": "off"
+      }
     }
   ],
   "env": {
@@ -125,7 +138,8 @@
     "node_modules",
     "coverage",
     "*.min.js",
-    "*.d.ts"
+    "*.d.ts",
+    "scripts/*.ts"
   ],
   "settings": {
     "react": {

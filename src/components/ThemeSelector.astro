@@ -10,29 +10,36 @@
  */
 
 import type { HTMLAttributes } from 'astro/types';
+import { useTranslations } from '@/i18n/config';
 
 interface Props extends HTMLAttributes<'div'> {
   showLabels?: boolean;
   variant?: 'compact' | 'expanded';
+  lang?: 'es' | 'en';
 }
 
 const {
   showLabels = false,
   variant = 'compact',
+  lang = 'es',
   class: className,
   ...attrs
 } = Astro.props;
+
+const t = useTranslations(lang);
 ---
 
 <div
   class:list={['theme-selector', `theme-selector--${variant}`, className]}
   data-theme-selector
+  data-theme-changed-message={t('theme.changed')}
+  data-theme-current-label={t('theme.current')}
   {...attrs}
 >
   <button
     class="theme-btn emoji-cutout cutout-button"
-    aria-label="Toggle theme"
-    title="Switch between light, dark, and auto themes"
+    aria-label={t('theme.toggle.label')}
+    title={t('theme.toggle.description')}
     data-theme-toggle
   >
     <span class="theme-icon theme-icon--light" data-theme-icon="light">☀️</span>
@@ -51,13 +58,13 @@ const {
     showLabels && (
       <span class="theme-label" data-theme-label>
         <span class="theme-label-text" data-theme-text="light">
-          Claro
+          {t('theme.light')}
         </span>
         <span class="theme-label-text" data-theme-text="dark">
-          Oscuro
+          {t('theme.dark')}
         </span>
         <span class="theme-label-text" data-theme-text="auto">
-          Auto
+          {t('theme.auto')}
         </span>
       </span>
     )
@@ -109,10 +116,14 @@ const {
     // Update button title
     const toggleBtn = document.querySelector('[data-theme-toggle]');
     if (toggleBtn) {
-      toggleBtn.setAttribute('title', ThemeManager.getThemeDescription());
+      const selector = toggleBtn.closest('[data-theme-selector]');
+      const currentLabel = selector?.getAttribute('data-theme-current-label') || 'Current: {theme}';
+      const themeDesc = ThemeManager.getThemeDescription();
+      
+      toggleBtn.setAttribute('title', themeDesc);
       toggleBtn.setAttribute(
         'aria-label',
-        `Current: ${ThemeManager.getThemeDescription()}`
+        currentLabel.replace('{theme}', themeDesc)
       );
     }
   }
@@ -125,7 +136,9 @@ const {
     announcement.setAttribute('aria-live', 'polite');
     announcement.setAttribute('aria-atomic', 'true');
     announcement.className = 'sr-only';
-    announcement.textContent = `Theme changed to ${newTheme}`;
+    const selector = document.querySelector('[data-theme-selector]');
+    const changeMessage = selector?.getAttribute('data-theme-changed-message') || 'Theme changed to {theme}';
+    announcement.textContent = changeMessage.replace('{theme}', newTheme);
 
     document.body.appendChild(announcement);
     setTimeout(() => {

@@ -18,6 +18,7 @@
  * @example
  * ```astro
  * <UnderConstructionModal
+ *   lang="es"
  *   title="📥 Descarga Próximamente"
  *   message="Este archivo estará disponible pronto"
  *   suggestedLinks={[
@@ -26,6 +27,8 @@
  * />
  * ```
  */
+
+import { useTranslations } from '@/i18n/config';
 
 /**
  * Props interface for UnderConstructionModal component
@@ -43,6 +46,7 @@ export interface Props {
     text: string;
     emoji: string;
   }>;
+  lang?: 'es' | 'en';
 }
 
 let basePath =
@@ -56,23 +60,34 @@ if (basePath.endsWith('/')) {
 }
 
 const {
-  title = '📥 Descarga Próximamente',
-  message = 'Este archivo estará disponible para descarga muy pronto. Estamos finalizando los últimos detalles para ofrecerte el mejor contenido.',
-  suggestedLinks = [
-    { href: `${basePath}/personajes/`, text: 'Ver Personajes', emoji: '👥' },
-    { href: `${basePath}/guiones/`, text: 'Explorar Guiones', emoji: '📝' },
-    {
-      href: `${basePath}/mundo/`,
-      text: 'Conocer el Mundo',
-      emoji: '🌍',
-    },
-    {
-      href: `${basePath}/contenido/sketches/`,
-      text: 'Ver Sketches',
-      emoji: '🎬',
-    },
-  ],
+  lang = 'es',
+  title,
+  message,
+  suggestedLinks,
 } = Astro.props;
+
+const t = useTranslations(lang);
+
+// Use provided props or defaults from translations
+const translatedTitle = t('construction.title');
+const translatedMessage = t('construction.message');
+const modalTitle = (title !== null && title !== undefined && title !== '') ? title : (translatedTitle !== '' ? translatedTitle : '🚧 Próximamente');
+const modalMessage = (message !== null && message !== undefined && message !== '') ? message : (translatedMessage !== '' ? translatedMessage : 'Estamos trabajando en esta sección. ¡Vuelve pronto!');
+const defaultLinks = [
+  { href: `${basePath}/${lang}/${lang === 'es' ? 'personajes' : 'characters'}/`, text: t('nav.characters'), emoji: '👥' },
+  { href: `${basePath}/${lang}/${lang === 'es' ? 'guiones' : 'scripts'}/`, text: t('nav.scripts'), emoji: '📝' },
+  {
+    href: `${basePath}/${lang}/${lang === 'es' ? 'mundo' : 'world'}/`,
+    text: t('nav.world'),
+    emoji: '🌍',
+  },
+  {
+    href: `${basePath}/${lang}/${lang === 'es' ? 'contenido' : 'content'}/sketches/`,
+    text: t('nav.sketches'),
+    emoji: '🎬',
+  },
+];
+const modalLinks = suggestedLinks || defaultLinks;
 ---
 
 <!-- Modal Backdrop -->
@@ -89,11 +104,11 @@ const {
     <div class="modal-header">
       <h2 id="modal-title" class="modal-title">
         <span class="emoji-cutout emoji-lg theme-solar"
-          >{title.split(' ')[0]}</span
+          >{modalTitle.split(' ')[0]}</span
         >
-        {title.replace(title.split(' ')[0], '').trim()}
+        {modalTitle.replace(modalTitle.split(' ')[0], '').trim()}
       </h2>
-      <button class="modal-close" data-modal-close aria-label="Cerrar modal">
+      <button class="modal-close" data-modal-close aria-label={t('construction.close')}>
         <span class="emoji-cutout emoji-sm">✖️</span>
       </button>
     </div>
@@ -105,13 +120,13 @@ const {
         <span class="emoji-cutout emoji-md theme-purple">🌱</span>
       </div>
 
-      <p class="modal-message">{message}</p>
+      <p class="modal-message">{modalMessage}</p>
 
       <div class="suggested-links">
-        <h3>¿Qué tal si exploras esto mientras tanto?</h3>
+        <h3>{t('construction.explore')}</h3>
         <div class="links-grid">
           {
-            suggestedLinks.map((link) => (
+            modalLinks.map((link) => (
               <a href={link.href} class="suggestion-link" data-modal-close>
                 <span class="emoji-cutout emoji-md theme-community">
                   {link.emoji}
@@ -126,7 +141,7 @@ const {
 
     <div class="modal-footer">
       <button class="btn btn-secondary" data-modal-close>
-        <span class="emoji-cutout emoji-sm">👈</span> Volver
+        <span class="emoji-cutout emoji-sm">👈</span> {t('construction.back')}
       </button>
     </div>
   </div>

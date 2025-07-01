@@ -900,6 +900,45 @@ export const ui = {
     'page.back.home': 'Volver a Inicio',
     'page.more.info': 'Más Información',
     'page.coming.soon': 'Próximamente',
+
+    // Error pages
+    'error.404.title': '404 - Página no encontrada',
+    'error.404.heading': 'Página no encontrada',
+    'error.404.message': 'Parece que esta página se perdió en el multiverso solarpunk...',
+    'error.404.home': 'Volver al Inicio',
+    'error.404.explore': 'Explorar Personajes',
+
+    // Component labels
+    'character.portrait.alt': 'Retrato evangelista de {name}, {occupation}',
+    'character.age.label': 'años',
+    'character.learn.more': 'Conocer más',
+    'theme.toggle.label': 'Cambiar tema',
+    'theme.toggle.description': 'Cambiar entre tema claro, oscuro y automático',
+    'theme.light': 'Claro',
+    'theme.dark': 'Oscuro',
+    'theme.auto': 'Auto',
+    'theme.changed': 'Tema cambiado a {theme}',
+    'theme.current': 'Actual: {theme}',
+
+    // Under construction
+    'construction.title': '🚧 Próximamente',
+    'construction.message': 'Estamos trabajando en traerte algo increíble. Esta sección estará lista muy pronto.',
+    'construction.explore': '¿Qué tal si exploras esto mientras tanto?',
+    'construction.back': 'Volver',
+    'construction.close': 'Cerrar modal',
+
+    // ARIA labels
+    'aria.nav.main': 'Navegación principal',
+    'aria.nav.brand': 'Testigos de Solarpunk - Ir a la página principal',
+    'aria.logo.alt': 'Testigos de Solarpunk',
+    'aria.submenu.content': 'Submenu de Contenido',
+    'aria.email.newsletter': 'Email para boletín',
+    'aria.duration': 'Duración',
+    'aria.views': 'Vistas',
+    'aria.watchSketch': 'Ver sketch: {title}',
+
+    // CTAs
+    'cta.watch': 'Ver',
   },
   en: {
     // Site metadata
@@ -1695,6 +1734,45 @@ export const ui = {
     'page.back.home': 'Back to Home',
     'page.more.info': 'More Information',
     'page.coming.soon': 'Coming Soon',
+
+    // Error pages
+    'error.404.title': '404 - Page not found',
+    'error.404.heading': 'Page not found',
+    'error.404.message': 'It seems this page got lost in the solarpunk multiverse...',
+    'error.404.home': 'Back to Home',
+    'error.404.explore': 'Explore Characters',
+
+    // Component labels
+    'character.portrait.alt': 'Evangelist portrait of {name}, {occupation}',
+    'character.age.label': 'years old',
+    'character.learn.more': 'Learn more',
+    'theme.toggle.label': 'Toggle theme',
+    'theme.toggle.description': 'Switch between light, dark, and auto themes',
+    'theme.light': 'Light',
+    'theme.dark': 'Dark',
+    'theme.auto': 'Auto',
+    'theme.changed': 'Theme changed to {theme}',
+    'theme.current': 'Current: {theme}',
+
+    // Under construction
+    'construction.title': '🚧 Coming Soon',
+    'construction.message': "We're working on bringing you something amazing. This section will be ready very soon.",
+    'construction.explore': 'How about exploring this in the meantime?',
+    'construction.back': 'Go Back',
+    'construction.close': 'Close modal',
+
+    // ARIA labels
+    'aria.nav.main': 'Main navigation',
+    'aria.nav.brand': 'Solarpunk Witnesses - Go to homepage',
+    'aria.logo.alt': 'Solarpunk Witnesses',
+    'aria.submenu.content': 'Content Submenu',
+    'aria.email.newsletter': 'Email for newsletter',
+    'aria.duration': 'Duration',
+    'aria.views': 'Views',
+    'aria.watchSketch': 'Watch sketch: {title}',
+
+    // CTAs
+    'cta.watch': 'Watch',
   },
 } as const;
 

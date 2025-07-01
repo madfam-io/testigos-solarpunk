@@ -111,7 +111,7 @@ const painPoints = [
     <div class="container">
       <h1>{t('community.hero.title')}</h1>
       <p class="hero-description">
-        {t('community.hero.description')}
+        {t('community.hero.description') !== '' ? t('community.hero.description') : 'Meet the people who need to hear the sustainable message'}
       </p>
     </div>
   </section>
@@ -130,7 +130,7 @@ const painPoints = [
               <div class="persona-header">
                 <div class="persona-avatar">
                   <MagazineCutoutImage
-                    alt={`Avatar de ${persona.nombre} (${persona.apodo})`}
+                    alt={`Avatar of ${persona.nombre} (${persona.apodo})`}
                     width={120}
                     height={120}
                     type="character"
@@ -378,7 +378,7 @@ const painPoints = [
               class="email-input"
               required
               aria-required="true"
-              aria-label="Email for newsletter"
+              aria-label={t('aria.email.newsletter') !== '' ? t('aria.email.newsletter') : 'Email for newsletter'}
             />
             <button type="submit" class="btn btn-primary"
               >{t('ui.subscribe')}</button

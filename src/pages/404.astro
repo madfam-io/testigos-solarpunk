@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, detectLanguage } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -10,21 +11,26 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
+
+// Detect user's preferred language from browser
+const acceptLang = Astro.request.headers.get('accept-language');
+const detectedLang = acceptLang !== null && acceptLang !== '' ? detectLanguage(acceptLang) : null;
+const lang = detectedLang !== null && detectedLang !== '' ? detectedLang : 'es';
+const t = useTranslations(lang);
 ---
 
-<BaseLayout title="404 - Página no encontrada">
+<BaseLayout title={t('error.404.title')} lang={lang}>
   <section class="error-section">
     <div class="container text-center">
       <h1 class="error-code">404</h1>
-      <h2 class="error-title">Página no encontrada</h2>
+      <h2 class="error-title">{t('error.404.heading')}</h2>
       <p class="error-message">
-        Parece que esta página se perdió en el multiverso solarpunk. Tal vez fue
-        absorbida por un panel solar experimental.
+        {t('error.404.message')}
       </p>
       <div class="error-actions">
-        <a href={`${basePath}/`} class="btn btn-primary">Volver al Inicio</a>
-        <a href={`${basePath}/personajes/`} class="btn btn-secondary"
-          >Explorar Personajes</a
+        <a href={`${basePath}/${lang}/`} class="btn btn-primary">{t('error.404.home')}</a>
+        <a href={`${basePath}/${lang}/${lang === 'es' ? 'personajes' : 'characters'}/`} class="btn btn-secondary"
+          >{t('error.404.explore')}</a
         >
       </div>
     </div>
