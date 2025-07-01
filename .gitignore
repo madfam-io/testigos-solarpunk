@@ -38,3 +38,6 @@ Thumbs.db
 coverage/
 tests/reports/
 .lighthouseci/
+
+# Generated files
+public/manifest.json

@@ -216,10 +216,10 @@ const getLangPath = (path: string): string => {
 
     <!-- Optimized Font Loading with font-display: swap -->
     <link
-      rel="preload"
+      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap"
-      as="style"
-      id="font-preload"
+      media="print"
+      onload="this.media='all'"
     />
     <noscript>
       <link
@@ -227,19 +227,6 @@ const getLangPath = (path: string): string => {
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap"
       />
     </noscript>
-
-    <!-- Font loading optimization script -->
-    <script>
-      // Optimized font loading without TypeScript warnings
-      (() => {
-        const fontPreload = document.getElementById('font-preload');
-        if (fontPreload instanceof HTMLLinkElement) {
-          fontPreload.addEventListener('load', () => {
-            fontPreload.rel = 'stylesheet';
-          });
-        }
-      })();
-    </script>
 
     <!-- Font files will be loaded dynamically by Google Fonts CSS -->
 

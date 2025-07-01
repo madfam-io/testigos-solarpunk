@@ -2,8 +2,8 @@
   "name": "Testigos de Solarpunk - MADFAM",
   "short_name": "Testigos",
   "description": "Universo narrativo solarpunk evangelista que combina humor, sostenibilidad y esperanza",
-  "start_url": "/testigos-solarpunk/",
-  "scope": "/testigos-solarpunk/",
+  "start_url": "{{BASE_PATH}}/",
+  "scope": "{{BASE_PATH}}/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#212121",
@@ -14,49 +14,49 @@
   "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
   "icons": [
     {
-      "src": "/testigos-solarpunk/icon-57.png",
+      "src": "{{BASE_PATH}}/icon-57.png",
       "sizes": "57x57",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/testigos-solarpunk/icon-60.png",
+      "src": "{{BASE_PATH}}/icon-60.png",
       "sizes": "60x60",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/testigos-solarpunk/icon-72.png",
+      "src": "{{BASE_PATH}}/icon-72.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/testigos-solarpunk/icon-76.png",
+      "src": "{{BASE_PATH}}/icon-76.png",
       "sizes": "76x76",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/testigos-solarpunk/icon-114.png",
+      "src": "{{BASE_PATH}}/icon-114.png",
       "sizes": "114x114",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/testigos-solarpunk/icon-120.png",
+      "src": "{{BASE_PATH}}/icon-120.png",
       "sizes": "120x120",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/testigos-solarpunk/icon-144.png",
+      "src": "{{BASE_PATH}}/icon-144.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/testigos-solarpunk/icon-152.png",
+      "src": "{{BASE_PATH}}/icon-152.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "any maskable"
@@ -64,14 +64,14 @@
   ],
   "screenshots": [
     {
-      "src": "/testigos-solarpunk/screenshot-mobile.png",
+      "src": "{{BASE_PATH}}/screenshot-mobile.png",
       "sizes": "720x1280",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Vista móvil de Testigos de Solarpunk"
     },
     {
-      "src": "/testigos-solarpunk/screenshot-desktop.png",
+      "src": "{{BASE_PATH}}/screenshot-desktop.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "wide",
@@ -85,10 +85,10 @@
       "name": "Personajes",
       "short_name": "Personajes",
       "description": "Conoce a los testigos del evangelio verde",
-      "url": "/testigos-solarpunk/personajes",
+      "url": "{{BASE_PATH}}/personajes",
       "icons": [
         {
-          "src": "/testigos-solarpunk/shortcut-characters.png",
+          "src": "{{BASE_PATH}}/shortcut-characters.png",
           "sizes": "96x96",
           "type": "image/png"
         }
@@ -98,10 +98,10 @@
       "name": "Guiones",
       "short_name": "Guiones",
       "description": "Lee los sermones ecológicos",
-      "url": "/testigos-solarpunk/guiones",
+      "url": "{{BASE_PATH}}/guiones",
       "icons": [
         {
-          "src": "/testigos-solarpunk/shortcut-scripts.png",
+          "src": "{{BASE_PATH}}/shortcut-scripts.png",
           "sizes": "96x96",
           "type": "image/png"
         }
@@ -109,8 +109,9 @@
     }
   ],
   "share_target": {
-    "action": "/testigos-solarpunk/share",
+    "action": "{{BASE_PATH}}/share",
     "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
     "params": {
       "title": "title",
       "text": "text",
@@ -120,7 +121,7 @@
   "protocol_handlers": [
     {
       "protocol": "web+testigos",
-      "url": "/testigos-solarpunk/?type=%s"
+      "url": "{{BASE_PATH}}/?type=%s"
     }
   ]
 }
