@@ -411,7 +411,13 @@ if (isVercel === true) {
     color: white;
     position: relative;
     overflow: hidden;
-    min-height: 100vh;
+    min-height: 100vh; /* fallback for older browsers */
+    min-height: calc(
+      100dvh - var(--nav-height, 72px)
+    ); /* accounts for sticky nav */
+    min-height: calc(
+      100svh - var(--nav-height, 72px)
+    ); /* small viewport height fallback */
     display: flex;
     align-items: center;
   }
@@ -859,7 +865,8 @@ if (isVercel === true) {
   /* Responsive Design */
   @media (max-width: 768px) {
     .hero {
-      min-height: 80vh;
+      min-height: 80vh; /* fallback */
+      min-height: 80dvh; /* dynamic viewport height for mobile */
     }
 
     .hero-logo {

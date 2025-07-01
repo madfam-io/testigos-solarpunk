@@ -54,6 +54,9 @@
 
   --transicion-rapida: var(--transition-fast);
   --transicion-normal: var(--transition-base);
+
+  /* Navigation height for hero calculations */
+  --nav-height: 72px; /* Approx: 40px logo + 2*16px padding */
 }
 
 /* Modo Oscuro */
