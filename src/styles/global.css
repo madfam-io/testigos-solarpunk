@@ -57,6 +57,7 @@
 
   /* Navigation height for hero calculations */
   --nav-height: 72px; /* Approx: 40px logo + 2*16px padding */
+  --nav-height-mobile: 64px; /* Mobile navigation height */
 }
 
 /* Theme variables are now handled by unified-dark-theme.css and theme system */
@@ -578,67 +579,21 @@ footer a:hover {
     height: 2px;
   }
 
-  .nav-menu {
-    position: fixed;
-    top: 50px;
-    left: 0;
-    width: 100vw;
-    max-width: 100vw;
-    background-color: var(--fondo-secundario);
-    flex-direction: column;
-    align-items: stretch;
-    padding: var(--espacio-lg) 0;
-    box-shadow: 0 4px 8px var(--sombra-suave);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 999;
-    border-radius: 0 0 8px 8px;
-    overflow-x: hidden;
+  /* Mobile navigation is now handled entirely by mobile-nav-enhanced.css */
+
+  /* Ensure hero sections start immediately after navigation */
+  .hero-section,
+  .location-hero,
+  .character-header,
+  section:first-of-type {
+    margin-top: 0;
+    padding-top: var(--espacio-lg);
   }
 
-  .nav-menu.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .nav-menu li {
-    width: 100%;
-  }
-
-  .nav-menu a {
-    display: block;
-    padding: var(--espacio-md) var(--espacio-lg);
-    border-radius: 0;
-    border-bottom: 1px solid var(--sombra-suave);
-    text-align: center;
-  }
-
-  .nav-menu a:last-child {
-    border-bottom: none;
-  }
-
-  /* Mobile dropdown styles */
-  .nav-dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    margin: 0;
-    background: rgba(0, 0, 0, 0.1);
-    display: none;
-  }
-
-  .nav-dropdown.active .nav-dropdown-menu {
-    display: block;
-  }
-
-  .nav-dropdown-menu a {
-    padding-left: var(--espacio-xxl);
-    font-size: 0.9rem;
+  /* Remove any extra spacing below navigation on mobile */
+  main {
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .nav-logo {
