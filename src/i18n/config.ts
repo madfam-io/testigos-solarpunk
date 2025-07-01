@@ -452,6 +452,312 @@ export const ui = {
     'form.submit': 'Submit',
     'form.required': 'Required field',
     'form.invalid': 'Invalid format',
+
+    // Community Page
+    'community.hero.title': 'Join the Movement',
+    'community.hero.description':
+      'A diverse community united by humor and hope for a sustainable future',
+    'community.personas.title': 'Do you identify with any of them?',
+    'community.personas.intro':
+      'Meet the real characters that inspire our sketches',
+    'community.barriers.title': 'We Understand the Barriers',
+    'community.barriers.intro':
+      "We know sustainability can seem complicated. That's why we use humor to break down these myths:",
+    'community.values.title': 'Our Values',
+    'community.participation.title': 'Ways to Participate',
+    'community.cta.title': 'Ready to change the world with a smile?',
+    'community.cta.subtitle':
+      'Join thousands of Solarpunk Witnesses across Mexico',
+    'community.newsletter.title': 'Get our newsletter',
+
+    // Community Values
+    'values.inclusion.title': 'Inclusion',
+    'values.inclusion.description':
+      'Everyone is welcome, regardless of their level of knowledge',
+    'values.humor.title': 'Humor',
+    'values.humor.description': 'Laughing together while we learn and grow',
+    'values.action.title': 'Action',
+    'values.action.description': 'Small steps that generate big changes',
+    'values.creativity.title': 'Creativity',
+    'values.creativity.description': 'Innovative solutions to complex problems',
+
+    // Community Participation
+    'participation.create.title': 'Create Content',
+    'participation.create.description':
+      'Share your own sketches and sustainable experiences',
+    'participation.create.cta': 'Create',
+    'participation.share.title': 'Share',
+    'participation.share.description':
+      'Spread the message on your social networks',
+    'participation.share.cta': 'Share',
+    'participation.collaborate.title': 'Collaborate',
+    'participation.collaborate.description':
+      'Join as a volunteer in MADLAB events',
+    'participation.collaborate.cta': 'Volunteer',
+    'participation.sponsor.title': 'Sponsor',
+    'participation.sponsor.description':
+      'Support the project as a sustainable company',
+    'participation.sponsor.cta': 'Sponsor',
+
+    // Sketches Page
+    'sketches.hero.title': 'Solarpunk Witnesses',
+    'sketches.hero.description':
+      '60-90 second sketches that break cultural barriers and teach sustainability with humor',
+    'sketches.phase.label': 'Phase 1: Attraction',
+    'sketches.stats.episodes': 'Episodes',
+    'sketches.stats.views': 'Views',
+    'sketches.stats.engagement': 'Engagement',
+    'sketches.filters.all': 'All',
+    'sketches.filters.sustainability': 'Sustainability',
+    'sketches.filters.technology': 'Technology',
+    'sketches.filters.social': 'Social',
+    'sketches.grid.title': 'Our Sketches',
+    'sketches.load.more': 'Load more sketches',
+    'sketches.cta.title': 'Do you like what you see?',
+    'sketches.cta.description': "Subscribe so you don't miss any episode",
+    'sketches.cta.subscribe': 'Subscribe to Channel',
+    'sketches.cta.community': 'Join the Community',
+    'sketches.actions.watch': 'Watch Sketch',
+    'sketches.actions.share': 'Share',
+
+    // Personas
+    'personas.gaby.name': 'Gaby Godínez',
+    'personas.gaby.nickname': 'The eco-stressed',
+    'personas.gaby.occupation': 'Freelance graphic designer',
+    'personas.gaby.description':
+      'Wants to be sustainable but feels overwhelmed by all the contradictory information',
+    'personas.gaby.pain': 'Information overload and environmental guilt',
+    'personas.gaby.sketch': 'Day 237 trying to be sustainable',
+
+    'personas.carlos.name': 'Carlos Mendoza',
+    'personas.carlos.nickname': 'The pragmatic skeptic',
+    'personas.carlos.occupation': 'Sales manager',
+    'personas.carlos.description':
+      'Believes sustainability is an expensive fad for privileged millennials',
+    'personas.carlos.pain': 'Perceives eco as elitist and impractical',
+    'personas.carlos.sketch': 'The solar panel that paid for college',
+
+    'personas.sofia.name': 'Sofia Ramírez',
+    'personas.sofia.nickname': 'The conscious influencer',
+    'personas.sofia.occupation': 'Content creator',
+    'personas.sofia.description':
+      'Seeks authentic sustainability content that connects with her audience',
+    'personas.sofia.pain': 'Fear of greenwashing and loss of credibility',
+    'personas.sofia.sketch': 'The app that saves the world... or not',
+
+    'personas.miguel.name': 'Miguel Ángel Torres',
+    'personas.miguel.nickname': 'The curious maker',
+    'personas.miguel.occupation': 'Engineering student',
+    'personas.miguel.description':
+      'Loves creating and experimenting, seeks accessible DIY sustainable projects',
+    'personas.miguel.pain': 'Lack of resources and accessible guides',
+    'personas.miguel.sketch': 'Hacking the solar future',
+
+    'personas.laura.name': 'Laura Hernández',
+    'personas.laura.nickname': 'The activist mom',
+    'personas.laura.occupation': 'Teacher and mother of two',
+    'personas.laura.description':
+      'Wants to teach sustainable values to her children without sounding preachy',
+    'personas.laura.pain': 'How to make sustainability fun for kids',
+    'personas.laura.sketch': 'The garden that became a jungle',
+
+    // Pain Points
+    'barriers.economic.title': 'Economic Barrier',
+    'barriers.economic.belief': '"Being sustainable is expensive"',
+    'barriers.economic.solution':
+      'Sketches showing accessible and DIY alternatives',
+
+    'barriers.educational.title': 'Educational Barrier',
+    'barriers.educational.belief': '"It\'s too complicated to understand"',
+    'barriers.educational.solution': 'Humor that simplifies complex concepts',
+
+    'barriers.cultural.title': 'Cultural Barrier',
+    'barriers.cultural.belief': '"Environmentalists are boring"',
+    'barriers.cultural.solution': 'Comedy that connects with pop culture',
+
+    'barriers.time.title': 'Time Barrier',
+    'barriers.time.belief': '"I don\'t have time for this"',
+    'barriers.time.solution': 'Quick tips in 60-second sketches',
+
+    // Common UI labels
+    'ui.age': 'years old',
+    'ui.pain.label': 'Their pain:',
+    'ui.sketch.label': 'Related sketch:',
+    'ui.solution.label': 'Our response:',
+
+    // Sketch Episodes
+    'sketches.ep1.title': 'Day 237 trying to be sustainable',
+    'sketches.ep1.description':
+      'Luna tries to compost but ends up creating an ecosystem in her kitchen',
+    'sketches.ep2.title': 'The Gospel according to the Panels',
+    'sketches.ep2.description':
+      'Solar evangelists preach in the market about energy salvation',
+    'sketches.ep3.title': 'The app that saves the world... or not',
+    'sketches.ep3.description':
+      'Alex presents his new eco-friendly app that uses more battery than Bitcoin',
+
+    // Creative Process
+    'process.research.title': 'Research',
+    'process.research.description':
+      'We identify pain points and cultural barriers',
+    'process.design.title': 'Design',
+    'process.design.description':
+      'We create content that connects and educates',
+    'process.production.title': 'Production',
+    'process.production.description': 'We record with MADFAM quality',
+    'process.distribution.title': 'Distribution',
+    'process.distribution.description':
+      'We reach audiences on multiple platforms',
+    'process.impact.title': 'Impact',
+    'process.impact.description': 'We measure and optimize results',
+
+    // Project Page Content
+    'project.process.title': 'Our Creative Process',
+    'project.cta.title': 'Ready to be part of the change?',
+    'project.cta.subtitle': 'Join the sustainable humor revolution',
+
+    // Project Phases Details
+    'project.phase1.title': 'Solarpunk Witnesses',
+    'project.phase1.description':
+      'Comedy sketches with relevant content to reflect on daily habits and science',
+    'project.phase1.duration': '60-90 seconds',
+    'project.phase1.feature1': 'Viral content for social media',
+    'project.phase1.feature2': 'Humor that breaks cultural barriers',
+    'project.phase1.feature3': 'Practical sustainability tips',
+
+    'project.phase2.title': 'MADFAM Podcast',
+    'project.phase2.description':
+      'Medium-depth content about science, technology and quality of life with guest experts',
+    'project.phase2.duration': '20-30 minutes',
+    'project.phase2.feature1': 'Deep conversations with experts',
+    'project.phase2.feature2': 'Current environmental topics',
+    'project.phase2.feature3': 'Practical and scalable solutions',
+
+    'project.phase3.title': 'MADLAB',
+    'project.phase3.description':
+      'Events, experiences and activations in schools with sponsor support for direct impact',
+    'project.phase3.duration': 'In-person events',
+    'project.phase3.feature1': 'Immersive educational experiences',
+    'project.phase3.feature2': 'Innovation laboratories',
+    'project.phase3.feature3': 'Direct impact on communities',
+
+    // Common labels
+    'ui.mission.vision': 'Mission and Vision',
+
+    // Philosophy Page
+    'philosophy.title': 'Project Philosophy',
+    'philosophy.hero.title': 'The Evangelizing Vision',
+    'philosophy.hero.subtitle':
+      "Solarpunk Witnesses is a parody that imitates the style of Jehovah's Witnesses, but preaching eco-technological salvation and a sustainable future",
+    'philosophy.concept.title': 'Central Concept',
+    'philosophy.concept.text':
+      "The **Solarpunk Witnesses** announce the imminent climate crisis and offer salvation through green technology, community life and sustainable practices. It's a satire that combines:",
+    'philosophy.objectives.title': 'Project Objectives',
+    'philosophy.roadmap.title': 'Evangelization Roadmap',
+    'philosophy.commandments.title': 'The Solarpunk Commandments',
+    'philosophy.quotes.title': 'Words from the Prophets',
+    'philosophy.cta.title': 'Ready to Join the Mission?',
+    'philosophy.cta.scriptures': 'Study the Scriptures',
+    'philosophy.cta.prophets': 'Meet the Prophets',
+
+    // Impact Page
+    'impact.title2': 'Our Impact',
+    'impact.hero.subtitle': 'We measure our success by the smiles generated',
+    'impact.metrics.title': 'Real-Time Metrics',
+    'impact.phases.title': 'Impact by Phase',
+    'impact.stories.title': 'Change Stories',
+    'impact.growth.title': 'Movement Growth',
+    'impact.partners.title': 'Change Allies',
+    'impact.cta.title': 'Be Part of the Impact',
+    'impact.cta.support': 'Support the Project',
+    'impact.cta.volunteer': 'Join as Volunteer',
+
+    // Characters Page
+    'characters.title2': 'Characters',
+    'characters.hero.title': 'Universe Characters',
+    'characters.hero.subtitle': 'Meet the inhabitants of Neo-Cuernavaca',
+    'characters.filters.all': 'All',
+    'characters.filters.protagonists': 'Protagonists',
+    'characters.filters.evangelists': 'Evangelists',
+    'characters.filters.support': 'Support',
+    'characters.cta.title': 'Want to know more about these characters?',
+    'characters.cta.description':
+      'Explore the scripts to see these characters in action',
+    'characters.cta.scripts': 'View Scripts',
+
+    // Production Pages
+    'production.visual.title': 'Visual Style Guide',
+    'production.visual.colors': 'Main Color Palette',
+    'production.visual.typography': 'Typography',
+    'production.visual.aesthetic': 'Magazine Cutout Aesthetic',
+    'production.audio.title': 'Audio Production',
+    'production.back': 'Back to Production',
+
+    // MADLAB Page
+    'madlab.title': 'MADLAB - Phase 3',
+    'madlab.hero.title': 'MADLAB',
+    'madlab.hero.subtitle': 'Sustainable innovation laboratories',
+    'madlab.what.title': 'What is MADLAB?',
+    'madlab.programs.title': 'MADLAB Programs',
+    'madlab.timeline.title': 'Expected Impact',
+    'madlab.sponsors.title': 'Sponsors',
+    'madlab.sponsors.benefits': 'Benefits for Sponsors',
+    'madlab.sponsors.cta': 'Become a Sponsor',
+    'madlab.cta.schools': 'For Schools',
+    'madlab.cta.volunteers': 'For Volunteers',
+    'madlab.cta.facilitator': 'Join as facilitator or mentor',
+
+    // Podcast Page
+    'podcast.title': 'Podcast - Phase 2',
+    'podcast.hero.title': 'MADFAM Podcast',
+    'podcast.coming.title': "What's Coming",
+    'podcast.features.deep': 'Deep Content',
+    'podcast.features.experts': 'Expert Guests',
+    'podcast.features.solutions': 'Practical Solutions',
+    'podcast.features.relevant': 'Relevant Topics',
+    'podcast.topics.title': "Topics We'll Explore",
+    'podcast.notify.title': 'Be the first to listen',
+    'podcast.notify.cta': 'Notify Me',
+    'podcast.meanwhile.title': 'Meanwhile...',
+    'podcast.meanwhile.description': 'Enjoy our Phase 1 sketches',
+
+    // Formats Page
+    'formats.title': 'Content Formats',
+    'formats.hero.title': 'Our Content Formats',
+    'formats.hero.subtitle': 'Multiple ways to spread the solar message',
+
+    // Visual Guide Page
+    'visual.guide.title': 'Visual Style Guide',
+    'visual.guide.hero.title': 'Visual Identity',
+    'visual.guide.colors.title': 'Color Palette',
+    'visual.guide.typography.title': 'Typography',
+    'visual.guide.aesthetic.title': 'Magazine Cutout Aesthetic',
+
+    // Resources Page
+    'resources.title': 'Resources',
+    'resources.hero.title': 'Creative Resources',
+    'resources.actors.title': 'For Actors',
+    'resources.creators.title': 'For Creators',
+    'resources.sponsors.title': 'For Sponsors',
+
+    // Scripts Page
+    'scripts.title': 'Scripts',
+    'scripts.hero.title': 'Comedy Scripts',
+    'scripts.hero.subtitle': 'Discover our sketch scripts',
+
+    // Universe/World Page
+    'universe.title': 'Universe',
+    'world.hero.title': 'The Solarpunk World',
+    'world.hero.subtitle': 'Welcome to Neo-Cuernavaca',
+
+    // Production Page
+    'production.title': 'Production',
+    'production.hero.title': 'Production Guide',
+
+    // Common page elements
+    'page.back.home': 'Back to Home',
+    'page.more.info': 'More Information',
+    'page.coming.soon': 'Coming Soon',
   },
 } as const;
 

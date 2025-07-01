@@ -2,6 +2,8 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 
+const lang = 'en';
+const _t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -11,9 +13,6 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <BaseLayout
@@ -60,7 +59,7 @@ const _t = useTranslations(lang);
               <li>Reportes personalizados y dashboards</li>
             </ul>
             <a
-              href={`${basePath}/recursos/patrocinadores/impacto/`}
+              href={`${basePath}/en/resources/patrocinadores/impacto/`}
               class="btn btn-primary"
             >
               <span class="emoji-cutout emoji-sm">📈</span>
@@ -87,7 +86,7 @@ const _t = useTranslations(lang);
               <li>Eventos y experiencias inmersivas</li>
             </ul>
             <a
-              href={`${basePath}/recursos/patrocinadores/integracion/`}
+              href={`${basePath}/en/resources/patrocinadores/integracion/`}
               class="btn btn-primary"
             >
               <span class="emoji-cutout emoji-sm">🎯</span>
@@ -114,7 +113,7 @@ const _t = useTranslations(lang);
               <li>Casos de estudio de colaboraciones exitosas</li>
             </ul>
             <a
-              href={`${basePath}/recursos/patrocinadores/valores/`}
+              href={`${basePath}/en/resources/patrocinadores/valores/`}
               class="btn btn-primary"
             >
               <span class="emoji-cutout emoji-sm">💎</span>
@@ -318,11 +317,11 @@ const _t = useTranslations(lang);
           el valor para todas las partes.
         </p>
         <div class="contact-actions">
-          <a href={`${basePath}/comunidad/`} class="btn btn-primary">
+          <a href={`${basePath}/en/community/`} class="btn btn-primary">
             <span class="emoji-cutout emoji-sm">📧</span>
             Contactar Equipo
           </a>
-          <a href={`${basePath}/recursos/`} class="btn btn-secondary">
+          <a href={`${basePath}/en/resources/`} class="btn btn-secondary">
             <span class="emoji-cutout emoji-sm">📚</span>
             Ver Más Recursos
           </a>

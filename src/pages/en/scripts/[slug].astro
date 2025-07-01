@@ -3,6 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
+const lang = 'en';
+const _t = useTranslations(lang);
 // Define types for better clarity
 type ScriptPath = {
   params: { slug: string };
@@ -39,9 +41,6 @@ const body = script.body != null ? String(script.body) : '';
 
 const pageTitle = `${titulo} - ${episodio}`;
 const pageDescription = `Guion para ${plataforma}: ${titulo}. Duracion: ${duracion}.`;
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <BaseLayout lang={lang} title={pageTitle} description={pageDescription}>

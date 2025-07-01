@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 
+const lang = 'en';
+const _t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -11,9 +13,6 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <BaseLayout lang={lang} title="Tono y Voz Narrativa">
@@ -22,7 +21,7 @@ const _t = useTranslations(lang);
     <div class="container">
       <ol class="breadcrumb">
         <li><a href={`${basePath}/`}>Inicio</a></li>
-        <li><a href={`${basePath}/produccion/`}>Producción</a></li>
+        <li><a href={`${basePath}/en/production/`}>Producción</a></li>
         <li aria-current="page">Tono y Voz</li>
       </ol>
     </div>
@@ -472,7 +471,7 @@ const _t = useTranslations(lang);
   <!-- Back Navigation -->
   <section class="back-navigation">
     <div class="container text-center">
-      <a href={`${basePath}/produccion/`} class="btn btn-secondary">
+      <a href={`${basePath}/en/production/`} class="btn btn-secondary">
         <span class="emoji-cutout emoji-sm">👈</span>
         Volver a Producción
       </a>

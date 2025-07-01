@@ -3,6 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 import QuoteBlock from '../../../components/QuoteBlock.astro';
 
+const lang = 'en';
+const t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -12,12 +14,9 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
-<BaseLayout lang={lang} title="Filosofía del Proyecto">
+<BaseLayout lang={lang} title={t('philosophy.title')}>
   <section class="hero-section">
     <div class="container">
       <div class="hero-content">
@@ -330,10 +329,10 @@ const _t = useTranslations(lang);
           vez.
         </p>
         <div class="cta-buttons">
-          <a href={`${basePath}/recursos/`} class="btn btn-primary">
+          <a href={`${basePath}/en/resources/`} class="btn btn-primary">
             <i class="fas fa-book"></i> Estudiar las Escrituras
           </a>
-          <a href={`${basePath}/personajes/`} class="btn btn-secondary">
+          <a href={`${basePath}/en/characters/`} class="btn btn-secondary">
             <i class="fas fa-users"></i> Conocer a los Profetas
           </a>
         </div>

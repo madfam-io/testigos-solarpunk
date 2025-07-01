@@ -3,6 +3,8 @@ import UnifiedLayout from '../../layouts/UnifiedLayout.astro';
 import Breadcrumbs from '../../components/layout/Breadcrumbs.astro';
 import { useTranslations } from '@/i18n/config';
 
+const lang = 'en';
+const t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -17,9 +19,6 @@ const breadcrumbItems = [
   { label: 'Inicio', href: '/' },
   { label: 'El Proyecto' },
 ];
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <UnifiedLayout
@@ -80,7 +79,7 @@ const _t = useTranslations(lang);
             hábitos y ciencia cotidiana
           </p>
           <div class="fase-meta">
-            <span class="badge badge-success">{_t('phase1.status')}</span>
+            <span class="badge badge-success">{t('phase1.status')}</span>
             <span class="badge badge-secondary">60-90 segundos</span>
           </div>
           <ul class="fase-features">
@@ -88,8 +87,8 @@ const _t = useTranslations(lang);
             <li>Humor que rompe barreras culturales</li>
             <li>Tips prácticos de sostenibilidad</li>
           </ul>
-          <a href={`${basePath}/contenido/sketches`} class="btn btn-primary"
-            >{_t('cta.watch')}</a
+          <a href={`${basePath}/en/content/sketches`} class="btn btn-primary"
+            >{t('cta.watch')}</a
           >
         </div>
 
@@ -104,7 +103,7 @@ const _t = useTranslations(lang);
             de vida con expertos invitados
           </p>
           <div class="fase-meta">
-            <span class="badge badge-primary">{_t('phase2.status')}</span>
+            <span class="badge badge-primary">{t('phase2.status')}</span>
             <span class="badge badge-secondary">20-30 minutos</span>
           </div>
           <ul class="fase-features">
@@ -112,8 +111,8 @@ const _t = useTranslations(lang);
             <li>Temas de actualidad ambiental</li>
             <li>Soluciones prácticas y escalables</li>
           </ul>
-          <a href={`${basePath}/contenido/podcast`} class="btn btn-secondary"
-            >{_t('cta.learn')}</a
+          <a href={`${basePath}/en/content/podcast`} class="btn btn-secondary"
+            >{t('cta.learn')}</a
           >
         </div>
 
@@ -127,7 +126,7 @@ const _t = useTranslations(lang);
             patrocinadores para impacto directo
           </p>
           <div class="fase-meta">
-            <span class="badge badge-warning">{_t('phase3.status')}</span>
+            <span class="badge badge-warning">{t('phase3.status')}</span>
             <span class="badge badge-secondary">Eventos presenciales</span>
           </div>
           <ul class="fase-features">
@@ -135,8 +134,8 @@ const _t = useTranslations(lang);
             <li>Laboratorios de innovación</li>
             <li>Impacto directo en comunidades</li>
           </ul>
-          <a href={`${basePath}/contenido/madlab`} class="btn btn-secondary"
-            >{_t('cta.discover')}</a
+          <a href={`${basePath}/en/content/madlab`} class="btn btn-secondary"
+            >{t('cta.discover')}</a
           >
         </div>
       </div>
@@ -187,11 +186,11 @@ const _t = useTranslations(lang);
         Únete a la revolución del humor sostenible
       </p>
       <div class="cta-actions">
-        <a href={`${basePath}/comunidad`} class="btn btn-primary">
-          <span class="emoji emoji-button">🤝</span>{_t('cta.connect')}</a
+        <a href={`${basePath}/en/community`} class="btn btn-primary">
+          <span class="emoji emoji-button">🤝</span>{t('cta.connect')}</a
         >
-        <a href={`${basePath}/contenido/sketches`} class="btn btn-secondary">
-          <span class="emoji emoji-button">🎬</span>{_t('cta.watch')}</a
+        <a href={`${basePath}/en/content/sketches`} class="btn btn-secondary">
+          <span class="emoji emoji-button">🎬</span>{t('cta.watch')}</a
         >
       </div>
     </div>

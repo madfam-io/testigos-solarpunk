@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 
+const lang = 'en';
+const t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -11,9 +13,6 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
-
-const lang = 'en';
-const t = useTranslations(lang);
 ---
 
 <BaseLayout
@@ -70,7 +69,7 @@ const t = useTranslations(lang);
               </div>
             </div>
 
-            <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary"
+            <a href={`${basePath}/en/content/sketches/`} class="btn btn-primary"
               >{t('cta.watch')}</a
             >
           </div>
@@ -113,7 +112,7 @@ const t = useTranslations(lang);
             </div>
 
             <a
-              href={`${basePath}/contenido/podcast/`}
+              href={`${basePath}/en/content/podcast/`}
               class="btn btn-secondary"
             >
               Conocer Más
@@ -157,7 +156,7 @@ const t = useTranslations(lang);
               </div>
             </div>
 
-            <a href={`${basePath}/contenido/madlab/`} class="btn btn-secondary"
+            <a href={`${basePath}/en/content/madlab/`} class="btn btn-secondary"
               >{t('cta.discover')}</a
             >
           </div>

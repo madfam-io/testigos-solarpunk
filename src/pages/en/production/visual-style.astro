@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 
+const lang = 'en';
+const t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -11,18 +13,15 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
-<BaseLayout lang={lang} title="Guía de Estilo Visual">
+<BaseLayout lang={lang} title={t('production.visual.title')}>
   <!-- Breadcrumb Navigation -->
   <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
     <div class="container">
       <ol class="breadcrumb">
         <li><a href={`${basePath}/`}>Inicio</a></li>
-        <li><a href={`${basePath}/produccion/`}>Producción</a></li>
+        <li><a href={`${basePath}/en/production/`}>Producción</a></li>
         <li aria-current="page">Estilo Visual</li>
       </ol>
     </div>
@@ -287,7 +286,7 @@ const _t = useTranslations(lang);
   <!-- Back Navigation -->
   <section class="back-navigation">
     <div class="container text-center">
-      <a href={`${basePath}/produccion/`} class="btn btn-secondary">
+      <a href={`${basePath}/en/production/`} class="btn btn-secondary">
         <span class="emoji-cutout emoji-sm">👈</span>
         Volver a Producción
       </a>

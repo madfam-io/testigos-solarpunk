@@ -2,6 +2,8 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 
+const lang = 'en';
+const _t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -11,9 +13,6 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <BaseLayout
@@ -60,7 +59,7 @@ const _t = useTranslations(lang);
               <li>Frameworks de engagement</li>
             </ul>
             <a
-              href={`${basePath}/recursos/creadores/plantillas/`}
+              href={`${basePath}/en/resources/creadores/plantillas/`}
               class="btn btn-primary"
             >
               <span class="emoji-cutout emoji-sm">🚀</span>
@@ -87,7 +86,7 @@ const _t = useTranslations(lang);
               <li>Referencias visuales y de personalidad</li>
             </ul>
             <a
-              href={`${basePath}/recursos/creadores/personajes/`}
+              href={`${basePath}/en/resources/creadores/personajes/`}
               class="btn btn-primary"
             >
               <span class="emoji-cutout emoji-sm">🎯</span>
@@ -114,7 +113,7 @@ const _t = useTranslations(lang);
               <li>Timeline histórico del universo</li>
             </ul>
             <a
-              href={`${basePath}/recursos/creadores/worldbuilding/`}
+              href={`${basePath}/en/resources/creadores/worldbuilding/`}
               class="btn btn-primary"
             >
               <span class="emoji-cutout emoji-sm">🗺️</span>
@@ -204,11 +203,11 @@ const _t = useTranslations(lang);
           solarpunk.
         </p>
         <div class="community-actions">
-          <a href={`${basePath}/comunidad/`} class="btn btn-primary">
+          <a href={`${basePath}/en/community/`} class="btn btn-primary">
             <span class="emoji-cutout emoji-sm">💬</span>
             Unirse al Discord
           </a>
-          <a href={`${basePath}/recursos/`} class="btn btn-secondary">
+          <a href={`${basePath}/en/resources/`} class="btn btn-secondary">
             <span class="emoji-cutout emoji-sm">📚</span>
             Ver Todos los Recursos
           </a>

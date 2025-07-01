@@ -3,6 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
+const lang = 'en';
+const _t = useTranslations(lang);
 // Define types for better clarity
 type CharacterPath = {
   params: { slug: string };
@@ -41,9 +43,6 @@ const frases_emblematicas = data.frases_emblematicas ?? [];
 const basePath = import.meta.env.BASE_URL ?? '';
 const pageTitle = `${nombre} - ${rol}`;
 const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <BaseLayout lang={lang} title={pageTitle} description={pageDescription}>
@@ -52,7 +51,7 @@ const _t = useTranslations(lang);
     <div class="container">
       <ol class="breadcrumb">
         <li><a href={`${basePath}/`}>Inicio</a></li>
-        <li><a href={`${basePath}/personajes/`}>Personajes</a></li>
+        <li><a href={`${basePath}/en/characters/`}>Personajes</a></li>
         <li aria-current="page">{nombre}</li>
       </ol>
     </div>
@@ -251,7 +250,7 @@ const _t = useTranslations(lang);
   <section class="character-navigation">
     <div class="container">
       <div class="nav-buttons">
-        <a href={`${basePath}/personajes/`} class="btn btn-secondary">
+        <a href={`${basePath}/en/characters/`} class="btn btn-secondary">
           <span class="emoji-cutout emoji-sm">👈</span>
           Volver a Personajes
         </a>

@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 import MagazineCutoutImage from '../../components/MagazineCutoutImage.astro';
 
+const lang = 'en';
+const t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -13,121 +15,112 @@ if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
 
-// Buyer Personas
+// Buyer Personas - English translations
 const personas = [
   {
     id: 'gaby',
-    nombre: 'Gaby Godínez',
-    apodo: 'La ecoestresada',
+    nombre: t('personas.gaby.name'),
+    apodo: t('personas.gaby.nickname'),
     edad: 33,
-    ocupacion: 'Diseñadora gráfica freelance',
-    descripcion:
-      'Quiere ser sostenible pero se siente abrumada por toda la información contradictoria',
-    dolor: 'Saturación de contenido y culpa ambiental',
-    sketch: 'Día 237 intentando ser sostenible',
+    ocupacion: t('personas.gaby.occupation'),
+    descripcion: t('personas.gaby.description'),
+    dolor: t('personas.gaby.pain'),
+    sketch: t('personas.gaby.sketch'),
   },
   {
     id: 'carlos',
-    nombre: 'Carlos Mendoza',
-    apodo: 'El escéptico pragmático',
+    nombre: t('personas.carlos.name'),
+    apodo: t('personas.carlos.nickname'),
     edad: 45,
-    ocupacion: 'Gerente de ventas',
-    descripcion:
-      'Cree que la sostenibilidad es una moda cara para millennials privilegiados',
-    dolor: 'Percibe lo eco como elitista y poco práctico',
-    sketch: 'El panel solar que pagó la universidad',
+    ocupacion: t('personas.carlos.occupation'),
+    descripcion: t('personas.carlos.description'),
+    dolor: t('personas.carlos.pain'),
+    sketch: t('personas.carlos.sketch'),
   },
   {
     id: 'sofia',
-    nombre: 'Sofía Ramírez',
-    apodo: 'La influencer consciente',
+    nombre: t('personas.sofia.name'),
+    apodo: t('personas.sofia.nickname'),
     edad: 26,
-    ocupacion: 'Content creator',
-    descripcion:
-      'Busca contenido auténtico sobre sostenibilidad que conecte con su audiencia',
-    dolor: 'Miedo al greenwashing y pérdida de credibilidad',
-    sketch: 'La app que salva el mundo... o no',
+    ocupacion: t('personas.sofia.occupation'),
+    descripcion: t('personas.sofia.description'),
+    dolor: t('personas.sofia.pain'),
+    sketch: t('personas.sofia.sketch'),
   },
   {
     id: 'miguel',
-    nombre: 'Miguel Ángel Torres',
-    apodo: 'El maker curioso',
+    nombre: t('personas.miguel.name'),
+    apodo: t('personas.miguel.nickname'),
     edad: 19,
-    ocupacion: 'Estudiante de ingeniería',
-    descripcion:
-      'Le encanta crear y experimentar, busca proyectos DIY sostenibles',
-    dolor: 'Falta de recursos y guías accesibles',
-    sketch: 'Hackeando el futuro solar',
+    ocupacion: t('personas.miguel.occupation'),
+    descripcion: t('personas.miguel.description'),
+    dolor: t('personas.miguel.pain'),
+    sketch: t('personas.miguel.sketch'),
   },
   {
     id: 'laura',
-    nombre: 'Laura Hernández',
-    apodo: 'La mamá activista',
+    nombre: t('personas.laura.name'),
+    apodo: t('personas.laura.nickname'),
     edad: 38,
-    ocupacion: 'Maestra y madre de dos',
-    descripcion:
-      'Quiere enseñar valores sostenibles a sus hijos sin sonar sermoneadora',
-    dolor: 'Cómo hacer la sostenibilidad divertida para niños',
-    sketch: 'El huerto que se volvió jungla',
+    ocupacion: t('personas.laura.occupation'),
+    descripcion: t('personas.laura.description'),
+    dolor: t('personas.laura.pain'),
+    sketch: t('personas.laura.sketch'),
   },
 ];
 
-// Pain Points
+// Pain Points - English translations
 const painPoints = [
   {
     tipo: 'economica',
-    titulo: 'Barrera Económica',
-    creencia: '"Ser sostenible es caro"',
-    solucion: 'Sketches mostrando alternativas accesibles y DIY',
+    titulo: t('barriers.economic.title'),
+    creencia: t('barriers.economic.belief'),
+    solucion: t('barriers.economic.solution'),
     icon: '💰',
   },
   {
     tipo: 'educativa',
-    titulo: 'Barrera Educativa',
-    creencia: '"Es muy complicado entender"',
-    solucion: 'Humor que simplifica conceptos complejos',
+    titulo: t('barriers.educational.title'),
+    creencia: t('barriers.educational.belief'),
+    solucion: t('barriers.educational.solution'),
     icon: '📚',
   },
   {
     tipo: 'cultural',
-    titulo: 'Barrera Cultural',
-    creencia: '"Los ecologistas son aburridos"',
-    solucion: 'Comedia que conecta con la cultura pop',
+    titulo: t('barriers.cultural.title'),
+    creencia: t('barriers.cultural.belief'),
+    solucion: t('barriers.cultural.solution'),
     icon: '🎭',
   },
   {
     tipo: 'tiempo',
-    titulo: 'Barrera de Tiempo',
-    creencia: '"No tengo tiempo para esto"',
-    solucion: 'Tips rápidos en sketches de 60 segundos',
+    titulo: t('barriers.time.title'),
+    creencia: t('barriers.time.belief'),
+    solucion: t('barriers.time.solution'),
     icon: '⏱️',
   },
 ];
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <BaseLayout
   lang={lang}
-  title="Comunidad"
-  description="Únete a la comunidad de Testigos de Solarpunk"
+  title={t('community.title')}
+  description={t('community.description')}
 >
   <section class="hero-comunidad">
     <div class="container">
-      <h1>Únete al Movimiento</h1>
+      <h1>{t('community.hero.title')}</h1>
       <p class="hero-description">
-        Una comunidad diversa unida por el humor y la esperanza de un futuro
-        sostenible
+        {t('community.hero.description')}
       </p>
     </div>
   </section>
 
   <section class="personas-section newspaper-bg with-columns">
     <div class="container">
-      <h2>¿Te identificas con alguno?</h2>
+      <h2>{t('community.personas.title')}</h2>
       <p class="section-intro">
-        Conoce a los personajes reales que inspiran nuestros sketches
+        {t('community.personas.intro')}
       </p>
 
       <div class="personas-grid">
@@ -153,7 +146,7 @@ const _t = useTranslations(lang);
                   <h3>{persona.nombre}</h3>
                   <p class="persona-apodo">"{persona.apodo}"</p>
                   <p class="persona-edad">
-                    {persona.edad} años • {persona.ocupacion}
+                    {persona.edad} {t('ui.age')} • {persona.ocupacion}
                   </p>
                 </div>
               </div>
@@ -162,14 +155,14 @@ const _t = useTranslations(lang);
                 <p class="persona-descripcion">{persona.descripcion}</p>
 
                 <div class="persona-dolor">
-                  <span class="dolor-label">Su dolor:</span>
+                  <span class="dolor-label">{t('ui.pain.label')}</span>
                   <p>{persona.dolor}</p>
                 </div>
 
                 <div class="persona-sketch">
-                  <span class="sketch-label">Sketch relacionado:</span>
+                  <span class="sketch-label">{t('ui.sketch.label')}</span>
                   <a
-                    href={`${basePath}/contenido/sketches`}
+                    href={`${basePath}/en/content/sketches`}
                     class="sketch-link"
                   >
                     <span class="emoji-cutout emoji-sm theme-solar">🎬</span>{' '}
@@ -186,10 +179,9 @@ const _t = useTranslations(lang);
 
   <section class="pain-points-section newspaper-bg aged">
     <div class="container">
-      <h2>Entendemos las Barreras</h2>
+      <h2>{t('community.barriers.title')}</h2>
       <p class="section-intro">
-        Sabemos que la sostenibilidad puede parecer complicada. Por eso usamos
-        el humor para derribar estos mitos:
+        {t('community.barriers.intro')}
       </p>
 
       <div class="barriers-grid">
@@ -204,7 +196,7 @@ const _t = useTranslations(lang);
               <h3>{point.titulo}</h3>
               <p class="barrier-creencia">{point.creencia}</p>
               <div class="barrier-solution">
-                <span class="solution-label">Nuestra respuesta:</span>
+                <span class="solution-label">{t('ui.solution.label')}</span>
                 <p>{point.solucion}</p>
               </div>
             </div>
@@ -216,7 +208,7 @@ const _t = useTranslations(lang);
 
   <section class="community-values">
     <div class="container">
-      <h2>Nuestros Valores</h2>
+      <h2>{t('community.values.title')}</h2>
       <div class="values-grid">
         <div
           class="magazine-card card-md theme-solar interactive context-feature"
@@ -226,8 +218,8 @@ const _t = useTranslations(lang);
               >🤝</span
             ></span
           >
-          <h3>Inclusión</h3>
-          <p>Todos son bienvenidos, sin importar su nivel de conocimiento</p>
+          <h3>{t('values.inclusion.title')}</h3>
+          <p>{t('values.inclusion.description')}</p>
         </div>
         <div
           class="magazine-card card-md theme-solar interactive context-feature"
@@ -237,8 +229,8 @@ const _t = useTranslations(lang);
               >😄</span
             ></span
           >
-          <h3>Humor</h3>
-          <p>Reírnos juntos mientras aprendemos y crecemos</p>
+          <h3>{t('values.humor.title')}</h3>
+          <p>{t('values.humor.description')}</p>
         </div>
         <div
           class="magazine-card card-md theme-solar interactive context-feature"
@@ -248,8 +240,8 @@ const _t = useTranslations(lang);
               >🌱</span
             ></span
           >
-          <h3>Acción</h3>
-          <p>Pequeños pasos que generan grandes cambios</p>
+          <h3>{t('values.action.title')}</h3>
+          <p>{t('values.action.description')}</p>
         </div>
         <div
           class="magazine-card card-md theme-solar interactive context-feature"
@@ -259,8 +251,8 @@ const _t = useTranslations(lang);
               >💡</span
             ></span
           >
-          <h3>Creatividad</h3>
-          <p>Soluciones innovadoras para problemas complejos</p>
+          <h3>{t('values.creativity.title')}</h3>
+          <p>{t('values.creativity.description')}</p>
         </div>
       </div>
     </div>
@@ -268,47 +260,57 @@ const _t = useTranslations(lang);
 
   <section class="join-community">
     <div class="container">
-      <h2>Formas de Participar</h2>
+      <h2>{t('community.participation.title')}</h2>
       <div class="join-options">
         <div
           class="magazine-card card-md theme-community interactive context-feature"
         >
           <h3>
-            <span class="emoji-cutout emoji-md theme-solar">🎬</span> Crea Contenido
+            <span class="emoji-cutout emoji-md theme-solar">🎬</span>
+            {t('participation.create.title')}
           </h3>
-          <p>Comparte tus propios sketches y experiencias sostenibles</p>
-          <button class="btn btn-secondary">Crear</button>
+          <p>{t('participation.create.description')}</p>
+          <button class="btn btn-secondary"
+            >{t('participation.create.cta')}</button
+          >
         </div>
         <div
           class="magazine-card card-md theme-community interactive context-feature"
         >
           <h3>
-            <span class="emoji-cutout emoji-md theme-purple">📤</span> Comparte
+            <span class="emoji-cutout emoji-md theme-purple">📤</span>
+            {t('participation.share.title')}
           </h3>
-          <p>Difunde el mensaje en tus redes sociales</p>
-          <button class="btn btn-secondary">Compartir</button>
+          <p>{t('participation.share.description')}</p>
+          <button class="btn btn-secondary"
+            >{t('participation.share.cta')}</button
+          >
         </div>
         <div
           class="magazine-card card-md theme-community interactive context-feature"
         >
           <h3>
-            <span class="emoji-cutout emoji-md theme-community">🤝</span> Colabora
+            <span class="emoji-cutout emoji-md theme-community">🤝</span>
+            {t('participation.collaborate.title')}
           </h3>
-          <p>Únete como voluntario en eventos MADLAB</p>
-          <button class="btn btn-secondary">Voluntariado</button>
+          <p>{t('participation.collaborate.description')}</p>
+          <button class="btn btn-secondary"
+            >{t('participation.collaborate.cta')}</button
+          >
         </div>
         <div
           class="magazine-card card-md theme-community interactive context-feature"
         >
           <h3>
-            <span class="emoji-cutout emoji-md theme-green">💚</span> Patrocina
+            <span class="emoji-cutout emoji-md theme-green">💚</span>
+            {t('participation.sponsor.title')}
           </h3>
-          <p>Apoya el proyecto como empresa sostenible</p>
+          <p>{t('participation.sponsor.description')}</p>
           <a
-            href={`${basePath}/recursos#patrocinadores`}
+            href={`${basePath}/en/resources#sponsors`}
             class="btn btn-secondary"
           >
-            Patrocinar
+            {t('participation.sponsor.cta')}
           </a>
         </div>
       </div>
@@ -318,8 +320,8 @@ const _t = useTranslations(lang);
   <section class="community-cta">
     <div class="container">
       <div class="cta-content">
-        <h2>¿Listo para cambiar el mundo con una sonrisa?</h2>
-        <p>Únete a miles de Testigos de Solarpunk en todo México</p>
+        <h2>{t('community.cta.title')}</h2>
+        <p>{t('community.cta.subtitle')}</p>
 
         <div class="social-links">
           <a
@@ -368,17 +370,19 @@ const _t = useTranslations(lang);
         </div>
 
         <div class="magazine-card card-lg theme-tech interactive">
-          <h3>Recibe nuestro newsletter</h3>
+          <h3>{t('community.newsletter.title')}</h3>
           <form enctype="application/x-www-form-urlencoded">
             <input
               type="email"
-              placeholder="tu@email.com"
+              placeholder={t('form.email')}
               class="email-input"
               required
               aria-required="true"
-              aria-label="Correo electrónico para newsletter"
+              aria-label="Email for newsletter"
             />
-            <button type="submit" class="btn btn-primary"> Suscribirme </button>
+            <button type="submit" class="btn btn-primary"
+              >{t('ui.subscribe')}</button
+            >
           </form>
         </div>
       </div>

@@ -4,6 +4,8 @@ import { useTranslations } from '@/i18n/config';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { platformColors } from '../../../lib/script-constants';
 
+const lang = 'en';
+const _t = useTranslations(lang);
 const baseUrl = import.meta.env.BASE_URL ?? '';
 const basePath = baseUrl !== '' ? baseUrl.replace(/\/$/, '') : '';
 const scripts: CollectionEntry<'scripts'>[] = await getCollection('scripts');
@@ -19,9 +21,6 @@ scriptsByPlatform['Instagram'] = scripts.filter(
 scriptsByPlatform['YouTube'] = scripts.filter(
   (s) => s.data.plataforma === 'YouTube'
 );
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <BaseLayout lang={lang} title="Guiones">

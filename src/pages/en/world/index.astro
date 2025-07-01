@@ -3,11 +3,10 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-const locations: CollectionEntry<'locations'>[] =
-  await getCollection('locations');
-
 const lang = 'en';
 const _t = useTranslations(lang);
+const locations: CollectionEntry<'locations'>[] =
+  await getCollection('locations');
 ---
 
 <BaseLayout lang={lang} title="Mundo">

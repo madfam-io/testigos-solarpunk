@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 
+const lang = 'en';
+const _t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -11,9 +13,6 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <BaseLayout lang={lang} title="Producción">
@@ -45,7 +44,7 @@ const _t = useTranslations(lang);
             <li>Guías de iluminación</li>
           </ul>
           <a
-            href={`${basePath}/produccion/estilo-visual/`}
+            href={`${basePath}/en/production/estilo-visual/`}
             class="btn btn-primary mt-3">Ver Guía Completa</a
           >
         </div>
@@ -65,7 +64,7 @@ const _t = useTranslations(lang);
             <li>Ejemplos de diálogos</li>
           </ul>
           <a
-            href={`${basePath}/produccion/tono-voz/`}
+            href={`${basePath}/en/production/tono-voz/`}
             class="btn btn-primary mt-3">Explorar Guía</a
           >
         </div>
@@ -83,8 +82,9 @@ const _t = useTranslations(lang);
             <li>Subtítulos y accesibilidad</li>
             <li>Exportación y entrega</li>
           </ul>
-          <a href={`${basePath}/produccion/specs/`} class="btn btn-primary mt-3"
-            >Ver Especificaciones</a
+          <a
+            href={`${basePath}/en/production/specs/`}
+            class="btn btn-primary mt-3">Ver Especificaciones</a
           >
         </div>
 
@@ -101,8 +101,9 @@ const _t = useTranslations(lang);
             <li>Leitmotifs de personajes</li>
             <li>Licencias y atribución</li>
           </ul>
-          <a href={`${basePath}/produccion/audio/`} class="btn btn-primary mt-3"
-            >Escuchar Biblioteca</a
+          <a
+            href={`${basePath}/en/production/audio/`}
+            class="btn btn-primary mt-3">Escuchar Biblioteca</a
           >
         </div>
       </div>

@@ -28,7 +28,7 @@ if (basePath.endsWith('/')) {
       </h1>
       <p class="tagline animate-fade-in">{t('project.hero.tagline')}</p>
 
-      <h2 class="sr-only">Misión y Visión</h2>
+      <h2 class="sr-only">{t('ui.mission.vision')}</h2>
       <div class="mision-vision">
         <div
           class="magazine-card card-lg theme-solar interactive context-feature"
@@ -71,21 +71,20 @@ if (basePath.endsWith('/')) {
               >🎭</span
             ></span
           >
-          <h3>Testigos de Solarpunk</h3>
+          <h3>{t('project.phase1.title')}</h3>
           <p class="fase-descripcion">
-            Sketches de comedia con contenido relevante para reflexionar sobre
-            hábitos y ciencia cotidiana
+            {t('project.phase1.description')}
           </p>
           <div class="fase-meta">
             <span class="status active">{t('phase1.status')}</span>
-            <span class="formato">60-90 segundos</span>
+            <span class="formato">{t('project.phase1.duration')}</span>
           </div>
           <ul class="fase-features">
-            <li>Contenido viral para redes sociales</li>
-            <li>Humor que rompe barreras culturales</li>
-            <li>Tips prácticos de sostenibilidad</li>
+            <li>{t('project.phase1.feature1')}</li>
+            <li>{t('project.phase1.feature2')}</li>
+            <li>{t('project.phase1.feature3')}</li>
           </ul>
-          <a href={`${basePath}/contenido/sketches/`} class="btn btn-primary"
+          <a href={`${basePath}/en/content/sketches/`} class="btn btn-primary"
             >{t('cta.watch')}</a
           >
         </div>
@@ -99,21 +98,20 @@ if (basePath.endsWith('/')) {
               >🎙️</span
             ></span
           >
-          <h3>MADFAM Podcast</h3>
+          <h3>{t('project.phase2.title')}</h3>
           <p class="fase-descripcion">
-            Contenido de profundidad media sobre ciencia, tecnología y calidad
-            de vida con expertos invitados
+            {t('project.phase2.description')}
           </p>
           <div class="fase-meta">
             <span class="status upcoming">{t('phase2.status')}</span>
-            <span class="formato">20-30 minutos</span>
+            <span class="formato">{t('project.phase2.duration')}</span>
           </div>
           <ul class="fase-features">
-            <li>Conversaciones profundas con expertos</li>
-            <li>Temas de actualidad ambiental</li>
-            <li>Soluciones prácticas y escalables</li>
+            <li>{t('project.phase2.feature1')}</li>
+            <li>{t('project.phase2.feature2')}</li>
+            <li>{t('project.phase2.feature3')}</li>
           </ul>
-          <a href={`${basePath}/contenido/podcast/`} class="btn btn-secondary"
+          <a href={`${basePath}/en/content/podcast/`} class="btn btn-secondary"
             >{t('cta.learn')}</a
           >
         </div>
@@ -125,21 +123,20 @@ if (basePath.endsWith('/')) {
               >🔬</span
             ></span
           >
-          <h3>MADLAB</h3>
+          <h3>{t('project.phase3.title')}</h3>
           <p class="fase-descripcion">
-            Eventos, experiencias y activaciones en escuelas con apoyo de
-            patrocinadores para impacto directo
+            {t('project.phase3.description')}
           </p>
           <div class="fase-meta">
             <span class="status development">{t('phase3.status')}</span>
-            <span class="formato">Eventos presenciales</span>
+            <span class="formato">{t('project.phase3.duration')}</span>
           </div>
           <ul class="fase-features">
-            <li>Experiencias educativas inmersivas</li>
-            <li>Laboratorios de innovación</li>
-            <li>Impacto directo en comunidades</li>
+            <li>{t('project.phase3.feature1')}</li>
+            <li>{t('project.phase3.feature2')}</li>
+            <li>{t('project.phase3.feature3')}</li>
           </ul>
-          <a href={`${basePath}/contenido/madlab/`} class="btn btn-secondary"
+          <a href={`${basePath}/en/content/madlab/`} class="btn btn-secondary"
             >{t('cta.discover')}</a
           >
         </div>
@@ -149,32 +146,32 @@ if (basePath.endsWith('/')) {
 
   <section class="proceso-section">
     <div class="container">
-      <h2>Nuestro Proceso Creativo</h2>
+      <h2>{t('project.process.title')}</h2>
       <div class="proceso-timeline">
         <div class="proceso-step">
           <div class="step-number">1</div>
-          <h3>Investigación</h3>
-          <p>Identificamos pain points y barreras culturales</p>
+          <h3>{t('process.research.title')}</h3>
+          <p>{t('process.research.description')}</p>
         </div>
         <div class="proceso-step">
           <div class="step-number">2</div>
-          <h3>Diseño</h3>
-          <p>Creamos contenido que conecta y educa</p>
+          <h3>{t('process.design.title')}</h3>
+          <p>{t('process.design.description')}</p>
         </div>
         <div class="proceso-step">
           <div class="step-number">3</div>
-          <h3>Producción</h3>
-          <p>Grabamos con calidad MADFAM</p>
+          <h3>{t('process.production.title')}</h3>
+          <p>{t('process.production.description')}</p>
         </div>
         <div class="proceso-step">
           <div class="step-number">4</div>
-          <h3>Distribución</h3>
-          <p>Alcanzamos audiencias en múltiples plataformas</p>
+          <h3>{t('process.distribution.title')}</h3>
+          <p>{t('process.distribution.description')}</p>
         </div>
         <div class="proceso-step">
           <div class="step-number">5</div>
-          <h3>Impacto</h3>
-          <p>Medimos y optimizamos resultados</p>
+          <h3>{t('process.impact.title')}</h3>
+          <p>{t('process.impact.description')}</p>
         </div>
       </div>
     </div>
@@ -182,15 +179,15 @@ if (basePath.endsWith('/')) {
 
   <section class="cta-proyecto">
     <div class="container text-center">
-      <h2>¿Listo para ser parte del cambio?</h2>
-      <p class="cta-subtitle">Únete a la revolución del humor sostenible</p>
+      <h2>{t('project.cta.title')}</h2>
+      <p class="cta-subtitle">{t('project.cta.subtitle')}</p>
       <div class="cta-actions">
-        <a href={`${basePath}/comunidad/`} class="btn btn-primary">
+        <a href={`${basePath}/en/community/`} class="btn btn-primary">
           <span class="emoji-cutout emoji-button emoji-md theme-community"
             >🤝</span
           >{t('cta.connect')}</a
         >
-        <a href={`${basePath}/contenido/sketches/`} class="btn btn-secondary">
+        <a href={`${basePath}/en/content/sketches/`} class="btn btn-secondary">
           <span class="emoji-cutout emoji-button emoji-md theme-solar">🎬</span
           >{t('cta.watch')}</a
         >

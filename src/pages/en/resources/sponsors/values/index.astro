@@ -2,6 +2,8 @@
 import BaseLayout from '../../../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 
+const lang = 'en';
+const _t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -11,9 +13,6 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <BaseLayout
@@ -593,7 +592,7 @@ const _t = useTranslations(lang);
             Iniciar Conversación
           </a>
           <a
-            href={`${basePath}/recursos/patrocinadores/impacto/`}
+            href={`${basePath}/en/resources/patrocinadores/impacto/`}
             class="btn btn-secondary"
           >
             <span class="emoji-cutout emoji-sm theme-purple">📊</span>
@@ -609,13 +608,13 @@ const _t = useTranslations(lang);
     <div class="container">
       <div class="nav-buttons">
         <a
-          href={`${basePath}/recursos/patrocinadores/integracion/`}
+          href={`${basePath}/en/resources/patrocinadores/integracion/`}
           class="btn btn-secondary"
         >
           <span class="emoji-cutout emoji-sm">🤝</span>
           Oportunidades de Integración
         </a>
-        <a href={`${basePath}/recursos/`} class="btn btn-primary">
+        <a href={`${basePath}/en/resources/`} class="btn btn-primary">
           <span class="emoji-cutout emoji-sm">📚</span>
           Volver a Recursos
         </a>

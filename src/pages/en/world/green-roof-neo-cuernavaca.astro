@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/config';
 
+const lang = 'en';
+const _t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -11,9 +13,6 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
-
-const lang = 'en';
-const _t = useTranslations(lang);
 ---
 
 <BaseLayout
@@ -429,7 +428,7 @@ const _t = useTranslations(lang);
           <span class="emoji-cutout emoji-sm">🌍</span>
           Volver al Mundo
         </a>
-        <a href={`${basePath}/personajes/`} class="btn btn-primary">
+        <a href={`${basePath}/en/characters/`} class="btn btn-primary">
           <span class="emoji-cutout emoji-sm">👥</span>
           Conocer a los Personajes
         </a>

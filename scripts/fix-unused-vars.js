@@ -7,27 +7,31 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-async function fixUnusedTranslations(filePath) {
+async function fixUnusedTranslation(filePath) {
   try {
     let content = await fs.readFile(filePath, 'utf-8');
 
-    // Replace const t = with const _t = if t is not used in the file
+    // Check if file uses translation function but doesn't actually use it
     if (
       content.includes('const t = useTranslations(lang);') &&
-      !content.includes('{t(') &&
-      !content.includes(' t(') &&
-      !content.includes('>{t(')
+      !content.includes('{t(')
     ) {
       content = content.replace(
         'const t = useTranslations(lang);',
         'const _t = useTranslations(lang);'
       );
+
+      await fs.writeFile(filePath, content);
+      console.log(
+        `✅ Fixed unused translation: ${path.relative(process.cwd(), filePath)}`
+      );
+      return true;
     }
 
-    await fs.writeFile(filePath, content);
-    console.log(`✅ Fixed: ${path.relative(process.cwd(), filePath)}`);
+    return false;
   } catch (error) {
     console.error(`❌ Error processing ${filePath}:`, error.message);
+    return false;
   }
 }
 
@@ -51,14 +55,18 @@ async function findEnglishPages(dir) {
 async function main() {
   const englishPagesDir = path.join(__dirname, '..', 'src', 'pages', 'en');
 
-  console.log('🔍 Finding English pages to fix unused translations...');
+  console.log('🔍 Finding English pages with unused translation functions...');
   const files = await findEnglishPages(englishPagesDir);
 
+  let fixedCount = 0;
   for (const file of files) {
-    await fixUnusedTranslations(file);
+    const wasFixed = await fixUnusedTranslation(file);
+    if (wasFixed) fixedCount++;
   }
 
-  console.log('\n✨ Fixed unused translation variables!');
+  console.log(
+    `\n✨ Fixed ${fixedCount} files with unused translation functions!`
+  );
 }
 
 main().catch(console.error);
