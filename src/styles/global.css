@@ -476,19 +476,20 @@ nav .container {
 
 /* Footer */
 footer {
-  background-color: var(--negro-profundo);
-  color: white;
+  background-color: var(--bg-secondary, var(--negro-profundo));
+  color: var(--text-primary, white);
   padding: var(--espacio-xxl) 0;
   margin-top: var(--espacio-xxl);
+  border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
 }
 
 footer a {
-  color: var(--azul-tecnologico);
+  color: var(--accent-primary, var(--azul-tecnologico));
   transition: color var(--transicion-rapida);
 }
 
 footer a:hover {
-  color: var(--amarillo-solar);
+  color: var(--accent-secondary, var(--amarillo-solar));
   text-decoration: underline;
 }
 
