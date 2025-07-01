@@ -326,7 +326,7 @@ img {
 /* Navegación */
 nav {
   background-color: var(--fondo-secundario);
-  padding: var(--espacio-md) 0;
+  padding: var(--espacio-sm) 0;
   box-shadow: 0 2px 4px var(--sombra-suave);
   position: sticky;
   top: 0;
@@ -337,6 +337,12 @@ nav .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+}
+
+.nav-brand {
+  flex-shrink: 0;
 }
 
 .nav-brand a {
@@ -345,19 +351,21 @@ nav .container {
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: var(--espacio-sm);
+  gap: var(--espacio-xs);
+  font-size: 1.1rem;
 }
 
 .nav-logo {
-  height: 40px;
+  height: 32px;
   width: auto;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  object-fit: contain;
 }
 
 .nav-menu {
   list-style: none;
   display: flex;
-  gap: var(--espacio-lg);
+  gap: var(--espacio-sm);
   align-items: center;
   margin: 0;
   padding: 0;
@@ -366,10 +374,11 @@ nav .container {
 .nav-menu a {
   font-weight: 500;
   color: var(--texto-primario);
-  padding: var(--espacio-sm) var(--espacio-md);
+  padding: var(--espacio-xs) var(--espacio-sm);
   border-radius: 4px;
   transition: background-color var(--transicion-rapida);
   text-decoration: none;
+  font-size: 0.95rem;
 }
 
 .nav-menu a:hover {
@@ -519,7 +528,7 @@ footer a:hover {
 
   .nav-menu {
     position: fixed;
-    top: 60px;
+    top: 50px;
     left: 0;
     width: 100vw;
     max-width: 100vw;
