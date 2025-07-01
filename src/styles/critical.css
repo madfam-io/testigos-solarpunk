@@ -15,8 +15,8 @@
 /* CSS Variables Setup - Must load first */
 :root {
   /* Typography scales */
-  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-display: 'Poppins', Georgia, serif;
   --font-mono: 'Space Mono', 'Menlo', 'Monaco', monospace;
 
   /* Base spacing scale */
