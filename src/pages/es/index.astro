@@ -408,7 +408,7 @@ if (isVercel === true) {
   .hero {
     padding: var(--espacio-xxl) 0;
     text-align: center;
-    color: white;
+    color: var(--text-primary, #ffffff);
     position: relative;
     overflow: hidden;
     min-height: 100vh; /* fallback for older browsers */
@@ -516,7 +516,7 @@ if (isVercel === true) {
     position: relative;
     font-weight: 800;
     text-transform: uppercase;
-    color: white;
+    color: var(--text-primary, #ffffff);
     text-shadow:
       2px 2px 4px rgba(0, 0, 0, 0.5),
       1px 1px 0px rgba(255, 255, 255, 0.2),
@@ -849,17 +849,17 @@ if (isVercel === true) {
 
   .fase-status.active {
     background: var(--verde-sostenible);
-    color: white;
+    color: var(--text-on-accent, #000000);
   }
 
   .fase-status.upcoming {
     background: var(--azul-tecnologico);
-    color: white;
+    color: var(--text-on-accent, #000000);
   }
 
   .fase-status.development {
     background: var(--naranja-comunidad);
-    color: white;
+    color: var(--text-on-accent, #000000);
   }
 
   /* Responsive Design */

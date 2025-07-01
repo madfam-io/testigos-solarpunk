@@ -566,8 +566,8 @@
 /* Print styles */
 @media print {
   .magazine-card {
-    background: white;
-    color: black;
+    background: var(--bg-primary, #ffffff);
+    color: var(--text-primary, #000000);
     clip-path: none;
     box-shadow: none;
     transform: none;

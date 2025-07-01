@@ -215,7 +215,7 @@ scriptsByPlatform['YouTube'] = scripts.filter(
 
   .episode-badge {
     background-color: var(--purpura-creativo);
-    color: white;
+    color: var(--text-on-accent, #000000);
     padding: var(--espacio-xs) var(--espacio-sm);
     border-radius: 4px;
     font-family: var(--fuente-mono);
@@ -248,23 +248,23 @@ scriptsByPlatform['YouTube'] = scripts.filter(
   }
 
   .status[data-status='borrador'] {
-    background-color: #fff3cd;
-    color: #856404;
+    background-color: rgba(255, 193, 7, 0.2);
+    color: var(--warning, #ffb74d);
   }
 
   .status[data-status='revision'] {
-    background-color: #cce5ff;
-    color: #004085;
+    background-color: rgba(100, 181, 246, 0.2);
+    color: var(--info, #64b5f6);
   }
 
   .status[data-status='aprobado'] {
-    background-color: #d4edda;
-    color: #155724;
+    background-color: rgba(129, 199, 132, 0.2);
+    color: var(--success, #81c784);
   }
 
   .status[data-status='filmado'] {
-    background-color: #d1ecf1;
-    color: #0c5460;
+    background-color: rgba(var(--azul-tecnologico-rgb, 33, 150, 243), 0.2);
+    color: var(--azul-tecnologico);
   }
 
   .script-tags {

@@ -290,7 +290,7 @@
 
 .newspaper-bg.dark-theme .content-overlay {
   background: rgba(26, 26, 27, 0.85);
-  color: #ffffff;
+  color: var(--text-primary, #ffffff);
 }
 
 /* Specific Section Variations */
@@ -420,9 +420,9 @@
 /* High Contrast Mode */
 @media (prefers-contrast: high) {
   .newspaper-bg {
-    background: white;
-    color: black;
-    border: 1px solid black;
+    background: var(--bg-primary, #ffffff);
+    color: var(--text-primary, #000000);
+    border: 1px solid var(--border-default, #000000);
   }
 
   .newspaper-bg::before,

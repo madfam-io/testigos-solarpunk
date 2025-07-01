@@ -209,13 +209,13 @@ if (basePath.endsWith('/')) {
       var(--verde-sostenible) 0%,
       var(--azul-tecnologico) 100%
     );
-    color: white;
+    color: var(--text-on-accent, #000000);
     padding: var(--espacio-xxl) 0;
     text-align: center;
   }
 
   .hero-contenido h1 {
-    color: white;
+    color: var(--text-on-accent, #000000);
     margin-bottom: var(--espacio-md);
   }
 
@@ -310,17 +310,17 @@ if (basePath.endsWith('/')) {
 
   .fase-status.active {
     background: var(--verde-sostenible);
-    color: white;
+    color: var(--text-on-accent, #000000);
   }
 
   .fase-status.upcoming {
     background: var(--azul-tecnologico);
-    color: white;
+    color: var(--text-on-accent, #000000);
   }
 
   .fase-status.development {
     background: var(--naranja-comunidad);
-    color: white;
+    color: var(--text-on-accent, #000000);
   }
 
   .fase-content {

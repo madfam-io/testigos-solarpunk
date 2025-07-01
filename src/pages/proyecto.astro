@@ -207,7 +207,7 @@ if (basePath.endsWith('/')) {
       var(--amarillo-solar) 0%,
       var(--verde-sostenible) 100%
     );
-    color: white;
+    color: var(--text-on-accent, #000000);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -316,17 +316,17 @@ if (basePath.endsWith('/')) {
 
   .status.active {
     background: var(--verde-sostenible);
-    color: white;
+    color: var(--text-on-success, #000000);
   }
 
   .status.upcoming {
     background: var(--azul-tecnologico);
-    color: white;
+    color: var(--text-on-info, #000000);
   }
 
   .status.development {
     background: var(--naranja-comunidad);
-    color: white;
+    color: var(--text-on-warning, #000000);
   }
 
   .formato {

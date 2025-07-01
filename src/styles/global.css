@@ -71,7 +71,6 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -83,6 +82,7 @@ body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  position: relative;
 }
 
 /* Enlaces */
@@ -237,7 +237,7 @@ img {
 
 .btn-primary {
   background-color: var(--verde-sostenible);
-  color: white;
+  color: var(--text-on-accent, #000000);
 }
 
 .btn-primary:hover {
@@ -248,7 +248,7 @@ img {
 
 .btn-secondary {
   background-color: var(--azul-tecnologico);
-  color: white;
+  color: var(--text-on-accent, #000000);
 }
 
 .btn-secondary:hover {
@@ -419,7 +419,7 @@ nav .container {
 
 .nav-menu a.active {
   background-color: var(--verde-sostenible);
-  color: white;
+  color: var(--text-on-accent, #000000);
 }
 
 /* Dropdown Navigation */

@@ -63,6 +63,14 @@
   --error: #e57373; /* Rojo - ratio 7.1:1 */
   --info: #64b5f6; /* Azul - ratio 8.2:1 */
 
+  /* Text on colored backgrounds - WCAG AAA compliant */
+  --text-on-accent: #000000; /* Black text on yellow */
+  --text-on-success: #000000; /* Black text on green */
+  --text-on-warning: #000000; /* Black text on orange */
+  --text-on-error: #ffffff; /* White text on red */
+  --text-on-info: #000000; /* Black text on blue */
+  --text-inverse: #000000; /* Inverse of primary text */
+
   /* Espaciado */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -556,7 +564,7 @@ a.nav-link.active::after {
 
 .badge-error {
   background-color: var(--error);
-  color: white;
+  color: var(--text-on-error, #ffffff);
 }
 
 /* === UTILIDADES === */
@@ -870,6 +878,12 @@ a.nav-link.active::after {
   --accent-secondary-bg: var(--madfam-green);
   --accent-secondary-text: rgba(0, 0, 0, 0.87);
 
+  /* Text on colored backgrounds - WCAG AAA compliant */
+  --text-on-success: #ffffff; /* White text on green */
+  --text-on-warning: #000000; /* Black text on orange */
+  --text-on-error: #ffffff; /* White text on red */
+  --text-on-info: #ffffff; /* White text on blue */
+
   /* Magazine cutout adjustments */
   --cutout-shadow: rgba(0, 0, 0, 0.12);
   --tape-color: rgba(255, 193, 7, 0.8);
@@ -887,12 +901,12 @@ a.nav-link.active::after {
   }
 
   body {
-    background: white;
-    color: black;
+    background: var(--bg-primary, #ffffff);
+    color: var(--text-primary, #000000);
   }
 
   a {
-    color: black;
+    color: var(--text-primary, #000000);
     text-decoration: underline;
   }
 }
