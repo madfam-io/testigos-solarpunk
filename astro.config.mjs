@@ -28,14 +28,16 @@ export default defineConfig({
     '/recursos/creadores': '/es/recursos/creadores/',
     '/recursos/creadores/plantillas': '/es/recursos/creadores/plantillas/',
     '/recursos/creadores/personajes': '/es/recursos/creadores/personajes/',
-    '/recursos/creadores/worldbuilding': '/es/recursos/creadores/worldbuilding/',
+    '/recursos/creadores/worldbuilding':
+      '/es/recursos/creadores/worldbuilding/',
     '/recursos/actores': '/es/recursos/actores/',
     '/recursos/actores/personajes': '/es/recursos/actores/personajes/',
     '/recursos/actores/dialogo': '/es/recursos/actores/dialogo/',
     '/recursos/actores/movimiento': '/es/recursos/actores/movimiento/',
     '/recursos/patrocinadores': '/es/recursos/patrocinadores/',
     '/recursos/patrocinadores/valores': '/es/recursos/patrocinadores/valores/',
-    '/recursos/patrocinadores/integracion': '/es/recursos/patrocinadores/integracion/',
+    '/recursos/patrocinadores/integracion':
+      '/es/recursos/patrocinadores/integracion/',
     '/recursos/patrocinadores/impacto': '/es/recursos/patrocinadores/impacto/',
 
     // Content sections
@@ -113,7 +115,12 @@ export default defineConfig({
         compress: {
           drop_console: true, // Remove all console statements
           drop_debugger: true, // Remove debugger statements
-          pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.trace'],
+          pure_funcs: [
+            'console.log',
+            'console.info',
+            'console.debug',
+            'console.trace',
+          ],
           passes: 2, // Run compress passes twice for better optimization
           arguments: true, // Convert arguments[index] to function parameter names
           unsafe_arrows: true, // Convert ES5 functions to arrow functions
@@ -146,7 +153,7 @@ export default defineConfig({
           chunkFileNames: '_assets/chunks/[name].[hash].js',
           entryFileNames: '_assets/[name].[hash].js',
           manualChunks: {
-            'theme': ['/src/utils/theme-manager.ts'],
+            theme: ['/src/utils/theme-manager.ts'],
             // Split vendor chunks for better caching
             'vendor-astro': ['astro:*'],
             // Split i18n translations into separate chunks
@@ -165,13 +172,17 @@ export default defineConfig({
             },
           },
           // Bundle visualization (only in analyze mode)
-          ...(process.env.ANALYZE ? [visualizer({
-            open: true,
-            gzipSize: true,
-            brotliSize: true,
-            template: 'sunburst',
-            filename: './dist/stats.html',
-          })] : []),
+          ...(process.env.ANALYZE
+            ? [
+                visualizer({
+                  open: true,
+                  gzipSize: true,
+                  brotliSize: true,
+                  template: 'sunburst',
+                  filename: './dist/stats.html',
+                }),
+              ]
+            : []),
         ],
       },
       // Additional optimizations
@@ -184,25 +195,29 @@ export default defineConfig({
     plugins: [
       // Gzip compression
       /** @type {any} */
-      (viteCompression({
-        algorithm: 'gzip',
-        ext: '.gz',
-        threshold: 10240, // Only compress files larger than 10KB
-        deleteOriginFile: false,
-        filter: /\.(js|css|html|json|svg|xml|ttf|otf|woff|woff2)$/i,
-      })),
+      (
+        viteCompression({
+          algorithm: 'gzip',
+          ext: '.gz',
+          threshold: 10240, // Only compress files larger than 10KB
+          deleteOriginFile: false,
+          filter: /\.(js|css|html|json|svg|xml|ttf|otf|woff|woff2)$/i,
+        })
+      ),
       // Brotli compression (better compression ratio)
       /** @type {any} */
-      (viteCompression({
-        algorithm: 'brotliCompress',
-        ext: '.br',
-        threshold: 10240,
-        deleteOriginFile: false,
-        filter: /\.(js|css|html|json|svg|xml|ttf|otf|woff|woff2)$/i,
-        compressionOptions: {
-          level: 11, // Maximum compression
-        },
-      })),
+      (
+        viteCompression({
+          algorithm: 'brotliCompress',
+          ext: '.br',
+          threshold: 10240,
+          deleteOriginFile: false,
+          filter: /\.(js|css|html|json|svg|xml|ttf|otf|woff|woff2)$/i,
+          compressionOptions: {
+            level: 11, // Maximum compression
+          },
+        })
+      ),
     ],
     // SSR configuration (disabled for static build)
     ssr: {

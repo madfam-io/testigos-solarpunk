@@ -117,9 +117,11 @@ const t = useTranslations(lang);
     const toggleBtn = document.querySelector('[data-theme-toggle]');
     if (toggleBtn) {
       const selector = toggleBtn.closest('[data-theme-selector]');
-      const currentLabel = selector?.getAttribute('data-theme-current-label') || 'Current: {theme}';
+      const currentLabel =
+        selector?.getAttribute('data-theme-current-label') ||
+        'Current: {theme}';
       const themeDesc = ThemeManager.getThemeDescription();
-      
+
       toggleBtn.setAttribute('title', themeDesc);
       toggleBtn.setAttribute(
         'aria-label',
@@ -137,7 +139,9 @@ const t = useTranslations(lang);
     announcement.setAttribute('aria-atomic', 'true');
     announcement.className = 'sr-only';
     const selector = document.querySelector('[data-theme-selector]');
-    const changeMessage = selector?.getAttribute('data-theme-changed-message') || 'Theme changed to {theme}';
+    const changeMessage =
+      selector?.getAttribute('data-theme-changed-message') ||
+      'Theme changed to {theme}';
     announcement.textContent = changeMessage.replace('{theme}', newTheme);
 
     document.body.appendChild(announcement);

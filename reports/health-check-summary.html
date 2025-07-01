@@ -1,147 +1,143 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Health Check Summary - Testigos de Solarpunk</title>
-  <style>
-    body { 
-      font-family: system-ui, -apple-system, sans-serif; 
-      max-width: 800px; 
-      margin: 40px auto; 
-      padding: 20px;
-      background: #f5f5f5;
-    }
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .score {
-      font-size: 72px;
-      font-weight: bold;
-      color: #ef4444;
-      margin: 20px 0;
-    }
-    .status {
-      font-size: 24px;
-      color: #ef4444;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-    .checks {
-      margin: 30px 0;
-    }
-    .check-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
-      margin: 10px 0;
-      background: #f9f9f9;
-      border-radius: 8px;
-      border-left: 4px solid #ef4444;
-    }
-    .check-status {
-      font-weight: bold;
-    }
-    .passed { color: #22c55e; }
-    .warning { color: #f59e0b; }
-    .failed { color: #ef4444; }
-    .recommendations {
-      background: #f0f9ff;
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 30px;
-    }
-    .recommendations h3 {
-      color: #0369a1;
-      margin-top: 0;
-    }
-    .recommendations ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-    .timestamp {
-      text-align: center;
-      color: #666;
-      font-size: 14px;
-      margin-top: 30px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>🏥 Health Check Summary</h1>
-      <div class="score">25/100</div>
-      <div class="status">critical</div>
-      <p>Production Ready: <strong>NO ❌</strong></p>
-    </div>
-    
-    <div class="checks">
-      <h2>Individual Checks</h2>
-      
+  <head>
+    <meta charset="UTF-8" />
+    <title>Health Check Summary - Testigos de Solarpunk</title>
+    <style>
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .container {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .score {
+        font-size: 72px;
+        font-weight: bold;
+        color: #ef4444;
+        margin: 20px 0;
+      }
+      .status {
+        font-size: 24px;
+        color: #ef4444;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      .checks {
+        margin: 30px 0;
+      }
+      .check-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        margin: 10px 0;
+        background: #f9f9f9;
+        border-radius: 8px;
+        border-left: 4px solid #ef4444;
+      }
+      .check-status {
+        font-weight: bold;
+      }
+      .passed {
+        color: #22c55e;
+      }
+      .warning {
+        color: #f59e0b;
+      }
+      .failed {
+        color: #ef4444;
+      }
+      .recommendations {
+        background: #f0f9ff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 30px;
+      }
+      .recommendations h3 {
+        color: #0369a1;
+        margin-top: 0;
+      }
+      .recommendations ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+      .timestamp {
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🏥 Health Check Summary</h1>
+        <div class="score">25/100</div>
+        <div class="status">critical</div>
+        <p>Production Ready: <strong>NO ❌</strong></p>
+      </div>
+
+      <div class="checks">
+        <h2>Individual Checks</h2>
+
         <div class="check-item">
           <div>
-            <strong>i18n</strong><br>
+            <strong>i18n</strong><br />
             <small>2813 issues found (0 critical)</small>
           </div>
-          <div class="check-status warning">
-            WARNING (100/100)
-          </div>
+          <div class="check-status warning">WARNING (100/100)</div>
         </div>
-      
+
         <div class="check-item">
           <div>
-            <strong>Theme System</strong><br>
+            <strong>Theme System</strong><br />
             <small>Health check failed to run</small>
           </div>
-          <div class="check-status failed">
-            FAILED (0/100)
-          </div>
+          <div class="check-status failed">FAILED (0/100)</div>
         </div>
-      
+
         <div class="check-item">
           <div>
-            <strong>Performance</strong><br>
+            <strong>Performance</strong><br />
             <small>Health check failed to run</small>
           </div>
-          <div class="check-status failed">
-            FAILED (0/100)
-          </div>
+          <div class="check-status failed">FAILED (0/100)</div>
         </div>
-      
+
         <div class="check-item">
           <div>
-            <strong>Accessibility</strong><br>
+            <strong>Accessibility</strong><br />
             <small>Health check failed to run</small>
           </div>
-          <div class="check-status failed">
-            FAILED (0/100)
-          </div>
+          <div class="check-status failed">FAILED (0/100)</div>
         </div>
-      
-    </div>
-    
-    
+      </div>
+
       <div class="recommendations">
         <h3>💡 Recommendations</h3>
         <ul>
-          <li>Complete theme variable definitions and fix contrast issues</li><li>Optimize bundle sizes and improve Core Web Vitals</li><li>Fix WCAG violations for compliance</li>
+          <li>Complete theme variable definitions and fix contrast issues</li>
+          <li>Optimize bundle sizes and improve Core Web Vitals</li>
+          <li>Fix WCAG violations for compliance</li>
         </ul>
       </div>
-    
-    
-    <div class="timestamp">
-      Generated: 7/1/2025, 2:37:10 PM
+
+      <div class="timestamp">Generated: 7/1/2025, 2:37:10 PM</div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
-  

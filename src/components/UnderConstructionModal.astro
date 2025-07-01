@@ -59,23 +59,36 @@ if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
 
-const {
-  lang = 'es',
-  title,
-  message,
-  suggestedLinks,
-} = Astro.props;
+const { lang = 'es', title, message, suggestedLinks } = Astro.props;
 
 const t = useTranslations(lang);
 
 // Use provided props or defaults from translations
 const translatedTitle = t('construction.title');
 const translatedMessage = t('construction.message');
-const modalTitle = (title !== null && title !== undefined && title !== '') ? title : (translatedTitle !== '' ? translatedTitle : '🚧 Próximamente');
-const modalMessage = (message !== null && message !== undefined && message !== '') ? message : (translatedMessage !== '' ? translatedMessage : 'Estamos trabajando en esta sección. ¡Vuelve pronto!');
+const modalTitle =
+  title !== null && title !== undefined && title !== ''
+    ? title
+    : translatedTitle !== ''
+      ? translatedTitle
+      : '🚧 Próximamente';
+const modalMessage =
+  message !== null && message !== undefined && message !== ''
+    ? message
+    : translatedMessage !== ''
+      ? translatedMessage
+      : 'Estamos trabajando en esta sección. ¡Vuelve pronto!';
 const defaultLinks = [
-  { href: `${basePath}/${lang}/${lang === 'es' ? 'personajes' : 'characters'}/`, text: t('nav.characters'), emoji: '👥' },
-  { href: `${basePath}/${lang}/${lang === 'es' ? 'guiones' : 'scripts'}/`, text: t('nav.scripts'), emoji: '📝' },
+  {
+    href: `${basePath}/${lang}/${lang === 'es' ? 'personajes' : 'characters'}/`,
+    text: t('nav.characters'),
+    emoji: '👥',
+  },
+  {
+    href: `${basePath}/${lang}/${lang === 'es' ? 'guiones' : 'scripts'}/`,
+    text: t('nav.scripts'),
+    emoji: '📝',
+  },
   {
     href: `${basePath}/${lang}/${lang === 'es' ? 'mundo' : 'world'}/`,
     text: t('nav.world'),
@@ -108,7 +121,11 @@ const modalLinks = suggestedLinks || defaultLinks;
         >
         {modalTitle.replace(modalTitle.split(' ')[0], '').trim()}
       </h2>
-      <button class="modal-close" data-modal-close aria-label={t('construction.close')}>
+      <button
+        class="modal-close"
+        data-modal-close
+        aria-label={t('construction.close')}
+      >
         <span class="emoji-cutout emoji-sm">✖️</span>
       </button>
     </div>
@@ -141,7 +158,8 @@ const modalLinks = suggestedLinks || defaultLinks;
 
     <div class="modal-footer">
       <button class="btn btn-secondary" data-modal-close>
-        <span class="emoji-cutout emoji-sm">👈</span> {t('construction.back')}
+        <span class="emoji-cutout emoji-sm">👈</span>
+        {t('construction.back')}
       </button>
     </div>
   </div>

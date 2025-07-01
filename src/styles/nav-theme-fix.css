@@ -1,0 +1,44 @@
+/* Navigation Theme Selector Fix - Testigos de Solarpunk */
+
+/* Desktop: Show theme selector in nav-actions */
+@media (min-width: 769px) {
+  .nav-actions .theme-selector,
+  .nav-actions .language-selector {
+    display: inline-flex !important;
+  }
+
+  /* Hide mobile-only theme toggles on desktop */
+  .mobile-theme-toggle,
+  .mobile-language-toggle {
+    display: none !important;
+  }
+}
+
+/* Mobile: Properly hide theme selector in nav-actions */
+@media (max-width: 768px) {
+  .nav-actions .theme-selector,
+  .nav-actions .language-selector {
+    display: none !important;
+  }
+
+  /* Show mobile theme toggles in menu */
+  .nav-menu .mobile-theme-toggle,
+  .nav-menu .mobile-language-toggle {
+    display: block !important;
+  }
+}
+
+/* Ensure proper display of theme selector component */
+.theme-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm, 0.5rem);
+}
+
+/* Fix for nav-actions container */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm, 0.5rem);
+  z-index: 100;
+}
