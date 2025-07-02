@@ -1,4 +1,40 @@
+# Robots.txt for Testigos de Solarpunk
+# https://testigos-solarpunk.vercel.app
+
 User-agent: *
 Allow: /
 
+# Sitemaps
+Sitemap: https://testigos-solarpunk.vercel.app/sitemap.xml
 Sitemap: https://madfam-io.github.io/testigos-solarpunk/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Language versions
+Allow: /es/
+Allow: /en/
+
+# Allow search engines to index all content
+Allow: /es/*
+Allow: /en/*
+
+# Disallow temporary or development pages
+Disallow: /demo/
+Disallow: /_astro/
+
+# Specific crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

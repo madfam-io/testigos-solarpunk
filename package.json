@@ -47,6 +47,7 @@
     "generate:icons": "node scripts/generate-icons.js",
     "new:character": "node scripts/new-character.js",
     "new:script": "echo 'Script para crear guiones pendiente de implementar'",
+    "check:routes": "node scripts/check-routes.js",
     "check:links": "echo 'Verificador de links pendiente de implementar'",
     "analyze:bundle": "astro build",
     "audit:navigation": "node scripts/audit-navigation.js",
