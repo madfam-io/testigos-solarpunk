@@ -67,10 +67,11 @@ export default defineConfig({
     '/formatos': '/es/formatos/',
     '/guia-visual': '/es/guia-visual/',
     '/sitemap': '/es/sitemap/',
-    
+
     // World subsections
-    '/mundo/azotea-verde-neo-cuernavaca': '/es/mundo/azotea-verde-neo-cuernavaca/',
-    
+    '/mundo/azotea-verde-neo-cuernavaca':
+      '/es/mundo/azotea-verde-neo-cuernavaca/',
+
     // English route redirects to Spanish equivalents
     '/project': '/es/proyecto/',
     '/unified-project': '/es/proyecto-unified/',
@@ -80,7 +81,8 @@ export default defineConfig({
     '/content/madlab': '/es/contenido/madlab/',
     '/characters': '/es/personajes/',
     '/world': '/es/mundo/',
-    '/world/green-roof-neo-cuernavaca': '/es/mundo/azotea-verde-neo-cuernavaca/',
+    '/world/green-roof-neo-cuernavaca':
+      '/es/mundo/azotea-verde-neo-cuernavaca/',
     '/scripts': '/es/guiones/',
     '/community': '/es/comunidad/',
     '/production': '/es/produccion/',
@@ -96,11 +98,13 @@ export default defineConfig({
     '/resources/creators': '/es/recursos/creadores/',
     '/resources/creators/characters': '/es/recursos/creadores/personajes/',
     '/resources/creators/templates': '/es/recursos/creadores/plantillas/',
-    '/resources/creators/worldbuilding': '/es/recursos/creadores/worldbuilding/',
+    '/resources/creators/worldbuilding':
+      '/es/recursos/creadores/worldbuilding/',
     '/resources/sponsors': '/es/recursos/patrocinadores/',
     '/resources/sponsors/values': '/es/recursos/patrocinadores/valores/',
     '/resources/sponsors/impact': '/es/recursos/patrocinadores/impacto/',
-    '/resources/sponsors/integration': '/es/recursos/patrocinadores/integracion/',
+    '/resources/sponsors/integration':
+      '/es/recursos/patrocinadores/integracion/',
     '/impact': '/es/impacto/',
     '/philosophy': '/es/filosofia/',
     '/visual-guide': '/es/guia-visual/',
