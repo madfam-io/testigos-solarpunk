@@ -7,9 +7,13 @@
     padding: var(--space-sm) 0;
     background: var(--bg-secondary);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     box-shadow:
       0 4px 20px rgba(0, 0, 0, 0.08),
       0 2px 8px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 997;
   }
 
   /* Center the navigation content */
@@ -34,15 +38,22 @@
     display: flex;
     align-items: center;
     gap: var(--space-xs);
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 4vw, 1rem);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.02em;
   }
 
+  /* Hide brand text on very small screens */
+  @media (max-width: 380px) {
+    .nav-brand strong {
+      display: none;
+    }
+  }
+
   /* Logo with magazine cutout effect */
   .nav-logo {
-    height: 36px;
+    height: clamp(32px, 8vw, 36px);
     width: auto;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
     transform: rotate(-2deg);
@@ -58,7 +69,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-xs);
-    z-index: 3;
+    z-index: 999;
     margin-left: auto;
     flex-shrink: 0;
   }
@@ -82,14 +93,18 @@
     border: 2px solid var(--border-default);
     border-radius: 8px;
     position: relative;
-    z-index: 3;
+    z-index: 999;
     box-shadow: 2px 2px 0 var(--border-default);
     transition: all 0.3s ease;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .mobile-menu-toggle:hover {
+  .mobile-menu-toggle:hover,
+  .mobile-menu-toggle:focus {
     transform: translateY(-2px);
     box-shadow: 3px 3px 0 var(--border-default);
+    outline: none;
   }
 
   .mobile-menu-toggle:active {
@@ -99,16 +114,21 @@
 
   /* Hamburger lines with magazine aesthetic */
   .mobile-menu-toggle span {
+    display: block;
     width: 20px;
     height: 2px;
     background: var(--text-primary);
     border-radius: 2px;
     transition: all 0.3s ease;
-    position: relative;
+    position: absolute;
   }
 
   .mobile-menu-toggle span:nth-child(1) {
     transform: translateY(-6px);
+  }
+
+  .mobile-menu-toggle span:nth-child(2) {
+    transform: translateY(0);
   }
 
   .mobile-menu-toggle span:nth-child(3) {
@@ -136,19 +156,23 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
     background: var(--bg-primary);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: var(--space-md);
-    padding: var(--space-xl);
+    justify-content: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    padding-top: calc(var(--space-xl) + 60px); /* Account for close button */
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 998;
     overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* Magazine cutout background pattern */
@@ -186,14 +210,22 @@
   /* Menu items with magazine cutout styling */
   .nav-menu li {
     width: 100%;
-    max-width: 300px;
+    max-width: min(300px, 80vw);
     text-align: center;
+    list-style: none;
+  }
+
+  .nav-menu > li {
+    margin-bottom: var(--space-xs);
   }
 
   .nav-menu a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
     padding: var(--space-md) var(--space-lg);
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 5vw, 1.25rem);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -208,6 +240,7 @@
     box-shadow:
       3px 3px 0 var(--border-default),
       6px 6px 12px rgba(0, 0, 0, 0.05);
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* Alternating rotation for magazine effect */
@@ -507,6 +540,59 @@
   animation-delay: 0.45s;
 }
 
+/* Touch device enhancements */
+.touch-device .nav-menu a {
+  min-height: 48px; /* Touch target size recommendation */
+}
+
+.touch-device .mobile-menu-toggle {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Improved touch feedback */
+.nav-menu a:active,
+.nav-menu button:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/* Swipe indicator for touch devices */
+.touch-device .nav-menu.active::after {
+  content: '→';
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: var(--text-secondary);
+  opacity: 0.3;
+  animation: swipeHint 2s ease-in-out infinite;
+}
+
+@keyframes swipeHint {
+  0%,
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(10px);
+  }
+}
+
+/* Ensure proper scrolling on iOS */
+.mobile-menu-open {
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* iOS safe area support */
+.nav-menu {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .nav-menu,
@@ -519,6 +605,10 @@
 
   .nav-menu.active li {
     opacity: 1;
+    animation: none;
+  }
+
+  .touch-device .nav-menu.active::after {
     animation: none;
   }
 }
