@@ -11,12 +11,12 @@ const missingInEs = enKeys.filter((key) => !esKeys.includes(key));
 
 console.log('Missing translations in English:');
 missingInEn.forEach((key) => {
-  console.log(`  - ${key}: "${ui.es[key]}"`);
+  console.log(`  - ${key}: "${(ui.es as any)[key]}"`);
 });
 
 console.log('\nMissing translations in Spanish:');
 missingInEs.forEach((key) => {
-  console.log(`  - ${key}: "${ui.en[key]}"`);
+  console.log(`  - ${key}: "${(ui.en as any)[key]}"`);
 });
 
 console.log(`\nTotal missing in English: ${missingInEn.length}`);

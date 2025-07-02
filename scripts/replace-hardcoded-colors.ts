@@ -24,7 +24,6 @@ const colorMappings: Record<string, string> = {
   'rgba(0, 0, 0, 0.5)': 'var(--shadow-overlay-dark-mode)',
   'rgba(0, 0, 0, 0.8)': 'var(--shadow-overlay-darkest)',
   'rgba(0, 0, 0, 0.4)': 'var(--shadow-overlay-dark-medium)',
-  'rgba(0, 0, 0, 0.6)': 'var(--shadow-overlay-dark-strong)',
   'rgba(0, 0, 0, 0.7)': 'var(--shadow-overlay-dark-stronger)',
   'rgba(0, 0, 0, 0.3)': 'var(--cutout-shadow-dark)',
 
