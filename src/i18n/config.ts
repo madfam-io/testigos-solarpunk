@@ -1950,16 +1950,19 @@ export function detectLanguage(path: string): keyof typeof languages {
  */
 export function useTranslations(lang: keyof typeof languages) {
   return function t(
-    key: keyof (typeof ui)[typeof defaultLang],
+    key: keyof (typeof ui)['es'] | keyof (typeof ui)['en'],
     params?: Record<string, string | number>
   ): string {
-    const translation = ui[lang]?.[key] as string | undefined;
+    const translation = ui[lang]?.[key as keyof (typeof ui)[typeof lang]] as
+      | string
+      | undefined;
     let result = '';
 
     if (translation !== undefined && translation.length > 0) {
       result = translation;
     } else {
-      const defaultTranslation = ui[defaultLang][key];
+      const defaultTranslation =
+        ui[defaultLang][key as keyof (typeof ui)[typeof defaultLang]];
       result =
         defaultTranslation !== undefined && defaultTranslation.length > 0
           ? defaultTranslation
