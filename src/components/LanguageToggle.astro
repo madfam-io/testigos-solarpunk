@@ -1,0 +1,489 @@
+---
+/**
+ * Language Toggle Component - Testigos de Solarpunk
+ * Premium toggle switch with magazine cutout aesthetic
+ *
+ * @component LanguageToggle
+ * @description Single-toggle language switcher with smooth animations
+ * @author MADFAM
+ * @version 1.0.0
+ */
+
+import { getLocalizedPath, type Language } from '@/i18n/config';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+  currentLang: Language;
+  currentPath?: string;
+  variant?: 'compact' | 'expanded';
+}
+
+const {
+  currentLang,
+  currentPath = '/',
+  variant = 'compact',
+  class: className,
+  ...attrs
+} = Astro.props;
+
+// Get the opposite language
+const targetLang: Language = currentLang === 'es' ? 'en' : 'es';
+
+// Get current path without language prefix and base path for proper alternate URL
+const cleanPath = currentPath
+  .replace(/^\/testigos-solarpunk/, '') // Remove base path if present
+  .replace(/^\/(es|en)/, '') // Remove language prefix
+  .replace(/\/$/, ''); // Remove trailing slash
+
+// Ensure we have a clean path to translate
+const pathToTranslate = cleanPath.length > 0 ? cleanPath : '/';
+
+// Generate alternate language URL
+const localizedPath = getLocalizedPath(pathToTranslate, targetLang);
+
+// Add base path for GitHub Pages if needed
+const baseUrl = import.meta.env.BASE_URL ?? '';
+const targetUrl =
+  baseUrl.length > 0
+    ? `${baseUrl}${localizedPath}`.replace(/\/+/g, '/')
+    : localizedPath;
+
+// Language labels
+const labels = {
+  es: { short: 'ES', full: 'Español' },
+  en: { short: 'EN', full: 'English' },
+};
+---
+
+<div
+  class:list={['language-toggle', `language-toggle--${variant}`, className]}
+  data-language-toggle
+  role="navigation"
+  aria-label="Language selector"
+  {...attrs}
+>
+  <a
+    href={targetUrl}
+    class="toggle-link"
+    aria-label={`Switch to ${labels[targetLang].full}`}
+    data-lang={targetLang}
+    hreflang={targetLang}
+  >
+    <div class="toggle-track">
+      <span class="toggle-label toggle-label--current" aria-hidden="true">
+        {labels[currentLang].short}
+      </span>
+      <span class="toggle-label toggle-label--target" aria-hidden="true">
+        {labels[targetLang].short}
+      </span>
+      <div
+        class="toggle-thumb"
+        data-current-lang={currentLang}
+        aria-hidden="true"
+      >
+        <span class="thumb-text">{labels[currentLang].short}</span>
+      </div>
+    </div>
+  </a>
+</div>
+
+<script>
+  // Enhanced toggle interaction
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggles = document.querySelectorAll('[data-language-toggle]');
+
+    toggles.forEach((toggle) => {
+      const link = toggle.querySelector('.toggle-link') as HTMLAnchorElement;
+      const thumb = toggle.querySelector('.toggle-thumb') as HTMLElement;
+
+      if (!link || !thumb) return;
+
+      // Add hover effects
+      link.addEventListener('mouseenter', () => {
+        thumb.style.transform = 'translateX(var(--thumb-hover-offset))';
+      });
+
+      link.addEventListener('mouseleave', () => {
+        thumb.style.transform = '';
+      });
+
+      // Add click animation
+      link.addEventListener('click', () => {
+        // Add click feedback
+        thumb.classList.add('thumb-clicking');
+
+        // Track language change
+        const newLang = link.getAttribute('data-lang');
+        const currentLang = document.documentElement.lang || 'es';
+
+        // Add sliding animation before navigation
+        const track = link.querySelector('.toggle-track') as HTMLElement;
+        if (track) {
+          track.classList.add('track-switching');
+        }
+
+        window.dispatchEvent(
+          new CustomEvent('languageChange', {
+            detail: { from: currentLang, to: newLang },
+          })
+        );
+
+        // Small delay for animation before navigation
+        setTimeout(() => {
+          thumb.classList.remove('thumb-clicking');
+        }, 150);
+      });
+    });
+  });
+</script>
+
+<style>
+  .language-toggle {
+    position: relative;
+    display: inline-block;
+  }
+
+  .toggle-link {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    outline: none;
+  }
+
+  .toggle-track {
+    position: relative;
+    width: 5rem;
+    height: 2.5rem;
+    background: var(--bg-elevated, #242428);
+    border: 3px solid var(--border-default, rgba(255, 255, 255, 0.1));
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    /* Magazine cutout shape */
+    clip-path: polygon(
+      8% 0%,
+      92% 2%,
+      98% 12%,
+      100% 50%,
+      98% 88%,
+      92% 98%,
+      8% 100%,
+      2% 90%,
+      0% 50%,
+      2% 10%
+    );
+
+    /* Paper texture effect */
+    background-image: radial-gradient(
+        circle at 20% 50%,
+        transparent 20%,
+        rgba(255, 255, 255, 0.03) 21%,
+        rgba(255, 255, 255, 0.03) 34%,
+        transparent 35%
+      ),
+      linear-gradient(
+        0deg,
+        transparent 24%,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.05) 26%,
+        transparent 27%
+      );
+    background-color: var(--bg-elevated, #242428);
+
+    /* Add subtle animation on load */
+    animation: trackIntro 0.5s ease-out;
+  }
+
+  @keyframes trackIntro {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .toggle-track:hover {
+    border-color: var(--madfam-green, #66bb6a);
+    transform: rotate(-1deg) scale(1.02);
+    box-shadow:
+      3px 3px 10px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(102, 187, 106, 0.1);
+  }
+
+  .toggle-link:focus-visible .toggle-track {
+    outline: 3px solid var(--madfam-yellow, #ffc107);
+    outline-offset: 4px;
+  }
+
+  .toggle-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-mono, 'Space Mono', monospace);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    user-select: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .toggle-label--current {
+    left: 0.625rem;
+    color: var(--text-tertiary, rgba(255, 255, 255, 0.5));
+    opacity: 0.6;
+  }
+
+  .toggle-label--target {
+    right: 0.625rem;
+    color: var(--madfam-green, #66bb6a);
+    opacity: 0.8;
+  }
+
+  .toggle-thumb {
+    position: absolute;
+    top: 50%;
+    left: 0.25rem;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    background: var(--madfam-yellow, #ffc107);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --thumb-hover-offset: 0;
+
+    /* Torn paper edge effect */
+    clip-path: polygon(
+      15% 0%,
+      85% 3%,
+      96% 18%,
+      100% 45%,
+      95% 75%,
+      85% 97%,
+      45% 100%,
+      15% 95%,
+      3% 75%,
+      0% 45%,
+      5% 15%
+    );
+
+    /* Shadow for depth */
+    box-shadow:
+      2px 2px 5px rgba(0, 0, 0, 0.3),
+      inset -1px -1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Language-specific thumb positions */
+  .toggle-thumb[data-current-lang='es'] {
+    --thumb-hover-offset: 0.375rem;
+  }
+
+  .toggle-thumb[data-current-lang='en'] {
+    left: auto;
+    right: 0.25rem;
+    --thumb-hover-offset: -0.375rem;
+  }
+
+  .toggle-thumb:hover {
+    transform: translateY(-50%) rotate(3deg) scale(1.05);
+  }
+
+  .thumb-clicking {
+    animation: thumbClick 0.3s ease-out;
+  }
+
+  @keyframes thumbClick {
+    0% {
+      transform: translateY(-50%) scale(1);
+    }
+    50% {
+      transform: translateY(-50%) scale(0.9) rotate(-2deg);
+    }
+    100% {
+      transform: translateY(-50%) scale(1);
+    }
+  }
+
+  .track-switching {
+    animation: trackPulse 0.4s ease-out;
+  }
+
+  @keyframes trackPulse {
+    0% {
+      border-color: var(--border-default);
+    }
+    50% {
+      border-color: var(--madfam-green, #66bb6a);
+      box-shadow:
+        0 0 0 3px rgba(102, 187, 106, 0.2),
+        3px 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      border-color: var(--border-default);
+    }
+  }
+
+  .thumb-text {
+    font-family: var(--font-mono, 'Space Mono', monospace);
+    font-weight: 900;
+    font-size: 0.75rem;
+    color: var(--bg-primary, #0a0a0b);
+    letter-spacing: 0.5px;
+  }
+
+  /* Compact variant (default) */
+  .language-toggle--compact .toggle-track {
+    width: 4.5rem;
+    height: 2.25rem;
+  }
+
+  .language-toggle--compact .toggle-thumb {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .language-toggle--compact .toggle-label {
+    font-size: 0.625rem;
+  }
+
+  .language-toggle--compact .thumb-text {
+    font-size: 0.625rem;
+  }
+
+  /* Expanded variant */
+  .language-toggle--expanded .toggle-track {
+    width: 6rem;
+    height: 3rem;
+  }
+
+  .language-toggle--expanded .toggle-thumb {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .language-toggle--expanded .toggle-label {
+    font-size: 0.875rem;
+  }
+
+  .language-toggle--expanded .thumb-text {
+    font-size: 0.875rem;
+  }
+
+  /* Compact navigation state adjustments */
+  :global(.nav-compact) .toggle-track {
+    width: 4rem;
+    height: 2rem;
+    border-width: 2px;
+  }
+
+  :global(.nav-compact) .toggle-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  :global(.nav-compact) .toggle-label,
+  :global(.nav-compact) .thumb-text {
+    font-size: 0.5rem;
+  }
+
+  /* Dark theme adjustments */
+  :global([data-theme='dark']) .toggle-track {
+    background-color: var(--bg-tertiary, #1c1c1f);
+    border-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
+  }
+
+  :global([data-theme='dark']) .toggle-thumb {
+    background: var(--madfam-yellow-dark, #ffa000);
+  }
+
+  /* Light theme adjustments */
+  :global([data-theme='light']) .toggle-track {
+    background-color: var(--bg-tertiary, #f5f5f5);
+    border-color: var(--border-default, rgba(0, 0, 0, 0.12));
+    box-shadow:
+      inset 0 1px 3px rgba(0, 0, 0, 0.08),
+      0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  :global([data-theme='light']) .toggle-thumb {
+    background: var(--madfam-yellow, #ffc107);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  :global([data-theme='light']) .toggle-label--current {
+    color: var(--text-tertiary, rgba(0, 0, 0, 0.5));
+  }
+
+  :global([data-theme='light']) .toggle-label--target {
+    color: var(--madfam-green-dark, #388e3c);
+  }
+
+  :global([data-theme='light']) .thumb-text {
+    color: var(--bg-primary, #ffffff);
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .language-toggle--compact .toggle-track {
+      width: 4rem;
+      height: 2rem;
+    }
+
+    .language-toggle--compact .toggle-thumb {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .language-toggle--compact .toggle-label,
+    .language-toggle--compact .thumb-text {
+      font-size: 0.5rem;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .toggle-track,
+    .toggle-thumb,
+    .toggle-label {
+      transition: none;
+    }
+
+    .thumb-clicking {
+      animation: none;
+    }
+
+    .toggle-track:hover {
+      transform: none;
+    }
+
+    .toggle-thumb:hover {
+      transform: translateY(-50%);
+    }
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .toggle-track {
+      border-width: 4px;
+    }
+
+    .toggle-thumb {
+      outline: 2px solid var(--bg-primary);
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .language-toggle {
+      display: none;
+    }
+  }
+</style>

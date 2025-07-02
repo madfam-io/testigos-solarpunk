@@ -2,7 +2,7 @@
 // import PWAInstaller from '../components/PWAInstaller.astro';
 import UnderConstructionModal from '../components/UnderConstructionModal.astro';
 import ThemeSelector from '../components/ThemeSelector.astro';
-import LanguageSelector from '../components/LanguageSelector.astro';
+import LanguageToggle from '../components/LanguageToggle.astro';
 import {
   detectLanguage,
   useTranslations,
@@ -387,7 +387,7 @@ const getLangPath = (path: string): string => {
 
         <div class="nav-actions">
           <ThemeSelector variant="compact" lang={currentLang} />
-          <LanguageSelector
+          <LanguageToggle
             currentLang={currentLang}
             currentPath={currentPath}
             variant="compact"
