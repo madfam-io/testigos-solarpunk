@@ -848,12 +848,14 @@ const getLangPath = (path: string): string => {
     <!-- PWAInstaller temporarily removed for linting fix -->
 
     <!-- Cache Buster for Development -->
-    {import.meta.env.DEV && (
-      <script>
-        import { installCacheBuster } from '../utils/cache-buster';
-        installCacheBuster();
-      </script>
-    )}
+    {
+      import.meta.env.DEV && (
+        <script>
+          import {installCacheBuster} from '../utils/cache-buster';
+          installCacheBuster();
+        </script>
+      )
+    }
   </body>
 </html>
 
