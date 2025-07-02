@@ -384,40 +384,46 @@ nav .container {
   height: 24px;
 }
 
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: var(--espacio-sm);
-  align-items: center;
-  margin: 0;
-  padding: 0;
+/* Desktop Navigation Menu */
+@media (min-width: 769px) {
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    gap: var(--espacio-sm);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
 }
 
-.nav-menu a {
-  font-weight: 500;
-  color: var(--texto-primario);
-  padding: var(--espacio-xs) var(--espacio-sm);
-  border-radius: 4px;
-  transition:
-    background-color var(--transicion-rapida),
-    font-size 0.3s ease,
-    padding 0.3s ease;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
+/* Desktop Navigation Menu Links */
+@media (min-width: 769px) {
+  .nav-menu a {
+    font-weight: 500;
+    color: var(--texto-primario);
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 4px;
+    transition:
+      background-color var(--transicion-rapida),
+      font-size 0.3s ease,
+      padding 0.3s ease;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
 
-.nav-compact .nav-menu a {
-  font-size: 0.875rem;
-  padding: calc(var(--espacio-xs) * 0.75) var(--espacio-sm);
-}
+  .nav-compact .nav-menu a {
+    font-size: 0.875rem;
+    padding: calc(var(--espacio-xs) * 0.75) var(--espacio-sm);
+  }
 
-.nav-menu a:hover {
-  background-color: var(--sombra-suave);
-}
+  .nav-menu a:hover {
+    background-color: var(--sombra-suave);
+  }
 
-.nav-menu a.active {
-  background-color: var(--verde-sostenible);
-  color: var(--text-on-accent, #000000);
+  .nav-menu a.active {
+    background-color: var(--verde-sostenible);
+    color: var(--text-on-accent, #000000);
+  }
 }
 
 /* Dropdown Navigation */
@@ -487,15 +493,23 @@ nav .container {
   transform: rotate(180deg);
 }
 
-/* Hamburger menu button */
-.mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--espacio-sm);
-  gap: 4px;
+/* Hamburger menu button - hidden on desktop, shown on mobile */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--espacio-sm);
+    gap: 4px;
+  }
 }
 
 /* Hide mobile-specific elements on desktop */

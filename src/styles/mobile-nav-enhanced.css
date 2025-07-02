@@ -16,6 +16,11 @@
     z-index: 997;
   }
 
+  /* Override desktop flex display for mobile */
+  .nav-menu {
+    display: flex !important;
+  }
+
   /* Center the navigation content */
   nav .container {
     display: flex;
