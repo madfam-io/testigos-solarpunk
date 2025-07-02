@@ -70,12 +70,9 @@ const labels = {
     hreflang={targetLang}
   >
     <div class="toggle-track">
-      <span class="toggle-label toggle-label--current" aria-hidden="true">
-        {labels[currentLang].short}
-      </span>
-      <span class="toggle-label toggle-label--target" aria-hidden="true">
-        {labels[targetLang].short}
-      </span>
+      <!-- ES always on left, EN always on right -->
+      <span class="toggle-label toggle-label--es" aria-hidden="true"> ES </span>
+      <span class="toggle-label toggle-label--en" aria-hidden="true"> EN </span>
       <div
         class="toggle-thumb"
         data-current-lang={currentLang}
@@ -98,14 +95,7 @@ const labels = {
 
       if (!link || !thumb) return;
 
-      // Add hover effects
-      link.addEventListener('mouseenter', () => {
-        thumb.style.transform = 'translateX(var(--thumb-hover-offset))';
-      });
-
-      link.addEventListener('mouseleave', () => {
-        thumb.style.transform = '';
-      });
+      // Add hover effects - removed as they're now handled by CSS
 
       // Add click animation
       link.addEventListener('click', () => {
@@ -231,23 +221,30 @@ const labels = {
     transition: opacity 0.3s ease;
   }
 
-  .toggle-label--current {
+  /* Fixed positions for language labels */
+  .toggle-label--es {
     left: 0.625rem;
     color: var(--text-tertiary, rgba(255, 255, 255, 0.5));
     opacity: 0.6;
   }
 
-  .toggle-label--target {
+  .toggle-label--en {
     right: 0.625rem;
+    color: var(--text-tertiary, rgba(255, 255, 255, 0.5));
+    opacity: 0.6;
+  }
+
+  /* Highlight active language using parent selector */
+  .toggle-track:has(.toggle-thumb[data-current-lang='es']) .toggle-label--es,
+  .toggle-track:has(.toggle-thumb[data-current-lang='en']) .toggle-label--en {
     color: var(--madfam-green, #66bb6a);
-    opacity: 0.8;
+    opacity: 1;
   }
 
   .toggle-thumb {
     position: absolute;
     top: 50%;
     left: 0.25rem;
-    transform: translateY(-50%);
     width: 2rem;
     height: 2rem;
     background: var(--madfam-yellow, #ffc107);
@@ -256,7 +253,9 @@ const labels = {
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --thumb-hover-offset: 0;
+
+    /* Default transform for ES (left position) */
+    transform: translateY(-50%);
 
     /* Torn paper edge effect */
     clip-path: polygon(
@@ -279,34 +278,108 @@ const labels = {
       inset -1px -1px 2px rgba(0, 0, 0, 0.1);
   }
 
-  /* Language-specific thumb positions */
+  /* Language-specific thumb positions using transform */
   .toggle-thumb[data-current-lang='es'] {
-    --thumb-hover-offset: 0.375rem;
+    /* Thumb stays on left (default position) */
+    transform: translateY(-50%) translateX(0);
   }
 
   .toggle-thumb[data-current-lang='en'] {
-    left: auto;
-    right: 0.25rem;
-    --thumb-hover-offset: -0.375rem;
+    /* Thumb slides to right - calculate based on track width */
+    transform: translateY(-50%) translateX(2.5rem);
   }
 
-  .toggle-thumb:hover {
-    transform: translateY(-50%) rotate(3deg) scale(1.05);
+  /* Adjust slide distance for compact variant */
+  .language-toggle--compact .toggle-thumb[data-current-lang='en'] {
+    transform: translateY(-50%) translateX(2.25rem);
   }
 
-  .thumb-clicking {
-    animation: thumbClick 0.3s ease-out;
+  /* Adjust slide distance for expanded variant */
+  .language-toggle--expanded .toggle-thumb[data-current-lang='en'] {
+    transform: translateY(-50%) translateX(3.5rem);
   }
 
-  @keyframes thumbClick {
+  /* Hover effects with proper transforms */
+  .toggle-thumb[data-current-lang='es']:hover {
+    transform: translateY(-50%) translateX(0.25rem) rotate(2deg) scale(1.02);
+  }
+
+  .toggle-thumb[data-current-lang='en']:hover {
+    transform: translateY(-50%) translateX(2.75rem) rotate(-2deg) scale(1.02);
+  }
+
+  /* Hover adjustments for variants */
+  .language-toggle--compact .toggle-thumb[data-current-lang='en']:hover {
+    transform: translateY(-50%) translateX(2.5rem) rotate(-2deg) scale(1.02);
+  }
+
+  .language-toggle--expanded .toggle-thumb[data-current-lang='en']:hover {
+    transform: translateY(-50%) translateX(3.75rem) rotate(-2deg) scale(1.02);
+  }
+
+  /* Click animation needs to be language-aware */
+  .toggle-thumb[data-current-lang='es'].thumb-clicking {
+    animation: thumbClickES 0.3s ease-out;
+  }
+
+  .toggle-thumb[data-current-lang='en'].thumb-clicking {
+    animation: thumbClickEN 0.3s ease-out;
+  }
+
+  @keyframes thumbClickES {
     0% {
-      transform: translateY(-50%) scale(1);
+      transform: translateY(-50%) translateX(0);
     }
     50% {
-      transform: translateY(-50%) scale(0.9) rotate(-2deg);
+      transform: translateY(-50%) translateX(0) scale(0.9) rotate(-2deg);
     }
     100% {
-      transform: translateY(-50%) scale(1);
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+
+  @keyframes thumbClickEN {
+    0% {
+      transform: translateY(-50%) translateX(2.5rem);
+    }
+    50% {
+      transform: translateY(-50%) translateX(2.5rem) scale(0.9) rotate(2deg);
+    }
+    100% {
+      transform: translateY(-50%) translateX(2.5rem);
+    }
+  }
+
+  /* Nav-compact specific click animations */
+  :global(.nav-compact) .toggle-thumb[data-current-lang='es'].thumb-clicking {
+    animation: thumbClickESCompact 0.3s ease-out;
+  }
+
+  :global(.nav-compact) .toggle-thumb[data-current-lang='en'].thumb-clicking {
+    animation: thumbClickENCompact 0.3s ease-out;
+  }
+
+  @keyframes thumbClickESCompact {
+    0% {
+      transform: translateY(-50%) translateX(0);
+    }
+    50% {
+      transform: translateY(-50%) translateX(0) scale(0.9) rotate(-2deg);
+    }
+    100% {
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+
+  @keyframes thumbClickENCompact {
+    0% {
+      transform: translateY(-50%) translateX(2rem);
+    }
+    50% {
+      transform: translateY(-50%) translateX(2rem) scale(0.9) rotate(2deg);
+    }
+    100% {
+      transform: translateY(-50%) translateX(2rem);
     }
   }
 
@@ -387,6 +460,18 @@ const labels = {
     height: 1.5rem;
   }
 
+  :global(.nav-compact) .toggle-thumb[data-current-lang='en'] {
+    transform: translateY(-50%) translateX(2rem);
+  }
+
+  :global(.nav-compact) .toggle-thumb[data-current-lang='es']:hover {
+    transform: translateY(-50%) translateX(0.25rem) rotate(2deg) scale(1.02);
+  }
+
+  :global(.nav-compact) .toggle-thumb[data-current-lang='en']:hover {
+    transform: translateY(-50%) translateX(2.25rem) rotate(-2deg) scale(1.02);
+  }
+
   :global(.nav-compact) .toggle-label,
   :global(.nav-compact) .thumb-text {
     font-size: 0.5rem;
@@ -464,8 +549,29 @@ const labels = {
       transform: none;
     }
 
-    .toggle-thumb:hover {
-      transform: translateY(-50%);
+    /* Maintain position transforms but remove hover animations */
+    .toggle-thumb[data-current-lang='es']:hover {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .toggle-thumb[data-current-lang='en']:hover {
+      transform: translateY(-50%) translateX(2.5rem);
+    }
+
+    .language-toggle--compact .toggle-thumb[data-current-lang='en']:hover {
+      transform: translateY(-50%) translateX(2.25rem);
+    }
+
+    .language-toggle--expanded .toggle-thumb[data-current-lang='en']:hover {
+      transform: translateY(-50%) translateX(3.5rem);
+    }
+
+    :global(.nav-compact) .toggle-thumb[data-current-lang='es']:hover {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    :global(.nav-compact) .toggle-thumb[data-current-lang='en']:hover {
+      transform: translateY(-50%) translateX(2rem);
     }
   }
 
