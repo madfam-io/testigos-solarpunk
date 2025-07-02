@@ -31,7 +31,7 @@ vi.stubGlobal('PerformanceObserver', vi.fn((callback) => {
 const localStorageMock = (() => {
   let store: Record<string, string> = {};
   return {
-    getItem: vi.fn((key: string) => store[key] || null),
+    getItem: vi.fn((key: string) => store[key] !== undefined ? store[key] : null),
     setItem: vi.fn((key: string, value: string) => {
       store[key] = value;
     }),
@@ -68,9 +68,10 @@ const mockMatchMedia = vi.fn((query: string) => ({
 }));
 
 // Track event listeners
-const eventListeners: Record<string, Function[]> = {};
-const mockAddEventListener = vi.fn((event: string, handler: Function) => {
-  if (!eventListeners[event]) {
+type EventHandler = (event: Event) => void;
+const eventListeners: Record<string, EventHandler[]> = {};
+const mockAddEventListener = vi.fn((event: string, handler: EventHandler) => {
+  if (eventListeners[event] === undefined) {
     eventListeners[event] = [];
   }
   eventListeners[event].push(handler);
@@ -78,7 +79,7 @@ const mockAddEventListener = vi.fn((event: string, handler: Function) => {
 
 const mockDispatchEvent = vi.fn((event: Event) => {
   const handlers = eventListeners[event.type];
-  if (handlers) {
+  if (handlers !== undefined && handlers.length > 0) {
     handlers.forEach(handler => handler(event));
   }
   return true;
@@ -153,10 +154,10 @@ const mockPerformance = {
 vi.stubGlobal('performance', mockPerformance);
 
 // Mock Date.now for consistent timestamps
-const mockDateNow = vi.spyOn(Date, 'now').mockReturnValue(1640995200000);
+const _mockDateNow = vi.spyOn(Date, 'now').mockReturnValue(1640995200000);
 
 // Mock Math.random for consistent session IDs
-const mockMathRandom = vi.spyOn(Math, 'random').mockReturnValue(0.123456789);
+const _mockMathRandom = vi.spyOn(Math, 'random').mockReturnValue(0.123456789);
 
 describe('TelemetryManager', () => {
   let telemetry: TelemetryManager;
@@ -172,7 +173,7 @@ describe('TelemetryManager', () => {
     });
     
     // Reset singleton instance
-    // @ts-ignore - accessing private static property for testing
+    // @ts-expect-error - accessing private static property for testing to reset singleton state
     TelemetryManager.instance = undefined;
   });
 
@@ -189,8 +190,8 @@ describe('TelemetryManager', () => {
 
     it('should generate consistent session ID', () => {
       telemetry = TelemetryManager.getInstance();
-      // @ts-ignore - accessing private property for testing
-      const sessionId = telemetry.sessionId;
+      // @ts-expect-error - accessing private property for testing
+      const {sessionId} = telemetry;
       expect(sessionId).toBe('1640995200000-4fzzzxjyl');
     });
   });
@@ -219,15 +220,15 @@ describe('TelemetryManager', () => {
       telemetry = TelemetryManager.getInstance();
       // Force enable for testing
       telemetry.enable();
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.isEnabled = true;
     });
 
     it('should track custom events with properties', () => {
       telemetry.track('button_click', 'user', { button: 'submit' });
       
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       
       const customEvent = eventQueue.find(e => e.name === 'button_click');
       expect(customEvent).toBeDefined();
@@ -244,14 +245,14 @@ describe('TelemetryManager', () => {
       telemetry.disable();
       telemetry.track('test_event', 'user');
       
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       expect(eventQueue).toHaveLength(0);
     });
 
     it('should batch events and flush at threshold', () => {
       // Clear initial events
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.eventQueue = [];
       vi.clearAllMocks();
 
@@ -271,7 +272,7 @@ describe('TelemetryManager', () => {
     beforeEach(() => {
       telemetry = TelemetryManager.getInstance();
       // Force enable for testing
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.isEnabled = true;
     });
 
@@ -284,11 +285,11 @@ describe('TelemetryManager', () => {
         toJSON: () => ({}),
       };
 
-      // @ts-ignore - accessing private method for testing
+      // @ts-expect-error - accessing private method for testing
       telemetry.trackPerformanceEntry(entry);
 
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const fcpEvent = eventQueue.find(e => e.name === 'first_contentful_paint');
       expect(fcpEvent).toBeDefined();
       expect(fcpEvent?.category).toBe('performance');
@@ -305,11 +306,11 @@ describe('TelemetryManager', () => {
         toJSON: () => ({}),
       };
 
-      // @ts-ignore - accessing private method for testing
+      // @ts-expect-error - accessing private method for testing
       telemetry.trackPerformanceEntry(entry);
 
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const lcpEvent = eventQueue.find(e => e.name === 'largest_contentful_paint');
       expect(lcpEvent).toBeDefined();
       expect(lcpEvent?.properties?.value).toBe(450.75);
@@ -326,11 +327,11 @@ describe('TelemetryManager', () => {
         toJSON: () => ({}),
       };
 
-      // @ts-ignore - accessing private method for testing
+      // @ts-expect-error - accessing private method for testing
       telemetry.trackPerformanceEntry(entry);
 
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const clsEvent = eventQueue.find(e => e.name === 'cumulative_layout_shift');
       expect(clsEvent).toBeDefined();
       expect(clsEvent?.properties?.value).toBe(0.125);
@@ -347,11 +348,11 @@ describe('TelemetryManager', () => {
         toJSON: () => ({}),
       };
 
-      // @ts-ignore - accessing private method for testing
+      // @ts-expect-error - accessing private method for testing
       telemetry.trackPerformanceEntry(entry);
 
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const clsEvent = eventQueue.find(e => e.name === 'cumulative_layout_shift');
       expect(clsEvent).toBeUndefined();
     });
@@ -367,15 +368,15 @@ describe('TelemetryManager', () => {
     beforeEach(() => {
       telemetry = TelemetryManager.getInstance();
       // Force enable for testing
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.isEnabled = true;
     });
 
     it('should track theme changes', () => {
       telemetry.trackThemeChange('light', 'dark');
 
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const themeEvent = eventQueue.find(e => e.name === 'theme_change');
       expect(themeEvent).toBeDefined();
       expect(themeEvent?.properties?.from).toBe('light');
@@ -385,8 +386,8 @@ describe('TelemetryManager', () => {
     it('should track language changes', () => {
       telemetry.trackLanguageChange('es', 'en');
 
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const langEvent = eventQueue.find(e => e.name === 'language_change');
       expect(langEvent).toBeDefined();
       expect(langEvent?.properties?.from).toBe('es');
@@ -396,8 +397,8 @@ describe('TelemetryManager', () => {
     it('should track user interactions', () => {
       telemetry.trackInteraction('button', 'click', { id: 'submit-btn' });
 
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const interactionEvent = eventQueue.find(e => e.name === 'user_interaction');
       expect(interactionEvent).toBeDefined();
       expect(interactionEvent?.properties?.element).toBe('button');
@@ -410,7 +411,7 @@ describe('TelemetryManager', () => {
     beforeEach(() => {
       telemetry = TelemetryManager.getInstance();
       // Force enable for testing
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.isEnabled = true;
     });
 
@@ -420,8 +421,8 @@ describe('TelemetryManager', () => {
       
       telemetry.trackError(error, { component: 'TestComponent' });
 
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const errorEvent = eventQueue.find(e => e.name === 'error');
       expect(errorEvent).toBeDefined();
       expect(errorEvent?.category).toBe('error');
@@ -434,8 +435,8 @@ describe('TelemetryManager', () => {
     it('should track string errors', () => {
       telemetry.trackError('Something went wrong');
 
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const errorEvent = eventQueue.find(e => e.name === 'error');
       expect(errorEvent).toBeDefined();
       expect(errorEvent?.properties?.message).toBe('Something went wrong');
@@ -447,7 +448,7 @@ describe('TelemetryManager', () => {
     beforeEach(() => {
       telemetry = TelemetryManager.getInstance();
       // Force enable for testing
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.isEnabled = true;
     });
 
@@ -462,7 +463,7 @@ describe('TelemetryManager', () => {
     });
 
     it('should fallback to fetch when sendBeacon is not available', () => {
-      // @ts-ignore
+      // @ts-expect-error - sendBeacon intentionally set to undefined for testing fallback behavior
       navigator.sendBeacon = undefined;
       
       telemetry.track('test_event', 'user');
@@ -471,7 +472,7 @@ describe('TelemetryManager', () => {
       expect(mockFetch).toHaveBeenCalledWith('/api/telemetry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: expect.stringContaining('"name":"test_event"'),
+        body: expect.stringContaining('"name":"test_event"') as string,
         keepalive: true,
       });
     });
@@ -480,12 +481,12 @@ describe('TelemetryManager', () => {
       telemetry.track('event1', 'user');
       telemetry.track('event2', 'user');
       
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       expect(telemetry.eventQueue.length).toBeGreaterThan(0);
       
       telemetry.flush();
       
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       expect(telemetry.eventQueue).toHaveLength(0);
     });
 
@@ -497,7 +498,7 @@ describe('TelemetryManager', () => {
 
     it('should not flush when event queue is empty', () => {
       // Clear initial events
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.eventQueue = [];
       vi.clearAllMocks();
 
@@ -518,11 +519,11 @@ describe('TelemetryManager', () => {
     it('should disable telemetry and clear data', () => {
       telemetry = TelemetryManager.getInstance();
       // Force enable for testing
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.isEnabled = true;
       
       // Set up a performance observer so there's something to disconnect
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.performanceObserver = {
         disconnect: mockDisconnect
       };
@@ -535,7 +536,7 @@ describe('TelemetryManager', () => {
       
       expect(localStorageMock.setItem).toHaveBeenCalledWith('testigos-telemetry-consent', 'denied');
       expect(telemetry.isActive()).toBe(false);
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       expect(telemetry.eventQueue).toHaveLength(0);
       expect(mockDisconnect).toHaveBeenCalled();
     });
@@ -545,14 +546,14 @@ describe('TelemetryManager', () => {
     beforeEach(() => {
       // Reset mocks
       vi.clearAllMocks();
-      // @ts-ignore
+      // @ts-expect-error - accessing private static property for testing to reset singleton
       TelemetryManager.instance = undefined;
     });
 
     it('should track First Input Delay', () => {
       telemetry = TelemetryManager.getInstance();
       // Force enable for testing
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.isEnabled = true;
 
       // Directly call the track method as if FID was measured
@@ -561,8 +562,8 @@ describe('TelemetryManager', () => {
         url: window.location.pathname,
       });
 
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const fidEvent = eventQueue.find(e => e.name === 'first_input_delay');
       expect(fidEvent).toBeDefined();
       expect(fidEvent?.properties?.value).toBe(25);
@@ -571,7 +572,7 @@ describe('TelemetryManager', () => {
     it('should track Time to Interactive on load', () => {
       telemetry = TelemetryManager.getInstance();
       // Force enable for testing
-      // @ts-ignore - accessing private property for testing
+      // @ts-expect-error - accessing private property for testing
       telemetry.isEnabled = true;
       
       // Directly track TTI as it would be tracked
@@ -580,8 +581,8 @@ describe('TelemetryManager', () => {
         url: window.location.pathname,
       });
       
-      // @ts-ignore - accessing private property for testing
-      const eventQueue = telemetry.eventQueue;
+      // @ts-expect-error - accessing private property for testing
+      const {eventQueue} = telemetry;
       const ttiEvent = eventQueue.find(e => e.name === 'time_to_interactive');
       expect(ttiEvent).toBeDefined();
       expect(ttiEvent?.properties?.value).toBe(1234.5);
@@ -602,7 +603,7 @@ describe('initializeTelemetry', () => {
     });
     
     // Reset singleton
-    // @ts-ignore
+    // @ts-expect-error - accessing private static property for testing to reset singleton
     TelemetryManager.instance = undefined;
   });
 
@@ -624,9 +625,9 @@ describe('initializeTelemetry', () => {
   it('should handle theme change events', () => {
     telemetryInstance = initializeTelemetry();
     // Force enable for testing
-    // @ts-ignore - accessing private property for testing
+    // @ts-expect-error - accessing private property for testing
     telemetryInstance.isEnabled = true;
-    // @ts-ignore
+    // @ts-expect-error - accessing private property eventQueue for testing
     telemetryInstance.eventQueue = [];
     
     const event = new CustomEvent('themeChange', {
@@ -634,12 +635,12 @@ describe('initializeTelemetry', () => {
     });
     
     const handlers = eventListeners['themeChange'];
-    if (handlers) {
+    if (handlers !== undefined && handlers.length > 0) {
       handlers.forEach(handler => handler(event));
     }
 
-    // @ts-ignore - accessing private property for testing
-    const eventQueue = telemetryInstance.eventQueue;
+    // @ts-expect-error - accessing private property for testing
+    const {eventQueue} = telemetryInstance;
     const themeEvent = eventQueue.find(e => e.name === 'theme_change');
     expect(themeEvent).toBeDefined();
     expect(themeEvent?.properties?.from).toBe('light');
@@ -649,9 +650,9 @@ describe('initializeTelemetry', () => {
   it('should handle theme change without from property', () => {
     telemetryInstance = initializeTelemetry();
     // Force enable for testing
-    // @ts-ignore - accessing private property for testing
+    // @ts-expect-error - accessing private property for testing
     telemetryInstance.isEnabled = true;
-    // @ts-ignore
+    // @ts-expect-error - accessing private property eventQueue for testing
     telemetryInstance.eventQueue = [];
     
     const event = new CustomEvent('themeChange', {
@@ -659,12 +660,12 @@ describe('initializeTelemetry', () => {
     });
     
     const handlers = eventListeners['themeChange'];
-    if (handlers) {
+    if (handlers !== undefined && handlers.length > 0) {
       handlers.forEach(handler => handler(event));
     }
 
-    // @ts-ignore - accessing private property for testing
-    const eventQueue = telemetryInstance.eventQueue;
+    // @ts-expect-error - accessing private property for testing
+    const {eventQueue} = telemetryInstance;
     const themeEvent = eventQueue.find(e => e.name === 'theme_change');
     expect(themeEvent).toBeDefined();
     expect(themeEvent?.properties?.from).toBe('unknown');
@@ -684,12 +685,12 @@ describe('Edge Cases and Error Handling', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     localStorageMock.clear();
-    // @ts-ignore
+    // @ts-expect-error - accessing private static property for testing to reset singleton state
     TelemetryManager.instance = undefined;
   });
 
   it('should handle missing PerformanceObserver gracefully', () => {
-    // @ts-ignore
+    // @ts-expect-error - setting PerformanceObserver to undefined to test missing API gracefully
     global.PerformanceObserver = undefined;
     
     expect(() => {
@@ -706,7 +707,7 @@ describe('Edge Cases and Error Handling', () => {
     global.PerformanceObserver = vi.fn().mockImplementation(() => ({
       observe: mockObserveError,
       disconnect: mockDisconnect,
-    })) as any;
+    })) as unknown as typeof PerformanceObserver;
     
     // Intercept console.warn
     const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
@@ -725,12 +726,12 @@ describe('Edge Cases and Error Handling', () => {
   it('should handle fetch errors gracefully', async () => {
     const telemetry = TelemetryManager.getInstance();
     // Force enable for testing
-    // @ts-ignore - accessing private property for testing
+    // @ts-expect-error - accessing private property for testing
     telemetry.isEnabled = true;
     
     // Remove sendBeacon to force fetch usage
     const originalSendBeacon = mockNavigator.sendBeacon;
-    // @ts-ignore
+    // @ts-expect-error - sendBeacon intentionally set to undefined for testing fetch fallback
     mockNavigator.sendBeacon = undefined;
     
     // Make fetch fail
@@ -764,15 +765,15 @@ describe('Edge Cases and Error Handling', () => {
     
     const telemetry = TelemetryManager.getInstance();
     // Force enable for testing
-    // @ts-ignore - accessing private property for testing
+    // @ts-expect-error - accessing private property for testing
     telemetry.isEnabled = true;
-    // @ts-ignore
+    // @ts-expect-error - accessing private property eventQueue for testing to clear it
     telemetry.eventQueue = [];
     
     telemetry.track('test_event', 'user');
     
-    // @ts-ignore
-    const eventQueue = telemetry.eventQueue;
+    // @ts-expect-error - accessing private property eventQueue for testing
+    const {eventQueue} = telemetry;
     const event = eventQueue.find(e => e.name === 'test_event');
     expect(event?.properties?.connection).toBe('unknown');
     
@@ -786,7 +787,7 @@ describe('Edge Cases and Error Handling', () => {
   it('should handle performance entries without expected properties', () => {
     const telemetry = TelemetryManager.getInstance();
     // Force enable for testing
-    // @ts-ignore - accessing private property for testing
+    // @ts-expect-error - accessing private property for testing
     telemetry.isEnabled = true;
     
     const entry: MockPerformanceEntry = {
@@ -799,31 +800,31 @@ describe('Edge Cases and Error Handling', () => {
       toJSON: () => ({}),
     };
     
-    // @ts-ignore
+    // @ts-expect-error - accessing private method trackPerformanceEntry for testing
     telemetry.trackPerformanceEntry(entry);
     
-    // @ts-ignore
-    const eventQueue = telemetry.eventQueue;
+    // @ts-expect-error - accessing private property eventQueue for testing
+    const {eventQueue} = telemetry;
     const clsEvent = eventQueue.find(e => e.name === 'cumulative_layout_shift');
     expect(clsEvent?.properties?.value).toBe(0); // Should default to 0
   });
 
   it('should handle First Input Delay without processingStart', () => {
-    const observerCallbacks: Function[] = [];
+    const observerCallbacks: ((list: PerformanceObserverEntryList) => void)[] = [];
     
     vi.clearAllMocks();
     const OriginalPerformanceObserver = global.PerformanceObserver;
-    global.PerformanceObserver = vi.fn().mockImplementation((callback) => {
+    global.PerformanceObserver = vi.fn().mockImplementation((callback: PerformanceObserverCallback) => {
       observerCallbacks.push(callback);
       return {
         observe: mockObserve,
         disconnect: mockDisconnect,
       };
-    }) as any;
+    }) as unknown as typeof PerformanceObserver;
 
     const telemetry = TelemetryManager.getInstance();
     // Force enable for testing
-    // @ts-ignore - accessing private property for testing
+    // @ts-expect-error - accessing private property for testing
     telemetry.isEnabled = true;
 
     const fidEntry: MockPerformanceEntry = {
@@ -843,8 +844,8 @@ describe('Edge Cases and Error Handling', () => {
       });
     }
 
-    // @ts-ignore
-    const eventQueue = telemetry.eventQueue;
+    // @ts-expect-error - accessing private property eventQueue for testing
+    const {eventQueue} = telemetry;
     const fidEvent = eventQueue.find(e => e.name === 'first_input_delay');
     expect(fidEvent).toBeUndefined(); // Should not track without processingStart
     

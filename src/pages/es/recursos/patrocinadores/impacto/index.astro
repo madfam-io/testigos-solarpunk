@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import { t } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -168,7 +169,7 @@ if (basePath.endsWith('/')) {
         <div class="platform-card card">
           <div class="platform-header">
             <span class="emoji-cutout emoji-lg theme-purple">📱</span>
-            <h3>TikTok</h3>
+            <h3>{t("social.tiktok")}</h3>
           </div>
           <div class="platform-metrics">
             <div class="metric-row">
@@ -206,7 +207,7 @@ if (basePath.endsWith('/')) {
         <div class="platform-card card">
           <div class="platform-header">
             <span class="emoji-cutout emoji-lg theme-solar">📸</span>
-            <h3>Instagram</h3>
+            <h3>{t("social.instagram")}</h3>
           </div>
           <div class="platform-metrics">
             <div class="metric-row">
@@ -244,7 +245,7 @@ if (basePath.endsWith('/')) {
         <div class="platform-card card">
           <div class="platform-header">
             <span class="emoji-cutout emoji-lg theme-green">📺</span>
-            <h3>YouTube</h3>
+            <h3>{t("social.youtube")}</h3>
           </div>
           <div class="platform-metrics">
             <div class="metric-row">
@@ -419,7 +420,7 @@ if (basePath.endsWith('/')) {
             </div>
           </div>
           <div class="opportunity-benefits">
-            <h4>Beneficios</h4>
+            <h4>{t("section.benefits")}</h4>
             <ul>
               <li>Integración orgánica en narrativa</li>
               <li>Asociación con valores sostenibles</li>
@@ -446,7 +447,7 @@ if (basePath.endsWith('/')) {
             </div>
           </div>
           <div class="opportunity-benefits">
-            <h4>Beneficios</h4>
+            <h4>{t("section.benefits")}</h4>
             <ul>
               <li>Co-creación con usuarios finales</li>
               <li>Validación de mercado pre-lanzamiento</li>
@@ -473,7 +474,7 @@ if (basePath.endsWith('/')) {
             </div>
           </div>
           <div class="opportunity-benefits">
-            <h4>Beneficios</h4>
+            <h4>{t("section.benefits")}</h4>
             <ul>
               <li>Demostración práctica de productos</li>
               <li>Networking con decision makers</li>

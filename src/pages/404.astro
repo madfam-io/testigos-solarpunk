@@ -30,7 +30,7 @@ if (
   const spanishRoutes = Object.values(routes.es) as string[];
   if (spanishRoutes.includes(firstSegment)) {
     // Redirect to Spanish version
-    const redirectPath = `${basePath}/es${requestedPath.startsWith('/') ? '' : '/'}${requestedPath}`;
+    const redirectPath = `${basePath}/es${requestedPath.length > 0 && requestedPath.startsWith('/') ? '' : '/'}${requestedPath}`;
     return Astro.redirect(redirectPath, 301);
   }
 

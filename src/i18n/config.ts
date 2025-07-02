@@ -86,7 +86,7 @@ export const routes = {
  * Translation strings for UI elements
  * Comprehensive bilingual content management
  */
-export const ui = {
+/*#__PURE__*/ export const ui = {
   es: {
     // Site metadata
     'site.title': 'Testigos de Solarpunk',
@@ -1086,6 +1086,238 @@ export const ui = {
 
     // UI Elements
     'ui.learn.more': 'Conocer más',
+    'ui.view.more': 'Ver más',
+    'ui.download': 'Descargar',
+    'ui.join': 'Únete',
+    
+    // Common Buttons and Actions
+    'button.subscribe': 'Suscribir',
+    'button.share': 'Compartir',
+    'button.play': 'Reproducir',
+    'button.pause': 'Pausar',
+    'button.next': 'Siguiente',
+    'button.previous': 'Anterior',
+    'button.back': 'Volver',
+    'button.continue': 'Continuar',
+    'button.start': 'Comenzar',
+    'button.explore': 'Explorar',
+    'button.discover': 'Descubrir',
+    
+    // Social Media
+    'social.instagram': 'Instagram',
+    'social.tiktok': 'TikTok',
+    'social.youtube': 'YouTube',
+    'social.youtube.shorts': 'YouTube Shorts',
+    'social.instagram.reels': 'Instagram Reels',
+    'social.twitter': 'Twitter',
+    'social.whatsapp': 'WhatsApp',
+    'social.facebook': 'Facebook',
+    'social.linkedin': 'LinkedIn',
+    
+    // Status Indicators
+    'status.in.development': 'En Desarrollo',
+    'status.coming.soon': 'Próximamente',
+    'status.in.production': 'En Producción',
+    'status.completed': 'Completado',
+    'status.available': 'Disponible',
+    'status.new': 'Nuevo',
+    'status.updated': 'Actualizado',
+    
+    // Common Section Headers
+    'section.introduction': 'Introducción',
+    'section.objectives': 'Objetivos',
+    'section.benefits': 'Beneficios',
+    'section.resources': 'Recursos',
+    'section.guides': 'Guías',
+    'section.overview': 'Resumen',
+    'section.details': 'Detalles',
+    'section.requirements': 'Requisitos',
+    'section.examples': 'Ejemplos',
+    'section.faq': 'Preguntas Frecuentes',
+    
+    // Production Elements
+    'production': 'Producción',
+    'production.specs': 'Especificaciones',
+    'production.guides': 'Guías de Producción',
+    'production.templates': 'Plantillas',
+    'production.resources': 'Recursos de Producción',
+    
+    // Sponsor Related
+    'sponsors.what.it.means': 'Qué Significa',
+    'sponsors.in.practice': 'En la Práctica',
+    'sponsors.for.sponsors': 'Para Patrocinadores',
+    'sponsors.values.alignment': 'Alineación de Valores',
+    'sponsors.integration': 'Integración',
+    'sponsors.benefits': 'Beneficios',
+    
+    // Navigation Breadcrumbs
+    'breadcrumb.home': 'Inicio',
+    'breadcrumb.nav.aria': 'Navegación de migas de pan',
+    
+    // Accessibility Labels
+    'aria.nav.breadcrumb': 'Navegación de migas de pan',
+    'aria.github.project': 'GitHub del proyecto (se abre en nueva ventana)',
+    'aria.language.switch.es': 'Cambiar a Español',
+    'aria.language.switch.en': 'Switch to English',
+    'aria.menu.toggle': 'Alternar menú de navegación',
+    'aria.submenu.toggle': 'Alternar submenú',
+    'aria.social.link': 'Visitar nuestro {network}',
+    
+    // Loading States
+    'loading.experience': 'Cargando tu experiencia',
+    'loading.content': 'Cargando contenido',
+    'loading.please.wait': 'Por favor espera',
+    
+    // Footer Elements
+    'footer.world.building': 'Construcción del Mundo',
+    'footer.visual.identity': 'Identidad Visual',
+    'footer.production.bible': 'Biblia de Producción',
+    
+    // Language Names
+    'language.spanish': 'Español',
+    'language.english': 'English',
+    
+    // Time Related
+    'time.minutes': 'minutos',
+    'time.seconds': 'segundos',
+    'time.hours': 'horas',
+    'time.days': 'días',
+    'time.weeks': 'semanas',
+    'time.months': 'meses',
+    'time.years': 'años',
+    
+    // Media Types
+    'media.video': 'Video',
+    'media.audio': 'Audio',
+    'media.image': 'Imagen',
+    'media.document': 'Documento',
+    'media.podcast': 'Podcast',
+    'media.sketch': 'Sketch',
+    
+    // Miscellaneous
+    'misc.title': 'Título',
+    'misc.description': 'Descripción',
+    'misc.summary': 'Resumen',
+    'misc.content': 'Contenido',
+    'misc.information': 'Información',
+    'misc.details': 'Detalles',
+    'misc.options': 'Opciones',
+    'misc.settings': 'Configuración',
+    'misc.profile': 'Perfil',
+    'misc.account': 'Cuenta',
+    'misc.help': 'Ayuda',
+    'misc.support': 'Soporte',
+    'misc.documentation': 'Documentación',
+    'misc.version': 'Versión',
+    'misc.update': 'Actualizar',
+    'misc.upgrade': 'Mejorar',
+    'misc.cancel': 'Cancelar',
+    'misc.confirm': 'Confirmar',
+    'misc.delete': 'Eliminar',
+    'misc.edit': 'Editar',
+    'misc.save': 'Guardar',
+    'misc.create': 'Crear',
+    'misc.add': 'Agregar',
+    'misc.remove': 'Eliminar',
+    'misc.search': 'Buscar',
+    'misc.filter': 'Filtrar',
+    'misc.sort': 'Ordenar',
+    'misc.export': 'Exportar',
+    'misc.import': 'Importar',
+    'misc.print': 'Imprimir',
+    'misc.refresh': 'Actualizar',
+    'misc.retry': 'Reintentar',
+    'misc.submit': 'Enviar',
+    'misc.reset': 'Restablecer',
+    'misc.clear': 'Limpiar',
+    'misc.select': 'Seleccionar',
+    'misc.upload': 'Subir',
+    'misc.download': 'Descargar',
+    'misc.copy': 'Copiar',
+    'misc.paste': 'Pegar',
+    'misc.cut': 'Cortar',
+    'misc.undo': 'Deshacer',
+    'misc.redo': 'Rehacer',
+    'misc.expand': 'Expandir',
+    'misc.collapse': 'Colapsar',
+    'misc.minimize': 'Minimizar',
+    'misc.maximize': 'Maximizar',
+    'misc.restore': 'Restaurar',
+    'misc.archive': 'Archivar',
+    'misc.unarchive': 'Desarchivar',
+    'misc.favorite': 'Favorito',
+    'misc.unfavorite': 'Quitar de favoritos',
+    'misc.pin': 'Fijar',
+    'misc.unpin': 'Desfijar',
+    'misc.lock': 'Bloquear',
+    'misc.unlock': 'Desbloquear',
+    'misc.enable': 'Habilitar',
+    'misc.disable': 'Deshabilitar',
+    'misc.activate': 'Activar',
+    'misc.deactivate': 'Desactivar',
+    'misc.publish': 'Publicar',
+    'misc.unpublish': 'Despublicar',
+    'misc.draft': 'Borrador',
+    'misc.pending': 'Pendiente',
+    'misc.approved': 'Aprobado',
+    'misc.rejected': 'Rechazado',
+    'misc.review': 'Revisar',
+    'misc.preview': 'Vista previa',
+    'misc.live': 'En vivo',
+    'misc.offline': 'Fuera de línea',
+    'misc.online': 'En línea',
+    'misc.sync': 'Sincronizar',
+    'misc.syncing': 'Sincronizando',
+    'misc.synced': 'Sincronizado',
+    'misc.error': 'Error',
+    'misc.warning': 'Advertencia',
+    'misc.info': 'Información',
+    'misc.success': 'Éxito',
+    'misc.failed': 'Falló',
+    'misc.completed': 'Completado',
+    'misc.processing': 'Procesando',
+    'misc.queued': 'En cola',
+    'misc.scheduled': 'Programado',
+    'misc.recurring': 'Recurrente',
+    'misc.once': 'Una vez',
+    'misc.daily': 'Diario',
+    'misc.weekly': 'Semanal',
+    'misc.monthly': 'Mensual',
+    'misc.yearly': 'Anual',
+    'misc.custom': 'Personalizado',
+    'misc.default': 'Por defecto',
+    'misc.primary': 'Principal',
+    'misc.secondary': 'Secundario',
+    'misc.alternative': 'Alternativo',
+    'misc.optional': 'Opcional',
+    'misc.required': 'Requerido',
+    'misc.recommended': 'Recomendado',
+    'misc.featured': 'Destacado',
+    'misc.popular': 'Popular',
+    'misc.trending': 'Tendencia',
+    'misc.latest': 'Último',
+    'misc.oldest': 'Más antiguo',
+    'misc.newest': 'Más nuevo',
+    'misc.updated.recently': 'Actualizado recientemente',
+    'misc.created.recently': 'Creado recientemente',
+    'misc.modified': 'Modificado',
+    'misc.created': 'Creado',
+    'misc.deleted': 'Eliminado',
+    'misc.restored': 'Restaurado',
+    'misc.duplicated': 'Duplicado',
+    'misc.moved': 'Movido',
+    'misc.copied': 'Copiado',
+    'misc.shared': 'Compartido',
+    'misc.private': 'Privado',
+    'misc.public': 'Público',
+    'misc.internal': 'Interno',
+    'misc.external': 'Externo',
+    'misc.global': 'Global',
+    'misc.local': 'Local',
+    'misc.regional': 'Regional',
+    'misc.national': 'Nacional',
+    'misc.international': 'Internacional',
+    'misc.redirect.language': 'Redirigiendo a tu idioma preferido...',
   },
   en: {
     // Site metadata
@@ -2075,6 +2307,238 @@ export const ui = {
 
     // UI Elements
     'ui.learn.more': 'Learn more',
+    'ui.view.more': 'View more',
+    'ui.download': 'Download',
+    'ui.join': 'Join',
+    
+    // Common Buttons and Actions
+    'button.subscribe': 'Subscribe',
+    'button.share': 'Share',
+    'button.play': 'Play',
+    'button.pause': 'Pause',
+    'button.next': 'Next',
+    'button.previous': 'Previous',
+    'button.back': 'Back',
+    'button.continue': 'Continue',
+    'button.start': 'Start',
+    'button.explore': 'Explore',
+    'button.discover': 'Discover',
+    
+    // Social Media
+    'social.instagram': 'Instagram',
+    'social.tiktok': 'TikTok',
+    'social.youtube': 'YouTube',
+    'social.youtube.shorts': 'YouTube Shorts',
+    'social.instagram.reels': 'Instagram Reels',
+    'social.twitter': 'Twitter',
+    'social.whatsapp': 'WhatsApp',
+    'social.facebook': 'Facebook',
+    'social.linkedin': 'LinkedIn',
+    
+    // Status Indicators
+    'status.in.development': 'In Development',
+    'status.coming.soon': 'Coming Soon',
+    'status.in.production': 'In Production',
+    'status.completed': 'Completed',
+    'status.available': 'Available',
+    'status.new': 'New',
+    'status.updated': 'Updated',
+    
+    // Common Section Headers
+    'section.introduction': 'Introduction',
+    'section.objectives': 'Objectives',
+    'section.benefits': 'Benefits',
+    'section.resources': 'Resources',
+    'section.guides': 'Guides',
+    'section.overview': 'Overview',
+    'section.details': 'Details',
+    'section.requirements': 'Requirements',
+    'section.examples': 'Examples',
+    'section.faq': 'Frequently Asked Questions',
+    
+    // Production Elements
+    'production': 'Production',
+    'production.specs': 'Specifications',
+    'production.guides': 'Production Guides',
+    'production.templates': 'Templates',
+    'production.resources': 'Production Resources',
+    
+    // Sponsor Related
+    'sponsors.what.it.means': 'What It Means',
+    'sponsors.in.practice': 'In Practice',
+    'sponsors.for.sponsors': 'For Sponsors',
+    'sponsors.values.alignment': 'Values Alignment',
+    'sponsors.integration': 'Integration',
+    'sponsors.benefits': 'Benefits',
+    
+    // Navigation Breadcrumbs
+    'breadcrumb.home': 'Home',
+    'breadcrumb.nav.aria': 'Breadcrumb navigation',
+    
+    // Accessibility Labels
+    'aria.nav.breadcrumb': 'Breadcrumb navigation',
+    'aria.github.project': 'Project GitHub (opens in new window)',
+    'aria.language.switch.es': 'Switch to Spanish',
+    'aria.language.switch.en': 'Switch to English',
+    'aria.menu.toggle': 'Toggle navigation menu',
+    'aria.submenu.toggle': 'Toggle submenu',
+    'aria.social.link': 'Visit our {network}',
+    
+    // Loading States
+    'loading.experience': 'Loading your experience',
+    'loading.content': 'Loading content',
+    'loading.please.wait': 'Please wait',
+    
+    // Footer Elements
+    'footer.world.building': 'World Building',
+    'footer.visual.identity': 'Visual Identity',
+    'footer.production.bible': 'Production Bible',
+    
+    // Language Names
+    'language.spanish': 'Spanish',
+    'language.english': 'English',
+    
+    // Time Related
+    'time.minutes': 'minutes',
+    'time.seconds': 'seconds',
+    'time.hours': 'hours',
+    'time.days': 'days',
+    'time.weeks': 'weeks',
+    'time.months': 'months',
+    'time.years': 'years',
+    
+    // Media Types
+    'media.video': 'Video',
+    'media.audio': 'Audio',
+    'media.image': 'Image',
+    'media.document': 'Document',
+    'media.podcast': 'Podcast',
+    'media.sketch': 'Sketch',
+    
+    // Miscellaneous
+    'misc.title': 'Title',
+    'misc.description': 'Description',
+    'misc.summary': 'Summary',
+    'misc.content': 'Content',
+    'misc.information': 'Information',
+    'misc.details': 'Details',
+    'misc.options': 'Options',
+    'misc.settings': 'Settings',
+    'misc.profile': 'Profile',
+    'misc.account': 'Account',
+    'misc.help': 'Help',
+    'misc.support': 'Support',
+    'misc.documentation': 'Documentation',
+    'misc.version': 'Version',
+    'misc.update': 'Update',
+    'misc.upgrade': 'Upgrade',
+    'misc.cancel': 'Cancel',
+    'misc.confirm': 'Confirm',
+    'misc.delete': 'Delete',
+    'misc.edit': 'Edit',
+    'misc.save': 'Save',
+    'misc.create': 'Create',
+    'misc.add': 'Add',
+    'misc.remove': 'Remove',
+    'misc.search': 'Search',
+    'misc.filter': 'Filter',
+    'misc.sort': 'Sort',
+    'misc.export': 'Export',
+    'misc.import': 'Import',
+    'misc.print': 'Print',
+    'misc.refresh': 'Refresh',
+    'misc.retry': 'Retry',
+    'misc.submit': 'Submit',
+    'misc.reset': 'Reset',
+    'misc.clear': 'Clear',
+    'misc.select': 'Select',
+    'misc.upload': 'Upload',
+    'misc.download': 'Download',
+    'misc.copy': 'Copy',
+    'misc.paste': 'Paste',
+    'misc.cut': 'Cut',
+    'misc.undo': 'Undo',
+    'misc.redo': 'Redo',
+    'misc.expand': 'Expand',
+    'misc.collapse': 'Collapse',
+    'misc.minimize': 'Minimize',
+    'misc.maximize': 'Maximize',
+    'misc.restore': 'Restore',
+    'misc.archive': 'Archive',
+    'misc.unarchive': 'Unarchive',
+    'misc.favorite': 'Favorite',
+    'misc.unfavorite': 'Unfavorite',
+    'misc.pin': 'Pin',
+    'misc.unpin': 'Unpin',
+    'misc.lock': 'Lock',
+    'misc.unlock': 'Unlock',
+    'misc.enable': 'Enable',
+    'misc.disable': 'Disable',
+    'misc.activate': 'Activate',
+    'misc.deactivate': 'Deactivate',
+    'misc.publish': 'Publish',
+    'misc.unpublish': 'Unpublish',
+    'misc.draft': 'Draft',
+    'misc.pending': 'Pending',
+    'misc.approved': 'Approved',
+    'misc.rejected': 'Rejected',
+    'misc.review': 'Review',
+    'misc.preview': 'Preview',
+    'misc.live': 'Live',
+    'misc.offline': 'Offline',
+    'misc.online': 'Online',
+    'misc.sync': 'Sync',
+    'misc.syncing': 'Syncing',
+    'misc.synced': 'Synced',
+    'misc.error': 'Error',
+    'misc.warning': 'Warning',
+    'misc.info': 'Information',
+    'misc.success': 'Success',
+    'misc.failed': 'Failed',
+    'misc.completed': 'Completed',
+    'misc.processing': 'Processing',
+    'misc.queued': 'Queued',
+    'misc.scheduled': 'Scheduled',
+    'misc.recurring': 'Recurring',
+    'misc.once': 'Once',
+    'misc.daily': 'Daily',
+    'misc.weekly': 'Weekly',
+    'misc.monthly': 'Monthly',
+    'misc.yearly': 'Yearly',
+    'misc.custom': 'Custom',
+    'misc.default': 'Default',
+    'misc.primary': 'Primary',
+    'misc.secondary': 'Secondary',
+    'misc.alternative': 'Alternative',
+    'misc.optional': 'Optional',
+    'misc.required': 'Required',
+    'misc.recommended': 'Recommended',
+    'misc.featured': 'Featured',
+    'misc.popular': 'Popular',
+    'misc.trending': 'Trending',
+    'misc.latest': 'Latest',
+    'misc.oldest': 'Oldest',
+    'misc.newest': 'Newest',
+    'misc.updated.recently': 'Recently updated',
+    'misc.created.recently': 'Recently created',
+    'misc.modified': 'Modified',
+    'misc.created': 'Created',
+    'misc.deleted': 'Deleted',
+    'misc.restored': 'Restored',
+    'misc.duplicated': 'Duplicated',
+    'misc.moved': 'Moved',
+    'misc.copied': 'Copied',
+    'misc.shared': 'Shared',
+    'misc.private': 'Private',
+    'misc.public': 'Public',
+    'misc.internal': 'Internal',
+    'misc.external': 'External',
+    'misc.global': 'Global',
+    'misc.local': 'Local',
+    'misc.regional': 'Regional',
+    'misc.national': 'National',
+    'misc.international': 'International',
+    'misc.redirect.language': 'Redirecting to your language preference...',
   },
 } as const;
 
@@ -2135,6 +2599,42 @@ export function useTranslations(lang: keyof typeof languages) {
 
     return result;
   };
+}
+
+/**
+ * Type-safe UI translations object
+ */
+type _UITranslations = typeof ui;
+
+/**
+ * Global translation function that can be used anywhere
+ * Defaults to Spanish if no language is provided
+ */
+export function t(key: string, lang?: Language): string {
+  const currentLang = lang ?? defaultLang;
+  const translations = ui;
+  
+  // Check if key exists in the current language
+  const langTranslations = translations[currentLang];
+  if (key in langTranslations) {
+    const translation = langTranslations[key as TranslationKey];
+    if (translation !== undefined) {
+      return translation;
+    }
+  }
+
+  // Fallback to default language if key doesn't exist in current language
+  const defaultTranslations = translations[defaultLang];
+  if (key in defaultTranslations) {
+    const defaultTranslation = defaultTranslations[key as TranslationKey];
+    if (defaultTranslation !== undefined) {
+      return defaultTranslation;
+    }
+  }
+
+  // Return the key itself if no translation found (helps identify missing translations)
+  console.warn(`Missing translation for key: ${key}`);
+  return key;
 }
 
 /**

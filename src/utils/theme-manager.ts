@@ -333,10 +333,13 @@ export class ThemeManager {
     if (typeof mediaQuery.addEventListener === 'function') {
       mediaQuery.addEventListener('change', handleChange);
     } else {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore - Fallback for older browsers
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
-      (mediaQuery as any).addListener(handleChange);
+      // Legacy browser support - addListener is deprecated but needed for older browsers
+      const legacyMediaQuery = mediaQuery as MediaQueryList & {
+        addListener?: (listener: (event: MediaQueryListEvent) => void) => void;
+      };
+      if (legacyMediaQuery.addListener !== undefined) {
+        legacyMediaQuery.addListener(handleChange);
+      }
     }
   }
 
@@ -365,10 +368,13 @@ export class ThemeManager {
     if (typeof mediaQuery.addEventListener === 'function') {
       mediaQuery.addEventListener('change', handleChange);
     } else {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore - Fallback for older browsers
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
-      (mediaQuery as any).addListener(handleChange);
+      // Legacy browser support - addListener is deprecated but needed for older browsers
+      const legacyMediaQuery = mediaQuery as MediaQueryList & {
+        addListener?: (listener: (event: MediaQueryListEvent) => void) => void;
+      };
+      if (legacyMediaQuery.addListener !== undefined) {
+        legacyMediaQuery.addListener(handleChange);
+      }
     }
   }
 

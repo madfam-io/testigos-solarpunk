@@ -10,6 +10,7 @@
  */
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '@/i18n/config';
 
 export const prerender = true;
 
@@ -38,7 +39,7 @@ if (
 // const redirectUrl = `${basePath}/${defaultLang}/`;
 ---
 
-<BaseLayout title="Redirecting to language preference...">
+<BaseLayout title={t("misc.redirect.language")}>
   <!-- Language Detection and Redirect -->
   <main class="redirect-container">
     <div class="magazine-loader">
@@ -55,7 +56,7 @@ if (
             src={basePath === '/'
               ? '/images/logo.png'
               : `${basePath}/images/logo.png`}
-            alt="Testigos de Solarpunk"
+            alt={t("site.title")}
             class="redirect-logo"
             loading="eager"
             width="120"
@@ -83,7 +84,7 @@ if (
 
       <!-- Subtitle with Magazine Style -->
       <p class="magazine-subtitle">
-        <span class="subtitle-text">Cargando tu experiencia</span>
+        <span class="subtitle-text">{t("loading.experience")}</span>
         <span class="subtitle-accent">solarpunk</span>
       </p>
 
@@ -112,14 +113,14 @@ if (
           class="magazine-btn primary"
         >
           <span class="emoji-cutout emoji-button emoji-md theme-solar">🇲🇽</span>
-          <span class="btn-text">Español</span>
+          <span class="btn-text">{t("language.spanish")}</span>
         </a>
         <a
           href={basePath === '/' ? '/en/' : `${basePath}/en/`}
           class="magazine-btn secondary"
         >
           <span class="emoji-cutout emoji-button emoji-md theme-solar">🇺🇸</span>
-          <span class="btn-text">English</span>
+          <span class="btn-text">{t("language.english")}</span>
         </a>
       </div>
     </div>

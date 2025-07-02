@@ -1,0 +1,74 @@
+# Security Headers for Testigos de Solarpunk
+# These headers enhance security for static site deployment
+# Compatible with Netlify and other static hosts
+
+/*
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://testigos-solarpunk.vercel.app https://madfam-io.github.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self';
+  
+  # Prevent MIME type sniffing
+  X-Content-Type-Options: nosniff
+  
+  # Enable XSS protection
+  X-XSS-Protection: 1; mode=block
+  
+  # Prevent clickjacking
+  X-Frame-Options: DENY
+  
+  # Control referrer information
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # Permissions policy (restrict access to browser features)
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=()
+  
+  # Force HTTPS (when available)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Cache control for static assets
+  Cache-Control: public, max-age=31536000, immutable
+
+# Specific headers for HTML pages
+/*.html
+  # Shorter cache for HTML files
+  Cache-Control: public, max-age=3600, must-revalidate
+  
+  # Additional security for HTML content
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+
+# Headers for API endpoints (if any)
+/api/*
+  # No cache for API responses
+  Cache-Control: no-store, no-cache, must-revalidate
+  
+  # CORS headers for API
+  Access-Control-Allow-Origin: https://testigos-solarpunk.vercel.app, https://madfam-io.github.io
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization
+  Access-Control-Max-Age: 86400
+
+# Headers for assets
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+/_assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Service Worker
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Manifest file
+/manifest.json
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json
+
+# Sitemap
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml
+
+# Robots.txt
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain

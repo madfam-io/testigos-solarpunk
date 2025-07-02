@@ -25,17 +25,7 @@ const shadowVariables = `
   --sp-community-light: #ff8a65;
   --sp-community-dark: #e55100;`;
 
-const darkThemeShadowVariables = `
-  /* Shadow overlay variations for dark theme */
-  --shadow-overlay-dark: rgba(0, 0, 0, 0.8);
-  --shadow-overlay-medium: rgba(0, 0, 0, 0.6);
-  --shadow-overlay-strong: rgba(0, 0, 0, 0.7);
-  --shadow-overlay-dark-mode: rgba(0, 0, 0, 0.9);
-  --shadow-overlay-darkest: rgba(0, 0, 0, 0.95);
-  --shadow-overlay-dark-medium: rgba(0, 0, 0, 0.7);
-  --shadow-overlay-dark-strong: rgba(0, 0, 0, 0.8);
-  --shadow-overlay-dark-stronger: rgba(0, 0, 0, 0.85);
-  --cutout-shadow-dark: rgba(0, 0, 0, 0.5);`;
+// Removed unused darkThemeShadowVariables
 
 async function addShadowVariables() {
   console.log('Adding shadow-related CSS variables...');

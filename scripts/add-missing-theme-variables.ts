@@ -3,18 +3,6 @@ import fs from 'fs';
 import path from 'path';
 
 // Missing CSS variables that need to be defined
-const missingVariables = [
-  '--color-eco-green',
-  '--color-solar-yellow',
-  '--color-comedy-purple',
-  '--color-tech-blue',
-  '--color-community-orange',
-  '--paper-texture-opacity',
-  '--torn-edge-color',
-  '--nav-text',
-  '--button-primary-bg',
-  '--button-primary-text',
-];
 
 // Define the missing variables with appropriate values
 const newVariables = `

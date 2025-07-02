@@ -1,6 +1,7 @@
 ---
 import UnifiedLayout from '../../layouts/UnifiedLayout.astro';
 import Breadcrumbs from '../../components/layout/Breadcrumbs.astro';
+import { t } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -13,7 +14,7 @@ if (basePath.endsWith('/')) {
 }
 
 const breadcrumbItems = [
-  { label: 'Inicio', href: '/' },
+  { label: '{t("breadcrumb.home")}', href: '/' },
   { label: 'El Proyecto' },
 ];
 ---
@@ -76,7 +77,7 @@ const breadcrumbItems = [
             hábitos y ciencia cotidiana
           </p>
           <div class="fase-meta">
-            <span class="badge badge-success">En Producción</span>
+            <span class="badge badge-success">{t("status.in.production")}</span>
             <span class="badge badge-secondary">60-90 segundos</span>
           </div>
           <ul class="fase-features">
@@ -103,7 +104,7 @@ const breadcrumbItems = [
             de vida con expertos invitados
           </p>
           <div class="fase-meta">
-            <span class="badge badge-primary">Próximamente</span>
+            <span class="badge badge-primary">{t("status.coming.soon")}</span>
             <span class="badge badge-secondary">20-30 minutos</span>
           </div>
           <ul class="fase-features">
@@ -129,7 +130,7 @@ const breadcrumbItems = [
             patrocinadores para impacto directo
           </p>
           <div class="fase-meta">
-            <span class="badge badge-warning">En Desarrollo</span>
+            <span class="badge badge-warning">{t("status.in.development")}</span>
             <span class="badge badge-secondary">Eventos presenciales</span>
           </div>
           <ul class="fase-features">
@@ -166,7 +167,7 @@ const breadcrumbItems = [
         </div>
         <div class="proceso-step">
           <div class="step-number">3</div>
-          <h3>Producción</h3>
+          <h3>{t("production")}</h3>
           <p class="text-secondary">Grabamos con calidad MADFAM</p>
         </div>
         <div class="proceso-step">

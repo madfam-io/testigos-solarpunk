@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { t } from '@/i18n/config';
 
 // Define types for better clarity
 type ScriptPath = {
@@ -51,10 +52,10 @@ const pageDescription = `Guion para ${plataforma}: ${titulo}. Duracion: ${duraci
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+  <nav class="breadcrumb-nav" aria-label={t("aria.nav.breadcrumb")}>
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href={`${basePath}/es/`}>Inicio</a></li>
+        <li><a href={`${basePath}/es/`}>{t("breadcrumb.home")}</a></li>
         <li><a href={`${basePath}/es/guiones/`}>Guiones</a></li>
         <li aria-current="page">{episodio}</li>
       </ol>

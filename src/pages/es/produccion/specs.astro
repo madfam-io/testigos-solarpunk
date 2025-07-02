@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { t } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -14,11 +15,11 @@ if (basePath.endsWith('/')) {
 
 <BaseLayout title="Especificaciones Técnicas">
   <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+  <nav class="breadcrumb-nav" aria-label={t("aria.nav.breadcrumb")}>
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href={`${basePath}/`}>Inicio</a></li>
-        <li><a href={`${basePath}/produccion/`}>Producción</a></li>
+        <li><a href={`${basePath}/`}>{t("breadcrumb.home")}</a></li>
+        <li><a href={`${basePath}/produccion/`}>{t("production")}</a></li>
         <li aria-current="page">Especificaciones</li>
       </ol>
     </div>
@@ -47,7 +48,7 @@ if (basePath.endsWith('/')) {
         <div class="platform-card card">
           <div class="platform-header">
             <span class="emoji-cutout emoji-lg theme-purple">⚡</span>
-            <h3>TikTok</h3>
+            <h3>{t("social.tiktok")}</h3>
             <span class="platform-badge tiktok">Vertical</span>
           </div>
           <div class="specs-table">
@@ -90,7 +91,7 @@ if (basePath.endsWith('/')) {
         <div class="platform-card card">
           <div class="platform-header">
             <span class="emoji-cutout emoji-lg theme-community">📸</span>
-            <h3>Instagram Reels</h3>
+            <h3>{t("social.instagram.reels")}</h3>
             <span class="platform-badge instagram">Vertical</span>
           </div>
           <div class="specs-table">
@@ -133,7 +134,7 @@ if (basePath.endsWith('/')) {
         <div class="platform-card card">
           <div class="platform-header">
             <span class="emoji-cutout emoji-lg theme-solar">🎥</span>
-            <h3>YouTube Shorts</h3>
+            <h3>{t("social.youtube.shorts")}</h3>
             <span class="platform-badge youtube">Vertical</span>
           </div>
           <div class="specs-table">
@@ -546,7 +547,7 @@ Sample Rate: 48 kHz</code></pre>
         </div>
 
         <div class="checklist-card card">
-          <h3>Producción</h3>
+          <h3>{t("production")}</h3>
           <ul class="checklist">
             <li>
               <label>

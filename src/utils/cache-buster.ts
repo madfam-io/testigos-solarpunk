@@ -3,11 +3,11 @@
  * Helps clear stale caches and handle missing assets gracefully
  */
 
-/* eslint-disable no-console */
+import { log } from './logger';
 
 export async function clearAllCaches(): Promise<void> {
   if (!('caches' in window)) {
-    console.warn('Cache API not supported');
+    log.warn('Cache API not supported', undefined, 'cache-buster');
     return;
   }
 
@@ -18,20 +18,20 @@ export async function clearAllCaches(): Promise<void> {
     // Delete all caches
     await Promise.all(
       cacheNames.map((cacheName) => {
-        console.log(`Deleting cache: ${cacheName}`);
+        log.debug(`Deleting cache: ${cacheName}`, undefined, 'cache-buster');
         return caches.delete(cacheName);
       })
     );
 
-    console.log('All caches cleared successfully');
+    log.info('All caches cleared successfully', { count: cacheNames.length }, 'cache-buster');
   } catch (error) {
-    console.error('Error clearing caches:', error);
+    log.error('Error clearing caches', error, 'cache-buster');
   }
 }
 
 export async function unregisterServiceWorkers(): Promise<void> {
   if (!('serviceWorker' in navigator)) {
-    console.warn('Service Worker not supported');
+    log.warn('Service Worker not supported', undefined, 'cache-buster');
     return;
   }
 
@@ -40,19 +40,19 @@ export async function unregisterServiceWorkers(): Promise<void> {
 
     await Promise.all(
       registrations.map((registration) => {
-        console.log('Unregistering service worker:', registration.scope);
+        log.debug('Unregistering service worker', { scope: registration.scope }, 'cache-buster');
         return registration.unregister();
       })
     );
 
-    console.log('All service workers unregistered');
+    log.info('All service workers unregistered', { count: registrations.length }, 'cache-buster');
   } catch (error) {
-    console.error('Error unregistering service workers:', error);
+    log.error('Error unregistering service workers', error, 'cache-buster');
   }
 }
 
 export async function forceCacheRefresh(): Promise<void> {
-  console.log('Starting force cache refresh...');
+  log.info('Starting force cache refresh', undefined, 'cache-buster');
 
   // 1. Clear all caches
   await clearAllCaches();
@@ -85,13 +85,17 @@ export function installCacheBuster(): void {
       forceCacheRefresh,
     };
 
-    console.log(
-      '%c✨ Cache Buster Installed!',
-      'background: var(--madfam-green); color: white; padding: 5px 10px; border-radius: 3px;'
+    // Only show installation messages in development
+    log.info(
+      '✨ Cache Buster Installed!',
+      {
+        commands: [
+          'window.cacheBuster.clearAllCaches()',
+          'window.cacheBuster.unregisterServiceWorkers()', 
+          'window.cacheBuster.forceCacheRefresh()'
+        ]
+      },
+      'cache-buster'
     );
-    console.log('Available commands:');
-    console.log('  window.cacheBuster.clearAllCaches()');
-    console.log('  window.cacheBuster.unregisterServiceWorkers()');
-    console.log('  window.cacheBuster.forceCacheRefresh()');
   }
 }

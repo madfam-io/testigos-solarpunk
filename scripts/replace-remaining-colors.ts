@@ -1,6 +1,5 @@
 #!/usr/bin/env tsx
 import fs from 'fs';
-import path from 'path';
 import { glob } from 'glob';
 import chalk from 'chalk';
 
@@ -99,11 +98,11 @@ async function findHardcodedColors(
       Object.entries(additionalColorMappings).forEach(([color, variable]) => {
         if (line.includes(color)) {
           // Special handling for SVG colors in templates
-          const isSvgContext =
-            line.includes('fill=') ||
-            line.includes('stroke=') ||
-            line.includes('lighting-color=') ||
-            line.includes('<svg');
+          // const isSvgContext =
+          //   line.includes('fill=') ||
+          //   line.includes('stroke=') ||
+          //   line.includes('lighting-color=') ||
+          //   line.includes('<svg');
 
           // Skip paper texture colors as they're intentionally hardcoded
           if (color.includes('139, 119, 101')) {

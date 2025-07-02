@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -77,7 +78,7 @@ if (basePath.endsWith('/')) {
             hábitos y ciencia cotidiana
           </p>
           <div class="fase-meta">
-            <span class="status active">En Producción</span>
+            <span class="status active">{t("status.in.production")}</span>
             <span class="formato">60-90 segundos</span>
           </div>
           <ul class="fase-features">
@@ -108,7 +109,7 @@ if (basePath.endsWith('/')) {
             de vida con expertos invitados
           </p>
           <div class="fase-meta">
-            <span class="status upcoming">Próximamente</span>
+            <span class="status upcoming">{t("status.coming.soon")}</span>
             <span class="formato">20-30 minutos</span>
           </div>
           <ul class="fase-features">
@@ -137,7 +138,7 @@ if (basePath.endsWith('/')) {
             patrocinadores para impacto directo
           </p>
           <div class="fase-meta">
-            <span class="status development">En Desarrollo</span>
+            <span class="status development">{t("status.in.development")}</span>
             <span class="formato">Eventos presenciales</span>
           </div>
           <ul class="fase-features">
@@ -172,7 +173,7 @@ if (basePath.endsWith('/')) {
         </div>
         <div class="proceso-step">
           <div class="step-number">3</div>
-          <h3>Producción</h3>
+          <h3>{t("production")}</h3>
           <p>Grabamos con calidad MADFAM</p>
         </div>
         <div class="proceso-step">

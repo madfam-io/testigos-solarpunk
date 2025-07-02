@@ -129,6 +129,25 @@
       width: 100%;
     }
   }
+
+  /* Update banner animations */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Standalone mode styles */
+  :global(.pwa-standalone .nav-standalone) {
+    /* More app-like navigation when in standalone mode */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
 </style>
 
 <script>
@@ -137,6 +156,9 @@
    * Handles the complete PWA lifecycle including registration,
    * updates, installation prompts, and user interactions
    */
+
+  // Import logger for production-safe logging
+  import { log } from '../utils/logger';
 
   /**
    * Service Worker Registration
@@ -152,7 +174,7 @@
           }
         );
 
-        console.log('Service Worker registrado:', registration);
+        log.info('Service Worker registered successfully', { scope: registration.scope }, 'pwa');
 
         // Check for updates every hour
         setInterval(
@@ -172,14 +194,89 @@
               navigator.serviceWorker.controller
             ) {
               // New content is available
-              console.log('Nueva versión disponible');
-              // TODO: Show update notification banner
+              log.info('New PWA version available', undefined, 'pwa');
+              showUpdateNotification();
             }
           });
         });
       } catch (error) {
-        console.error('Error registrando Service Worker:', error);
+        log.error('Error registering Service Worker', error, 'pwa');
       }
+    });
+  }
+
+  /**
+   * Show update notification banner
+   * Displays notification when new PWA version is available
+   */
+  function showUpdateNotification(): void {
+    const updateBanner = document.createElement('div');
+    updateBanner.className = 'pwa-update-banner';
+    updateBanner.innerHTML = `
+      <div class="update-content">
+        <span class="emoji-cutout emoji-sm theme-solar">🔄</span>
+        <span>Nueva versión disponible</span>
+        <button id="update-btn" class="btn btn--primary btn--small">Actualizar</button>
+        <button id="dismiss-update-btn" class="btn btn--secondary btn--small">Después</button>
+      </div>
+    `;
+    
+    updateBanner.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--madfam-yellow, #ffc107);
+      color: var(--madfam-black, #212121);
+      padding: 1rem;
+      text-align: center;
+      z-index: 1002;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      animation: slideDown 0.3s ease-out;
+    `;
+
+    document.body.appendChild(updateBanner);
+
+    // Handle update button click
+    updateBanner.querySelector('#update-btn')?.addEventListener('click', () => {
+      window.location.reload();
+    });
+
+    // Handle dismiss button click
+    updateBanner.querySelector('#dismiss-update-btn')?.addEventListener('click', () => {
+      updateBanner.remove();
+    });
+
+    // Auto-dismiss after 10 seconds
+    setTimeout(() => {
+      updateBanner.remove();
+    }, 10000);
+  }
+
+  /**
+   * Adjust UI for standalone app mode
+   * Hides install prompts and adjusts navigation for PWA
+   */
+  function adjustUIForStandaloneMode(): void {
+    // Hide install prompts permanently
+    const installer = document.getElementById('pwa-installer');
+    if (installer) {
+      installer.style.display = 'none';
+    }
+
+    // Add standalone mode class to body for CSS targeting
+    document.body.classList.add('pwa-standalone');
+
+    // Adjust navigation for app mode (more app-like experience)
+    const nav = document.querySelector('nav');
+    if (nav) {
+      nav.classList.add('nav-standalone');
+    }
+
+    // Hide browser-specific elements
+    const browserOnlyElements = document.querySelectorAll('[data-browser-only]');
+    browserOnlyElements.forEach(element => {
+      (element as HTMLElement).style.display = 'none';
     });
   }
 
@@ -219,7 +316,7 @@
 
     // Wait for user's response
     const { outcome } = await deferredPrompt.userChoice;
-    console.log(`Usuario eligió: ${outcome}`);
+    log.info('PWA installation prompt response', { outcome }, 'pwa');
 
     // Clean up
     deferredPrompt = null;
@@ -233,6 +330,7 @@
   dismissBtn?.addEventListener('click', () => {
     if (installer) installer.hidden = true;
     localStorage.setItem('pwa-dismissed', 'true');
+    log.debug('PWA install prompt dismissed', undefined, 'pwa');
 
     // Re-enable prompt after 7 days
     setTimeout(
@@ -248,7 +346,7 @@
    * Shows success message and cleans up UI
    */
   window.addEventListener('appinstalled', () => {
-    console.log('PWA instalada exitosamente');
+    log.info('PWA installed successfully', undefined, 'pwa');
     if (installer) installer.hidden = true;
 
     // Create and show success notification
@@ -282,7 +380,7 @@
    * App is running as installed PWA
    */
   if (window.matchMedia('(display-mode: standalone)').matches) {
-    console.log('App ejecutándose en modo standalone');
-    // TODO: Adjust UI for app mode (hide install prompts, etc.)
+    log.debug('App running in standalone mode', undefined, 'pwa');
+    adjustUIForStandaloneMode();
   }
 </script>

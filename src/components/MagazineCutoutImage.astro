@@ -42,6 +42,7 @@
 
 import { MagazineCutoutPlaceholderService } from '../services/MagazineCutoutPlaceholderService';
 import type { PlaceholderType } from '../config/magazine-placeholders.config';
+import { log } from '../utils/logger';
 
 /**
  * Props interface for MagazineCutoutImage component
@@ -115,7 +116,7 @@ if (src == null || src === '') {
       });
     placeholderUrl = placeholderData.url;
   } catch (error) {
-    console.warn('Failed to generate placeholder:', error);
+    log.warn('Failed to generate placeholder', error, 'magazine-image');
     // SVG fallback with paper texture appearance
     placeholderUrl = `data:image/svg+xml,${encodeURIComponent(`
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">

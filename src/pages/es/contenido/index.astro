@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { t } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -39,7 +40,7 @@ if (basePath.endsWith('/')) {
             >
             <div>
               <h2>Fase 1: Sketches</h2>
-              <span class="fase-status active">En Producción</span>
+              <span class="fase-status active">{t("status.in.production")}</span>
             </div>
           </div>
 
@@ -84,7 +85,7 @@ if (basePath.endsWith('/')) {
             >
             <div>
               <h2>Fase 2: Podcast</h2>
-              <span class="fase-status upcoming">Próximamente</span>
+              <span class="fase-status upcoming">{t("status.coming.soon")}</span>
             </div>
           </div>
 
@@ -129,7 +130,7 @@ if (basePath.endsWith('/')) {
             >
             <div>
               <h2>Fase 3: MADLAB</h2>
-              <span class="fase-status development">En Desarrollo</span>
+              <span class="fase-status development">{t("status.in.development")}</span>
             </div>
           </div>
 

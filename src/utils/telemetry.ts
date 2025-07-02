@@ -7,6 +7,8 @@
  * @version 0.3.0+enterprise
  */
 
+import { log } from './logger';
+
 interface TelemetryEvent {
   name: string;
   category: 'performance' | 'user' | 'error' | 'system';
@@ -113,7 +115,7 @@ export class TelemetryManager {
         ],
       });
     } catch (e) {
-      console.warn('Some performance metrics not supported:', e);
+      log.warn('Some performance metrics not supported', e, 'telemetry');
     }
   }
 
@@ -328,7 +330,7 @@ export class TelemetryManager {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ events }),
         keepalive: true,
-      }).catch(console.warn);
+      }).catch((error) => log.warn('Failed to send telemetry via fetch', error, 'telemetry'));
     }
   }
 

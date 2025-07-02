@@ -18,6 +18,7 @@
 
 import { magazinePlaceholderConfig } from '../config/magazine-placeholders.config';
 import type { GeneratedPlaceholder } from '../services/MagazineCutoutPlaceholderService';
+import { log } from './logger';
 
 /**
  * Internal cache entry structure
@@ -212,7 +213,7 @@ export class MagazinePlaceholderCache {
 
           this.set(config.key, placeholder);
         } catch (error) {
-          console.warn(`Failed to preload ${config.key}:`, error);
+          log.warn(`Failed to preload ${config.key}`, error, 'magazine-cache');
         }
       }
     }

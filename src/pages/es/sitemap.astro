@@ -15,7 +15,7 @@ if (basePath.endsWith('/')) {
 const siteStructure = {
   es: [
     {
-      title: 'Inicio',
+      title: '{t("breadcrumb.home")}',
       emoji: '🏠',
       href: `${basePath}/es/`,
       description: 'Página principal del universo Testigos de Solarpunk',
@@ -391,7 +391,7 @@ const currentStructure = siteStructure[currentLang] ?? siteStructure.es;
         <div class="footer-actions">
           <a href={`${basePath}/${currentLang}/`} class="btn btn-primary">
             <span class="emoji-cutout emoji-sm theme-solar">🏠</span>
-            {currentLang === 'en' ? 'Back to Home' : 'Volver al Inicio'}
+            {currentLang === 'en' ? 'Back to Home' : 'Volver al {t("breadcrumb.home")}'}
           </a>
           <a
             href={`${basePath}/${currentLang}/comunidad/`}

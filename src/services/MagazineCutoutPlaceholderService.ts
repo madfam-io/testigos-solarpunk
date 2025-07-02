@@ -22,6 +22,7 @@ import {
   type PlaceholderService,
   defaultConfigs,
 } from '../config/magazine-placeholders.config';
+import { log } from '../utils/logger';
 
 /**
  * Configuration options for placeholder generation
@@ -156,7 +157,7 @@ export class MagazineCutoutPlaceholderService {
             return result;
           }
         } catch (error) {
-          console.warn(`Service ${service.name} failed:`, error);
+          log.warn(`Service ${service.name} failed`, error, 'placeholder-service');
           continue;
         }
       }
@@ -173,7 +174,7 @@ export class MagazineCutoutPlaceholderService {
       this.cache.set(cacheKey, result);
       return result;
     } catch (error) {
-      console.error('Error generating placeholder:', error);
+      log.error('Error generating placeholder', error, 'placeholder-service');
 
       // Fallback de emergencia
       return {

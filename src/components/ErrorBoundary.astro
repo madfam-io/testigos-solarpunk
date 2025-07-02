@@ -82,6 +82,8 @@ const defaultMessage =
   /**
    * Enhanced error boundary with client-side error handling
    */
+  import { log } from '../utils/logger';
+
   class ErrorBoundaryManager {
     private static instance: ErrorBoundaryManager;
     private errorCount = 0;
@@ -127,7 +129,7 @@ const defaultMessage =
 
       // Prevent error loops
       if (this.errorCount > this.maxErrors) {
-        console.error('Too many errors, stopping error handling');
+        log.error('Too many errors, stopping error handling', undefined, 'error-boundary');
         return;
       }
 
@@ -141,12 +143,12 @@ const defaultMessage =
       // Send telemetry if available
       this.sendErrorTelemetry(errorMessage, errorStack, source, line);
 
-      console.error('Error caught by boundary:', {
+      log.error('Error caught by boundary', {
         message: errorMessage,
         source,
         line,
         stack: errorStack,
-      });
+      }, 'error-boundary');
     }
 
     handleNetworkError(): void {
@@ -174,7 +176,7 @@ const defaultMessage =
           img.alt = 'Image not available';
         }
       } else if (element.tagName === 'SCRIPT') {
-        console.warn('Script failed to load:', element.getAttribute('src'));
+        log.warn('Script failed to load', { src: element.getAttribute('src') }, 'error-boundary');
       }
     }
 
@@ -220,9 +222,9 @@ const defaultMessage =
         try {
           // Send to error tracking service (implement as needed)
           // navigator.sendBeacon('/api/errors', JSON.stringify(errorData));
-          console.log('Error telemetry:', errorData);
+          log.debug('Error telemetry data', errorData, 'error-boundary');
         } catch (e) {
-          console.warn('Failed to send error telemetry:', e);
+          log.warn('Failed to send error telemetry', e, 'error-boundary');
         }
       }
     }

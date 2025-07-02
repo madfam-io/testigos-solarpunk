@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-// import { useTranslations } from '@/i18n/config';
+import { useTranslations } from '@/i18n/config';
 
 const lang = 'en';
-// const _t = useTranslations(lang); // Commented out - unused variable
+const t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -17,11 +17,11 @@ if (basePath.endsWith('/')) {
 
 <BaseLayout lang={lang} title="Tono y Voz Narrativa">
   <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+  <nav class="breadcrumb-nav" aria-label={t("aria.nav.breadcrumb")}>
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href={`${basePath}/`}>Inicio</a></li>
-        <li><a href={`${basePath}/en/production/`}>Producción</a></li>
+        <li><a href={`${basePath}/`}>{t("breadcrumb.home")}</a></li>
+        <li><a href={`${basePath}/en/production/`}>{t("production")}</a></li>
         <li aria-current="page">Tono y Voz</li>
       </ol>
     </div>

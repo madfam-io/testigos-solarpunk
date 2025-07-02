@@ -50,7 +50,7 @@ describe('Cache Buster Utilities', () => {
     
     // Clean up any global modifications
     if ('cacheBuster' in window) {
-      delete (window as any).cacheBuster;
+      delete (window as Window & { cacheBuster?: unknown }).cacheBuster;
     }
   });
 
@@ -61,7 +61,7 @@ describe('Cache Buster Utilities', () => {
     it('should handle when Cache API is not supported', async () => {
       // Mock window without caches
       const originalCaches = window.caches;
-      delete (window as any).caches;
+      delete (window as Window & { caches?: CacheStorage }).caches;
 
       await clearAllCaches();
 
@@ -69,7 +69,7 @@ describe('Cache Buster Utilities', () => {
       expect(mockConsole.log).not.toHaveBeenCalledWith('All caches cleared successfully');
 
       // Restore
-      (window as any).caches = originalCaches;
+      (window as Window & { caches: CacheStorage }).caches = originalCaches;
     });
 
     it('should clear all caches when Cache API is available', async () => {
@@ -142,7 +142,7 @@ describe('Cache Buster Utilities', () => {
     it('should handle when Service Worker is not supported', async () => {
       // Mock navigator without serviceWorker
       const originalServiceWorker = navigator.serviceWorker;
-      delete (navigator as any).serviceWorker;
+      delete (navigator as Navigator & { serviceWorker?: ServiceWorkerContainer }).serviceWorker;
 
       await unregisterServiceWorkers();
 
@@ -150,7 +150,7 @@ describe('Cache Buster Utilities', () => {
       expect(mockConsole.log).not.toHaveBeenCalledWith('All service workers unregistered');
 
       // Restore
-      (navigator as any).serviceWorker = originalServiceWorker;
+      (navigator as Navigator & { serviceWorker?: ServiceWorkerContainer }).serviceWorker = originalServiceWorker;
     });
 
     it('should unregister all service workers', async () => {
@@ -248,7 +248,7 @@ describe('Cache Buster Utilities', () => {
       let locationHref = 'https://example.com/test';
       Object.defineProperty(window.location, 'href', {
         get: () => locationHref,
-        set: (value) => { locationHref = value; }
+        set: (value: string) => { locationHref = value; }
       });
 
       await forceCacheRefresh();
@@ -288,7 +288,7 @@ describe('Cache Buster Utilities', () => {
       let locationHref = 'https://example.com/test?foo=bar';
       Object.defineProperty(window.location, 'href', {
         get: () => locationHref,
-        set: (value) => { locationHref = value; }
+        set: (value: string) => { locationHref = value; }
       });
 
       await forceCacheRefresh();
@@ -305,10 +305,11 @@ describe('Cache Buster Utilities', () => {
     it('should install cache buster on window object', () => {
       installCacheBuster();
 
-      expect((window as any).cacheBuster).toBeDefined();
-      expect((window as any).cacheBuster.clearAllCaches).toBe(clearAllCaches);
-      expect((window as any).cacheBuster.unregisterServiceWorkers).toBe(unregisterServiceWorkers);
-      expect((window as any).cacheBuster.forceCacheRefresh).toBe(forceCacheRefresh);
+      const { cacheBuster } = (window as Window & { cacheBuster?: { clearAllCaches: typeof clearAllCaches; unregisterServiceWorkers: typeof unregisterServiceWorkers; forceCacheRefresh: typeof forceCacheRefresh } });
+      expect(cacheBuster).toBeDefined();
+      expect(cacheBuster.clearAllCaches).toBe(clearAllCaches);
+      expect(cacheBuster.unregisterServiceWorkers).toBe(unregisterServiceWorkers);
+      expect(cacheBuster.forceCacheRefresh).toBe(forceCacheRefresh);
       
       // Check console logs
       expect(mockConsole.log).toHaveBeenCalledWith(
@@ -322,7 +323,7 @@ describe('Cache Buster Utilities', () => {
       // This test is mainly for coverage in Node.js environment
       // In a real browser environment, window is always defined
       const originalWindow = global.window;
-      delete (global as any).window;
+      delete (global as typeof globalThis & { window?: Window }).window;
 
       installCacheBuster();
 
@@ -330,17 +331,17 @@ describe('Cache Buster Utilities', () => {
       expect(mockConsole.log).not.toHaveBeenCalled();
 
       // Restore
-      (global as any).window = originalWindow;
+      (global as typeof globalThis & { window: Window }).window = originalWindow;
     });
 
     it('should be callable multiple times without error', () => {
       installCacheBuster();
       installCacheBuster(); // Second call
 
-      expect((window as any).cacheBuster).toBeDefined();
+      expect((window as Window & { cacheBuster?: unknown }).cacheBuster).toBeDefined();
       // Should log twice
       expect(mockConsole.log.mock.calls.filter(
-        call => call[0]?.includes('Cache Buster Installed!')
+        (call): boolean => typeof call[0] === 'string' && call[0].includes('Cache Buster Installed!')
       )).toHaveLength(2);
     });
   });
@@ -381,17 +382,20 @@ describe('Cache Buster Utilities', () => {
       installCacheBuster();
       
       // Use the installed functions
-      await (window as any).cacheBuster.clearAllCaches();
-      expect(mockCaches.delete).toHaveBeenCalledTimes(2);
-      
-      await (window as any).cacheBuster.unregisterServiceWorkers();
+      const cb = (window as Window & { cacheBuster?: { clearAllCaches: () => Promise<void>, unregisterServiceWorkers: () => Promise<void> } }).cacheBuster;
+      if (cb !== undefined) {
+        await cb.clearAllCaches();
+        expect(mockCaches.delete).toHaveBeenCalledTimes(2);
+        
+        await cb.unregisterServiceWorkers();
+      }
       expect(mockRegistration.unregister).toHaveBeenCalled();
     });
 
     it('should gracefully handle all APIs being unavailable', async () => {
       // Remove all APIs
-      delete (window as any).caches;
-      delete (navigator as any).serviceWorker;
+      delete (window as Window & { caches?: CacheStorage }).caches;
+      delete (navigator as Navigator & { serviceWorker?: ServiceWorkerContainer }).serviceWorker;
 
       // Should not throw
       await clearAllCaches();

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { t } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -14,12 +15,12 @@ if (basePath.endsWith('/')) {
 
 <BaseLayout title="Música y Diseño Sonoro">
   <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
+  <nav class="breadcrumb-nav" aria-label={t("aria.nav.breadcrumb")}>
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href={`${basePath}/`}>Inicio</a></li>
-        <li><a href={`${basePath}/produccion/`}>Producción</a></li>
-        <li aria-current="page">Audio</li>
+        <li><a href={`${basePath}/`}>{t("breadcrumb.home")}</a></li>
+        <li><a href={`${basePath}/produccion/`}>{t("production")}</a></li>
+        <li aria-current="page">{t("media.audio")}</li>
       </ol>
     </div>
   </nav>

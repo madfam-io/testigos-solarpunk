@@ -24,8 +24,11 @@
 
 - **[i18n Guide](./i18n.md)** - Internationalization system (ES/EN)
 - **[Theme System](./themes.md)** - Triple theme implementation
-- **[Testing Strategy](./TESTING.md)** - 6x matrix testing approach
+- **[Testing Strategy](./TESTING.md)** - 6x matrix testing approach (97% coverage)
 - **[Component Library](../src/components/README.md)** - Component catalog
+- **[Refactoring Guide](./REFACTORING_GUIDE.md)** - v0.4.0 comprehensive refactoring
+- **[Development Workflow](./DEVELOPMENT_WORKFLOW.md)** - Complete development guide
+- **[API Documentation](./API_DOCUMENTATION.md)** - Technical API reference
 
 ### API & Technical
 
@@ -81,9 +84,10 @@
 | Core Docs  | ✅ Complete    | 100%           |
 | i18n       | ✅ Complete    | 100%           |
 | Themes     | ✅ Complete    | 100%           |
-| Testing    | ✅ Complete    | 100%           |
+| Testing    | ✅ Complete    | 97% coverage   |
 | Components | ✅ Complete    | 30+ documented |
-| API        | 🔄 In Progress | 80%            |
+| API        | ✅ Complete    | 100%           |
+| Refactoring| ✅ Complete    | v0.4.0 guide   |
 | Examples   | ✅ Complete    | All features   |
 
 ---

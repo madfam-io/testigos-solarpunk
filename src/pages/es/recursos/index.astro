@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { t } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -12,7 +13,7 @@ if (basePath.endsWith('/')) {
 }
 ---
 
-<BaseLayout title="Recursos">
+<BaseLayout title={t("section.resources")}>
   <section class="hero-section gradient-solarpunk">
     <div class="container">
       <h1 class="hero-title">Centro de Recursos</h1>
@@ -217,7 +218,7 @@ if (basePath.endsWith('/')) {
           class="download-card"
         >
           <span class="download-icon">📚</span>
-          <h3>Biblia de Personajes</h3>
+          <h3>{t("footer.character.bible")}</h3>
           <p>PDF - 2.5 MB</p>
         </a>
         <a href={`${basePath}/downloads/guia-mundo.pdf`} class="download-card">

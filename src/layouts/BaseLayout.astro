@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 // import PWAInstaller from '../components/PWAInstaller.astro';
 import UnderConstructionModal from '../components/UnderConstructionModal.astro';
 import ThemeSelector from '../components/ThemeSelector.astro';
@@ -343,7 +344,60 @@ const isTouchDevice = isMobileDevice || isTablet;
           background-color 0.15s ease,
           color 0.15s ease;
       }
+
+      /* View Transitions with magazine cutout aesthetic */
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0.5s;
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      ::view-transition-old(root) {
+        transform: rotate(-1deg);
+        filter: sepia(0.1) contrast(1.1);
+      }
+
+      ::view-transition-new(root) {
+        transform: rotate(0.5deg);
+        filter: brightness(1.05) contrast(1.05);
+      }
+
+      /* Special transition for navigation elements */
+      .nav-menu {
+        view-transition-name: main-nav;
+      }
+
+      ::view-transition-old(main-nav),
+      ::view-transition-new(main-nav) {
+        animation-duration: 0.3s;
+      }
+
+      /* Page content transitions */
+      main {
+        view-transition-name: main-content;
+      }
+
+      /* Emoji elements get special flutter during transitions */
+      .emoji-cutout {
+        view-transition-name: none;
+      }
+
+      /* Reduce motion for accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        ::view-transition-old(root),
+        ::view-transition-new(root),
+        ::view-transition-old(main-nav),
+        ::view-transition-new(main-nav),
+        ::view-transition-old(main-content),
+        ::view-transition-new(main-content) {
+          animation-duration: 0.1s;
+          animation-timing-function: ease;
+        }
+      }
     </style>
+    
+    <!-- View Transitions for smooth navigation -->
+    <ViewTransitions />
   </head>
   <body>
     <!-- Skip Links for Accessibility -->
@@ -408,7 +462,7 @@ const isTouchDevice = isMobileDevice || isTablet;
                 height="32"
               />
             </picture>
-            <strong class="text-gradient">Testigos de Solarpunk</strong>
+            <strong class="text-gradient">{t('site.title')}</strong>
           </a>
         </div>
 
@@ -446,7 +500,8 @@ const isTouchDevice = isMobileDevice || isTablet;
             <a
               href={getLangPath('proyecto/')}
               class:list={currentPath.includes('/proyecto') ? 'active' : ''}
-              role="menuitem">{t('nav.project')}</a
+              role="menuitem"
+              data-astro-prefetch="viewport">{t('nav.project')}</a
             >
           </li>
           <li class="nav-dropdown" role="none">
@@ -456,7 +511,8 @@ const isTouchDevice = isMobileDevice || isTablet;
               role="menuitem"
               aria-haspopup="true"
               aria-expanded="false"
-              data-dropdown-toggle>{t('nav.content')}</a
+              data-dropdown-toggle
+              data-astro-prefetch="viewport">{t('nav.content')}</a
             >
             <div
               class="nav-dropdown-menu"
@@ -490,7 +546,8 @@ const isTouchDevice = isMobileDevice || isTablet;
               role="menuitem"
               aria-haspopup="true"
               aria-expanded="false"
-              data-dropdown-toggle>{t('nav.universe')}</a
+              data-dropdown-toggle
+              data-astro-prefetch="viewport">{t('nav.universe')}</a
             >
             <div
               class="nav-dropdown-menu"
@@ -547,7 +604,8 @@ const isTouchDevice = isMobileDevice || isTablet;
             <a
               href={getLangPath('comunidad/')}
               class:list={currentPath.includes('/comunidad') ? 'active' : ''}
-              role="menuitem">{t('nav.community')}</a
+              role="menuitem"
+              data-astro-prefetch="viewport">{t('nav.community')}</a
             >
           </li>
           <li class="nav-dropdown" role="none">
@@ -575,7 +633,7 @@ const isTouchDevice = isMobileDevice || isTablet;
                 {currentLang === 'es' ? 'Tono de Voz' : 'Tone of Voice'}</a
               >
               <a href={getLangPath('produccion/audio/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">🎵</span> Audio</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎵</span> {t('nav.production.audio')}</a
               >
               <a href={getLangPath('produccion/specs/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">📋</span>
@@ -603,7 +661,7 @@ const isTouchDevice = isMobileDevice || isTablet;
                 href={currentPath.replace(/^\/(es|en)/, '/es')}
                 class:list={currentLang === 'es' ? 'active' : ''}
                 role="menuitem"
-                aria-label="Cambiar a Español"
+                aria-label={t("aria.language.switch.es")}
               >
                 <span class="emoji-cutout emoji-nav emoji-sm">🇲🇽</span> Español
               </a>
@@ -611,7 +669,7 @@ const isTouchDevice = isMobileDevice || isTablet;
                 href={currentPath.replace(/^\/(es|en)/, '/en')}
                 class:list={currentLang === 'en' ? 'active' : ''}
                 role="menuitem"
-                aria-label="Switch to English"
+                aria-label={t("aria.language.switch.en")}
               >
                 <span class="emoji-cutout emoji-nav emoji-sm">🇺🇸</span> English
               </a>
@@ -629,6 +687,8 @@ const isTouchDevice = isMobileDevice || isTablet;
     <UnderConstructionModal />
 
     <script>
+      import { log } from '../utils/logger';
+      
       document.addEventListener('DOMContentLoaded', function () {
         // Mobile menu initialization with enhanced error handling
         try {
@@ -712,7 +772,7 @@ const isTouchDevice = isMobileDevice || isTablet;
                   });
                 }
               } catch (e) {
-                console.error('Error closing mobile menu:', e);
+                log.error('Error closing mobile menu', e, 'navigation');
               }
             }
 
@@ -737,7 +797,7 @@ const isTouchDevice = isMobileDevice || isTablet;
                   document.body.classList.remove('mobile-menu-open');
                 }
               } catch (error) {
-                console.error('Error toggling mobile menu:', error);
+                log.error('Error toggling mobile menu', error, 'navigation');
               }
             });
 
@@ -804,7 +864,7 @@ const isTouchDevice = isMobileDevice || isTablet;
                       );
                       dropdown.classList.toggle('active');
                     } catch (error) {
-                      console.error('Error toggling dropdown:', error);
+                      log.error('Error toggling dropdown', error, 'navigation');
                     }
                   }
                 });
@@ -862,7 +922,7 @@ const isTouchDevice = isMobileDevice || isTablet;
                   });
                 }
               } catch (error) {
-                console.error('Error handling outside click:', error);
+                log.error('Error handling outside click', error, 'navigation');
               }
             });
 
@@ -967,15 +1027,13 @@ const isTouchDevice = isMobileDevice || isTablet;
               }
             });
           } else {
-            console.warn(
-              'Mobile menu elements not found. Menu toggle:',
-              mobileMenuToggle,
-              'Nav menu:',
-              navMenu
-            );
+            log.warn('Mobile menu elements not found', { 
+              mobileMenuToggle: !!mobileMenuToggle, 
+              navMenu: !!navMenu 
+            }, 'navigation');
           }
         } catch (error) {
-          console.error('Error initializing mobile navigation:', error);
+          log.error('Error initializing mobile navigation', error, 'navigation');
         }
       });
     </script>
@@ -984,41 +1042,41 @@ const isTouchDevice = isMobileDevice || isTablet;
       <div class="container">
         <div class="grid grid-3">
           <div>
-            <h4>Universo Creativo</h4>
+            <h4>{t("footer.creative.universe")}</h4>
             <ul>
               <li>
-                <a href={getLangPath('personajes/')}>Biblia de Personajes</a>
+                <a href={getLangPath('personajes/')}>{t("footer.character.bible")}</a>
               </li>
               <li>
-                <a href={getLangPath('guiones/')}>Repositorio de Guiones</a>
+                <a href={getLangPath('guiones/')}>{t("footer.script.repository")}</a>
               </li>
               <li>
-                <a href={getLangPath('mundo/')}>Construcción del Mundo</a>
+                <a href={getLangPath('mundo/')}>{t("footer.world.building")}</a>
               </li>
             </ul>
           </div>
           <div>
-            <h4>Para Creadores</h4>
+            <h4>{t("footer.for.creators")}</h4>
             <ul>
-              <li><a href={getLangPath('recursos/')}>Guías y Plantillas</a></li>
-              <li><a href={getLangPath('produccion/')}>Guía de Estilo</a></li>
-              <li><a href={getLangPath('guia-visual/')}>Guía Visual</a></li>
+              <li><a href={getLangPath('recursos/')}>{t("footer.guides.templates")}</a></li>
+              <li><a href={getLangPath('produccion/')}>{t("footer.style.guide")}</a></li>
+              <li><a href={getLangPath('guia-visual/')}>{t("footer.visual.guide")}</a></li>
               <li>
-                <a href={getLangPath('filosofia/')}>Filosofía del Proyecto</a>
+                <a href={getLangPath('filosofia/')}>{t('philosophy.title')}</a>
               </li>
               <li>
-                <a href={getLangPath('formatos/')}>Formatos de Contenido</a>
+                <a href={getLangPath('formatos/')}>{t('nav.formats')}</a>
               </li>
             </ul>
           </div>
           <div>
-            <h4>Conecta</h4>
+            <h4>{t('footer.connect')}</h4>
             <ul>
               <li>
-                <a href={getLangPath('comunidad/')}>Únete a la Comunidad</a>
+                <a href={getLangPath('comunidad/')}>{t('community.join.title')}</a>
               </li>
-              <li><a href={getLangPath('impacto/')}>Nuestro Impacto</a></li>
-              <li><a href={getLangPath('sitemap/')}>Mapa del Sitio</a></li>
+              <li><a href={getLangPath('impacto/')}>{t('impact.title')}</a></li>
+              <li><a href={getLangPath('sitemap/')}>{t('footer.sitemap')}</a></li>
               <li>
                 <a
                   href="https://github.com/madfam-io/testigos-solarpunk"

@@ -1,0 +1,19 @@
+
+/* Critical emoji styles only */
+.emoji-cutout {
+  display: inline-block;
+  position: relative;
+  font-style: normal;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.emoji-sm { font-size: 1.2em; }
+.emoji-md { font-size: 1.5em; }
+.emoji-lg { font-size: 2em; }
+.emoji-xl { font-size: 3em; }
+
+/* Load full styles async */
+@media print, (prefers-reduced-motion: no-preference) {
+  @import url('./emoji-magazine-cutout-full.css');
+}

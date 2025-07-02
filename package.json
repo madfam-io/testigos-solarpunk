@@ -28,6 +28,7 @@
     "test:ui": "vitest --ui",
     "analyze": "astro build",
     "lighthouse": "lhci autorun",
+    "lighthouse:local": "node scripts/lighthouse-local.js",
     "lighthouse:multi": "node scripts/lighthouse-multi-test.js",
     "health:check": "tsx scripts/health-check-all.ts",
     "health:i18n": "tsx scripts/health-check-i18n.ts",
@@ -62,6 +63,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "@lhci/cli": "^0.15.1",
     "@types/fs-extra": "^11.0.4",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.19.0",

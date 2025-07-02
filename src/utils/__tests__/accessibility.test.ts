@@ -48,7 +48,8 @@ vi.mock('@/i18n/config', () => ({
         'status.success': 'Success',
       },
     };
-    return translations[lang]?.[key] || key;
+    const translation = translations[lang]?.[key];
+    return translation !== undefined && translation !== '' ? translation : key;
   },
 }));
 
@@ -372,16 +373,16 @@ describe('getA11yLabels', () => {
 
   it('should generate dynamic labels with parameters', () => {
     const labels = getA11yLabels('en');
-    expect(labels.readMore('Article Title')).toBe('Read more about Article Title');
-    expect(labels.viewDetails('Product')).toBe('View details for Product');
-    expect(labels.playVideo('Tutorial')).toBe('Play video: Tutorial');
-    expect(labels.downloadFile('document.pdf')).toBe('Download document.pdf');
-    expect(labels.shareOn('Twitter')).toBe('Share on Twitter');
-    expect(labels.socialLink('Facebook')).toBe('Visit our Facebook page');
-    expect(labels.cutoutImage('hero')).toBe('Magazine cutout style image of hero');
-    expect(labels.characterProfile('Gaby')).toBe('Character profile for Gaby');
-    expect(labels.episodePlayer('Episode 1')).toBe('Audio player for Episode 1');
-    expect(labels.sketchVideo('Funny Sketch')).toBe('Watch sketch: Funny Sketch');
+    expect((labels.readMore as (param: string) => string)('Article Title')).toBe('Read more about Article Title');
+    expect((labels.viewDetails as (param: string) => string)('Product')).toBe('View details for Product');
+    expect((labels.playVideo as (param: string) => string)('Tutorial')).toBe('Play video: Tutorial');
+    expect((labels.downloadFile as (param: string) => string)('document.pdf')).toBe('Download document.pdf');
+    expect((labels.shareOn as (param: string) => string)('Twitter')).toBe('Share on Twitter');
+    expect((labels.socialLink as (param: string) => string)('Facebook')).toBe('Visit our Facebook page');
+    expect((labels.cutoutImage as (param: string) => string)('hero')).toBe('Magazine cutout style image of hero');
+    expect((labels.characterProfile as (param: string) => string)('Gaby')).toBe('Character profile for Gaby');
+    expect((labels.episodePlayer as (param: string) => string)('Episode 1')).toBe('Audio player for Episode 1');
+    expect((labels.sketchVideo as (param: string) => string)('Funny Sketch')).toBe('Watch sketch: Funny Sketch');
   });
 
   it('should generate language-specific dynamic messages', () => {
@@ -753,8 +754,8 @@ describe('initializeAccessibility', () => {
     const liveRegion = document.getElementById('aria-live-region');
     expect(liveRegion).toBeTruthy();
     // Object.assign adds properties directly to the element, not as attributes
-    expect((liveRegion as any)?.['aria-live']).toBe('polite');
-    expect((liveRegion as any)?.['aria-atomic']).toBe('true');
+    expect((liveRegion as HTMLElement & { 'aria-live'?: string })?.['aria-live']).toBe('polite');
+    expect((liveRegion as HTMLElement & { 'aria-atomic'?: string })?.['aria-atomic']).toBe('true');
     expect(liveRegion?.className).toBe('sr-only');
   });
 

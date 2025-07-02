@@ -134,9 +134,14 @@ export default defineConfig({
   build: {
     // Optimize asset file names
     assets: '_assets',
-    // Enable inline stylesheets for critical CSS
-    inlineStylesheets: 'auto',
+    // Disable inline stylesheets to reduce HTML size
+    inlineStylesheets: 'never',
+    // Use file format for better compression
+    format: 'file',
   },
+  
+  // Enable HTML compression
+  compressHTML: true,
 
   // Image optimization configuration with Sharp
   image: {
@@ -290,11 +295,11 @@ export default defineConfig({
     },
   },
 
-  // Prefetch configuration for better performance (disabled to reduce bundle size)
-  // prefetch: {
-  //   prefetchAll: true,
-  //   defaultStrategy: 'viewport',
-  // },
+  // Prefetch configuration for better performance
+  prefetch: {
+    prefetchAll: false, // Only prefetch specific links to avoid bundle bloat
+    defaultStrategy: 'viewport', // Prefetch when links enter viewport
+  },
 
   // Output configuration
   output: 'static',

@@ -124,13 +124,13 @@ describe('Theme Manager', () => {
     it('should handle server-side rendering', () => {
       // Simulate SSR by making window undefined
       const originalWindow = global.window;
-      delete (global as any).window;
+      delete (global as typeof globalThis & { window?: Window }).window;
 
       // Should not throw
       expect(() => ThemeManager.initialize()).not.toThrow();
 
       // Restore
-      (global as any).window = originalWindow;
+      (global as typeof globalThis & { window: Window }).window = originalWindow;
     });
   });
 
@@ -238,9 +238,13 @@ describe('Theme Manager', () => {
       ThemeManager.applyTheme('dark', 'magazine');
 
       expect(window.dispatchEvent).toHaveBeenCalled();
-      const event = (window.dispatchEvent as any).mock.calls[0][0];
-      expect(event.type).toBe('themeChange');
-      expect(event.detail).toEqual({
+      const mockDispatchEvent = window.dispatchEvent as jest.Mock<boolean, [Event]>;
+      const mockCalls = mockDispatchEvent.mock.calls;
+      expect(mockCalls.length).toBeGreaterThan(0);
+      const firstCallArgs = mockCalls[0];
+      const customEvent = firstCallArgs[0] as CustomEvent;
+      expect(customEvent.type).toBe('themeChange');
+      expect(customEvent.detail).toEqual({
         theme: 'dark',
         selection: 'dark',
         variant: 'magazine'
@@ -249,13 +253,15 @@ describe('Theme Manager', () => {
 
     it('should handle server-side rendering', () => {
       const originalDocument = global.document;
-      delete (global as any).document;
+      const globalWithDocument = global as typeof globalThis & { document?: Document };
+      delete globalWithDocument.document;
 
       // Should not throw
       expect(() => ThemeManager.applyTheme('light')).not.toThrow();
 
       // Restore
-      (global as any).document = originalDocument;
+      const globalWithDocument = global as typeof globalThis & { document: Document };
+      globalWithDocument.document = originalDocument;
     });
   });
 
@@ -390,13 +396,15 @@ describe('Theme Manager', () => {
 
       // Get the change handler
       const changeHandler = mockMediaQueryList.addEventListener.mock.calls
-        .find(call => call[0] === 'change')?.[1];
+        .find(call => call[0] === 'change')?.[1] as ((event: { matches: boolean }) => void) | undefined;
 
       expect(changeHandler).toBeDefined();
 
       // Simulate system theme change to dark
       mockMediaQueryList.matches = true;
-      changeHandler({ matches: true });
+      if (changeHandler !== undefined) {
+        changeHandler({ matches: true });
+      }
 
       // Should have applied dark theme
       expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme', 'dark');
@@ -409,14 +417,16 @@ describe('Theme Manager', () => {
 
       // Get the change handler
       const changeHandler = mockMediaQueryList.addEventListener.mock.calls
-        .find(call => call[0] === 'change')?.[1];
+        .find(call => call[0] === 'change')?.[1] as ((event: { matches: boolean }) => void) | undefined;
 
       // Clear previous calls
       mockDocumentElement.setAttribute.mockClear();
 
       // Simulate system theme change
       mockMediaQueryList.matches = true;
-      changeHandler({ matches: true });
+      if (changeHandler !== undefined) {
+        changeHandler({ matches: true });
+      }
 
       // Should not have changed theme
       const themeCall = mockDocumentElement.setAttribute.mock.calls
@@ -486,10 +496,12 @@ describe('Theme Manager', () => {
       ThemeManager.initialize();
 
       // Get the change handler
-      const changeHandler = reducedMotionQuery.addEventListener.mock.calls[0][1];
+      const changeHandler = reducedMotionQuery.addEventListener.mock.calls[0][1] as ((event: { matches: boolean }) => void);
 
       // Simulate preference change
-      changeHandler({ matches: true });
+      if (changeHandler !== undefined) {
+        changeHandler({ matches: true });
+      }
 
       expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-reduced-motion', 'true');
     });

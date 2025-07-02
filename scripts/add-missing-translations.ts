@@ -1,9 +1,6 @@
 #!/usr/bin/env tsx
-import fs from 'fs';
-import path from 'path';
 
-const configPath = path.join(process.cwd(), 'src/i18n/config.ts');
-const configContent = fs.readFileSync(configPath, 'utf-8');
+// Removed unused variables
 
 // Missing English translations
 const missingEnglish = {

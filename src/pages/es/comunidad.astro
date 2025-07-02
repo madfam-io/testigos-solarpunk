@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MagazineCutoutImage from '../../components/MagazineCutoutImage.astro';
+import { t } from '@/i18n/config';
 
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
@@ -281,7 +282,7 @@ const painPoints = [
             <span class="emoji-cutout emoji-md theme-purple">📤</span> Comparte
           </h3>
           <p>Difunde el mensaje en tus redes sociales</p>
-          <button class="btn btn-secondary">Compartir</button>
+          <button class="btn btn-secondary">{t("button.share")}</button>
         </div>
         <div
           class="magazine-card card-md theme-community interactive context-feature"
@@ -320,7 +321,7 @@ const painPoints = [
           <a
             href="https://instagram.com/testigosdesolarpunk"
             class="social-link"
-            aria-label="Instagram"
+            aria-label={t("social.instagram")}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -331,7 +332,7 @@ const painPoints = [
           <a
             href="https://tiktok.com/@testigosdesolarpunk"
             class="social-link"
-            aria-label="TikTok"
+            aria-label={t("social.tiktok")}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -341,7 +342,7 @@ const painPoints = [
           <a
             href="https://youtube.com/@testigosdesolarpunk"
             class="social-link"
-            aria-label="YouTube"
+            aria-label={t("social.youtube")}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -352,7 +353,7 @@ const painPoints = [
           <a
             href="https://twitter.com/testigossolarpk"
             class="social-link"
-            aria-label="Twitter"
+            aria-label={t("social.twitter")}
             target="_blank"
             rel="noopener noreferrer"
           >
