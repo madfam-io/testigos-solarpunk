@@ -1,0 +1,187 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import LoadingState from '@/components/LoadingState.astro';
+---
+
+<BaseLayout title="Compact Loading States Demo">
+  <div class="container">
+    <h1>Compact Loading States Demo</h1>
+    <p>Comparison of regular and compact loading states</p>
+
+    <div class="demo-grid">
+      <section>
+        <h2>Regular Loading States</h2>
+
+        <h3>Spinner</h3>
+        <div class="demo-box">
+          <LoadingState type="spinner" message="Cargando contenido..." />
+        </div>
+
+        <h3>Dots</h3>
+        <div class="demo-box">
+          <LoadingState type="dots" message="Procesando..." />
+        </div>
+
+        <h3>Skeleton</h3>
+        <div class="demo-box">
+          <LoadingState type="skeleton" />
+        </div>
+      </section>
+
+      <section>
+        <h2>Compact Loading States</h2>
+
+        <h3>Spinner (Compact)</h3>
+        <div class="demo-box">
+          <LoadingState
+            type="spinner"
+            message="Cargando contenido..."
+            compact
+          />
+        </div>
+
+        <h3>Dots (Compact)</h3>
+        <div class="demo-box">
+          <LoadingState type="dots" message="Procesando..." compact />
+        </div>
+
+        <h3>Skeleton (Compact)</h3>
+        <div class="demo-box">
+          <LoadingState type="skeleton" compact />
+        </div>
+      </section>
+    </div>
+
+    <section class="fullscreen-demo">
+      <h2>Fullscreen Comparison</h2>
+      <div class="button-group">
+        <button id="show-regular">Show Regular Fullscreen</button>
+        <button id="show-compact">Show Compact Fullscreen</button>
+      </div>
+    </section>
+
+    <!-- Hidden fullscreen loaders -->
+    <div id="regular-fullscreen" style="display: none;">
+      <LoadingState
+        type="spinner"
+        message="Cargando aplicación..."
+        fullscreen
+      />
+    </div>
+    <div id="compact-fullscreen" style="display: none;">
+      <LoadingState
+        type="spinner"
+        message="Cargando aplicación..."
+        fullscreen
+        compact
+      />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+  }
+
+  .demo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .demo-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  section {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  h2 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    color: var(--text-secondary);
+    margin: 1rem 0 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .demo-box {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    min-height: 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fullscreen-demo {
+    margin-top: 2rem;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-primary);
+    color: var(--text-on-accent);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition:
+      transform 0.2s,
+      opacity 0.2s;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  document.getElementById('show-regular')?.addEventListener('click', () => {
+    const loader = document.getElementById('regular-fullscreen');
+    if (loader) {
+      loader.style.display = 'block';
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 3000);
+    }
+  });
+
+  document.getElementById('show-compact')?.addEventListener('click', () => {
+    const loader = document.getElementById('compact-fullscreen');
+    if (loader) {
+      loader.style.display = 'block';
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 3000);
+    }
+  });
+</script>

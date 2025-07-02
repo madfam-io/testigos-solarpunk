@@ -18,6 +18,7 @@ interface Props {
   size?: 'sm' | 'md' | 'lg';
   type?: 'spinner' | 'dots' | 'skeleton';
   fullscreen?: boolean;
+  compact?: boolean;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   size = 'md',
   type = 'spinner',
   fullscreen = false,
+  compact = false,
 } = Astro.props;
 
 const t = useTranslations(lang);
@@ -39,6 +41,7 @@ const defaultMessage = message ?? t('status.loading');
     `loading-state--${size}`,
     `loading-state--${type}`,
     { 'loading-state--fullscreen': fullscreen },
+    { 'loading-state--compact': compact },
   ]}
   role="status"
   aria-live="polite"
@@ -92,6 +95,15 @@ const defaultMessage = message ?? t('status.loading');
     padding: var(--space-lg);
   }
 
+  /* Compact mode with reduced vertical spacing */
+  .loading-state--compact {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .loading-state--compact.loading-state--fullscreen {
+    padding: var(--space-md);
+  }
+
   .loading-state--fullscreen {
     position: fixed;
     top: 0;
@@ -113,6 +125,15 @@ const defaultMessage = message ?? t('status.loading');
     animation: float 2s ease-in-out infinite;
   }
 
+  /* Compact spinner adjustments */
+  .loading-state--compact .loading-spinner {
+    animation: float-compact 2s ease-in-out infinite;
+  }
+
+  .loading-state--compact .emoji-cutout {
+    font-size: 2rem !important; /* Smaller emoji in compact mode */
+  }
+
   @keyframes float {
     0%,
     100% {
@@ -120,6 +141,16 @@ const defaultMessage = message ?? t('status.loading');
     }
     50% {
       transform: translateY(-10px);
+    }
+  }
+
+  @keyframes float-compact {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px); /* Less vertical movement in compact mode */
     }
   }
 
@@ -131,12 +162,24 @@ const defaultMessage = message ?? t('status.loading');
     margin-bottom: var(--space-md);
   }
 
+  /* Compact dots adjustments */
+  .loading-state--compact .loading-dots {
+    gap: 0.375rem;
+    margin-bottom: var(--space-sm);
+  }
+
   .dot {
     width: 8px;
     height: 8px;
     background: var(--madfam-green);
     border-radius: 50%;
     animation: dotPulse 1.4s ease-in-out infinite both;
+  }
+
+  /* Compact dots are smaller */
+  .loading-state--compact .dot {
+    width: 6px;
+    height: 6px;
   }
 
   .dot:nth-child(1) {
@@ -182,9 +225,19 @@ const defaultMessage = message ?? t('status.loading');
     animation: skeletonShimmer 2s ease-in-out infinite;
   }
 
+  /* Compact skeleton adjustments */
+  .loading-state--compact .skeleton-line {
+    height: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
   .skeleton-title {
     height: 1.5rem;
     width: 60%;
+  }
+
+  .loading-state--compact .skeleton-title {
+    height: 1rem;
   }
 
   .skeleton-text {
@@ -209,6 +262,12 @@ const defaultMessage = message ?? t('status.loading');
     font-size: 0.875rem;
     margin-top: var(--space-md);
     font-weight: 500;
+  }
+
+  /* Compact message adjustments */
+  .loading-state--compact .loading-message {
+    margin-top: var(--space-xs);
+    font-size: 0.75rem;
   }
 
   /* Size variants */
