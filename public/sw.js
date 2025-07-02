@@ -1,5 +1,5 @@
-const CACHE_NAME = 'testigos-solarpunk-v2';
-const RUNTIME_CACHE = 'testigos-runtime-v2';
+const CACHE_NAME = 'testigos-solarpunk-v3';
+const RUNTIME_CACHE = 'testigos-runtime-v3';
 const STATIC_CACHE_URLS = [
   '/testigos-solarpunk/',
   '/testigos-solarpunk/index.html',
@@ -44,6 +44,15 @@ self.addEventListener('fetch', (e) => {
   const { request: r } = e;
   const u = new URL(r.url);
   if (r.method !== 'GET' || !u.origin.includes(self.location.origin)) return;
+  // Handle old asset requests that cause 308 redirects
+  if (
+    u.pathname.includes('.js') &&
+    u.pathname.includes('page.') &&
+    u.pathname.includes('DTIbhfSr')
+  ) {
+    e.respondWith(new Response('', { status: 404, statusText: 'Not Found' }));
+    return;
+  }
   if (isStaticAsset(u.pathname)) {
     e.respondWith(
       caches.match(r).then((c) => {
@@ -51,7 +60,13 @@ self.addEventListener('fetch', (e) => {
           fetchAndCache(r, CACHE_NAME);
           return c;
         }
-        return fetchAndCache(r, CACHE_NAME);
+        return fetchAndCache(r, CACHE_NAME).catch(() => {
+          // Return 404 for missing static assets instead of letting it redirect
+          if (u.pathname.includes('.js') || u.pathname.includes('.css')) {
+            return new Response('', { status: 404, statusText: 'Not Found' });
+          }
+          return fetch(r);
+        });
       })
     );
     return;

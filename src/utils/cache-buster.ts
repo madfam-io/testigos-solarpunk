@@ -14,10 +14,10 @@ export async function clearAllCaches(): Promise<void> {
   try {
     // Get all cache names
     const cacheNames = await caches.keys();
-    
+
     // Delete all caches
     await Promise.all(
-      cacheNames.map(cacheName => {
+      cacheNames.map((cacheName) => {
         console.log(`Deleting cache: ${cacheName}`);
         return caches.delete(cacheName);
       })
@@ -37,9 +37,9 @@ export async function unregisterServiceWorkers(): Promise<void> {
 
   try {
     const registrations = await navigator.serviceWorker.getRegistrations();
-    
+
     await Promise.all(
-      registrations.map(registration => {
+      registrations.map((registration) => {
         console.log('Unregistering service worker:', registration.scope);
         return registration.unregister();
       })
@@ -53,13 +53,13 @@ export async function unregisterServiceWorkers(): Promise<void> {
 
 export async function forceCacheRefresh(): Promise<void> {
   console.log('Starting force cache refresh...');
-  
+
   // 1. Clear all caches
   await clearAllCaches();
-  
+
   // 2. Unregister all service workers
   await unregisterServiceWorkers();
-  
+
   // 3. Reload the page with cache bypass
   // Force reload by appending a timestamp to bypass cache
   const timestamp = new Date().getTime();
@@ -71,20 +71,20 @@ export async function forceCacheRefresh(): Promise<void> {
 export function installCacheBuster(): void {
   if (typeof window !== 'undefined') {
     // Add cache buster to window object for console access
-    const windowWithCacheBuster = window as Window & {
+    const windowWithCacheBuster = window as unknown as Window & {
       cacheBuster: {
         clearAllCaches: typeof clearAllCaches;
         unregisterServiceWorkers: typeof unregisterServiceWorkers;
         forceCacheRefresh: typeof forceCacheRefresh;
       };
     };
-    
+
     windowWithCacheBuster.cacheBuster = {
       clearAllCaches,
       unregisterServiceWorkers,
-      forceCacheRefresh
+      forceCacheRefresh,
     };
-    
+
     console.log(
       '%c✨ Cache Buster Installed!',
       'background: #4CAF50; color: white; padding: 5px 10px; border-radius: 3px;'

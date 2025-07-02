@@ -1877,7 +1877,9 @@ export function getLocalizedPath(
     return segment;
   });
 
-  return `/${lang}/${translatedSegments.join('/')}`;
+  // Add trailing slash to match Astro's trailingSlash: 'always' configuration
+  const fullPath = `/${lang}/${translatedSegments.join('/')}`;
+  return fullPath.endsWith('/') ? fullPath : `${fullPath}/`;
 }
 
 /**
