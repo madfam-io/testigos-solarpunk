@@ -27,16 +27,16 @@ if (
   firstSegment !== 'en'
 ) {
   // Check if this matches any Spanish routes
-  const spanishRoutes = Object.values(routes.es);
-  if (spanishRoutes.includes(firstSegment as any)) {
+  const spanishRoutes = Object.values(routes.es) as string[];
+  if (spanishRoutes.includes(firstSegment)) {
     // Redirect to Spanish version
     const redirectPath = `${basePath}/es${requestedPath.startsWith('/') ? '' : '/'}${requestedPath}`;
     return Astro.redirect(redirectPath, 301);
   }
 
   // Check if this matches any English routes
-  const englishRoutes = Object.values(routes.en);
-  if (englishRoutes.includes(firstSegment as any)) {
+  const englishRoutes = Object.values(routes.en) as string[];
+  if (englishRoutes.includes(firstSegment)) {
     // Find the Spanish equivalent and redirect
     const routeKey = Object.entries(routes.en).find(
       ([_, value]) => value === firstSegment
