@@ -41,10 +41,19 @@ export interface Props {
   ocupacion: string;
   imagen?: string;
   descripcionBreve: string;
+  lang?: 'es' | 'en';
 }
 
-const { id, nombre, rol, edad, ocupacion, imagen, descripcionBreve } =
-  Astro.props;
+const {
+  id,
+  nombre,
+  rol,
+  edad,
+  ocupacion,
+  imagen,
+  descripcionBreve,
+  lang = 'es',
+} = Astro.props;
 
 /**
  * Calculate base path for proper URL generation
@@ -98,8 +107,9 @@ if (basePath.endsWith('/')) {
     </p>
     <p class="character-description">{descripcionBreve}</p>
     <!-- Dynamic URL with base path handling -->
-    <a href={`${basePath}/personajes/${id}/`} class="btn btn-primary"
-      >Ver Perfil Completo</a
+    <a
+      href={`${basePath}/${lang}/${lang === 'es' ? 'personajes' : 'characters'}/${id}/`}
+      class="btn btn-primary">Ver Perfil Completo</a
     >
   </div>
 </article>

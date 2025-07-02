@@ -65,6 +65,7 @@ const characters: CollectionEntry<'characters'>[] =
                   ocupacion={character.data.ocupacion}
                   descripcionBreve={`${character.data.historia.substring(0, 150)}...`}
                   isEvangelista={true}
+                  lang="en"
                 />
               ) : (
                 <CharacterCard
@@ -74,6 +75,7 @@ const characters: CollectionEntry<'characters'>[] =
                   edad={character.data.edad}
                   ocupacion={character.data.ocupacion}
                   descripcionBreve={`${character.data.historia.substring(0, 150)}...`}
+                  lang="en"
                 />
               );
 

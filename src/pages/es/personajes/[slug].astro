@@ -47,8 +47,8 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
   <nav class="breadcrumb-nav" aria-label="Navegación de migas de pan">
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href={`${basePath}/`}>Inicio</a></li>
-        <li><a href={`${basePath}/personajes/`}>Personajes</a></li>
+        <li><a href={`${basePath}/es/`}>Inicio</a></li>
+        <li><a href={`${basePath}/es/personajes/`}>Personajes</a></li>
         <li aria-current="page">{nombre}</li>
       </ol>
     </div>
@@ -192,7 +192,10 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
           </h2>
           <div class="episodes-list">
             {data.episodios_destacados.map((episodio: string) => (
-              <a href={`${basePath}/guiones/${episodio}/`} class="episode-chip">
+              <a
+                href={`${basePath}/es/guiones/${episodio}/`}
+                class="episode-chip"
+              >
                 <span class="emoji-cutout emoji-sm theme-purple">📺</span>
                 <span>{episodio}</span>
               </a>
@@ -247,11 +250,11 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
   <section class="character-navigation">
     <div class="container">
       <div class="nav-buttons">
-        <a href={`${basePath}/personajes/`} class="btn btn-secondary">
+        <a href={`${basePath}/es/personajes/`} class="btn btn-secondary">
           <span class="emoji-cutout emoji-sm">👈</span>
           Volver a Personajes
         </a>
-        <a href={`${basePath}/guiones/`} class="btn btn-primary">
+        <a href={`${basePath}/es/guiones/`} class="btn btn-primary">
           <span class="emoji-cutout emoji-sm">📝</span>
           Ver Guiones
         </a>

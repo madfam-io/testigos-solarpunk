@@ -30,6 +30,12 @@ let basePath =
 if (basePath.endsWith('/')) {
   basePath = basePath.slice(0, -1);
 }
+
+// Detect language from current path
+const pathSegments = currentPath.split('/').filter(Boolean);
+const lang = pathSegments[0] === 'en' ? 'en' : 'es';
+const langPrefix = lang === 'es' ? '/es' : '/en';
+
 const fullUrl = `${baseUrl}${basePath}${currentPath}`;
 const imageUrl = `${baseUrl}${basePath}${image}`;
 const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
@@ -239,18 +245,29 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
               Universo
             </button>
             <div class="nav-dropdown-menu" id="universo-menu" role="menu">
-              <a href={`${basePath}/personajes/`} role="menuitem">
+              <a
+                href={`${basePath}${langPrefix}/${lang === 'es' ? 'personajes' : 'characters'}/`}
+                role="menuitem"
+              >
                 👥 Personajes
               </a>
-              <a href={`${basePath}/mundo/`} role="menuitem">
+              <a
+                href={`${basePath}${langPrefix}/${lang === 'es' ? 'mundo' : 'world'}/`}
+                role="menuitem"
+              >
                 🌍 Construcción del Mundo
               </a>
-              <a href={`${basePath}/guiones/`} role="menuitem"> 📝 Guiones </a>
+              <a
+                href={`${basePath}${langPrefix}/${lang === 'es' ? 'guiones' : 'scripts'}/`}
+                role="menuitem"
+              >
+                📝 {lang === 'es' ? 'Guiones' : 'Scripts'}
+              </a>
             </div>
           </li>
           <li role="none">
             <a
-              href={`${basePath}/comunidad/`}
+              href={`${basePath}${langPrefix}/${lang === 'es' ? 'comunidad' : 'community'}/`}
               class:list={[
                 'nav-link',
                 currentPath.startsWith('/comunidad') ? 'active' : '',
@@ -320,32 +337,82 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
             <h4>Universo Creativo</h4>
             <ul>
               <li>
-                <a href={`${basePath}/personajes/`}>Biblia de Personajes</a>
+                <a
+                  href={`${basePath}${langPrefix}/${lang === 'es' ? 'personajes' : 'characters'}/`}
+                  >{
+                    lang === 'es' ? 'Biblia de Personajes' : 'Character Bible'
+                  }</a
+                >
               </li>
               <li>
-                <a href={`${basePath}/guiones/`}>Repositorio de Guiones</a>
+                <a
+                  href={`${basePath}${langPrefix}/${lang === 'es' ? 'guiones' : 'scripts'}/`}
+                  >{
+                    lang === 'es'
+                      ? 'Repositorio de Guiones'
+                      : 'Script Repository'
+                  }</a
+                >
               </li>
-              <li><a href={`${basePath}/mundo/`}>Construcción del Mundo</a></li>
+              <li>
+                <a
+                  href={`${basePath}${langPrefix}/${lang === 'es' ? 'mundo' : 'world'}/`}
+                  >{
+                    lang === 'es' ? 'Construcción del Mundo' : 'World Building'
+                  }</a>
+              </li>
             </ul>
           </div>
           <div>
             <h4>Para Creadores</h4>
             <ul>
-              <li><a href={`${basePath}/recursos/`}>Guías y Plantillas</a></li>
-              <li><a href={`${basePath}/produccion/`}>Guía de Estilo</a></li>
               <li>
-                <a href={`${basePath}/filosofia/`}>Filosofía del Proyecto</a>
+                <a
+                  href={`${basePath}${langPrefix}/${lang === 'es' ? 'recursos' : 'resources'}/`}
+                  >{
+                    lang === 'es' ? 'Guías y Plantillas' : 'Guides & Templates'
+                  }</a>
               </li>
-              <li><a href={`${basePath}/guia-visual/`}>Guía Visual</a></li>
+              <li>
+                <a
+                  href={`${basePath}${langPrefix}/${lang === 'es' ? 'produccion' : 'production'}/`}
+                  >{lang === 'es' ? 'Guía de Estilo' : 'Style Guide'}</a>
+              </li>
+              <li>
+                <a
+                  href={`${basePath}${langPrefix}/${lang === 'es' ? 'filosofia' : 'philosophy'}/`}
+                  >{
+                    lang === 'es'
+                      ? 'Filosofía del Proyecto'
+                      : 'Project Philosophy'
+                  }</a
+                >
+              </li>
+              <li>
+                <a
+                  href={`${basePath}${langPrefix}/${lang === 'es' ? 'guia-visual' : 'visual-guide'}/`}
+                  >{lang === 'es' ? 'Guía Visual' : 'Visual Guide'}</a>
+              </li>
             </ul>
           </div>
           <div>
             <h4>Conecta</h4>
             <ul>
               <li>
-                <a href={`${basePath}/comunidad/`}>Únete a la Comunidad</a>
+                <a
+                  href={`${basePath}${langPrefix}/${lang === 'es' ? 'comunidad' : 'community'}/`}
+                  >{
+                    lang === 'es'
+                      ? 'Únete a la Comunidad'
+                      : 'Join the Community'
+                  }</a
+                >
               </li>
-              <li><a href={`${basePath}/impacto/`}>Nuestro Impacto</a></li>
+              <li>
+                <a
+                  href={`${basePath}${langPrefix}/${lang === 'es' ? 'impacto' : 'impact'}/`}
+                  >{lang === 'es' ? 'Nuestro Impacto' : 'Our Impact'}</a>
+              </li>
               <li>
                 <a
                   href="https://github.com/madfam-io/testigos-solarpunk"
