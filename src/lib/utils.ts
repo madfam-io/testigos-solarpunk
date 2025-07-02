@@ -415,7 +415,7 @@ export function generateSEOMeta({
  * @example
  * ```typescript
  * const debouncedSearch = debounce((query: string) => {
- *   console.log('Searching:', query);
+ *   log.info('Searching:', query);
  * }, 300);
  *
  * // Rapid calls
@@ -513,7 +513,7 @@ export function getURLParam(param: string): string | null {
  * // Without placeholder
  * lazyLoadImage('/image.jpg')
  *   .then(img => document.body.appendChild(img))
- *   .catch(err => console.error('Image failed to load'));
+ *   .catch(err => log.error('Image failed to load', err));
  * ```
  *
  * Implementation:

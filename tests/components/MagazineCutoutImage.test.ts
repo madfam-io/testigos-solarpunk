@@ -269,7 +269,7 @@ describe('MagazineCutoutPlaceholderService', () => {
         expect(result.url).toBe('https://work.com/image.jpg');
         expect(result.service).toBe('working-service');
         expect(consoleWarnSpy).toHaveBeenCalledWith(
-          'Service failing-service failed:',
+          '[WARN] Service failing-service failed',
           expect.any(Error)
         );
       } finally {

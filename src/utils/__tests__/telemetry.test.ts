@@ -745,7 +745,10 @@ describe('Edge Cases and Error Handling', () => {
     // Wait a bit for the promise to reject
     await new Promise(resolve => setTimeout(resolve, 100));
     
-    expect(consoleWarnSpy).toHaveBeenCalledWith(expect.any(Error));
+    expect(consoleWarnSpy).toHaveBeenCalledWith(
+      '[WARN] Failed to send telemetry via fetch',
+      expect.any(Error)
+    );
     
     consoleWarnSpy.mockRestore();
     mockNavigator.sendBeacon = originalSendBeacon;

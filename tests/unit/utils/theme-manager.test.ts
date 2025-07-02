@@ -238,7 +238,7 @@ describe('Theme Manager', () => {
       ThemeManager.applyTheme('dark', 'magazine');
 
       expect(window.dispatchEvent).toHaveBeenCalled();
-      const mockDispatchEvent = window.dispatchEvent as jest.Mock<boolean, [Event]>;
+      const mockDispatchEvent = window.dispatchEvent as ReturnType<typeof vi.fn>;
       const mockCalls = mockDispatchEvent.mock.calls;
       expect(mockCalls.length).toBeGreaterThan(0);
       const firstCallArgs = mockCalls[0];
@@ -260,7 +260,6 @@ describe('Theme Manager', () => {
       expect(() => ThemeManager.applyTheme('light')).not.toThrow();
 
       // Restore
-      const globalWithDocument = global as typeof globalThis & { document: Document };
       globalWithDocument.document = originalDocument;
     });
   });

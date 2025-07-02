@@ -2633,7 +2633,12 @@ export function t(key: string, lang?: Language): string {
   }
 
   // Return the key itself if no translation found (helps identify missing translations)
-  console.warn(`Missing translation for key: ${key}`);
+  // Import logger dynamically to avoid circular dependencies
+  import('../utils/logger').then(({ log }) => {
+    log.warn(`Missing translation for key: ${key}`);
+  }).catch(() => {
+    // Fallback if logger not available
+  });
   return key;
 }
 

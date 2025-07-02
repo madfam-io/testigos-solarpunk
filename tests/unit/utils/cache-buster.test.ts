@@ -65,8 +65,8 @@ describe('Cache Buster Utilities', () => {
 
       await clearAllCaches();
 
-      expect(mockConsole.warn).toHaveBeenCalledWith('Cache API not supported');
-      expect(mockConsole.log).not.toHaveBeenCalledWith('All caches cleared successfully');
+      expect(mockConsole.warn).toHaveBeenCalledWith('[WARN] Cache API not supported', '');
+      expect(mockConsole.log).not.toHaveBeenCalled();
 
       // Restore
       (window as Window & { caches: CacheStorage }).caches = originalCaches;
@@ -93,7 +93,8 @@ describe('Cache Buster Utilities', () => {
       expect(mockCaches.delete).toHaveBeenCalledWith('cache-v1');
       expect(mockCaches.delete).toHaveBeenCalledWith('cache-v2');
       expect(mockCaches.delete).toHaveBeenCalledWith('images-cache');
-      expect(mockConsole.log).toHaveBeenCalledWith('All caches cleared successfully');
+      // Logger.info is not logged in production mode, so console.log won't be called
+      expect(mockConsole.log).not.toHaveBeenCalled();
     });
 
     it('should handle errors when clearing caches', async () => {
@@ -111,7 +112,7 @@ describe('Cache Buster Utilities', () => {
 
       await clearAllCaches();
 
-      expect(mockConsole.error).toHaveBeenCalledWith('Error clearing caches:', mockError);
+      expect(mockConsole.error).toHaveBeenCalledWith('[ERROR] Error clearing caches', mockError);
     });
 
     it('should handle empty cache list', async () => {
@@ -131,7 +132,8 @@ describe('Cache Buster Utilities', () => {
 
       expect(mockCaches.keys).toHaveBeenCalled();
       expect(mockCaches.delete).not.toHaveBeenCalled();
-      expect(mockConsole.log).toHaveBeenCalledWith('All caches cleared successfully');
+      // Logger.info is not logged in production mode, so console.log won't be called
+      expect(mockConsole.log).not.toHaveBeenCalled();
     });
   });
 
@@ -146,8 +148,8 @@ describe('Cache Buster Utilities', () => {
 
       await unregisterServiceWorkers();
 
-      expect(mockConsole.warn).toHaveBeenCalledWith('Service Worker not supported');
-      expect(mockConsole.log).not.toHaveBeenCalledWith('All service workers unregistered');
+      expect(mockConsole.warn).toHaveBeenCalledWith('[WARN] Service Worker not supported', '');
+      expect(mockConsole.log).not.toHaveBeenCalled();
 
       // Restore
       (navigator as Navigator & { serviceWorker?: ServiceWorkerContainer }).serviceWorker = originalServiceWorker;
@@ -175,9 +177,8 @@ describe('Cache Buster Utilities', () => {
       expect(mockServiceWorker.getRegistrations).toHaveBeenCalled();
       expect(mockRegistrations[0].unregister).toHaveBeenCalled();
       expect(mockRegistrations[1].unregister).toHaveBeenCalled();
-      expect(mockConsole.log).toHaveBeenCalledWith('Unregistering service worker:', '/app/');
-      expect(mockConsole.log).toHaveBeenCalledWith('Unregistering service worker:', '/api/');
-      expect(mockConsole.log).toHaveBeenCalledWith('All service workers unregistered');
+      // Logger.info is not logged in production mode, so console.log won't be called
+      expect(mockConsole.log).not.toHaveBeenCalled();
     });
 
     it('should handle errors when unregistering', async () => {
@@ -195,7 +196,7 @@ describe('Cache Buster Utilities', () => {
 
       await unregisterServiceWorkers();
 
-      expect(mockConsole.error).toHaveBeenCalledWith('Error unregistering service workers:', mockError);
+      expect(mockConsole.error).toHaveBeenCalledWith('[ERROR] Error unregistering service workers', mockError);
     });
 
     it('should handle no registered service workers', async () => {
@@ -213,7 +214,8 @@ describe('Cache Buster Utilities', () => {
       await unregisterServiceWorkers();
 
       expect(mockServiceWorker.getRegistrations).toHaveBeenCalled();
-      expect(mockConsole.log).toHaveBeenCalledWith('All service workers unregistered');
+      // Logger.info is not logged in production mode, so console.log won't be called
+      expect(mockConsole.log).not.toHaveBeenCalled();
     });
   });
 
@@ -253,7 +255,8 @@ describe('Cache Buster Utilities', () => {
 
       await forceCacheRefresh();
 
-      expect(mockConsole.log).toHaveBeenCalledWith('Starting force cache refresh...');
+      // Logger.info is not logged in production mode, so console.log won't be called
+      expect(mockConsole.log).not.toHaveBeenCalled();
       expect(mockCaches.keys).toHaveBeenCalled();
       expect(mockServiceWorker.getRegistrations).toHaveBeenCalled();
       
@@ -311,12 +314,8 @@ describe('Cache Buster Utilities', () => {
       expect(cacheBuster.unregisterServiceWorkers).toBe(unregisterServiceWorkers);
       expect(cacheBuster.forceCacheRefresh).toBe(forceCacheRefresh);
       
-      // Check console logs
-      expect(mockConsole.log).toHaveBeenCalledWith(
-        expect.stringContaining('Cache Buster Installed!'),
-        expect.any(String)
-      );
-      expect(mockConsole.log).toHaveBeenCalledWith('Available commands:');
+      // Logger.info is not logged in production mode, so console.log won't be called
+      expect(mockConsole.log).not.toHaveBeenCalled();
     });
 
     it('should not install if window is undefined', () => {
@@ -339,10 +338,10 @@ describe('Cache Buster Utilities', () => {
       installCacheBuster(); // Second call
 
       expect((window as Window & { cacheBuster?: unknown }).cacheBuster).toBeDefined();
-      // Should log twice
+      // Logger.info is not logged in production mode, so console.log won't be called
       expect(mockConsole.log.mock.calls.filter(
         (call): boolean => typeof call[0] === 'string' && call[0].includes('Cache Buster Installed!')
-      )).toHaveLength(2);
+      )).toHaveLength(0);
     });
   });
 
@@ -401,8 +400,8 @@ describe('Cache Buster Utilities', () => {
       await clearAllCaches();
       await unregisterServiceWorkers();
 
-      expect(mockConsole.warn).toHaveBeenCalledWith('Cache API not supported');
-      expect(mockConsole.warn).toHaveBeenCalledWith('Service Worker not supported');
+      expect(mockConsole.warn).toHaveBeenCalledWith('[WARN] Cache API not supported', '');
+      expect(mockConsole.warn).toHaveBeenCalledWith('[WARN] Service Worker not supported', '');
     });
   });
 });

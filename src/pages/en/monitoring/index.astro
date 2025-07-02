@@ -1,0 +1,553 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { log } from '@/utils/logger';
+
+// Log page access
+log.info('Monitoring dashboard accessed', undefined, 'monitoring-page');
+
+// Mock data for development
+const mockMetrics = {
+  lighthouse: {
+    performance: 94,
+    accessibility: 98,
+    bestPractices: 95,
+    seo: 100,
+    timestamp: new Date().toISOString()
+  },
+  bundleSize: {
+    js: 156.3, // KB
+    css: 45.2,
+    html: 289.4,
+    total: 490.9,
+    target: 400
+  },
+  buildTime: {
+    duration: 45.2, // seconds
+    timestamp: new Date().toISOString()
+  },
+  errors: {
+    eslint: 0,
+    typescript: 0,
+    tests: {
+      passed: 372,
+      failed: 0,
+      skipped: 2
+    }
+  },
+  coverage: {
+    statements: 87.5,
+    branches: 82.3,
+    functions: 91.2,
+    lines: 88.1
+  }
+};
+---
+
+<BaseLayout
+  title="Monitoring & Metrics"
+  description="Dashboard with performance, quality and project health metrics"
+>
+  <main class="container mx-auto px-4 py-8 max-w-7xl">
+    <h1 class="text-5xl font-bold mb-12 text-center text-gradient">
+      <span class="emoji-cutout emoji-xl theme-solar">📊</span>
+      Monitoring & Metrics
+    </h1>
+
+    <!-- Lighthouse Metrics -->
+    <section class="monitoring-section">
+      <h2 class="section-title">
+        <span class="emoji-cutout emoji-md">🏄‍♂️</span>
+        Lighthouse Performance
+      </h2>
+      
+      <div class="metrics-grid">
+        <div class="metric-card performance">
+          <div class="metric-value">{mockMetrics.lighthouse.performance}%</div>
+          <div class="metric-label">Performance</div>
+          <div class="metric-status good">Excellent</div>
+        </div>
+        
+        <div class="metric-card accessibility">
+          <div class="metric-value">{mockMetrics.lighthouse.accessibility}%</div>
+          <div class="metric-label">Accessibility</div>
+          <div class="metric-status good">Excellent</div>
+        </div>
+        
+        <div class="metric-card best-practices">
+          <div class="metric-value">{mockMetrics.lighthouse.bestPractices}%</div>
+          <div class="metric-label">Best Practices</div>
+          <div class="metric-status good">Excellent</div>
+        </div>
+        
+        <div class="metric-card seo">
+          <div class="metric-value">{mockMetrics.lighthouse.seo}%</div>
+          <div class="metric-label">SEO</div>
+          <div class="metric-status good">Perfect</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bundle Size -->
+    <section class="monitoring-section">
+      <h2 class="section-title">
+        <span class="emoji-cutout emoji-md">📦</span>
+        Bundle Size
+      </h2>
+      
+      <div class="bundle-breakdown">
+        <div class="bundle-item">
+          <span class="bundle-type">JavaScript</span>
+          <div class="bundle-bar">
+            <div class="bundle-fill js" style={`width: ${(mockMetrics.bundleSize.js / mockMetrics.bundleSize.total) * 100}%`}></div>
+          </div>
+          <span class="bundle-size">{mockMetrics.bundleSize.js} KB</span>
+        </div>
+        
+        <div class="bundle-item">
+          <span class="bundle-type">CSS</span>
+          <div class="bundle-bar">
+            <div class="bundle-fill css" style={`width: ${(mockMetrics.bundleSize.css / mockMetrics.bundleSize.total) * 100}%`}></div>
+          </div>
+          <span class="bundle-size">{mockMetrics.bundleSize.css} KB</span>
+        </div>
+        
+        <div class="bundle-item">
+          <span class="bundle-type">HTML</span>
+          <div class="bundle-bar">
+            <div class="bundle-fill html" style={`width: ${(mockMetrics.bundleSize.html / mockMetrics.bundleSize.total) * 100}%`}></div>
+          </div>
+          <span class="bundle-size">{mockMetrics.bundleSize.html} KB</span>
+        </div>
+        
+        <div class="bundle-total">
+          <span>Total:</span>
+          <strong class:list={[mockMetrics.bundleSize.total > mockMetrics.bundleSize.target ? 'warning' : 'good']}>
+            {mockMetrics.bundleSize.total} KB
+          </strong>
+          <span class="text-muted">(target: {mockMetrics.bundleSize.target} KB)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code Quality -->
+    <section class="monitoring-section">
+      <h2 class="section-title">
+        <span class="emoji-cutout emoji-md">✨</span>
+        Code Quality
+      </h2>
+      
+      <div class="quality-grid">
+        <div class="quality-item">
+          <div class="quality-icon">🎯</div>
+          <div class="quality-info">
+            <div class="quality-label">ESLint</div>
+            <div class="quality-value good">{mockMetrics.errors.eslint} errors</div>
+          </div>
+        </div>
+        
+        <div class="quality-item">
+          <div class="quality-icon">📘</div>
+          <div class="quality-info">
+            <div class="quality-label">TypeScript</div>
+            <div class="quality-value good">{mockMetrics.errors.typescript} errors</div>
+          </div>
+        </div>
+        
+        <div class="quality-item">
+          <div class="quality-icon">🧪</div>
+          <div class="quality-info">
+            <div class="quality-label">Tests</div>
+            <div class="quality-value">
+              <span class="good">{mockMetrics.errors.tests.passed} ✓</span>
+              {mockMetrics.errors.tests.failed > 0 && (
+                <span class="warning">{mockMetrics.errors.tests.failed} ✗</span>
+              )}
+              {mockMetrics.errors.tests.skipped > 0 && (
+                <span class="text-muted">{mockMetrics.errors.tests.skipped} ⏭</span>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Test Coverage -->
+    <section class="monitoring-section">
+      <h2 class="section-title">
+        <span class="emoji-cutout emoji-md">🎯</span>
+        Test Coverage
+      </h2>
+      
+      <div class="coverage-grid">
+        <div class="coverage-item">
+          <div class="coverage-label">Statements</div>
+          <div class="coverage-bar">
+            <div 
+              class="coverage-fill" 
+              style={`width: ${mockMetrics.coverage.statements}%`}
+              data-coverage={mockMetrics.coverage.statements > 80 ? 'good' : 'warning'}
+            ></div>
+          </div>
+          <div class="coverage-value">{mockMetrics.coverage.statements}%</div>
+        </div>
+        
+        <div class="coverage-item">
+          <div class="coverage-label">Branches</div>
+          <div class="coverage-bar">
+            <div 
+              class="coverage-fill" 
+              style={`width: ${mockMetrics.coverage.branches}%`}
+              data-coverage={mockMetrics.coverage.branches > 80 ? 'good' : 'warning'}
+            ></div>
+          </div>
+          <div class="coverage-value">{mockMetrics.coverage.branches}%</div>
+        </div>
+        
+        <div class="coverage-item">
+          <div class="coverage-label">Functions</div>
+          <div class="coverage-bar">
+            <div 
+              class="coverage-fill" 
+              style={`width: ${mockMetrics.coverage.functions}%`}
+              data-coverage={mockMetrics.coverage.functions > 80 ? 'good' : 'warning'}
+            ></div>
+          </div>
+          <div class="coverage-value">{mockMetrics.coverage.functions}%</div>
+        </div>
+        
+        <div class="coverage-item">
+          <div class="coverage-label">Lines</div>
+          <div class="coverage-bar">
+            <div 
+              class="coverage-fill" 
+              style={`width: ${mockMetrics.coverage.lines}%`}
+              data-coverage={mockMetrics.coverage.lines > 80 ? 'good' : 'warning'}
+            ></div>
+          </div>
+          <div class="coverage-value">{mockMetrics.coverage.lines}%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <section class="monitoring-section">
+      <h2 class="section-title">
+        <span class="emoji-cutout emoji-md">🚀</span>
+        Quick Actions
+      </h2>
+      
+      <div class="actions-grid">
+        <a 
+          href="https://github.com/madfam-io/testigos-solarpunk/actions/workflows/lighthouse.yml"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="action-card"
+        >
+          <span class="emoji-cutout emoji-md">🏄‍♂️</span>
+          <span>View Lighthouse CI</span>
+        </a>
+        
+        <a 
+          href="https://github.com/madfam-io/testigos-solarpunk/actions"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="action-card"
+        >
+          <span class="emoji-cutout emoji-md">⚙️</span>
+          <span>GitHub Actions</span>
+        </a>
+        
+        <button class="action-card" onclick="window.location.reload()">
+          <span class="emoji-cutout emoji-md">🔄</span>
+          <span>Refresh Metrics</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Last Update -->
+    <div class="last-update">
+      <span class="emoji-cutout emoji-sm">🕐</span>
+      Last updated: {new Date().toLocaleString('en-US')}
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .monitoring-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Lighthouse Metrics */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .metric-card {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-default);
+  }
+
+  .metric-value {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-label {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-status {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .metric-status.good {
+    color: var(--color-success);
+  }
+
+  .metric-status.warning {
+    color: var(--color-warning);
+  }
+
+  /* Bundle Size */
+  .bundle-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .bundle-item {
+    display: grid;
+    grid-template-columns: 120px 1fr 80px;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .bundle-type {
+    font-weight: 600;
+  }
+
+  .bundle-bar {
+    height: 24px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .bundle-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+  }
+
+  .bundle-fill.js {
+    background: #f7df1e;
+  }
+
+  .bundle-fill.css {
+    background: #1572b6;
+  }
+
+  .bundle-fill.html {
+    background: #e34c26;
+  }
+
+  .bundle-size {
+    text-align: right;
+    font-family: var(--font-mono);
+  }
+
+  .bundle-total {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--border-default);
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1.1rem;
+  }
+
+  .good {
+    color: var(--color-success);
+  }
+
+  .warning {
+    color: var(--color-warning);
+  }
+
+  /* Quality Grid */
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .quality-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-default);
+  }
+
+  .quality-icon {
+    font-size: 2.5rem;
+  }
+
+  .quality-info {
+    flex: 1;
+  }
+
+  .quality-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+  }
+
+  .quality-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  /* Coverage */
+  .coverage-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .coverage-item {
+    display: grid;
+    grid-template-columns: 100px 1fr 60px;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .coverage-label {
+    font-weight: 600;
+  }
+
+  .coverage-bar {
+    height: 20px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .coverage-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+  }
+
+  .coverage-fill[data-coverage="warning"] {
+    background: var(--gradient-warning);
+  }
+
+  .coverage-value {
+    text-align: right;
+    font-family: var(--font-mono);
+    font-weight: 600;
+  }
+
+  /* Actions */
+  .actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .action-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-default);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .action-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  /* Last Update */
+  .last-update {
+    text-align: center;
+    margin-top: 3rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  /* Dark mode */
+  [data-theme="dark"] .metric-card {
+    background: var(--bg-tertiary);
+  }
+
+  [data-theme="dark"] .bundle-bar,
+  [data-theme="dark"] .coverage-bar {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Mobile optimization */
+  @media (max-width: 768px) {
+    .monitoring-section {
+      padding: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .metric-value {
+      font-size: 2rem;
+    }
+
+    .bundle-item {
+      grid-template-columns: 80px 1fr 60px;
+    }
+
+    .quality-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

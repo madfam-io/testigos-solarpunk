@@ -67,6 +67,7 @@ export default defineConfig({
     '/formatos': '/es/formatos/',
     '/guia-visual': '/es/guia-visual/',
     '/sitemap': '/es/sitemap/',
+    '/monitoreo': '/es/monitoreo/',
 
     // World subsections
     '/mundo/azotea-verde-neo-cuernavaca':
@@ -109,6 +110,7 @@ export default defineConfig({
     '/philosophy': '/es/filosofia/',
     '/visual-guide': '/es/guia-visual/',
     '/formats': '/es/formatos/',
+    '/monitoring': '/es/monitoreo/',
   },
 
   // Integrations
@@ -141,7 +143,7 @@ export default defineConfig({
   },
   
   // Enable HTML compression
-  compressHTML: true,
+  // compressHTML is set later in the config
 
   // Image optimization configuration with Sharp
   image: {
