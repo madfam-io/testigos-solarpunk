@@ -239,7 +239,7 @@ img {
 }
 
 .btn-primary:hover {
-  background-color: #388e3c;
+  background-color: var(--madfam-green-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px var(--sombra-suave);
 }
@@ -250,7 +250,7 @@ img {
 }
 
 .btn-secondary:hover {
-  background-color: #1976d2;
+  background-color: var(--madfam-blue-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px var(--sombra-suave);
 }
@@ -293,8 +293,8 @@ img {
 .card:hover {
   transform: translateY(-4px) rotate(0.5deg);
   box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.15),
-    0 4px 10px rgba(0, 0, 0, 0.1);
+    0 8px 25px var(--cutout-shadow),
+    0 4px 10px var(--torn-edge-color);
   border-color: var(--amarillo-solar);
 }
 
@@ -679,7 +679,7 @@ footer a:hover {
 
 /* Efectos Solarpunk */
 .glow-solar {
-  box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+  box-shadow: 0 0 20px var(--shadow-glow);
 }
 
 .gradient-solarpunk {
@@ -910,7 +910,7 @@ a {
 
 /* Improved Form Accessibility */
 input[required]:invalid {
-  border-color: #d32f2f;
+  border-color: var(--color-error-dark);
   box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
 }
 
@@ -921,9 +921,9 @@ input[required]:valid {
 
 /* Error and Success Messages */
 .error-message {
-  color: #d32f2f;
+  color: var(--color-error-dark);
   background: rgba(211, 47, 47, 0.1);
-  border: 1px solid #d32f2f;
+  border: 1px solid var(--color-error-dark);
   padding: 8px 12px;
   border-radius: 4px;
   font-size: 0.875rem;

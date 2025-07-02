@@ -18,8 +18,8 @@
     linear-gradient(
       -45deg,
       transparent 48%,
-      rgba(0, 0, 0, 0.03) 48%,
-      rgba(0, 0, 0, 0.03) 52%,
+      var(--paper-texture-opacity) 48%,
+      var(--paper-texture-opacity) 52%,
       transparent 52%
     );
   background-size: 6px 6px;
@@ -50,9 +50,9 @@
 
   /* Multiple layered shadows for depth */
   text-shadow:
-    2px 2px 4px rgba(0, 0, 0, 0.3),
-    1px 1px 0px rgba(255, 255, 255, 0.1),
-    0 0 8px rgba(0, 0, 0, 0.1);
+    2px 2px 4px var(--cutout-shadow-dark),
+    1px 1px 0px var(--torn-edge-color),
+    0 0 8px var(--torn-edge-color);
 
   /* Slight rotation for organic feel */
   transform: rotate(-1deg);
@@ -271,35 +271,35 @@
 .emoji-cutout:nth-child(2n) {
   text-shadow:
     1px 3px 5px rgba(0, 0, 0, 0.35),
-    2px 1px 0px rgba(255, 255, 255, 0.08),
-    0 0 10px rgba(0, 0, 0, 0.12);
+    2px 1px 0px var(--hover-overlay),
+    0 0 10px var(--border-default);
 }
 
 .emoji-cutout:nth-child(3n) {
   text-shadow:
     3px 1px 4px rgba(0, 0, 0, 0.28),
     1px 2px 0px rgba(255, 255, 255, 0.12),
-    0 0 6px rgba(0, 0, 0, 0.08);
+    0 0 6px var(--border-subtle);
 }
 
 .emoji-cutout:nth-child(4n) {
   text-shadow:
     2px 3px 6px rgba(0, 0, 0, 0.32),
     0px 1px 0px rgba(255, 255, 255, 0.15),
-    0 0 9px rgba(0, 0, 0, 0.1);
+    0 0 9px var(--torn-edge-color);
 }
 
 .emoji-cutout:nth-child(5n) {
   text-shadow:
     1px 2px 3px rgba(0, 0, 0, 0.25),
     2px 0px 0px rgba(255, 255, 255, 0.06),
-    0 0 7px rgba(0, 0, 0, 0.15);
+    0 0 7px var(--cutout-shadow);
 }
 
 .emoji-cutout:nth-child(7n) {
   text-shadow:
-    3px 2px 5px rgba(0, 0, 0, 0.3),
-    1px 1px 0px rgba(255, 255, 255, 0.1),
+    3px 2px 5px var(--cutout-shadow-dark),
+    1px 1px 0px var(--torn-edge-color),
     0 0 11px rgba(0, 0, 0, 0.09);
 }
 
@@ -337,7 +337,7 @@
   background: rgba(255, 255, 240, 0.8);
   box-shadow:
     0 2px 4px rgba(0, 0, 0, 0.2),
-    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    inset 0 1px 2px var(--border-default);
   border-radius: 3px;
   padding: 2px 6px;
   margin: 0 4px;
@@ -355,7 +355,7 @@
       rgba(245, 245, 220, 0.3) 100%
     );
   box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 4px 8px var(--cutout-shadow-dark),
     inset 0 1px 3px rgba(255, 255, 255, 0.4),
     0 0 12px rgba(255, 193, 7, 0.2);
 }
@@ -368,7 +368,7 @@
   );
   box-shadow:
     0 3px 6px rgba(0, 0, 0, 0.25),
-    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    inset 0 1px 2px var(--border-default);
 }
 
 .emoji-cutout.emoji-button {
@@ -388,14 +388,14 @@
   filter: sepia(0) contrast(1.2) brightness(1.1);
   transform: rotate(0deg) scale(1.05);
   text-shadow:
-    3px 3px 6px rgba(0, 0, 0, 0.4),
-    1px 1px 0px rgba(255, 255, 255, 0.2),
-    0 0 12px rgba(255, 193, 7, 0.3);
+    3px 3px 6px var(--shadow-overlay-dark-medium),
+    1px 1px 0px var(--border-subtle),
+    0 0 12px var(--shadow-glow);
 
   /* Enhanced shadow on hover */
   box-shadow:
-    0 6px 12px rgba(0, 0, 0, 0.3),
-    inset 0 1px 3px rgba(255, 255, 255, 0.5);
+    0 6px 12px var(--cutout-shadow-dark),
+    inset 0 1px 3px var(--border-strong);
 }
 
 .emoji-cutout.emoji-button:hover {

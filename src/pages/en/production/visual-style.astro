@@ -56,16 +56,24 @@ if (basePath.endsWith('/')) {
       </h2>
       <div class="color-grid">
         <div class="color-card">
-          <div class="color-swatch" style="background-color: #FFC107"></div>
+          <div
+            class="color-swatch"
+            style="background-color: var(--madfam-yellow)"
+          >
+          </div>
           <h3>{t('production.visual.colors.solar.name')}</h3>
-          <p class="color-code">#FFC107</p>
+          <p class="color-code">var(--madfam-yellow)</p>
           <p class="color-usage">{t('production.visual.colors.solar.usage')}</p>
         </div>
 
         <div class="color-card">
-          <div class="color-swatch" style="background-color: #4CAF50"></div>
+          <div
+            class="color-swatch"
+            style="background-color: var(--madfam-green)"
+          >
+          </div>
           <h3>{t('production.visual.colors.green.name')}</h3>
-          <p class="color-code">#4CAF50</p>
+          <p class="color-code">var(--madfam-green)</p>
           <p class="color-usage">{t('production.visual.colors.green.usage')}</p>
         </div>
 
@@ -79,9 +87,13 @@ if (basePath.endsWith('/')) {
         </div>
 
         <div class="color-card">
-          <div class="color-swatch" style="background-color: #2196F3"></div>
+          <div
+            class="color-swatch"
+            style="background-color: var(--madfam-blue)"
+          >
+          </div>
           <h3>{t('production.visual.colors.blue.name')}</h3>
-          <p class="color-code">#2196F3</p>
+          <p class="color-code">var(--madfam-blue)</p>
           <p class="color-usage">{t('production.visual.colors.blue.usage')}</p>
         </div>
 
@@ -242,9 +254,11 @@ if (basePath.endsWith('/')) {
             <li>{t('production.visual.references.urban.item4')}</li>
           </ul>
           <div class="mood-colors">
-            <span class="mood-color" style="background: #4CAF50"></span>
+            <span class="mood-color" style="background: var(--madfam-green)"
+            ></span>
             <span class="mood-color" style="background: #81C784"></span>
-            <span class="mood-color" style="background: #FFC107"></span>
+            <span class="mood-color" style="background: var(--madfam-yellow)"
+            ></span>
           </div>
         </div>
 
@@ -260,7 +274,8 @@ if (basePath.endsWith('/')) {
             <li>{t('production.visual.references.tech.item4')}</li>
           </ul>
           <div class="mood-colors">
-            <span class="mood-color" style="background: #2196F3"></span>
+            <span class="mood-color" style="background: var(--madfam-blue)"
+            ></span>
             <span class="mood-color" style="background: #9C27B0"></span>
             <span class="mood-color" style="background: #E1F5FE"></span>
           </div>
@@ -280,7 +295,8 @@ if (basePath.endsWith('/')) {
           <div class="mood-colors">
             <span class="mood-color" style="background: #8D6E63"></span>
             <span class="mood-color" style="background: #FF5722"></span>
-            <span class="mood-color" style="background: #FFC107"></span>
+            <span class="mood-color" style="background: var(--madfam-yellow)"
+            ></span>
           </div>
         </div>
       </div>
@@ -296,10 +312,10 @@ if (basePath.endsWith('/')) {
       </h2>
       <div class="tokens-code card">
         <pre><code>/* {t('production.visual.tokens.main_colors')} */
---amarillo-solar: #FFC107;
---verde-sostenible: #4CAF50;
+--amarillo-solar: var(--madfam-yellow);
+--verde-sostenible: var(--madfam-green);
 --purpura-creativo: #9C27B0;
---azul-tecnologico: #2196F3;
+--azul-tecnologico: var(--madfam-blue);
 --naranja-comunidad: #FF5722;
 
 /* {t('production.visual.tokens.spacing')} */
@@ -420,7 +436,7 @@ if (basePath.endsWith('/')) {
     height: 80px;
     margin: 0 auto var(--espacio-md);
     border: 3px solid var(--bg-primary, white);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--torn-edge-color);
 
     /* DIY Magazine Cutout aesthetic */
     clip-path: polygon(
@@ -676,7 +692,7 @@ if (basePath.endsWith('/')) {
     width: 30px;
     height: 30px;
     border: 2px solid white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--torn-edge-color);
 
     /* DIY Magazine Cutout aesthetic */
     clip-path: polygon(

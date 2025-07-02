@@ -9,8 +9,8 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow:
-      0 4px 20px rgba(0, 0, 0, 0.08),
-      0 2px 8px rgba(0, 0, 0, 0.04);
+      0 4px 20px var(--border-subtle),
+      0 2px 8px var(--hover-overlay);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -268,7 +268,7 @@
     text-decoration: none;
     box-shadow:
       3px 3px 0 var(--border-default),
-      6px 6px 12px rgba(0, 0, 0, 0.05);
+      6px 6px 12px var(--hover-overlay);
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -289,7 +289,7 @@
     background: var(--bg-elevated);
     box-shadow:
       4px 4px 0 var(--madfam-yellow),
-      8px 8px 16px rgba(0, 0, 0, 0.1);
+      8px 8px 16px var(--torn-edge-color);
   }
 
   .nav-menu a.active {
@@ -298,7 +298,7 @@
     border-color: var(--madfam-green);
     box-shadow:
       3px 3px 0 var(--madfam-yellow),
-      6px 6px 12px rgba(0, 0, 0, 0.1);
+      6px 6px 12px var(--torn-edge-color);
   }
 
   /* Enhanced dropdown for mobile */
@@ -327,7 +327,7 @@
     transform-origin: top;
     transition: all 0.3s ease;
     margin-top: var(--space-sm);
-    background: rgba(0, 0, 0, 0.05);
+    background: var(--hover-overlay);
     border-radius: 8px;
     overflow: hidden;
     max-height: 0;
@@ -347,7 +347,7 @@
     box-shadow: none;
     transform: none;
     padding: var(--space-sm) var(--space-lg);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--torn-edge-color);
   }
 
   .nav-dropdown-menu a:last-child {
@@ -447,7 +447,7 @@
     background: var(--bg-elevated);
     box-shadow:
       3px 3px 0 var(--madfam-purple),
-      6px 6px 12px rgba(0, 0, 0, 0.1);
+      6px 6px 12px var(--torn-edge-color);
   }
 
   .language-options a.active {
@@ -456,7 +456,7 @@
     border-color: var(--madfam-purple);
     box-shadow:
       2px 2px 0 var(--madfam-yellow),
-      4px 4px 8px rgba(0, 0, 0, 0.1);
+      4px 4px 8px var(--torn-edge-color);
   }
 
   /* Bottom decoration for mobile menu */

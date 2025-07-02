@@ -443,14 +443,14 @@ if (basePath.endsWith('/')) {
     color: var(--text-primary, #ffffff);
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-subtle, var(--torn-edge-color));
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
     transition: transform 0.3s ease;
   }
 
   .color-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 24px var(--shadow-overlay-dark-medium);
   }
 
   .color-swatch {
@@ -495,8 +495,8 @@ if (basePath.endsWith('/')) {
     color: var(--text-primary, #ffffff);
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-subtle, var(--torn-edge-color));
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
     text-align: center;
     transition:
       transform 0.3s ease,
@@ -505,7 +505,7 @@ if (basePath.endsWith('/')) {
 
   .gradient-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 24px var(--shadow-overlay-dark-medium);
   }
 
   .gradient-sample {
@@ -543,7 +543,12 @@ if (basePath.endsWith('/')) {
   }
 
   .gradient-ocean {
-    background: linear-gradient(135deg, #2196f3, #4caf50, #00ced1);
+    background: linear-gradient(
+      135deg,
+      var(--madfam-blue),
+      var(--madfam-green),
+      #00ced1
+    );
   }
 
   .gradient-card h3 {
@@ -749,8 +754,8 @@ if (basePath.endsWith('/')) {
     color: var(--text-primary, #ffffff);
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-subtle, var(--torn-edge-color));
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
     text-align: center;
     transition:
       transform 0.3s ease,
@@ -759,7 +764,7 @@ if (basePath.endsWith('/')) {
 
   .pattern-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 24px var(--shadow-overlay-dark-medium);
   }
 
   .pattern-sample {
@@ -809,12 +814,12 @@ if (basePath.endsWith('/')) {
   }
 
   .principle-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--torn-edge-color);
     backdrop-filter: blur(10px);
     padding: var(--espacio-xl);
     border-radius: 12px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-subtle);
     transition: all 0.3s ease;
   }
 

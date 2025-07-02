@@ -264,8 +264,8 @@ const defaultMessage =
     padding: var(--space-xxl);
     border-radius: 12px;
     box-shadow:
-      0 10px 25px rgba(0, 0, 0, 0.15),
-      0 5px 10px rgba(0, 0, 0, 0.1);
+      0 10px 25px var(--cutout-shadow),
+      0 5px 10px var(--torn-edge-color);
 
     /* Magazine cutout effect */
     position: relative;
@@ -290,7 +290,7 @@ const defaultMessage =
     background: var(--tape-color, rgba(255, 193, 7, 0.8));
     transform: rotate(-15deg);
     border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--torn-edge-color);
   }
 
   .error-content::after {
@@ -303,7 +303,7 @@ const defaultMessage =
     background: var(--tape-color, rgba(255, 193, 7, 0.8));
     transform: rotate(15deg);
     border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--torn-edge-color);
   }
 
   .error-icon {

@@ -1,89 +1,8 @@
 {
-  "timestamp": "2025-07-01T20:37:05.327Z",
-  "missingVariables": [
-    {
-      "theme": "dark",
-      "variable": "--color-eco-green"
-    },
-    {
-      "theme": "dark",
-      "variable": "--color-solar-yellow"
-    },
-    {
-      "theme": "dark",
-      "variable": "--color-comedy-purple"
-    },
-    {
-      "theme": "dark",
-      "variable": "--color-tech-blue"
-    },
-    {
-      "theme": "dark",
-      "variable": "--color-community-orange"
-    },
-    {
-      "theme": "dark",
-      "variable": "--paper-texture-opacity"
-    },
-    {
-      "theme": "dark",
-      "variable": "--torn-edge-color"
-    },
-    {
-      "theme": "dark",
-      "variable": "--nav-text"
-    },
-    {
-      "theme": "dark",
-      "variable": "--button-primary-bg"
-    },
-    {
-      "theme": "dark",
-      "variable": "--button-primary-text"
-    }
-  ],
+  "timestamp": "2025-07-02T17:44:16.115Z",
+  "missingVariables": [],
   "contrastIssues": [],
   "hardcodedColors": [
-    {
-      "file": "utils/theme-manager.ts",
-      "color": "rgba(0, 0, 0, 0.12)",
-      "line": 105
-    },
-    {
-      "file": "utils/theme-manager.ts",
-      "color": "rgba(0, 0, 0, 0.24)",
-      "line": 105
-    },
-    {
-      "file": "utils/theme-manager.ts",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 107
-    },
-    {
-      "file": "utils/theme-manager.ts",
-      "color": "rgba(0, 0, 0, 0.16)",
-      "line": 107
-    },
-    {
-      "file": "utils/theme-manager.ts",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 109
-    },
-    {
-      "file": "utils/theme-manager.ts",
-      "color": "rgba(0, 0, 0, 0.20)",
-      "line": 109
-    },
-    {
-      "file": "utils/theme-manager.ts",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 156
-    },
-    {
-      "file": "utils/theme-manager.ts",
-      "color": "rgba(0, 0, 0, 0.7)",
-      "line": 156
-    },
     {
       "file": "utils/magazine-placeholder-cache.ts",
       "color": "#F4E5D3",
@@ -103,61 +22,6 @@
       "file": "utils/magazine-placeholder-cache.ts",
       "color": "#666",
       "line": 276
-    },
-    {
-      "file": "styles/unified-dark-theme.css",
-      "color": "#ffd54f",
-      "line": 281
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.8)",
-      "line": 97
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.8)",
-      "line": 98
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 107
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 108
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.08)",
-      "line": 128
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.08)",
-      "line": 129
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 134
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 135
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.06)",
-      "line": 140
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.06)",
-      "line": 141
     },
     {
       "file": "styles/newspaper-background.css",
@@ -181,38 +45,13 @@
     },
     {
       "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.02)",
-      "line": 183
-    },
-    {
-      "file": "styles/newspaper-background.css",
       "color": "rgba(0, 0, 0, 0.015)",
       "line": 188
     },
     {
       "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 240
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.08)",
-      "line": 243
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.12)",
-      "line": 244
-    },
-    {
-      "file": "styles/newspaper-background.css",
       "color": "rgba(0, 0, 0, 0.09)",
       "line": 245
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 248
     },
     {
       "file": "styles/newspaper-background.css",
@@ -246,23 +85,8 @@
     },
     {
       "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.02)",
-      "line": 317
-    },
-    {
-      "file": "styles/newspaper-background.css",
       "color": "#fafaf8",
       "line": 354
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.03)",
-      "line": 380
-    },
-    {
-      "file": "styles/newspaper-background.css",
-      "color": "rgba(0, 0, 0, 0.03)",
-      "line": 381
     },
     {
       "file": "styles/newspaper-background.css",
@@ -276,73 +100,28 @@
     },
     {
       "file": "styles/mobile-nav-enhanced.css",
-      "color": "rgba(0, 0, 0, 0.08)",
-      "line": 11
-    },
-    {
-      "file": "styles/mobile-nav-enhanced.css",
-      "color": "rgba(0, 0, 0, 0.04)",
-      "line": 12
-    },
-    {
-      "file": "styles/mobile-nav-enhanced.css",
       "color": "rgba(0, 0, 0, 0.2)",
-      "line": 47
+      "line": 68
     },
     {
       "file": "styles/mobile-nav-enhanced.css",
       "color": "rgba(var(--madfam-yellow-rgb, 255, 193, 7)",
-      "line": 166
+      "line": 224
     },
     {
       "file": "styles/mobile-nav-enhanced.css",
       "color": "rgba(var(--madfam-yellow-rgb, 255, 193, 7)",
-      "line": 167
+      "line": 225
     },
     {
       "file": "styles/mobile-nav-enhanced.css",
       "color": "rgba(var(--madfam-green-rgb, 76, 175, 80)",
-      "line": 173
+      "line": 231
     },
     {
       "file": "styles/mobile-nav-enhanced.css",
       "color": "rgba(var(--madfam-green-rgb, 76, 175, 80)",
-      "line": 174
-    },
-    {
-      "file": "styles/mobile-nav-enhanced.css",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 210
-    },
-    {
-      "file": "styles/mobile-nav-enhanced.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 230
-    },
-    {
-      "file": "styles/mobile-nav-enhanced.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 239
-    },
-    {
-      "file": "styles/mobile-nav-enhanced.css",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 268
-    },
-    {
-      "file": "styles/mobile-nav-enhanced.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 288
-    },
-    {
-      "file": "styles/mobile-nav-enhanced.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 388
-    },
-    {
-      "file": "styles/mobile-nav-enhanced.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 397
+      "line": 232
     },
     {
       "file": "styles/magazine-cutout-utilities.css",
@@ -375,26 +154,6 @@
       "line": 34
     },
     {
-      "file": "styles/magazine-cutout-utilities.css",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 44
-    },
-    {
-      "file": "styles/magazine-cutout-utilities.css",
-      "color": "rgba(255, 193, 7, 0.7)",
-      "line": 45
-    },
-    {
-      "file": "styles/magazine-cutout-utilities.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 55
-    },
-    {
-      "file": "styles/magazine-cutout-utilities.css",
-      "color": "rgba(255, 213, 79, 0.8)",
-      "line": 56
-    },
-    {
       "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(255, 255, 255, 0.03)",
       "line": 10
@@ -403,16 +162,6 @@
       "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(255, 255, 255, 0.03)",
       "line": 11
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.02)",
-      "line": 17
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.02)",
-      "line": 18
     },
     {
       "file": "styles/magazine-cutout-cards.css",
@@ -426,26 +175,6 @@
     },
     {
       "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 59
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 60
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 61
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 73
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(255, 215, 0, 0.1)",
       "line": 300
     },
@@ -453,11 +182,6 @@
       "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(255, 215, 0, 0.2)",
       "line": 301
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 303
     },
     {
       "file": "styles/magazine-cutout-cards.css",
@@ -481,11 +205,6 @@
     },
     {
       "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 312
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(255, 111, 53, 0.1)",
       "line": 313
     },
@@ -503,11 +222,6 @@
       "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(76, 175, 80, 0.2)",
       "line": 319
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 321
     },
     {
       "file": "styles/magazine-cutout-cards.css",
@@ -531,11 +245,6 @@
     },
     {
       "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 330
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(102, 51, 153, 0.1)",
       "line": 331
     },
@@ -556,11 +265,6 @@
     },
     {
       "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 339
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(33, 150, 243, 0.1)",
       "line": 340
     },
@@ -568,11 +272,6 @@
       "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(33, 150, 243, 0.05)",
       "line": 341
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 353
     },
     {
       "file": "styles/magazine-cutout-cards.css",
@@ -591,11 +290,6 @@
     },
     {
       "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 361
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(255, 215, 0, 0.2)",
       "line": 362
     },
@@ -608,11 +302,6 @@
       "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(255, 215, 0, 0.4)",
       "line": 364
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 369
     },
     {
       "file": "styles/magazine-cutout-cards.css",
@@ -631,11 +320,6 @@
     },
     {
       "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 377
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(76, 175, 80, 0.2)",
       "line": 378
     },
@@ -648,11 +332,6 @@
       "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(76, 175, 80, 0.4)",
       "line": 380
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 385
     },
     {
       "file": "styles/magazine-cutout-cards.css",
@@ -671,11 +350,6 @@
     },
     {
       "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 393
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
       "color": "rgba(33, 150, 243, 0.2)",
       "line": 394
     },
@@ -690,179 +364,114 @@
       "line": 396
     },
     {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 403
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 404
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 475
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 486
-    },
-    {
-      "file": "styles/magazine-cutout-cards.css",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 545
+      "file": "styles/madfam-tokens.css",
+      "color": "rgba(var(--madfam-yellow-rgb)",
+      "line": 445
     },
     {
       "file": "styles/madfam-tokens.css",
       "color": "rgba(var(--madfam-yellow-rgb)",
-      "line": 381
-    },
-    {
-      "file": "styles/madfam-tokens.css",
-      "color": "rgba(var(--madfam-yellow-rgb)",
-      "line": 382
-    },
-    {
-      "file": "styles/global.css",
-      "color": "#388e3c",
-      "line": 245
-    },
-    {
-      "file": "styles/global.css",
-      "color": "#1976d2",
-      "line": 256
+      "line": 446
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 291
+      "line": 288
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 292
-    },
-    {
-      "file": "styles/global.css",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 299
-    },
-    {
-      "file": "styles/global.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 300
+      "line": 289
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 193, 7, 0.1)",
-      "line": 314
+      "line": 311
     },
     {
       "file": "styles/global.css",
       "color": "rgba(0, 0, 0, 0.2)",
-      "line": 381
+      "line": 378
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 215, 0, 0.4)",
-      "line": 624
+      "line": 635
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 215, 0, 0.2)",
-      "line": 625
+      "line": 636
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 215, 0, 0.6)",
-      "line": 629
+      "line": 640
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 215, 0, 0.3)",
-      "line": 630
-    },
-    {
-      "file": "styles/global.css",
-      "color": "rgba(255, 193, 7, 0.3)",
-      "line": 671
+      "line": 641
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 215, 0, 0.1)",
-      "line": 706
+      "line": 717
     },
     {
       "file": "styles/global.css",
       "color": "rgba(0, 255, 127, 0.1)",
-      "line": 707
+      "line": 718
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 215, 0, 0.1)",
-      "line": 723
+      "line": 734
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 215, 0, 0.1)",
-      "line": 736
+      "line": 747
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 215, 0, 0.3)",
-      "line": 758
+      "line": 769
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 215, 0, 0.2)",
-      "line": 775
+      "line": 786
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 193, 7, 0.6)",
-      "line": 807
+      "line": 818
     },
     {
       "file": "styles/global.css",
       "color": "rgba(255, 193, 7, 0.2)",
-      "line": 825
-    },
-    {
-      "file": "styles/global.css",
-      "color": "#d32f2f",
-      "line": 902
+      "line": 836
     },
     {
       "file": "styles/global.css",
       "color": "rgba(211, 47, 47, 0.2)",
-      "line": 903
-    },
-    {
-      "file": "styles/global.css",
-      "color": "rgba(76, 175, 80, 0.2)",
-      "line": 908
-    },
-    {
-      "file": "styles/global.css",
-      "color": "#d32f2f",
-      "line": 913
-    },
-    {
-      "file": "styles/global.css",
-      "color": "rgba(211, 47, 47, 0.1)",
       "line": 914
     },
     {
       "file": "styles/global.css",
-      "color": "#d32f2f",
-      "line": 915
+      "color": "rgba(76, 175, 80, 0.2)",
+      "line": 919
+    },
+    {
+      "file": "styles/global.css",
+      "color": "rgba(211, 47, 47, 0.1)",
+      "line": 925
     },
     {
       "file": "styles/global.css",
       "color": "rgba(76, 175, 80, 0.1)",
-      "line": 924
+      "line": 935
     },
     {
       "file": "styles/emoji-magazine-cutout.css",
@@ -876,43 +485,8 @@
     },
     {
       "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.03)",
-      "line": 21
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.03)",
-      "line": 22
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 53
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 54
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 55
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
       "color": "rgba(0, 0, 0, 0.35)",
       "line": 273
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(255, 255, 255, 0.08)",
-      "line": 274
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.12)",
-      "line": 275
     },
     {
       "file": "styles/emoji-magazine-cutout.css",
@@ -926,11 +500,6 @@
     },
     {
       "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.08)",
-      "line": 282
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
       "color": "rgba(0, 0, 0, 0.32)",
       "line": 287
     },
@@ -941,11 +510,6 @@
     },
     {
       "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 289
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
       "color": "rgba(0, 0, 0, 0.25)",
       "line": 294
     },
@@ -953,21 +517,6 @@
       "file": "styles/emoji-magazine-cutout.css",
       "color": "rgba(255, 255, 255, 0.06)",
       "line": 295
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 296
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 301
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 302
     },
     {
       "file": "styles/emoji-magazine-cutout.css",
@@ -986,11 +535,6 @@
     },
     {
       "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(255, 255, 255, 0.3)",
-      "line": 340
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
       "color": "rgba(255, 255, 230, 0.4)",
       "line": 349
     },
@@ -1003,11 +547,6 @@
       "file": "styles/emoji-magazine-cutout.css",
       "color": "rgba(245, 245, 220, 0.3)",
       "line": 355
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 358
     },
     {
       "file": "styles/emoji-magazine-cutout.css",
@@ -1036,11 +575,6 @@
     },
     {
       "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(255, 255, 255, 0.3)",
-      "line": 371
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
       "color": "rgba(255, 255, 245, 0.7)",
       "line": 377
     },
@@ -1058,31 +592,6 @@
       "file": "styles/emoji-magazine-cutout.css",
       "color": "rgba(255, 255, 255, 0.4)",
       "line": 382
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 391
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 392
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(255, 193, 7, 0.3)",
-      "line": 393
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 397
-    },
-    {
-      "file": "styles/emoji-magazine-cutout.css",
-      "color": "rgba(255, 255, 255, 0.5)",
-      "line": 398
     },
     {
       "file": "styles/emoji-magazine-cutout.css",
@@ -1161,18 +670,8 @@
     },
     {
       "file": "styles/critical.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 205
-    },
-    {
-      "file": "styles/critical.css",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 271
-    },
-    {
-      "file": "styles/critical.css",
       "color": "rgba(0, 0, 0, 0.2)",
-      "line": 288
+      "line": 333
     },
     {
       "file": "styles/content-strategy.css",
@@ -1216,11 +715,6 @@
     },
     {
       "file": "styles/content-strategy.css",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 90
-    },
-    {
-      "file": "styles/content-strategy.css",
       "color": "rgba(0, 0, 0, 0.2)",
       "line": 91
     },
@@ -1256,21 +750,6 @@
     },
     {
       "file": "styles/content-strategy.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 180
-    },
-    {
-      "file": "styles/content-strategy.css",
-      "color": "rgba(255, 255, 255, 0.3)",
-      "line": 214
-    },
-    {
-      "file": "styles/content-strategy.css",
-      "color": "rgba(255, 193, 7, 0.4)",
-      "line": 244
-    },
-    {
-      "file": "styles/content-strategy.css",
       "color": "rgba(255, 193, 7, 0)",
       "line": 247
     },
@@ -1296,28 +775,8 @@
     },
     {
       "file": "styles/content-strategy.css",
-      "color": "#1c1c1f",
-      "line": 367
-    },
-    {
-      "file": "styles/content-strategy.css",
-      "color": "#1c1c1f",
-      "line": 367
-    },
-    {
-      "file": "styles/content-strategy.css",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 390
-    },
-    {
-      "file": "styles/content-strategy.css",
       "color": "#e5e5e5",
       "line": 481
-    },
-    {
-      "file": "services/MagazineCutoutPlaceholderService.ts",
-      "color": "#000000",
-      "line": 493
     },
     {
       "file": "services/MagazineCutoutPlaceholderService.ts",
@@ -1436,36 +895,6 @@
     },
     {
       "file": "pages/index.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 262
-    },
-    {
-      "file": "pages/index.astro",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 273
-    },
-    {
-      "file": "pages/index.astro",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 274
-    },
-    {
-      "file": "pages/index.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 314
-    },
-    {
-      "file": "pages/index.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 355
-    },
-    {
-      "file": "pages/index.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 432
-    },
-    {
-      "file": "pages/index.astro",
       "color": "rgba(255, 209, 0, 0.1)",
       "line": 440
     },
@@ -1473,11 +902,6 @@
       "file": "pages/index.astro",
       "color": "rgba(68, 170, 68, 0.1)",
       "line": 449
-    },
-    {
-      "file": "pages/index.astro",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 457
     },
     {
       "file": "lib/utils.ts",
@@ -1536,16 +960,6 @@
     },
     {
       "file": "lib/script-constants.ts",
-      "color": "#fff3cd",
-      "line": 48
-    },
-    {
-      "file": "lib/script-constants.ts",
-      "color": "#856404",
-      "line": 48
-    },
-    {
-      "file": "lib/script-constants.ts",
       "color": "#cce5ff",
       "line": 49
     },
@@ -1596,16 +1010,6 @@
     },
     {
       "file": "lib/script-constants.test.ts",
-      "color": "#fff3cd",
-      "line": 114
-    },
-    {
-      "file": "lib/script-constants.test.ts",
-      "color": "#856404",
-      "line": 114
-    },
-    {
-      "file": "lib/script-constants.test.ts",
       "color": "#cce5ff",
       "line": 115
     },
@@ -1633,31 +1037,6 @@
       "file": "lib/script-constants.test.ts",
       "color": "#0c5460",
       "line": 117
-    },
-    {
-      "file": "lib/constants.ts",
-      "color": "#FFC107",
-      "line": 172
-    },
-    {
-      "file": "lib/constants.ts",
-      "color": "#4CAF50",
-      "line": 173
-    },
-    {
-      "file": "lib/constants.ts",
-      "color": "#663399",
-      "line": 174
-    },
-    {
-      "file": "lib/constants.ts",
-      "color": "#2196F3",
-      "line": 175
-    },
-    {
-      "file": "lib/constants.ts",
-      "color": "#212121",
-      "line": 176
     },
     {
       "file": "lib/constants.ts",
@@ -1703,26 +1082,6 @@
       "file": "lib/constants.ts",
       "color": "#8B4513",
       "line": 206
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "color": "#FFC107",
-      "line": 55
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "color": "#FFC107",
-      "line": 64
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "color": "#FFC107",
-      "line": 84
-    },
-    {
-      "file": "layouts/BaseLayout.astro",
-      "color": "#FFC107",
-      "line": 93
     },
     {
       "file": "config/magazine-placeholders.config.ts",
@@ -1801,158 +1160,78 @@
     },
     {
       "file": "components/UnderConstructionModal.astro",
-      "color": "rgba(0, 0, 0, 0.8)",
-      "line": 177
-    },
-    {
-      "file": "components/UnderConstructionModal.astro",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 192
-    },
-    {
-      "file": "components/UnderConstructionModal.astro",
-      "color": "rgba(255, 193, 7, 0.3)",
-      "line": 193
+      "color": "rgba(255, 193, 7, 0.05)",
+      "line": 231
     },
     {
       "file": "components/UnderConstructionModal.astro",
       "color": "rgba(255, 193, 7, 0.05)",
-      "line": 213
-    },
-    {
-      "file": "components/UnderConstructionModal.astro",
-      "color": "rgba(255, 193, 7, 0.05)",
-      "line": 214
+      "line": 232
     },
     {
       "file": "components/UnderConstructionModal.astro",
       "color": "rgba(255, 193, 7, 0.1)",
-      "line": 237
+      "line": 255
     },
     {
       "file": "components/UnderConstructionModal.astro",
       "color": "rgba(255, 193, 7, 0.1)",
-      "line": 263
+      "line": 281
     },
     {
       "file": "components/UnderConstructionModal.astro",
       "color": "rgba(76, 175, 80, 0.1)",
-      "line": 341
+      "line": 359
     },
     {
       "file": "components/UnderConstructionModal.astro",
       "color": "rgba(76, 175, 80, 0.2)",
-      "line": 343
-    },
-    {
-      "file": "components/UnderConstructionModal.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 349
+      "line": 361
     },
     {
       "file": "components/ThemeSelector.astro",
       "color": "rgba(255, 255, 255, 0.03)",
-      "line": 176
+      "line": 180
     },
     {
       "file": "components/ThemeSelector.astro",
       "color": "rgba(255, 255, 255, 0.03)",
-      "line": 177
+      "line": 181
     },
     {
       "file": "components/ThemeSelector.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 184
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "rgba(255, 255, 255, 0.05)",
-      "line": 185
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "rgba(255, 255, 255, 0.03)",
       "line": 188
     },
     {
       "file": "components/ThemeSelector.astro",
-      "color": "rgba(255, 255, 255, 0.03)",
+      "color": "rgba(255, 255, 255, 0.05)",
       "line": 189
     },
     {
       "file": "components/ThemeSelector.astro",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 199
+      "color": "rgba(255, 255, 255, 0.03)",
+      "line": 192
     },
     {
       "file": "components/ThemeSelector.astro",
-      "color": "#4caf50",
-      "line": 200
+      "color": "rgba(255, 255, 255, 0.03)",
+      "line": 193
     },
     {
       "file": "components/ThemeSelector.astro",
       "color": "rgba(76, 175, 80, 0.3)",
-      "line": 201
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 301
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "rgba(255, 213, 79, 0.8)",
-      "line": 302
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 308
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "#66bb6a",
-      "line": 309
+      "line": 205
     },
     {
       "file": "components/ThemeSelector.astro",
       "color": "rgba(102, 187, 106, 0.3)",
-      "line": 310
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 317
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "rgba(255, 193, 7, 0.7)",
-      "line": 318
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 324
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "#4caf50",
-      "line": 325
+      "line": 367
     },
     {
       "file": "components/ThemeSelector.astro",
       "color": "rgba(76, 175, 80, 0.3)",
-      "line": 326
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 340
-    },
-    {
-      "file": "components/ThemeSelector.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 401
+      "line": 383
     },
     {
       "file": "components/QuoteBlock.astro",
@@ -1968,11 +1247,6 @@
       "file": "components/QuoteBlock.astro",
       "color": "rgba(255, 193, 7, 0.1)",
       "line": 128
-    },
-    {
-      "file": "components/QuoteBlock.astro",
-      "color": "rgba(255, 193, 7, 0.3)",
-      "line": 141
     },
     {
       "file": "components/QuoteBlock.astro",
@@ -1995,16 +1269,6 @@
       "line": 210
     },
     {
-      "file": "components/QuoteBlock.astro",
-      "color": "rgba(255, 193, 7, 0.3)",
-      "line": 213
-    },
-    {
-      "file": "components/PWAInstaller.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 56
-    },
-    {
       "file": "components/PWAInstaller.astro",
       "color": "rgba(0, 0, 0, 0.2)",
       "line": 93
@@ -2013,11 +1277,6 @@
       "file": "components/PWAInstaller.astro",
       "color": "rgba(0, 0, 0, 0.2)",
       "line": 267
-    },
-    {
-      "file": "components/OptimizedImage.astro",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 129
     },
     {
       "file": "components/OptimizedImage.astro",
@@ -2041,31 +1300,6 @@
     },
     {
       "file": "components/OptimizedImage.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 148
-    },
-    {
-      "file": "components/OptimizedImage.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 149
-    },
-    {
-      "file": "components/OptimizedImage.astro",
-      "color": "rgba(0, 0, 0, 0.12)",
-      "line": 154
-    },
-    {
-      "file": "components/OptimizedImage.astro",
-      "color": "rgba(255, 255, 255, 0.3)",
-      "line": 155
-    },
-    {
-      "file": "components/OptimizedImage.astro",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 156
-    },
-    {
-      "file": "components/OptimizedImage.astro",
       "color": "rgba(245, 222, 179, 0.85)",
       "line": 194
     },
@@ -2075,39 +1309,9 @@
       "line": 195
     },
     {
-      "file": "components/OptimizedImage.astro",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 201
-    },
-    {
-      "file": "components/OptimizedImage.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 210
-    },
-    {
-      "file": "components/OptimizedImage.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 211
-    },
-    {
-      "file": "components/OptimizedImage.astro",
-      "color": "rgba(0, 0, 0, 0.12)",
-      "line": 265
-    },
-    {
       "file": "components/MagazineCutoutImage.astro",
       "color": "#F4E5D3",
       "line": 122
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
-      "color": "#666",
-      "line": 123
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 226
     },
     {
       "file": "components/MagazineCutoutImage.astro",
@@ -2131,31 +1335,6 @@
     },
     {
       "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 245
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 246
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 251
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(255, 255, 255, 0.3)",
-      "line": 252
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 253
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
       "color": "rgba(245, 222, 179, 0.9)",
       "line": 341
     },
@@ -2171,28 +1350,8 @@
     },
     {
       "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 356
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 357
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
-      "color": "#666",
-      "line": 377
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
       "color": "rgba(255, 255, 255, 0.9)",
       "line": 378
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 383
     },
     {
       "file": "components/MagazineCutoutImage.astro",
@@ -2201,43 +1360,48 @@
     },
     {
       "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 409
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 484
-    },
-    {
-      "file": "components/MagazineCutoutImage.astro",
       "color": "rgba(255, 200, 200, 0.95)",
       "line": 601
     },
     {
-      "file": "components/LanguageSelector.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 132
+      "file": "components/LanguageToggle.astro",
+      "color": "rgba(255, 255, 255, 0.03)",
+      "line": 171
     },
     {
-      "file": "components/LanguageSelector.astro",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 269
+      "file": "components/LanguageToggle.astro",
+      "color": "rgba(255, 255, 255, 0.03)",
+      "line": 172
     },
     {
-      "file": "components/LanguageSelector.astro",
-      "color": "rgba(0, 0, 0, 0.04)",
-      "line": 277
+      "file": "components/LanguageToggle.astro",
+      "color": "rgba(255, 255, 255, 0.05)",
+      "line": 178
     },
     {
-      "file": "components/ErrorBoundary.astro",
-      "color": "rgba(0, 0, 0, 0.15)",
-      "line": 267
+      "file": "components/LanguageToggle.astro",
+      "color": "rgba(255, 255, 255, 0.05)",
+      "line": 179
     },
     {
-      "file": "components/ErrorBoundary.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 268
+      "file": "components/LanguageToggle.astro",
+      "color": "rgba(0, 0, 0, 0.2)",
+      "line": 203
+    },
+    {
+      "file": "components/LanguageToggle.astro",
+      "color": "rgba(102, 187, 106, 0.1)",
+      "line": 204
+    },
+    {
+      "file": "components/LanguageToggle.astro",
+      "color": "rgba(102, 187, 106, 0.2)",
+      "line": 397
+    },
+    {
+      "file": "components/LanguageToggle.astro",
+      "color": "rgba(0, 0, 0, 0.2)",
+      "line": 398
     },
     {
       "file": "components/ErrorBoundary.astro",
@@ -2250,159 +1414,144 @@
       "line": 280
     },
     {
-      "file": "components/ErrorBoundary.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 293
-    },
-    {
-      "file": "components/ErrorBoundary.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 306
-    },
-    {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(26, 26, 26, 0.9)",
-      "line": 181
-    },
-    {
-      "file": "components/AnimatedCharacterCard.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 322
+      "line": 195
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(0, 0, 0, 0.2)",
-      "line": 395
+      "line": 409
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(26, 26, 26, 0.9)",
-      "line": 412
+      "line": 426
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(0, 255, 127, 0.1)",
-      "line": 413
+      "line": 427
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(0, 255, 127, 0.3)",
-      "line": 425
+      "line": 439
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(0, 255, 127, 0.5)",
-      "line": 433
+      "line": 447
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(0, 255, 127, 0.1)",
-      "line": 443
+      "line": 457
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(26, 26, 26, 0.9)",
-      "line": 459
+      "line": 473
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(255, 215, 0, 0.1)",
-      "line": 460
+      "line": 474
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(255, 215, 0, 0.3)",
-      "line": 472
+      "line": 486
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(255, 215, 0, 0.5)",
-      "line": 480
+      "line": 494
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(255, 215, 0, 0.5)",
-      "line": 483
+      "line": 497
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(255, 215, 0, 0.5)",
-      "line": 488
+      "line": 502
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(255, 215, 0, 0.1)",
-      "line": 492
+      "line": 506
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(26, 26, 26, 0.9)",
-      "line": 508
+      "line": 522
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(139, 69, 19, 0.1)",
-      "line": 509
+      "line": 523
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(139, 69, 19, 0.3)",
-      "line": 521
+      "line": 535
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(139, 69, 19, 0.5)",
-      "line": 529
+      "line": 543
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(139, 69, 19, 0.1)",
-      "line": 539
+      "line": 553
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(26, 26, 26, 0.9)",
-      "line": 555
+      "line": 569
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(102, 51, 153, 0.1)",
-      "line": 556
+      "line": 570
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(102, 51, 153, 0.3)",
-      "line": 572
+      "line": 586
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(255, 215, 0, 0.1)",
-      "line": 573
+      "line": 587
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(102, 51, 153, 0.5)",
-      "line": 591
+      "line": 605
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(255, 215, 0, 0.3)",
-      "line": 592
+      "line": 606
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(102, 51, 153, 0.5)",
-      "line": 594
+      "line": 608
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(102, 51, 153, 0.1)",
-      "line": 611
+      "line": 625
     },
     {
       "file": "components/AnimatedCharacterCard.astro",
       "color": "rgba(255, 215, 0, 0.1)",
-      "line": 612
+      "line": 626
     },
     {
       "file": "pages/es/sitemap.astro",
@@ -2441,11 +1590,6 @@
     },
     {
       "file": "pages/es/sitemap.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 537
-    },
-    {
-      "file": "pages/es/sitemap.astro",
       "color": "rgba(255, 255, 255, 0.05)",
       "line": 547
     },
@@ -2456,63 +1600,23 @@
     },
     {
       "file": "pages/es/proyecto.astro",
-      "color": "#000000",
-      "line": 227
-    },
-    {
-      "file": "pages/es/proyecto.astro",
-      "color": "#ffffff",
-      "line": 231
-    },
-    {
-      "file": "pages/es/proyecto.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 243
-    },
-    {
-      "file": "pages/es/proyecto.astro",
       "color": "rgba(0, 0, 0, 0.2)",
-      "line": 254
-    },
-    {
-      "file": "pages/es/proyecto.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 440
+      "line": 285
     },
     {
       "file": "pages/es/proyecto.astro",
       "color": "rgba(255, 193, 7, 0.05)",
-      "line": 463
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 220
+      "line": 494
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "color": "rgba(0, 0, 0, 0.2)",
-      "line": 231
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 259
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 261
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "color": "rgba(255, 255, 255, 0.9)",
-      "line": 271
+      "line": 266
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "color": "rgba(255, 193, 7, 0.05)",
-      "line": 459
+      "line": 503
     },
     {
       "file": "pages/es/index.astro",
@@ -2521,63 +1625,8 @@
     },
     {
       "file": "pages/es/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 459
-    },
-    {
-      "file": "pages/es/index.astro",
       "color": "rgba(255, 255, 255, 0.8)",
       "line": 468
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 471
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 482
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 483
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 521
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 522
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 523
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 541
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(255, 255, 255, 0.3)",
-      "line": 542
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 548
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(255, 255, 255, 0.3)",
-      "line": 549
     },
     {
       "file": "pages/es/index.astro",
@@ -2586,73 +1635,33 @@
     },
     {
       "file": "pages/es/index.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 566
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 578
-    },
-    {
-      "file": "pages/es/index.astro",
       "color": "rgba(0, 0, 0, 0.2)",
-      "line": 605
-    },
-    {
-      "file": "pages/es/index.astro",
-      "color": "rgba(255, 209, 0, 0.1)",
       "line": 613
     },
     {
       "file": "pages/es/index.astro",
-      "color": "rgba(68, 170, 68, 0.1)",
-      "line": 622
+      "color": "rgba(255, 209, 0, 0.1)",
+      "line": 621
     },
     {
       "file": "pages/es/index.astro",
-      "color": "rgba(0, 0, 0, 0.25)",
+      "color": "rgba(68, 170, 68, 0.1)",
       "line": 630
     },
     {
       "file": "pages/es/index.astro",
+      "color": "rgba(0, 0, 0, 0.25)",
+      "line": 638
+    },
+    {
+      "file": "pages/es/index.astro",
       "color": "rgba(255, 215, 0, 0.05)",
-      "line": 775
-    },
-    {
-      "file": "pages/es/impacto.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 437
-    },
-    {
-      "file": "pages/es/impacto.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 445
-    },
-    {
-      "file": "pages/es/impacto.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 549
-    },
-    {
-      "file": "pages/es/impacto.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 558
-    },
-    {
-      "file": "pages/es/impacto.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 705
-    },
-    {
-      "file": "pages/es/impacto.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 713
+      "line": 783
     },
     {
       "file": "pages/es/impacto.astro",
       "color": "rgba(76, 175, 80, 0.05)",
-      "line": 732
+      "line": 764
     },
     {
       "file": "pages/es/comunidad.astro",
@@ -2662,72 +1671,37 @@
     {
       "file": "pages/es/comunidad.astro",
       "color": "#2c2c2c",
-      "line": 420
+      "line": 452
     },
     {
       "file": "pages/es/comunidad.astro",
       "color": "rgba(255, 255, 255, 0.8)",
-      "line": 421
+      "line": 453
     },
     {
       "file": "pages/es/comunidad.astro",
       "color": "#4a4a4a",
-      "line": 427
-    },
-    {
-      "file": "pages/es/comunidad.astro",
-      "color": "rgba(255, 255, 255, 0.6)",
-      "line": 429
-    },
-    {
-      "file": "pages/es/comunidad.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 462
+      "line": 459
     },
     {
       "file": "pages/es/comunidad.astro",
       "color": "rgba(255, 111, 53, 0.05)",
-      "line": 589
-    },
-    {
-      "file": "pages/es/comunidad.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 629
-    },
-    {
-      "file": "pages/es/comunidad.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 651
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 223
+      "line": 621
     },
     {
       "file": "pages/en/unified-project.astro",
       "color": "rgba(0, 0, 0, 0.2)",
-      "line": 234
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 262
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 264
+      "line": 231
     },
     {
       "file": "pages/en/unified-project.astro",
       "color": "rgba(255, 255, 255, 0.9)",
-      "line": 274
+      "line": 271
     },
     {
       "file": "pages/en/unified-project.astro",
       "color": "rgba(255, 193, 7, 0.05)",
-      "line": 462
+      "line": 459
     },
     {
       "file": "pages/en/sitemap.astro",
@@ -2766,11 +1740,6 @@
     },
     {
       "file": "pages/en/sitemap.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 541
-    },
-    {
-      "file": "pages/en/sitemap.astro",
       "color": "rgba(255, 255, 255, 0.05)",
       "line": 551
     },
@@ -2781,28 +1750,8 @@
     },
     {
       "file": "pages/en/project.astro",
-      "color": "#000000",
-      "line": 215
-    },
-    {
-      "file": "pages/en/project.astro",
-      "color": "#ffffff",
-      "line": 219
-    },
-    {
-      "file": "pages/en/project.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 231
-    },
-    {
-      "file": "pages/en/project.astro",
       "color": "rgba(0, 0, 0, 0.2)",
       "line": 242
-    },
-    {
-      "file": "pages/en/project.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 428
     },
     {
       "file": "pages/en/project.astro",
@@ -2816,63 +1765,8 @@
     },
     {
       "file": "pages/en/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 451
-    },
-    {
-      "file": "pages/en/index.astro",
       "color": "rgba(255, 255, 255, 0.8)",
       "line": 460
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 463
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 474
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(0, 0, 0, 0.05)",
-      "line": 475
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 513
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 514
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 515
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 533
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(255, 255, 255, 0.3)",
-      "line": 534
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(0, 0, 0, 0.5)",
-      "line": 540
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(255, 255, 255, 0.3)",
-      "line": 541
     },
     {
       "file": "pages/en/index.astro",
@@ -2881,123 +1775,58 @@
     },
     {
       "file": "pages/en/index.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 558
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 570
-    },
-    {
-      "file": "pages/en/index.astro",
       "color": "rgba(0, 0, 0, 0.2)",
-      "line": 597
-    },
-    {
-      "file": "pages/en/index.astro",
-      "color": "rgba(255, 209, 0, 0.1)",
       "line": 605
     },
     {
       "file": "pages/en/index.astro",
-      "color": "rgba(68, 170, 68, 0.1)",
-      "line": 614
+      "color": "rgba(255, 209, 0, 0.1)",
+      "line": 613
     },
     {
       "file": "pages/en/index.astro",
-      "color": "rgba(0, 0, 0, 0.25)",
+      "color": "rgba(68, 170, 68, 0.1)",
       "line": 622
     },
     {
       "file": "pages/en/index.astro",
+      "color": "rgba(0, 0, 0, 0.25)",
+      "line": 630
+    },
+    {
+      "file": "pages/en/index.astro",
       "color": "rgba(255, 215, 0, 0.05)",
-      "line": 767
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 441
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 449
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 553
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 562
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 709
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 717
+      "line": 775
     },
     {
       "file": "pages/en/impact.astro",
       "color": "rgba(76, 175, 80, 0.05)",
-      "line": 736
+      "line": 733
     },
     {
       "file": "pages/en/community.astro",
       "color": "rgba(255, 111, 53, 0.2)",
-      "line": 398
+      "line": 404
     },
     {
       "file": "pages/en/community.astro",
       "color": "#2c2c2c",
-      "line": 429
+      "line": 435
     },
     {
       "file": "pages/en/community.astro",
       "color": "rgba(255, 255, 255, 0.8)",
-      "line": 430
-    },
-    {
-      "file": "pages/en/community.astro",
-      "color": "#4a4a4a",
       "line": 436
     },
     {
       "file": "pages/en/community.astro",
-      "color": "rgba(255, 255, 255, 0.6)",
-      "line": 438
-    },
-    {
-      "file": "pages/en/community.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 471
+      "color": "#4a4a4a",
+      "line": 442
     },
     {
       "file": "pages/en/community.astro",
       "color": "rgba(255, 111, 53, 0.05)",
-      "line": 598
-    },
-    {
-      "file": "pages/en/community.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 638
-    },
-    {
-      "file": "pages/en/community.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 660
-    },
-    {
-      "file": "pages/es/recursos/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 257
+      "line": 604
     },
     {
       "file": "pages/es/produccion/specs.astro",
@@ -3021,26 +1850,6 @@
     },
     {
       "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "#FFC107",
-      "line": 49
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "#FFC107",
-      "line": 51
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "#4CAF50",
-      "line": 56
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "#4CAF50",
-      "line": 58
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
       "color": "#9C27B0",
       "line": 63
     },
@@ -3048,16 +1857,6 @@
       "file": "pages/es/produccion/estilo-visual.astro",
       "color": "#9C27B0",
       "line": 65
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "#2196F3",
-      "line": 70
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "#2196F3",
-      "line": 72
     },
     {
       "file": "pages/es/produccion/estilo-visual.astro",
@@ -3071,23 +1870,8 @@
     },
     {
       "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "#4CAF50",
-      "line": 201
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
       "color": "#81C784",
       "line": 202
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "#FFC107",
-      "line": 203
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "#2196F3",
-      "line": 219
     },
     {
       "file": "pages/es/produccion/estilo-visual.astro",
@@ -3111,16 +1895,6 @@
     },
     {
       "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "#FFC107",
-      "line": 239
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 379
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
       "color": "rgba(255, 255, 255, 0.05)",
       "line": 414
     },
@@ -3128,11 +1902,6 @@
       "file": "pages/es/produccion/estilo-visual.astro",
       "color": "rgba(255, 255, 255, 0.05)",
       "line": 415
-    },
-    {
-      "file": "pages/es/produccion/estilo-visual.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 635
     },
     {
       "file": "pages/es/produccion/audio.astro",
@@ -3145,19 +1914,14 @@
       "line": 1490
     },
     {
-      "file": "pages/es/mundo/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 187
+      "file": "pages/es/personajes/[slug].astro",
+      "color": "rgba(156, 39, 176, 0.1)",
+      "line": 549
     },
     {
-      "file": "pages/es/mundo/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 243
-    },
-    {
-      "file": "pages/es/mundo/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 340
+      "file": "pages/es/personajes/[slug].astro",
+      "color": "rgba(76, 175, 80, 0.05)",
+      "line": 571
     },
     {
       "file": "pages/es/mundo/azotea-verde-neo-cuernavaca.astro",
@@ -3183,21 +1947,6 @@
       "file": "pages/es/mundo/azotea-verde-neo-cuernavaca.astro",
       "color": "rgba(255, 193, 7, 0.1)",
       "line": 805
-    },
-    {
-      "file": "pages/es/personajes/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 182
-    },
-    {
-      "file": "pages/es/personajes/[slug].astro",
-      "color": "rgba(156, 39, 176, 0.1)",
-      "line": 546
-    },
-    {
-      "file": "pages/es/personajes/[slug].astro",
-      "color": "rgba(76, 175, 80, 0.05)",
-      "line": 568
     },
     {
       "file": "pages/es/guiones/index.astro",
@@ -3386,26 +2135,6 @@
     },
     {
       "file": "pages/es/guia-visual/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 447
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 453
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 499
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 508
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
       "color": "#ffa500",
       "line": 542
     },
@@ -3421,43 +2150,8 @@
     },
     {
       "file": "pages/es/guia-visual/index.astro",
-      "color": "#2196f3",
-      "line": 546
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
-      "color": "#4caf50",
-      "line": 546
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
-      "color": "#00ced1",
-      "line": 546
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
       "color": "rgba(255, 215, 0, 0.3)",
       "line": 679
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 753
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 762
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 812
-    },
-    {
-      "file": "pages/es/guia-visual/index.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 817
     },
     {
       "file": "pages/es/guia-visual/index.astro",
@@ -3473,16 +2167,6 @@
       "file": "pages/es/formatos/index.astro",
       "color": "rgba(255, 255, 255, 0.9)",
       "line": 253
-    },
-    {
-      "file": "pages/es/formatos/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 327
-    },
-    {
-      "file": "pages/es/formatos/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 337
     },
     {
       "file": "pages/es/formatos/index.astro",
@@ -3521,23 +2205,8 @@
     },
     {
       "file": "pages/es/formatos/index.astro",
-      "color": "#000000",
-      "line": 405
-    },
-    {
-      "file": "pages/es/formatos/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 598
-    },
-    {
-      "file": "pages/es/formatos/index.astro",
       "color": "rgba(0, 0, 0, 0.2)",
       "line": 643
-    },
-    {
-      "file": "pages/es/formatos/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 648
     },
     {
       "file": "pages/es/filosofia/index.astro",
@@ -3551,28 +2220,8 @@
     },
     {
       "file": "pages/es/filosofia/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 458
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
       "color": "rgba(255, 215, 0, 0.1)",
       "line": 471
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 484
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 508
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 515
     },
     {
       "file": "pages/es/filosofia/index.astro",
@@ -3585,59 +2234,9 @@
       "line": 528
     },
     {
-      "file": "pages/es/filosofia/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 568
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 574
-    },
-    {
-      "file": "pages/es/filosofia/index.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 592
-    },
-    {
       "file": "pages/es/contenido/sketches.astro",
       "color": "rgba(255, 193, 7, 0.2)",
       "line": 233
-    },
-    {
-      "file": "pages/es/contenido/sketches.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 240
-    },
-    {
-      "file": "pages/es/contenido/sketches.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 315
-    },
-    {
-      "file": "pages/es/contenido/sketches.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 342
-    },
-    {
-      "file": "pages/es/contenido/sketches.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 348
-    },
-    {
-      "file": "pages/es/contenido/sketches.astro",
-      "color": "rgba(0, 0, 0, 0.8)",
-      "line": 362
-    },
-    {
-      "file": "pages/es/contenido/sketches.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 372
-    },
-    {
-      "file": "pages/es/contenido/sketches.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 411
     },
     {
       "file": "pages/es/contenido/sketches.astro",
@@ -3676,98 +2275,18 @@
     },
     {
       "file": "pages/es/contenido/podcast.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 192
-    },
-    {
-      "file": "pages/es/contenido/podcast.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 218
-    },
-    {
-      "file": "pages/es/contenido/podcast.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 223
-    },
-    {
-      "file": "pages/es/contenido/podcast.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 266
-    },
-    {
-      "file": "pages/es/contenido/podcast.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 274
-    },
-    {
-      "file": "pages/es/contenido/podcast.astro",
       "color": "rgba(102, 51, 153, 0.05)",
       "line": 325
     },
     {
-      "file": "pages/es/contenido/podcast.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 338
-    },
-    {
       "file": "pages/es/contenido/madlab.astro",
       "color": "rgba(76, 175, 80, 0.2)",
-      "line": 262
-    },
-    {
-      "file": "pages/es/contenido/madlab.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 280
-    },
-    {
-      "file": "pages/es/contenido/madlab.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 299
-    },
-    {
-      "file": "pages/es/contenido/madlab.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 450
-    },
-    {
-      "file": "pages/es/contenido/madlab.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 457
+      "line": 276
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "color": "rgba(76, 175, 80, 0.05)",
-      "line": 629
-    },
-    {
-      "file": "pages/es/contenido/madlab.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 648
-    },
-    {
-      "file": "pages/es/contenido/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 244
-    },
-    {
-      "file": "pages/es/contenido/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 254
-    },
-    {
-      "file": "pages/en/world/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 184
-    },
-    {
-      "file": "pages/en/world/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 240
-    },
-    {
-      "file": "pages/en/world/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 337
+      "line": 643
     },
     {
       "file": "pages/en/world/green-roof-neo-cuernavaca.astro",
@@ -3906,26 +2425,6 @@
     },
     {
       "file": "pages/en/visual-guide/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 450
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 456
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 502
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 511
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
       "color": "#ffa500",
       "line": 545
     },
@@ -3941,43 +2440,8 @@
     },
     {
       "file": "pages/en/visual-guide/index.astro",
-      "color": "#2196f3",
-      "line": 549
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
-      "color": "#4caf50",
-      "line": 549
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
-      "color": "#00ced1",
-      "line": 549
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
       "color": "rgba(255, 215, 0, 0.3)",
       "line": 682
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 756
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 765
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 815
-    },
-    {
-      "file": "pages/en/visual-guide/index.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 820
     },
     {
       "file": "pages/en/visual-guide/index.astro",
@@ -3988,11 +2452,6 @@
       "file": "pages/en/visual-guide/index.astro",
       "color": "rgba(255, 255, 255, 0.9)",
       "line": 842
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 260
     },
     {
       "file": "pages/en/scripts/index.astro",
@@ -4071,26 +2530,6 @@
     },
     {
       "file": "pages/en/production/visual-style.astro",
-      "color": "#FFC107",
-      "line": 59
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
-      "color": "#FFC107",
-      "line": 61
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
-      "color": "#4CAF50",
-      "line": 66
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
-      "color": "#4CAF50",
-      "line": 68
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
       "color": "#9C27B0",
       "line": 73
     },
@@ -4098,16 +2537,6 @@
       "file": "pages/en/production/visual-style.astro",
       "color": "#9C27B0",
       "line": 75
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
-      "color": "#2196F3",
-      "line": 82
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
-      "color": "#2196F3",
-      "line": 84
     },
     {
       "file": "pages/en/production/visual-style.astro",
@@ -4121,23 +2550,8 @@
     },
     {
       "file": "pages/en/production/visual-style.astro",
-      "color": "#4CAF50",
-      "line": 245
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
       "color": "#81C784",
       "line": 246
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
-      "color": "#FFC107",
-      "line": 247
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
-      "color": "#2196F3",
-      "line": 263
     },
     {
       "file": "pages/en/production/visual-style.astro",
@@ -4161,16 +2575,6 @@
     },
     {
       "file": "pages/en/production/visual-style.astro",
-      "color": "#FFC107",
-      "line": 283
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 423
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
       "color": "rgba(255, 255, 255, 0.05)",
       "line": 458
     },
@@ -4178,11 +2582,6 @@
       "file": "pages/en/production/visual-style.astro",
       "color": "rgba(255, 255, 255, 0.05)",
       "line": 459
-    },
-    {
-      "file": "pages/en/production/visual-style.astro",
-      "color": "rgba(0, 0, 0, 0.1)",
-      "line": 679
     },
     {
       "file": "pages/en/production/specs.astro",
@@ -4226,28 +2625,8 @@
     },
     {
       "file": "pages/en/philosophy/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 461
-    },
-    {
-      "file": "pages/en/philosophy/index.astro",
       "color": "rgba(255, 215, 0, 0.1)",
       "line": 474
-    },
-    {
-      "file": "pages/en/philosophy/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 487
-    },
-    {
-      "file": "pages/en/philosophy/index.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 511
-    },
-    {
-      "file": "pages/en/philosophy/index.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 518
     },
     {
       "file": "pages/en/philosophy/index.astro",
@@ -4260,144 +2639,9 @@
       "line": 531
     },
     {
-      "file": "pages/en/philosophy/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 571
-    },
-    {
-      "file": "pages/en/philosophy/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 577
-    },
-    {
-      "file": "pages/en/philosophy/index.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 595
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "rgba(255, 255, 255, 0.9)",
-      "line": 256
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 333
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 343
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "rgba(255, 215, 0, 0.2)",
-      "line": 357
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "rgba(0, 255, 127, 0.2)",
-      "line": 358
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "#ff0050",
-      "line": 386
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "#e4405f",
-      "line": 391
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "#ff0000",
-      "line": 396
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "#1ab7ea",
-      "line": 401
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "#1db954",
-      "line": 406
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "#000000",
-      "line": 411
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 604
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "rgba(0, 0, 0, 0.2)",
-      "line": 649
-    },
-    {
-      "file": "pages/en/formats/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 654
-    },
-    {
-      "file": "pages/en/characters/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 189
-    },
-    {
-      "file": "pages/en/characters/[slug].astro",
-      "color": "rgba(156, 39, 176, 0.1)",
-      "line": 555
-    },
-    {
-      "file": "pages/en/characters/[slug].astro",
-      "color": "rgba(76, 175, 80, 0.05)",
-      "line": 577
-    },
-    {
       "file": "pages/en/content/sketches.astro",
       "color": "rgba(255, 193, 7, 0.2)",
       "line": 243
-    },
-    {
-      "file": "pages/en/content/sketches.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 250
-    },
-    {
-      "file": "pages/en/content/sketches.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 325
-    },
-    {
-      "file": "pages/en/content/sketches.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 352
-    },
-    {
-      "file": "pages/en/content/sketches.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 358
-    },
-    {
-      "file": "pages/en/content/sketches.astro",
-      "color": "rgba(0, 0, 0, 0.8)",
-      "line": 372
-    },
-    {
-      "file": "pages/en/content/sketches.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 382
-    },
-    {
-      "file": "pages/en/content/sketches.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 421
     },
     {
       "file": "pages/en/content/sketches.astro",
@@ -4436,83 +2680,73 @@
     },
     {
       "file": "pages/en/content/podcast.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 196
-    },
-    {
-      "file": "pages/en/content/podcast.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 222
-    },
-    {
-      "file": "pages/en/content/podcast.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 227
-    },
-    {
-      "file": "pages/en/content/podcast.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 270
-    },
-    {
-      "file": "pages/en/content/podcast.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 278
-    },
-    {
-      "file": "pages/en/content/podcast.astro",
       "color": "rgba(102, 51, 153, 0.05)",
       "line": 329
     },
     {
-      "file": "pages/en/content/podcast.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 342
-    },
-    {
       "file": "pages/en/content/madlab.astro",
       "color": "rgba(76, 175, 80, 0.2)",
-      "line": 266
-    },
-    {
-      "file": "pages/en/content/madlab.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 284
-    },
-    {
-      "file": "pages/en/content/madlab.astro",
-      "color": "rgba(255, 255, 255, 0.2)",
-      "line": 303
-    },
-    {
-      "file": "pages/en/content/madlab.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 454
-    },
-    {
-      "file": "pages/en/content/madlab.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 461
+      "line": 280
     },
     {
       "file": "pages/en/content/madlab.astro",
       "color": "rgba(76, 175, 80, 0.05)",
-      "line": 633
+      "line": 647
     },
     {
-      "file": "pages/en/content/madlab.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 652
+      "file": "pages/en/characters/[slug].astro",
+      "color": "rgba(156, 39, 176, 0.1)",
+      "line": 555
     },
     {
-      "file": "pages/en/content/index.astro",
-      "color": "rgba(0, 0, 0, 0.3)",
-      "line": 248
+      "file": "pages/en/characters/[slug].astro",
+      "color": "rgba(76, 175, 80, 0.05)",
+      "line": 577
     },
     {
-      "file": "pages/en/content/index.astro",
-      "color": "rgba(0, 0, 0, 0.4)",
-      "line": 258
+      "file": "pages/en/formats/index.astro",
+      "color": "rgba(255, 255, 255, 0.9)",
+      "line": 256
+    },
+    {
+      "file": "pages/en/formats/index.astro",
+      "color": "rgba(255, 215, 0, 0.2)",
+      "line": 357
+    },
+    {
+      "file": "pages/en/formats/index.astro",
+      "color": "rgba(0, 255, 127, 0.2)",
+      "line": 358
+    },
+    {
+      "file": "pages/en/formats/index.astro",
+      "color": "#ff0050",
+      "line": 386
+    },
+    {
+      "file": "pages/en/formats/index.astro",
+      "color": "#e4405f",
+      "line": 391
+    },
+    {
+      "file": "pages/en/formats/index.astro",
+      "color": "#ff0000",
+      "line": 396
+    },
+    {
+      "file": "pages/en/formats/index.astro",
+      "color": "#1ab7ea",
+      "line": 401
+    },
+    {
+      "file": "pages/en/formats/index.astro",
+      "color": "#1db954",
+      "line": 406
+    },
+    {
+      "file": "pages/en/formats/index.astro",
+      "color": "rgba(0, 0, 0, 0.2)",
+      "line": 649
     },
     {
       "file": "pages/es/recursos/patrocinadores/index.astro",
@@ -4530,6 +2764,16 @@
       "line": 615
     },
     {
+      "file": "pages/es/recursos/actores/index.astro",
+      "color": "rgba(255, 255, 255, 0.05)",
+      "line": 367
+    },
+    {
+      "file": "pages/es/recursos/actores/index.astro",
+      "color": "rgba(255, 255, 255, 0.05)",
+      "line": 510
+    },
+    {
       "file": "pages/es/recursos/creadores/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
       "line": 285
@@ -4538,21 +2782,6 @@
       "file": "pages/es/recursos/creadores/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
       "line": 369
-    },
-    {
-      "file": "pages/es/recursos/actores/index.astro",
-      "color": "rgba(255, 255, 255, 0.05)",
-      "line": 367
-    },
-    {
-      "file": "pages/es/recursos/actores/index.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 458
-    },
-    {
-      "file": "pages/es/recursos/actores/index.astro",
-      "color": "rgba(255, 255, 255, 0.05)",
-      "line": 510
     },
     {
       "file": "pages/en/resources/sponsors/index.astro",
@@ -4586,78 +2815,53 @@
     },
     {
       "file": "pages/en/resources/actors/index.astro",
-      "color": "rgba(255, 255, 255, 0.1)",
-      "line": 462
-    },
-    {
-      "file": "pages/en/resources/actors/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
       "line": 514
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 718
+      "line": 733
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "color": "rgba(76, 175, 80, 0.1)",
-      "line": 769
+      "line": 784
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "color": "rgba(255, 193, 7, 0.1)",
-      "line": 774
+      "line": 789
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "color": "rgba(244, 67, 54, 0.1)",
-      "line": 779
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "color": "#f44336",
-      "line": 780
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "color": "#f44336",
-      "line": 797
+      "line": 794
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 809
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "color": "#f44336",
-      "line": 825
+      "line": 824
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "color": "rgba(244, 67, 54, 0.05)",
-      "line": 826
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "color": "#f44336",
-      "line": 830
+      "line": 841
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 850
+      "line": 865
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 880
+      "line": 895
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 914
+      "line": 929
     },
     {
       "file": "pages/es/recursos/patrocinadores/integracion/index.astro",
@@ -4687,62 +2891,57 @@
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 633
+      "line": 636
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 650
+      "line": 653
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 689
+      "line": 692
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 720
+      "line": 723
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 757
+      "line": 760
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 810
+      "line": 813
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 840
+      "line": 843
     },
     {
-      "file": "pages/es/recursos/creadores/worldbuilding/index.astro",
-      "color": "rgba(255, 255, 255, 0.05)",
-      "line": 525
-    },
-    {
-      "file": "pages/es/recursos/creadores/worldbuilding/index.astro",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 542
+      "line": 482
     },
     {
-      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 340
+      "line": 517
     },
     {
-      "file": "pages/es/recursos/creadores/personajes/index.astro",
-      "color": "rgba(255, 255, 255, 0.05)",
-      "line": 478
+      "file": "pages/es/recursos/actores/personajes/index.astro",
+      "color": "rgba(255, 255, 255, 0.02)",
+      "line": 543
     },
     {
-      "file": "pages/es/recursos/creadores/personajes/index.astro",
+      "file": "pages/es/recursos/actores/personajes/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 530
+      "line": 596
     },
     {
       "file": "pages/es/recursos/actores/movimiento/index.astro",
@@ -4773,26 +2972,6 @@
       "file": "pages/es/recursos/actores/movimiento/index.astro",
       "color": "rgba(255, 255, 255, 0.02)",
       "line": 775
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "color": "rgba(255, 255, 255, 0.02)",
-      "line": 482
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "color": "rgba(255, 255, 255, 0.05)",
-      "line": 517
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "color": "rgba(255, 255, 255, 0.02)",
-      "line": 543
-    },
-    {
-      "file": "pages/es/recursos/actores/personajes/index.astro",
-      "color": "rgba(255, 255, 255, 0.05)",
-      "line": 596
     },
     {
       "file": "pages/es/recursos/actores/dialogo/index.astro",
@@ -4830,69 +3009,74 @@
       "line": 758
     },
     {
+      "file": "pages/es/recursos/creadores/worldbuilding/index.astro",
+      "color": "rgba(255, 255, 255, 0.05)",
+      "line": 525
+    },
+    {
+      "file": "pages/es/recursos/creadores/worldbuilding/index.astro",
+      "color": "rgba(255, 255, 255, 0.02)",
+      "line": 542
+    },
+    {
+      "file": "pages/es/recursos/creadores/plantillas/index.astro",
+      "color": "rgba(255, 255, 255, 0.05)",
+      "line": 340
+    },
+    {
+      "file": "pages/es/recursos/creadores/personajes/index.astro",
+      "color": "rgba(255, 255, 255, 0.05)",
+      "line": 478
+    },
+    {
+      "file": "pages/es/recursos/creadores/personajes/index.astro",
+      "color": "rgba(255, 255, 255, 0.05)",
+      "line": 530
+    },
+    {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 722
+      "line": 737
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "color": "rgba(76, 175, 80, 0.1)",
-      "line": 773
+      "line": 788
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "color": "rgba(255, 193, 7, 0.1)",
-      "line": 778
+      "line": 793
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "color": "rgba(244, 67, 54, 0.1)",
-      "line": 783
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "color": "#f44336",
-      "line": 784
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "color": "#f44336",
-      "line": 801
+      "line": 798
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 813
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "color": "#f44336",
-      "line": 829
+      "line": 828
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "color": "rgba(244, 67, 54, 0.05)",
-      "line": 830
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "color": "#f44336",
-      "line": 834
+      "line": 845
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 854
+      "line": 869
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 884
+      "line": 899
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 918
+      "line": 933
     },
     {
       "file": "pages/en/resources/sponsors/integration/index.astro",
@@ -4922,37 +3106,37 @@
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 637
+      "line": 640
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 654
+      "line": 657
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 693
+      "line": 696
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 724
+      "line": 727
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "color": "rgba(255, 255, 255, 0.02)",
-      "line": 761
+      "line": 764
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 814
+      "line": 817
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "color": "rgba(255, 255, 255, 0.05)",
-      "line": 844
+      "line": 847
     },
     {
       "file": "pages/en/resources/creators/worldbuilding/index.astro",
@@ -5069,9 +3253,9 @@
   "aestheticIssues": [],
   "summary": {
     "themesChecked": 3,
-    "variableCoverage": 57,
+    "variableCoverage": 100,
     "contrastCompliance": 100,
     "performanceScore": 100,
-    "issuesFound": 1014
+    "issuesFound": 649
   }
 }

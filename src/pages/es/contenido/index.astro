@@ -247,7 +247,7 @@ if (basePath.endsWith('/')) {
     border-radius: 16px;
     padding: var(--espacio-xl);
     border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
     position: relative;
     overflow: hidden;
     transition:
@@ -257,7 +257,7 @@ if (basePath.endsWith('/')) {
 
   .fase-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 24px var(--shadow-overlay-dark-medium);
   }
 
   .fase-card::before {

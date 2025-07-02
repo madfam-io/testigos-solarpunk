@@ -45,7 +45,7 @@ export const platformColors: Record<string, string> = {
  * Colors follow WCAG accessibility guidelines for contrast
  */
 export const statusColors: Record<string, { bg: string; text: string }> = {
-  borrador: { bg: '#fff3cd', text: '#856404' },
+  borrador: { bg: 'var(--madfam-white)3cd', text: '#856404' },
   revision: { bg: '#cce5ff', text: '#004085' },
   aprobado: { bg: '#d4edda', text: '#155724' },
   filmado: { bg: '#d1ecf1', text: '#0c5460' },

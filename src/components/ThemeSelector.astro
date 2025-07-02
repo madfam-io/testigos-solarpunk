@@ -198,10 +198,10 @@ const t = useTranslations(lang);
 
   .theme-btn:hover {
     transform: rotate(2deg) scale(1.05);
-    border-color: var(--madfam-green, #4caf50);
+    border-color: var(--madfam-green, var(--madfam-green));
     box-shadow:
-      5px 5px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
-      0 0 0 3px var(--madfam-green, #4caf50) inset,
+      5px 5px 0 var(--cutout-shadow, var(--cutout-shadow)),
+      0 0 0 3px var(--madfam-green, var(--madfam-green)) inset,
       0 0 20px rgba(76, 175, 80, 0.3);
   }
 
@@ -355,15 +355,15 @@ const t = useTranslations(lang);
   [data-theme='dark'] .theme-btn {
     border-color: var(--madfam-yellow-dark, #ffc107);
     box-shadow:
-      3px 3px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.3)),
-      0 0 0 2px var(--tape-color, rgba(255, 213, 79, 0.8)) inset;
+      3px 3px 0 var(--cutout-shadow, var(--cutout-shadow-dark)),
+      0 0 0 2px var(--tape-color, var(--tape-color)) inset;
   }
 
   [data-theme='dark'] .theme-btn:hover {
-    border-color: var(--madfam-green-dark, #66bb6a);
+    border-color: var(--madfam-green-dark, var(--madfam-green-light));
     box-shadow:
-      5px 5px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.3)),
-      0 0 0 3px var(--madfam-green-dark, #66bb6a) inset,
+      5px 5px 0 var(--cutout-shadow, var(--cutout-shadow-dark)),
+      0 0 0 3px var(--madfam-green-dark, var(--madfam-green-light)) inset,
       0 0 20px rgba(102, 187, 106, 0.3);
   }
 
@@ -371,15 +371,15 @@ const t = useTranslations(lang);
   [data-theme='light'] .theme-btn {
     border-color: var(--madfam-yellow, #ffc107);
     box-shadow:
-      3px 3px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
-      0 0 0 2px var(--tape-color, rgba(255, 193, 7, 0.7)) inset;
+      3px 3px 0 var(--cutout-shadow, var(--cutout-shadow)),
+      0 0 0 2px var(--tape-color, var(--tape-color)) inset;
   }
 
   [data-theme='light'] .theme-btn:hover {
-    border-color: var(--madfam-green, #4caf50);
+    border-color: var(--madfam-green, var(--madfam-green));
     box-shadow:
-      5px 5px 0 var(--cutout-shadow, rgba(0, 0, 0, 0.15)),
-      0 0 0 3px var(--madfam-green, #4caf50) inset,
+      5px 5px 0 var(--cutout-shadow, var(--cutout-shadow)),
+      0 0 0 3px var(--madfam-green, var(--madfam-green)) inset,
       0 0 20px rgba(76, 175, 80, 0.3);
   }
 
@@ -394,7 +394,7 @@ const t = useTranslations(lang);
     background: var(--bg-elevated, var(--bg-primary, #212121));
     padding: 4px 8px;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px var(--cutout-shadow-dark);
     z-index: 10;
     border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
   }
@@ -455,7 +455,7 @@ const t = useTranslations(lang);
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px var(--cutout-shadow-dark);
   }
 
   .theme-btn:hover::after {

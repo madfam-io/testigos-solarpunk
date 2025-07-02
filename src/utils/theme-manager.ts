@@ -96,24 +96,24 @@ export const themes: Record<'light' | 'dark', ThemeColors> = {
     '--active-overlay': 'rgba(0, 0, 0, 0.08)',
 
     // Borders for light theme
-    '--border-subtle': 'rgba(0, 0, 0, 0.12)',
+    '--border-subtle': 'var(--border-default)',
     '--border-default': 'rgba(0, 0, 0, 0.23)',
     '--border-strong': 'rgba(0, 0, 0, 0.35)',
 
     // Shadows for light theme
     '--shadow-sm':
-      '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)',
+      '0 1px 3px var(--border-default), 0 1px 2px var(--shadow-overlay-dark)',
     '--shadow-md':
-      '0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.16)',
+      '0 4px 6px var(--torn-edge-color), 0 2px 4px var(--shadow-overlay-medium)',
     '--shadow-lg':
-      '0 10px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.20)',
+      '0 10px 25px var(--cutout-shadow), 0 5px 10px var(--shadow-overlay-strong)',
     '--shadow-glow': '0 0 20px rgba(255, 193, 7, 0.4)',
 
     // Magazine cutout aesthetic for light theme
-    '--cutout-shadow': 'rgba(0, 0, 0, 0.15)',
+    '--cutout-shadow': 'var(--cutout-shadow)',
     '--tape-color': 'rgba(255, 193, 7, 0.7)',
     '--paper-texture': 'rgba(76, 175, 80, 0.03)',
-    '--torn-edge-color': 'rgba(0, 0, 0, 0.1)',
+    '--torn-edge-color': 'var(--torn-edge-color)',
   },
   dark: {
     // Base backgrounds (from existing unified-dark-theme.css)
@@ -150,10 +150,11 @@ export const themes: Record<'light' | 'dark', ThemeColors> = {
     '--border-strong': 'rgba(255, 255, 255, 0.5)',
 
     // Shadows for dark theme
-    '--shadow-sm': '0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.8)',
+    '--shadow-sm':
+      '0 1px 3px var(--shadow-overlay-dark-mode), 0 1px 2px rgba(0, 0, 0, 0.8)',
     '--shadow-md': '0 4px 6px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.6)',
     '--shadow-lg':
-      '0 10px 25px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.7)',
+      '0 10px 25px var(--shadow-overlay-dark-mode), 0 5px 10px var(--shadow-overlay-dark-stronger)',
     '--shadow-glow': '0 0 20px rgba(255, 193, 7, 0.3)',
 
     // Magazine cutout aesthetic for dark theme

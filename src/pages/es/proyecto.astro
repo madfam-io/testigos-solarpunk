@@ -227,7 +227,7 @@ if (basePath.endsWith('/')) {
 
   /* Ensure readable text on gradient in both themes */
   :global([data-theme='light']) .hero-proyecto {
-    color: #000000;
+    color: var(--madfam-black);
   }
 
   /* Dark mode - both direct selection and auto theme with dark preference */
@@ -235,7 +235,7 @@ if (basePath.endsWith('/')) {
   :global([data-theme-selection='auto'][data-theme='dark']) .hero-proyecto {
     /* Use white text in dark mode for proper contrast */
     color: #ffffff !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 2px var(--cutout-shadow-dark);
   }
 
   /* Make sure all text elements inherit the color with high specificity */
@@ -271,7 +271,7 @@ if (basePath.endsWith('/')) {
     height: 200%;
     background: radial-gradient(
       circle at center,
-      rgba(255, 255, 255, 0.1) 0%,
+      var(--torn-edge-color) 0%,
       transparent 70%
     );
     opacity: 0.3;
@@ -365,17 +365,17 @@ if (basePath.endsWith('/')) {
 
   .status.active {
     background: var(--verde-sostenible);
-    color: var(--text-on-success, #000000);
+    color: var(--text-on-success, var(--madfam-black));
   }
 
   .status.upcoming {
     background: var(--azul-tecnologico);
-    color: var(--text-on-info, #000000);
+    color: var(--text-on-info, var(--madfam-black));
   }
 
   .status.development {
     background: var(--naranja-comunidad);
-    color: var(--text-on-warning, #000000);
+    color: var(--text-on-warning, var(--madfam-black));
   }
 
   .formato {
@@ -468,7 +468,7 @@ if (basePath.endsWith('/')) {
     transform: rotate(-5deg);
     box-shadow:
       inset 0 0 0 3px var(--amarillo-solar),
-      3px 3px 5px rgba(0, 0, 0, 0.3);
+      3px 3px 5px var(--cutout-shadow-dark);
     transition: transform 0.3s ease;
   }
 

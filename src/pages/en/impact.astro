@@ -435,7 +435,7 @@ if (basePath.endsWith('/')) {
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -443,7 +443,7 @@ if (basePath.endsWith('/')) {
 
   .phase-impact-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 24px var(--shadow-overlay-dark-medium);
   }
 
   .phase-impact-card[data-fase='1'] .phase-header {
@@ -547,7 +547,7 @@ if (basePath.endsWith('/')) {
     border-right: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
     border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
     border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
     margin: 0;
     transition:
       transform 0.3s ease,
@@ -556,7 +556,7 @@ if (basePath.endsWith('/')) {
 
   .story-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 24px var(--shadow-overlay-dark-medium);
   }
 
   .story-card p {
@@ -703,7 +703,7 @@ if (basePath.endsWith('/')) {
     padding: var(--espacio-xl);
     border-radius: 12px;
     border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -711,7 +711,7 @@ if (basePath.endsWith('/')) {
 
   .partner-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 24px var(--shadow-overlay-dark-medium);
   }
 
   .partner-logo {

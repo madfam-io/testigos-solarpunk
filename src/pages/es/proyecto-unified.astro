@@ -214,7 +214,9 @@ const breadcrumbItems = [
       var(--madfam-yellow-dark) 0%,
       var(--madfam-green-dark) 100%
     );
-    color: #000000; /* Always use black text on yellow-green gradient */
+    color: var(
+      --madfam-black
+    ); /* Always use black text on yellow-green gradient */
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -224,13 +226,13 @@ const breadcrumbItems = [
   :global([data-theme='light']) .hero-proyecto,
   :global([data-theme='dark']) .hero-proyecto,
   :global([data-theme-selection='auto']) .hero-proyecto {
-    color: #000000 !important;
+    color: var(--madfam-black) !important;
   }
 
   /* Dark mode specific styling */
   :global([data-theme='dark']) .hero-proyecto,
   :global([data-theme-selection='auto'][data-theme='dark']) .hero-proyecto {
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 2px var(--border-default);
   }
 
   /* Ensure all text elements use the correct color */
@@ -252,7 +254,7 @@ const breadcrumbItems = [
     height: 200%;
     background: radial-gradient(
       circle at center,
-      rgba(255, 255, 255, 0.1) 0%,
+      var(--torn-edge-color) 0%,
       transparent 70%
     );
     opacity: 0.3;
@@ -291,16 +293,16 @@ const breadcrumbItems = [
 
   .mision-card,
   .vision-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--torn-edge-color);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-subtle);
   }
 
   .mision-card h3,
   .vision-card h3,
   .mision-card p,
   .vision-card p {
-    color: #000000 !important; /* Black text for readability */
+    color: var(--madfam-black) !important; /* Black text for readability */
   }
 
   /* Add subtle shadow in dark mode for better text readability */
@@ -312,7 +314,7 @@ const breadcrumbItems = [
   :global([data-theme-selection='auto'][data-theme='dark']) .vision-card h3,
   :global([data-theme-selection='auto'][data-theme='dark']) .mision-card p,
   :global([data-theme-selection='auto'][data-theme='dark']) .vision-card p {
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 2px var(--border-subtle);
   }
 
   /* Sección de Fases */

@@ -126,7 +126,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     display: inline-block;
     transform: var(--magazine-transform);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(3px 3px 8px var(--cutout-shadow));
   }
 
   .optimized-image-wrapper:hover {
@@ -145,15 +145,15 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       45deg,
       transparent,
       transparent 1px,
-      rgba(255, 255, 255, 0.1) 1px,
-      rgba(255, 255, 255, 0.1) 2px
+      var(--torn-edge-color) 1px,
+      var(--torn-edge-color) 2px
     );
 
     /* Multiple shadows for depth */
     box-shadow:
-      0 3px 6px rgba(0, 0, 0, 0.12),
-      inset 0 1px 2px rgba(255, 255, 255, 0.3),
-      0 0 0 1px rgba(0, 0, 0, 0.05);
+      0 3px 6px var(--border-default),
+      inset 0 1px 2px var(--border-default),
+      0 0 0 1px var(--hover-overlay);
   }
 
   .optimized-image-inner img {
@@ -198,7 +198,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     width: 60px;
     height: 20px;
     transform: rotate(var(--tape-rotation));
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(1px 1px 2px var(--cutout-shadow));
     z-index: 2;
     pointer-events: none;
 
@@ -207,8 +207,8 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       90deg,
       transparent,
       transparent 2px,
-      rgba(255, 255, 255, 0.1) 2px,
-      rgba(255, 255, 255, 0.1) 3px
+      var(--torn-edge-color) 2px,
+      var(--torn-edge-color) 3px
     );
   }
 
@@ -262,7 +262,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
   /* Responsive optimizations */
   @media (max-width: 768px) {
     .optimized-image-wrapper {
-      filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.12));
+      filter: drop-shadow(2px 2px 6px var(--border-default));
     }
 
     .tape {

@@ -14,8 +14,8 @@
     linear-gradient(
       -45deg,
       transparent 48%,
-      rgba(0, 0, 0, 0.02) 48%,
-      rgba(0, 0, 0, 0.02) 52%,
+      var(--paper-texture-opacity) 48%,
+      var(--paper-texture-opacity) 52%,
       transparent 52%
     );
   background-size: 8px 8px;
@@ -56,9 +56,9 @@
 
   /* Layered shadows for depth */
   box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
-    inset 0 1px 2px rgba(255, 255, 255, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
+    0 4px 8px var(--cutout-shadow-dark),
+    inset 0 1px 2px var(--torn-edge-color),
+    0 0 16px var(--torn-edge-color);
 
   /* Slight rotation for organic feel */
   transform: rotate(-0.8deg);
@@ -70,7 +70,7 @@
   overflow: hidden;
 
   /* Border for definition */
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--torn-edge-color);
 }
 
 /* Random Cutout Variations for More Organic Feel */
@@ -300,7 +300,7 @@
   background-color: rgba(255, 215, 0, 0.1);
   border-color: rgba(255, 215, 0, 0.2);
   box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 4px 8px var(--cutout-shadow-dark),
     inset 0 1px 2px rgba(255, 215, 0, 0.1),
     0 0 16px rgba(255, 215, 0, 0.05);
 }
@@ -309,7 +309,7 @@
   background-color: rgba(255, 111, 53, 0.1);
   border-color: rgba(255, 111, 53, 0.2);
   box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 4px 8px var(--cutout-shadow-dark),
     inset 0 1px 2px rgba(255, 111, 53, 0.1),
     0 0 16px rgba(255, 111, 53, 0.05);
 }
@@ -318,7 +318,7 @@
   background-color: rgba(76, 175, 80, 0.1);
   border-color: rgba(76, 175, 80, 0.2);
   box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 4px 8px var(--cutout-shadow-dark),
     inset 0 1px 2px rgba(76, 175, 80, 0.1),
     0 0 16px rgba(76, 175, 80, 0.05);
 }
@@ -327,7 +327,7 @@
   background-color: rgba(102, 51, 153, 0.1);
   border-color: rgba(102, 51, 153, 0.2);
   box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 4px 8px var(--cutout-shadow-dark),
     inset 0 1px 2px rgba(102, 51, 153, 0.1),
     0 0 16px rgba(102, 51, 153, 0.05);
 }
@@ -336,7 +336,7 @@
   background-color: rgba(33, 150, 243, 0.1);
   border-color: rgba(33, 150, 243, 0.2);
   box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 4px 8px var(--cutout-shadow-dark),
     inset 0 1px 2px rgba(33, 150, 243, 0.1),
     0 0 16px rgba(33, 150, 243, 0.05);
 }
@@ -350,7 +350,7 @@
 .magazine-card.interactive:hover {
   transform: rotate(0deg) scale(1.02);
   box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 8px 16px var(--shadow-overlay-dark-medium),
     inset 0 2px 4px rgba(255, 255, 255, 0.15),
     0 0 24px rgba(255, 215, 0, 0.1);
   border-color: rgba(255, 215, 0, 0.3);
@@ -358,7 +358,7 @@
 
 .magazine-card.theme-solar:hover {
   box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 8px 16px var(--shadow-overlay-dark-medium),
     inset 0 2px 4px rgba(255, 215, 0, 0.2),
     0 0 24px rgba(255, 215, 0, 0.15);
   border-color: rgba(255, 215, 0, 0.4);
@@ -366,7 +366,7 @@
 
 .magazine-card.theme-community:hover {
   box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 8px 16px var(--shadow-overlay-dark-medium),
     inset 0 2px 4px rgba(255, 111, 53, 0.2),
     0 0 24px rgba(255, 111, 53, 0.15);
   border-color: rgba(255, 111, 53, 0.4);
@@ -374,7 +374,7 @@
 
 .magazine-card.theme-green:hover {
   box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 8px 16px var(--shadow-overlay-dark-medium),
     inset 0 2px 4px rgba(76, 175, 80, 0.2),
     0 0 24px rgba(76, 175, 80, 0.15);
   border-color: rgba(76, 175, 80, 0.4);
@@ -382,7 +382,7 @@
 
 .magazine-card.theme-purple:hover {
   box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 8px 16px var(--shadow-overlay-dark-medium),
     inset 0 2px 4px rgba(102, 51, 153, 0.2),
     0 0 24px rgba(102, 51, 153, 0.15);
   border-color: rgba(102, 51, 153, 0.4);
@@ -390,7 +390,7 @@
 
 .magazine-card.theme-tech:hover {
   box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 8px 16px var(--shadow-overlay-dark-medium),
     inset 0 2px 4px rgba(33, 150, 243, 0.2),
     0 0 24px rgba(33, 150, 243, 0.15);
   border-color: rgba(33, 150, 243, 0.4);
@@ -400,8 +400,8 @@
 .magazine-card.interactive:active {
   transform: rotate(-0.3deg) scale(0.98);
   box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.3),
-    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    0 2px 4px var(--cutout-shadow-dark),
+    inset 0 1px 2px var(--torn-edge-color);
 }
 
 /* Special Layered Composition for Stacked Cards */
@@ -472,7 +472,7 @@
 .magazine-card .card-header {
   margin-bottom: var(--espacio-lg);
   padding-bottom: var(--espacio-md);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--torn-edge-color);
 }
 
 .magazine-card .card-content {
@@ -483,7 +483,7 @@
 .magazine-card .card-footer {
   margin-top: auto;
   padding-top: var(--espacio-md);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--torn-edge-color);
 }
 
 /* Typography Adjustments */
@@ -542,7 +542,7 @@
     border: 2px solid currentColor;
     clip-path: none;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px var(--shadow-overlay-dark-mode);
   }
 }
 

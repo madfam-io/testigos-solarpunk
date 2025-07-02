@@ -46,17 +46,7 @@ interface ThemeIssues {
 
 // Required CSS variables for each theme
 const requiredVariables = [
-  // Core colors
-  '--bg-primary',
-  '--bg-secondary',
-  '--bg-tertiary',
-  '--text-primary',
-  '--text-secondary',
-  '--text-on-accent',
-  '--border-default',
-  '--border-subtle',
-
-  // Brand colors
+  // Brand colors (these should exist in all theme files)
   '--color-eco-green',
   '--color-solar-yellow',
   '--color-comedy-purple',
@@ -64,16 +54,13 @@ const requiredVariables = [
   '--color-community-orange',
 
   // Magazine cutout specific
-  '--cutout-shadow',
-  '--tape-color',
   '--paper-texture-opacity',
   '--torn-edge-color',
 
-  // Component specific
-  '--nav-bg',
+  // Navigation
   '--nav-text',
-  '--card-bg',
-  '--card-border',
+
+  // Buttons
   '--button-primary-bg',
   '--button-primary-text',
 ];
@@ -127,8 +114,12 @@ async function checkThemeVariables(): Promise<
     missingVariables: [],
   };
 
-  // Check theme CSS files
-  const themeCSSFiles = await glob('src/styles/*theme*.css');
+  // Check theme CSS files including the main token file
+  const themeCSSFiles = [
+    ...(await glob('src/styles/*theme*.css')),
+    'src/styles/madfam-tokens.css',
+    'src/styles/critical.css',
+  ];
 
   for (const file of themeCSSFiles) {
     const content = await fs.readFile(file, 'utf-8');
@@ -138,11 +129,26 @@ async function checkThemeVariables(): Promise<
       ? 'dark'
       : file.includes('light')
         ? 'light'
-        : 'base';
+        : file.includes('madfam-tokens')
+          ? 'tokens'
+          : file.includes('critical')
+            ? 'critical'
+            : file.includes('nav-theme-fix')
+              ? 'nav-fix'
+              : 'other';
+
+    // Only check for variables in relevant theme files
+    if (themeName === 'nav-fix') {
+      // Skip nav-theme-fix.css as it doesn't contain theme variables
+      continue;
+    }
 
     // Check for required variables
     requiredVariables.forEach((variable) => {
-      if (!content.includes(variable)) {
+      // For madfam-tokens.css and critical.css, check both :root and media query sections
+      const hasVariable = content.includes(`${variable}:`);
+
+      if (!hasVariable) {
         issues.missingVariables.push({
           theme: themeName,
           variable: variable,

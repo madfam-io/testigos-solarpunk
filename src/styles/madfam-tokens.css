@@ -104,6 +104,28 @@
   --color-text-on-primary: var(--madfam-black);
   --color-text-on-secondary: var(--madfam-white);
 
+  /* =================================================================
+   * Colores temáticos de Testigos de Solarpunk
+   * ================================================================= */
+
+  /* Colores de personajes y temas */
+  --color-eco-green: var(--madfam-green);
+  --color-solar-yellow: var(--madfam-yellow);
+  --color-comedy-purple: var(--madfam-purple);
+  --color-tech-blue: var(--madfam-blue);
+  --color-community-orange: var(--sp-community);
+
+  /* Efectos de revista */
+  --paper-texture-opacity: 0.1;
+  --torn-edge-color: var(--color-border);
+
+  /* Navegación */
+  --nav-text: var(--color-text-primary);
+
+  /* Botones */
+  --button-primary-bg: var(--color-primary);
+  --button-primary-text: var(--color-text-on-primary);
+
   /* Bordes y divisores */
   --color-border: var(--madfam-gray-300);
   --color-border-hover: var(--madfam-gray-400);
@@ -240,6 +262,27 @@
   --shadow-glow-purple: 0 0 20px rgba(var(--madfam-purple-rgb), 0.5);
   --shadow-glow-blue: 0 0 20px rgba(var(--madfam-blue-rgb), 0.5);
 
+  /* Shadow overlay variations */
+  --shadow-overlay-dark: rgba(0, 0, 0, 0.24);
+  --shadow-overlay-medium: rgba(0, 0, 0, 0.16);
+  --shadow-overlay-strong: rgba(0, 0, 0, 0.2);
+  --shadow-overlay-dark-mode: rgba(0, 0, 0, 0.5);
+  --shadow-overlay-darkest: rgba(0, 0, 0, 0.8);
+  --shadow-overlay-dark-medium: rgba(0, 0, 0, 0.4);
+  --shadow-overlay-dark-strong: rgba(0, 0, 0, 0.6);
+  --shadow-overlay-dark-stronger: rgba(0, 0, 0, 0.7);
+  --cutout-shadow-dark: rgba(0, 0, 0, 0.3);
+
+  /* Additional semantic colors */
+  --color-error: #f44336;
+  --color-error-light: #ef5350;
+  --color-error-dark: #d32f2f;
+  --color-warning-light: #ffb74d;
+
+  /* Extended Solarpunk colors */
+  --sp-community-light: #ff8a65;
+  --sp-community-dark: #e55100;
+
   /* Sombra interna */
   --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -322,6 +365,24 @@
     --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.35);
     --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+    /* Colores temáticos ajustados para modo oscuro */
+    --color-eco-green: var(--madfam-green-light);
+    --color-solar-yellow: var(--madfam-yellow-light);
+    --color-comedy-purple: var(--madfam-purple-light);
+    --color-tech-blue: var(--madfam-blue-light);
+    --color-community-orange: #ff8a65; /* Lighter orange for dark mode */
+
+    /* Efectos de revista en modo oscuro */
+    --paper-texture-opacity: 0.05;
+    --torn-edge-color: var(--madfam-gray-700);
+
+    /* Navegación en modo oscuro */
+    --nav-text: var(--madfam-gray-100);
+
+    /* Botones en modo oscuro */
+    --button-primary-bg: var(--madfam-yellow-light);
+    --button-primary-text: var(--madfam-black);
   }
 }
 

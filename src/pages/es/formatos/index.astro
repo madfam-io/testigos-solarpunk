@@ -271,7 +271,7 @@ if (basePath.endsWith('/')) {
   .hero-section {
     padding: var(--espacio-xxl) 0;
     text-align: center;
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
     position: relative;
     overflow: hidden;
   }
@@ -324,7 +324,7 @@ if (basePath.endsWith('/')) {
     padding: var(--espacio-xl);
     border-radius: 12px;
     border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
     position: relative;
     z-index: 1;
     transition:
@@ -334,7 +334,7 @@ if (basePath.endsWith('/')) {
 
   .format-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 24px var(--shadow-overlay-dark-medium);
   }
 
   .format-icon {
@@ -378,52 +378,52 @@ if (basePath.endsWith('/')) {
 
   .platform-tag.tiktok {
     background: #ff0050;
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
   }
 
   .platform-tag.instagram {
     background: #e4405f;
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
   }
 
   .platform-tag.youtube {
     background: #ff0000;
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
   }
 
   .platform-tag.vimeo {
     background: #1ab7ea;
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
   }
 
   .platform-tag.spotify {
     background: #1db954;
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
   }
 
   .platform-tag.apple {
-    background: #000000;
-    color: var(--text-on-accent, #000000);
+    background: var(--madfam-black);
+    color: var(--text-on-accent, var(--madfam-black));
   }
 
   .platform-tag.zine {
     background: var(--marron-tierra);
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
   }
 
   .platform-tag.digital {
     background: var(--azul-tecnologico);
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
   }
 
   .platform-tag.fisico {
     background: var(--verde-sostenible);
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
   }
 
   .platform-tag.descarga {
     background: var(--purpura-creativo);
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
   }
 
   .format-features {
@@ -561,7 +561,7 @@ if (basePath.endsWith('/')) {
     width: 50px;
     height: 50px;
     background: var(--dorado-solar);
-    color: var(--text-on-accent, #000000);
+    color: var(--text-on-accent, var(--madfam-black));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -595,7 +595,7 @@ if (basePath.endsWith('/')) {
     padding: var(--espacio-lg);
     border-radius: 8px;
     border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
     width: 45%;
   }
 
@@ -645,7 +645,7 @@ if (basePath.endsWith('/')) {
 
   .btn-evangelista:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px var(--cutout-shadow-dark);
   }
 
   .btn-evangelista-outline {

@@ -120,7 +120,7 @@ if (src == null || src === '') {
     placeholderUrl = `data:image/svg+xml,${encodeURIComponent(`
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
         <rect width="100%" height="100%" fill="#F4E5D3"/>
-        <text x="50%" y="50%" text-anchor="middle" font-family="serif" font-size="16" fill="#666">
+        <text x="50%" y="50%" text-anchor="middle" font-family="serif" font-size="16" fill="var(--madfam-gray-600)">
           ${alt.replace(/[<>&"]/g, '')}
         </text>
       </svg>
@@ -223,7 +223,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     display: inline-block;
     transform: var(--magazine-transform);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(3px 3px 8px var(--cutout-shadow));
   }
 
   .magazine-cutout-wrapper:hover {
@@ -242,15 +242,15 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       45deg,
       transparent,
       transparent 1px,
-      rgba(255, 255, 255, 0.1) 1px,
-      rgba(255, 255, 255, 0.1) 2px
+      var(--torn-edge-color) 1px,
+      var(--torn-edge-color) 2px
     );
 
     /* Múltiples sombras para profundidad */
     box-shadow:
-      0 4px 8px rgba(0, 0, 0, 0.15),
-      inset 0 1px 2px rgba(255, 255, 255, 0.3),
-      0 0 0 1px rgba(0, 0, 0, 0.05);
+      0 4px 8px var(--cutout-shadow),
+      inset 0 1px 2px var(--border-default),
+      0 0 0 1px var(--hover-overlay);
   }
 
   .magazine-cutout-image {
@@ -353,8 +353,8 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
       90deg,
       transparent,
       transparent 2px,
-      rgba(255, 255, 255, 0.1) 2px,
-      rgba(255, 255, 255, 0.1) 4px
+      var(--torn-edge-color) 2px,
+      var(--torn-edge-color) 4px
     );
   }
 
@@ -374,13 +374,13 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     bottom: 0.25rem;
     right: 0.25rem;
     font-size: 0.65rem;
-    color: #666;
+    color: var(--madfam-gray-600);
     background: rgba(255, 255, 255, 0.9);
     padding: 0.15rem 0.4rem;
     border-radius: 0.25rem;
     font-family: 'Courier New', monospace;
     backdrop-filter: blur(2px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--torn-edge-color);
   }
 
   .cut-here {
@@ -406,7 +406,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
     border-radius: 0.25rem;
     font-size: 0.75rem;
     animation: aiPulse 2s ease-in-out infinite;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--torn-edge-color);
   }
 
   @keyframes aiPulse {
@@ -481,7 +481,7 @@ const transform = `rotate(${aesthetic.rotation}deg) translate(${aesthetic.transl
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .magazine-cutout-wrapper {
-      filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.15));
+      filter: drop-shadow(2px 2px 6px var(--cutout-shadow));
     }
 
     .tape {

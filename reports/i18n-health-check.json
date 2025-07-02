@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-07-01T20:36:57.136Z",
+  "timestamp": "2025-07-02T17:31:05.235Z",
   "missingTranslations": [],
   "unusedTranslations": [],
   "hardcodedText": [
@@ -35,193 +35,103 @@
     },
     {
       "file": "layouts/UnifiedLayout.astro",
-      "text": "Saltar al contenido principal",
-      "line": 167
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "aria-label=\"Navegación principal\"",
-      "line": 170
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "aria-label=\"Inicio - Testigos de Solarpunk\"",
-      "line": 176
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Testigos de Solarpunk",
-      "line": 178
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "aria-label=\"Abrir menú de navegación\"",
-      "line": 184
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "aria-label=\"Cambiar tema\"",
-      "line": 301
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "title=\"Cambiar entre modo claro y oscuro\"",
-      "line": 302
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Universo Creativo",
-      "line": 320
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Biblia de Personajes",
-      "line": 323
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Repositorio de Guiones",
-      "line": 326
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Construcción del Mundo",
-      "line": 328
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Para Creadores",
-      "line": 332
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Guías y Plantillas",
-      "line": 334
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Guía de Estilo",
-      "line": 335
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Filosofía del Proyecto",
-      "line": 337
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Guía Visual",
-      "line": 339
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Conecta",
-      "line": 343
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Únete a la Comunidad",
-      "line": 346
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
-      "text": "Nuestro Impacto",
-      "line": 348
-    },
-    {
-      "file": "layouts/UnifiedLayout.astro",
       "text": "aria-label=\"GitHub del proyecto (se abre en nueva ventana)\"",
-      "line": 354
+      "line": 407
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Testigos de Solarpunk",
-      "line": 410
+      "line": 411
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Audio",
-      "line": 577
+      "line": 578
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "aria-label=\"Cambiar a Español\"",
-      "line": 605
+      "line": 606
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "aria-label=\"Switch to English\"",
-      "line": 613
+      "line": 614
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Universo Creativo",
-      "line": 824
+      "line": 987
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Biblia de Personajes",
-      "line": 827
+      "line": 990
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Repositorio de Guiones",
-      "line": 830
+      "line": 993
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Construcción del Mundo",
-      "line": 833
+      "line": 996
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Para Creadores",
-      "line": 838
+      "line": 1001
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Guías y Plantillas",
-      "line": 840
+      "line": 1003
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Guía de Estilo",
-      "line": 841
+      "line": 1004
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Guía Visual",
-      "line": 842
+      "line": 1005
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Filosofía del Proyecto",
-      "line": 844
+      "line": 1007
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Formatos de Contenido",
-      "line": 847
+      "line": 1010
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Conecta",
-      "line": 852
+      "line": 1015
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Únete a la Comunidad",
-      "line": 855
+      "line": 1018
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "Nuestro Impacto",
-      "line": 857
+      "line": 1020
+    },
+    {
+      "file": "layouts/BaseLayout.astro",
+      "text": "Mapa del Sitio",
+      "line": 1021
     },
     {
       "file": "layouts/BaseLayout.astro",
       "text": "GitHub",
-      "line": 862
+      "line": 1026
     },
     {
       "file": "components/UnderConstructionModal.astro",
@@ -244,6 +154,11 @@
       "line": 32
     },
     {
+      "file": "components/LanguageToggle.astro",
+      "text": "aria-label=\"Language selector\"",
+      "line": 62
+    },
+    {
       "file": "components/ErrorBoundary.astro",
       "text": "aria-label=\"Warning\"",
       "line": 36
@@ -251,7 +166,7 @@
     {
       "file": "components/CharacterCard.astro",
       "text": "Ver Perfil Completo",
-      "line": 102
+      "line": 112
     },
     {
       "file": "pages/es/proyecto.astro",
@@ -446,97 +361,97 @@
     {
       "file": "pages/es/proyecto-unified.astro",
       "text": "MADFAM Podcast",
-      "line": 97
+      "line": 100
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "text": "Próximamente",
-      "line": 103
+      "line": 106
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "text": "Conversaciones profundas con expertos",
-      "line": 107
+      "line": 110
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "text": "Temas de actualidad ambiental",
-      "line": 108
+      "line": 111
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "text": "Soluciones prácticas y escalables",
-      "line": 109
+      "line": 112
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "text": "En Desarrollo",
-      "line": 126
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "text": "Eventos presenciales",
-      "line": 127
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "text": "Experiencias educativas inmersivas",
-      "line": 130
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "text": "Laboratorios de innovación",
-      "line": 131
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "text": "Impacto directo en comunidades",
       "line": 132
     },
     {
       "file": "pages/es/proyecto-unified.astro",
+      "text": "Eventos presenciales",
+      "line": 133
+    },
+    {
+      "file": "pages/es/proyecto-unified.astro",
+      "text": "Experiencias educativas inmersivas",
+      "line": 136
+    },
+    {
+      "file": "pages/es/proyecto-unified.astro",
+      "text": "Laboratorios de innovación",
+      "line": 137
+    },
+    {
+      "file": "pages/es/proyecto-unified.astro",
+      "text": "Impacto directo en comunidades",
+      "line": 138
+    },
+    {
+      "file": "pages/es/proyecto-unified.astro",
       "text": "Nuestro Proceso Creativo",
-      "line": 144
+      "line": 153
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "text": "Investigación",
-      "line": 148
+      "line": 157
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "text": "Diseño",
-      "line": 155
+      "line": 164
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "text": "Creamos contenido que conecta y educa",
-      "line": 156
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "text": "Producción",
-      "line": 160
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "text": "Grabamos con calidad MADFAM",
-      "line": 161
-    },
-    {
-      "file": "pages/es/proyecto-unified.astro",
-      "text": "Distribución",
       "line": 165
     },
     {
       "file": "pages/es/proyecto-unified.astro",
+      "text": "Producción",
+      "line": 169
+    },
+    {
+      "file": "pages/es/proyecto-unified.astro",
+      "text": "Grabamos con calidad MADFAM",
+      "line": 170
+    },
+    {
+      "file": "pages/es/proyecto-unified.astro",
+      "text": "Distribución",
+      "line": 174
+    },
+    {
+      "file": "pages/es/proyecto-unified.astro",
       "text": "Impacto",
-      "line": 172
+      "line": 181
     },
     {
       "file": "pages/es/proyecto-unified.astro",
       "text": "Medimos y optimizamos resultados",
-      "line": 173
+      "line": 182
     },
     {
       "file": "pages/es/index.astro",
@@ -950,123 +865,8 @@
     },
     {
       "file": "pages/en/unified-project.astro",
-      "text": "title=\"El Proyecto\"",
-      "line": 25
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Instruir desde el humor",
-      "line": 35
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Misión y Visión",
-      "line": 37
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Testigos de Solarpunk",
-      "line": 76
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Contenido viral para redes sociales",
-      "line": 86
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Humor que rompe barreras culturales",
-      "line": 87
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Tips prácticos de sostenibilidad",
-      "line": 88
-    },
-    {
-      "file": "pages/en/unified-project.astro",
       "text": "MADFAM Podcast",
-      "line": 100
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Conversaciones profundas con expertos",
-      "line": 110
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Temas de actualidad ambiental",
-      "line": 111
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Soluciones prácticas y escalables",
-      "line": 112
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Eventos presenciales",
-      "line": 130
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Experiencias educativas inmersivas",
-      "line": 133
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Laboratorios de innovación",
-      "line": 134
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Impacto directo en comunidades",
-      "line": 135
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Nuestro Proceso Creativo",
-      "line": 147
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Investigación",
-      "line": 151
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Diseño",
-      "line": 158
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Creamos contenido que conecta y educa",
-      "line": 159
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Producción",
-      "line": 163
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Grabamos con calidad MADFAM",
-      "line": 164
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Distribución",
-      "line": 168
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Impacto",
-      "line": 175
-    },
-    {
-      "file": "pages/en/unified-project.astro",
-      "text": "Medimos y optimizamos resultados",
-      "line": 176
+      "line": 95
     },
     {
       "file": "pages/en/index.astro",
@@ -1135,188 +935,88 @@
     },
     {
       "file": "pages/en/impact.astro",
-      "text": "Nuestro Impacto",
-      "line": 25
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Métricas en Tiempo Real",
-      "line": 35
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Personas Alcanzadas",
-      "line": 46
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Sketches Producidos",
-      "line": 61
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Comunidades Activas",
-      "line": 76
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Cambio de Percepción",
-      "line": 93
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Impacto por Fase",
-      "line": 105
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Vistas totales",
-      "line": 117
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Tasa de engagement",
-      "line": 121
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Compartidos",
-      "line": 125
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Logros",
-      "line": 129
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Lanzamiento",
-      "line": 148
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Expertos confirmados",
-      "line": 152
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Inicio piloto",
-      "line": 179
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Escuelas piloto",
-      "line": 183
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Estudiantes",
-      "line": 187
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Objetivos",
-      "line": 191
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Historias de Cambio",
-      "line": 205
-    },
-    {
-      "file": "pages/en/impact.astro",
       "text": "Guadalajara",
-      "line": 225
+      "line": 222
     },
     {
       "file": "pages/en/impact.astro",
       "text": "Monterrey",
-      "line": 237
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Crecimiento del Movimiento",
-      "line": 246
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Crecimiento mensual de la comunidad",
-      "line": 258
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Aliados del Cambio",
-      "line": 265
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Empresas Sostenibles",
-      "line": 274
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Apoyo financiero y recursos",
-      "line": 275
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Instituciones Educativas",
-      "line": 281
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Espacios y comunidades",
-      "line": 282
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "ONGs Ambientales",
-      "line": 288
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Expertise y redes",
-      "line": 289
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Creadores de Contenido",
-      "line": 295
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Amplificación del mensaje",
-      "line": 296
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Sé Parte del Impacto",
-      "line": 305
-    },
-    {
-      "file": "pages/en/impact.astro",
-      "text": "Tu apoyo puede multiplicar nuestro alcance",
-      "line": 306
+      "line": 232
     },
     {
       "file": "pages/en/community.astro",
       "text": "aria-label=\"Instagram\"",
-      "line": 330
+      "line": 334
     },
     {
       "file": "pages/en/community.astro",
       "text": "aria-label=\"TikTok\"",
-      "line": 341
+      "line": 345
     },
     {
       "file": "pages/en/community.astro",
       "text": "aria-label=\"YouTube\"",
-      "line": 351
+      "line": 355
     },
     {
       "file": "pages/en/community.astro",
       "text": "aria-label=\"Twitter\"",
-      "line": 362
+      "line": 366
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "title=\"Compact Loading States Demo\"",
+      "line": 6
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "Compact Loading States Demo",
+      "line": 8
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "Comparison of regular and compact loading states",
+      "line": 9
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "Regular Loading States",
+      "line": 13
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "Spinner",
+      "line": 15
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "Dots",
+      "line": 20
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "Skeleton",
+      "line": 25
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "Compact Loading States",
+      "line": 32
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "Fullscreen Comparison",
+      "line": 56
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "Show Regular Fullscreen",
+      "line": 58
+    },
+    {
+      "file": "pages/demo/loading-compact.astro",
+      "text": "Show Compact Fullscreen",
+      "line": 59
     },
     {
       "file": "components/layout/Breadcrumbs.astro",
@@ -2549,41 +2249,6 @@
       "line": 732
     },
     {
-      "file": "pages/es/personajes/index.astro",
-      "text": "title=\"Personajes\"",
-      "line": 13
-    },
-    {
-      "file": "pages/es/personajes/index.astro",
-      "text": "Personajes del Universo",
-      "line": 16
-    },
-    {
-      "file": "pages/es/personajes/index.astro",
-      "text": "Todos",
-      "line": 28
-    },
-    {
-      "file": "pages/es/personajes/index.astro",
-      "text": "Ver Guiones",
-      "line": 97
-    },
-    {
-      "file": "pages/es/personajes/[slug].astro",
-      "text": "aria-label=\"Navegación de migas de pan\"",
-      "line": 47
-    },
-    {
-      "file": "pages/es/personajes/[slug].astro",
-      "text": "Inicio",
-      "line": 50
-    },
-    {
-      "file": "pages/es/personajes/[slug].astro",
-      "text": "Personajes",
-      "line": 51
-    },
-    {
       "file": "pages/es/mundo/index.astro",
       "text": "title=\"Mundo\"",
       "line": 9
@@ -2907,6 +2572,41 @@
       "file": "pages/es/mundo/azotea-verde-neo-cuernavaca.astro",
       "text": "Guías y recursos disponibles para cualquier comunidad",
       "line": 412
+    },
+    {
+      "file": "pages/es/personajes/index.astro",
+      "text": "title=\"Personajes\"",
+      "line": 13
+    },
+    {
+      "file": "pages/es/personajes/index.astro",
+      "text": "Personajes del Universo",
+      "line": 16
+    },
+    {
+      "file": "pages/es/personajes/index.astro",
+      "text": "Todos",
+      "line": 28
+    },
+    {
+      "file": "pages/es/personajes/index.astro",
+      "text": "Ver Guiones",
+      "line": 99
+    },
+    {
+      "file": "pages/es/personajes/[slug].astro",
+      "text": "aria-label=\"Navegación de migas de pan\"",
+      "line": 47
+    },
+    {
+      "file": "pages/es/personajes/[slug].astro",
+      "text": "Inicio",
+      "line": 50
+    },
+    {
+      "file": "pages/es/personajes/[slug].astro",
+      "text": "Personajes",
+      "line": 51
     },
     {
       "file": "pages/es/guiones/index.astro",
@@ -3986,117 +3686,117 @@
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Green Hackers",
-      "line": 116
+      "line": 118
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Premios para ganadores",
-      "line": 125
+      "line": 127
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Huerto Futuro",
-      "line": 132
+      "line": 136
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Seguimiento continuo",
-      "line": 141
+      "line": 145
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Circular School",
-      "line": 148
+      "line": 154
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Toda la escuela",
-      "line": 156
+      "line": 162
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Certificación verde",
-      "line": 157
+      "line": 163
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Impacto Esperado",
-      "line": 166
+      "line": 172
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Red de escuelas sostenibles interconectadas",
-      "line": 182
+      "line": 188
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Modelo replicable en todo México",
-      "line": 187
+      "line": 193
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Patrocinadores",
-      "line": 196
-    },
-    {
-      "file": "pages/es/contenido/madlab.astro",
-      "text": "Beneficios para Patrocinadores",
       "line": 202
     },
     {
       "file": "pages/es/contenido/madlab.astro",
+      "text": "Beneficios para Patrocinadores",
+      "line": 208
+    },
+    {
+      "file": "pages/es/contenido/madlab.astro",
       "text": "Impacto Directo",
-      "line": 206
+      "line": 214
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Conexión real con comunidades escolares",
-      "line": 207
+      "line": 215
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Métricas Claras",
-      "line": 211
+      "line": 221
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Reportes detallados de impacto y alcance",
-      "line": 212
-    },
-    {
-      "file": "pages/es/contenido/madlab.astro",
-      "text": "Reconocimiento",
-      "line": 216
-    },
-    {
-      "file": "pages/es/contenido/madlab.astro",
-      "text": "Visibilidad como líder en sostenibilidad",
-      "line": 217
-    },
-    {
-      "file": "pages/es/contenido/madlab.astro",
-      "text": "Participación en diseño de programas",
       "line": 222
     },
     {
       "file": "pages/es/contenido/madlab.astro",
+      "text": "Reconocimiento",
+      "line": 228
+    },
+    {
+      "file": "pages/es/contenido/madlab.astro",
+      "text": "Visibilidad como líder en sostenibilidad",
+      "line": 229
+    },
+    {
+      "file": "pages/es/contenido/madlab.astro",
+      "text": "Participación en diseño de programas",
+      "line": 236
+    },
+    {
+      "file": "pages/es/contenido/madlab.astro",
       "text": "Para Escuelas",
-      "line": 241
+      "line": 255
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Solicitar Información",
-      "line": 243
+      "line": 257
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Para Voluntarios",
-      "line": 246
+      "line": 260
     },
     {
       "file": "pages/es/contenido/madlab.astro",
       "text": "Únete como facilitador o mentor",
-      "line": 247
+      "line": 261
     },
     {
       "file": "pages/es/contenido/index.astro",
@@ -4131,77 +3831,77 @@
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Próximamente",
-      "line": 84
+      "line": 87
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Episodios",
-      "line": 98
-    },
-    {
-      "file": "pages/es/contenido/index.astro",
-      "text": "Ene",
       "line": 101
     },
     {
       "file": "pages/es/contenido/index.astro",
+      "text": "Ene",
+      "line": 104
+    },
+    {
+      "file": "pages/es/contenido/index.astro",
       "text": "Minutos",
-      "line": 106
+      "line": 109
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "En Desarrollo",
-      "line": 129
+      "line": 132
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Escuelas",
-      "line": 143
+      "line": 146
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Estudiantes",
-      "line": 147
+      "line": 150
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Impacto",
-      "line": 151
+      "line": 154
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Estrategia de Contenido Integral",
-      "line": 166
+      "line": 172
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Atraer",
-      "line": 175
+      "line": 181
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Sketches virales que capturan atención",
-      "line": 176
+      "line": 182
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Educar",
-      "line": 186
+      "line": 192
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Podcasts que profundizan el mensaje",
-      "line": 187
+      "line": 193
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Activar",
-      "line": 197
+      "line": 203
     },
     {
       "file": "pages/es/contenido/index.astro",
       "text": "Eventos que generan cambio real",
-      "line": 198
+      "line": 204
     },
     {
       "file": "pages/en/world/green-roof-neo-cuernavaca.astro",
@@ -4622,161 +4322,6 @@
       "file": "pages/en/scripts/[slug].astro",
       "text": "Scripts",
       "line": 61
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "title=\"Recursos\"",
-      "line": 18
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Centro de Recursos",
-      "line": 21
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Plantillas de Guiones",
-      "line": 50
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Formatos optimizados para cada plataforma",
-      "line": 51
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Fichas de Personajes",
-      "line": 62
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Perfiles detallados para desarrollo narrativo",
-      "line": 63
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Guía de Construcción del Mundo",
-      "line": 74
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Reglas y coherencia del universo solarpunk",
-      "line": 75
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Recursos para dar vida a los personajes",
-      "line": 86
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Análisis de Personajes",
-      "line": 97
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Guías de Diálogo",
-      "line": 109
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Referencias de Movimiento",
-      "line": 121
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Gestualidad y presencia física",
-      "line": 122
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Oportunidades de colaboración e impacto",
-      "line": 133
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Reporte de Impacto",
-      "line": 144
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Métricas de alcance y engagement",
-      "line": 145
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Oportunidades de Integración",
-      "line": 156
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Formas orgánicas de participar en las historias",
-      "line": 157
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Alineación de Valores",
-      "line": 168
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Filosofía y principios del proyecto",
-      "line": 169
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Filosofía Solarpunk",
-      "line": 180
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Optimismo Radical",
-      "line": 183
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Acción Local",
-      "line": 190
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Tecnología Apropiada",
-      "line": 197
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Diversidad Regenerativa",
-      "line": 204
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Descargas Rápidas",
-      "line": 215
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Accede a los recursos más utilizados",
-      "line": 216
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Biblia de Personajes",
-      "line": 223
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Guía del Mundo",
-      "line": 228
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Kit de Prensa",
-      "line": 233
-    },
-    {
-      "file": "pages/en/resources/index.astro",
-      "text": "Assets Visuales",
-      "line": 241
     },
     {
       "file": "pages/en/philosophy/index.astro",
@@ -6144,53 +5689,48 @@
       "line": 236
     },
     {
-      "file": "pages/en/characters/[slug].astro",
-      "text": "aria-label=\"Breadcrumb navigation\"",
-      "line": 50
-    },
-    {
       "file": "pages/en/content/madlab.astro",
-      "text": "Escuelas objetivo",
+      "text": "Target schools",
       "line": 39
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Estudiantes",
+      "text": "Students",
       "line": 47
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Impacto directo",
+      "text": "Direct impact",
       "line": 54
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Talleres de energía solar",
+      "text": "Solar energy workshops",
       "line": 77
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Huertos urbanos escolares",
+      "text": "School urban gardens",
       "line": 78
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Hackathons de soluciones verdes",
+      "text": "Green solutions hackathons",
       "line": 79
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Ferias de ciencia sostenible",
+      "text": "Sustainable science fairs",
       "line": 80
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Experiencias que transforman",
+      "text": "Experiences that transform",
       "line": 87
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Programas MADLAB",
+      "text": "MADLAB Programs",
       "line": 96
     },
     {
@@ -6200,213 +5740,143 @@
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Materiales incluidos",
+      "text": "Materials included",
       "line": 113
     },
     {
       "file": "pages/en/content/madlab.astro",
       "text": "Green Hackers",
-      "line": 120
+      "line": 122
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Premios para ganadores",
-      "line": 129
+      "text": "Prizes for winners",
+      "line": 131
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Huerto Futuro",
-      "line": 136
+      "text": "Future Garden",
+      "line": 140
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Seguimiento continuo",
-      "line": 145
+      "text": "Continuous monitoring",
+      "line": 149
     },
     {
       "file": "pages/en/content/madlab.astro",
       "text": "Circular School",
-      "line": 152
+      "line": 158
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Toda la escuela",
-      "line": 160
+      "text": "Whole school",
+      "line": 166
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Certificación verde",
-      "line": 161
+      "text": "Green certification",
+      "line": 167
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Impacto Esperado",
-      "line": 170
+      "text": "Expected Impact",
+      "line": 176
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Red de escuelas sostenibles interconectadas",
-      "line": 186
+      "text": "Network of interconnected sustainable schools",
+      "line": 192
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Modelo replicable en todo México",
-      "line": 191
+      "text": "Replicable model throughout Mexico",
+      "line": 197
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Patrocinadores",
-      "line": 200
-    },
-    {
-      "file": "pages/en/content/madlab.astro",
-      "text": "Beneficios para Patrocinadores",
+      "text": "Sponsors",
       "line": 206
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Impacto Directo",
-      "line": 210
+      "text": "Benefits for Sponsors",
+      "line": 212
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Conexión real con comunidades escolares",
-      "line": 211
+      "text": "Direct Impact",
+      "line": 218
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Métricas Claras",
-      "line": 215
+      "text": "Real connection with school communities",
+      "line": 219
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Reportes detallados de impacto y alcance",
-      "line": 216
+      "text": "Clear Metrics",
+      "line": 225
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Reconocimiento",
-      "line": 220
-    },
-    {
-      "file": "pages/en/content/madlab.astro",
-      "text": "Visibilidad como líder en sostenibilidad",
-      "line": 221
-    },
-    {
-      "file": "pages/en/content/madlab.astro",
-      "text": "Participación en diseño de programas",
+      "text": "Detailed impact and reach reports",
       "line": 226
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Para Escuelas",
-      "line": 245
+      "text": "Recognition",
+      "line": 232
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Solicitar Información",
-      "line": 247
+      "text": "Visibility as a sustainability leader",
+      "line": 233
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Para Voluntarios",
-      "line": 250
+      "text": "Participation in program design",
+      "line": 240
     },
     {
       "file": "pages/en/content/madlab.astro",
-      "text": "Únete como facilitador o mentor",
-      "line": 251
+      "text": "For Schools",
+      "line": 259
     },
     {
-      "file": "pages/en/content/index.astro",
-      "text": "title=\"Contenido\"",
-      "line": 20
+      "file": "pages/en/content/madlab.astro",
+      "text": "Request Information",
+      "line": 261
     },
     {
-      "file": "pages/en/content/index.astro",
-      "text": "Contenido Testigos de Solarpunk",
-      "line": 25
+      "file": "pages/en/content/madlab.astro",
+      "text": "For Volunteers",
+      "line": 264
     },
     {
-      "file": "pages/en/content/index.astro",
-      "text": "Episodios",
-      "line": 60
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Vistas",
-      "line": 64
+      "file": "pages/en/content/madlab.astro",
+      "text": "Join as a facilitator or mentor",
+      "line": 265
     },
     {
       "file": "pages/en/content/index.astro",
       "text": "Engagement",
-      "line": 68
+      "line": 65
     },
     {
       "file": "pages/en/content/index.astro",
-      "text": "Episodios",
-      "line": 102
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Ene",
-      "line": 105
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Minutos",
-      "line": 110
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Escuelas",
-      "line": 147
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Estudiantes",
-      "line": 151
+      "text": "Jan",
+      "line": 100
     },
     {
       "file": "pages/en/content/index.astro",
       "text": "Impacto",
-      "line": 155
+      "line": 148
     },
     {
-      "file": "pages/en/content/index.astro",
-      "text": "Estrategia de Contenido Integral",
-      "line": 170
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Atraer",
-      "line": 179
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Sketches virales que capturan atención",
-      "line": 180
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Educar",
-      "line": 190
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Podcasts que profundizan el mensaje",
-      "line": 191
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Activar",
-      "line": 201
-    },
-    {
-      "file": "pages/en/content/index.astro",
-      "text": "Eventos que generan cambio real",
-      "line": 202
+      "file": "pages/en/characters/[slug].astro",
+      "text": "aria-label=\"Breadcrumb navigation\"",
+      "line": 50
     },
     {
       "file": "pages/es/recursos/patrocinadores/index.astro",
@@ -7701,357 +7171,357 @@
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Excelente Alineación",
-      "line": 245
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Misión explícita de sostenibilidad o bienestar social",
-      "line": 247
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Objetivos cuantificables de impacto positivo",
       "line": 248
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Misión explícita de sostenibilidad o bienestar social",
+      "line": 250
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Objetivos cuantificables de impacto positivo",
+      "line": 251
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Liderazgo comprometido públicamente con valores ESG",
-      "line": 249
+      "line": 252
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Buena Alineación",
-      "line": 256
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Interés genuino en sostenibilidad",
-      "line": 258
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Iniciativas ESG en desarrollo",
       "line": 259
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Voluntad de transparencia en operaciones",
-      "line": 260
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Apertura al aprendizaje y mejora continua",
+      "text": "Interés genuino en sostenibilidad",
       "line": 261
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Iniciativas ESG en desarrollo",
+      "line": 262
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Voluntad de transparencia en operaciones",
+      "line": 263
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Apertura al aprendizaje y mejora continua",
+      "line": 264
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Incompatible",
-      "line": 265
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Modelo de negocio fundamentalmente extractivo",
-      "line": 267
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Historial de greenwashing documentado",
       "line": 268
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Resistencia a transparencia o accountability",
-      "line": 269
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Prácticas laborales o ambientales problemáticas",
+      "text": "Modelo de negocio fundamentalmente extractivo",
       "line": 270
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Historial de greenwashing documentado",
+      "line": 271
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Resistencia a transparencia o accountability",
+      "line": 272
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Prácticas laborales o ambientales problemáticas",
+      "line": 273
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Excelente Alineación",
-      "line": 280
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Certificaciones ambientales y sociales verificables",
-      "line": 282
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Cadena de suministro transparente y ética",
       "line": 283
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Políticas laborales progresivas y inclusivas",
-      "line": 284
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Economía circular integrada en operaciones",
+      "text": "Certificaciones ambientales y sociales verificables",
       "line": 285
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Cadena de suministro transparente y ética",
+      "line": 286
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Políticas laborales progresivas y inclusivas",
+      "line": 287
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Economía circular integrada en operaciones",
+      "line": 288
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Buena Alineación",
-      "line": 289
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Esfuerzos documentados de mejora ambiental",
-      "line": 291
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Políticas de diversidad e inclusión activas",
       "line": 292
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Esfuerzos documentados de mejora ambiental",
+      "line": 294
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Políticas de diversidad e inclusión activas",
+      "line": 295
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Transparencia en reporting de sostenibilidad",
-      "line": 293
+      "line": 296
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Incompatible",
-      "line": 298
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Externalización sistemática de costos ambientales",
-      "line": 300
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Prácticas laborales explotativas",
       "line": 301
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Resistencia a regulaciones ambientales",
-      "line": 302
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Modelo basado en obsolescencia programada",
+      "text": "Externalización sistemática de costos ambientales",
       "line": 303
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Prácticas laborales explotativas",
+      "line": 304
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Resistencia a regulaciones ambientales",
+      "line": 305
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Modelo basado en obsolescencia programada",
+      "line": 306
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Excelente Alineación",
-      "line": 313
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Comunicación auténtica sobre impacto y limitaciones",
-      "line": 315
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Cultura interna alineada con valores públicos",
       "line": 316
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Engagement genuino con comunidades",
-      "line": 317
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Apertura a crítica constructiva y feedback",
+      "text": "Comunicación auténtica sobre impacto y limitaciones",
       "line": 318
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Cultura interna alineada con valores públicos",
+      "line": 319
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Engagement genuino con comunidades",
+      "line": 320
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Apertura a crítica constructiva y feedback",
+      "line": 321
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Buena Alineación",
-      "line": 322
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Comunicación mayormente honesta y directa",
-      "line": 324
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Esfuerzos reales de engagement comunitario",
       "line": 325
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Receptividad a feedback externo",
-      "line": 326
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Cultura organizacional en evolución positiva",
+      "text": "Comunicación mayormente honesta y directa",
       "line": 327
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Esfuerzos reales de engagement comunitario",
+      "line": 328
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Receptividad a feedback externo",
+      "line": 329
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Cultura organizacional en evolución positiva",
+      "line": 330
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Incompatible",
-      "line": 331
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Comunicación fundamentalmente misleading",
-      "line": 333
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Cultura tóxica interna documentada",
       "line": 334
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Hostilidad hacia crítica o accountability",
-      "line": 335
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Estrategias de communications defensivas",
+      "text": "Comunicación fundamentalmente misleading",
       "line": 336
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Cultura tóxica interna documentada",
+      "line": 337
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Hostilidad hacia crítica o accountability",
+      "line": 338
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Estrategias de communications defensivas",
+      "line": 339
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Extracción de combustibles fósiles",
-      "line": 362
+      "line": 365
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Minería destructiva sin restauración",
-      "line": 363
+      "line": 366
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Deforestación o destrucción de ecosistemas",
-      "line": 364
+      "line": 367
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Explotan trabajo infantil o forzado",
-      "line": 377
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Mantienen condiciones laborales peligrosas",
-      "line": 378
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Sistemáticamente subpagan salarios dignos",
-      "line": 379
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Reprimen organización sindical legítima",
       "line": 380
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Mantienen condiciones laborales peligrosas",
+      "line": 381
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Sistemáticamente subpagan salarios dignos",
+      "line": 382
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Reprimen organización sindical legítima",
+      "line": 383
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Hacen afirmaciones ambientales no verificables",
-      "line": 390
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Usan certificaciones falsas o misleading",
-      "line": 391
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Invierten más en marketing verde que en impacto real",
-      "line": 392
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Ocultan impactos negativos significativos",
       "line": 393
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Usan certificaciones falsas o misleading",
+      "line": 394
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Invierten más en marketing verde que en impacto real",
+      "line": 395
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Ocultan impactos negativos significativos",
+      "line": 396
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Industria armamentística",
-      "line": 403
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Tabaco y productos adictivos dañinos",
-      "line": 404
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Gambling y industrias de explotación",
-      "line": 405
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Empresas con historial de corrupción sistemática",
       "line": 406
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Tabaco y productos adictivos dañinos",
+      "line": 407
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Gambling y industrias de explotación",
+      "line": 408
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Empresas con historial de corrupción sistemática",
+      "line": 409
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Cultura interna discriminatoria documentada",
-      "line": 416
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Liderazgo con historial de comportamiento abusivo",
-      "line": 417
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Resistencia sistemática a accountability",
-      "line": 418
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Prácticas de silencing de whistleblowers",
       "line": 419
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Liderazgo con historial de comportamiento abusivo",
+      "line": 420
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Resistencia sistemática a accountability",
+      "line": 421
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Prácticas de silencing de whistleblowers",
+      "line": 422
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Priorizan crecimiento a cualquier costo",
-      "line": 432
+      "line": 438
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Ven la regulación ambiental como enemiga",
-      "line": 433
+      "line": 439
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Principios de Colaboración",
-      "line": 451
+      "line": 457
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Proceso de Due Diligence",
-      "line": 486
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Investigación Inicial",
-      "line": 491
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
-      "text": "Verificación de Terceros",
       "line": 501
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Investigación Inicial",
+      "line": 506
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
+      "text": "Verificación de Terceros",
+      "line": 516
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Entrevista de Valores",
-      "line": 511
+      "line": 526
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Periodo de Prueba",
-      "line": 521
+      "line": 536
     },
     {
       "file": "pages/es/recursos/patrocinadores/valores/index.astro",
       "text": "Revisión Continua",
-      "line": 531
+      "line": 546
     },
     {
       "file": "pages/es/recursos/patrocinadores/integracion/index.astro",
@@ -8661,247 +8131,247 @@
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Alto",
-      "line": 121
+      "line": 124
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Muy alto",
-      "line": 130
+      "line": 133
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Alto",
-      "line": 139
+      "line": 142
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "High",
-      "line": 147
+      "line": 150
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Muy alto",
-      "line": 148
+      "line": 151
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "TikTok",
-      "line": 168
+      "line": 171
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Insights Clave",
-      "line": 193
+      "line": 196
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Instagram",
-      "line": 206
+      "line": 209
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Insights Clave",
-      "line": 231
+      "line": 234
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "YouTube",
-      "line": 244
+      "line": 247
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Insights Clave",
-      "line": 269
+      "line": 272
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Insights Clave",
-      "line": 307
+      "line": 310
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Audiencia más comprometida y educada",
-      "line": 309
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Alto engagement con sponsors",
       "line": 312
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Cambios de Comportamiento",
-      "line": 329
+      "text": "Alto engagement con sponsors",
+      "line": 315
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Adopción de Energía Solar",
+      "text": "Cambios de Comportamiento",
       "line": 332
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
+      "text": "Adopción de Energía Solar",
+      "line": 335
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Compostaje Doméstico",
-      "line": 337
+      "line": 340
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Hogares que iniciaron compostaje",
-      "line": 339
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Reducción de Desperdicios",
       "line": 342
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
+      "text": "Reducción de Desperdicios",
+      "line": 345
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Promedio de reducción reportada",
-      "line": 344
+      "line": 347
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Impacto Económico",
-      "line": 350
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Ahorro en Energía",
       "line": 353
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Ahorro anual estimado de la comunidad",
-      "line": 355
+      "text": "Ahorro en Energía",
+      "line": 356
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Empleos Verdes Generados",
+      "text": "Ahorro anual estimado de la comunidad",
       "line": 358
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Nuevos empleos en el ecosistema",
-      "line": 360
+      "text": "Empleos Verdes Generados",
+      "line": 361
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Inversión Atraída",
+      "text": "Nuevos empleos en el ecosistema",
       "line": 363
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
+      "text": "Inversión Atraída",
+      "line": 366
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "En tecnologías verdes por influencia del contenido",
-      "line": 365
+      "line": 368
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Impacto Ambiental",
-      "line": 371
+      "line": 374
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Toneladas anuales por cambios adoptados",
-      "line": 376
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Agua Ahorrada",
       "line": 379
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Litros mensuales por prácticas implementadas",
-      "line": 381
+      "text": "Agua Ahorrada",
+      "line": 382
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Residuos Desviados",
+      "text": "Litros mensuales por prácticas implementadas",
       "line": 384
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
+      "text": "Residuos Desviados",
+      "line": 387
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Toneladas mensuales del relleno sanitario",
-      "line": 386
+      "line": 389
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Integración de Contenido",
-      "line": 403
+      "line": 406
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Beneficios",
-      "line": 419
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Integración orgánica en narrativa",
-      "line": 421
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Asociación con valores sostenibles",
       "line": 422
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Audiencia altamente segmentada",
-      "line": 423
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Contenido evergreen",
+      "text": "Integración orgánica en narrativa",
       "line": 424
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
+      "text": "Asociación con valores sostenibles",
+      "line": 425
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
+      "text": "Audiencia altamente segmentada",
+      "line": 426
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
+      "text": "Contenido evergreen",
+      "line": 427
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Desarrollo de Productos",
-      "line": 430
+      "line": 433
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Beneficios",
-      "line": 446
+      "line": 449
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Reducción de riesgo de producto",
-      "line": 450
+      "line": 453
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Channel directo de distribución",
-      "line": 451
+      "line": 454
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Eventos y Experiencias",
-      "line": 457
+      "line": 460
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Beneficios",
-      "line": 473
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Demostración práctica de productos",
-      "line": 475
-    },
-    {
-      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
-      "text": "Networking con decision makers",
       "line": 476
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
+      "text": "Demostración práctica de productos",
+      "line": 478
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
+      "text": "Networking con decision makers",
+      "line": 479
+    },
+    {
+      "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Generación de leads calificados",
-      "line": 477
+      "line": 480
     },
     {
       "file": "pages/es/recursos/patrocinadores/impacto/index.astro",
       "text": "Contenido de valor agregado",
-      "line": 478
+      "line": 481
     },
     {
       "file": "pages/es/recursos/creadores/worldbuilding/index.astro",
@@ -10209,271 +9679,6 @@
       "line": 373
     },
     {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "title=\"Guías de Diálogo\"",
-      "line": 16
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Guías de Diálogo",
-      "line": 26
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Características del Habla",
-      "line": 45
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Acelera al hablar de sus pasiones",
-      "line": 49
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Hace pausas dramáticas antes de revelaciones",
-      "line": 50
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Ralentiza al explicar conceptos complejos",
-      "line": 51
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Inflexiones ascendentes al hacer preguntas",
-      "line": 60
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Proyección clara sin ser agresiva",
-      "line": 62
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Vocabulario religioso transformado a ecológico",
-      "line": 70
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Ejemplos de Diálogos",
-      "line": 78
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Aproximación Inicial",
-      "line": 80
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Manejando Objeciones",
-      "line": 99
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Momento de Victoria",
-      "line": 123
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Características del Habla",
-      "line": 156
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Habla en el tiempo de la naturaleza",
-      "line": 160
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Silencios largos y cómodos",
-      "line": 161
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Respiración visible y profunda",
-      "line": 163
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Sabiduría folclórica y dichos terrenos",
-      "line": 182
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Analogías con procesos naturales",
-      "line": 183
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Ejemplos de Diálogos",
-      "line": 189
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Aproximación Inicial",
-      "line": 191
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Explicando el Proceso",
-      "line": 210
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Momento Filosófico",
-      "line": 230
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "El Dúo Evangelista",
-      "line": 263
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Dinámica de Complemento",
-      "line": 265
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Usan el contacto visual para coordinar transiciones",
-      "line": 303
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Adaptación a la Audiencia",
-      "line": 309
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Lectura de Personalidades",
-      "line": 311
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "El Idealista Joven",
-      "line": 328
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "El Pragmático Ocupado",
-      "line": 339
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Gestión de Conflictos",
-      "line": 352
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Cuando Enfrentan Hostilidad",
-      "line": 354
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Nunca contradicen directamente",
-      "line": 383
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Reconocen la validez de las preocupaciones",
-      "line": 384
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Buscan puntos de acuerdo genuino",
-      "line": 385
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Transforman objeciones en oportunidades de diálogo",
-      "line": 386
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Velocidad de Habla",
-      "line": 406
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Ajustar según la duración del video",
-      "line": 412
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Pausas estratégicas para puntos clave",
-      "line": 413
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Proyección y Articulación",
-      "line": 416
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Consonantes claras para subtítulos automáticos",
-      "line": 418
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Proyección suficiente sin gritar",
-      "line": 419
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Modulación rica para mantener interés",
-      "line": 420
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Evitar monotonía en videos largos",
-      "line": 421
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Calidad de Voz",
-      "line": 429
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Evitar picos y distorsión",
-      "line": 432
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Mantener distancia consistente del micrófono",
-      "line": 433
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Ritmo Narrativo",
-      "line": 437
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Variación en velocidad según contenido",
-      "line": 439
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Pausas dramáticas más largas que en video",
-      "line": 440
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Transiciones suaves entre temas",
-      "line": 441
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Cliffhangers al final de segmentos",
-      "line": 442
-    },
-    {
-      "file": "pages/es/recursos/actores/dialogo/index.astro",
-      "text": "Improvisación Guiada",
-      "line": 449
-    },
-    {
       "file": "pages/es/recursos/actores/movimiento/index.astro",
       "text": "title=\"Referencias de Movimiento\"",
       "line": 16
@@ -10774,6 +9979,271 @@
       "line": 458
     },
     {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "title=\"Guías de Diálogo\"",
+      "line": 16
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Guías de Diálogo",
+      "line": 26
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Características del Habla",
+      "line": 45
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Acelera al hablar de sus pasiones",
+      "line": 49
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Hace pausas dramáticas antes de revelaciones",
+      "line": 50
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Ralentiza al explicar conceptos complejos",
+      "line": 51
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Inflexiones ascendentes al hacer preguntas",
+      "line": 60
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Proyección clara sin ser agresiva",
+      "line": 62
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Vocabulario religioso transformado a ecológico",
+      "line": 70
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Ejemplos de Diálogos",
+      "line": 78
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Aproximación Inicial",
+      "line": 80
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Manejando Objeciones",
+      "line": 99
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Momento de Victoria",
+      "line": 123
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Características del Habla",
+      "line": 156
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Habla en el tiempo de la naturaleza",
+      "line": 160
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Silencios largos y cómodos",
+      "line": 161
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Respiración visible y profunda",
+      "line": 163
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Sabiduría folclórica y dichos terrenos",
+      "line": 182
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Analogías con procesos naturales",
+      "line": 183
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Ejemplos de Diálogos",
+      "line": 189
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Aproximación Inicial",
+      "line": 191
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Explicando el Proceso",
+      "line": 210
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Momento Filosófico",
+      "line": 230
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "El Dúo Evangelista",
+      "line": 263
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Dinámica de Complemento",
+      "line": 265
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Usan el contacto visual para coordinar transiciones",
+      "line": 303
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Adaptación a la Audiencia",
+      "line": 309
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Lectura de Personalidades",
+      "line": 311
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "El Idealista Joven",
+      "line": 328
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "El Pragmático Ocupado",
+      "line": 339
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Gestión de Conflictos",
+      "line": 352
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Cuando Enfrentan Hostilidad",
+      "line": 354
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Nunca contradicen directamente",
+      "line": 383
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Reconocen la validez de las preocupaciones",
+      "line": 384
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Buscan puntos de acuerdo genuino",
+      "line": 385
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Transforman objeciones en oportunidades de diálogo",
+      "line": 386
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Velocidad de Habla",
+      "line": 406
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Ajustar según la duración del video",
+      "line": 412
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Pausas estratégicas para puntos clave",
+      "line": 413
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Proyección y Articulación",
+      "line": 416
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Consonantes claras para subtítulos automáticos",
+      "line": 418
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Proyección suficiente sin gritar",
+      "line": 419
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Modulación rica para mantener interés",
+      "line": 420
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Evitar monotonía en videos largos",
+      "line": 421
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Calidad de Voz",
+      "line": 429
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Evitar picos y distorsión",
+      "line": 432
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Mantener distancia consistente del micrófono",
+      "line": 433
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Ritmo Narrativo",
+      "line": 437
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Variación en velocidad según contenido",
+      "line": 439
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Pausas dramáticas más largas que en video",
+      "line": 440
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Transiciones suaves entre temas",
+      "line": 441
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Cliffhangers al final de segmentos",
+      "line": 442
+    },
+    {
+      "file": "pages/es/recursos/actores/dialogo/index.astro",
+      "text": "Improvisación Guiada",
+      "line": 449
+    },
+    {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "title=\"Alineación de Valores\"",
       "line": 20
@@ -10996,357 +10466,357 @@
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Excelente Alineación",
-      "line": 249
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Misión explícita de sostenibilidad o bienestar social",
-      "line": 251
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Objetivos cuantificables de impacto positivo",
       "line": 252
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Misión explícita de sostenibilidad o bienestar social",
+      "line": 254
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Objetivos cuantificables de impacto positivo",
+      "line": 255
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Liderazgo comprometido públicamente con valores ESG",
-      "line": 253
+      "line": 256
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Buena Alineación",
-      "line": 260
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Interés genuino en sostenibilidad",
-      "line": 262
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Iniciativas ESG en desarrollo",
       "line": 263
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Voluntad de transparencia en operaciones",
-      "line": 264
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Apertura al aprendizaje y mejora continua",
+      "text": "Interés genuino en sostenibilidad",
       "line": 265
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Iniciativas ESG en desarrollo",
+      "line": 266
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Voluntad de transparencia en operaciones",
+      "line": 267
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Apertura al aprendizaje y mejora continua",
+      "line": 268
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Incompatible",
-      "line": 269
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Modelo de negocio fundamentalmente extractivo",
-      "line": 271
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Historial de greenwashing documentado",
       "line": 272
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Resistencia a transparencia o accountability",
-      "line": 273
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Prácticas laborales o ambientales problemáticas",
+      "text": "Modelo de negocio fundamentalmente extractivo",
       "line": 274
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Historial de greenwashing documentado",
+      "line": 275
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Resistencia a transparencia o accountability",
+      "line": 276
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Prácticas laborales o ambientales problemáticas",
+      "line": 277
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Excelente Alineación",
-      "line": 284
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Certificaciones ambientales y sociales verificables",
-      "line": 286
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Cadena de suministro transparente y ética",
       "line": 287
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Políticas laborales progresivas y inclusivas",
-      "line": 288
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Economía circular integrada en operaciones",
+      "text": "Certificaciones ambientales y sociales verificables",
       "line": 289
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Cadena de suministro transparente y ética",
+      "line": 290
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Políticas laborales progresivas y inclusivas",
+      "line": 291
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Economía circular integrada en operaciones",
+      "line": 292
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Buena Alineación",
-      "line": 293
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Esfuerzos documentados de mejora ambiental",
-      "line": 295
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Políticas de diversidad e inclusión activas",
       "line": 296
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Esfuerzos documentados de mejora ambiental",
+      "line": 298
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Políticas de diversidad e inclusión activas",
+      "line": 299
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Transparencia en reporting de sostenibilidad",
-      "line": 297
+      "line": 300
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Incompatible",
-      "line": 302
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Externalización sistemática de costos ambientales",
-      "line": 304
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Prácticas laborales explotativas",
       "line": 305
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Resistencia a regulaciones ambientales",
-      "line": 306
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Modelo basado en obsolescencia programada",
+      "text": "Externalización sistemática de costos ambientales",
       "line": 307
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Prácticas laborales explotativas",
+      "line": 308
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Resistencia a regulaciones ambientales",
+      "line": 309
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Modelo basado en obsolescencia programada",
+      "line": 310
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Excelente Alineación",
-      "line": 317
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Comunicación auténtica sobre impacto y limitaciones",
-      "line": 319
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Cultura interna alineada con valores públicos",
       "line": 320
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Engagement genuino con comunidades",
-      "line": 321
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Apertura a crítica constructiva y feedback",
+      "text": "Comunicación auténtica sobre impacto y limitaciones",
       "line": 322
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Cultura interna alineada con valores públicos",
+      "line": 323
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Engagement genuino con comunidades",
+      "line": 324
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Apertura a crítica constructiva y feedback",
+      "line": 325
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Buena Alineación",
-      "line": 326
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Comunicación mayormente honesta y directa",
-      "line": 328
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Esfuerzos reales de engagement comunitario",
       "line": 329
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Receptividad a feedback externo",
-      "line": 330
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Cultura organizacional en evolución positiva",
+      "text": "Comunicación mayormente honesta y directa",
       "line": 331
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Esfuerzos reales de engagement comunitario",
+      "line": 332
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Receptividad a feedback externo",
+      "line": 333
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Cultura organizacional en evolución positiva",
+      "line": 334
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Incompatible",
-      "line": 335
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Comunicación fundamentalmente misleading",
-      "line": 337
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Cultura tóxica interna documentada",
       "line": 338
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Hostilidad hacia crítica o accountability",
-      "line": 339
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Estrategias de communications defensivas",
+      "text": "Comunicación fundamentalmente misleading",
       "line": 340
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Cultura tóxica interna documentada",
+      "line": 341
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Hostilidad hacia crítica o accountability",
+      "line": 342
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Estrategias de communications defensivas",
+      "line": 343
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Extracción de combustibles fósiles",
-      "line": 366
+      "line": 369
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Minería destructiva sin restauración",
-      "line": 367
+      "line": 370
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Deforestación o destrucción de ecosistemas",
-      "line": 368
+      "line": 371
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Explotan trabajo infantil o forzado",
-      "line": 381
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Mantienen condiciones laborales peligrosas",
-      "line": 382
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Sistemáticamente subpagan salarios dignos",
-      "line": 383
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Reprimen organización sindical legítima",
       "line": 384
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Mantienen condiciones laborales peligrosas",
+      "line": 385
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Sistemáticamente subpagan salarios dignos",
+      "line": 386
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Reprimen organización sindical legítima",
+      "line": 387
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Hacen afirmaciones ambientales no verificables",
-      "line": 394
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Usan certificaciones falsas o misleading",
-      "line": 395
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Invierten más en marketing verde que en impacto real",
-      "line": 396
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Ocultan impactos negativos significativos",
       "line": 397
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Usan certificaciones falsas o misleading",
+      "line": 398
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Invierten más en marketing verde que en impacto real",
+      "line": 399
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Ocultan impactos negativos significativos",
+      "line": 400
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Industria armamentística",
-      "line": 407
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Tabaco y productos adictivos dañinos",
-      "line": 408
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Gambling y industrias de explotación",
-      "line": 409
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Empresas con historial de corrupción sistemática",
       "line": 410
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Tabaco y productos adictivos dañinos",
+      "line": 411
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Gambling y industrias de explotación",
+      "line": 412
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Empresas con historial de corrupción sistemática",
+      "line": 413
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Cultura interna discriminatoria documentada",
-      "line": 420
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Liderazgo con historial de comportamiento abusivo",
-      "line": 421
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Resistencia sistemática a accountability",
-      "line": 422
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Prácticas de silencing de whistleblowers",
       "line": 423
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Liderazgo con historial de comportamiento abusivo",
+      "line": 424
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Resistencia sistemática a accountability",
+      "line": 425
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Prácticas de silencing de whistleblowers",
+      "line": 426
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Priorizan crecimiento a cualquier costo",
-      "line": 436
+      "line": 442
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Ven la regulación ambiental como enemiga",
-      "line": 437
+      "line": 443
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Principios de Colaboración",
-      "line": 455
+      "line": 461
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Proceso de Due Diligence",
-      "line": 490
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Investigación Inicial",
-      "line": 495
-    },
-    {
-      "file": "pages/en/resources/sponsors/values/index.astro",
-      "text": "Verificación de Terceros",
       "line": 505
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Investigación Inicial",
+      "line": 510
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
+      "text": "Verificación de Terceros",
+      "line": 520
+    },
+    {
+      "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Entrevista de Valores",
-      "line": 515
+      "line": 530
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Periodo de Prueba",
-      "line": 525
+      "line": 540
     },
     {
       "file": "pages/en/resources/sponsors/values/index.astro",
       "text": "Revisión Continua",
-      "line": 535
+      "line": 550
     },
     {
       "file": "pages/en/resources/sponsors/integration/index.astro",
@@ -11885,22 +11355,22 @@
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "title=\"Reporte de Impacto\"",
+      "text": "title=\"Impact Report\"",
       "line": 20
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Reporte de Impacto",
+      "text": "Impact Report",
       "line": 30
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Alcance Total",
+      "text": "Total Reach",
       "line": 49
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Impresiones mensuales proyectadas",
+      "text": "Projected monthly impressions",
       "line": 51
     },
     {
@@ -11910,37 +11380,37 @@
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Conversión a Acción",
+      "text": "Action Conversion",
       "line": 59
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Usuarios que implementan consejos",
+      "text": "Users who implement tips",
       "line": 61
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "ROI Social",
+      "text": "Social ROI",
       "line": 64
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Retorno en cambio de comportamiento",
+      "text": "Return in behavior change",
       "line": 66
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Demografía Principal",
+      "text": "Main Demographics",
       "line": 82
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Edad",
+      "text": "Age",
       "line": 85
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Ubicación",
+      "text": "Location",
       "line": 94
     },
     {
@@ -11956,247 +11426,247 @@
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Alto",
-      "line": 125
+      "line": 128
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Muy alto",
-      "line": 134
+      "line": 137
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Alto",
-      "line": 143
+      "line": 146
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "High",
-      "line": 151
+      "line": 154
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Muy alto",
-      "line": 152
+      "line": 155
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "TikTok",
-      "line": 172
+      "line": 175
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Insights Clave",
-      "line": 197
+      "line": 200
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Instagram",
-      "line": 210
+      "line": 213
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Insights Clave",
-      "line": 235
+      "line": 238
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "YouTube",
-      "line": 248
+      "line": 251
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Insights Clave",
-      "line": 273
+      "line": 276
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Insights Clave",
-      "line": 311
+      "line": 314
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Audiencia más comprometida y educada",
-      "line": 313
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Alto engagement con sponsors",
       "line": 316
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Cambios de Comportamiento",
-      "line": 333
+      "text": "Alto engagement con sponsors",
+      "line": 319
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Adopción de Energía Solar",
+      "text": "Cambios de Comportamiento",
       "line": 336
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Adopción de Energía Solar",
+      "line": 339
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Compostaje Doméstico",
-      "line": 341
+      "line": 344
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Hogares que iniciaron compostaje",
-      "line": 343
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Reducción de Desperdicios",
       "line": 346
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Reducción de Desperdicios",
+      "line": 349
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Promedio de reducción reportada",
-      "line": 348
+      "line": 351
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Impacto Económico",
-      "line": 354
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Ahorro en Energía",
       "line": 357
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Ahorro anual estimado de la comunidad",
-      "line": 359
+      "text": "Ahorro en Energía",
+      "line": 360
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Empleos Verdes Generados",
+      "text": "Ahorro anual estimado de la comunidad",
       "line": 362
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Nuevos empleos en el ecosistema",
-      "line": 364
+      "text": "Empleos Verdes Generados",
+      "line": 365
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Inversión Atraída",
+      "text": "Nuevos empleos en el ecosistema",
       "line": 367
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Inversión Atraída",
+      "line": 370
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "En tecnologías verdes por influencia del contenido",
-      "line": 369
+      "line": 372
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Impacto Ambiental",
-      "line": 375
+      "line": 378
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Toneladas anuales por cambios adoptados",
-      "line": 380
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Agua Ahorrada",
       "line": 383
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Litros mensuales por prácticas implementadas",
-      "line": 385
+      "text": "Agua Ahorrada",
+      "line": 386
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Residuos Desviados",
+      "text": "Litros mensuales por prácticas implementadas",
       "line": 388
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Residuos Desviados",
+      "line": 391
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Toneladas mensuales del relleno sanitario",
-      "line": 390
+      "line": 393
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Integración de Contenido",
-      "line": 407
+      "line": 410
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Beneficios",
-      "line": 423
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Integración orgánica en narrativa",
-      "line": 425
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Asociación con valores sostenibles",
       "line": 426
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Audiencia altamente segmentada",
-      "line": 427
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Contenido evergreen",
+      "text": "Integración orgánica en narrativa",
       "line": 428
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Asociación con valores sostenibles",
+      "line": 429
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Audiencia altamente segmentada",
+      "line": 430
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Contenido evergreen",
+      "line": 431
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Desarrollo de Productos",
-      "line": 434
+      "line": 437
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Beneficios",
-      "line": 450
+      "line": 453
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Reducción de riesgo de producto",
-      "line": 454
+      "line": 457
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Channel directo de distribución",
-      "line": 455
+      "line": 458
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Eventos y Experiencias",
-      "line": 461
+      "line": 464
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Beneficios",
-      "line": 477
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Demostración práctica de productos",
-      "line": 479
-    },
-    {
-      "file": "pages/en/resources/sponsors/impact/index.astro",
-      "text": "Networking con decision makers",
       "line": 480
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Demostración práctica de productos",
+      "line": 482
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
+      "text": "Networking con decision makers",
+      "line": 483
+    },
+    {
+      "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Generación de leads calificados",
-      "line": 481
+      "line": 484
     },
     {
       "file": "pages/en/resources/sponsors/impact/index.astro",
       "text": "Contenido de valor agregado",
-      "line": 482
+      "line": 485
     },
     {
       "file": "pages/en/resources/creators/worldbuilding/index.astro",
@@ -13239,271 +12709,6 @@
       "line": 343
     },
     {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "title=\"Guías de Diálogo\"",
-      "line": 20
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Guías de Diálogo",
-      "line": 30
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Características del Habla",
-      "line": 49
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Acelera al hablar de sus pasiones",
-      "line": 53
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Hace pausas dramáticas antes de revelaciones",
-      "line": 54
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Ralentiza al explicar conceptos complejos",
-      "line": 55
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Inflexiones ascendentes al hacer preguntas",
-      "line": 64
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Proyección clara sin ser agresiva",
-      "line": 66
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Vocabulario religioso transformado a ecológico",
-      "line": 74
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Ejemplos de Diálogos",
-      "line": 82
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Aproximación Inicial",
-      "line": 84
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Manejando Objeciones",
-      "line": 103
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Momento de Victoria",
-      "line": 127
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Características del Habla",
-      "line": 160
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Habla en el tiempo de la naturaleza",
-      "line": 164
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Silencios largos y cómodos",
-      "line": 165
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Respiración visible y profunda",
-      "line": 167
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Sabiduría folclórica y dichos terrenos",
-      "line": 186
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Analogías con procesos naturales",
-      "line": 187
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Ejemplos de Diálogos",
-      "line": 193
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Aproximación Inicial",
-      "line": 195
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Explicando el Proceso",
-      "line": 214
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Momento Filosófico",
-      "line": 234
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "El Dúo Evangelista",
-      "line": 267
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Dinámica de Complemento",
-      "line": 269
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Usan el contacto visual para coordinar transiciones",
-      "line": 307
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Adaptación a la Audiencia",
-      "line": 313
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Lectura de Personalidades",
-      "line": 315
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "El Idealista Joven",
-      "line": 332
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "El Pragmático Ocupado",
-      "line": 343
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Gestión de Conflictos",
-      "line": 356
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Cuando Enfrentan Hostilidad",
-      "line": 358
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Nunca contradicen directamente",
-      "line": 387
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Reconocen la validez de las preocupaciones",
-      "line": 388
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Buscan puntos de acuerdo genuino",
-      "line": 389
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Transforman objeciones en oportunidades de diálogo",
-      "line": 390
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Velocidad de Habla",
-      "line": 410
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Ajustar según la duración del video",
-      "line": 416
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Pausas estratégicas para puntos clave",
-      "line": 417
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Proyección y Articulación",
-      "line": 420
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Consonantes claras para subtítulos automáticos",
-      "line": 422
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Proyección suficiente sin gritar",
-      "line": 423
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Modulación rica para mantener interés",
-      "line": 424
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Evitar monotonía en videos largos",
-      "line": 425
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Calidad de Voz",
-      "line": 433
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Evitar picos y distorsión",
-      "line": 436
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Mantener distancia consistente del micrófono",
-      "line": 437
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Ritmo Narrativo",
-      "line": 441
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Variación en velocidad según contenido",
-      "line": 443
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Pausas dramáticas más largas que en video",
-      "line": 444
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Transiciones suaves entre temas",
-      "line": 445
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Cliffhangers al final de segmentos",
-      "line": 446
-    },
-    {
-      "file": "pages/en/resources/actors/dialogue/index.astro",
-      "text": "Improvisación Guiada",
-      "line": 453
-    },
-    {
       "file": "pages/en/resources/actors/movement/index.astro",
       "text": "title=\"Referencias de Movimiento\"",
       "line": 20
@@ -13804,6 +13009,271 @@
       "line": 462
     },
     {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "title=\"Guías de Diálogo\"",
+      "line": 20
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Guías de Diálogo",
+      "line": 30
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Características del Habla",
+      "line": 49
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Acelera al hablar de sus pasiones",
+      "line": 53
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Hace pausas dramáticas antes de revelaciones",
+      "line": 54
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Ralentiza al explicar conceptos complejos",
+      "line": 55
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Inflexiones ascendentes al hacer preguntas",
+      "line": 64
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Proyección clara sin ser agresiva",
+      "line": 66
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Vocabulario religioso transformado a ecológico",
+      "line": 74
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Ejemplos de Diálogos",
+      "line": 82
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Aproximación Inicial",
+      "line": 84
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Manejando Objeciones",
+      "line": 103
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Momento de Victoria",
+      "line": 127
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Características del Habla",
+      "line": 160
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Habla en el tiempo de la naturaleza",
+      "line": 164
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Silencios largos y cómodos",
+      "line": 165
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Respiración visible y profunda",
+      "line": 167
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Sabiduría folclórica y dichos terrenos",
+      "line": 186
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Analogías con procesos naturales",
+      "line": 187
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Ejemplos de Diálogos",
+      "line": 193
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Aproximación Inicial",
+      "line": 195
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Explicando el Proceso",
+      "line": 214
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Momento Filosófico",
+      "line": 234
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "El Dúo Evangelista",
+      "line": 267
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Dinámica de Complemento",
+      "line": 269
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Usan el contacto visual para coordinar transiciones",
+      "line": 307
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Adaptación a la Audiencia",
+      "line": 313
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Lectura de Personalidades",
+      "line": 315
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "El Idealista Joven",
+      "line": 332
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "El Pragmático Ocupado",
+      "line": 343
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Gestión de Conflictos",
+      "line": 356
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Cuando Enfrentan Hostilidad",
+      "line": 358
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Nunca contradicen directamente",
+      "line": 387
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Reconocen la validez de las preocupaciones",
+      "line": 388
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Buscan puntos de acuerdo genuino",
+      "line": 389
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Transforman objeciones en oportunidades de diálogo",
+      "line": 390
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Velocidad de Habla",
+      "line": 410
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Ajustar según la duración del video",
+      "line": 416
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Pausas estratégicas para puntos clave",
+      "line": 417
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Proyección y Articulación",
+      "line": 420
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Consonantes claras para subtítulos automáticos",
+      "line": 422
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Proyección suficiente sin gritar",
+      "line": 423
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Modulación rica para mantener interés",
+      "line": 424
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Evitar monotonía en videos largos",
+      "line": 425
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Calidad de Voz",
+      "line": 433
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Evitar picos y distorsión",
+      "line": 436
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Mantener distancia consistente del micrófono",
+      "line": 437
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Ritmo Narrativo",
+      "line": 441
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Variación en velocidad según contenido",
+      "line": 443
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Pausas dramáticas más largas que en video",
+      "line": 444
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Transiciones suaves entre temas",
+      "line": 445
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Cliffhangers al final de segmentos",
+      "line": 446
+    },
+    {
+      "file": "pages/en/resources/actors/dialogue/index.astro",
+      "text": "Improvisación Guiada",
+      "line": 453
+    },
+    {
       "file": "pages/en/resources/actors/characters/index.astro",
       "text": "title=\"Análisis de Personajes para Actores\"",
       "line": 20
@@ -14072,9 +13542,9 @@
   "inconsistentRoutes": [],
   "missingAltText": [],
   "summary": {
-    "totalTranslations": 603,
+    "totalTranslations": 726,
     "translationCoverage": 100,
-    "filesScanned": 90,
-    "issuesFound": 2813
+    "filesScanned": 92,
+    "issuesFound": 2707
   }
 }

@@ -87,7 +87,7 @@ export function installCacheBuster(): void {
 
     console.log(
       '%c✨ Cache Buster Installed!',
-      'background: #4CAF50; color: white; padding: 5px 10px; border-radius: 3px;'
+      'background: var(--madfam-green); color: white; padding: 5px 10px; border-radius: 3px;'
     );
     console.log('Available commands:');
     console.log('  window.cacheBuster.clearAllCaches()');

@@ -490,7 +490,7 @@ export class MagazineCutoutPlaceholderService {
           <filter id="dropShadow">
             <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
             <feOffset dx="3" dy="4" result="offsetblur"/>
-            <feFlood flood-color="#000000" flood-opacity="0.25"/>
+            <feFlood flood-color="var(--madfam-black)" flood-opacity="0.25"/>
             <feComposite in2="offsetblur" operator="in"/>
             <feMerge>
               <feMergeNode/>

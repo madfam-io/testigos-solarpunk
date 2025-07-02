@@ -46,8 +46,41 @@
   --text-primary: #212121;
   --text-secondary: rgba(0, 0, 0, 0.87);
   --border-subtle: rgba(0, 0, 0, 0.12);
-  --cutout-shadow: rgba(0, 0, 0, 0.15);
+  --cutout-shadow: var(--cutout-shadow);
   --tape-color: rgba(255, 193, 7, 0.7);
+
+  /* Theme-specific colors */
+  --color-eco-green: #4caf50;
+  --color-solar-yellow: #ffc107;
+  --color-comedy-purple: #663399;
+  --color-tech-blue: #2196f3;
+  --color-community-orange: #ff6b35;
+  --paper-texture-opacity: 0.1;
+  --torn-edge-color: rgba(0, 0, 0, 0.12);
+  --nav-text: #212121;
+  --button-primary-bg: #ffc107;
+  --button-primary-text: #212121;
+
+  /* Shadow overlay variations */
+  --shadow-overlay-dark: rgba(0, 0, 0, 0.24);
+  --shadow-overlay-medium: rgba(0, 0, 0, 0.16);
+  --shadow-overlay-strong: rgba(0, 0, 0, 0.2);
+  --shadow-overlay-dark-mode: rgba(0, 0, 0, 0.5);
+  --shadow-overlay-darkest: rgba(0, 0, 0, 0.8);
+  --shadow-overlay-dark-medium: rgba(0, 0, 0, 0.4);
+  --shadow-overlay-dark-strong: rgba(0, 0, 0, 0.6);
+  --shadow-overlay-dark-stronger: rgba(0, 0, 0, 0.7);
+  --cutout-shadow-dark: rgba(0, 0, 0, 0.3);
+
+  /* Additional semantic colors */
+  --color-error: #f44336;
+  --color-error-light: #ef5350;
+  --color-error-dark: #d32f2f;
+  --color-warning-light: #ffb74d;
+
+  /* Extended Solarpunk colors */
+  --sp-community-light: #ff8a65;
+  --sp-community-dark: #e55100;
 }
 
 /* Dark theme overrides */
@@ -59,11 +92,22 @@
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.87);
   --border-subtle: rgba(255, 255, 255, 0.2);
-  --cutout-shadow: rgba(0, 0, 0, 0.3);
+  --cutout-shadow: var(--cutout-shadow-dark);
   --tape-color: rgba(255, 213, 79, 0.8);
   --madfam-green: #66bb6a;
   --madfam-purple: #9575cd;
   --madfam-blue: #42a5f5;
+
+  --color-eco-green: #81c784;
+  --color-solar-yellow: #ffd54f;
+  --color-comedy-purple: #9575cd;
+  --color-tech-blue: #64b5f6;
+  --color-community-orange: #ff8a65;
+  --paper-texture-opacity: 0.05;
+  --torn-edge-color: rgba(255, 255, 255, 0.2);
+  --nav-text: #ffffff;
+  --button-primary-bg: #ffd54f;
+  --button-primary-text: #212121;
 }
 
 /* Reset and base styles */
@@ -202,7 +246,7 @@ h2 {
   font-weight: 800;
   text-transform: uppercase;
   color: var(--text-primary);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px var(--cutout-shadow-dark);
   transform-origin: center;
 }
 
@@ -268,7 +312,7 @@ h2 {
   transform: rotate(-1deg);
   box-shadow:
     3px 3px 0 currentColor,
-    5px 5px 12px rgba(0, 0, 0, 0.15);
+    5px 5px 12px var(--cutout-shadow);
   cursor: pointer;
   font-size: 1rem;
 }

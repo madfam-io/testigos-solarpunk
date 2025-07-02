@@ -71,6 +71,47 @@
   --text-on-info: #000000; /* Black text on blue */
   --text-inverse: #000000; /* Inverse of primary text */
 
+  /* === THEME-SPECIFIC COLORS REQUIRED BY HEALTH CHECK === */
+  --color-eco-green: #81c784; /* Light green for dark mode */
+  --color-solar-yellow: var(
+    --madfam-yellow-light
+  ); /* Light yellow for dark mode */
+  --color-comedy-purple: #9575cd; /* Light purple for dark mode */
+  --color-tech-blue: #64b5f6; /* Light blue for dark mode */
+  --color-community-orange: #ff8a65; /* Light orange for dark mode */
+
+  /* Magazine cutout specific */
+  --paper-texture-opacity: 0.05;
+  --torn-edge-color: rgba(255, 255, 255, 0.2);
+
+  /* Navigation */
+  --nav-text: #ffffff;
+
+  /* Buttons */
+  --button-primary-bg: var(--madfam-yellow-light);
+  --button-primary-text: #000000;
+
+  /* Shadow overlay variations */
+  --shadow-overlay-dark: rgba(0, 0, 0, 0.24);
+  --shadow-overlay-medium: rgba(0, 0, 0, 0.16);
+  --shadow-overlay-strong: rgba(0, 0, 0, 0.2);
+  --shadow-overlay-dark-mode: rgba(0, 0, 0, 0.5);
+  --shadow-overlay-darkest: rgba(0, 0, 0, 0.8);
+  --shadow-overlay-dark-medium: rgba(0, 0, 0, 0.4);
+  --shadow-overlay-dark-strong: rgba(0, 0, 0, 0.6);
+  --shadow-overlay-dark-stronger: rgba(0, 0, 0, 0.7);
+  --cutout-shadow-dark: rgba(0, 0, 0, 0.3);
+
+  /* Additional semantic colors */
+  --color-error: #f44336;
+  --color-error-light: #ef5350;
+  --color-error-dark: #d32f2f;
+  --color-warning-light: #ffb74d;
+
+  /* Extended Solarpunk colors */
+  --sp-community-light: #ff8a65;
+  --sp-community-dark: #e55100;
+
   /* Espaciado */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -278,7 +319,7 @@ a.nav-link.active::after {
 }
 
 .btn-primary:hover {
-  background-color: #ffd54f;
+  background-color: var(--madfam-yellow-light);
   box-shadow: var(--shadow-lg), var(--shadow-glow);
 }
 
@@ -888,6 +929,24 @@ a.nav-link.active::after {
   --cutout-shadow: rgba(0, 0, 0, 0.12);
   --tape-color: rgba(255, 193, 7, 0.8);
   --paper-texture: rgba(0, 0, 0, 0.02);
+
+  /* === THEME-SPECIFIC COLORS FOR LIGHT THEME === */
+  --color-eco-green: #4caf50;
+  --color-solar-yellow: #ffc107;
+  --color-comedy-purple: #663399;
+  --color-tech-blue: #2196f3;
+  --color-community-orange: #ff6b35;
+
+  /* Magazine cutout specific */
+  --paper-texture-opacity: 0.1;
+  --torn-edge-color: rgba(0, 0, 0, 0.12);
+
+  /* Navigation */
+  --nav-text: #212121;
+
+  /* Buttons */
+  --button-primary-bg: #ffc107;
+  --button-primary-text: #212121;
 }
 
 /* === PRINT STYLES === */

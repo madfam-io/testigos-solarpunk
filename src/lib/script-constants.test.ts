@@ -111,7 +111,10 @@ describe('script-constants', () => {
      * - filmado: Cyan theme (completed/archived)
      */
     it('should have correct color values for each status', () => {
-      expect(statusColors.borrador).toEqual({ bg: '#fff3cd', text: '#856404' });
+      expect(statusColors.borrador).toEqual({
+        bg: 'var(--madfam-white)3cd',
+        text: '#856404',
+      });
       expect(statusColors.revision).toEqual({ bg: '#cce5ff', text: '#004085' });
       expect(statusColors.aprobado).toEqual({ bg: '#d4edda', text: '#155724' });
       expect(statusColors.filmado).toEqual({ bg: '#d1ecf1', text: '#0c5460' });

@@ -259,7 +259,7 @@ if (
     background: rgba(255, 255, 255, 0.8);
     opacity: 0.9;
     transform: rotate(-45deg);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--torn-edge-color);
   }
 
   .logo-tape::before {
@@ -270,8 +270,8 @@ if (
       90deg,
       transparent,
       transparent 4px,
-      rgba(0, 0, 0, 0.05) 4px,
-      rgba(0, 0, 0, 0.05) 8px
+      var(--hover-overlay) 4px,
+      var(--hover-overlay) 8px
     );
   }
 
@@ -311,7 +311,7 @@ if (
     -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: contrast(1.2);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px var(--torn-edge-color);
     animation: letterFloat 4s ease-in-out infinite;
   }
 
@@ -352,7 +352,7 @@ if (
     color: var(--bg-primary);
     padding: 0.2em 0.6em;
     transform: rotate(-1deg);
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 0 var(--torn-edge-color);
   }
 
   .subtitle-accent {
@@ -429,7 +429,7 @@ if (
     transform: rotate(-1deg);
     box-shadow:
       3px 3px 0 currentColor,
-      5px 5px 12px rgba(0, 0, 0, 0.1);
+      5px 5px 12px var(--torn-edge-color);
   }
 
   .magazine-btn.primary {
@@ -454,7 +454,7 @@ if (
     transform: rotate(0deg) translateY(-2px);
     box-shadow:
       4px 4px 0 currentColor,
-      6px 6px 16px rgba(0, 0, 0, 0.15);
+      6px 6px 16px var(--cutout-shadow);
   }
 
   .btn-text {

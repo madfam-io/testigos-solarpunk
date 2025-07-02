@@ -189,7 +189,7 @@ if (basePath.endsWith('/')) {
   }
 
   .fase-label {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--border-subtle);
     backdrop-filter: blur(10px);
     padding: 8px 20px;
     border-radius: 20px;
@@ -215,12 +215,12 @@ if (basePath.endsWith('/')) {
   }
 
   .preview-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--torn-edge-color);
     backdrop-filter: blur(10px);
     padding: var(--espacio-xl);
     border-radius: 16px;
     display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-subtle);
   }
 
   .preview-icon {
@@ -262,8 +262,8 @@ if (basePath.endsWith('/')) {
     padding: var(--espacio-xl);
     border-radius: 12px;
     text-align: center;
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-subtle, var(--torn-edge-color));
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -271,7 +271,7 @@ if (basePath.endsWith('/')) {
 
   .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 24px var(--shadow-overlay-dark-medium);
   }
 
   .feature-icon {
@@ -334,8 +334,8 @@ if (basePath.endsWith('/')) {
     color: var(--text-primary, #ffffff);
     padding: var(--espacio-xxl);
     border-radius: 16px;
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-subtle, var(--torn-edge-color));
+    box-shadow: 0 4px 6px var(--cutout-shadow-dark);
   }
 
   .notify-card h3 {

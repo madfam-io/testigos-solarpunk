@@ -169,11 +169,11 @@ export const SEO_DEFAULTS = {
  * - white: Background/light
  */
 export const MADFAM_COLORS = {
-  yellow: '#FFC107',
-  green: '#4CAF50',
-  purple: '#663399',
-  blue: '#2196F3',
-  black: '#212121',
+  yellow: 'var(--madfam-yellow)',
+  green: 'var(--madfam-green)',
+  purple: 'var(--madfam-purple)',
+  blue: 'var(--madfam-blue)',
+  black: 'var(--madfam-black)',
   white: '#FFFFFF',
 } as const;
 

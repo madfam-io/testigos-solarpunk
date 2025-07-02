@@ -1,6 +1,7 @@
 ---
 import PWAInstaller from '../components/PWAInstaller.astro';
 import '../styles/unified-dark-theme.css';
+import { useTranslations } from '@/i18n/config';
 
 export interface Props {
   title: string;
@@ -39,10 +40,13 @@ const langPrefix = lang === 'es' ? '/es' : '/en';
 const fullUrl = `${baseUrl}${basePath}${currentPath}`;
 const imageUrl = `${baseUrl}${basePath}${image}`;
 const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
+
+// Initialize translations
+const t = useTranslations(lang as 'es' | 'en');
 ---
 
 <!doctype html>
-<html lang="es-MX" data-theme="dark">
+<html lang={lang === 'es' ? 'es-MX' : 'en-US'} data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,7 +62,7 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
     />
 
     <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#FFC107" />
+    <meta name="theme-color" content="var(--madfam-yellow)" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
       name="apple-mobile-web-app-status-bar-style"
@@ -67,7 +71,7 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
     <meta name="apple-mobile-web-app-title" content="Testigos" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="Testigos de Solarpunk" />
-    <meta name="msapplication-TileColor" content="#FFC107" />
+    <meta name="msapplication-TileColor" content="var(--madfam-yellow)" />
     <meta
       name="msapplication-config"
       content={`${basePath}/browserconfig.xml`}
@@ -92,7 +96,7 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Testigos de Solarpunk" />
-    <meta property="og:locale" content="es_MX" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_MX' : 'en_US'} />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -170,24 +174,24 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
   </head>
   <body>
     <!-- Skip to main content link -->
-    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <a href="#main-content" class="skip-link">{t('a11y.skip.content')}</a>
 
     <!-- Main Navigation -->
-    <nav class="nav-main" role="navigation" aria-label="Navegación principal">
+    <nav class="nav-main" role="navigation" aria-label={t('aria.nav.main')}>
       <div class="nav-container">
         <div class="nav-brand">
           <a
             href={`${basePath}/`}
             class:list={currentPath === '/' ? 'active' : ''}
-            aria-label="Inicio - Testigos de Solarpunk"
+            aria-label={t('aria.nav.brand')}
           >
-            <strong class="text-gradient">Testigos de Solarpunk</strong>
+            <strong class="text-gradient">{t('site.title')}</strong>
           </a>
         </div>
 
         <button
           class="nav-mobile-toggle"
-          aria-label="Abrir menú de navegación"
+          aria-label={t('a11y.menu.open')}
           aria-expanded="false"
           aria-controls="nav-menu"
         >
@@ -209,7 +213,7 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
                 ? 'page'
                 : undefined}
             >
-              El Proyecto
+              {t('nav.project')}
             </a>
           </li>
           <li class="nav-dropdown" role="none">
@@ -220,17 +224,17 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
               aria-controls="contenido-menu"
               role="menuitem"
             >
-              Contenido
+              {t('nav.content')}
             </button>
             <div class="nav-dropdown-menu" id="contenido-menu" role="menu">
               <a href={`${basePath}/contenido/sketches/`} role="menuitem">
-                🎬 Sketches
+                🎬 {t('nav.sketches')}
               </a>
               <a href={`${basePath}/contenido/podcast/`} role="menuitem">
-                🎙️ Podcast
+                🎙️ {t('nav.podcast')}
               </a>
               <a href={`${basePath}/contenido/madlab/`} role="menuitem">
-                🔬 MADLAB
+                🔬 {t('nav.madlab')}
               </a>
             </div>
           </li>
@@ -242,26 +246,26 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
               aria-controls="universo-menu"
               role="menuitem"
             >
-              Universo
+              {t('nav.universe')}
             </button>
             <div class="nav-dropdown-menu" id="universo-menu" role="menu">
               <a
                 href={`${basePath}${langPrefix}/${lang === 'es' ? 'personajes' : 'characters'}/`}
                 role="menuitem"
               >
-                👥 Personajes
+                👥 {t('nav.characters')}
               </a>
               <a
                 href={`${basePath}${langPrefix}/${lang === 'es' ? 'mundo' : 'world'}/`}
                 role="menuitem"
               >
-                🌍 Construcción del Mundo
+                🌍 {t('nav.world')}
               </a>
               <a
                 href={`${basePath}${langPrefix}/${lang === 'es' ? 'guiones' : 'scripts'}/`}
                 role="menuitem"
               >
-                📝 {lang === 'es' ? 'Guiones' : 'Scripts'}
+                📝 {t('nav.scripts')}
               </a>
             </div>
           </li>
@@ -277,7 +281,7 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
                 ? 'page'
                 : undefined}
             >
-              Comunidad
+              {t('nav.community')}
             </a>
           </li>
           <li role="none">
@@ -292,7 +296,7 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
                 ? 'page'
                 : undefined}
             >
-              Producción
+              {t('nav.production')}
             </a>
           </li>
           <li role="none">
@@ -307,7 +311,7 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
                 ? 'page'
                 : undefined}
             >
-              Impacto
+              {t('nav.impact')}
             </a>
           </li>
         </ul>
@@ -315,8 +319,8 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
         <div class="nav-actions">
           <button
             class="theme-toggle"
-            aria-label="Cambiar tema"
-            title="Cambiar entre modo claro y oscuro"
+            aria-label={t('a11y.theme.toggle')}
+            title={t('theme.toggle.description')}
           >
             <span class="theme-icon" aria-hidden="true"
               ><span class="emoji emoji-sm">🌙</span></span
@@ -334,84 +338,71 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
       <div class="container">
         <div class="grid grid-cols-3">
           <div>
-            <h4>Universo Creativo</h4>
+            <h4>{t('footer.creative.universe')}</h4>
             <ul>
               <li>
                 <a
                   href={`${basePath}${langPrefix}/${lang === 'es' ? 'personajes' : 'characters'}/`}
-                  >{
-                    lang === 'es' ? 'Biblia de Personajes' : 'Character Bible'
-                  }</a
+                  >{t('footer.character.bible')}</a
                 >
               </li>
               <li>
                 <a
                   href={`${basePath}${langPrefix}/${lang === 'es' ? 'guiones' : 'scripts'}/`}
-                  >{
-                    lang === 'es'
-                      ? 'Repositorio de Guiones'
-                      : 'Script Repository'
-                  }</a
+                  >{t('footer.script.repository')}</a
                 >
               </li>
               <li>
                 <a
                   href={`${basePath}${langPrefix}/${lang === 'es' ? 'mundo' : 'world'}/`}
-                  >{
-                    lang === 'es' ? 'Construcción del Mundo' : 'World Building'
-                  }</a>
+                  >{t('nav.world')}</a
+                >
               </li>
             </ul>
           </div>
           <div>
-            <h4>Para Creadores</h4>
+            <h4>{t('footer.for.creators')}</h4>
             <ul>
               <li>
                 <a
                   href={`${basePath}${langPrefix}/${lang === 'es' ? 'recursos' : 'resources'}/`}
-                  >{
-                    lang === 'es' ? 'Guías y Plantillas' : 'Guides & Templates'
-                  }</a>
+                  >{t('footer.guides.templates')}</a
+                >
               </li>
               <li>
                 <a
                   href={`${basePath}${langPrefix}/${lang === 'es' ? 'produccion' : 'production'}/`}
-                  >{lang === 'es' ? 'Guía de Estilo' : 'Style Guide'}</a>
+                  >{t('footer.style.guide')}</a
+                >
               </li>
               <li>
                 <a
                   href={`${basePath}${langPrefix}/${lang === 'es' ? 'filosofia' : 'philosophy'}/`}
-                  >{
-                    lang === 'es'
-                      ? 'Filosofía del Proyecto'
-                      : 'Project Philosophy'
-                  }</a
+                  >{t('footer.project.philosophy')}</a
                 >
               </li>
               <li>
                 <a
                   href={`${basePath}${langPrefix}/${lang === 'es' ? 'guia-visual' : 'visual-guide'}/`}
-                  >{lang === 'es' ? 'Guía Visual' : 'Visual Guide'}</a>
+                  >{t('footer.visual.guide')}</a
+                >
               </li>
             </ul>
           </div>
           <div>
-            <h4>Conecta</h4>
+            <h4>{t('footer.connect')}</h4>
             <ul>
               <li>
                 <a
                   href={`${basePath}${langPrefix}/${lang === 'es' ? 'comunidad' : 'community'}/`}
-                  >{
-                    lang === 'es'
-                      ? 'Únete a la Comunidad'
-                      : 'Join the Community'
-                  }</a
+                  >{t('footer.join.community')}</a
                 >
               </li>
               <li>
                 <a
                   href={`${basePath}${langPrefix}/${lang === 'es' ? 'impacto' : 'impact'}/`}
-                  >{lang === 'es' ? 'Nuestro Impacto' : 'Our Impact'}</a>
+                  >{t('footer.our.impact')}</a
+                >
               </li>
               <li>
                 <a
@@ -427,7 +418,7 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
           </div>
         </div>
         <div class="text-center mt-5 text-tertiary">
-          <p>&copy; 2025 Testigos de Solarpunk - Un proyecto MADFAM</p>
+          <p>&copy; 2025 {t('site.title')} - {t('footer.copyright')}</p>
         </div>
       </div>
     </footer>
@@ -440,6 +431,10 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
       aria-live="polite"
       aria-atomic="true"
       id="page-announcer"
+      data-theme-dark={t('theme.dark')}
+      data-theme-light={t('theme.light')}
+      data-theme-changed={t('theme.changed')}
+      data-page-loaded={t('status.page.loaded')}
     >
     </div>
   </body>
@@ -579,7 +574,13 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
     // Announce theme change to screen readers
     const announcer = document.getElementById('page-announcer');
     if (announcer) {
-      announcer.textContent = `Tema cambiado a modo ${newTheme === 'dark' ? 'oscuro' : 'claro'}`;
+      const darkLabel = announcer.getAttribute('data-theme-dark') || 'dark';
+      const lightLabel = announcer.getAttribute('data-theme-light') || 'light';
+      const template =
+        announcer.getAttribute('data-theme-changed') ||
+        'Theme changed to {theme}';
+      const themeLabel = newTheme === 'dark' ? darkLabel : lightLabel;
+      announcer.textContent = template.replace('{theme}', themeLabel);
     }
   });
 
@@ -588,7 +589,10 @@ const siteTitle = `${title} | Testigos de Solarpunk - MADFAM`;
 
   document.addEventListener('astro:page-load', () => {
     if (pageAnnouncer) {
-      pageAnnouncer.textContent = `Página cargada: ${document.title}`;
+      const template =
+        pageAnnouncer.getAttribute('data-page-loaded') ||
+        'Page loaded: {title}';
+      pageAnnouncer.textContent = template.replace('{title}', document.title);
     }
   });
 
