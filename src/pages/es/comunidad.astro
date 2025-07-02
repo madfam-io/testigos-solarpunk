@@ -390,7 +390,39 @@ const painPoints = [
     );
     padding: var(--espacio-xxl) 0;
     text-align: center;
-    color: var(--text-on-accent, #000000);
+    color: var(--text-primary);
+  }
+
+  /* Ensure readable text on gradient in both themes */
+  :global([data-theme='light']) .hero-comunidad {
+    color: #000000;
+  }
+
+  /* Dark mode - both direct selection and auto theme with dark preference */
+  :global([data-theme='dark']) .hero-comunidad,
+  :global([data-theme-selection='auto'][data-theme='dark']) .hero-comunidad {
+    /* Use white text in dark mode for proper contrast */
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Make sure all text elements inherit the color with high specificity */
+  .hero-comunidad h1,
+  .hero-comunidad p,
+  .hero-comunidad .hero-description {
+    color: inherit !important;
+  }
+
+  /* Extra specificity for dark mode to override theme variables */
+  :global([data-theme='dark']) .hero-comunidad h1,
+  :global([data-theme='dark']) .hero-comunidad p,
+  :global([data-theme='dark']) .hero-comunidad .hero-description,
+  :global([data-theme-selection='auto'][data-theme='dark']) .hero-comunidad h1,
+  :global([data-theme-selection='auto'][data-theme='dark']) .hero-comunidad p,
+  :global([data-theme-selection='auto'][data-theme='dark'])
+    .hero-comunidad
+    .hero-description {
+    color: #ffffff !important;
   }
 
   .hero-comunidad h1 {

@@ -560,11 +560,19 @@ if (isVercel === true) {
 
   .subtitle-text {
     background: rgba(255, 255, 255, 0.9);
-    color: var(--text-primary);
+    color: #000000; /* Always use black text on white background */
     padding: 0.3em 0.8em;
     transform: rotate(-1deg);
     box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
     font-weight: 600;
+  }
+
+  /* Dark mode: darker background with light text */
+  :global([data-theme='dark']) .subtitle-text,
+  :global([data-theme-selection='auto'][data-theme='dark']) .subtitle-text {
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.1);
   }
 
   .hero-description {
