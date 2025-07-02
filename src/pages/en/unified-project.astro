@@ -16,44 +16,39 @@ if (basePath.endsWith('/')) {
 }
 
 const breadcrumbItems = [
-  { label: 'Inicio', href: '/' },
-  { label: 'El Proyecto' },
+  { label: t('nav.home'), href: `${basePath}/en/` },
+  { label: t('nav.project') },
 ];
 ---
 
-<UnifiedLayout
-  title="El Proyecto"
-  description="Conectar, Concientizar y Crear Comunidad a través del humor y la sostenibilidad"
->
+<UnifiedLayout title={t('nav.project')} description={t('project.hero.title')}>
   <Breadcrumbs items={breadcrumbItems} />
 
   <section class="hero-proyecto">
     <div class="container">
       <h1 class="hero-title animate-fadeInUp">
-        Conectar, Concientizar y Crear Comunidad
+        {t('project.hero.title')}
       </h1>
-      <p class="tagline animate-fadeInUp">Instruir desde el humor</p>
+      <p class="tagline animate-fadeInUp">{t('project.hero.tagline')}</p>
 
-      <h2 class="sr-only">Misión y Visión</h2>
+      <h2 class="sr-only">{t('ui.mission.vision')}</h2>
       <div class="mision-vision">
         <div class="card mision-card animate-fadeInUp">
           <h3>
-            <span class="emoji emoji-md emoji-card">🎯</span> Nuestra Misión
+            <span class="emoji emoji-md emoji-card">🎯</span>
+            {t('project.mission.title')}
           </h3>
           <p>
-            Transformar la percepción sobre la sostenibilidad a través del
-            humor, creando contenido que conecte, eduque y construya una
-            comunidad comprometida con el futuro del planeta.
+            {t('project.mission.description')}
           </p>
         </div>
         <div class="card vision-card animate-fadeInUp">
           <h3>
-            <span class="emoji emoji-md emoji-card">🌟</span> Visión Solarpunk
+            <span class="emoji emoji-md emoji-card">🌟</span>
+            {t('project.vision.title')}
           </h3>
           <p>
-            Un mundo donde la tecnología y la naturaleza coexisten en armonía,
-            donde cada persona es un agente de cambio positivo, y donde el
-            futuro es brillante, sostenible y lleno de esperanza.
+            {t('project.vision.description')}
           </p>
         </div>
       </div>
@@ -62,10 +57,9 @@ const breadcrumbItems = [
 
   <section class="fases-section">
     <div class="container">
-      <h2 class="section-title">Estrategia de 3 Fases</h2>
+      <h2 class="section-title">{t('project.strategy.title')}</h2>
       <p class="section-intro text-secondary">
-        Un viaje de transformación que comienza con una sonrisa y termina con
-        acción real
+        {t('project.strategy.intro')}
       </p>
 
       <div class="fases-grid">
@@ -73,19 +67,20 @@ const breadcrumbItems = [
           <span class="fase-number">01</span>
           <span class="fase-icon emoji emoji-xl emoji-card theme-solar">🎭</span
           >
-          <h3>Testigos de Solarpunk</h3>
+          <h3>{t('project.phase1.title')}</h3>
           <p class="fase-descripcion">
-            Sketches de comedia con contenido relevante para reflexionar sobre
-            hábitos y ciencia cotidiana
+            {t('project.phase1.description')}
           </p>
           <div class="fase-meta">
             <span class="badge badge-success">{t('phase1.status')}</span>
-            <span class="badge badge-secondary">60-90 segundos</span>
+            <span class="badge badge-secondary"
+              >{t('project.phase1.duration')}</span
+            >
           </div>
           <ul class="fase-features">
-            <li>Contenido viral para redes sociales</li>
-            <li>Humor que rompe barreras culturales</li>
-            <li>Tips prácticos de sostenibilidad</li>
+            <li>{t('project.phase1.feature1')}</li>
+            <li>{t('project.phase1.feature2')}</li>
+            <li>{t('project.phase1.feature3')}</li>
           </ul>
           <a href={`${basePath}/en/content/sketches`} class="btn btn-primary"
             >{t('cta.watch')}</a
@@ -99,17 +94,18 @@ const breadcrumbItems = [
           >
           <h3>MADFAM Podcast</h3>
           <p class="fase-descripcion">
-            Contenido de profundidad media sobre ciencia, tecnología y calidad
-            de vida con expertos invitados
+            {t('project.phase2.description')}
           </p>
           <div class="fase-meta">
             <span class="badge badge-primary">{t('phase2.status')}</span>
-            <span class="badge badge-secondary">20-30 minutos</span>
+            <span class="badge badge-secondary"
+              >{t('project.phase2.duration')}</span
+            >
           </div>
           <ul class="fase-features">
-            <li>Conversaciones profundas con expertos</li>
-            <li>Temas de actualidad ambiental</li>
-            <li>Soluciones prácticas y escalables</li>
+            <li>{t('project.phase2.feature1')}</li>
+            <li>{t('project.phase2.feature2')}</li>
+            <li>{t('project.phase2.feature3')}</li>
           </ul>
           <a href={`${basePath}/en/content/podcast`} class="btn btn-secondary"
             >{t('cta.learn')}</a
@@ -120,19 +116,20 @@ const breadcrumbItems = [
           <span class="fase-number">03</span>
           <span class="fase-icon emoji emoji-xl emoji-card theme-green">🔬</span
           >
-          <h3>MADLAB</h3>
+          <h3>{t('project.phase3.title')}</h3>
           <p class="fase-descripcion">
-            Eventos, experiencias y activaciones en escuelas con apoyo de
-            patrocinadores para impacto directo
+            {t('project.phase3.description')}
           </p>
           <div class="fase-meta">
             <span class="badge badge-warning">{t('phase3.status')}</span>
-            <span class="badge badge-secondary">Eventos presenciales</span>
+            <span class="badge badge-secondary"
+              >{t('project.phase3.duration')}</span
+            >
           </div>
           <ul class="fase-features">
-            <li>Experiencias educativas inmersivas</li>
-            <li>Laboratorios de innovación</li>
-            <li>Impacto directo en comunidades</li>
+            <li>{t('project.phase3.feature1')}</li>
+            <li>{t('project.phase3.feature2')}</li>
+            <li>{t('project.phase3.feature3')}</li>
           </ul>
           <a href={`${basePath}/en/content/madlab`} class="btn btn-secondary"
             >{t('cta.discover')}</a
@@ -144,36 +141,36 @@ const breadcrumbItems = [
 
   <section class="proceso-section">
     <div class="container">
-      <h2>Nuestro Proceso Creativo</h2>
+      <h2>{t('project.process.title')}</h2>
       <div class="proceso-timeline">
         <div class="proceso-step">
           <div class="step-number">1</div>
-          <h3>Investigación</h3>
+          <h3>{t('process.research.title')}</h3>
           <p class="text-secondary">
-            Identificamos pain points y barreras culturales
+            {t('process.research.description')}
           </p>
         </div>
         <div class="proceso-step">
           <div class="step-number">2</div>
-          <h3>Diseño</h3>
-          <p class="text-secondary">Creamos contenido que conecta y educa</p>
+          <h3>{t('process.design.title')}</h3>
+          <p class="text-secondary">{t('process.design.description')}</p>
         </div>
         <div class="proceso-step">
           <div class="step-number">3</div>
-          <h3>Producción</h3>
-          <p class="text-secondary">Grabamos con calidad MADFAM</p>
+          <h3>{t('process.production.title')}</h3>
+          <p class="text-secondary">{t('process.production.description')}</p>
         </div>
         <div class="proceso-step">
           <div class="step-number">4</div>
-          <h3>Distribución</h3>
+          <h3>{t('process.distribution.title')}</h3>
           <p class="text-secondary">
-            Alcanzamos audiencias en múltiples plataformas
+            {t('process.distribution.description')}
           </p>
         </div>
         <div class="proceso-step">
           <div class="step-number">5</div>
-          <h3>Impacto</h3>
-          <p class="text-secondary">Medimos y optimizamos resultados</p>
+          <h3>{t('process.impact.title')}</h3>
+          <p class="text-secondary">{t('process.impact.description')}</p>
         </div>
       </div>
     </div>
@@ -181,9 +178,9 @@ const breadcrumbItems = [
 
   <section class="cta-proyecto">
     <div class="container text-center">
-      <h2>¿Listo para ser parte del cambio?</h2>
+      <h2>{t('project.cta.title')}</h2>
       <p class="cta-subtitle text-secondary">
-        Únete a la revolución del humor sostenible
+        {t('project.cta.subtitle')}
       </p>
       <div class="cta-actions">
         <a href={`${basePath}/en/community`} class="btn btn-primary">

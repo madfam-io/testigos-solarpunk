@@ -17,15 +17,14 @@ if (basePath.endsWith('/')) {
 
 <BaseLayout
   lang={lang}
-  title="Contenido"
-  description="Explora todas las fases de contenido de Testigos de Solarpunk: Sketches, Podcast y MADLAB"
+  title={t('nav.content')}
+  description={t('content.page.description')}
 >
   <section class="hero-contenido">
     <div class="container">
-      <h1>Contenido Testigos de Solarpunk</h1>
+      <h1>{t('content.hero.title')}</h1>
       <p class="hero-description">
-        Una estrategia de contenido en tres fases para conectar, concientizar y
-        crear comunidad
+        {t('content.hero.subtitle')}
       </p>
     </div>
   </section>
@@ -42,26 +41,24 @@ if (basePath.endsWith('/')) {
               ></span
             >
             <div>
-              <h2>Fase 1: Sketches</h2>
+              <h2>{t('phase.1.sketches')}</h2>
               <span class="fase-status active">{t('phase1.status')}</span>
             </div>
           </div>
 
           <div class="fase-content">
             <p class="fase-description">
-              Sketches de comedia viral de 60-90 segundos que rompen barreras
-              culturales sobre sostenibilidad. Con personajes memorables y humor
-              inteligente, llevamos el mensaje ecológico a las masas.
+              {t('content.phase1.description')}
             </p>
 
             <div class="fase-stats">
               <div class="stat-item">
                 <span class="stat-value">25</span>
-                <span class="stat-label">Episodios</span>
+                <span class="stat-label">{t('stats.episodes')}</span>
               </div>
               <div class="stat-item">
                 <span class="stat-value">500K+</span>
-                <span class="stat-label">Vistas</span>
+                <span class="stat-label">{t('stats.views')}</span>
               </div>
               <div class="stat-item">
                 <span class="stat-value">89%</span>
@@ -84,30 +81,28 @@ if (basePath.endsWith('/')) {
               ></span
             >
             <div>
-              <h2>Fase 2: Podcast</h2>
+              <h2>{t('phase.2.podcast')}</h2>
               <span class="fase-status upcoming">{t('phase2.status')}</span>
             </div>
           </div>
 
           <div class="fase-content">
             <p class="fase-description">
-              MADFAM Podcast profundiza en conversaciones de 20-30 minutos con
-              expertos, activistas y visionarios. Exploramos soluciones
-              prácticas y escalables para los desafíos ambientales actuales.
+              {t('content.phase2.description')}
             </p>
 
             <div class="fase-stats">
               <div class="stat-item">
                 <span class="stat-value">0</span>
-                <span class="stat-label">Episodios</span>
+                <span class="stat-label">{t('stats.episodes')}</span>
               </div>
               <div class="stat-item">
-                <span class="stat-value">Ene</span>
+                <span class="stat-value">Jan</span>
                 <span class="stat-label">2025</span>
               </div>
               <div class="stat-item">
                 <span class="stat-value">20-30</span>
-                <span class="stat-label">Minutos</span>
+                <span class="stat-label">{t('stats.minutes')}</span>
               </div>
             </div>
 
@@ -115,7 +110,7 @@ if (basePath.endsWith('/')) {
               href={`${basePath}/en/content/podcast/`}
               class="btn btn-secondary"
             >
-              Conocer Más
+              {t('cta.learn.more')}
             </a>
           </div>
         </article>
@@ -129,26 +124,24 @@ if (basePath.endsWith('/')) {
               ></span
             >
             <div>
-              <h2>Fase 3: MADLAB</h2>
+              <h2>{t('phase.3.madlab')}</h2>
               <span class="fase-status development">{t('phase3.status')}</span>
             </div>
           </div>
 
           <div class="fase-content">
             <p class="fase-description">
-              Laboratorios de innovación sostenible: eventos presenciales y
-              experiencias educativas en escuelas que transforman comunidades.
-              Llevamos la teoría a la práctica con talleres y activaciones.
+              {t('content.phase3.description')}
             </p>
 
             <div class="fase-stats">
               <div class="stat-item">
                 <span class="stat-value">10</span>
-                <span class="stat-label">Escuelas</span>
+                <span class="stat-label">{t('stats.schools')}</span>
               </div>
               <div class="stat-item">
                 <span class="stat-value">5K+</span>
-                <span class="stat-label">Estudiantes</span>
+                <span class="stat-label">{t('stats.students')}</span>
               </div>
               <div class="stat-item">
                 <span class="stat-value">100%</span>
@@ -167,7 +160,7 @@ if (basePath.endsWith('/')) {
 
   <section class="contenido-strategy">
     <div class="container">
-      <h2 class="text-center">Estrategia de Contenido Integral</h2>
+      <h2 class="text-center">{t('content.strategy.title')}</h2>
       <div class="strategy-flow">
         <div class="flow-item">
           <div class="flow-icon">
@@ -176,8 +169,8 @@ if (basePath.endsWith('/')) {
               >👀</span
             >
           </div>
-          <h3>Atraer</h3>
-          <p>Sketches virales que capturan atención</p>
+          <h3>{t('strategy.attract')}</h3>
+          <p>{t('strategy.attract.desc')}</p>
         </div>
         <div class="flow-arrow">→</div>
         <div class="flow-item">
@@ -187,8 +180,8 @@ if (basePath.endsWith('/')) {
               >🧠</span
             >
           </div>
-          <h3>Educar</h3>
-          <p>Podcasts que profundizan el mensaje</p>
+          <h3>{t('strategy.educate')}</h3>
+          <p>{t('strategy.educate.desc')}</p>
         </div>
         <div class="flow-arrow">→</div>
         <div class="flow-item">
@@ -198,8 +191,8 @@ if (basePath.endsWith('/')) {
               >🙌</span
             >
           </div>
-          <h3>Activar</h3>
-          <p>Eventos que generan cambio real</p>
+          <h3>{t('strategy.activate')}</h3>
+          <p>{t('strategy.activate.desc')}</p>
         </div>
       </div>
     </div>

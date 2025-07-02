@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-// import { useTranslations } from '@/i18n/config';
+import { useTranslations } from '@/i18n/config';
 
 const lang = 'en';
-// const _t = useTranslations(lang); // Commented out - unused variable
+const t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -15,13 +15,12 @@ if (basePath.endsWith('/')) {
 }
 ---
 
-<BaseLayout lang={lang} title="Recursos">
+<BaseLayout lang={lang} title={t('nav.resources')}>
   <section class="hero-section gradient-solarpunk">
     <div class="container">
-      <h1 class="hero-title">Centro de Recursos</h1>
+      <h1 class="hero-title">{t('resources.hero.title')}</h1>
       <p class="hero-subtitle">
-        Herramientas, guías y materiales para creadores, patrocinadores y
-        defensores del solarpunk
+        {t('resources.hero.subtitle')}
       </p>
     </div>
   </section>
@@ -32,10 +31,11 @@ if (basePath.endsWith('/')) {
         <div class="resource-category">
           <div class="category-header">
             <h2>
-              <span class="emoji emoji-md emoji-card">🎬</span> Para Creadores
+              <span class="emoji emoji-md emoji-card">🎬</span>
+              {t('resources.for.creators')}
             </h2>
             <p>
-              Todo lo que necesitas para crear contenido en nuestro universo
+              {t('resources.creators.description')}
             </p>
           </div>
           <div class="resource-list">
@@ -47,8 +47,8 @@ if (basePath.endsWith('/')) {
                 >📝</span
               >
               <div>
-                <h3>Plantillas de Guiones</h3>
-                <p>Formatos optimizados para cada plataforma</p>
+                <h3>{t('resources.script.templates')}</h3>
+                <p>{t('resources.script.templates.desc')}</p>
               </div>
             </a>
             <a
@@ -59,8 +59,8 @@ if (basePath.endsWith('/')) {
                 >👥</span
               >
               <div>
-                <h3>Fichas de Personajes</h3>
-                <p>Perfiles detallados para desarrollo narrativo</p>
+                <h3>{t('resources.character.sheets')}</h3>
+                <p>{t('resources.character.sheets.desc')}</p>
               </div>
             </a>
             <a
@@ -71,8 +71,8 @@ if (basePath.endsWith('/')) {
                 >🌍</span
               >
               <div>
-                <h3>Guía de Construcción del Mundo</h3>
-                <p>Reglas y coherencia del universo solarpunk</p>
+                <h3>{t('resources.worldbuilding.guide')}</h3>
+                <p>{t('resources.worldbuilding.guide.desc')}</p>
               </div>
             </a>
           </div>
@@ -81,9 +81,10 @@ if (basePath.endsWith('/')) {
         <div class="resource-category">
           <div class="category-header">
             <h2>
-              <span class="emoji emoji-md emoji-card">🎭</span> Para Actores
+              <span class="emoji emoji-md emoji-card">🎭</span>
+              {t('resources.for.actors')}
             </h2>
-            <p>Recursos para dar vida a los personajes</p>
+            <p>{t('resources.actors.description')}</p>
           </div>
           <div class="resource-list">
             <a
@@ -94,8 +95,8 @@ if (basePath.endsWith('/')) {
                 >🎯</span
               >
               <div>
-                <h3>Análisis de Personajes</h3>
-                <p>Motivaciones, historias y arcos narrativos</p>
+                <h3>{t('resources.character.analysis')}</h3>
+                <p>{t('resources.character.analysis.desc')}</p>
               </div>
             </a>
             <a
@@ -106,8 +107,8 @@ if (basePath.endsWith('/')) {
                 >💬</span
               >
               <div>
-                <h3>Guías de Diálogo</h3>
-                <p>Tono, ritmo y estilo de cada personaje</p>
+                <h3>{t('resources.dialogue.guides')}</h3>
+                <p>{t('resources.dialogue.guides.desc')}</p>
               </div>
             </a>
             <a
@@ -118,8 +119,8 @@ if (basePath.endsWith('/')) {
                 >🚶</span
               >
               <div>
-                <h3>Referencias de Movimiento</h3>
-                <p>Gestualidad y presencia física</p>
+                <h3>{t('resources.movement.references')}</h3>
+                <p>{t('resources.movement.references.desc')}</p>
               </div>
             </a>
           </div>
@@ -128,9 +129,10 @@ if (basePath.endsWith('/')) {
         <div class="resource-category" id="patrocinadores">
           <div class="category-header">
             <h2>
-              <span class="emoji emoji-md emoji-card">💼</span> Para Patrocinadores
+              <span class="emoji emoji-md emoji-card">💼</span>
+              {t('resources.for.sponsors')}
             </h2>
-            <p>Oportunidades de colaboración e impacto</p>
+            <p>{t('resources.sponsors.description')}</p>
           </div>
           <div class="resource-list">
             <a
@@ -141,8 +143,8 @@ if (basePath.endsWith('/')) {
                 >📊</span
               >
               <div>
-                <h3>Reporte de Impacto</h3>
-                <p>Métricas de alcance y engagement</p>
+                <h3>{t('resources.impact.report')}</h3>
+                <p>{t('resources.impact.report.desc')}</p>
               </div>
             </a>
             <a
@@ -153,8 +155,8 @@ if (basePath.endsWith('/')) {
                 >🤝</span
               >
               <div>
-                <h3>Oportunidades de Integración</h3>
-                <p>Formas orgánicas de participar en las historias</p>
+                <h3>{t('resources.integration.opportunities')}</h3>
+                <p>{t('resources.integration.opportunities.desc')}</p>
               </div>
             </a>
             <a
@@ -165,8 +167,8 @@ if (basePath.endsWith('/')) {
                 >🌱</span
               >
               <div>
-                <h3>Alineación de Valores</h3>
-                <p>Filosofía y principios del proyecto</p>
+                <h3>{t('resources.values.alignment')}</h3>
+                <p>{t('resources.values.alignment.desc')}</p>
               </div>
             </a>
           </div>
@@ -177,33 +179,30 @@ if (basePath.endsWith('/')) {
 
   <section class="philosophy-section" id="filosofia">
     <div class="container">
-      <h2 class="text-center">Filosofía Solarpunk</h2>
+      <h2 class="text-center">{t('resources.philosophy.title')}</h2>
       <div class="philosophy-grid">
         <div class="philosophy-card">
-          <h3>Optimismo Radical</h3>
+          <h3>{t('philosophy.radical.optimism')}</h3>
           <p>
-            Creemos que un futuro mejor no solo es posible, sino inevitable si
-            trabajamos juntos.
+            {t('philosophy.radical.optimism.desc')}
           </p>
         </div>
         <div class="philosophy-card">
-          <h3>Acción Local</h3>
+          <h3>{t('philosophy.local.action')}</h3>
           <p>
-            Los cambios globales comienzan con transformaciones en nuestras
-            comunidades.
+            {t('philosophy.local.action.desc')}
           </p>
         </div>
         <div class="philosophy-card">
-          <h3>Tecnología Apropiada</h3>
+          <h3>{t('philosophy.appropriate.tech')}</h3>
           <p>
-            La mejor tecnología es la que resuelve problemas reales respetando
-            el entorno.
+            {t('philosophy.appropriate.tech.desc')}
           </p>
         </div>
         <div class="philosophy-card">
-          <h3>Diversidad Regenerativa</h3>
+          <h3>{t('philosophy.regenerative.diversity')}</h3>
           <p>
-            La fortaleza viene de la diversidad de voces, culturas y soluciones.
+            {t('philosophy.regenerative.diversity.desc')}
           </p>
         </div>
       </div>
@@ -212,25 +211,25 @@ if (basePath.endsWith('/')) {
 
   <section class="download-section">
     <div class="container text-center">
-      <h2>Descargas Rápidas</h2>
-      <p class="text-muted mb-4">Accede a los recursos más utilizados</p>
+      <h2>{t('resources.downloads.title')}</h2>
+      <p class="text-muted mb-4">{t('resources.downloads.subtitle')}</p>
       <div class="download-grid">
         <a
           href={`${basePath}/downloads/biblia-personajes.pdf`}
           class="download-card"
         >
           <span class="download-icon">📚</span>
-          <h3>Biblia de Personajes</h3>
+          <h3>{t('downloads.character.bible')}</h3>
           <p>PDF - 2.5 MB</p>
         </a>
         <a href={`${basePath}/downloads/guia-mundo.pdf`} class="download-card">
           <span class="download-icon">🗺️</span>
-          <h3>Guía del Mundo</h3>
+          <h3>{t('downloads.world.guide')}</h3>
           <p>PDF - 3.8 MB</p>
         </a>
         <a href={`${basePath}/downloads/kit-prensa.zip`} class="download-card">
           <span class="download-icon">📰</span>
-          <h3>Kit de Prensa</h3>
+          <h3>{t('downloads.press.kit')}</h3>
           <p>ZIP - 15 MB</p>
         </a>
         <a
@@ -238,7 +237,7 @@ if (basePath.endsWith('/')) {
           class="download-card"
         >
           <span class="download-icon">🎨</span>
-          <h3>Assets Visuales</h3>
+          <h3>{t('downloads.visual.assets')}</h3>
           <p>ZIP - 45 MB</p>
         </a>
       </div>

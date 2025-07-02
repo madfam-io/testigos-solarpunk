@@ -18,21 +18,20 @@ if (basePath.endsWith('/')) {
 <BaseLayout
   lang={lang}
   title={t('impact.title')}
-  description="Métricas y resultados del proyecto Testigos de Solarpunk"
+  description={t('impact.description')}
 >
   <section class="hero-impacto">
     <div class="container">
-      <h1>Nuestro Impacto</h1>
+      <h1>{t('impact.title2')}</h1>
       <p class="hero-description">
-        Medimos nuestro éxito por las sonrisas generadas y las acciones
-        inspiradas
+        {t('impact.hero.subtitle')}
       </p>
     </div>
   </section>
 
   <section class="impact-dashboard newspaper-bg with-columns">
     <div class="container">
-      <h2>Métricas en Tiempo Real</h2>
+      <h2>{t('impact.metrics.title')}</h2>
       <div class="metrics-grid">
         <div
           class="magazine-card card-md theme-community interactive context-feature"
@@ -43,11 +42,11 @@ if (basePath.endsWith('/')) {
             ></span
           >
           <span class="metric-value" data-count="50000">0</span>
-          <span class="metric-label">Personas Alcanzadas</span>
+          <span class="metric-label">{t('metrics.people.reached')}</span>
           <div class="metric-progress">
             <div class="progress-bar" style="width: 75%;"></div>
           </div>
-          <span class="metric-goal">Meta: 100K</span>
+          <span class="metric-goal">{t('metrics.goal')}: 100K</span>
         </div>
 
         <div
@@ -58,11 +57,11 @@ if (basePath.endsWith('/')) {
             ></span
           >
           <span class="metric-value" data-count="25">0</span>
-          <span class="metric-label">Sketches Producidos</span>
+          <span class="metric-label">{t('metrics.sketches.produced')}</span>
           <div class="metric-progress">
             <div class="progress-bar" style="width: 50%;"></div>
           </div>
-          <span class="metric-goal">Meta: 50</span>
+          <span class="metric-goal">{t('metrics.goal')}: 50</span>
         </div>
 
         <div
@@ -73,11 +72,11 @@ if (basePath.endsWith('/')) {
             ></span
           >
           <span class="metric-value" data-count="5">0</span>
-          <span class="metric-label">Comunidades Activas</span>
+          <span class="metric-label">{t('metrics.active.communities')}</span>
           <div class="metric-progress">
             <div class="progress-bar" style="width: 100%;"></div>
           </div>
-          <span class="metric-goal">Meta: 5</span>
+          <span class="metric-goal">{t('metrics.goal')}: 5</span>
         </div>
 
         <div
@@ -90,11 +89,11 @@ if (basePath.endsWith('/')) {
           <span class="metric-value" data-count="89">0</span><span
             class="metric-suffix">%</span
           >
-          <span class="metric-label">Cambio de Percepción</span>
+          <span class="metric-label">{t('metrics.perception.change')}</span>
           <div class="metric-progress">
             <div class="progress-bar" style="width: 89%;"></div>
           </div>
-          <span class="metric-goal">Meta: 80%</span>
+          <span class="metric-goal">{t('metrics.goal')}: 80%</span>
         </div>
       </div>
     </div>
@@ -102,35 +101,35 @@ if (basePath.endsWith('/')) {
 
   <section class="impact-phases">
     <div class="container">
-      <h2>Impacto por Fase</h2>
+      <h2>{t('impact.phases.title')}</h2>
       <div class="phases-impact-grid">
         <div class="phase-impact-card" data-fase="1">
           <div class="phase-header">
             <span class="phase-icon"
               ><span class="emoji-cutout emoji-lg theme-solar">🎭</span></span
             >
-            <h3>Fase 1: Atracción</h3>
+            <h3>{t('phase.1.title')}</h3>
           </div>
           <div class="phase-stats">
             <div class="stat-item">
               <span class="stat-value">500K+</span>
-              <span class="stat-label">Vistas totales</span>
+              <span class="stat-label">{t('stats.total.views')}</span>
             </div>
             <div class="stat-item">
               <span class="stat-value">15%</span>
-              <span class="stat-label">Tasa de engagement</span>
+              <span class="stat-label">{t('stats.engagement.rate')}</span>
             </div>
             <div class="stat-item">
               <span class="stat-value">50K</span>
-              <span class="stat-label">Compartidos</span>
+              <span class="stat-label">{t('stats.shares')}</span>
             </div>
           </div>
           <div class="phase-achievements">
-            <h3>Logros</h3>
+            <h3>{t('achievements.title')}</h3>
             <ul>
-              <li>✓ Viral en TikTok México</li>
-              <li>✓ Colaboración con 10 influencers</li>
-              <li>✓ Trending topic #TestigosDeSolarpunk</li>
+              <li>✓ {t('achievements.phase1.viral')}</li>
+              <li>✓ {t('achievements.phase1.influencers')}</li>
+              <li>✓ {t('achievements.phase1.trending')}</li>
             </ul>
           </div>
         </div>
@@ -140,28 +139,28 @@ if (basePath.endsWith('/')) {
             <span class="phase-icon"
               ><span class="emoji-cutout emoji-lg theme-purple">🎙️</span></span
             >
-            <h3>Fase 2: Conexión</h3>
+            <h3>{t('phase.2.title')}</h3>
           </div>
           <div class="phase-stats">
             <div class="stat-item">
               <span class="stat-value">Q1 2025</span>
-              <span class="stat-label">Lanzamiento</span>
+              <span class="stat-label">{t('stats.launch')}</span>
             </div>
             <div class="stat-item">
               <span class="stat-value">20</span>
-              <span class="stat-label">Expertos confirmados</span>
+              <span class="stat-label">{t('stats.experts.confirmed')}</span>
             </div>
             <div class="stat-item">
               <span class="stat-value">10K</span>
-              <span class="stat-label">Pre-registros</span>
+              <span class="stat-label">{t('stats.preregistrations')}</span>
             </div>
           </div>
           <div class="phase-achievements">
             <h3>{t('phase2.status')}</h3>
             <ul>
-              <li>○ Episodios semanales</li>
-              <li>○ Comunidad Discord</li>
-              <li>○ Eventos en vivo</li>
+              <li>○ {t('goals.phase2.weekly.episodes')}</li>
+              <li>○ {t('goals.phase2.discord.community')}</li>
+              <li>○ {t('goals.phase2.live.events')}</li>
             </ul>
           </div>
         </div>
@@ -171,28 +170,28 @@ if (basePath.endsWith('/')) {
             <span class="phase-icon"
               ><span class="emoji-cutout emoji-lg theme-green">🔬</span></span
             >
-            <h3>Fase 3: Conversión</h3>
+            <h3>{t('phase.3.title')}</h3>
           </div>
           <div class="phase-stats">
             <div class="stat-item">
               <span class="stat-value">Q3 2025</span>
-              <span class="stat-label">Inicio piloto</span>
+              <span class="stat-label">{t('stats.pilot.start')}</span>
             </div>
             <div class="stat-item">
               <span class="stat-value">3</span>
-              <span class="stat-label">Escuelas piloto</span>
+              <span class="stat-label">{t('stats.pilot.schools')}</span>
             </div>
             <div class="stat-item">
               <span class="stat-value">500</span>
-              <span class="stat-label">Estudiantes</span>
+              <span class="stat-label">{t('stats.students')}</span>
             </div>
           </div>
           <div class="phase-achievements">
-            <h3>Objetivos</h3>
+            <h3>{t('goals.title')}</h3>
             <ul>
-              <li>○ 10 escuelas primer año</li>
-              <li>○ 5,000 estudiantes impactados</li>
-              <li>○ Modelo replicable</li>
+              <li>○ {t('goals.phase3.schools.first.year')}</li>
+              <li>○ {t('goals.phase3.students.impacted')}</li>
+              <li>○ {t('goals.phase3.replicable.model')}</li>
             </ul>
           </div>
         </div>
@@ -202,38 +201,34 @@ if (basePath.endsWith('/')) {
 
   <section class="impact-stories">
     <div class="container">
-      <h2>Historias de Cambio</h2>
+      <h2>{t('impact.stories.title')}</h2>
       <div class="stories-grid">
         <blockquote class="story-card">
           <p>
-            "Los sketches me hicieron darme cuenta de que puedo ser sostenible
-            sin ser perfecta. Ahora compostar es parte de mi rutina diaria."
+            "{t('testimonials.maria')}"
           </p>
           <footer>
-            <cite>María, 28 años</cite>
+            <cite>{t('testimonials.maria.name')}</cite>
             <span class="story-location">CDMX</span>
           </footer>
         </blockquote>
 
         <blockquote class="story-card">
           <p>
-            "Mis alumnos ahora ven la sostenibilidad como algo cool gracias a
-            los videos. Iniciamos un huerto escolar inspirados en ustedes."
+            "{t('testimonials.roberto')}"
           </p>
           <footer>
-            <cite>Prof. Roberto</cite>
+            <cite>{t('testimonials.roberto.name')}</cite>
             <span class="story-location">Guadalajara</span>
           </footer>
         </blockquote>
 
         <blockquote class="story-card">
           <p>
-            "Instalé paneles solares después de ver el sketch del Hermano
-            Voltio. Mi recibo de luz bajó 80% y ahora predico el evangelio
-            solar."
+            "{t('testimonials.carlos')}"
           </p>
           <footer>
-            <cite>Carlos, 45 años</cite>
+            <cite>{t('testimonials.carlos.name')}</cite>
             <span class="story-location">Monterrey</span>
           </footer>
         </blockquote>
@@ -243,57 +238,57 @@ if (basePath.endsWith('/')) {
 
   <section class="impact-visualization">
     <div class="container">
-      <h2>Crecimiento del Movimiento</h2>
+      <h2>{t('impact.growth.title')}</h2>
       <div class="growth-chart">
         <div class="chart-placeholder">
           <div class="chart-bars">
-            <div class="bar" style="height: 20%;" data-month="Ene"></div>
+            <div class="bar" style="height: 20%;" data-month="Jan"></div>
             <div class="bar" style="height: 35%;" data-month="Feb"></div>
             <div class="bar" style="height: 45%;" data-month="Mar"></div>
-            <div class="bar" style="height: 60%;" data-month="Abr"></div>
+            <div class="bar" style="height: 60%;" data-month="Apr"></div>
             <div class="bar" style="height: 75%;" data-month="May"></div>
             <div class="bar" style="height: 90%;" data-month="Jun"></div>
           </div>
         </div>
-        <p class="chart-caption">Crecimiento mensual de la comunidad</p>
+        <p class="chart-caption">{t('growth.chart.caption')}</p>
       </div>
     </div>
   </section>
 
   <section class="impact-partners">
     <div class="container">
-      <h2>Aliados del Cambio</h2>
+      <h2>{t('impact.partners.title')}</h2>
       <p class="partners-intro">
-        Organizaciones que hacen posible nuestro impacto
+        {t('partners.intro')}
       </p>
       <div class="partners-grid">
         <div class="partner-card">
           <div class="partner-logo">
             <span class="emoji-cutout emoji-lg theme-purple flutter">🏢</span>
           </div>
-          <h3>Empresas Sostenibles</h3>
-          <p>Apoyo financiero y recursos</p>
+          <h3>{t('partners.sustainable.companies')}</h3>
+          <p>{t('partners.sustainable.companies.desc')}</p>
         </div>
         <div class="partner-card">
           <div class="partner-logo">
             <span class="emoji-cutout emoji-lg theme-green flutter">🏫</span>
           </div>
-          <h3>Instituciones Educativas</h3>
-          <p>Espacios y comunidades</p>
+          <h3>{t('partners.educational.institutions')}</h3>
+          <p>{t('partners.educational.institutions.desc')}</p>
         </div>
         <div class="partner-card">
           <div class="partner-logo">
             <span class="emoji-cutout emoji-lg theme-green flutter">🌍</span>
           </div>
-          <h3>ONGs Ambientales</h3>
-          <p>Expertise y redes</p>
+          <h3>{t('partners.environmental.ngos')}</h3>
+          <p>{t('partners.environmental.ngos.desc')}</p>
         </div>
         <div class="partner-card">
           <div class="partner-logo">
             <span class="emoji-cutout emoji-lg theme-solar flutter">🎥</span>
           </div>
-          <h3>Creadores de Contenido</h3>
-          <p>Amplificación del mensaje</p>
+          <h3>{t('partners.content.creators')}</h3>
+          <p>{t('partners.content.creators.desc')}</p>
         </div>
       </div>
     </div>
@@ -302,8 +297,8 @@ if (basePath.endsWith('/')) {
   <section class="impact-cta">
     <div class="container">
       <div class="cta-content">
-        <h2>Sé Parte del Impacto</h2>
-        <p>Tu apoyo puede multiplicar nuestro alcance</p>
+        <h2>{t('impact.cta.title')}</h2>
+        <p>{t('impact.cta.subtitle')}</p>
         <div class="cta-actions">
           <a
             href={`${basePath}/en/resources/#patrocinadores`}
@@ -311,12 +306,14 @@ if (basePath.endsWith('/')) {
           >
             <span class="emoji-cutout emoji-button emoji-md theme-green"
               >💚</span
-            > Apoyar el Proyecto
+            >
+            {t('impact.cta.support')}
           </a>
           <a href={`${basePath}/en/community/`} class="btn btn-secondary">
             <span class="emoji-cutout emoji-button emoji-md theme-community"
               >🤝</span
-            > Unirse como Voluntario
+            >
+            {t('impact.cta.volunteer')}
           </a>
         </div>
       </div>

@@ -1523,7 +1523,8 @@ export const ui = {
 
     // Impact Page
     'impact.title2': 'Our Impact',
-    'impact.hero.subtitle': 'We measure our success by the smiles generated',
+    'impact.hero.subtitle':
+      'We measure our success by the smiles generated and the actions inspired',
     'impact.metrics.title': 'Real-Time Metrics',
     'impact.phases.title': 'Impact by Phase',
     'impact.stories.title': 'Change Stories',
@@ -1532,6 +1533,147 @@ export const ui = {
     'impact.cta.title': 'Be Part of the Impact',
     'impact.cta.support': 'Support the Project',
     'impact.cta.volunteer': 'Join as Volunteer',
+    'impact.cta.subtitle': 'Your support can multiply our reach',
+
+    // Missing impact page translations
+    'metrics.people.reached': 'People Reached',
+    'metrics.sketches.produced': 'Sketches Produced',
+    'metrics.active.communities': 'Active Communities',
+    'metrics.perception.change': 'Perception Change',
+    'metrics.goal': 'Goal',
+    'phase.1.title': 'Phase 1: Attraction',
+    'phase.2.title': 'Phase 2: Connection',
+    'phase.3.title': 'Phase 3: Conversion',
+    'stats.total.views': 'Total Views',
+    'stats.engagement.rate': 'Engagement Rate',
+    'stats.shares': 'Shares',
+    'stats.launch': 'Launch',
+    'stats.experts.confirmed': 'Experts Confirmed',
+    'stats.preregistrations': 'Pre-registrations',
+    'stats.pilot.start': 'Pilot Start',
+    'stats.pilot.schools': 'Pilot Schools',
+    'stats.students': 'Students',
+    'achievements.title': 'Achievements',
+    'achievements.phase1.viral': 'Viral on TikTok Mexico',
+    'achievements.phase1.influencers': 'Collaboration with 10 influencers',
+    'achievements.phase1.trending': 'Trending topic #SolarpunkWitnesses',
+    'goals.title': 'Goals',
+    'goals.phase2.weekly.episodes': 'Weekly episodes',
+    'goals.phase2.discord.community': 'Discord community',
+    'goals.phase2.live.events': 'Live events',
+    'goals.phase3.schools.first.year': '10 schools first year',
+    'goals.phase3.students.impacted': '5,000 students impacted',
+    'goals.phase3.replicable.model': 'Replicable model',
+    'testimonials.maria':
+      'The sketches made me realize I can be sustainable without being perfect. Now composting is part of my daily routine.',
+    'testimonials.maria.name': 'Maria, 28 years old',
+    'testimonials.roberto':
+      'My students now see sustainability as cool thanks to the videos. We started a school garden inspired by you.',
+    'testimonials.roberto.name': 'Prof. Roberto',
+    'testimonials.carlos':
+      "I installed solar panels after watching Brother Voltio's sketch. My electricity bill dropped 80% and now I preach the solar gospel.",
+    'testimonials.carlos.name': 'Carlos, 45 years old',
+    'growth.chart.caption': 'Monthly community growth',
+    'partners.intro': 'Organizations that make our impact possible',
+    'partners.sustainable.companies': 'Sustainable Companies',
+    'partners.sustainable.companies.desc': 'Financial support and resources',
+    'partners.educational.institutions': 'Educational Institutions',
+    'partners.educational.institutions.desc': 'Spaces and communities',
+    'partners.environmental.ngos': 'Environmental NGOs',
+    'partners.environmental.ngos.desc': 'Expertise and networks',
+    'partners.content.creators': 'Content Creators',
+    'partners.content.creators.desc': 'Message amplification',
+
+    // Content Page translations
+    'content.page.description':
+      'Explore all content phases of Testigos de Solarpunk: Sketches, Podcast and MADLAB',
+    'content.hero.title': 'Testigos de Solarpunk Content',
+    'content.hero.subtitle':
+      'A three-phase content strategy to connect, raise awareness and create community',
+    'phase.1.sketches': 'Phase 1: Sketches',
+    'phase.2.podcast': 'Phase 2: Podcast',
+    'phase.3.madlab': 'Phase 3: MADLAB',
+    'content.phase1.description':
+      '60-90 second viral comedy sketches that break cultural barriers about sustainability. With memorable characters and intelligent humor, we bring the ecological message to the masses.',
+    'content.phase2.description':
+      'MADFAM Podcast delves into 20-30 minute conversations with experts, activists and visionaries. We explore practical and scalable solutions for current environmental challenges.',
+    'content.phase3.description':
+      'Sustainable innovation laboratories: in-person events and educational experiences in schools that transform communities. We bring theory to practice with workshops and activations.',
+    'stats.episodes': 'Episodes',
+    'stats.views': 'Views',
+    'stats.minutes': 'Minutes',
+    'stats.schools': 'Schools',
+    'cta.learn.more': 'Learn More',
+    'content.strategy.title': 'Comprehensive Content Strategy',
+    'strategy.attract': 'Attract',
+    'strategy.attract.desc': 'Viral sketches that capture attention',
+    'strategy.educate': 'Educate',
+    'strategy.educate.desc': 'Podcasts that deepen the message',
+    'strategy.activate': 'Activate',
+    'strategy.activate.desc': 'Events that generate real change',
+
+    // Resources Page translations
+    'resources.title': 'Resources',
+    'resources.hero.title': 'Resource Center',
+    'resources.hero.subtitle':
+      'Tools, guides and materials for creators, sponsors and solarpunk advocates',
+    'resources.for.creators': 'For Creators',
+    'resources.creators.description':
+      'Everything you need to create content in our universe',
+    'resources.script.templates': 'Script Templates',
+    'resources.script.templates.desc': 'Formats optimized for each platform',
+    'resources.character.sheets': 'Character Sheets',
+    'resources.character.sheets.desc':
+      'Detailed profiles for narrative development',
+    'resources.worldbuilding.guide': 'Worldbuilding Guide',
+    'resources.worldbuilding.guide.desc':
+      'Rules and coherence of the solarpunk universe',
+    'resources.for.actors': 'For Actors',
+    'resources.actors.description': 'Resources to bring characters to life',
+    'resources.character.analysis': 'Character Analysis',
+    'resources.character.analysis.desc':
+      'Motivations, stories and narrative arcs',
+    'resources.dialogue.guides': 'Dialogue Guides',
+    'resources.dialogue.guides.desc':
+      'Tone, rhythm and style of each character',
+    'resources.movement.references': 'Movement References',
+    'resources.movement.references.desc': 'Gestures and physical presence',
+    'resources.for.sponsors': 'For Sponsors',
+    'resources.sponsors.description': 'Collaboration and impact opportunities',
+    'resources.impact.report': 'Impact Report',
+    'resources.impact.report.desc': 'Reach and engagement metrics',
+    'resources.integration.opportunities': 'Integration Opportunities',
+    'resources.integration.opportunities.desc':
+      'Organic ways to participate in the stories',
+    'resources.values.alignment': 'Values Alignment',
+    'resources.values.alignment.desc':
+      'Philosophy and principles of the project',
+    'resources.philosophy.title': 'Solarpunk Philosophy',
+    'philosophy.radical.optimism': 'Radical Optimism',
+    'philosophy.radical.optimism.desc':
+      'We believe a better future is not only possible, but inevitable if we work together.',
+    'philosophy.local.action': 'Local Action',
+    'philosophy.local.action.desc':
+      'Global changes begin with transformations in our communities.',
+    'philosophy.appropriate.tech': 'Appropriate Technology',
+    'philosophy.appropriate.tech.desc':
+      'The best technology is that which solves real problems while respecting the environment.',
+    'philosophy.regenerative.diversity': 'Regenerative Diversity',
+    'philosophy.regenerative.diversity.desc':
+      'Strength comes from the diversity of voices, cultures and solutions.',
+    'resources.downloads.title': 'Quick Downloads',
+    'resources.downloads.subtitle': 'Access the most used resources',
+    'downloads.character.bible': 'Character Bible',
+    'downloads.world.guide': 'World Guide',
+    'downloads.press.kit': 'Press Kit',
+    'downloads.visual.assets': 'Visual Assets',
+
+    // Unified Project Page translations
+    'project.phase1.name': 'Testigos de Solarpunk',
+    'units.seconds': 'seconds',
+    'phase1.feature1': 'Viral content for social media',
+    'phase1.feature2': 'Humor that breaks cultural barriers',
+    'phase1.feature3': 'Practical sustainability tips',
 
     // Production Pages
     'production.visual.title': 'Visual Style Guide',
@@ -1628,13 +1770,6 @@ export const ui = {
     'visual.guide.colors.title': 'Color Palette',
     'visual.guide.typography.title': 'Typography',
     'visual.guide.aesthetic.title': 'Magazine Cutout Aesthetic',
-
-    // Resources Page
-    'resources.title': 'Resources',
-    'resources.hero.title': 'Creative Resources',
-    'resources.actors.title': 'For Actors',
-    'resources.creators.title': 'For Creators',
-    'resources.sponsors.title': 'For Sponsors',
 
     // Scripts Page
     'scripts.title': 'Scripts',
@@ -1818,7 +1953,7 @@ export function useTranslations(lang: keyof typeof languages) {
     key: keyof (typeof ui)[typeof defaultLang],
     params?: Record<string, string | number>
   ): string {
-    const translation = ui[lang]?.[key];
+    const translation = ui[lang]?.[key] as string | undefined;
     let result = '';
 
     if (translation !== undefined && translation.length > 0) {

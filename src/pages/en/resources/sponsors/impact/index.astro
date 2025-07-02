@@ -3,7 +3,7 @@ import BaseLayout from '../../../../../layouts/BaseLayout.astro';
 // import { useTranslations } from '@/i18n/config';
 
 const lang = 'en';
-// const _t = useTranslations(lang); // Commented out - unused variable
+// const t = useTranslations(lang);
 let basePath =
   import.meta.env.BASE_URL != null && import.meta.env.BASE_URL !== ''
     ? import.meta.env.BASE_URL
@@ -17,8 +17,8 @@ if (basePath.endsWith('/')) {
 
 <BaseLayout
   lang={lang}
-  title="Reporte de Impacto"
-  description="Métricas de alcance y engagement - Oportunidades de patrocinio en el universo Testigos de Solarpunk"
+  title="Impact Report"
+  description="Reach and engagement metrics - Sponsorship opportunities in the Testigos de Solarpunk universe"
 >
   <!-- Hero Section -->
   <section class="resource-hero">
@@ -27,10 +27,10 @@ if (basePath.endsWith('/')) {
         <span class="emoji-cutout emoji-hero emoji-xl theme-purple flutter"
           >📊</span
         >
-        <h1>Reporte de Impacto</h1>
+        <h1>Impact Report</h1>
         <p class="hero-description">
-          Métricas de alcance, engagement y transformación social que demuestran
-          el valor real del proyecto Testigos de Solarpunk.
+          Reach, engagement and social transformation metrics that demonstrate
+          the real value of the Testigos de Solarpunk project.
         </p>
       </div>
     </div>
@@ -41,29 +41,29 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-solar">⚡</span>
-        Resumen Ejecutivo
+        Executive Summary
       </h2>
       <div class="summary-card card">
         <div class="summary-grid">
           <div class="metric-highlight">
-            <h3>Alcance Total</h3>
+            <h3>Total Reach</h3>
             <div class="metric-number">2.4M+</div>
-            <p>Impresiones mensuales proyectadas</p>
+            <p>Projected monthly impressions</p>
           </div>
           <div class="metric-highlight">
             <h3>Engagement Rate</h3>
             <div class="metric-number">8.5%</div>
-            <p>Promedio industria: 3.2%</p>
+            <p>Industry average: 3.2%</p>
           </div>
           <div class="metric-highlight">
-            <h3>Conversión a Acción</h3>
+            <h3>Action Conversion</h3>
             <div class="metric-number">12.3%</div>
-            <p>Usuarios que implementan consejos</p>
+            <p>Users who implement tips</p>
           </div>
           <div class="metric-highlight">
-            <h3>ROI Social</h3>
+            <h3>Social ROI</h3>
             <div class="metric-number">340%</div>
-            <p>Retorno en cambio de comportamiento</p>
+            <p>Return in behavior change</p>
           </div>
         </div>
       </div>
@@ -75,29 +75,29 @@ if (basePath.endsWith('/')) {
     <div class="container">
       <h2>
         <span class="emoji-cutout emoji-md theme-green">👥</span>
-        Análisis de Audiencia
+        Audience Analysis
       </h2>
       <div class="analytics-grid">
         <div class="analytics-card card">
-          <h3>Demografía Principal</h3>
+          <h3>Main Demographics</h3>
           <div class="demo-stats">
             <div class="demo-item">
-              <h4>Edad</h4>
+              <h4>Age</h4>
               <ul>
-                <li>25-34 años: <strong>42%</strong></li>
-                <li>35-44 años: <strong>28%</strong></li>
-                <li>18-24 años: <strong>20%</strong></li>
-                <li>45+ años: <strong>10%</strong></li>
+                <li>25-34 years: <strong>42%</strong></li>
+                <li>35-44 years: <strong>28%</strong></li>
+                <li>18-24 years: <strong>20%</strong></li>
+                <li>45+ years: <strong>10%</strong></li>
               </ul>
             </div>
             <div class="demo-item">
-              <h4>Ubicación</h4>
+              <h4>Location</h4>
               <ul>
-                <li>México: <strong>65%</strong></li>
+                <li>Mexico: <strong>65%</strong></li>
                 <li>Colombia: <strong>12%</strong></li>
                 <li>Argentina: <strong>8%</strong></li>
-                <li>España: <strong>8%</strong></li>
-                <li>Otros: <strong>7%</strong></li>
+                <li>Spain: <strong>8%</strong></li>
+                <li>Others: <strong>7%</strong></li>
               </ul>
             </div>
             <div class="demo-item">
