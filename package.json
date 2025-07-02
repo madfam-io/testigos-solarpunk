@@ -48,7 +48,7 @@
     "new:character": "node scripts/new-character.js",
     "new:script": "echo 'Script para crear guiones pendiente de implementar'",
     "check:routes": "node scripts/check-routes.js",
-    "check:links": "echo 'Verificador de links pendiente de implementar'",
+    "check:links": "node scripts/validate-links.js",
     "analyze:bundle": "astro build",
     "audit:navigation": "node scripts/audit-navigation.js",
     "audit:accessibility": "node scripts/check-accessibility.js",

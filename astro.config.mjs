@@ -53,6 +53,7 @@ export default defineConfig({
 
     // Project sections
     '/proyecto': '/es/proyecto/',
+    '/proyecto-unified': '/es/proyecto-unified/',
     '/produccion': '/es/produccion/',
     '/produccion/estilo-visual': '/es/produccion/estilo-visual/',
     '/produccion/audio': '/es/produccion/audio/',
@@ -65,6 +66,45 @@ export default defineConfig({
     '/filosofia': '/es/filosofia/',
     '/formatos': '/es/formatos/',
     '/guia-visual': '/es/guia-visual/',
+    '/sitemap': '/es/sitemap/',
+    
+    // World subsections
+    '/mundo/azotea-verde-neo-cuernavaca': '/es/mundo/azotea-verde-neo-cuernavaca/',
+    
+    // English route redirects to Spanish equivalents
+    '/project': '/es/proyecto/',
+    '/unified-project': '/es/proyecto-unified/',
+    '/content': '/es/contenido/',
+    '/content/sketches': '/es/contenido/sketches/',
+    '/content/podcast': '/es/contenido/podcast/',
+    '/content/madlab': '/es/contenido/madlab/',
+    '/characters': '/es/personajes/',
+    '/world': '/es/mundo/',
+    '/world/green-roof-neo-cuernavaca': '/es/mundo/azotea-verde-neo-cuernavaca/',
+    '/scripts': '/es/guiones/',
+    '/community': '/es/comunidad/',
+    '/production': '/es/produccion/',
+    '/production/visual-style': '/es/produccion/estilo-visual/',
+    '/production/tone-voice': '/es/produccion/tono-voz/',
+    '/production/audio': '/es/produccion/audio/',
+    '/production/specs': '/es/produccion/specs/',
+    '/resources': '/es/recursos/',
+    '/resources/actors': '/es/recursos/actores/',
+    '/resources/actors/characters': '/es/recursos/actores/personajes/',
+    '/resources/actors/dialogue': '/es/recursos/actores/dialogo/',
+    '/resources/actors/movement': '/es/recursos/actores/movimiento/',
+    '/resources/creators': '/es/recursos/creadores/',
+    '/resources/creators/characters': '/es/recursos/creadores/personajes/',
+    '/resources/creators/templates': '/es/recursos/creadores/plantillas/',
+    '/resources/creators/worldbuilding': '/es/recursos/creadores/worldbuilding/',
+    '/resources/sponsors': '/es/recursos/patrocinadores/',
+    '/resources/sponsors/values': '/es/recursos/patrocinadores/valores/',
+    '/resources/sponsors/impact': '/es/recursos/patrocinadores/impacto/',
+    '/resources/sponsors/integration': '/es/recursos/patrocinadores/integracion/',
+    '/impact': '/es/impacto/',
+    '/philosophy': '/es/filosofia/',
+    '/visual-guide': '/es/guia-visual/',
+    '/formats': '/es/formatos/',
   },
 
   // Integrations
