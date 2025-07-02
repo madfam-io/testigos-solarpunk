@@ -2110,16 +2110,13 @@ export function useTranslations(lang: keyof typeof languages) {
     key: keyof (typeof ui)[keyof typeof languages],
     params?: Record<string, string | number>
   ): string {
-    const translation = ui[lang]?.[key as keyof (typeof ui)[typeof lang]] as
-      | string
-      | undefined;
+    const translation = ui[lang]?.[key];
     let result = '';
 
     if (translation !== undefined && translation.length > 0) {
       result = translation;
     } else {
-      const defaultTranslation =
-        ui[defaultLang][key as keyof (typeof ui)[typeof defaultLang]];
+      const defaultTranslation = ui[defaultLang][key];
       result =
         defaultTranslation !== undefined && defaultTranslation.length > 0
           ? defaultTranslation
