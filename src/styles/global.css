@@ -385,7 +385,7 @@ nav .container {
 }
 
 /* Desktop Navigation Menu */
-@media (min-width: 769px) {
+@media (min-width: 768.1px) {
   .nav-menu {
     list-style: none;
     display: flex;
@@ -397,7 +397,7 @@ nav .container {
 }
 
 /* Desktop Navigation Menu Links */
-@media (min-width: 769px) {
+@media (min-width: 768.1px) {
   .nav-menu a {
     font-weight: 500;
     color: var(--texto-primario);
@@ -494,7 +494,7 @@ nav .container {
 }
 
 /* Hamburger menu button - hidden on desktop, shown on mobile */
-@media (min-width: 769px) {
+@media (min-width: 768.1px) {
   .mobile-menu-toggle {
     display: none;
   }

@@ -13,12 +13,17 @@
       0 2px 8px rgba(0, 0, 0, 0.04);
     position: sticky;
     top: 0;
-    z-index: 997;
+    z-index: 1000;
   }
 
-  /* Override desktop flex display for mobile */
+  /* Mobile menu - initially hidden */
   .nav-menu {
-    display: flex !important;
+    display: none;
+  }
+
+  /* Show mobile menu when active */
+  .nav-menu.active {
+    display: flex;
   }
 
   /* Center the navigation content */
@@ -74,7 +79,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-xs);
-    z-index: 999;
+    z-index: 10000;
     margin-left: auto;
     flex-shrink: 0;
   }
@@ -98,7 +103,7 @@
     border: 2px solid var(--border-default);
     border-radius: 8px;
     position: relative;
-    z-index: 999;
+    z-index: 10000;
     box-shadow: 2px 2px 0 var(--border-default);
     transition: all 0.3s ease;
     cursor: pointer;
@@ -154,8 +159,8 @@
     transform: rotate(-45deg) translateY(0);
   }
 
-  /* Enhanced mobile menu - full screen overlay */
-  .nav-menu {
+  /* Enhanced mobile menu - full screen overlay (when active) */
+  .nav-menu.active {
     position: fixed;
     top: 0;
     left: 0;
@@ -163,18 +168,42 @@
     height: 100vh;
     height: 100dvh; /* Dynamic viewport height for mobile browsers */
     background: var(--bg-primary);
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: var(--space-sm);
     padding: var(--space-lg);
     padding-top: calc(var(--space-xl) + 60px); /* Account for close button */
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Hidden state for mobile menu */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--bg-primary);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    padding-top: calc(var(--space-xl) + 60px);
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 998;
+    z-index: 9999;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
@@ -205,12 +234,7 @@
     z-index: -1;
   }
 
-  /* Active menu state */
-  .nav-menu.active {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-  }
+  /* Active menu state - handled above in the .nav-menu.active rule */
 
   /* Menu items with magazine cutout styling */
   .nav-menu li {
@@ -352,7 +376,7 @@
     color: var(--text-primary);
     cursor: pointer;
     transition: all 0.3s ease;
-    z-index: 999;
+    z-index: 10000;
   }
 
   .mobile-menu-close:hover {

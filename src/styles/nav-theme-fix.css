@@ -1,7 +1,7 @@
 /* Navigation Theme Selector Fix - Testigos de Solarpunk */
 
 /* Desktop: Show theme selector in nav-actions */
-@media (min-width: 769px) {
+@media (min-width: 768.1px) {
   .nav-actions .theme-selector,
   .nav-actions .language-selector {
     display: inline-flex !important;
@@ -11,6 +11,18 @@
   .mobile-theme-toggle,
   .mobile-language-toggle {
     display: none !important;
+  }
+
+  /* Reset mobile menu styles for desktop */
+  .nav-menu {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    padding: 0 !important;
   }
 }
 
