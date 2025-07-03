@@ -314,7 +314,7 @@ a.nav-link.active::after {
 
 .btn-primary {
   background-color: var(--madfam-yellow-dark);
-  color: var(--bg-primary);
+  color: #000000;
   font-weight: 600;
 }
 
@@ -324,15 +324,15 @@ a.nav-link.active::after {
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: var(--text-primary);
-  border: 2px solid var(--border-strong);
+  background-color: var(--madfam-green-dark);
+  color: #ffffff;
+  border: 2px solid var(--madfam-green-dark);
 }
 
 .btn-secondary:hover {
-  background-color: var(--hover-overlay);
-  border-color: var(--madfam-yellow-dark);
-  color: var(--madfam-yellow-dark);
+  background-color: var(--madfam-green);
+  border-color: var(--madfam-green);
+  color: #ffffff;
 }
 
 .btn-ghost {
