@@ -1327,7 +1327,7 @@ export const routes = {
     // Site metadata
     'site.title': 'Solarpunk Witnesses',
     'site.description':
-      'An ecological evangelism narrative universe that transforms sustainability perception',
+      'Solarpunk Witnesses - A narrative universe combining humor, sustainability, and hope to create ecological awareness through viral comedy sketches',
     'site.keywords':
       'solarpunk, sustainability, comedy, sketches, podcast, education, MADFAM',
 
