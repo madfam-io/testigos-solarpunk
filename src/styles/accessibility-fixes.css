@@ -338,41 +338,47 @@ html body a[class*='btn']:active {
  * Comprehensive Link Contrast Fixes
  * ================================================================= */
 
-/* Ensure ALL links meet contrast requirements */
-html body a:link:not(.btn):not(.magazine-btn),
-html body a:visited:not(.btn):not(.magazine-btn) {
-  color: #0d47a1 !important; /* Very dark blue - 8.59:1 ratio */
+/* Ensure ALL links meet contrast requirements - GLOBAL OVERRIDE */
+html body a:not(.btn):not(.magazine-btn) {
+  color: #0033cc !important; /* Very dark blue - maximum contrast */
+  text-decoration: underline !important;
 }
 
-html body a:hover:not(.btn):not(.magazine-btn),
-html body a:focus:not(.btn):not(.magazine-btn),
-html body a:active:not(.btn):not(.magazine-btn) {
-  color: #01579b !important; /* Even darker on interaction */
+html body a:not(.btn):not(.magazine-btn):hover,
+html body a:not(.btn):not(.magazine-btn):focus {
+  color: #002299 !important; /* Even darker on interaction */
+  text-decoration: underline !important;
 }
 
-/* Dark theme links */
-html body[data-theme='dark'] a:link:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] a:visited:not(.btn):not(.magazine-btn) {
-  color: #64b5f6 !important; /* Light blue - good contrast on dark */
+/* Dark theme links - GLOBAL OVERRIDE */
+html body[data-theme='dark'] a:not(.btn):not(.magazine-btn) {
+  color: #99ccff !important; /* Bright blue for dark backgrounds */
+  text-decoration: underline !important;
 }
 
-html body[data-theme='dark'] a:hover:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] a:focus:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] a:active:not(.btn):not(.magazine-btn) {
-  color: #90caf9 !important;
+html body[data-theme='dark'] a:not(.btn):not(.magazine-btn):hover,
+html body[data-theme='dark'] a:not(.btn):not(.magazine-btn):focus {
+  color: #ccddff !important;
+  text-decoration: underline !important;
 }
 
 /* =================================================================
  * Paragraph and Text Contrast Improvements
  * ================================================================= */
 
-/* All paragraph text must have strong contrast */
-html body p:not(.hero-description):not(.hero-subtitle) {
-  color: #212121 !important; /* Very dark gray - excellent contrast */
+/* All paragraph text must have strong contrast - GLOBAL OVERRIDE */
+html body p {
+  color: #000000 !important; /* Pure black for maximum contrast */
 }
 
-html body[data-theme='dark'] p:not(.hero-description):not(.hero-subtitle) {
-  color: #f5f5f5 !important; /* Very light gray for dark theme */
+html body[data-theme='dark'] p {
+  color: #ffffff !important; /* Pure white for dark theme */
+}
+
+/* Hero text can have specific styling */
+html body p.hero-description,
+html body p.hero-subtitle {
+  color: inherit !important; /* Allow hero text to use its own colors */
 }
 
 /* Specific overrides for elements with insufficient contrast */
@@ -497,5 +503,51 @@ html
   div.container
   p.text-muted {
   color: #ffffff !important; /* Keep white for dark theme too */
+  font-weight: 500 !important;
+}
+
+/* =================================================================
+ * Universal Paragraph Contrast Fix for Astro Components
+ * ================================================================= */
+
+/* Target ALL paragraphs with Astro data attributes */
+html body p[data-astro-cid-7pewbour],
+html body p[data-astro-cid-ujmu5uow],
+html body p[data-astro-cid-douz6hms],
+html body p[data-astro-source-file],
+html body article p[class*='astro-'],
+html body section p[class*='astro-'],
+html body div p[class*='astro-'],
+html body main p[class*='astro-'] {
+  color: #000000 !important; /* Pure black for light theme */
+  font-weight: 500 !important;
+}
+
+html body[data-theme='dark'] p[data-astro-cid-7pewbour],
+html body[data-theme='dark'] p[data-astro-cid-ujmu5uow],
+html body[data-theme='dark'] p[data-astro-cid-douz6hms],
+html body[data-theme='dark'] p[data-astro-source-file],
+html body[data-theme='dark'] article p[class*='astro-'],
+html body[data-theme='dark'] section p[class*='astro-'],
+html body[data-theme='dark'] div p[class*='astro-'],
+html body[data-theme='dark'] main p[class*='astro-'] {
+  color: #ffffff !important; /* Pure white for dark theme */
+  font-weight: 500 !important;
+}
+
+/* Catch-all for any paragraph with data-astro attributes */
+html body p[data-astro-cid],
+html body div[class*='astro-'] p,
+html body article[class*='astro-'] p,
+html body section[class*='astro-'] p {
+  color: #000000 !important;
+  font-weight: 500 !important;
+}
+
+html body[data-theme='dark'] p[data-astro-cid],
+html body[data-theme='dark'] div[class*='astro-'] p,
+html body[data-theme='dark'] article[class*='astro-'] p,
+html body[data-theme='dark'] section[class*='astro-'] p {
+  color: #ffffff !important;
   font-weight: 500 !important;
 }
