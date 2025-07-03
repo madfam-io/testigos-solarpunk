@@ -12,18 +12,18 @@ const mockMetrics = {
     accessibility: 98,
     bestPractices: 95,
     seo: 100,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   },
   bundleSize: {
     js: 156.3, // KB
     css: 45.2,
     html: 289.4,
     total: 490.9,
-    target: 400
+    target: 400,
   },
   buildTime: {
     duration: 45.2, // seconds
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   },
   errors: {
     eslint: 0,
@@ -31,15 +31,15 @@ const mockMetrics = {
     tests: {
       passed: 372,
       failed: 0,
-      skipped: 2
-    }
+      skipped: 2,
+    },
   },
   coverage: {
     statements: 87.5,
     branches: 82.3,
     functions: 91.2,
-    lines: 88.1
-  }
+    lines: 88.1,
+  },
 };
 ---
 
@@ -59,26 +59,30 @@ const mockMetrics = {
         <span class="emoji-cutout emoji-md">🏄‍♂️</span>
         Lighthouse Performance
       </h2>
-      
+
       <div class="metrics-grid">
         <div class="metric-card performance">
           <div class="metric-value">{mockMetrics.lighthouse.performance}%</div>
           <div class="metric-label">Performance</div>
           <div class="metric-status good">Excellent</div>
         </div>
-        
+
         <div class="metric-card accessibility">
-          <div class="metric-value">{mockMetrics.lighthouse.accessibility}%</div>
+          <div class="metric-value">
+            {mockMetrics.lighthouse.accessibility}%
+          </div>
           <div class="metric-label">Accessibility</div>
           <div class="metric-status good">Excellent</div>
         </div>
-        
+
         <div class="metric-card best-practices">
-          <div class="metric-value">{mockMetrics.lighthouse.bestPractices}%</div>
+          <div class="metric-value">
+            {mockMetrics.lighthouse.bestPractices}%
+          </div>
           <div class="metric-label">Best Practices</div>
           <div class="metric-status good">Excellent</div>
         </div>
-        
+
         <div class="metric-card seo">
           <div class="metric-value">{mockMetrics.lighthouse.seo}%</div>
           <div class="metric-label">SEO</div>
@@ -93,38 +97,58 @@ const mockMetrics = {
         <span class="emoji-cutout emoji-md">📦</span>
         Bundle Size
       </h2>
-      
+
       <div class="bundle-breakdown">
         <div class="bundle-item">
           <span class="bundle-type">JavaScript</span>
           <div class="bundle-bar">
-            <div class="bundle-fill js" style={`width: ${(mockMetrics.bundleSize.js / mockMetrics.bundleSize.total) * 100}%`}></div>
+            <div
+              class="bundle-fill js"
+              style={`width: ${(mockMetrics.bundleSize.js / mockMetrics.bundleSize.total) * 100}%`}
+            >
+            </div>
           </div>
           <span class="bundle-size">{mockMetrics.bundleSize.js} KB</span>
         </div>
-        
+
         <div class="bundle-item">
           <span class="bundle-type">CSS</span>
           <div class="bundle-bar">
-            <div class="bundle-fill css" style={`width: ${(mockMetrics.bundleSize.css / mockMetrics.bundleSize.total) * 100}%`}></div>
+            <div
+              class="bundle-fill css"
+              style={`width: ${(mockMetrics.bundleSize.css / mockMetrics.bundleSize.total) * 100}%`}
+            >
+            </div>
           </div>
           <span class="bundle-size">{mockMetrics.bundleSize.css} KB</span>
         </div>
-        
+
         <div class="bundle-item">
           <span class="bundle-type">HTML</span>
           <div class="bundle-bar">
-            <div class="bundle-fill html" style={`width: ${(mockMetrics.bundleSize.html / mockMetrics.bundleSize.total) * 100}%`}></div>
+            <div
+              class="bundle-fill html"
+              style={`width: ${(mockMetrics.bundleSize.html / mockMetrics.bundleSize.total) * 100}%`}
+            >
+            </div>
           </div>
           <span class="bundle-size">{mockMetrics.bundleSize.html} KB</span>
         </div>
-        
+
         <div class="bundle-total">
           <span>Total:</span>
-          <strong class:list={[mockMetrics.bundleSize.total > mockMetrics.bundleSize.target ? 'warning' : 'good']}>
+          <strong
+            class:list={[
+              mockMetrics.bundleSize.total > mockMetrics.bundleSize.target
+                ? 'warning'
+                : 'good',
+            ]}
+          >
             {mockMetrics.bundleSize.total} KB
           </strong>
-          <span class="text-muted">(target: {mockMetrics.bundleSize.target} KB)</span>
+          <span class="text-muted"
+            >(target: {mockMetrics.bundleSize.target} KB)</span
+          >
         </div>
       </div>
     </section>
@@ -135,36 +159,48 @@ const mockMetrics = {
         <span class="emoji-cutout emoji-md">✨</span>
         Code Quality
       </h2>
-      
+
       <div class="quality-grid">
         <div class="quality-item">
           <div class="quality-icon">🎯</div>
           <div class="quality-info">
             <div class="quality-label">ESLint</div>
-            <div class="quality-value good">{mockMetrics.errors.eslint} errors</div>
+            <div class="quality-value good">
+              {mockMetrics.errors.eslint} errors
+            </div>
           </div>
         </div>
-        
+
         <div class="quality-item">
           <div class="quality-icon">📘</div>
           <div class="quality-info">
             <div class="quality-label">TypeScript</div>
-            <div class="quality-value good">{mockMetrics.errors.typescript} errors</div>
+            <div class="quality-value good">
+              {mockMetrics.errors.typescript} errors
+            </div>
           </div>
         </div>
-        
+
         <div class="quality-item">
           <div class="quality-icon">🧪</div>
           <div class="quality-info">
             <div class="quality-label">Tests</div>
             <div class="quality-value">
               <span class="good">{mockMetrics.errors.tests.passed} ✓</span>
-              {mockMetrics.errors.tests.failed > 0 && (
-                <span class="warning">{mockMetrics.errors.tests.failed} ✗</span>
-              )}
-              {mockMetrics.errors.tests.skipped > 0 && (
-                <span class="text-muted">{mockMetrics.errors.tests.skipped} ⏭</span>
-              )}
+              {
+                mockMetrics.errors.tests.failed > 0 && (
+                  <span class="warning">
+                    {mockMetrics.errors.tests.failed} ✗
+                  </span>
+                )
+              }
+              {
+                mockMetrics.errors.tests.skipped > 0 && (
+                  <span class="text-muted">
+                    {mockMetrics.errors.tests.skipped} ⏭
+                  </span>
+                )
+              }
             </div>
           </div>
         </div>
@@ -177,52 +213,64 @@ const mockMetrics = {
         <span class="emoji-cutout emoji-md">🎯</span>
         Test Coverage
       </h2>
-      
+
       <div class="coverage-grid">
         <div class="coverage-item">
           <div class="coverage-label">Statements</div>
           <div class="coverage-bar">
-            <div 
-              class="coverage-fill" 
+            <div
+              class="coverage-fill"
               style={`width: ${mockMetrics.coverage.statements}%`}
-              data-coverage={mockMetrics.coverage.statements > 80 ? 'good' : 'warning'}
-            ></div>
+              data-coverage={mockMetrics.coverage.statements > 80
+                ? 'good'
+                : 'warning'}
+            >
+            </div>
           </div>
           <div class="coverage-value">{mockMetrics.coverage.statements}%</div>
         </div>
-        
+
         <div class="coverage-item">
           <div class="coverage-label">Branches</div>
           <div class="coverage-bar">
-            <div 
-              class="coverage-fill" 
+            <div
+              class="coverage-fill"
               style={`width: ${mockMetrics.coverage.branches}%`}
-              data-coverage={mockMetrics.coverage.branches > 80 ? 'good' : 'warning'}
-            ></div>
+              data-coverage={mockMetrics.coverage.branches > 80
+                ? 'good'
+                : 'warning'}
+            >
+            </div>
           </div>
           <div class="coverage-value">{mockMetrics.coverage.branches}%</div>
         </div>
-        
+
         <div class="coverage-item">
           <div class="coverage-label">Functions</div>
           <div class="coverage-bar">
-            <div 
-              class="coverage-fill" 
+            <div
+              class="coverage-fill"
               style={`width: ${mockMetrics.coverage.functions}%`}
-              data-coverage={mockMetrics.coverage.functions > 80 ? 'good' : 'warning'}
-            ></div>
+              data-coverage={mockMetrics.coverage.functions > 80
+                ? 'good'
+                : 'warning'}
+            >
+            </div>
           </div>
           <div class="coverage-value">{mockMetrics.coverage.functions}%</div>
         </div>
-        
+
         <div class="coverage-item">
           <div class="coverage-label">Lines</div>
           <div class="coverage-bar">
-            <div 
-              class="coverage-fill" 
+            <div
+              class="coverage-fill"
               style={`width: ${mockMetrics.coverage.lines}%`}
-              data-coverage={mockMetrics.coverage.lines > 80 ? 'good' : 'warning'}
-            ></div>
+              data-coverage={mockMetrics.coverage.lines > 80
+                ? 'good'
+                : 'warning'}
+            >
+            </div>
           </div>
           <div class="coverage-value">{mockMetrics.coverage.lines}%</div>
         </div>
@@ -235,9 +283,9 @@ const mockMetrics = {
         <span class="emoji-cutout emoji-md">🚀</span>
         Quick Actions
       </h2>
-      
+
       <div class="actions-grid">
-        <a 
+        <a
           href="https://github.com/madfam-io/testigos-solarpunk/actions/workflows/lighthouse.yml"
           target="_blank"
           rel="noopener noreferrer"
@@ -246,8 +294,8 @@ const mockMetrics = {
           <span class="emoji-cutout emoji-md">🏄‍♂️</span>
           <span>View Lighthouse CI</span>
         </a>
-        
-        <a 
+
+        <a
           href="https://github.com/madfam-io/testigos-solarpunk/actions"
           target="_blank"
           rel="noopener noreferrer"
@@ -256,7 +304,7 @@ const mockMetrics = {
           <span class="emoji-cutout emoji-md">⚙️</span>
           <span>GitHub Actions</span>
         </a>
-        
+
         <button class="action-card" onclick="window.location.reload()">
           <span class="emoji-cutout emoji-md">🔄</span>
           <span>Refresh Metrics</span>
@@ -272,7 +320,7 @@ const mockMetrics = {
   </main>
 </BaseLayout>
 
-<style>
+<style is:global>
   .monitoring-section {
     margin-bottom: 3rem;
     padding: 2rem;
@@ -467,7 +515,7 @@ const mockMetrics = {
     transition: width 0.3s ease;
   }
 
-  .coverage-fill[data-coverage="warning"] {
+  .coverage-fill[data-coverage='warning'] {
     background: var(--gradient-warning);
   }
 
@@ -514,12 +562,12 @@ const mockMetrics = {
   }
 
   /* Dark mode */
-  [data-theme="dark"] .metric-card {
+  [data-theme='dark'] .metric-card {
     background: var(--bg-tertiary);
   }
 
-  [data-theme="dark"] .bundle-bar,
-  [data-theme="dark"] .coverage-bar {
+  [data-theme='dark'] .bundle-bar,
+  [data-theme='dark'] .coverage-bar {
     background: rgba(255, 255, 255, 0.1);
   }
 

@@ -112,6 +112,8 @@ export const routes = {
     'nav.impact': 'Impacto',
     'nav.team': 'Equipo',
     'nav.philosophy': 'Filosofía',
+    'nav.formats': 'Formatos',
+    'nav.production.audio': 'Audio',
 
     // Hero Section
     'hero.title': 'Testigos de Solarpunk',
@@ -268,6 +270,7 @@ export const routes = {
     'footer.connect': 'Conecta',
     'footer.join.community': 'Únete a la Comunidad',
     'footer.our.impact': 'Nuestro Impacto',
+    'footer.sitemap': 'Mapa del Sitio',
 
     // Status Messages
     'status.loading': 'Cargando...',
@@ -299,6 +302,7 @@ export const routes = {
     'community.cta.title': '¿Listo para cambiar el mundo con una sonrisa?',
     'community.cta.subtitle':
       'Únete a miles de Testigos de Solarpunk en todo México',
+    'community.join.title': 'Únete a la Comunidad',
     'community.newsletter.title': 'Recibe nuestro newsletter',
 
     // Community Values
@@ -1089,7 +1093,7 @@ export const routes = {
     'ui.view.more': 'Ver más',
     'ui.download': 'Descargar',
     'ui.join': 'Únete',
-    
+
     // Common Buttons and Actions
     'button.subscribe': 'Suscribir',
     'button.share': 'Compartir',
@@ -1102,7 +1106,7 @@ export const routes = {
     'button.start': 'Comenzar',
     'button.explore': 'Explorar',
     'button.discover': 'Descubrir',
-    
+
     // Social Media
     'social.instagram': 'Instagram',
     'social.tiktok': 'TikTok',
@@ -1113,7 +1117,7 @@ export const routes = {
     'social.whatsapp': 'WhatsApp',
     'social.facebook': 'Facebook',
     'social.linkedin': 'LinkedIn',
-    
+
     // Status Indicators
     'status.in.development': 'En Desarrollo',
     'status.coming.soon': 'Próximamente',
@@ -1122,7 +1126,7 @@ export const routes = {
     'status.available': 'Disponible',
     'status.new': 'Nuevo',
     'status.updated': 'Actualizado',
-    
+
     // Common Section Headers
     'section.introduction': 'Introducción',
     'section.objectives': 'Objetivos',
@@ -1134,14 +1138,14 @@ export const routes = {
     'section.requirements': 'Requisitos',
     'section.examples': 'Ejemplos',
     'section.faq': 'Preguntas Frecuentes',
-    
+
     // Production Elements
-    'production': 'Producción',
+    production: 'Producción',
     'production.specs': 'Especificaciones',
     'production.guides': 'Guías de Producción',
     'production.templates': 'Plantillas',
     'production.resources': 'Recursos de Producción',
-    
+
     // Sponsor Related
     'sponsors.what.it.means': 'Qué Significa',
     'sponsors.in.practice': 'En la Práctica',
@@ -1149,11 +1153,11 @@ export const routes = {
     'sponsors.values.alignment': 'Alineación de Valores',
     'sponsors.integration': 'Integración',
     'sponsors.benefits': 'Beneficios',
-    
+
     // Navigation Breadcrumbs
     'breadcrumb.home': 'Inicio',
     'breadcrumb.nav.aria': 'Navegación de migas de pan',
-    
+
     // Accessibility Labels
     'aria.nav.breadcrumb': 'Navegación de migas de pan',
     'aria.github.project': 'GitHub del proyecto (se abre en nueva ventana)',
@@ -1162,21 +1166,21 @@ export const routes = {
     'aria.menu.toggle': 'Alternar menú de navegación',
     'aria.submenu.toggle': 'Alternar submenú',
     'aria.social.link': 'Visitar nuestro {network}',
-    
+
     // Loading States
     'loading.experience': 'Cargando tu experiencia',
     'loading.content': 'Cargando contenido',
     'loading.please.wait': 'Por favor espera',
-    
+
     // Footer Elements
     'footer.world.building': 'Construcción del Mundo',
     'footer.visual.identity': 'Identidad Visual',
     'footer.production.bible': 'Biblia de Producción',
-    
+
     // Language Names
     'language.spanish': 'Español',
     'language.english': 'English',
-    
+
     // Time Related
     'time.minutes': 'minutos',
     'time.seconds': 'segundos',
@@ -1185,7 +1189,7 @@ export const routes = {
     'time.weeks': 'semanas',
     'time.months': 'meses',
     'time.years': 'años',
-    
+
     // Media Types
     'media.video': 'Video',
     'media.audio': 'Audio',
@@ -1193,7 +1197,7 @@ export const routes = {
     'media.document': 'Documento',
     'media.podcast': 'Podcast',
     'media.sketch': 'Sketch',
-    
+
     // Miscellaneous
     'misc.title': 'Título',
     'misc.description': 'Descripción',
@@ -1344,6 +1348,8 @@ export const routes = {
     'nav.impact': 'Impact',
     'nav.team': 'Team',
     'nav.philosophy': 'Philosophy',
+    'nav.formats': 'Formats',
+    'nav.production.audio': 'Audio',
 
     // Hero Section
     'hero.title': 'Solarpunk Witnesses',
@@ -1684,6 +1690,7 @@ export const routes = {
     'footer.connect': 'Connect',
     'footer.join.community': 'Join the Community',
     'footer.our.impact': 'Our Impact',
+    'footer.sitemap': 'Sitemap',
 
     // Status Messages
     'status.loading': 'Loading...',
@@ -1715,6 +1722,7 @@ export const routes = {
     'community.cta.title': 'Ready to change the world with a smile?',
     'community.cta.subtitle':
       'Join thousands of Solarpunk Witnesses across Mexico',
+    'community.join.title': 'Join the Community',
     'community.newsletter.title': 'Get our newsletter',
 
     // Community Values
@@ -2310,7 +2318,7 @@ export const routes = {
     'ui.view.more': 'View more',
     'ui.download': 'Download',
     'ui.join': 'Join',
-    
+
     // Common Buttons and Actions
     'button.subscribe': 'Subscribe',
     'button.share': 'Share',
@@ -2323,7 +2331,7 @@ export const routes = {
     'button.start': 'Start',
     'button.explore': 'Explore',
     'button.discover': 'Discover',
-    
+
     // Social Media
     'social.instagram': 'Instagram',
     'social.tiktok': 'TikTok',
@@ -2334,7 +2342,7 @@ export const routes = {
     'social.whatsapp': 'WhatsApp',
     'social.facebook': 'Facebook',
     'social.linkedin': 'LinkedIn',
-    
+
     // Status Indicators
     'status.in.development': 'In Development',
     'status.coming.soon': 'Coming Soon',
@@ -2343,7 +2351,7 @@ export const routes = {
     'status.available': 'Available',
     'status.new': 'New',
     'status.updated': 'Updated',
-    
+
     // Common Section Headers
     'section.introduction': 'Introduction',
     'section.objectives': 'Objectives',
@@ -2355,14 +2363,14 @@ export const routes = {
     'section.requirements': 'Requirements',
     'section.examples': 'Examples',
     'section.faq': 'Frequently Asked Questions',
-    
+
     // Production Elements
-    'production': 'Production',
+    production: 'Production',
     'production.specs': 'Specifications',
     'production.guides': 'Production Guides',
     'production.templates': 'Templates',
     'production.resources': 'Production Resources',
-    
+
     // Sponsor Related
     'sponsors.what.it.means': 'What It Means',
     'sponsors.in.practice': 'In Practice',
@@ -2370,11 +2378,11 @@ export const routes = {
     'sponsors.values.alignment': 'Values Alignment',
     'sponsors.integration': 'Integration',
     'sponsors.benefits': 'Benefits',
-    
+
     // Navigation Breadcrumbs
     'breadcrumb.home': 'Home',
     'breadcrumb.nav.aria': 'Breadcrumb navigation',
-    
+
     // Accessibility Labels
     'aria.nav.breadcrumb': 'Breadcrumb navigation',
     'aria.github.project': 'Project GitHub (opens in new window)',
@@ -2383,21 +2391,21 @@ export const routes = {
     'aria.menu.toggle': 'Toggle navigation menu',
     'aria.submenu.toggle': 'Toggle submenu',
     'aria.social.link': 'Visit our {network}',
-    
+
     // Loading States
     'loading.experience': 'Loading your experience',
     'loading.content': 'Loading content',
     'loading.please.wait': 'Please wait',
-    
+
     // Footer Elements
     'footer.world.building': 'World Building',
     'footer.visual.identity': 'Visual Identity',
     'footer.production.bible': 'Production Bible',
-    
+
     // Language Names
     'language.spanish': 'Spanish',
     'language.english': 'English',
-    
+
     // Time Related
     'time.minutes': 'minutes',
     'time.seconds': 'seconds',
@@ -2406,7 +2414,7 @@ export const routes = {
     'time.weeks': 'weeks',
     'time.months': 'months',
     'time.years': 'years',
-    
+
     // Media Types
     'media.video': 'Video',
     'media.audio': 'Audio',
@@ -2414,7 +2422,7 @@ export const routes = {
     'media.document': 'Document',
     'media.podcast': 'Podcast',
     'media.sketch': 'Sketch',
-    
+
     // Miscellaneous
     'misc.title': 'Title',
     'misc.description': 'Description',
@@ -2604,7 +2612,7 @@ export function useTranslations(lang: keyof typeof languages) {
 /**
  * Type-safe UI translations object
  */
-type _UITranslations = typeof ui;
+// type _UITranslations = typeof ui; // Keeping for future type exports
 
 /**
  * Global translation function that can be used anywhere
@@ -2613,7 +2621,7 @@ type _UITranslations = typeof ui;
 export function t(key: string, lang?: Language): string {
   const currentLang = lang ?? defaultLang;
   const translations = ui;
-  
+
   // Check if key exists in the current language
   const langTranslations = translations[currentLang];
   if (key in langTranslations) {
@@ -2634,11 +2642,13 @@ export function t(key: string, lang?: Language): string {
 
   // Return the key itself if no translation found (helps identify missing translations)
   // Import logger dynamically to avoid circular dependencies
-  import('../utils/logger').then(({ log }) => {
-    log.warn(`Missing translation for key: ${key}`);
-  }).catch(() => {
-    // Fallback if logger not available
-  });
+  import('../utils/logger')
+    .then(({ log }) => {
+      log.warn(`Missing translation for key: ${key}`);
+    })
+    .catch(() => {
+      // Fallback if logger not available
+    });
   return key;
 }
 

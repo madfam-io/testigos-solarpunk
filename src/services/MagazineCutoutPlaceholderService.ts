@@ -157,7 +157,11 @@ export class MagazineCutoutPlaceholderService {
             return result;
           }
         } catch (error) {
-          log.warn(`Service ${service.name} failed`, error, 'placeholder-service');
+          log.warn(
+            `Service ${service.name} failed`,
+            error,
+            'placeholder-service'
+          );
           continue;
         }
       }
@@ -174,7 +178,11 @@ export class MagazineCutoutPlaceholderService {
       this.cache.set(cacheKey, result);
       return result;
     } catch (error) {
-      log.error('Error generating placeholder', error, 'placeholder-service');
+      log.error(
+        'Error generating placeholder',
+        error instanceof Error ? error : new Error(String(error)),
+        'placeholder-service'
+      );
 
       // Fallback de emergencia
       return {

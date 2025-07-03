@@ -147,7 +147,6 @@
     /* More app-like navigation when in standalone mode */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
-
 </style>
 
 <script>
@@ -174,7 +173,11 @@
           }
         );
 
-        log.info('Service Worker registered successfully', { scope: registration.scope }, 'pwa');
+        log.info(
+          'Service Worker registered successfully',
+          { scope: registration.scope },
+          'pwa'
+        );
 
         // Check for updates every hour
         setInterval(
@@ -200,7 +203,11 @@
           });
         });
       } catch (error) {
-        log.error('Error registering Service Worker', error, 'pwa');
+        log.error(
+          'Error registering Service Worker',
+          error instanceof Error ? error : new Error(String(error)),
+          'pwa'
+        );
       }
     });
   }
@@ -220,7 +227,7 @@
         <button id="dismiss-update-btn" class="btn btn--secondary btn--small">Después</button>
       </div>
     `;
-    
+
     updateBanner.style.cssText = `
       position: fixed;
       top: 0;
@@ -243,9 +250,11 @@
     });
 
     // Handle dismiss button click
-    updateBanner.querySelector('#dismiss-update-btn')?.addEventListener('click', () => {
-      updateBanner.remove();
-    });
+    updateBanner
+      .querySelector('#dismiss-update-btn')
+      ?.addEventListener('click', () => {
+        updateBanner.remove();
+      });
 
     // Auto-dismiss after 10 seconds
     setTimeout(() => {
@@ -274,8 +283,10 @@
     }
 
     // Hide browser-specific elements
-    const browserOnlyElements = document.querySelectorAll('[data-browser-only]');
-    browserOnlyElements.forEach(element => {
+    const browserOnlyElements = document.querySelectorAll(
+      '[data-browser-only]'
+    );
+    browserOnlyElements.forEach((element) => {
       (element as HTMLElement).style.display = 'none';
     });
   }

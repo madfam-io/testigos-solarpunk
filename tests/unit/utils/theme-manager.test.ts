@@ -2,7 +2,7 @@
  * @fileoverview Unit tests for theme-manager.ts
  * @author MADFAM
  * @version 0.5.0
- * 
+ *
  * Tests the theme management system including:
  * - Theme switching (light/dark/auto)
  * - LocalStorage persistence
@@ -20,7 +20,7 @@ describe('Theme Manager', () => {
     getItem: vi.fn(),
     setItem: vi.fn(),
     removeItem: vi.fn(),
-    clear: vi.fn()
+    clear: vi.fn(),
   };
 
   // Mock matchMedia
@@ -28,18 +28,18 @@ describe('Theme Manager', () => {
   const mockMediaQueryList = {
     matches: false,
     addEventListener: vi.fn(),
-    removeEventListener: vi.fn()
+    removeEventListener: vi.fn(),
   };
 
   // Mock document
   const mockDocumentElement = {
     style: {
-      setProperty: vi.fn()
+      setProperty: vi.fn(),
     },
     setAttribute: vi.fn(),
     classList: {
-      add: vi.fn()
-    }
+      add: vi.fn(),
+    },
   };
 
   beforeEach(() => {
@@ -49,20 +49,20 @@ describe('Theme Manager', () => {
     // Setup localStorage mock
     Object.defineProperty(window, 'localStorage', {
       value: mockLocalStorage,
-      writable: true
+      writable: true,
     });
 
     // Setup matchMedia mock
     mockMatchMedia.mockReturnValue(mockMediaQueryList);
     Object.defineProperty(window, 'matchMedia', {
       value: mockMatchMedia,
-      writable: true
+      writable: true,
     });
 
     // Setup document mock
     Object.defineProperty(document, 'documentElement', {
       value: mockDocumentElement,
-      writable: true
+      writable: true,
     });
 
     // Reset window event listeners
@@ -88,9 +88,15 @@ describe('Theme Manager', () => {
 
       ThemeManager.initialize();
 
-      expect(mockLocalStorage.getItem).toHaveBeenCalledWith('testigos-theme-preference');
-      expect(mockLocalStorage.getItem).toHaveBeenCalledWith('testigos-theme-variant');
-      expect(mockDocumentElement.classList.add).toHaveBeenCalledWith('theme-initialized');
+      expect(mockLocalStorage.getItem).toHaveBeenCalledWith(
+        'testigos-theme-preference'
+      );
+      expect(mockLocalStorage.getItem).toHaveBeenCalledWith(
+        'testigos-theme-variant'
+      );
+      expect(mockDocumentElement.classList.add).toHaveBeenCalledWith(
+        'theme-initialized'
+      );
     });
 
     it('should initialize with defaults when no saved preferences', () => {
@@ -99,38 +105,55 @@ describe('Theme Manager', () => {
       ThemeManager.initialize();
 
       // Should apply auto theme by default
-      expect(mockMatchMedia).toHaveBeenCalledWith('(prefers-color-scheme: dark)');
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme-selection', 'auto');
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme-variant', 'magazine');
+      expect(mockMatchMedia).toHaveBeenCalledWith(
+        '(prefers-color-scheme: dark)'
+      );
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme-selection',
+        'auto'
+      );
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme-variant',
+        'magazine'
+      );
     });
 
     it('should setup system theme listener', () => {
       mockLocalStorage.getItem.mockReturnValue(null); // Force defaults
-      
+
       ThemeManager.initialize();
 
-      expect(mockMatchMedia).toHaveBeenCalledWith('(prefers-color-scheme: dark)');
-      expect(mockMediaQueryList.addEventListener).toHaveBeenCalledWith('change', expect.any(Function));
+      expect(mockMatchMedia).toHaveBeenCalledWith(
+        '(prefers-color-scheme: dark)'
+      );
+      expect(mockMediaQueryList.addEventListener).toHaveBeenCalledWith(
+        'change',
+        expect.any(Function)
+      );
     });
 
     it('should setup reduced motion listener', () => {
       mockLocalStorage.getItem.mockReturnValue(null); // Force defaults
-      
+
       ThemeManager.initialize();
 
-      expect(mockMatchMedia).toHaveBeenCalledWith('(prefers-reduced-motion: reduce)');
+      expect(mockMatchMedia).toHaveBeenCalledWith(
+        '(prefers-reduced-motion: reduce)'
+      );
     });
 
     it('should handle server-side rendering', () => {
       // Simulate SSR by making window undefined
       const originalWindow = global.window;
-      delete (global as typeof globalThis & { window?: Window }).window;
+      // @ts-expect-error - Mocking for test
+      global.window = undefined;
 
       // Should not throw
       expect(() => ThemeManager.initialize()).not.toThrow();
 
       // Restore
-      (global as typeof globalThis & { window: Window }).window = originalWindow;
+      (global as typeof globalThis & { window: Window }).window =
+        originalWindow;
     });
   });
 
@@ -140,48 +163,58 @@ describe('Theme Manager', () => {
   describe('Theme Preferences', () => {
     it('should get saved theme', () => {
       mockLocalStorage.getItem.mockReturnValue('dark');
-      
+
       const theme = ThemeManager.getSavedTheme();
-      
+
       expect(theme).toBe('dark');
-      expect(mockLocalStorage.getItem).toHaveBeenCalledWith('testigos-theme-preference');
+      expect(mockLocalStorage.getItem).toHaveBeenCalledWith(
+        'testigos-theme-preference'
+      );
     });
 
     it('should return auto as default theme', () => {
       mockLocalStorage.getItem.mockReturnValue(null);
-      
+
       const theme = ThemeManager.getSavedTheme();
-      
+
       expect(theme).toBe('auto');
     });
 
     it('should save theme preference', () => {
       ThemeManager.saveTheme('dark');
-      
-      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('testigos-theme-preference', 'dark');
+
+      expect(mockLocalStorage.setItem).toHaveBeenCalledWith(
+        'testigos-theme-preference',
+        'dark'
+      );
     });
 
     it('should get saved variant', () => {
       mockLocalStorage.getItem.mockReturnValue('minimal');
-      
+
       const variant = ThemeManager.getSavedVariant();
-      
+
       expect(variant).toBe('minimal');
-      expect(mockLocalStorage.getItem).toHaveBeenCalledWith('testigos-theme-variant');
+      expect(mockLocalStorage.getItem).toHaveBeenCalledWith(
+        'testigos-theme-variant'
+      );
     });
 
     it('should return magazine as default variant', () => {
       mockLocalStorage.getItem.mockReturnValue(null);
-      
+
       const variant = ThemeManager.getSavedVariant();
-      
+
       expect(variant).toBe('magazine');
     });
 
     it('should save variant preference', () => {
       ThemeManager.saveVariant('accessibility');
-      
-      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('testigos-theme-variant', 'accessibility');
+
+      expect(mockLocalStorage.setItem).toHaveBeenCalledWith(
+        'testigos-theme-variant',
+        'accessibility'
+      );
     });
   });
 
@@ -195,12 +228,21 @@ describe('Theme Manager', () => {
       // Check CSS variables are set
       const lightColors = themes.light;
       Object.entries(lightColors).forEach(([property, value]) => {
-        expect(mockDocumentElement.style.setProperty).toHaveBeenCalledWith(property, value);
+        expect(mockDocumentElement.style.setProperty).toHaveBeenCalledWith(
+          property,
+          value
+        );
       });
 
       // Check data attributes
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme', 'light');
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme-selection', 'light');
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme',
+        'light'
+      );
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme-selection',
+        'light'
+      );
     });
 
     it('should apply dark theme', () => {
@@ -209,36 +251,58 @@ describe('Theme Manager', () => {
       // Check CSS variables are set
       const darkColors = themes.dark;
       Object.entries(darkColors).forEach(([property, value]) => {
-        expect(mockDocumentElement.style.setProperty).toHaveBeenCalledWith(property, value);
+        expect(mockDocumentElement.style.setProperty).toHaveBeenCalledWith(
+          property,
+          value
+        );
       });
 
       // Check data attributes
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme', 'dark');
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme-selection', 'dark');
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme',
+        'dark'
+      );
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme-selection',
+        'dark'
+      );
     });
 
     it('should resolve auto theme based on system preference', () => {
       // System prefers dark
       mockMediaQueryList.matches = true;
-      
+
       ThemeManager.applyTheme('auto');
 
-      expect(mockMatchMedia).toHaveBeenCalledWith('(prefers-color-scheme: dark)');
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme', 'dark');
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme-selection', 'auto');
+      expect(mockMatchMedia).toHaveBeenCalledWith(
+        '(prefers-color-scheme: dark)'
+      );
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme',
+        'dark'
+      );
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme-selection',
+        'auto'
+      );
     });
 
     it('should apply theme with variant', () => {
       ThemeManager.applyTheme('light', 'minimal');
 
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme-variant', 'minimal');
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme-variant',
+        'minimal'
+      );
     });
 
     it('should dispatch theme change event', () => {
       ThemeManager.applyTheme('dark', 'magazine');
 
       expect(window.dispatchEvent).toHaveBeenCalled();
-      const mockDispatchEvent = window.dispatchEvent as ReturnType<typeof vi.fn>;
+      const mockDispatchEvent = window.dispatchEvent as ReturnType<
+        typeof vi.fn
+      >;
       const mockCalls = mockDispatchEvent.mock.calls;
       expect(mockCalls.length).toBeGreaterThan(0);
       const firstCallArgs = mockCalls[0];
@@ -247,14 +311,17 @@ describe('Theme Manager', () => {
       expect(customEvent.detail).toEqual({
         theme: 'dark',
         selection: 'dark',
-        variant: 'magazine'
+        variant: 'magazine',
       });
     });
 
     it('should handle server-side rendering', () => {
       const originalDocument = global.document;
-      const globalWithDocument = global as typeof globalThis & { document?: Document };
-      delete globalWithDocument.document;
+      const globalWithDocument = global as typeof globalThis & {
+        document?: Document;
+      };
+      // @ts-expect-error - Mocking for test
+      globalWithDocument.document = undefined;
 
       // Should not throw
       expect(() => ThemeManager.applyTheme('light')).not.toThrow();
@@ -271,35 +338,47 @@ describe('Theme Manager', () => {
     it('should cycle through themes: light -> dark -> auto', () => {
       // Start with light
       mockLocalStorage.getItem.mockReturnValue('light');
-      
+
       let newTheme = ThemeManager.toggleTheme();
       expect(newTheme).toBe('dark');
-      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('testigos-theme-preference', 'dark');
+      expect(mockLocalStorage.setItem).toHaveBeenCalledWith(
+        'testigos-theme-preference',
+        'dark'
+      );
 
       // Mock dark as current
       mockLocalStorage.getItem.mockReturnValue('dark');
-      
+
       newTheme = ThemeManager.toggleTheme();
       expect(newTheme).toBe('auto');
-      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('testigos-theme-preference', 'auto');
+      expect(mockLocalStorage.setItem).toHaveBeenCalledWith(
+        'testigos-theme-preference',
+        'auto'
+      );
 
       // Mock auto as current
       mockLocalStorage.getItem.mockReturnValue('auto');
-      
+
       newTheme = ThemeManager.toggleTheme();
       expect(newTheme).toBe('light');
-      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('testigos-theme-preference', 'light');
+      expect(mockLocalStorage.setItem).toHaveBeenCalledWith(
+        'testigos-theme-preference',
+        'light'
+      );
     });
 
     it('should apply theme after toggling', () => {
       mockLocalStorage.getItem
         .mockReturnValueOnce('light') // current theme
         .mockReturnValueOnce('magazine'); // variant
-      
+
       ThemeManager.toggleTheme();
 
       // Should have applied the new theme
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme', 'dark');
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme',
+        'dark'
+      );
     });
   });
 
@@ -309,20 +388,32 @@ describe('Theme Manager', () => {
   describe('setTheme and setVariant', () => {
     it('should set specific theme', () => {
       mockLocalStorage.getItem.mockReturnValue('magazine');
-      
+
       ThemeManager.setTheme('dark');
 
-      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('testigos-theme-preference', 'dark');
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme', 'dark');
+      expect(mockLocalStorage.setItem).toHaveBeenCalledWith(
+        'testigos-theme-preference',
+        'dark'
+      );
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme',
+        'dark'
+      );
     });
 
     it('should set specific variant', () => {
       mockLocalStorage.getItem.mockReturnValue('light');
-      
+
       ThemeManager.setVariant('accessibility');
 
-      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('testigos-theme-variant', 'accessibility');
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme-variant', 'accessibility');
+      expect(mockLocalStorage.setItem).toHaveBeenCalledWith(
+        'testigos-theme-variant',
+        'accessibility'
+      );
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme-variant',
+        'accessibility'
+      );
     });
   });
 
@@ -332,31 +423,31 @@ describe('Theme Manager', () => {
   describe('Theme State', () => {
     it('should get current resolved theme', () => {
       mockLocalStorage.getItem.mockReturnValue('dark');
-      
+
       const current = ThemeManager.getCurrentTheme();
-      
+
       expect(current).toBe('dark');
     });
 
     it('should resolve auto theme to system preference', () => {
       mockLocalStorage.getItem.mockReturnValue('auto');
       mockMediaQueryList.matches = true; // System prefers dark
-      
+
       const current = ThemeManager.getCurrentTheme();
-      
+
       expect(current).toBe('dark');
     });
 
     it('should check if theme is dark', () => {
       mockLocalStorage.getItem.mockReturnValue('dark');
-      
+
       expect(ThemeManager.isDark()).toBe(true);
       expect(ThemeManager.isLight()).toBe(false);
     });
 
     it('should check if theme is light', () => {
       mockLocalStorage.getItem.mockReturnValue('light');
-      
+
       expect(ThemeManager.isLight()).toBe(true);
       expect(ThemeManager.isDark()).toBe(false);
     });
@@ -380,7 +471,9 @@ describe('Theme Manager', () => {
       expect(ThemeManager.getThemeDescription()).toBe('Dark theme active');
 
       mockLocalStorage.getItem.mockReturnValue('auto');
-      expect(ThemeManager.getThemeDescription()).toBe('Auto theme (follows system preference)');
+      expect(ThemeManager.getThemeDescription()).toBe(
+        'Auto theme (follows system preference)'
+      );
     });
   });
 
@@ -390,12 +483,13 @@ describe('Theme Manager', () => {
   describe('System Theme Listener', () => {
     it('should update theme when system preference changes', () => {
       mockLocalStorage.getItem.mockReturnValue('auto');
-      
+
       ThemeManager.initialize();
 
       // Get the change handler
-      const changeHandler = mockMediaQueryList.addEventListener.mock.calls
-        .find(call => call[0] === 'change')?.[1] as ((event: { matches: boolean }) => void) | undefined;
+      const changeHandler = mockMediaQueryList.addEventListener.mock.calls.find(
+        (call) => call[0] === 'change'
+      )?.[1] as ((event: { matches: boolean }) => void) | undefined;
 
       expect(changeHandler).toBeDefined();
 
@@ -406,17 +500,21 @@ describe('Theme Manager', () => {
       }
 
       // Should have applied dark theme
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-theme', 'dark');
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-theme',
+        'dark'
+      );
     });
 
     it('should not update theme if not in auto mode', () => {
       mockLocalStorage.getItem.mockReturnValue('light');
-      
+
       ThemeManager.initialize();
 
       // Get the change handler
-      const changeHandler = mockMediaQueryList.addEventListener.mock.calls
-        .find(call => call[0] === 'change')?.[1] as ((event: { matches: boolean }) => void) | undefined;
+      const changeHandler = mockMediaQueryList.addEventListener.mock.calls.find(
+        (call) => call[0] === 'change'
+      )?.[1] as ((event: { matches: boolean }) => void) | undefined;
 
       // Clear previous calls
       mockDocumentElement.setAttribute.mockClear();
@@ -428,21 +526,22 @@ describe('Theme Manager', () => {
       }
 
       // Should not have changed theme
-      const themeCall = mockDocumentElement.setAttribute.mock.calls
-        .find(call => call[0] === 'data-theme');
+      const themeCall = mockDocumentElement.setAttribute.mock.calls.find(
+        (call) => call[0] === 'data-theme'
+      );
       expect(themeCall).toBeUndefined();
     });
 
     it('should handle legacy addListener API', () => {
       mockLocalStorage.getItem.mockReturnValue(null); // Force defaults
-      
+
       // Create a new mock without addEventListener
       const legacyMediaQueryList = {
         matches: false,
         addListener: vi.fn(),
-        removeEventListener: vi.fn()
+        removeEventListener: vi.fn(),
       };
-      
+
       mockMatchMedia.mockReturnValue(legacyMediaQueryList);
 
       ThemeManager.initialize();
@@ -457,13 +556,13 @@ describe('Theme Manager', () => {
   describe('Reduced Motion', () => {
     it('should set reduced motion attribute', () => {
       mockLocalStorage.getItem.mockReturnValue(null); // Force defaults
-      
+
       const reducedMotionQuery = {
         matches: true,
         addEventListener: vi.fn(),
-        removeEventListener: vi.fn()
+        removeEventListener: vi.fn(),
       };
-      
+
       mockMatchMedia.mockImplementation((query) => {
         if (query === '(prefers-reduced-motion: reduce)') {
           return reducedMotionQuery;
@@ -473,18 +572,21 @@ describe('Theme Manager', () => {
 
       ThemeManager.initialize();
 
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-reduced-motion', 'true');
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-reduced-motion',
+        'true'
+      );
     });
 
     it('should update reduced motion on change', () => {
       mockLocalStorage.getItem.mockReturnValue(null); // Force defaults
-      
+
       const reducedMotionQuery = {
         matches: false,
         addEventListener: vi.fn(),
-        removeEventListener: vi.fn()
+        removeEventListener: vi.fn(),
       };
-      
+
       mockMatchMedia.mockImplementation((query) => {
         if (query === '(prefers-reduced-motion: reduce)') {
           return reducedMotionQuery;
@@ -495,14 +597,18 @@ describe('Theme Manager', () => {
       ThemeManager.initialize();
 
       // Get the change handler
-      const changeHandler = reducedMotionQuery.addEventListener.mock.calls[0][1] as ((event: { matches: boolean }) => void);
+      const changeHandler = reducedMotionQuery.addEventListener.mock
+        .calls[0][1] as (event: { matches: boolean }) => void;
 
       // Simulate preference change
       if (changeHandler !== undefined) {
         changeHandler({ matches: true });
       }
 
-      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith('data-reduced-motion', 'true');
+      expect(mockDocumentElement.setAttribute).toHaveBeenCalledWith(
+        'data-reduced-motion',
+        'true'
+      );
     });
   });
 
@@ -518,10 +624,10 @@ describe('Theme Manager', () => {
         '--text-secondary',
         '--madfam-yellow',
         '--border-default',
-        '--shadow-sm'
+        '--shadow-sm',
       ];
 
-      requiredVars.forEach(varName => {
+      requiredVars.forEach((varName) => {
         expect(themes.light).toHaveProperty(varName);
         expect(themes.light[varName as keyof typeof themes.light]).toBeTruthy();
       });
@@ -535,10 +641,10 @@ describe('Theme Manager', () => {
         '--text-secondary',
         '--madfam-yellow',
         '--border-default',
-        '--shadow-sm'
+        '--shadow-sm',
       ];
 
-      requiredVars.forEach(varName => {
+      requiredVars.forEach((varName) => {
         expect(themes.dark).toHaveProperty(varName);
         expect(themes.dark[varName as keyof typeof themes.dark]).toBeTruthy();
       });

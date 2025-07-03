@@ -160,7 +160,7 @@ async function replaceColorsInFile(
       `(['"\`]?)${replacement.original.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1`,
       'g'
     );
-    content = content.replace(regex, (match, quote) => {
+    content = content.replace(regex, (_, quote) => {
       // If it's in quotes, replace the whole quoted value
       if (quote) {
         return quote + replacement.replacement + quote;

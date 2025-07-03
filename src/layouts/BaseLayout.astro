@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+// import { ViewTransitions } from 'astro:transitions'; // Deprecated - transitions are now built-in
 // import PWAInstaller from '../components/PWAInstaller.astro';
 import UnderConstructionModal from '../components/UnderConstructionModal.astro';
 import ThemeSelector from '../components/ThemeSelector.astro';
@@ -395,9 +395,8 @@ const isTouchDevice = isMobileDevice || isTablet;
         }
       }
     </style>
-    
-    <!-- View Transitions for smooth navigation -->
-    <ViewTransitions />
+
+    <!-- View Transitions are now built-in to Astro -->
   </head>
   <body>
     <!-- Skip Links for Accessibility -->
@@ -633,7 +632,8 @@ const isTouchDevice = isMobileDevice || isTablet;
                 {currentLang === 'es' ? 'Tono de Voz' : 'Tone of Voice'}</a
               >
               <a href={getLangPath('produccion/audio/')} role="menuitem"
-                ><span class="emoji-cutout emoji-nav emoji-sm">🎵</span> {t('nav.production.audio')}</a
+                ><span class="emoji-cutout emoji-nav emoji-sm">🎵</span>
+                {t('nav.production.audio')}</a
               >
               <a href={getLangPath('produccion/specs/')} role="menuitem"
                 ><span class="emoji-cutout emoji-nav emoji-sm">📋</span>
@@ -661,7 +661,7 @@ const isTouchDevice = isMobileDevice || isTablet;
                 href={currentPath.replace(/^\/(es|en)/, '/es')}
                 class:list={currentLang === 'es' ? 'active' : ''}
                 role="menuitem"
-                aria-label={t("aria.language.switch.es")}
+                aria-label={t('aria.language.switch.es')}
               >
                 <span class="emoji-cutout emoji-nav emoji-sm">🇲🇽</span> Español
               </a>
@@ -669,7 +669,7 @@ const isTouchDevice = isMobileDevice || isTablet;
                 href={currentPath.replace(/^\/(es|en)/, '/en')}
                 class:list={currentLang === 'en' ? 'active' : ''}
                 role="menuitem"
-                aria-label={t("aria.language.switch.en")}
+                aria-label={t('aria.language.switch.en')}
               >
                 <span class="emoji-cutout emoji-nav emoji-sm">🇺🇸</span> English
               </a>
@@ -688,7 +688,7 @@ const isTouchDevice = isMobileDevice || isTablet;
 
     <script>
       import { log } from '../utils/logger';
-      
+
       document.addEventListener('DOMContentLoaded', function () {
         // Mobile menu initialization with enhanced error handling
         try {
@@ -772,7 +772,11 @@ const isTouchDevice = isMobileDevice || isTablet;
                   });
                 }
               } catch (e) {
-                log.error('Error closing mobile menu', e, 'navigation');
+                log.error(
+                  'Error closing mobile menu',
+                  e instanceof Error ? e : new Error(String(e)),
+                  'navigation'
+                );
               }
             }
 
@@ -797,7 +801,11 @@ const isTouchDevice = isMobileDevice || isTablet;
                   document.body.classList.remove('mobile-menu-open');
                 }
               } catch (error) {
-                log.error('Error toggling mobile menu', error, 'navigation');
+                log.error(
+                  'Error toggling mobile menu',
+                  error instanceof Error ? error : new Error(String(error)),
+                  'navigation'
+                );
               }
             });
 
@@ -864,7 +872,13 @@ const isTouchDevice = isMobileDevice || isTablet;
                       );
                       dropdown.classList.toggle('active');
                     } catch (error) {
-                      log.error('Error toggling dropdown', error, 'navigation');
+                      log.error(
+                        'Error toggling dropdown',
+                        error instanceof Error
+                          ? error
+                          : new Error(String(error)),
+                        'navigation'
+                      );
                     }
                   }
                 });
@@ -922,7 +936,11 @@ const isTouchDevice = isMobileDevice || isTablet;
                   });
                 }
               } catch (error) {
-                log.error('Error handling outside click', error, 'navigation');
+                log.error(
+                  'Error handling outside click',
+                  error instanceof Error ? error : new Error(String(error)),
+                  'navigation'
+                );
               }
             });
 
@@ -1027,13 +1045,21 @@ const isTouchDevice = isMobileDevice || isTablet;
               }
             });
           } else {
-            log.warn('Mobile menu elements not found', { 
-              mobileMenuToggle: !!mobileMenuToggle, 
-              navMenu: !!navMenu 
-            }, 'navigation');
+            log.warn(
+              'Mobile menu elements not found',
+              {
+                mobileMenuToggle: !!mobileMenuToggle,
+                navMenu: !!navMenu,
+              },
+              'navigation'
+            );
           }
         } catch (error) {
-          log.error('Error initializing mobile navigation', error, 'navigation');
+          log.error(
+            'Error initializing mobile navigation',
+            error instanceof Error ? error : new Error(String(error)),
+            'navigation'
+          );
         }
       });
     </script>
@@ -1042,25 +1068,38 @@ const isTouchDevice = isMobileDevice || isTablet;
       <div class="container">
         <div class="grid grid-3">
           <div>
-            <h4>{t("footer.creative.universe")}</h4>
+            <h4>{t('footer.creative.universe')}</h4>
             <ul>
               <li>
-                <a href={getLangPath('personajes/')}>{t("footer.character.bible")}</a>
+                <a href={getLangPath('personajes/')}
+                  >{t('footer.character.bible')}</a
+                >
               </li>
               <li>
-                <a href={getLangPath('guiones/')}>{t("footer.script.repository")}</a>
+                <a href={getLangPath('guiones/')}
+                  >{t('footer.script.repository')}</a
+                >
               </li>
               <li>
-                <a href={getLangPath('mundo/')}>{t("footer.world.building")}</a>
+                <a href={getLangPath('mundo/')}>{t('footer.world.building')}</a>
               </li>
             </ul>
           </div>
           <div>
-            <h4>{t("footer.for.creators")}</h4>
+            <h4>{t('footer.for.creators')}</h4>
             <ul>
-              <li><a href={getLangPath('recursos/')}>{t("footer.guides.templates")}</a></li>
-              <li><a href={getLangPath('produccion/')}>{t("footer.style.guide")}</a></li>
-              <li><a href={getLangPath('guia-visual/')}>{t("footer.visual.guide")}</a></li>
+              <li>
+                <a href={getLangPath('recursos/')}
+                  >{t('footer.guides.templates')}</a>
+              </li>
+              <li>
+                <a href={getLangPath('produccion/')}
+                  >{t('footer.style.guide')}</a>
+              </li>
+              <li>
+                <a href={getLangPath('guia-visual/')}
+                  >{t('footer.visual.guide')}</a>
+              </li>
               <li>
                 <a href={getLangPath('filosofia/')}>{t('philosophy.title')}</a>
               </li>
@@ -1073,10 +1112,14 @@ const isTouchDevice = isMobileDevice || isTablet;
             <h4>{t('footer.connect')}</h4>
             <ul>
               <li>
-                <a href={getLangPath('comunidad/')}>{t('community.join.title')}</a>
+                <a href={getLangPath('comunidad/')}
+                  >{t('community.join.title')}</a
+                >
               </li>
               <li><a href={getLangPath('impacto/')}>{t('impact.title')}</a></li>
-              <li><a href={getLangPath('sitemap/')}>{t('footer.sitemap')}</a></li>
+              <li>
+                <a href={getLangPath('sitemap/')}>{t('footer.sitemap')}</a>
+              </li>
               <li>
                 <a
                   href="https://github.com/madfam-io/testigos-solarpunk"

@@ -23,9 +23,17 @@ export async function clearAllCaches(): Promise<void> {
       })
     );
 
-    log.info('All caches cleared successfully', { count: cacheNames.length }, 'cache-buster');
+    log.info(
+      'All caches cleared successfully',
+      { count: cacheNames.length },
+      'cache-buster'
+    );
   } catch (error) {
-    log.error('Error clearing caches', error, 'cache-buster');
+    log.error(
+      'Error clearing caches',
+      error instanceof Error ? error : new Error(String(error)),
+      'cache-buster'
+    );
   }
 }
 
@@ -40,14 +48,26 @@ export async function unregisterServiceWorkers(): Promise<void> {
 
     await Promise.all(
       registrations.map((registration) => {
-        log.debug('Unregistering service worker', { scope: registration.scope }, 'cache-buster');
+        log.debug(
+          'Unregistering service worker',
+          { scope: registration.scope },
+          'cache-buster'
+        );
         return registration.unregister();
       })
     );
 
-    log.info('All service workers unregistered', { count: registrations.length }, 'cache-buster');
+    log.info(
+      'All service workers unregistered',
+      { count: registrations.length },
+      'cache-buster'
+    );
   } catch (error) {
-    log.error('Error unregistering service workers', error, 'cache-buster');
+    log.error(
+      'Error unregistering service workers',
+      error instanceof Error ? error : new Error(String(error)),
+      'cache-buster'
+    );
   }
 }
 
@@ -91,9 +111,9 @@ export function installCacheBuster(): void {
       {
         commands: [
           'window.cacheBuster.clearAllCaches()',
-          'window.cacheBuster.unregisterServiceWorkers()', 
-          'window.cacheBuster.forceCacheRefresh()'
-        ]
+          'window.cacheBuster.unregisterServiceWorkers()',
+          'window.cacheBuster.forceCacheRefresh()',
+        ],
       },
       'cache-buster'
     );

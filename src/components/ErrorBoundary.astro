@@ -129,7 +129,11 @@ const defaultMessage =
 
       // Prevent error loops
       if (this.errorCount > this.maxErrors) {
-        log.error('Too many errors, stopping error handling', undefined, 'error-boundary');
+        log.error(
+          'Too many errors, stopping error handling',
+          undefined,
+          'error-boundary'
+        );
         return;
       }
 
@@ -143,12 +147,11 @@ const defaultMessage =
       // Send telemetry if available
       this.sendErrorTelemetry(errorMessage, errorStack, source, line);
 
-      log.error('Error caught by boundary', {
-        message: errorMessage,
-        source,
-        line,
-        stack: errorStack,
-      }, 'error-boundary');
+      log.error(
+        'Error caught by boundary',
+        new Error(errorMessage),
+        'error-boundary'
+      );
     }
 
     handleNetworkError(): void {
@@ -176,7 +179,11 @@ const defaultMessage =
           img.alt = 'Image not available';
         }
       } else if (element.tagName === 'SCRIPT') {
-        log.warn('Script failed to load', { src: element.getAttribute('src') }, 'error-boundary');
+        log.warn(
+          'Script failed to load',
+          { src: element.getAttribute('src') },
+          'error-boundary'
+        );
       }
     }
 
