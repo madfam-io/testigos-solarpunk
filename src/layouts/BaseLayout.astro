@@ -16,6 +16,7 @@ import '../styles/newspaper-background.css';
 import '../styles/magazine-cutout-utilities.css';
 import '../styles/nav-theme-fix.css';
 import '../styles/accessibility-fixes.css';
+import '../styles/accessibility-fixes-global.css';
 
 export interface Props {
   title: string;
@@ -446,9 +447,6 @@ const isTouchDevice = isMobileDevice || isTablet;
             currentPath === '/'
               ? 'active'
               : ''}
-            aria-label={t('aria.nav.brand') !== ''
-              ? t('aria.nav.brand')
-              : 'Testigos de Solarpunk home'}
           >
             <picture>
               <source
@@ -457,9 +455,7 @@ const isTouchDevice = isMobileDevice || isTablet;
               />
               <img
                 src={`${basePath}/images/logo.png`}
-                alt={t('aria.logo.alt') !== ''
-                  ? t('aria.logo.alt')
-                  : 'Testigos de Solarpunk logo'}
+                alt=""
                 class="nav-logo"
                 loading="eager"
                 width="32"
@@ -1069,7 +1065,7 @@ const isTouchDevice = isMobileDevice || isTablet;
       });
     </script>
 
-    <footer>
+    <footer id="footer">
       <div class="container">
         <div class="grid grid-3">
           <div>

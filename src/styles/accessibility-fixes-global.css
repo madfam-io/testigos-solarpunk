@@ -1,0 +1,224 @@
+/**
+ * Global Accessibility Fixes - WCAG AA Compliance
+ * 
+ * This file uses aggressive CSS overrides to ensure contrast compliance
+ * regardless of Astro's dynamic attributes.
+ */
+
+/* =================================================================
+ * PHASE 1: Fix CSS Variables at Root
+ * ================================================================= */
+
+:root {
+  /* Override gray scales for better contrast */
+  --madfam-gray-800: #212121 !important;
+  --madfam-gray-700: #424242 !important;
+  --madfam-gray-600: #595959 !important;
+  --color-text-secondary: #212121 !important;
+  --texto-secundario: #212121 !important;
+
+  /* Fix primary colors when used as text */
+  --azul-tecnologico: #0d47a1 !important;
+  --madfam-blue: #0d47a1 !important;
+  --purpura-creativo: #4527a0 !important;
+  --madfam-purple: #4527a0 !important;
+  --verde-sostenible: #1b5e20 !important;
+  --madfam-green-dark: #1b5e20 !important;
+}
+
+/* =================================================================
+ * PHASE 2: Universal Element Overrides
+ * ================================================================= */
+
+/* All paragraphs - maximum contrast */
+p {
+  color: #000000 !important;
+}
+
+/* All text-muted elements */
+.text-muted {
+  color: #424242 !important;
+}
+
+/* All links (non-button) */
+a:not(.btn):not(.magazine-btn) {
+  color: #0033cc !important;
+  text-decoration: underline !important;
+}
+
+/* =================================================================
+ * PHASE 3: Button Overrides with Attribute Selectors
+ * ================================================================= */
+
+/* Primary buttons - match any element with these classes */
+.btn-primary,
+.btn.btn-primary,
+a.btn-primary,
+a.btn.btn-primary,
+[class*='btn-primary'],
+a[class*='btn-primary'] {
+  background-color: #ffc107 !important;
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
+/* Secondary buttons */
+.btn-secondary,
+.btn.btn-secondary,
+a.btn-secondary,
+a.btn.btn-secondary,
+[class*='btn-secondary'],
+a[class*='btn-secondary'] {
+  background-color: #e0e0e0 !important;
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
+/* =================================================================
+ * PHASE 4: Status Badge Overrides
+ * ================================================================= */
+
+/* Phase status badges - match any element */
+.fase-status.active,
+[class*='fase-status'][class*='active'] {
+  background-color: #1b5e20 !important;
+  color: #ffffff !important;
+}
+
+.fase-status.upcoming,
+[class*='fase-status'][class*='upcoming'] {
+  background-color: #0d47a1 !important;
+  color: #ffffff !important;
+}
+
+.fase-status.development,
+[class*='fase-status'][class*='development'] {
+  background-color: #bf360c !important;
+  color: #ffffff !important;
+}
+
+/* =================================================================
+ * PHASE 5: CTA Section Special Rules
+ * ================================================================= */
+
+/* CTA sections have dark backgrounds */
+.cta-section {
+  background-color: #141416 !important;
+}
+
+/* All text in CTA sections must be white */
+.cta-section p,
+.cta-section .text-muted,
+.cta-section [class*='text-muted'] {
+  color: #ffffff !important;
+}
+
+/* =================================================================
+ * PHASE 6: Astro-Specific Overrides
+ * ================================================================= */
+
+/* Any element with data-astro-cid attribute */
+[data-astro-cid] {
+  /* Ensure inheritance works properly */
+}
+
+/* Paragraphs with any data-astro-cid */
+p[data-astro-cid] {
+  color: inherit !important;
+}
+
+/* Buttons with any data-astro-cid */
+a[data-astro-cid].btn,
+a[data-astro-cid][class*='btn'] {
+  text-decoration: none !important;
+}
+
+/* Primary buttons with data-astro-cid */
+a[data-astro-cid].btn.btn-primary,
+a[data-astro-cid][class*='btn-primary'] {
+  background-color: #ffc107 !important;
+  color: #000000 !important;
+}
+
+/* Secondary buttons with data-astro-cid */
+a[data-astro-cid].btn.btn-secondary,
+a[data-astro-cid][class*='btn-secondary'] {
+  background-color: #e0e0e0 !important;
+  color: #000000 !important;
+}
+
+/* Phase status with data-astro-cid */
+span[data-astro-cid].fase-status.active,
+span[data-astro-cid][class*='fase-status'][class*='active'] {
+  background-color: #1b5e20 !important;
+  color: #ffffff !important;
+}
+
+span[data-astro-cid].fase-status.upcoming,
+span[data-astro-cid][class*='fase-status'][class*='upcoming'] {
+  background-color: #0d47a1 !important;
+  color: #ffffff !important;
+}
+
+span[data-astro-cid].fase-status.development,
+span[data-astro-cid][class*='fase-status'][class*='development'] {
+  background-color: #bf360c !important;
+  color: #ffffff !important;
+}
+
+/* CTA section paragraphs with data-astro-cid */
+.cta-section p[data-astro-cid],
+.cta-section p[data-astro-cid].text-muted {
+  color: #ffffff !important;
+}
+
+/* =================================================================
+ * PHASE 7: Dark Theme Overrides
+ * ================================================================= */
+
+[data-theme='dark'] {
+  --color-text-secondary: #e0e0e0 !important;
+  --texto-secundario: #e0e0e0 !important;
+  --azul-tecnologico: #64b5f6 !important;
+  --purpura-creativo: #9575cd !important;
+  --verde-sostenible: #81c784 !important;
+}
+
+[data-theme='dark'] p {
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .text-muted {
+  color: #e0e0e0 !important;
+}
+
+[data-theme='dark'] a:not(.btn):not(.magazine-btn) {
+  color: #99ccff !important;
+}
+
+[data-theme='dark'] .btn-secondary,
+[data-theme='dark'] a.btn-secondary,
+[data-theme='dark'] a[data-astro-cid].btn.btn-secondary {
+  background-color: #1b5e20 !important;
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] footer a:not(.btn):not(.magazine-btn) {
+  color: #ffd54f !important;
+}
+
+/* =================================================================
+ * PHASE 8: Helper Classes
+ * ================================================================= */
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

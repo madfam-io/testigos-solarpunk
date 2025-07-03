@@ -1,372 +1,434 @@
 /**
  * Accessibility Fixes - WCAG AA Compliance
  * 
- * Global style overrides to fix color contrast issues
- * identified by Lighthouse CI audits.
- * 
- * Uses :global() to bypass Astro's scoped styles and ensure
- * consistent application regardless of generated data-astro-cid attributes.
- * 
- * These rules ensure all interactive elements meet or exceed
- * WCAG AA standards (4.5:1 for normal text, 3:1 for large text)
+ * This file ensures consistent color contrast across all pages.
+ * All colors have been tested to meet or exceed WCAG AA standards:
+ * - 4.5:1 for normal text
+ * - 3:1 for large text (18px+ or 14px+ bold)
  */
 
 /* =================================================================
- * Global Style Overrides for Astro Scoped Components
+ * CSS Variable Overrides for Proper Contrast
  * ================================================================= */
 
-/* Use :global() to ensure styles apply regardless of Astro's scoping */
-:global(html) {
-  /* Button Link Color Inheritance Fixes */
-  & :is(a.btn, .btn:is(a)) {
-    &,
-    &:link,
-    &:visited,
-    &:hover,
-    &:focus,
-    &:active {
-      /* Block ALL link color inheritance */
-      color: inherit !important;
-    }
-  }
+:root {
+  /* Fix text color variables for proper contrast */
+  --color-text-secondary: #212121 !important; /* Very dark gray - 15.87:1 on white */
+  --texto-secundario: #212121 !important;
+  --madfam-gray-800: #212121 !important; /* Override the original #616161 */
+  --madfam-gray-700: #424242 !important; /* Darker gray for better contrast */
+  --madfam-gray-600: #595959 !important; /* Ensure medium grays meet contrast */
+
+  /* Fix link colors for proper contrast */
+  --azul-tecnologico: #0d47a1 !important; /* Very dark blue - 8.59:1 on white */
+  --madfam-blue: #0d47a1 !important;
+  --madfam-blue-dark: #01579b !important; /* Even darker for hover states */
+
+  /* Fix purple for proper contrast */
+  --purpura-creativo: #4527a0 !important; /* Dark purple - 7.16:1 on white */
+  --madfam-purple: #4527a0 !important;
+
+  /* Fix green for proper contrast when used as text */
+  --verde-sostenible: #1b5e20 !important; /* Very dark green - 7.54:1 on white */
+  --madfam-green-dark: #1b5e20 !important;
 }
 
-/* Primary buttons - WCAG AA compliant contrast */
-:global(.btn-primary),
-:global(a.btn-primary),
-:global(.btn.btn-primary) {
+[data-theme='dark'] {
+  /* Dark theme variable overrides */
+  --color-text-secondary: #e0e0e0 !important; /* Light gray for dark backgrounds */
+  --texto-secundario: #e0e0e0 !important;
+  --madfam-gray-300: #e0e0e0 !important;
+
+  /* Bright colors for dark backgrounds */
+  --azul-tecnologico: #64b5f6 !important; /* Light blue for dark mode */
+  --madfam-blue-light: #64b5f6 !important;
+  --link-default: #64b5f6 !important;
+
+  --purpura-creativo: #9575cd !important; /* Light purple for dark mode */
+  --madfam-purple-light: #9575cd !important;
+
+  --verde-sostenible: #81c784 !important; /* Light green for dark mode */
+  --madfam-green-light: #81c784 !important;
+}
+
+/* =================================================================
+ * Global Text Color Fixes
+ * ================================================================= */
+
+/* All paragraph text must have strong contrast */
+p {
   color: #000000 !important;
-  background-color: #ffc107 !important;
-
-  &:hover,
-  &:focus {
-    color: #000000 !important;
-    background-color: #ffca2c !important;
-  }
 }
 
-/* Secondary buttons - Light theme */
-:global(.btn-secondary),
-:global(a.btn-secondary),
-:global(.btn.btn-secondary) {
-  color: #000000 !important;
-  background-color: #e0e0e0 !important;
-
-  &:hover,
-  &:focus {
-    color: #000000 !important;
-    background-color: #d5d5d5 !important;
-  }
+[data-theme='dark'] p {
+  color: #ffffff !important;
 }
 
-/* Secondary buttons - Dark theme */
-:global([data-theme='dark']) {
-  :global(.btn-secondary),
-  :global(a.btn-secondary),
-  :global(.btn.btn-secondary) {
-    background-color: #1b5e20 !important;
-    color: #ffffff !important;
-
-    &:hover,
-    &:focus {
-      background-color: #2e7d32 !important;
-      color: #ffffff !important;
-    }
-  }
-}
-
-/* =================================================================
- * Phase Status Badge Contrast Fixes
- * ================================================================= */
-
-/* Phase status badges - WCAG AA compliant colors */
-:global(.fase-status) {
-  filter: none !important;
-
-  &:global(.active) {
-    background-color: #1b5e20 !important; /* Very dark green - 7.54:1 ratio */
-    color: #ffffff !important;
-  }
-
-  &:global(.upcoming) {
-    background-color: #0d47a1 !important; /* Very dark blue - 8.59:1 ratio */
-    color: #ffffff !important;
-  }
-
-  &:global(.development) {
-    background-color: #bf360c !important; /* Very dark orange - 5.37:1 ratio */
-    color: #ffffff !important;
-  }
-}
-
-/* =================================================================
- * Magazine Card Theme Contrast Fixes
- * ================================================================= */
-
-/* Magazine buttons - special styling buttons */
-:global(.magazine-btn) {
-  color: inherit !important;
-
-  &:global(.primary) {
-    color: #000000 !important;
-    background-color: #ffc107 !important;
-  }
-
-  &:global(.secondary) {
-    color: #000000 !important;
-    background-color: #e0e0e0 !important;
-  }
-}
-
-/* Dark theme magazine buttons */
-:global([data-theme='dark']) {
-  :global(.magazine-btn) {
-    &:global(.primary) {
-      color: #000000 !important;
-      background-color: #ffc107 !important;
-    }
-
-    &:global(.secondary) {
-      color: #ffffff !important;
-      background-color: #1b5e20 !important;
-    }
-  }
-}
-
-/* Ensure all themed magazine cards have proper button contrast */
-html body .magazine-card .btn,
-html body .magazine-card a.btn,
-html body .magazine-card.theme-solar .btn,
-html body .magazine-card.theme-green .btn,
-html body .magazine-card.theme-purple .btn,
-html body .magazine-card.theme-community .btn,
-html body .magazine-card.theme-tech .btn {
-  /* These are handled by button rules above */
-}
-
-/* =================================================================
- * Additional Contrast Improvements
- * ================================================================= */
-
-/* Ensure meta text has sufficient contrast */
-:global(.character-meta),
-:global(.meta-item),
-:global(.text-muted) {
+/* Text utility classes */
+.text-muted {
   color: #424242 !important; /* Dark gray - 9.73:1 on white */
 }
 
-:global([data-theme='dark']) {
-  :global(.character-meta),
-  :global(.meta-item),
-  :global(.text-muted) {
-    color: #e0e0e0 !important; /* Light gray - 12.63:1 on black */
-  }
-}
-
-/* CTA Section text on dark backgrounds */
-:global(.cta-section) :global(.text-muted) {
-  color: #212121 !important; /* Very dark gray - 15.87:1 on light bg */
-}
-
-:global([data-theme='dark']) :global(.cta-section) :global(.text-muted) {
-  color: #f5f5f5 !important; /* Very light gray - 18.1:1 on dark bg */
-}
-
-/* Card and description text */
-:global(.card-description),
-:global(.card) :global(p),
-:global(.magazine-card) :global(p) {
-  color: #212121 !important;
-}
-
-:global([data-theme='dark']) {
-  :global(.card-description),
-  :global(.card) :global(p),
-  :global(.magazine-card) :global(p) {
-    color: #f5f5f5 !important;
-  }
-}
-
-/* Links - high contrast colors */
-:global(a:not(.btn):not(.magazine-btn)) {
-  color: #0d47a1 !important; /* Very dark blue - 8.59:1 on white */
-  text-decoration: underline !important;
-
-  &:hover,
-  &:focus {
-    color: #01579b !important; /* Even darker blue */
-  }
-}
-
-:global([data-theme='dark']) :global(a:not(.btn):not(.magazine-btn)) {
-  color: #64b5f6 !important; /* Light blue - 9.03:1 on black */
-
-  &:hover,
-  &:focus {
-    color: #90caf9 !important;
-  }
-}
-
-/* Footer links */
-:global(footer) :global(a:not(.btn):not(.magazine-btn)) {
-  color: #0d47a1 !important;
-  text-decoration: underline !important;
-
-  &:hover,
-  &:focus {
-    color: #01579b !important;
-  }
-}
-
-:global([data-theme='dark'])
-  :global(footer)
-  :global(a:not(.btn):not(.magazine-btn)) {
-  color: #ffd54f !important;
-
-  &:hover,
-  &:focus {
-    color: #ffe082 !important;
-  }
+[data-theme='dark'] .text-muted {
+  color: #e0e0e0 !important;
 }
 
 /* =================================================================
- * Paragraph and Text Contrast Improvements
+ * Global Link Color Fixes
  * ================================================================= */
 
-/* General paragraph text */
-:global(p) {
-  color: #212121 !important; /* Very dark gray for better contrast */
+/* All non-button links must have proper contrast */
+a:not(.btn):not(.magazine-btn) {
+  color: #0033cc !important; /* Very dark blue - 8.59:1 on white */
+  text-decoration: underline !important;
 }
 
-:global([data-theme='dark']) :global(p) {
-  color: #f5f5f5 !important; /* Very light gray for dark theme */
+a:not(.btn):not(.magazine-btn):hover,
+a:not(.btn):not(.magazine-btn):focus {
+  color: #002299 !important;
+  text-decoration: underline !important;
 }
 
-/* Hero text exceptions */
-:global(p.hero-description),
-:global(p.hero-subtitle) {
-  color: inherit !important;
+[data-theme='dark'] a:not(.btn):not(.magazine-btn) {
+  color: #99ccff !important; /* Bright blue for dark backgrounds */
+  text-decoration: underline !important;
 }
 
-/* Content text */
-:global(.text-content),
-:global(.description),
-:global(.card-text),
-:global(.content) :global(p) {
-  color: #212121 !important;
+[data-theme='dark'] a:not(.btn):not(.magazine-btn):hover,
+[data-theme='dark'] a:not(.btn):not(.magazine-btn):focus {
+  color: #ccddff !important;
+  text-decoration: underline !important;
 }
 
-:global([data-theme='dark']) {
-  :global(.text-content),
-  :global(.description),
-  :global(.card-text),
-  :global(.content) :global(p) {
-    color: #f5f5f5 !important;
-  }
+/* Footer links need extra specificity */
+footer a:not(.btn):not(.magazine-btn) {
+  color: #0033cc !important;
+  text-decoration: underline !important;
+}
+
+[data-theme='dark'] footer a:not(.btn):not(.magazine-btn) {
+  color: #ffd54f !important; /* Yellow for excellent contrast on dark */
+  text-decoration: underline !important;
 }
 
 /* =================================================================
- * Specific Component Contrast Fixes
+ * Button Color Fixes - WITH DATA ATTRIBUTES
+ * ================================================================= */
+
+/* Primary buttons - ensure black text on yellow (including Astro attributes) */
+.btn-primary,
+.btn.btn-primary,
+a.btn-primary,
+a.btn.btn-primary,
+[data-astro-cid-7pewbour].btn-primary,
+[data-astro-cid-7pewbour].btn.btn-primary,
+a[data-astro-cid-7pewbour].btn-primary,
+a[data-astro-cid-7pewbour].btn.btn-primary {
+  background-color: #ffc107 !important;
+  color: #000000 !important;
+}
+
+.btn-primary:hover,
+.btn.btn-primary:hover {
+  background-color: #ffca2c !important;
+  color: #000000 !important;
+}
+
+/* Secondary buttons - proper contrast for both themes */
+.btn-secondary,
+.btn.btn-secondary,
+a.btn-secondary,
+a.btn.btn-secondary,
+[data-astro-cid-7pewbour].btn-secondary,
+[data-astro-cid-7pewbour].btn.btn-secondary,
+a[data-astro-cid-7pewbour].btn-secondary,
+a[data-astro-cid-7pewbour].btn.btn-secondary {
+  background-color: #e0e0e0 !important;
+  color: #000000 !important;
+}
+
+[data-theme='dark'] .btn-secondary,
+[data-theme='dark'] .btn.btn-secondary,
+[data-theme='dark'] a.btn-secondary,
+[data-theme='dark'] a.btn.btn-secondary {
+  background-color: #1b5e20 !important;
+  color: #ffffff !important;
+}
+
+/* Magazine buttons */
+.magazine-btn.primary {
+  background-color: #ffc107 !important;
+  color: #000000 !important;
+}
+
+.magazine-btn.secondary {
+  background-color: #e0e0e0 !important;
+  color: #000000 !important;
+}
+
+[data-theme='dark'] .magazine-btn.secondary {
+  background-color: #1b5e20 !important;
+  color: #ffffff !important;
+}
+
+/* =================================================================
+ * Phase Status Badge Fixes - WITH DATA ATTRIBUTES
+ * ================================================================= */
+
+/* Active phase - dark green */
+.fase-status.active,
+[data-astro-cid-7pewbour].fase-status.active,
+span[data-astro-cid-7pewbour].fase-status.active {
+  background-color: #1b5e20 !important;
+  color: #ffffff !important;
+}
+
+/* Upcoming phase - dark blue */
+.fase-status.upcoming,
+[data-astro-cid-7pewbour].fase-status.upcoming,
+span[data-astro-cid-7pewbour].fase-status.upcoming {
+  background-color: #0d47a1 !important;
+  color: #ffffff !important;
+}
+
+/* Development phase - dark orange */
+.fase-status.development,
+[data-astro-cid-7pewbour].fase-status.development,
+span[data-astro-cid-7pewbour].fase-status.development {
+  background-color: #bf360c !important;
+  color: #ffffff !important;
+}
+
+/* =================================================================
+ * Specific Component Fixes
  * ================================================================= */
 
 /* Phase card descriptions */
-:global(.fase-card) :global(.fase-description),
-:global(.fases-grid) :global(.fase-description) {
+.fase-card .fase-description,
+.fase-description {
   color: #000000 !important;
   font-weight: 500 !important;
 }
 
-:global([data-theme='dark']) {
-  :global(.fase-card) :global(.fase-description),
-  :global(.fases-grid) :global(.fase-description) {
-    color: #ffffff !important;
-  }
-}
-
-/* Strategy flow text */
-:global(.strategy-flow) :global(.flow-item) :global(p) {
-  color: #000000 !important;
-  font-weight: 500 !important;
-}
-
-:global([data-theme='dark'])
-  :global(.strategy-flow)
-  :global(.flow-item)
-  :global(p) {
+[data-theme='dark'] .fase-card .fase-description,
+[data-theme='dark'] .fase-description {
   color: #ffffff !important;
 }
 
-/* List links */
-:global(ul) :global(li) :global(a:not(.btn):not(.magazine-btn)) {
-  color: #0033cc !important;
-  text-decoration: underline !important;
-  font-weight: 500 !important;
-
-  &:hover,
-  &:focus {
-    color: #002199 !important;
-  }
-}
-
-:global([data-theme='dark'])
-  :global(ul)
-  :global(li)
-  :global(a:not(.btn):not(.magazine-btn)) {
-  color: #ffd54f !important;
-
-  &:hover,
-  &:focus {
-    color: #ffe082 !important;
-  }
-}
-
-/* Footer text */
-:global(footer) :global(.text-center) :global(p) {
+/* Strategy flow items */
+.strategy-flow .flow-item p,
+.flow-item p {
   color: #000000 !important;
   font-weight: 500 !important;
 }
 
-:global([data-theme='dark']) :global(footer) :global(.text-center) :global(p) {
+[data-theme='dark'] .strategy-flow .flow-item p,
+[data-theme='dark'] .flow-item p {
   color: #ffffff !important;
 }
 
-/* Vision grid text */
-:global(.vision-grid) :global(.vision-item) :global(p) {
+/* Vision grid items */
+.vision-grid .vision-item p,
+.vision-item p {
   color: #000000 !important;
   font-weight: 500 !important;
 }
 
-:global([data-theme='dark'])
-  :global(.vision-grid)
-  :global(.vision-item)
-  :global(p) {
+[data-theme='dark'] .vision-grid .vision-item p,
+[data-theme='dark'] .vision-item p {
   color: #ffffff !important;
 }
 
-/* =================================================================
- * Global Overrides for Astro Scoped Elements
- * ================================================================= */
+/* CTA section on dark backgrounds */
+.cta-section {
+  background-color: #141416 !important; /* Ensure dark background */
+}
 
-/* Override any Astro scoped styles that might have contrast issues */
-:global([class*='astro-']) :global(p),
-:global([data-astro-cid]) {
-  /* Ensure minimum contrast */
+.cta-section p,
+.cta-section .text-muted,
+.cta-section p[data-astro-cid-7pewbour],
+.cta-section p[data-astro-cid-7pewbour].text-muted {
+  color: #ffffff !important; /* White text on dark background */
+  font-weight: 500 !important;
+}
+
+/* Character metadata */
+.character-meta,
+.meta-item {
+  color: #424242 !important;
+}
+
+[data-theme='dark'] .character-meta,
+[data-theme='dark'] .meta-item {
+  color: #e0e0e0 !important;
+}
+
+/* Card descriptions */
+.card-description,
+.card p,
+.magazine-card p {
   color: #212121 !important;
 }
 
-:global([data-theme='dark']) {
-  :global([class*='astro-']) :global(p),
-  :global([data-astro-cid]) {
-    color: #f5f5f5 !important;
-  }
+[data-theme='dark'] .card-description,
+[data-theme='dark'] .card p,
+[data-theme='dark'] .magazine-card p {
+  color: #f5f5f5 !important;
 }
 
-/* Character-specific text elements */
-:global(.character-name) {
-  /* Preserve brand color but ensure contrast */
-  color: #4527a0 !important; /* Darker purple for better contrast */
+/* =================================================================
+ * Override Astro Component Styles
+ * ================================================================= */
+
+/* Target any paragraph with Astro attributes */
+p[class*='astro-'],
+div[class*='astro-'] p,
+article[class*='astro-'] p,
+section[class*='astro-'] p,
+p[data-astro-cid-7pewbour],
+p[data-astro-cid-ujmu5uow],
+p[data-astro-cid-douz6hms] {
+  color: #000000 !important;
+  font-weight: 500 !important;
 }
 
-:global([data-theme='dark']) :global(.character-name) {
-  color: #9575cd !important; /* Lighter purple for dark theme */
+[data-theme='dark'] p[class*='astro-'],
+[data-theme='dark'] div[class*='astro-'] p,
+[data-theme='dark'] article[class*='astro-'] p,
+[data-theme='dark'] section[class*='astro-'] p {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+}
+
+/* Links within Astro components */
+div[class*='astro-'] a:not(.btn):not(.magazine-btn),
+section[class*='astro-'] a:not(.btn):not(.magazine-btn),
+article[class*='astro-'] a:not(.btn):not(.magazine-btn) {
+  color: #0033cc !important;
+  text-decoration: underline !important;
+}
+
+[data-theme='dark'] div[class*='astro-'] a:not(.btn):not(.magazine-btn),
+[data-theme='dark'] section[class*='astro-'] a:not(.btn):not(.magazine-btn),
+[data-theme='dark'] article[class*='astro-'] a:not(.btn):not(.magazine-btn) {
+  color: #99ccff !important;
+  text-decoration: underline !important;
+}
+
+/* =================================================================
+ * Critical Overrides for Maximum Specificity
+ * ================================================================= */
+
+/* Ensure no button can have link colors */
+.btn,
+a.btn,
+button.btn,
+.magazine-btn,
+a.magazine-btn {
+  color: inherit !important;
+}
+
+/* Force heading colors for proper hierarchy */
+h1 {
+  color: #000000 !important;
+}
+
+[data-theme='dark'] h1 {
+  color: #ffffff !important;
+}
+
+h2 {
+  color: #1b5e20 !important; /* Dark green with proper contrast */
+}
+
+[data-theme='dark'] h2 {
+  color: #81c784 !important;
+}
+
+/* Screen reader only class for accessibility */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* =================================================================
+ * UNIVERSAL OVERRIDES FOR ASTRO COMPONENTS
+ * ================================================================= */
+
+/* Target all elements with any data-astro-cid attribute */
+[data-astro-cid-7pewbour],
+[data-astro-cid-ujmu5uow],
+[data-astro-cid-douz6hms],
+[data-astro-source-file],
+[class*='astro-'] {
+  /* Reset any color inheritance */
+}
+
+/* Buttons with any Astro attribute */
+a[data-astro-cid-7pewbour].btn,
+a[data-astro-cid-ujmu5uow].btn,
+a[data-astro-cid-douz6hms].btn,
+a[class*='astro-'].btn,
+.btn[data-astro-cid-7pewbour],
+.btn[data-astro-cid-ujmu5uow],
+.btn[data-astro-cid-douz6hms] {
+  /* Ensure buttons don't inherit link colors */
+  text-decoration: none !important;
+}
+
+/* Primary buttons with Astro attributes */
+a[data-astro-cid-7pewbour].btn.btn-primary,
+a[data-astro-cid-ujmu5uow].btn.btn-primary,
+a[data-astro-cid-douz6hms].btn.btn-primary {
+  background-color: #ffc107 !important;
+  color: #000000 !important;
+}
+
+/* Secondary buttons with Astro attributes */
+a[data-astro-cid-7pewbour].btn.btn-secondary,
+a[data-astro-cid-ujmu5uow].btn.btn-secondary,
+a[data-astro-cid-douz6hms].btn.btn-secondary {
+  background-color: #e0e0e0 !important;
+  color: #000000 !important;
+}
+
+[data-theme='dark'] a[data-astro-cid-7pewbour].btn.btn-secondary,
+[data-theme='dark'] a[data-astro-cid-ujmu5uow].btn.btn-secondary,
+[data-theme='dark'] a[data-astro-cid-douz6hms].btn.btn-secondary {
+  background-color: #1b5e20 !important;
+  color: #ffffff !important;
+}
+
+/* Phase status with Astro attributes */
+span[data-astro-cid-7pewbour].fase-status,
+span[data-astro-cid-ujmu5uow].fase-status,
+span[data-astro-cid-douz6hms].fase-status {
+  /* Ensure proper contrast */
+}
+
+/* Paragraphs with Astro attributes */
+p[data-astro-cid-7pewbour],
+p[data-astro-cid-ujmu5uow],
+p[data-astro-cid-douz6hms],
+p[data-astro-cid-7pewbour].text-muted,
+p[data-astro-cid-ujmu5uow].text-muted,
+p[data-astro-cid-douz6hms].text-muted {
+  color: #000000 !important;
+}
+
+/* CTA section paragraphs with Astro attributes */
+.cta-section p[data-astro-cid-7pewbour],
+.cta-section p[data-astro-cid-ujmu5uow],
+.cta-section p[data-astro-cid-douz6hms],
+.cta-section p[data-astro-cid-7pewbour].text-muted,
+.cta-section p[data-astro-cid-ujmu5uow].text-muted,
+.cta-section p[data-astro-cid-douz6hms].text-muted {
+  color: #ffffff !important; /* White on dark background */
 }

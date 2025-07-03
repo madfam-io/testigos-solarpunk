@@ -304,10 +304,10 @@ const currentStructure = siteStructure[currentLang] ?? siteStructure.es;
             : 'Todas las secciones del sitio web'
         }
       </h2>
-      <div class="sitemap-grid" role="list">
+      <div class="sitemap-grid">
         {
           currentStructure.map((section) => (
-            <div class="sitemap-section" role="listitem">
+            <div class="sitemap-section">
               <div class="section-header">
                 <a
                   href={section.href}
