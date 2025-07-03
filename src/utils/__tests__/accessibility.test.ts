@@ -115,7 +115,12 @@ describe('AriaAttributes', () => {
     });
 
     it('should include all optional attributes when provided', () => {
-      const attrs = AriaAttributes.formControl('Password', true, false, 'password-help');
+      const attrs = AriaAttributes.formControl(
+        'Password',
+        true,
+        false,
+        'password-help'
+      );
       expect(attrs).toEqual({
         'aria-label': 'Password',
         'aria-required': 'true',
@@ -373,16 +378,36 @@ describe('getA11yLabels', () => {
 
   it('should generate dynamic labels with parameters', () => {
     const labels = getA11yLabels('en');
-    expect((labels.readMore as (param: string) => string)('Article Title')).toBe('Read more about Article Title');
-    expect((labels.viewDetails as (param: string) => string)('Product')).toBe('View details for Product');
-    expect((labels.playVideo as (param: string) => string)('Tutorial')).toBe('Play video: Tutorial');
-    expect((labels.downloadFile as (param: string) => string)('document.pdf')).toBe('Download document.pdf');
-    expect((labels.shareOn as (param: string) => string)('Twitter')).toBe('Share on Twitter');
-    expect((labels.socialLink as (param: string) => string)('Facebook')).toBe('Visit our Facebook page');
-    expect((labels.cutoutImage as (param: string) => string)('hero')).toBe('Magazine cutout style image of hero');
-    expect((labels.characterProfile as (param: string) => string)('Gaby')).toBe('Character profile for Gaby');
-    expect((labels.episodePlayer as (param: string) => string)('Episode 1')).toBe('Audio player for Episode 1');
-    expect((labels.sketchVideo as (param: string) => string)('Funny Sketch')).toBe('Watch sketch: Funny Sketch');
+    expect(
+      (labels.readMore as (param: string) => string)('Article Title')
+    ).toBe('Read more about Article Title');
+    expect((labels.viewDetails as (param: string) => string)('Product')).toBe(
+      'View details for Product'
+    );
+    expect((labels.playVideo as (param: string) => string)('Tutorial')).toBe(
+      'Play video: Tutorial'
+    );
+    expect(
+      (labels.downloadFile as (param: string) => string)('document.pdf')
+    ).toBe('Download document.pdf');
+    expect((labels.shareOn as (param: string) => string)('Twitter')).toBe(
+      'Share on Twitter'
+    );
+    expect((labels.socialLink as (param: string) => string)('Facebook')).toBe(
+      'Visit our Facebook page'
+    );
+    expect((labels.cutoutImage as (param: string) => string)('hero')).toBe(
+      'Magazine cutout style image of hero'
+    );
+    expect((labels.characterProfile as (param: string) => string)('Gaby')).toBe(
+      'Character profile for Gaby'
+    );
+    expect(
+      (labels.episodePlayer as (param: string) => string)('Episode 1')
+    ).toBe('Audio player for Episode 1');
+    expect(
+      (labels.sketchVideo as (param: string) => string)('Funny Sketch')
+    ).toBe('Watch sketch: Funny Sketch');
   });
 
   it('should generate language-specific dynamic messages', () => {
@@ -392,7 +417,9 @@ describe('getA11yLabels', () => {
     expect(enLabels.currentTheme('dark')).toBe('Theme changed to dark');
     expect(esLabels.currentTheme('oscuro')).toBe('Tema cambiado a oscuro');
 
-    expect(enLabels.currentLanguage('Spanish')).toBe('Language changed to Spanish');
+    expect(enLabels.currentLanguage('Spanish')).toBe(
+      'Language changed to Spanish'
+    );
     expect(esLabels.currentLanguage('Inglés')).toBe('Idioma cambiado a Inglés');
   });
 });
@@ -422,7 +449,7 @@ describe('ScreenReaderUtils', () => {
 
     it('should create and remove polite announcement', () => {
       ScreenReaderUtils.announce('Test message');
-      
+
       const announcement = document.querySelector('[aria-live="polite"]');
       expect(announcement).toBeTruthy();
       expect(announcement?.textContent).toBe('Test message');
@@ -434,7 +461,7 @@ describe('ScreenReaderUtils', () => {
 
     it('should create assertive announcement when specified', () => {
       ScreenReaderUtils.announce('Urgent message', 'assertive');
-      
+
       const announcement = document.querySelector('[aria-live="assertive"]');
       expect(announcement).toBeTruthy();
       expect(announcement?.getAttribute('aria-atomic')).toBe('true');
@@ -635,8 +662,18 @@ describe('ContrastUtils', () => {
     it('should have higher threshold for AAA standard', () => {
       // Using #767676 which has ~4.54:1 contrast with white
       // This passes AA (4.5:1) but fails AAA (7:1) for normal text
-      const meetsAA = ContrastUtils.meetsWCAG('#767676', '#ffffff', 'AA', false);
-      const meetsAAA = ContrastUtils.meetsWCAG('#767676', '#ffffff', 'AAA', false);
+      const meetsAA = ContrastUtils.meetsWCAG(
+        '#767676',
+        '#ffffff',
+        'AA',
+        false
+      );
+      const meetsAAA = ContrastUtils.meetsWCAG(
+        '#767676',
+        '#ffffff',
+        'AAA',
+        false
+      );
       expect(meetsAA).toBe(true);
       expect(meetsAAA).toBe(false);
     });
@@ -660,7 +697,7 @@ describe('A11yTesting', () => {
         <img src="test2.jpg">
         <img src="test3.jpg">
       `;
-      
+
       const { passed, issues } = A11yTesting.runBasicChecks();
       expect(passed).toBe(false);
       expect(issues).toContain('2 images missing alt text');
@@ -673,10 +710,13 @@ describe('A11yTesting', () => {
         <button></button>
         <button>   </button>
       `;
-      
+
       const { passed, issues } = A11yTesting.runBasicChecks();
       expect(passed).toBe(false);
-      expect(issues.filter(i => i.includes('Button without accessible name')).length).toBe(2);
+      expect(
+        issues.filter((i) => i.includes('Button without accessible name'))
+          .length
+      ).toBe(2);
     });
 
     it('should detect heading hierarchy issues', () => {
@@ -685,10 +725,12 @@ describe('A11yTesting', () => {
         <h3>Subtitle</h3>
         <h2>Section</h2>
       `;
-      
+
       const { passed, issues } = A11yTesting.runBasicChecks();
       expect(passed).toBe(false);
-      expect(issues.some(i => i.includes('Heading hierarchy skip'))).toBe(true);
+      expect(issues.some((i) => i.includes('Heading hierarchy skip'))).toBe(
+        true
+      );
     });
 
     it('should detect form controls without labels', () => {
@@ -698,10 +740,12 @@ describe('A11yTesting', () => {
         <input type="email">
         <input type="password" aria-label="Password">
       `;
-      
+
       const { passed, issues } = A11yTesting.runBasicChecks();
       expect(passed).toBe(false);
-      expect(issues.some(i => i.includes('Form control without proper label'))).toBe(true);
+      expect(
+        issues.some((i) => i.includes('Form control without proper label'))
+      ).toBe(true);
     });
 
     it('should pass when no issues are found', () => {
@@ -713,7 +757,7 @@ describe('A11yTesting', () => {
         <label for="input1">Name</label>
         <input id="input1" type="text">
       `;
-      
+
       const { passed, issues } = A11yTesting.runBasicChecks();
       expect(passed).toBe(true);
       expect(issues).toHaveLength(0);
@@ -754,8 +798,12 @@ describe('initializeAccessibility', () => {
     const liveRegion = document.getElementById('aria-live-region');
     expect(liveRegion).toBeTruthy();
     // Object.assign adds properties directly to the element, not as attributes
-    expect((liveRegion as HTMLElement & { 'aria-live'?: string })?.['aria-live']).toBe('polite');
-    expect((liveRegion as HTMLElement & { 'aria-atomic'?: string })?.['aria-atomic']).toBe('true');
+    expect(
+      (liveRegion as HTMLElement & { 'aria-live'?: string })?.['aria-live']
+    ).toBe('polite');
+    expect(
+      (liveRegion as HTMLElement & { 'aria-atomic'?: string })?.['aria-atomic']
+    ).toBe('true');
     expect(liveRegion?.className).toBe('sr-only');
   });
 
@@ -772,47 +820,47 @@ describe('initializeAccessibility', () => {
         <button data-close>Close</button>
       </div>
     `;
-    
+
     const closeButton = document.querySelector('[data-close]') as HTMLElement;
     const clickSpy = vi.spyOn(closeButton, 'click');
-    
+
     initializeAccessibility('en');
-    
+
     const escapeEvent = new KeyboardEvent('keydown', { key: 'Escape' });
     document.dispatchEvent(escapeEvent);
-    
+
     expect(clickSpy).toHaveBeenCalled();
   });
 
   it('should announce theme changes', () => {
     vi.useFakeTimers();
     const announceSpy = vi.spyOn(ScreenReaderUtils, 'announce');
-    
+
     initializeAccessibility('en');
-    
+
     const themeEvent = new CustomEvent('themeChange', {
-      detail: { theme: 'dark' }
+      detail: { theme: 'dark' },
     });
     window.dispatchEvent(themeEvent);
-    
+
     expect(announceSpy).toHaveBeenCalledWith('Theme changed to dark');
-    
+
     vi.useRealTimers();
   });
 
   it('should announce language changes', () => {
     vi.useFakeTimers();
     const announceSpy = vi.spyOn(ScreenReaderUtils, 'announce');
-    
+
     initializeAccessibility('es');
-    
+
     const langEvent = new CustomEvent('languageChange', {
-      detail: { to: 'Español' }
+      detail: { to: 'Español' },
     });
     window.dispatchEvent(langEvent);
-    
+
     expect(announceSpy).toHaveBeenCalledWith('Idioma cambiado a Español');
-    
+
     vi.useRealTimers();
   });
 });
@@ -822,7 +870,7 @@ describe('Default Export', () => {
   it('should export all utilities', async () => {
     const module = await import('../accessibility');
     const defaultExport = module.default;
-    
+
     expect(defaultExport.AriaAttributes).toBeDefined();
     expect(defaultExport.SemanticRoles).toBeDefined();
     expect(defaultExport.FocusManager).toBeDefined();

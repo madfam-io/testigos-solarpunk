@@ -391,7 +391,11 @@ const currentStructure = siteStructure[currentLang] ?? siteStructure.es;
         <div class="footer-actions">
           <a href={`${basePath}/${currentLang}/`} class="btn btn-primary">
             <span class="emoji-cutout emoji-sm theme-solar">🏠</span>
-            {currentLang === 'en' ? 'Back to Home' : 'Volver al {t("breadcrumb.home")}'}
+            {
+              currentLang === 'en'
+                ? 'Back to Home'
+                : 'Volver al {t("breadcrumb.home")}'
+            }
           </a>
           <a
             href={`${basePath}/${currentLang}/comunidad/`}

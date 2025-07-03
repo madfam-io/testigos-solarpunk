@@ -31,7 +31,7 @@ const config = {
  */
 async function runLighthouse(url, chrome) {
   console.log(`🔍 Auditing: ${url}`);
-  
+
   const options = {
     logLevel: 'info',
     output: 'html',
@@ -40,7 +40,7 @@ async function runLighthouse(url, chrome) {
   };
 
   const runnerResult = await lighthouse(url, options);
-  
+
   // Extract scores
   const { categories } = runnerResult.lhr;
   const scores = {
@@ -68,7 +68,7 @@ function saveReport(url, report, outputDir) {
     .replace(/[^a-zA-Z0-9]/g, '-')
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '');
-  
+
   const filepath = path.join(outputDir, `${filename}-report.html`);
   fs.writeFileSync(filepath, report);
   console.log(`💾 Report saved: ${filepath}`);
@@ -109,7 +109,7 @@ function generateSummary(results, outputDir) {
   <div class="results">
 `;
 
-  results.forEach(result => {
+  results.forEach((result) => {
     const getScoreClass = (score) => {
       if (score >= 90) return 'excellent';
       if (score >= 75) return 'good';
@@ -156,14 +156,16 @@ function generateSummary(results, outputDir) {
  */
 async function main() {
   console.log('🚀 Starting Lighthouse local audit...');
-  
+
   // Create output directory
   if (!fs.existsSync(config.outputDir)) {
     fs.mkdirSync(config.outputDir, { recursive: true });
   }
 
   // Launch Chrome
-  const chrome = await chromeLauncher.launch({ chromeFlags: config.chromeFlags });
+  const chrome = await chromeLauncher.launch({
+    chromeFlags: config.chromeFlags,
+  });
   console.log(`✅ Chrome launched on port ${chrome.port}`);
 
   const results = [];
@@ -173,23 +175,34 @@ async function main() {
     for (const url of config.urls) {
       const result = await runLighthouse(url, chrome);
       results.push(result);
-      
+
       // Save individual report
       saveReport(url, result.report, config.outputDir);
     }
 
     // Generate summary
     const summaryPath = generateSummary(results, config.outputDir);
-    
+
     console.log('\n🎉 Lighthouse audit complete!');
     console.log(`📊 View summary: file://${path.resolve(summaryPath)}`);
-    
+
     // Calculate overall scores
     const avgScores = {
-      performance: Math.round(results.reduce((sum, r) => sum + r.scores.performance, 0) / results.length),
-      accessibility: Math.round(results.reduce((sum, r) => sum + r.scores.accessibility, 0) / results.length),
-      'best-practices': Math.round(results.reduce((sum, r) => sum + r.scores['best-practices'], 0) / results.length),
-      seo: Math.round(results.reduce((sum, r) => sum + r.scores.seo, 0) / results.length),
+      performance: Math.round(
+        results.reduce((sum, r) => sum + r.scores.performance, 0) /
+          results.length
+      ),
+      accessibility: Math.round(
+        results.reduce((sum, r) => sum + r.scores.accessibility, 0) /
+          results.length
+      ),
+      'best-practices': Math.round(
+        results.reduce((sum, r) => sum + r.scores['best-practices'], 0) /
+          results.length
+      ),
+      seo: Math.round(
+        results.reduce((sum, r) => sum + r.scores.seo, 0) / results.length
+      ),
     };
 
     console.log('\n📈 Overall Average Scores:');
@@ -197,7 +210,6 @@ async function main() {
     console.log(`   ♿ Accessibility: ${avgScores.accessibility}%`);
     console.log(`   ✅ Best Practices: ${avgScores['best-practices']}%`);
     console.log(`   🔍 SEO: ${avgScores.seo}%`);
-
   } catch (error) {
     console.error('❌ Error running Lighthouse:', error);
   } finally {
@@ -229,6 +241,6 @@ const checkServer = async () => {
     console.log('💡 Or run preview with: npm run preview');
     process.exit(1);
   }
-  
+
   await main();
 })();

@@ -141,7 +141,7 @@ export default defineConfig({
     // Use file format for better compression
     format: 'file',
   },
-  
+
   // Enable HTML compression
   // compressHTML is set later in the config
 

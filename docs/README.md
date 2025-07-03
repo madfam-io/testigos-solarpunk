@@ -79,16 +79,16 @@
 
 ## 📊 Documentation Coverage
 
-| Area       | Status         | Coverage       |
-| ---------- | -------------- | -------------- |
-| Core Docs  | ✅ Complete    | 100%           |
-| i18n       | ✅ Complete    | 100%           |
-| Themes     | ✅ Complete    | 100%           |
-| Testing    | ✅ Complete    | 97% coverage   |
-| Components | ✅ Complete    | 30+ documented |
-| API        | ✅ Complete    | 100%           |
-| Refactoring| ✅ Complete    | v0.4.0 guide   |
-| Examples   | ✅ Complete    | All features   |
+| Area        | Status      | Coverage       |
+| ----------- | ----------- | -------------- |
+| Core Docs   | ✅ Complete | 100%           |
+| i18n        | ✅ Complete | 100%           |
+| Themes      | ✅ Complete | 100%           |
+| Testing     | ✅ Complete | 97% coverage   |
+| Components  | ✅ Complete | 30+ documented |
+| API         | ✅ Complete | 100%           |
+| Refactoring | ✅ Complete | v0.4.0 guide   |
+| Examples    | ✅ Complete | All features   |
 
 ---
 

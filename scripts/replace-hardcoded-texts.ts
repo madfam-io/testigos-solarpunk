@@ -13,8 +13,8 @@ const replacementMap: Record<string, string> = {
   // Navigation
   '"Inicio"': '{t("breadcrumb.home")}',
   '>Inicio<': '>{t("breadcrumb.home")}<',
-  'Inicio': '{t("breadcrumb.home")}',
-  
+  Inicio: '{t("breadcrumb.home")}',
+
   // Buttons
   '"Ver más"': '{t("ui.view.more")}',
   '>Ver más<': '>{t("ui.view.more")}<',
@@ -26,7 +26,7 @@ const replacementMap: Record<string, string> = {
   '>Descargar<': '>{t("ui.download")}<',
   '"Únete"': '{t("ui.join")}',
   '>Únete<': '>{t("ui.join")}<',
-  
+
   // Social Media
   '"Instagram"': '{t("social.instagram")}',
   '>Instagram<': '>{t("social.instagram")}<',
@@ -42,7 +42,7 @@ const replacementMap: Record<string, string> = {
   '>Twitter<': '>{t("social.twitter")}<',
   '"WhatsApp"': '{t("social.whatsapp")}',
   '>WhatsApp<': '>{t("social.whatsapp")}<',
-  
+
   // Status
   '"En Desarrollo"': '{t("status.in.development")}',
   '>En Desarrollo<': '>{t("status.in.development")}<',
@@ -52,7 +52,7 @@ const replacementMap: Record<string, string> = {
   '>En Producción<': '>{t("status.in.production")}<',
   '"Completado"': '{t("status.completed")}',
   '>Completado<': '>{t("status.completed")}<',
-  
+
   // Sections
   '"Introducción"': '{t("section.introduction")}',
   '>Introducción<': '>{t("section.introduction")}<',
@@ -64,11 +64,11 @@ const replacementMap: Record<string, string> = {
   '>Recursos<': '>{t("section.resources")}<',
   '"Guías"': '{t("section.guides")}',
   '>Guías<': '>{t("section.guides")}<',
-  
+
   // Production
   '"Producción"': '{t("production")}',
   '>Producción<': '>{t("production")}<',
-  
+
   // Sponsors
   '"Qué Significa"': '{t("sponsors.what.it.means")}',
   '>Qué Significa<': '>{t("sponsors.what.it.means")}<',
@@ -76,17 +76,19 @@ const replacementMap: Record<string, string> = {
   '>En la Práctica<': '>{t("sponsors.in.practice")}<',
   '"Para Patrocinadores"': '{t("sponsors.for.sponsors")}',
   '>Para Patrocinadores<': '>{t("sponsors.for.sponsors")}<',
-  
+
   // ARIA labels
-  'aria-label="Navegación de migas de pan"': 'aria-label={t("aria.nav.breadcrumb")}',
-  'aria-label="GitHub del proyecto (se abre en nueva ventana)"': 'aria-label={t("aria.github.project")}',
+  'aria-label="Navegación de migas de pan"':
+    'aria-label={t("aria.nav.breadcrumb")}',
+  'aria-label="GitHub del proyecto (se abre en nueva ventana)"':
+    'aria-label={t("aria.github.project")}',
   'aria-label="Cambiar a Español"': 'aria-label={t("aria.language.switch.es")}',
   'aria-label="Switch to English"': 'aria-label={t("aria.language.switch.en")}',
-  
+
   // Loading
   '"Cargando tu experiencia"': '{t("loading.experience")}',
   '>Cargando tu experiencia<': '>{t("loading.experience")}<',
-  
+
   // Footer
   '"Construcción del Mundo"': '{t("footer.world.building")}',
   '>Construcción del Mundo<': '>{t("footer.world.building")}<',
@@ -104,20 +106,21 @@ const replacementMap: Record<string, string> = {
   '>Guía de Estilo<': '>{t("footer.style.guide")}<',
   '"Guía Visual"': '{t("footer.visual.guide")}',
   '>Guía Visual<': '>{t("footer.visual.guide")}<',
-  
+
   // Languages
   '"Español"': '{t("language.spanish")}',
   '>Español<': '>{t("language.spanish")}<',
   '"English"': '{t("language.english")}',
   '>English<': '>{t("language.english")}<',
-  
+
   // Media
   '"Audio"': '{t("media.audio")}',
   '>Audio<': '>{t("media.audio")}<',
-  
+
   // Title attributes
-  'title="Redirecting to language preference..."': 'title={t("misc.redirect.language")}',
-  
+  'title="Redirecting to language preference..."':
+    'title={t("misc.redirect.language")}',
+
   // Alt attributes
   'alt="Testigos de Solarpunk"': 'alt={t("site.title")}',
 };
@@ -131,16 +134,20 @@ async function processFile(filePath: string): Promise<number> {
   let modified = false;
 
   // Check if file imports the t function
-  const hasTranslationImport = content.includes("import { t }") || 
-                               content.includes("import { t,") ||
-                               content.includes("const { t }") ||
-                               content.includes("const { t,");
+  const hasTranslationImport =
+    content.includes('import { t }') ||
+    content.includes('import { t,') ||
+    content.includes('const { t }') ||
+    content.includes('const { t,');
 
   // Apply replacements
   for (const [search, replace] of Object.entries(replacementMap)) {
-    const regex = new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+    const regex = new RegExp(
+      search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+      'g'
+    );
     const matches = content.match(regex);
-    
+
     if (matches) {
       content = content.replace(regex, replace);
       replacements += matches.length;
@@ -152,10 +159,10 @@ async function processFile(filePath: string): Promise<number> {
   if (modified && !hasTranslationImport && filePath.endsWith('.astro')) {
     // Find the frontmatter section
     const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
-    
+
     if (frontmatterMatch) {
       const frontmatter = frontmatterMatch[1];
-      
+
       // Check if there are already imports
       if (frontmatter.includes('import ')) {
         // Add after the last import
@@ -163,13 +170,21 @@ async function processFile(filePath: string): Promise<number> {
         const lineEnd = frontmatter.indexOf('\n', lastImportIndex);
         const beforeImport = frontmatter.substring(0, lineEnd + 1);
         const afterImport = frontmatter.substring(lineEnd + 1);
-        
-        const newFrontmatter = beforeImport + "import { t } from '@/i18n/config';\n" + afterImport;
-        content = content.replace(frontmatterMatch[0], `---\n${newFrontmatter}\n---`);
+
+        const newFrontmatter =
+          beforeImport + "import { t } from '@/i18n/config';\n" + afterImport;
+        content = content.replace(
+          frontmatterMatch[0],
+          `---\n${newFrontmatter}\n---`
+        );
       } else {
         // Add as first line in frontmatter
-        const newFrontmatter = "import { t } from '@/i18n/config';\n" + frontmatter;
-        content = content.replace(frontmatterMatch[0], `---\n${newFrontmatter}\n---`);
+        const newFrontmatter =
+          "import { t } from '@/i18n/config';\n" + frontmatter;
+        content = content.replace(
+          frontmatterMatch[0],
+          `---\n${newFrontmatter}\n---`
+        );
       }
     }
   }
@@ -201,7 +216,7 @@ async function main() {
   // Process each file
   for (const file of files) {
     const replacements = await processFile(file);
-    
+
     if (replacements > 0) {
       console.log(`✅ ${file}: ${replacements} replacements`);
       totalReplacements += replacements;
@@ -213,9 +228,11 @@ async function main() {
   console.log(`- Files processed: ${files.length}`);
   console.log(`- Files modified: ${filesModified}`);
   console.log(`- Total replacements: ${totalReplacements}`);
-  
+
   if (totalReplacements > 0) {
-    console.log('\n✨ Success! Hardcoded texts have been replaced with i18n keys.');
+    console.log(
+      '\n✨ Success! Hardcoded texts have been replaced with i18n keys.'
+    );
     console.log('🔍 Please review the changes and test the application.');
   } else {
     console.log('\n✅ No hardcoded texts found to replace.');

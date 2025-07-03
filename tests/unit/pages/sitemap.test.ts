@@ -2,7 +2,7 @@
  * @fileoverview Unit tests for sitemap.xml.ts
  * @author MADFAM
  * @version 0.5.0
- * 
+ *
  * Tests the XML sitemap generation including:
  * - Valid XML structure
  * - All routes included
@@ -13,7 +13,6 @@
 
 import { describe, it, expect } from 'vitest';
 import { GET } from '../../../src/pages/sitemap.xml';
-
 
 describe('Sitemap XML Generation', () => {
   /**
@@ -35,7 +34,9 @@ describe('Sitemap XML Generation', () => {
     it('should have cache control header', async () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
-      expect(response.headers.get('Cache-Control')).toBe('public, max-age=3600');
+      expect(response.headers.get('Cache-Control')).toBe(
+        'public, max-age=3600'
+      );
     });
   });
 
@@ -47,14 +48,16 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check XML declaration
       expect(xml).toMatch(/^<\?xml version="1.0" encoding="UTF-8"\?>/);
-      
+
       // Check urlset opening tag with namespaces
-      expect(xml).toContain('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"');
+      expect(xml).toContain(
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'
+      );
       expect(xml).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"');
-      
+
       // Check closing tag
       expect(xml).toContain('</urlset>');
     });
@@ -63,7 +66,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check for required elements in each URL
       expect(xml).toContain('<loc>');
       expect(xml).toContain('</loc>');
@@ -79,15 +82,15 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Extract all lastmod values
       const lastmodRegex = /<lastmod>([^<]+)<\/lastmod>/g;
       const matches = [...xml.matchAll(lastmodRegex)];
-      
+
       expect(matches.length).toBeGreaterThan(0);
-      
+
       // Check each date is valid ISO format
-      matches.forEach(match => {
+      matches.forEach((match) => {
         const date = match[1];
         expect(date).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/);
         expect(new Date(date).toISOString()).toBe(date);
@@ -103,7 +106,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check for key routes in both languages
       const keyRoutes = [
         '/es/',
@@ -117,9 +120,11 @@ describe('Sitemap XML Generation', () => {
         '/es/comunidad/',
         '/en/community/',
       ];
-      
-      keyRoutes.forEach(route => {
-        expect(xml).toContain(`<loc>https://testigos-solarpunk.vercel.app${route}</loc>`);
+
+      keyRoutes.forEach((route) => {
+        expect(xml).toContain(
+          `<loc>https://testigos-solarpunk.vercel.app${route}</loc>`
+        );
       });
     });
 
@@ -127,7 +132,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Count URL entries
       const urlMatches = xml.match(/<url>/g);
       expect(urlMatches).not.toBeNull();
@@ -138,15 +143,21 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check homepage has highest priority
-      expect(xml).toContain('<loc>https://testigos-solarpunk.vercel.app/es/</loc>\n    <lastmod>');
-      const esHomeMatch = xml.match(/<loc>https:\/\/testigos-solarpunk\.vercel\.app\/es\/<\/loc>[\s\S]*?<priority>([^<]+)<\/priority>/);
+      expect(xml).toContain(
+        '<loc>https://testigos-solarpunk.vercel.app/es/</loc>\n    <lastmod>'
+      );
+      const esHomeMatch = xml.match(
+        /<loc>https:\/\/testigos-solarpunk\.vercel\.app\/es\/<\/loc>[\s\S]*?<priority>([^<]+)<\/priority>/
+      );
       expect(esHomeMatch).not.toBeNull();
       expect(esHomeMatch?.[1]).toBe('1');
-      
+
       // Check sitemap has low priority
-      const sitemapMatch = xml.match(/<loc>https:\/\/testigos-solarpunk\.vercel\.app\/es\/sitemap\/<\/loc>[\s\S]*?<priority>([^<]+)<\/priority>/);
+      const sitemapMatch = xml.match(
+        /<loc>https:\/\/testigos-solarpunk\.vercel\.app\/es\/sitemap\/<\/loc>[\s\S]*?<priority>([^<]+)<\/priority>/
+      );
       expect(sitemapMatch).not.toBeNull();
       expect(sitemapMatch?.[1]).toBe('0.3');
     });
@@ -155,7 +166,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check different changefreq values
       expect(xml).toContain('<changefreq>daily</changefreq>'); // sketches
       expect(xml).toContain('<changefreq>weekly</changefreq>'); // homepage
@@ -172,7 +183,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check for hreflang attributes
       expect(xml).toContain('rel="alternate"');
       expect(xml).toContain('hreflang="es"');
@@ -183,7 +194,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check specific mappings
       const mappings = [
         { es: '/es/proyecto/', en: '/en/project/' },
@@ -191,12 +202,19 @@ describe('Sitemap XML Generation', () => {
         { es: '/es/personajes/', en: '/en/characters/' },
         { es: '/es/comunidad/', en: '/en/community/' },
       ];
-      
+
       mappings.forEach(({ es, en }) => {
         // For Spanish URL, should have English alternate
-        const esUrlSection = xml.match(new RegExp(`<loc>https://testigos-solarpunk\\.vercel\\.app${es.replace(/\//g, '\\/')}</loc>[\\s\\S]*?</url>`, 'g'));
+        const esUrlSection = xml.match(
+          new RegExp(
+            `<loc>https://testigos-solarpunk\\.vercel\\.app${es.replace(/\//g, '\\/')}</loc>[\\s\\S]*?</url>`,
+            'g'
+          )
+        );
         expect(esUrlSection).not.toBeNull();
-        expect(esUrlSection?.[0]).toContain(`hreflang="en" href="https://testigos-solarpunk.vercel.app${en}"`);
+        expect(esUrlSection?.[0]).toContain(
+          `hreflang="en" href="https://testigos-solarpunk.vercel.app${en}"`
+        );
       });
     });
 
@@ -204,7 +222,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check reverse mappings
       const mappings = [
         { en: '/en/project/', es: '/es/proyecto/' },
@@ -212,12 +230,19 @@ describe('Sitemap XML Generation', () => {
         { en: '/en/characters/', es: '/es/personajes/' },
         { en: '/en/community/', es: '/es/comunidad/' },
       ];
-      
+
       mappings.forEach(({ en, es }) => {
         // For English URL, should have Spanish alternate
-        const enUrlSection = xml.match(new RegExp(`<loc>https://testigos-solarpunk\\.vercel\\.app${en.replace(/\//g, '\\/')}</loc>[\\s\\S]*?</url>`, 'g'));
+        const enUrlSection = xml.match(
+          new RegExp(
+            `<loc>https://testigos-solarpunk\\.vercel\\.app${en.replace(/\//g, '\\/')}</loc>[\\s\\S]*?</url>`,
+            'g'
+          )
+        );
         expect(enUrlSection).not.toBeNull();
-        expect(enUrlSection?.[0]).toContain(`hreflang="es" href="https://testigos-solarpunk.vercel.app${es}"`);
+        expect(enUrlSection?.[0]).toContain(
+          `hreflang="es" href="https://testigos-solarpunk.vercel.app${es}"`
+        );
       });
     });
 
@@ -225,18 +250,18 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check that each URL with alternates also references itself
       const urlSections = xml.match(/<url>[\s\S]*?<\/url>/g);
       expect(urlSections).not.toBeNull();
-      
-      urlSections?.forEach(section => {
+
+      urlSections?.forEach((section) => {
         if (section.includes('hreflang')) {
           // Extract the main URL
           const locMatch = section.match(/<loc>([^<]+)<\/loc>/);
           expect(locMatch).not.toBeNull();
           const mainUrl = locMatch?.[1] ?? '';
-          
+
           // Should reference itself with appropriate language
           if (mainUrl.includes('/es/')) {
             expect(section).toContain(`hreflang="es" href="${mainUrl}"`);
@@ -256,7 +281,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check nested routes are included
       const nestedRoutes = [
         '/es/recursos/actores/personajes/',
@@ -264,9 +289,11 @@ describe('Sitemap XML Generation', () => {
         '/es/produccion/estilo-visual/',
         '/en/production/visual-style/',
       ];
-      
-      nestedRoutes.forEach(route => {
-        expect(xml).toContain(`<loc>https://testigos-solarpunk.vercel.app${route}</loc>`);
+
+      nestedRoutes.forEach((route) => {
+        expect(xml).toContain(
+          `<loc>https://testigos-solarpunk.vercel.app${route}</loc>`
+        );
       });
     });
 
@@ -274,7 +301,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // Check special location URLs
       expect(xml).toContain('/es/mundo/azotea-verde-neo-cuernavaca/');
       expect(xml).toContain('/en/world/green-roof-neo-cuernavaca/');
@@ -284,7 +311,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       const xml = await response.text();
-      
+
       // The XML should be properly formatted (all special chars are within tags)
       // This regex would catch unescaped entities outside of XML tags
       // But our sitemap doesn't have any text content that would need escaping
@@ -302,7 +329,7 @@ describe('Sitemap XML Generation', () => {
       const response = await GET(mockContext);
       await response.text();
       const end = performance.now();
-      
+
       // Should generate in less than 100ms
       expect(end - start).toBeLessThan(100);
     });
@@ -312,7 +339,7 @@ describe('Sitemap XML Generation', () => {
       const mockContext = {} as Parameters<typeof GET>[0];
       const response = await GET(mockContext);
       expect(response).toBeDefined();
-      
+
       // Simple check that we're not creating massive strings
       const xml = await response.text();
       expect(xml.length).toBeLessThan(50000); // 50KB max

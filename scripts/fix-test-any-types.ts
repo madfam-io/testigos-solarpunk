@@ -20,13 +20,10 @@ async function fixTestAnyTypes() {
     let replacements = 0;
 
     // Fix mock function any types
-    content = content.replace(
-      /vi\.fn\(\((.*?)\) => \{/g,
-      (match, params) => {
-        if (params.includes(':')) return match; // Already typed
-        return match.replace(params, `${params}: any`);
-      }
-    );
+    content = content.replace(/vi\.fn\(\((.*?)\) => \{/g, (match, params) => {
+      if (params.includes(':')) return match; // Already typed
+      return match.replace(params, `${params}: any`);
+    });
 
     // Fix expect.any(Function) to expect.any(Function as any)
     content = content.replace(
@@ -41,10 +38,7 @@ async function fixTestAnyTypes() {
     );
 
     // Fix vi.fn() without types
-    content = content.replace(
-      /vi\.fn\(\)([,;])/g,
-      'vi.fn(() => {})$1'
-    );
+    content = content.replace(/vi\.fn\(\)([,;])/g, 'vi.fn(() => {})$1');
 
     // Count replacements
     const originalLength = content.length;

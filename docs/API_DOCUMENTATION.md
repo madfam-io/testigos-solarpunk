@@ -7,6 +7,7 @@ Documentación técnica de las utilidades, componentes y funciones principales d
 ### `/src/i18n/config.ts`
 
 #### `t(key: string, lang?: Language): string`
+
 Función principal de traducción.
 
 ```typescript
@@ -20,6 +21,7 @@ const title = t('nav.home', 'en'); // "Home"
 ```
 
 #### `getTranslatedRoute(route: string, lang: Language): string`
+
 Convierte rutas entre idiomas.
 
 ```typescript
@@ -29,6 +31,7 @@ const enRoute = getTranslatedRoute('/es/proyecto', 'en');
 ```
 
 #### `detectLanguage(): Language`
+
 Detecta idioma preferido del usuario.
 
 ```typescript
@@ -37,6 +40,7 @@ const userLang = detectLanguage();
 ```
 
 #### `isValidLanguage(lang: string): boolean`
+
 Valida si un idioma es soportado.
 
 ```typescript
@@ -49,6 +53,7 @@ isValidLanguage('fr'); // false
 ### `/src/utils/theme-manager.ts`
 
 #### `ThemeManager`
+
 Clase singleton para gestión de themes.
 
 ```typescript
@@ -73,19 +78,20 @@ themeManager.onThemeChange((theme) => {
 
 #### Métodos Disponibles
 
-| Método | Descripción | Retorno |
-|--------|-------------|---------|
-| `setTheme(theme)` | Cambia theme y persiste | `Promise<void>` |
-| `getCurrentTheme()` | Theme actual | `'light' \| 'dark'` |
-| `getSystemTheme()` | Preferencia del sistema | `'light' \| 'dark'` |
-| `toggleTheme()` | Alterna entre themes | `Promise<void>` |
-| `onThemeChange(callback)` | Escucha cambios | `void` |
+| Método                    | Descripción             | Retorno             |
+| ------------------------- | ----------------------- | ------------------- |
+| `setTheme(theme)`         | Cambia theme y persiste | `Promise<void>`     |
+| `getCurrentTheme()`       | Theme actual            | `'light' \| 'dark'` |
+| `getSystemTheme()`        | Preferencia del sistema | `'light' \| 'dark'` |
+| `toggleTheme()`           | Alterna entre themes    | `Promise<void>`     |
+| `onThemeChange(callback)` | Escucha cambios         | `void`              |
 
 ## 📊 Telemetría y Analytics
 
 ### `/src/utils/telemetry.ts`
 
 #### `Telemetry`
+
 Sistema de analytics privacy-first.
 
 ```typescript
@@ -96,37 +102,38 @@ const telemetry = Telemetry.getInstance();
 // Trackear evento
 telemetry.track('page_view', {
   page: '/proyecto',
-  referrer: document.referrer
+  referrer: document.referrer,
 });
 
 // Trackear error
 telemetry.trackError(new Error('API failed'), {
   endpoint: '/api/data',
-  context: 'user_action'
+  context: 'user_action',
 });
 
 // Métricas de performance
 telemetry.trackPerformance('page_load', {
   url: window.location.href,
-  loadTime: 1250
+  loadTime: 1250,
 });
 ```
 
 #### Eventos Predefinidos
 
-| Evento | Descripción | Datos |
-|--------|-------------|-------|
-| `page_view` | Vista de página | `{ page, referrer, timestamp }` |
-| `theme_change` | Cambio de theme | `{ from, to, method }` |
-| `language_change` | Cambio idioma | `{ from, to, method }` |
-| `navigation_click` | Click navegación | `{ target, source }` |
-| `error_occurred` | Error capturado | `{ message, stack, context }` |
+| Evento             | Descripción      | Datos                           |
+| ------------------ | ---------------- | ------------------------------- |
+| `page_view`        | Vista de página  | `{ page, referrer, timestamp }` |
+| `theme_change`     | Cambio de theme  | `{ from, to, method }`          |
+| `language_change`  | Cambio idioma    | `{ from, to, method }`          |
+| `navigation_click` | Click navegación | `{ target, source }`            |
+| `error_occurred`   | Error capturado  | `{ message, stack, context }`   |
 
 ## ♿ Accesibilidad
 
 ### `/src/utils/accessibility.ts`
 
 #### `AccessibilityManager`
+
 Herramientas de accesibilidad mejoradas.
 
 ```typescript
@@ -167,6 +174,7 @@ const audit = await a11y.runAccessibilityAudit();
 ### `/src/utils/cache-buster.ts`
 
 #### `CacheBuster`
+
 Gestión inteligente de cache del navegador.
 
 ```typescript
@@ -183,7 +191,7 @@ await cache.invalidatePattern('/api/users/*');
 // Estrategia de cache
 cache.setStrategy('api-responses', {
   maxAge: 300000, // 5 minutos
-  maxEntries: 100
+  maxEntries: 100,
 });
 
 // Service Worker management
@@ -195,6 +203,7 @@ await cache.updateServiceWorker();
 ### `/src/utils/logger.ts`
 
 #### `Logger`
+
 Sistema de logging production-safe.
 
 ```typescript
@@ -219,7 +228,7 @@ logger.error('API Error', error, { context: 'payment' });
 logger.configure({
   level: 'info',
   enableTelemetry: true,
-  maxHistoryEntries: 1000
+  maxHistoryEntries: 1000,
 });
 
 // Obtener historial
@@ -283,20 +292,20 @@ beforeEach(() => {
 ### Testing Helpers
 
 ```typescript
-import { 
+import {
   createMockProps,
   createMockContext,
-  waitForElement 
+  waitForElement,
 } from '@/tests/helpers';
 
 // Props de componente
 const props = createMockProps<ComponentProps>({
-  title: 'Test Title'
+  title: 'Test Title',
 });
 
 // Context de Astro
 const context = createMockContext({
-  url: new URL('http://localhost/test')
+  url: new URL('http://localhost/test'),
 });
 ```
 
@@ -310,7 +319,7 @@ import { setupLazyLoading } from '@/utils/lazy-loading';
 
 setupLazyLoading({
   threshold: 0.1,
-  rootMargin: '50px'
+  rootMargin: '50px',
 });
 ```
 
@@ -374,19 +383,19 @@ const clean = sanitizeInput(userInput);
 // Page views (automático)
 telemetry.track('page_view', {
   page: '/proyecto',
-  referrer: document.referrer
+  referrer: document.referrer,
 });
 
 // User interactions
 telemetry.track('button_click', {
   button: 'cta-principal',
-  location: 'hero'
+  location: 'hero',
 });
 
 // Performance metrics
 telemetry.trackPerformance('resource_load', {
   resource: 'critical.css',
-  loadTime: 125
+  loadTime: 125,
 });
 ```
 
@@ -396,21 +405,43 @@ telemetry.trackPerformance('resource_load', {
 
 ```css
 /* Tamaños */
-.emoji-sm { --emoji-size: 1.2rem; }
-.emoji-md { --emoji-size: 1.5rem; }
-.emoji-lg { --emoji-size: 2rem; }
-.emoji-xl { --emoji-size: 2.5rem; }
+.emoji-sm {
+  --emoji-size: 1.2rem;
+}
+.emoji-md {
+  --emoji-size: 1.5rem;
+}
+.emoji-lg {
+  --emoji-size: 2rem;
+}
+.emoji-xl {
+  --emoji-size: 2.5rem;
+}
 
 /* Contextos */
-.emoji-nav { /* Navegación */ }
-.emoji-hero { /* Hero sections */ }
-.emoji-card { /* Tarjetas */ }
-.emoji-button { /* Botones */ }
+.emoji-nav {
+  /* Navegación */
+}
+.emoji-hero {
+  /* Hero sections */
+}
+.emoji-card {
+  /* Tarjetas */
+}
+.emoji-button {
+  /* Botones */
+}
 
 /* Themes */
-.emoji-solar { --emoji-filter: sepia(1) hue-rotate(45deg); }
-.emoji-eco { --emoji-filter: sepia(1) hue-rotate(90deg); }
-.emoji-tech { --emoji-filter: sepia(1) hue-rotate(210deg); }
+.emoji-solar {
+  --emoji-filter: sepia(1) hue-rotate(45deg);
+}
+.emoji-eco {
+  --emoji-filter: sepia(1) hue-rotate(90deg);
+}
+.emoji-tech {
+  --emoji-filter: sepia(1) hue-rotate(210deg);
+}
 ```
 
 ### Uso en Componentes
@@ -447,15 +478,15 @@ try {
 // src/utils/error-handler.ts
 window.addEventListener('error', (event) => {
   logger.error('Global error', event.error);
-  telemetry.trackError(event.error, { 
+  telemetry.trackError(event.error, {
     source: 'global_handler',
     filename: event.filename,
-    lineno: event.lineno
+    lineno: event.lineno,
   });
 });
 ```
 
 ---
 
-*API Documentation generada para v0.4.0*
-*MADFAM - Testigos de Solarpunk*
+_API Documentation generada para v0.4.0_
+_MADFAM - Testigos de Solarpunk_

@@ -45,10 +45,10 @@ const pageDescription = `Conoce a ${nombre}, ${ocupacion} de ${edad} años.`;
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb-nav" aria-label={t("aria.nav.breadcrumb")}>
+  <nav class="breadcrumb-nav" aria-label={t('aria.nav.breadcrumb')}>
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href={`${basePath}/es/`}>{t("breadcrumb.home")}</a></li>
+        <li><a href={`${basePath}/es/`}>{t('breadcrumb.home')}</a></li>
         <li><a href={`${basePath}/es/personajes/`}>Personajes</a></li>
         <li aria-current="page">{nombre}</li>
       </ol>

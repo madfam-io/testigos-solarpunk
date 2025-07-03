@@ -29,6 +29,7 @@ Antes de empezar cualquier desarrollo:
 ## 🔄 Flujo de Desarrollo
 
 ### 1. Feature Development
+
 ```bash
 # 1. Crear rama de feature
 git checkout -b feature/nueva-funcionalidad
@@ -46,6 +47,7 @@ npm run lighthouse:local      # Performance local
 ### 2. Quality Gates
 
 #### Pre-Commit (Automático)
+
 ```bash
 # Ejecutado por husky/lint-staged
 npm run lint                  # ESLint
@@ -54,6 +56,7 @@ npm run type-check           # TypeScript
 ```
 
 #### Pre-Push (Manual)
+
 ```bash
 npm run check:all            # Suite completa
 npm run test:coverage        # Coverage >95%
@@ -63,6 +66,7 @@ npm run lighthouse          # Performance audit
 ### 3. Testing Strategy
 
 #### Unit Tests
+
 ```bash
 # Ejecutar tests específicos
 npm run test -- src/utils/theme-manager
@@ -71,6 +75,7 @@ npm run test:ui             # Interfaz visual
 ```
 
 #### Integration Tests
+
 ```bash
 # Tests de páginas completas
 npm run test -- tests/unit/pages/
@@ -78,6 +83,7 @@ npm run test -- tests/unit/i18n/
 ```
 
 #### Performance Testing
+
 ```bash
 # Local lighthouse
 npm run lighthouse:local
@@ -92,6 +98,7 @@ npm run lighthouse
 ## 🎨 Conventions y Estándares
 
 ### Código TypeScript/JavaScript
+
 ```typescript
 // ✅ Correcto
 interface UserProps {
@@ -110,6 +117,7 @@ function getUser(id: any): any {
 ```
 
 ### Astro Components
+
 ```astro
 ---
 // ✅ Props tipadas
@@ -128,6 +136,7 @@ const { title, description = '' } = Astro.props;
 ```
 
 ### CSS y Styling
+
 ```css
 /* ✅ Usar variables del design system */
 .component {
@@ -143,6 +152,7 @@ const { title, description = '' } = Astro.props;
 ```
 
 ### Magazine Cutout Aesthetic
+
 ```astro
 ---
 // ✅ Siempre usar clases del sistema emoji
@@ -157,6 +167,7 @@ const { title, description = '' } = Astro.props;
 ## 🧪 Testing Best Practices
 
 ### Mocking Browser APIs
+
 ```typescript
 // Setup en beforeEach
 beforeEach(() => {
@@ -173,6 +184,7 @@ beforeEach(() => {
 ```
 
 ### Async Testing
+
 ```typescript
 // ✅ Correcto
 it('should load user data', async () => {
@@ -188,12 +200,13 @@ it('should generate sitemap', async () => {
 ```
 
 ### Performance Testing
+
 ```typescript
 it('should complete operation within threshold', async () => {
   const start = performance.now();
   await heavyOperation();
   const duration = performance.now() - start;
-  
+
   expect(duration).toBeLessThan(100); // 100ms max
 });
 ```
@@ -201,6 +214,7 @@ it('should complete operation within threshold', async () => {
 ## 🚦 Configuración de CI/CD
 
 ### GitHub Actions
+
 ```yaml
 # Lighthouse audit en cada PR
 - name: Lighthouse CI
@@ -210,6 +224,7 @@ it('should complete operation within threshold', async () => {
 ```
 
 ### Vercel Deployment
+
 ```bash
 # Build específico para Vercel
 npm run build:vercel
@@ -224,6 +239,7 @@ vercel --prod
 ## 🔍 Debugging y Troubleshooting
 
 ### Tests Failing
+
 ```bash
 # Debug modo interactivo
 npm run test:ui
@@ -236,6 +252,7 @@ npm run test -- accessibility.test.ts
 ```
 
 ### Performance Issues
+
 ```bash
 # Bundle analysis
 npm run analyze:bundle
@@ -245,6 +262,7 @@ DEBUG=lhci:* npm run lighthouse
 ```
 
 ### Development Server Issues
+
 ```bash
 # Clear cache
 npm run clean
@@ -260,11 +278,13 @@ lsof -ti:4321
 ## 📊 Métricas y Monitoring
 
 ### Coverage Targets
+
 - **Unit Tests**: >95%
 - **Integration Tests**: >80%
 - **E2E Tests**: Key user flows
 
 ### Performance Budgets
+
 ```javascript
 // lighthouserc.js
 'first-contentful-paint': ['error', { maxNumericValue: 1800 }],
@@ -273,6 +293,7 @@ lsof -ti:4321
 ```
 
 ### Bundle Size Limits
+
 - **Total JS**: <400KB
 - **Total CSS**: <100KB
 - **Critical CSS**: <50KB
@@ -280,6 +301,7 @@ lsof -ti:4321
 ## 🔒 Security Workflow
 
 ### Headers Validation
+
 ```bash
 # Local testing
 curl -I http://localhost:4321/testigos-solarpunk/
@@ -291,6 +313,7 @@ Strict-Transport-Security: max-age=31536000
 ```
 
 ### Dependency Auditing
+
 ```bash
 # Security audit
 npm audit
@@ -305,6 +328,7 @@ npm run update-deps
 ## 📝 Commit Standards
 
 ### Conventional Commits
+
 ```bash
 # Feature implementation
 git commit -m "feat: agregar sistema de notificaciones push"
@@ -312,7 +336,7 @@ git commit -m "feat: agregar sistema de notificaciones push"
 # Bug fixes
 git commit -m "fix: corregir navegación mobile en iOS"
 
-# Performance improvements  
+# Performance improvements
 git commit -m "perf: optimizar carga de imágenes con lazy loading"
 
 # Documentation
@@ -320,6 +344,7 @@ git commit -m "docs: actualizar guía de desarrollo"
 ```
 
 ### Release Triggers
+
 ```bash
 # Patch release (feature completa)
 git commit -m "release: implementar dashboard de métricas"
@@ -347,12 +372,14 @@ Una feature está completa cuando:
 ## 🚀 Deployment Checklist
 
 ### Pre-Deployment
+
 - [ ] `npm run check:all` exitoso
 - [ ] Tests de smoke en preview environment
 - [ ] Performance audit aprobado
 - [ ] Security headers validados
 
-### Post-Deployment  
+### Post-Deployment
+
 - [ ] Monitoring de errores activo
 - [ ] Core metrics estables
 - [ ] User acceptance testing
@@ -367,5 +394,5 @@ Una feature está completa cuando:
 
 ---
 
-*Workflow establecido durante refactoring v0.4.0*
-*MADFAM - Testigos de Solarpunk*
+_Workflow establecido durante refactoring v0.4.0_
+_MADFAM - Testigos de Solarpunk_

@@ -18,11 +18,13 @@ if (basePath.endsWith('/')) {
   description="Descubre el corazón verde de la ciudad: la azotea comunitaria donde convergen tecnología, naturaleza y esperanza en el universo solarpunk"
 >
   <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb-nav" aria-label={t("aria.nav.breadcrumb")}>
+  <nav class="breadcrumb-nav" aria-label={t('aria.nav.breadcrumb')}>
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href={`${basePath}/`}>{t("breadcrumb.home")}</a></li>
-        <li><a href={`${basePath}/es/mundo/`}>{t("footer.world.building")}</a></li>
+        <li><a href={`${basePath}/`}>{t('breadcrumb.home')}</a></li>
+        <li>
+          <a href={`${basePath}/es/mundo/`}>{t('footer.world.building')}</a>
+        </li>
         <li aria-current="page">Azotea Verde de Neo-Cuernavaca</li>
       </ol>
     </div>

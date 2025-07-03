@@ -164,7 +164,7 @@ describe('i18n Configuration', () => {
     it('should have unique route values within each language', () => {
       const esValues = Object.values(routes.es);
       const enValues = Object.values(routes.en);
-      
+
       expect(new Set(esValues).size).toBe(esValues.length);
       expect(new Set(enValues).size).toBe(enValues.length);
     });
@@ -242,12 +242,16 @@ describe('i18n Configuration', () => {
      */
     it('should have footer translations', () => {
       // Spanish footer
-      expect(ui.es['footer.tagline']).toBe('Conectar, Concientizar y Crear Comunidad');
+      expect(ui.es['footer.tagline']).toBe(
+        'Conectar, Concientizar y Crear Comunidad'
+      );
       expect(ui.es['footer.copyright']).toBe('Un proyecto de MADFAM');
       expect(ui.es['footer.contact']).toBe('Contacto');
 
       // English footer
-      expect(ui.en['footer.tagline']).toBe('Connect, Raise Awareness, Create Community');
+      expect(ui.en['footer.tagline']).toBe(
+        'Connect, Raise Awareness, Create Community'
+      );
       expect(ui.en['footer.copyright']).toBe('A MADFAM project');
       expect(ui.en['footer.contact']).toBe('Contact');
     });
@@ -262,8 +266,12 @@ describe('i18n Configuration', () => {
       expect(ui.en['status.page.loaded']).toBe('Page loaded: {title}');
 
       // Character portrait alt text
-      expect(ui.es['character.portrait.alt']).toBe('Retrato evangelista de {name}, {occupation}');
-      expect(ui.en['character.portrait.alt']).toBe('Evangelist portrait of {name}, {occupation}');
+      expect(ui.es['character.portrait.alt']).toBe(
+        'Retrato evangelista de {name}, {occupation}'
+      );
+      expect(ui.en['character.portrait.alt']).toBe(
+        'Evangelist portrait of {name}, {occupation}'
+      );
 
       // Theme change messages
       expect(ui.es['theme.changed']).toBe('Tema cambiado a {theme}');
@@ -300,7 +308,7 @@ describe('i18n Configuration', () => {
         'a11y.lang.toggle',
       ];
 
-      sampleKeys.forEach(key => {
+      sampleKeys.forEach((key) => {
         expect(ui.es[key as keyof typeof ui.es]).toBeDefined();
         expect(ui.en[key as keyof typeof ui.en]).toBeDefined();
         expect(typeof ui.es[key as keyof typeof ui.es]).toBe('string');
@@ -328,7 +336,7 @@ describe('i18n Configuration', () => {
       it('should detect language from URL pathname', () => {
         const esUrl = new URL('https://example.com/es/proyecto/');
         const enUrl = new URL('https://example.com/en/project/');
-        
+
         expect(getLangFromUrl(esUrl)).toBe('es');
         expect(getLangFromUrl(enUrl)).toBe('en');
       });
@@ -341,7 +349,7 @@ describe('i18n Configuration', () => {
         const rootUrl = new URL('https://example.com/');
         const invalidUrl = new URL('https://example.com/invalid/path/');
         const noLangUrl = new URL('https://example.com/proyecto/');
-        
+
         expect(getLangFromUrl(rootUrl)).toBe('es');
         expect(getLangFromUrl(invalidUrl)).toBe('es');
         expect(getLangFromUrl(noLangUrl)).toBe('es');
@@ -354,7 +362,7 @@ describe('i18n Configuration', () => {
       it('should handle edge cases', () => {
         const emptyPath = new URL('https://example.com');
         const deepPath = new URL('https://example.com/es/contenido/sketches/');
-        
+
         expect(getLangFromUrl(emptyPath)).toBe('es');
         expect(getLangFromUrl(deepPath)).toBe('es');
       });
@@ -453,7 +461,7 @@ describe('i18n Configuration', () => {
       it('should replace parameters in translations', () => {
         const esResult = tEs('status.page.loaded', { title: 'Proyecto' });
         const enResult = tEn('status.page.loaded', { title: 'Project' });
-        
+
         expect(esResult).toBe('Página cargada: Proyecto');
         expect(enResult).toBe('Page loaded: Project');
       });
@@ -463,17 +471,21 @@ describe('i18n Configuration', () => {
        * Handles multiple placeholders correctly
        */
       it('should handle multiple parameters', () => {
-        const esResult = tEs('character.portrait.alt', { 
-          name: 'Lucía Solar', 
-          occupation: 'Predicadora Ecológica' 
+        const esResult = tEs('character.portrait.alt', {
+          name: 'Lucía Solar',
+          occupation: 'Predicadora Ecológica',
         });
-        const enResult = tEn('character.portrait.alt', { 
-          name: 'Lucia Solar', 
-          occupation: 'Ecological Preacher' 
+        const enResult = tEn('character.portrait.alt', {
+          name: 'Lucia Solar',
+          occupation: 'Ecological Preacher',
         });
-        
-        expect(esResult).toBe('Retrato evangelista de Lucía Solar, Predicadora Ecológica');
-        expect(enResult).toBe('Evangelist portrait of Lucia Solar, Ecological Preacher');
+
+        expect(esResult).toBe(
+          'Retrato evangelista de Lucía Solar, Predicadora Ecológica'
+        );
+        expect(enResult).toBe(
+          'Evangelist portrait of Lucia Solar, Ecological Preacher'
+        );
       });
 
       /**
@@ -570,7 +582,10 @@ describe('i18n Configuration', () => {
        * Handles multiple segments correctly
        */
       it('should handle complex paths with multiple segments', () => {
-        const complexPath = getLocalizedPath('/contenido/sketches/some-slug', 'en');
+        const complexPath = getLocalizedPath(
+          '/contenido/sketches/some-slug',
+          'en'
+        );
         expect(complexPath).toBe('/en/content/sketches/some-slug/');
       });
 
@@ -596,7 +611,7 @@ describe('i18n Configuration', () => {
       it('should extract route key from Spanish URLs', () => {
         const proyectoUrl = new URL('https://example.com/es/proyecto/');
         const contenidoUrl = new URL('https://example.com/es/contenido/');
-        
+
         expect(getRouteFromUrl(proyectoUrl, 'es')).toBe('proyecto');
         expect(getRouteFromUrl(contenidoUrl, 'es')).toBe('contenido');
       });
@@ -608,7 +623,7 @@ describe('i18n Configuration', () => {
       it('should extract route key from English URLs', () => {
         const projectUrl = new URL('https://example.com/en/project/');
         const contentUrl = new URL('https://example.com/en/content/');
-        
+
         expect(getRouteFromUrl(projectUrl, 'en')).toBe('proyecto');
         expect(getRouteFromUrl(contentUrl, 'en')).toBe('contenido');
       });
@@ -732,7 +747,7 @@ describe('i18n Configuration', () => {
      */
     it('should handle large numbers of translation calls efficiently', () => {
       const t = useTranslations('es');
-      
+
       // Call translation function many times
       for (let i = 0; i < 1000; i++) {
         const result = t('site.title');
@@ -747,7 +762,7 @@ describe('i18n Configuration', () => {
     it('should handle concurrent translation usage', () => {
       const tEs = useTranslations('es');
       const tEn = useTranslations('en');
-      
+
       expect(tEs('nav.home')).toBe('Inicio');
       expect(tEn('nav.home')).toBe('Home');
       expect(tEs('nav.home')).toBe('Inicio'); // Still works after other calls

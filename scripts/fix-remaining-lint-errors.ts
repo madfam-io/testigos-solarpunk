@@ -60,7 +60,7 @@ async function fixLintErrors() {
         /global\.PerformanceObserver = vi\.fn\(\)\.mockImplementation/g,
         'global.PerformanceObserver = vi.fn().mockImplementation'
       );
-      
+
       // Fix observerCallbacks type
       content = content.replace(
         /const observerCallbacks: Function\[\] = \[\];/g,
@@ -76,9 +76,14 @@ async function fixLintErrors() {
 
   // Fix telemetry test specifically
   const telemetryTest = 'src/utils/__tests__/telemetry.test.ts';
-  if (await fs.access(telemetryTest).then(() => true).catch(() => false)) {
+  if (
+    await fs
+      .access(telemetryTest)
+      .then(() => true)
+      .catch(() => false)
+  ) {
     let content = await fs.readFile(telemetryTest, 'utf-8');
-    
+
     // Fix line 475 - any assignment
     content = content.replace(
       /body: expect\.stringContaining/g,
