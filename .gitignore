@@ -40,4 +40,6 @@ tests/reports/
 .lighthouseci/
 
 # Generated files
-public/manifest.jsonlighthouse-results/
+public/manifest.json
+lighthouse-results/
+*.report.html
