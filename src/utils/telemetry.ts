@@ -359,11 +359,8 @@ export class TelemetryManager {
    */
   enable(): void {
     localStorage.setItem('testigos-telemetry-consent', 'granted');
-    // Only actually enable if in production and not in test environment
-    this.isEnabled =
-      import.meta.env.PROD &&
-      typeof process !== 'undefined' &&
-      process.env?.NODE_ENV !== 'test';
+    // Only actually enable if in production mode
+    this.isEnabled = import.meta.env.MODE === 'production';
     if (this.isEnabled) {
       this.initialize();
     }
