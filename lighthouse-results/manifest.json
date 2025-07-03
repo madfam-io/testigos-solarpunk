@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://localhost:4322/testigos-solarpunk/es/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/Users/aldoruizluna/labspace/testigos-solarpunk/lighthouse-results/testigos_solarpunk_es_-2025_07_03_04_53_04-report.html",
+    "jsonPath": "/Users/aldoruizluna/labspace/testigos-solarpunk/lighthouse-results/testigos_solarpunk_es_-2025_07_03_04_53_04-report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 0.93,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  }
+]

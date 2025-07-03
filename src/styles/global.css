@@ -253,7 +253,7 @@ img {
 
 .btn-primary {
   background-color: var(--verde-sostenible);
-  color: var(--text-on-accent, #000000);
+  color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -264,7 +264,7 @@ img {
 
 .btn-secondary {
   background-color: var(--azul-tecnologico);
-  color: var(--text-on-accent, #000000);
+  color: #ffffff;
 }
 
 .btn-secondary:hover {

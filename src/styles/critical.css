@@ -318,11 +318,15 @@ h2 {
 }
 
 .magazine-btn.primary {
-  color: var(--madfam-yellow);
+  background-color: var(--madfam-yellow);
+  color: #000000;
+  border-color: var(--madfam-yellow-dark);
 }
 
 .magazine-btn.secondary {
-  color: var(--madfam-green);
+  background-color: var(--madfam-green);
+  color: #ffffff;
+  border-color: var(--madfam-green-dark);
 }
 
 .magazine-btn:hover {
