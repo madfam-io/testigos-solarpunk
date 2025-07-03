@@ -95,6 +95,15 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Dark mode link colors with better contrast */
+[data-theme='dark'] a {
+  color: var(--link-default, #6bb6ff);
+}
+
+[data-theme='dark'] a:hover {
+  color: var(--link-hover, #90caf9);
+}
+
 /* Encabezados */
 h1,
 h2,
@@ -115,6 +124,15 @@ h1 {
 h2 {
   font-size: 2rem;
   color: var(--verde-sostenible);
+}
+
+/* Dark mode heading colors */
+[data-theme='dark'] h1 {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] h2 {
+  color: var(--color-eco-green, #81c784);
 }
 
 h3 {

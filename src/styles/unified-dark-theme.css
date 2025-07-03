@@ -20,7 +20,7 @@
 
   /* Colores de Texto - Alta Legibilidad */
   --text-primary: #ffffff; /* Blanco puro para texto principal */
-  --text-secondary: rgba(255, 255, 255, 0.87); /* Blanco 87% opacidad */
+  --text-secondary: rgba(255, 255, 255, 0.9); /* Blanco 90% opacidad */
   --text-tertiary: rgba(255, 255, 255, 0.6); /* Blanco 60% opacidad */
   --text-disabled: rgba(255, 255, 255, 0.38); /* Blanco 38% opacidad */
 
@@ -35,9 +35,9 @@
   --active-overlay: rgba(255, 255, 255, 0.16);
 
   /* Bordes y Divisores - Ajustado para mejor contraste (WCAG 3:1 mínimo) */
-  --border-subtle: rgba(255, 255, 255, 0.2);
-  --border-default: rgba(255, 255, 255, 0.3);
-  --border-strong: rgba(255, 255, 255, 0.5);
+  --border-subtle: rgba(255, 255, 255, 0.4);
+  --border-default: rgba(255, 255, 255, 0.5);
+  --border-strong: rgba(255, 255, 255, 0.7);
 
   /* Sombras para Dark Mode */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.8);
@@ -53,7 +53,7 @@
   */
 
   /* Enlaces con Alto Contraste */
-  --link-default: #64b5f6; /* Azul claro - ratio 8.2:1 */
+  --link-default: #6bb6ff; /* Azul claro - ratio 9.1:1 */
   --link-hover: #90caf9; /* Azul más claro - ratio 11.4:1 */
   --link-visited: #ba68c8; /* Púrpura claro - ratio 7.3:1 */
 
@@ -872,16 +872,16 @@ a.nav-link.active::after {
 
   /* Text colors */
   --text-primary: #212121;
-  --text-secondary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.9);
   --text-tertiary: rgba(0, 0, 0, 0.6);
   --text-disabled: rgba(0, 0, 0, 0.38);
   --text-inverse: #ffffff;
   --text-on-accent: #000000;
 
   /* Border colors */
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --border-default: rgba(0, 0, 0, 0.12);
-  --border-strong: rgba(0, 0, 0, 0.23);
+  --border-subtle: rgba(0, 0, 0, 0.15);
+  --border-default: rgba(0, 0, 0, 0.2);
+  --border-strong: rgba(0, 0, 0, 0.3);
 
   /* Surface colors */
   --surface-overlay: rgba(255, 255, 255, 0.95);

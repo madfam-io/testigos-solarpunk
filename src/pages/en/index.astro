@@ -36,7 +36,11 @@ if (isVercel === true) {
 }
 ---
 
-<BaseLayout title={t('site.title')} lang={lang}>
+<BaseLayout
+  title={t('site.title')}
+  description={t('site.description')}
+  lang={lang}
+>
   <!-- Skip to content link for accessibility -->
   <a
     href="#main-content"

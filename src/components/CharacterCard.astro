@@ -100,7 +100,7 @@ if (basePath.endsWith('/')) {
 
   <!-- Character information section -->
   <div class="character-info">
-    <h3>{nombre}</h3>
+    <h2 class="character-name">{nombre}</h2>
     <!-- Metadata with separator -->
     <p class="character-meta">
       <span>{edad} años</span> • <span>{ocupacion}</span>
@@ -148,8 +148,16 @@ if (basePath.endsWith('/')) {
     font-weight: 500;
   }
 
+  /* Character name styling to match h3 appearance */
+  .character-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--espacio-sm);
+    line-height: 1.2;
+  }
+
   /* Character name styling with brand color */
-  .character-info h3 {
+  .character-info .character-name {
     color: var(--purpura-creativo);
     margin-bottom: var(--espacio-sm);
   }
