@@ -198,7 +198,12 @@ if (basePath.endsWith('/')) {
 
       <div class="typography-samples">
         <div class="type-sample">
-          <h1 class="evangelista-title">Título Evangelista</h1>
+          <div
+            class="evangelista-title h1-example"
+            aria-label="Ejemplo de título evangelista"
+          >
+            Título Evangelista
+          </div>
           <p class="type-info">
             Font: System UI • Weight: Bold • Gradient: Dorado → Verde
           </p>
@@ -413,6 +418,14 @@ if (basePath.endsWith('/')) {
     font-size: 2.5rem;
     margin-bottom: var(--espacio-xxl);
     color: var(--verde-sostenible);
+  }
+
+  /* Typography examples - styled like h1 but semantic divs */
+  .h1-example {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--espacio-md);
   }
 
   /* Colors Section */

@@ -178,7 +178,7 @@ img {
 }
 
 .text-muted {
-  color: var(--texto-secundario);
+  color: var(--madfam-gray-800);
 }
 
 .mt-1 {

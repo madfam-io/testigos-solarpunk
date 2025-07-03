@@ -872,16 +872,16 @@ a.nav-link.active::after {
 
   /* Text colors */
   --text-primary: #212121;
-  --text-secondary: rgba(0, 0, 0, 0.9);
-  --text-tertiary: rgba(0, 0, 0, 0.7);
-  --text-disabled: rgba(0, 0, 0, 0.5);
+  --text-secondary: rgba(0, 0, 0, 0.87);
+  --text-tertiary: rgba(0, 0, 0, 0.75);
+  --text-disabled: rgba(0, 0, 0, 0.6);
   --text-inverse: #ffffff;
   --text-on-accent: #000000;
 
   /* Border colors */
-  --border-subtle: rgba(0, 0, 0, 0.25);
-  --border-default: rgba(0, 0, 0, 0.35);
-  --border-strong: rgba(0, 0, 0, 0.45);
+  --border-subtle: rgba(0, 0, 0, 0.38);
+  --border-default: rgba(0, 0, 0, 0.42);
+  --border-strong: rgba(0, 0, 0, 0.54);
 
   /* Surface colors */
   --surface-overlay: rgba(255, 255, 255, 0.95);

@@ -1072,7 +1072,7 @@ const isTouchDevice = isMobileDevice || isTablet;
       <div class="container">
         <div class="grid grid-3">
           <div>
-            <h4>{t('footer.creative.universe')}</h4>
+            <h2>{t('footer.creative.universe')}</h2>
             <ul>
               <li>
                 <a href={getLangPath('personajes/')}
@@ -1090,7 +1090,7 @@ const isTouchDevice = isMobileDevice || isTablet;
             </ul>
           </div>
           <div>
-            <h4>{t('footer.for.creators')}</h4>
+            <h2>{t('footer.for.creators')}</h2>
             <ul>
               <li>
                 <a href={getLangPath('recursos/')}
@@ -1116,7 +1116,7 @@ const isTouchDevice = isMobileDevice || isTablet;
             </ul>
           </div>
           <div>
-            <h4>{t('footer.connect')}</h4>
+            <h2>{t('footer.connect')}</h2>
             <ul>
               <li>
                 <a href={getLangPath('comunidad/')}
@@ -1170,9 +1170,11 @@ const isTouchDevice = isMobileDevice || isTablet;
     margin-bottom: var(--espacio-sm);
   }
 
-  footer h4 {
+  footer h2 {
     color: var(--accent-primary, var(--amarillo-solar));
     margin-bottom: var(--espacio-md);
+    font-size: 1.25rem;
+    font-weight: 600;
   }
 
   /* Navigation actions container */
