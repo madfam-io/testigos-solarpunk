@@ -514,6 +514,6 @@
   }
 
   .status {
-    filter: brightness(0.8);
+    /* Removed brightness filter for better contrast */
   }
 }
