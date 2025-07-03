@@ -286,7 +286,7 @@ lsof -ti:4321
 ### Performance Budgets
 
 ```javascript
-// lighthouserc.js
+// lighthouserc.cjs
 'first-contentful-paint': ['error', { maxNumericValue: 1800 }],
 'largest-contentful-paint': ['error', { maxNumericValue: 2500 }],
 'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],

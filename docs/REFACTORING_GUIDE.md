@@ -97,8 +97,8 @@ tests/unit/i18n/config.test.ts (53 tests)
 #### 3.2 Lighthouse CI
 
 - **Configuraciones**:
-  - `/lighthouserc.js` (mobile)
-  - `/lighthouserc.desktop.js` (desktop)
+  - `/lighthouserc.cjs` (mobile)
+  - `/lighthouserc.desktop.cjs` (desktop)
   - `/.github/workflows/lighthouse.yml` (CI/CD)
 - **Thresholds**:
   - Performance: >90% (mobile), >95% (desktop)
