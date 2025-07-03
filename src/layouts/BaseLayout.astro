@@ -98,6 +98,10 @@ const isTouchDevice = isMobileDevice || isTablet;
       name="robots"
       content={noindex ? 'noindex, nofollow' : 'index, follow'}
     />
+
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <meta name="author" content="MADFAM" />
     <meta
       name="keywords"
@@ -1090,15 +1094,18 @@ const isTouchDevice = isMobileDevice || isTablet;
             <ul>
               <li>
                 <a href={getLangPath('recursos/')}
-                  >{t('footer.guides.templates')}</a>
+                  >{t('footer.guides.templates')}</a
+                >
               </li>
               <li>
                 <a href={getLangPath('produccion/')}
-                  >{t('footer.style.guide')}</a>
+                  >{t('footer.style.guide')}</a
+                >
               </li>
               <li>
                 <a href={getLangPath('guia-visual/')}
-                  >{t('footer.visual.guide')}</a>
+                  >{t('footer.visual.guide')}</a
+                >
               </li>
               <li>
                 <a href={getLangPath('filosofia/')}>{t('philosophy.title')}</a>

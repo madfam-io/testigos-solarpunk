@@ -1,5 +1,7 @@
-const CACHE_NAME = 'testigos-solarpunk-v2';
-const RUNTIME_CACHE = 'testigos-runtime-v2';
+const CACHE_NAME = 'testigos-solarpunk-v3';
+const RUNTIME_CACHE = 'testigos-runtime-v3';
+const IMAGE_CACHE = 'testigos-images-v1';
+const FONT_CACHE = 'testigos-fonts-v1';
 const STATIC_CACHE_URLS = [
   '/testigos-solarpunk/',
   '/testigos-solarpunk/index.html',
@@ -33,7 +35,13 @@ self.addEventListener('activate', (e) => {
       .then((n) =>
         Promise.all(
           n
-            .filter((c) => c !== CACHE_NAME && c !== RUNTIME_CACHE)
+            .filter(
+              (c) =>
+                c !== CACHE_NAME &&
+                c !== RUNTIME_CACHE &&
+                c !== IMAGE_CACHE &&
+                c !== FONT_CACHE
+            )
             .map((c) => caches.delete(c))
         )
       )
@@ -45,13 +53,16 @@ self.addEventListener('fetch', (e) => {
   const u = new URL(r.url);
   if (r.method !== 'GET' || !u.origin.includes(self.location.origin)) return;
   if (isStaticAsset(u.pathname)) {
+    // Use appropriate cache based on asset type
+    const cacheName = getAssetCache(u.pathname);
     e.respondWith(
       caches.match(r).then((c) => {
         if (c) {
-          fetchAndCache(r, CACHE_NAME);
+          // Return from cache and update in background
+          fetchAndCache(r, cacheName);
           return c;
         }
-        return fetchAndCache(r, CACHE_NAME);
+        return fetchAndCache(r, cacheName);
       })
     );
     return;
@@ -146,6 +157,16 @@ async function fetchAndCache(r, n) {
     if (c) return c;
     throw e;
   }
+}
+function getAssetCache(pathname) {
+  if (CACHE_PATTERNS.images.test(pathname)) return IMAGE_CACHE;
+  if (CACHE_PATTERNS.fonts.test(pathname)) return FONT_CACHE;
+  if (
+    CACHE_PATTERNS.styles.test(pathname) ||
+    CACHE_PATTERNS.scripts.test(pathname)
+  )
+    return CACHE_NAME;
+  return RUNTIME_CACHE;
 }
 async function updateContent() {
   try {
