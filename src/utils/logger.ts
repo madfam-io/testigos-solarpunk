@@ -2,7 +2,7 @@
  * @fileoverview Production-Safe Logging Utility
  * @author MADFAM
  * @version 0.5.0
- * 
+ *
  * Provides conditional logging that respects production environment.
  * Integrates with telemetry system for error tracking while keeping
  * console clean in production builds.
@@ -42,43 +42,75 @@ class Logger {
 
   /**
    * Log debug information (development only)
+   * @param {string} message - Debug message to log
+   * @param {unknown} [data] - Optional data to include with the log
+   * @param {string} [source] - Optional source identifier for tracking
+   * @example
+   * log.debug('Component mounted', { props }, 'MyComponent');
    */
   debug(message: string, data?: unknown, source?: string): void {
     if (this.isDevelopment) {
       // eslint-disable-next-line no-console
-      console.debug(`[DEBUG] ${message}`, data !== null && data !== undefined ? data : '');
+      console.debug(
+        `[DEBUG] ${message}`,
+        data !== null && data !== undefined ? data : ''
+      );
     }
     this.addToHistory('debug', message, data, source);
   }
 
   /**
    * Log informational messages
+   * @param {string} message - Info message to log
+   * @param {unknown} [data] - Optional data to include
+   * @param {string} [source] - Optional source identifier
+   * @example
+   * log.info('User logged in', { userId: 123 }, 'AuthService');
    */
   info(message: string, data?: unknown, source?: string): void {
     if (this.isDevelopment) {
       // eslint-disable-next-line no-console
-      console.info(`[INFO] ${message}`, data !== null && data !== undefined ? data : '');
+      console.info(
+        `[INFO] ${message}`,
+        data !== null && data !== undefined ? data : ''
+      );
     }
     this.addToHistory('info', message, data, source);
   }
 
   /**
    * Log warnings (always shown)
+   * @param {string} message - Warning message
+   * @param {unknown} [data] - Optional warning context
+   * @param {string} [source] - Optional source identifier
+   * @example
+   * log.warn('API rate limit approaching', { remaining: 10 });
    */
   warn(message: string, data?: unknown, source?: string): void {
     // eslint-disable-next-line no-console
-    console.warn(`[WARN] ${message}`, data !== null && data !== undefined ? data : '');
+    console.warn(
+      `[WARN] ${message}`,
+      data !== null && data !== undefined ? data : ''
+    );
     this.addToHistory('warn', message, data, source);
   }
 
   /**
    * Log errors (always shown and sent to telemetry)
+   * @param {string} message - Error description
+   * @param {Error} [error] - Error object to log
+   * @param {string} [source] - Optional source identifier
+   * @example
+   * log.error('Failed to fetch data', error, 'DataService');
    */
   error(message: string, error?: Error, source?: string): void {
     // eslint-disable-next-line no-console
-    console.error(`[ERROR] ${message}`, error !== null && error !== undefined ? error : '');
+    console.error(
+      `[ERROR] ${message}`,
+      error !== null && error !== undefined ? error : ''
+    );
     this.addToHistory('error', message, error, source);
-    
+
     // Send to telemetry if available
     this.sendToTelemetry('error', message, error, source);
   }
@@ -97,6 +129,10 @@ class Logger {
 
   /**
    * Get recent log history
+   * @param {LogLevel} [level] - Filter by specific log level
+   * @returns {LogEntry[]} Array of log entries
+   * @example
+   * const errors = log.getHistory('error');
    */
   getHistory(): LogEntry[] {
     return [...this.logHistory];
@@ -142,17 +178,23 @@ class Logger {
 
     try {
       // Dynamic import to avoid circular dependencies
-      import('./telemetry').then(({ default: telemetry }) => {
-        if (telemetry !== null && telemetry !== undefined && telemetry.isActive() === true) {
-          telemetry.trackError(error instanceof Error ? error : message, {
-            level,
-            source,
-            timestamp: new Date().toISOString(),
-          });
-        }
-      }).catch(() => {
-        // Telemetry not available, ignore silently
-      });
+      import('./telemetry')
+        .then(({ default: telemetry }) => {
+          if (
+            telemetry !== null &&
+            telemetry !== undefined &&
+            telemetry.isActive() === true
+          ) {
+            telemetry.trackError(error instanceof Error ? error : message, {
+              level,
+              source,
+              timestamp: new Date().toISOString(),
+            });
+          }
+        })
+        .catch(() => {
+          // Telemetry not available, ignore silently
+        });
     } catch {
       // Telemetry not available, ignore silently
     }
