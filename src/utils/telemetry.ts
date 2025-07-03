@@ -330,7 +330,9 @@ export class TelemetryManager {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ events }),
         keepalive: true,
-      }).catch((error) => log.warn('Failed to send telemetry via fetch', error, 'telemetry'));
+      }).catch((error) =>
+        log.warn('Failed to send telemetry via fetch', error, 'telemetry')
+      );
     }
   }
 
@@ -357,8 +359,11 @@ export class TelemetryManager {
    */
   enable(): void {
     localStorage.setItem('testigos-telemetry-consent', 'granted');
-    this.isEnabled = true;
-    this.initialize();
+    // Only actually enable if in production
+    this.isEnabled = import.meta.env.PROD;
+    if (this.isEnabled) {
+      this.initialize();
+    }
   }
 
   /**
