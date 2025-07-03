@@ -21,8 +21,8 @@
   /* Colores de Texto - Alta Legibilidad */
   --text-primary: #ffffff; /* Blanco puro para texto principal */
   --text-secondary: rgba(255, 255, 255, 0.9); /* Blanco 90% opacidad */
-  --text-tertiary: rgba(255, 255, 255, 0.6); /* Blanco 60% opacidad */
-  --text-disabled: rgba(255, 255, 255, 0.38); /* Blanco 38% opacidad */
+  --text-tertiary: rgba(255, 255, 255, 0.7); /* Blanco 70% opacidad */
+  --text-disabled: rgba(255, 255, 255, 0.5); /* Blanco 50% opacidad */
 
   /* Colores de Acento y Estado */
   --accent-primary: var(--madfam-yellow-dark);
@@ -35,9 +35,9 @@
   --active-overlay: rgba(255, 255, 255, 0.16);
 
   /* Bordes y Divisores - Ajustado para mejor contraste (WCAG 3:1 mínimo) */
-  --border-subtle: rgba(255, 255, 255, 0.4);
-  --border-default: rgba(255, 255, 255, 0.5);
-  --border-strong: rgba(255, 255, 255, 0.7);
+  --border-subtle: rgba(255, 255, 255, 0.5);
+  --border-default: rgba(255, 255, 255, 0.6);
+  --border-strong: rgba(255, 255, 255, 0.8);
 
   /* Sombras para Dark Mode */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.8);
@@ -873,15 +873,15 @@ a.nav-link.active::after {
   /* Text colors */
   --text-primary: #212121;
   --text-secondary: rgba(0, 0, 0, 0.9);
-  --text-tertiary: rgba(0, 0, 0, 0.6);
-  --text-disabled: rgba(0, 0, 0, 0.38);
+  --text-tertiary: rgba(0, 0, 0, 0.7);
+  --text-disabled: rgba(0, 0, 0, 0.5);
   --text-inverse: #ffffff;
   --text-on-accent: #000000;
 
   /* Border colors */
-  --border-subtle: rgba(0, 0, 0, 0.15);
-  --border-default: rgba(0, 0, 0, 0.2);
-  --border-strong: rgba(0, 0, 0, 0.3);
+  --border-subtle: rgba(0, 0, 0, 0.25);
+  --border-default: rgba(0, 0, 0, 0.35);
+  --border-strong: rgba(0, 0, 0, 0.45);
 
   /* Surface colors */
   --surface-overlay: rgba(255, 255, 255, 0.95);
