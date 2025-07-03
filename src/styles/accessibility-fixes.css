@@ -1,151 +1,102 @@
 /**
- * Accessibility Fixes - WCAG AAA Compliance
+ * Accessibility Fixes - WCAG AA Compliance
  * 
- * High-specificity overrides to fix color contrast issues
+ * Global style overrides to fix color contrast issues
  * identified by Lighthouse CI audits.
+ * 
+ * Uses :global() to bypass Astro's scoped styles and ensure
+ * consistent application regardless of generated data-astro-cid attributes.
  * 
  * These rules ensure all interactive elements meet or exceed
  * WCAG AA standards (4.5:1 for normal text, 3:1 for large text)
  */
 
 /* =================================================================
- * Button Link Color Inheritance Fixes
+ * Global Style Overrides for Astro Scoped Components
  * ================================================================= */
 
-/* Critical: Override ALL link styles for buttons with maximum specificity */
-html body a.btn,
-html body a.btn:link,
-html body a.btn:visited,
-html body a.btn:hover,
-html body a.btn:focus,
-html body a.btn:active,
-html body .btn:is(a),
-html body .btn:is(a):link,
-html body .btn:is(a):visited,
-html body .btn:is(a):hover,
-html body .btn:is(a):focus,
-html body .btn:is(a):active {
-  /* Block ALL link color inheritance */
-  color: inherit !important;
+/* Use :global() to ensure styles apply regardless of Astro's scoping */
+:global(html) {
+  /* Button Link Color Inheritance Fixes */
+  & :is(a.btn, .btn:is(a)) {
+    &,
+    &:link,
+    &:visited,
+    &:hover,
+    &:focus,
+    &:active {
+      /* Block ALL link color inheritance */
+      color: inherit !important;
+    }
+  }
 }
 
-/* Primary buttons - FORCE black text on ALL themes */
-html body a.btn.btn-primary,
-html body .btn.btn-primary:is(a),
-html body .card-footer a.btn.btn-primary,
-html body .magazine-card a.btn.btn-primary,
-html body .cta-section a.btn.btn-primary,
-html body .hero-actions a.btn.btn-primary,
-html body article a.btn.btn-primary,
-html body section a.btn.btn-primary {
+/* Primary buttons - WCAG AA compliant contrast */
+:global(.btn-primary),
+:global(a.btn-primary),
+:global(.btn.btn-primary) {
   color: #000000 !important;
-  background-color: #ffc107 !important; /* Ensure yellow background */
+  background-color: #ffc107 !important;
+
+  &:hover,
+  &:focus {
+    color: #000000 !important;
+    background-color: #ffca2c !important;
+  }
 }
 
-/* Primary button hover states */
-html body a.btn.btn-primary:hover,
-html body .btn.btn-primary:is(a):hover,
-html body .card-footer a.btn.btn-primary:hover,
-html body .magazine-card a.btn.btn-primary:hover {
+/* Secondary buttons - Light theme */
+:global(.btn-secondary),
+:global(a.btn-secondary),
+:global(.btn.btn-secondary) {
   color: #000000 !important;
-  background-color: #ffca2c !important; /* Slightly lighter yellow */
+  background-color: #e0e0e0 !important;
+
+  &:hover,
+  &:focus {
+    color: #000000 !important;
+    background-color: #d5d5d5 !important;
+  }
 }
 
-/* Secondary buttons - LIGHT THEME - dark text on light backgrounds */
-html body a.btn.btn-secondary,
-html body .btn.btn-secondary:is(a),
-html body .card-footer a.btn.btn-secondary,
-html body .magazine-card a.btn.btn-secondary,
-html body .cta-section a.btn.btn-secondary,
-html body article a.btn.btn-secondary,
-html body section a.btn.btn-secondary {
-  color: #000000 !important; /* Black text for light backgrounds */
-  background-color: #e0e0e0 !important; /* Light gray background */
-}
+/* Secondary buttons - Dark theme */
+:global([data-theme='dark']) {
+  :global(.btn-secondary),
+  :global(a.btn-secondary),
+  :global(.btn.btn-secondary) {
+    background-color: #1b5e20 !important;
+    color: #ffffff !important;
 
-/* Secondary button hover - light theme */
-html body a.btn.btn-secondary:hover,
-html body .btn.btn-secondary:is(a):hover {
-  color: #000000 !important;
-  background-color: #d5d5d5 !important;
-}
-
-/* Dark theme - ALL secondary buttons need proper colors */
-html body[data-theme='dark'] a.btn.btn-secondary,
-html body[data-theme='dark'] .btn.btn-secondary:is(a),
-html body[data-theme='dark'] .card-footer a.btn.btn-secondary,
-html body[data-theme='dark'] .magazine-card a.btn.btn-secondary,
-html body[data-theme='dark'] section a.btn.btn-secondary,
-html body[data-theme='dark'] article a.btn.btn-secondary {
-  background-color: #1b5e20 !important; /* Very dark green for contrast */
-  color: #ffffff !important;
-}
-
-html body[data-theme='dark'] a.btn.btn-secondary:hover,
-html body[data-theme='dark'] .btn.btn-secondary:is(a):hover {
-  background-color: #2e7d32 !important;
-  color: #ffffff !important;
+    &:hover,
+    &:focus {
+      background-color: #2e7d32 !important;
+      color: #ffffff !important;
+    }
+  }
 }
 
 /* =================================================================
  * Phase Status Badge Contrast Fixes
  * ================================================================= */
 
-/* CRITICAL: Force phase status colors with maximum specificity */
-
-/* Active phase - WCAG AA compliant green (4.5:1 ratio) */
-html body .fase-status.active,
-html body .magazine-card .fase-status.active,
-html body .card-footer .fase-status.active,
-html body article .fase-status.active {
-  background-color: #1b5e20 !important; /* Very dark green - 7.54:1 ratio */
-  color: #ffffff !important;
+/* Phase status badges - WCAG AA compliant colors */
+:global(.fase-status) {
   filter: none !important;
-}
 
-/* Upcoming phase - WCAG AA compliant blue (4.5:1 ratio) */
-html body .fase-status.upcoming,
-html body .magazine-card .fase-status.upcoming,
-html body .card-footer .fase-status.upcoming,
-html body article .fase-status.upcoming {
-  background-color: #0d47a1 !important; /* Very dark blue - 8.59:1 ratio */
-  color: #ffffff !important;
-  filter: none !important;
-}
+  &:global(.active) {
+    background-color: #1b5e20 !important; /* Very dark green - 7.54:1 ratio */
+    color: #ffffff !important;
+  }
 
-/* Development phase - WCAG AA compliant orange */
-html body .fase-status.development,
-html body .magazine-card .fase-status.development,
-html body .card-footer .fase-status.development,
-html body article .fase-status.development {
-  background-color: #bf360c !important; /* Very dark orange - 5.37:1 ratio */
-  color: #ffffff !important;
-  filter: none !important;
-}
+  &:global(.upcoming) {
+    background-color: #0d47a1 !important; /* Very dark blue - 8.59:1 ratio */
+    color: #ffffff !important;
+  }
 
-/* Dark theme - same colors work for both themes */
-html body[data-theme='dark'] .fase-status.active,
-html body[data-theme='dark'] .magazine-card .fase-status.active,
-html body[data-theme='dark'] .card-footer .fase-status.active {
-  background-color: #1b5e20 !important;
-  color: #ffffff !important;
-  filter: none !important;
-}
-
-html body[data-theme='dark'] .fase-status.upcoming,
-html body[data-theme='dark'] .magazine-card .fase-status.upcoming,
-html body[data-theme='dark'] .card-footer .fase-status.upcoming {
-  background-color: #0d47a1 !important;
-  color: #ffffff !important;
-  filter: none !important;
-}
-
-html body[data-theme='dark'] .fase-status.development,
-html body[data-theme='dark'] .magazine-card .fase-status.development,
-html body[data-theme='dark'] .card-footer .fase-status.development {
-  background-color: #bf360c !important;
-  color: #ffffff !important;
-  filter: none !important;
+  &:global(.development) {
+    background-color: #bf360c !important; /* Very dark orange - 5.37:1 ratio */
+    color: #ffffff !important;
+  }
 }
 
 /* =================================================================
@@ -153,36 +104,33 @@ html body[data-theme='dark'] .card-footer .fase-status.development {
  * ================================================================= */
 
 /* Magazine buttons - special styling buttons */
-html body .magazine-btn,
-html body a.magazine-btn,
-html body .magazine-btn:is(a) {
-  /* Block link color inheritance */
+:global(.magazine-btn) {
   color: inherit !important;
-}
 
-html body .magazine-btn.primary,
-html body a.magazine-btn.primary {
-  color: #000000 !important; /* Black on yellow */
-  background-color: #ffc107 !important;
-}
+  &:global(.primary) {
+    color: #000000 !important;
+    background-color: #ffc107 !important;
+  }
 
-html body .magazine-btn.secondary,
-html body a.magazine-btn.secondary {
-  color: #000000 !important; /* Black on light gray */
-  background-color: #e0e0e0 !important;
+  &:global(.secondary) {
+    color: #000000 !important;
+    background-color: #e0e0e0 !important;
+  }
 }
 
 /* Dark theme magazine buttons */
-html body[data-theme='dark'] .magazine-btn.primary,
-html body[data-theme='dark'] a.magazine-btn.primary {
-  color: #000000 !important; /* Keep black on yellow */
-  background-color: #ffc107 !important;
-}
+:global([data-theme='dark']) {
+  :global(.magazine-btn) {
+    &:global(.primary) {
+      color: #000000 !important;
+      background-color: #ffc107 !important;
+    }
 
-html body[data-theme='dark'] .magazine-btn.secondary,
-html body[data-theme='dark'] a.magazine-btn.secondary {
-  color: #ffffff !important; /* White on dark green */
-  background-color: #1b5e20 !important;
+    &:global(.secondary) {
+      color: #ffffff !important;
+      background-color: #1b5e20 !important;
+    }
+  }
 }
 
 /* Ensure all themed magazine cards have proper button contrast */
@@ -201,353 +149,224 @@ html body .magazine-card.theme-tech .btn {
  * ================================================================= */
 
 /* Ensure meta text has sufficient contrast */
-html body .character-meta,
-html body .meta-item,
-html body .text-muted {
-  color: #424242 !important; /* Dark gray for light theme */
+:global(.character-meta),
+:global(.meta-item),
+:global(.text-muted) {
+  color: #424242 !important; /* Dark gray - 9.73:1 on white */
 }
 
-html body[data-theme='dark'] .character-meta,
-html body[data-theme='dark'] .meta-item,
-html body[data-theme='dark'] .text-muted {
-  color: #e0e0e0 !important; /* Light gray for dark theme */
+:global([data-theme='dark']) {
+  :global(.character-meta),
+  :global(.meta-item),
+  :global(.text-muted) {
+    color: #e0e0e0 !important; /* Light gray - 12.63:1 on black */
+  }
 }
 
-/* CTA Section specific text contrast - higher specificity */
-html body .cta-section .text-muted,
-html body section.cta-section .text-muted,
-html body section.cta-section p.text-muted {
-  color: #212121 !important; /* Very dark gray - 15.87:1 contrast ratio */
+/* CTA Section text on dark backgrounds */
+:global(.cta-section) :global(.text-muted) {
+  color: #212121 !important; /* Very dark gray - 15.87:1 on light bg */
 }
 
-html body[data-theme='dark'] .cta-section .text-muted,
-html body[data-theme='dark'] section.cta-section .text-muted,
-html body[data-theme='dark'] section.cta-section p.text-muted {
-  color: #f5f5f5 !important; /* Very light gray for dark theme */
+:global([data-theme='dark']) :global(.cta-section) :global(.text-muted) {
+  color: #f5f5f5 !important; /* Very light gray - 18.1:1 on dark bg */
 }
 
-/* Card description text */
-html body .card-description,
-html body .card p,
-html body .magazine-card p {
-  color: #212121 !important; /* Very dark gray for light theme */
+/* Card and description text */
+:global(.card-description),
+:global(.card) :global(p),
+:global(.magazine-card) :global(p) {
+  color: #212121 !important;
 }
 
-html body[data-theme='dark'] .card-description,
-html body[data-theme='dark'] .card p,
-html body[data-theme='dark'] .magazine-card p {
-  color: #f5f5f5 !important; /* Very light gray for dark theme */
+:global([data-theme='dark']) {
+  :global(.card-description),
+  :global(.card) :global(p),
+  :global(.magazine-card) :global(p) {
+    color: #f5f5f5 !important;
+  }
 }
 
-/* Ensure all interactive elements are clearly visible */
-html body a:not(.btn):not(.magazine-btn) {
-  color: #1565c0 !important; /* Dark blue for light theme */
+/* Links - high contrast colors */
+:global(a:not(.btn):not(.magazine-btn)) {
+  color: #0d47a1 !important; /* Very dark blue - 8.59:1 on white */
+  text-decoration: underline !important;
+
+  &:hover,
+  &:focus {
+    color: #01579b !important; /* Even darker blue */
+  }
 }
 
-html body a:not(.btn):not(.magazine-btn):hover {
+:global([data-theme='dark']) :global(a:not(.btn):not(.magazine-btn)) {
+  color: #64b5f6 !important; /* Light blue - 9.03:1 on black */
+
+  &:hover,
+  &:focus {
+    color: #90caf9 !important;
+  }
+}
+
+/* Footer links */
+:global(footer) :global(a:not(.btn):not(.magazine-btn)) {
   color: #0d47a1 !important;
-}
-
-html body[data-theme='dark'] a:not(.btn):not(.magazine-btn) {
-  color: #64b5f6 !important; /* Light blue for dark theme */
-}
-
-html body[data-theme='dark'] a:not(.btn):not(.magazine-btn):hover {
-  color: #90caf9 !important;
-}
-
-/* Footer links specific override with maximum specificity */
-html body footer a:not(.btn):not(.magazine-btn),
-html body footer ul a:not(.btn):not(.magazine-btn),
-html body footer ul li a:not(.btn):not(.magazine-btn),
-html body footer nav a:not(.btn):not(.magazine-btn),
-html body footer nav ul a:not(.btn):not(.magazine-btn),
-html body footer nav ul li a:not(.btn):not(.magazine-btn),
-html body footer .footer-links a:not(.btn):not(.magazine-btn),
-html body footer .footer-links ul a:not(.btn):not(.magazine-btn),
-html body footer .footer-links ul li a:not(.btn):not(.magazine-btn) {
-  color: #0d47a1 !important; /* Very dark blue - 8.59:1 contrast ratio */
   text-decoration: underline !important;
+
+  &:hover,
+  &:focus {
+    color: #01579b !important;
+  }
 }
 
-html body footer a:not(.btn):not(.magazine-btn):hover,
-html body footer ul li a:not(.btn):not(.magazine-btn):hover {
-  color: #01579b !important; /* Even darker blue on hover */
-  text-decoration: underline !important;
-}
+:global([data-theme='dark'])
+  :global(footer)
+  :global(a:not(.btn):not(.magazine-btn)) {
+  color: #ffd54f !important;
 
-/* Dark theme footer links */
-html body[data-theme='dark'] footer a:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] footer ul a:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] footer ul li a:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] footer nav a:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] footer nav ul a:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] footer nav ul li a:not(.btn):not(.magazine-btn),
-html
-  body[data-theme='dark']
-  footer
-  .footer-links
-  a:not(.btn):not(.magazine-btn),
-html
-  body[data-theme='dark']
-  footer
-  .footer-links
-  ul
-  a:not(.btn):not(.magazine-btn),
-html
-  body[data-theme='dark']
-  footer
-  .footer-links
-  ul
-  li
-  a:not(.btn):not(.magazine-btn) {
-  color: #ffd54f !important; /* Bright yellow for excellent contrast */
-  text-decoration: underline !important;
-}
-
-html body[data-theme='dark'] footer a:not(.btn):not(.magazine-btn):hover,
-html body[data-theme='dark'] footer ul li a:not(.btn):not(.magazine-btn):hover {
-  color: #ffe082 !important;
-  text-decoration: underline !important;
-}
-
-/* =================================================================
- * Critical Override: Force ALL button text colors
- * ================================================================= */
-
-/* This section uses !important with maximum specificity to ensure
-   NO button can inherit link colors */
-
-html body .btn,
-html body .btn:link,
-html body .btn:visited,
-html body .btn:hover,
-html body .btn:focus,
-html body .btn:active,
-html body a[class*='btn'],
-html body a[class*='btn']:link,
-html body a[class*='btn']:visited,
-html body a[class*='btn']:hover,
-html body a[class*='btn']:focus,
-html body a[class*='btn']:active {
-  /* Never inherit link colors */
-  color: inherit !important;
-}
-
-/* =================================================================
- * Comprehensive Link Contrast Fixes
- * ================================================================= */
-
-/* Ensure ALL links meet contrast requirements - GLOBAL OVERRIDE */
-html body a:not(.btn):not(.magazine-btn) {
-  color: #0033cc !important; /* Very dark blue - maximum contrast */
-  text-decoration: underline !important;
-}
-
-html body a:not(.btn):not(.magazine-btn):hover,
-html body a:not(.btn):not(.magazine-btn):focus {
-  color: #002299 !important; /* Even darker on interaction */
-  text-decoration: underline !important;
-}
-
-/* Dark theme links - GLOBAL OVERRIDE */
-html body[data-theme='dark'] a:not(.btn):not(.magazine-btn) {
-  color: #99ccff !important; /* Bright blue for dark backgrounds */
-  text-decoration: underline !important;
-}
-
-html body[data-theme='dark'] a:not(.btn):not(.magazine-btn):hover,
-html body[data-theme='dark'] a:not(.btn):not(.magazine-btn):focus {
-  color: #ccddff !important;
-  text-decoration: underline !important;
+  &:hover,
+  &:focus {
+    color: #ffe082 !important;
+  }
 }
 
 /* =================================================================
  * Paragraph and Text Contrast Improvements
  * ================================================================= */
 
-/* All paragraph text must have strong contrast - GLOBAL OVERRIDE */
-html body p {
-  color: #000000 !important; /* Pure black for maximum contrast */
+/* General paragraph text */
+:global(p) {
+  color: #212121 !important; /* Very dark gray for better contrast */
 }
 
-html body[data-theme='dark'] p {
-  color: #ffffff !important; /* Pure white for dark theme */
+:global([data-theme='dark']) :global(p) {
+  color: #f5f5f5 !important; /* Very light gray for dark theme */
 }
 
-/* Hero text can have specific styling */
-html body p.hero-description,
-html body p.hero-subtitle {
-  color: inherit !important; /* Allow hero text to use its own colors */
+/* Hero text exceptions */
+:global(p.hero-description),
+:global(p.hero-subtitle) {
+  color: inherit !important;
 }
 
-/* Specific overrides for elements with insufficient contrast */
-html body .text-content,
-html body .description,
-html body .card-text,
-html body .content p {
+/* Content text */
+:global(.text-content),
+:global(.description),
+:global(.card-text),
+:global(.content) :global(p) {
   color: #212121 !important;
 }
 
-html body[data-theme='dark'] .text-content,
-html body[data-theme='dark'] .description,
-html body[data-theme='dark'] .card-text,
-html body[data-theme='dark'] .content p {
-  color: #f5f5f5 !important;
+:global([data-theme='dark']) {
+  :global(.text-content),
+  :global(.description),
+  :global(.card-text),
+  :global(.content) :global(p) {
+    color: #f5f5f5 !important;
+  }
 }
 
 /* =================================================================
- * Specific Lighthouse CI Failure Fixes
+ * Specific Component Contrast Fixes
  * ================================================================= */
 
-/* Phase card descriptions - CRITICAL contrast fix */
-html body .fase-card .fase-description,
-html body .fases-grid .fase-card .fase-description,
-html body article.fase-card .fase-content p.fase-description {
-  color: #000000 !important; /* Pure black for maximum contrast */
-  font-weight: 500 !important; /* Slightly bolder for better readability */
-}
-
-html body[data-theme='dark'] .fase-card .fase-description,
-html body[data-theme='dark'] .fases-grid .fase-card .fase-description,
-html
-  body[data-theme='dark']
-  article.fase-card
-  .fase-content
-  p.fase-description {
-  color: #ffffff !important; /* Pure white for dark theme */
-  font-weight: 500 !important;
-}
-
-/* Strategy flow paragraphs - CRITICAL contrast fix */
-html body .strategy-flow .flow-item p,
-html body div.strategy-flow div.flow-item p {
-  color: #000000 !important; /* Pure black for maximum contrast */
-  font-weight: 500 !important;
-}
-
-html body[data-theme='dark'] .strategy-flow .flow-item p,
-html body[data-theme='dark'] div.strategy-flow div.flow-item p {
-  color: #ffffff !important; /* Pure white for dark theme */
-  font-weight: 500 !important;
-}
-
-/* Generic list links with maximum specificity */
-html body div ul li a:not(.btn):not(.magazine-btn),
-html body main div ul li a:not(.btn):not(.magazine-btn),
-html body section div ul li a:not(.btn):not(.magazine-btn),
-html body article div ul li a:not(.btn):not(.magazine-btn) {
-  color: #0033cc !important; /* Darker blue - 8.33:1 contrast ratio on #141416 */
-  text-decoration: underline !important;
-  font-weight: 500 !important;
-}
-
-html body div ul li a:not(.btn):not(.magazine-btn):hover,
-html body main div ul li a:not(.btn):not(.magazine-btn):hover {
-  color: #002199 !important; /* Even darker on hover */
-}
-
-html body[data-theme='dark'] div ul li a:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] main div ul li a:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] section div ul li a:not(.btn):not(.magazine-btn),
-html body[data-theme='dark'] article div ul li a:not(.btn):not(.magazine-btn) {
-  color: #ffd54f !important; /* Bright yellow for dark theme */
-  text-decoration: underline !important;
-  font-weight: 500 !important;
-}
-
-html body[data-theme='dark'] div ul li a:not(.btn):not(.magazine-btn):hover {
-  color: #ffe082 !important;
-}
-
-/* Footer text paragraphs - CRITICAL contrast fix */
-html body footer .text-center p,
-html body footer div.container div.text-center p,
-html body footer div.text-center p {
-  color: #000000 !important; /* Pure black for maximum contrast */
-  font-weight: 500 !important;
-}
-
-html body[data-theme='dark'] footer .text-center p,
-html body[data-theme='dark'] footer div.container div.text-center p,
-html body[data-theme='dark'] footer div.text-center p {
-  color: #ffffff !important; /* Pure white for dark theme */
-  font-weight: 500 !important;
-}
-
-/* Vision grid paragraphs (English homepage) - CRITICAL contrast fix */
-html body .vision-grid .vision-item p,
-html body div.vision-grid article.vision-item p {
-  color: #000000 !important; /* Pure black for maximum contrast */
-  font-weight: 500 !important;
-}
-
-html body[data-theme='dark'] .vision-grid .vision-item p,
-html body[data-theme='dark'] div.vision-grid article.vision-item p {
-  color: #ffffff !important; /* Pure white for dark theme */
-  font-weight: 500 !important;
-}
-
-/* CTA section text on very dark backgrounds */
-html body section.cta-section p.text-muted,
-html body main#main-content section.cta-section div.container p.text-muted {
-  color: #ffffff !important; /* White text on dark background */
-  font-weight: 500 !important;
-}
-
-html body[data-theme='dark'] section.cta-section p.text-muted,
-html
-  body[data-theme='dark']
-  main#main-content
-  section.cta-section
-  div.container
-  p.text-muted {
-  color: #ffffff !important; /* Keep white for dark theme too */
-  font-weight: 500 !important;
-}
-
-/* =================================================================
- * Universal Paragraph Contrast Fix for Astro Components
- * ================================================================= */
-
-/* Target ALL paragraphs with Astro data attributes */
-html body p[data-astro-cid-7pewbour],
-html body p[data-astro-cid-ujmu5uow],
-html body p[data-astro-cid-douz6hms],
-html body p[data-astro-source-file],
-html body article p[class*='astro-'],
-html body section p[class*='astro-'],
-html body div p[class*='astro-'],
-html body main p[class*='astro-'] {
-  color: #000000 !important; /* Pure black for light theme */
-  font-weight: 500 !important;
-}
-
-html body[data-theme='dark'] p[data-astro-cid-7pewbour],
-html body[data-theme='dark'] p[data-astro-cid-ujmu5uow],
-html body[data-theme='dark'] p[data-astro-cid-douz6hms],
-html body[data-theme='dark'] p[data-astro-source-file],
-html body[data-theme='dark'] article p[class*='astro-'],
-html body[data-theme='dark'] section p[class*='astro-'],
-html body[data-theme='dark'] div p[class*='astro-'],
-html body[data-theme='dark'] main p[class*='astro-'] {
-  color: #ffffff !important; /* Pure white for dark theme */
-  font-weight: 500 !important;
-}
-
-/* Catch-all for any paragraph with data-astro attributes */
-html body p[data-astro-cid],
-html body div[class*='astro-'] p,
-html body article[class*='astro-'] p,
-html body section[class*='astro-'] p {
+/* Phase card descriptions */
+:global(.fase-card) :global(.fase-description),
+:global(.fases-grid) :global(.fase-description) {
   color: #000000 !important;
   font-weight: 500 !important;
 }
 
-html body[data-theme='dark'] p[data-astro-cid],
-html body[data-theme='dark'] div[class*='astro-'] p,
-html body[data-theme='dark'] article[class*='astro-'] p,
-html body[data-theme='dark'] section[class*='astro-'] p {
-  color: #ffffff !important;
+:global([data-theme='dark']) {
+  :global(.fase-card) :global(.fase-description),
+  :global(.fases-grid) :global(.fase-description) {
+    color: #ffffff !important;
+  }
+}
+
+/* Strategy flow text */
+:global(.strategy-flow) :global(.flow-item) :global(p) {
+  color: #000000 !important;
   font-weight: 500 !important;
+}
+
+:global([data-theme='dark'])
+  :global(.strategy-flow)
+  :global(.flow-item)
+  :global(p) {
+  color: #ffffff !important;
+}
+
+/* List links */
+:global(ul) :global(li) :global(a:not(.btn):not(.magazine-btn)) {
+  color: #0033cc !important;
+  text-decoration: underline !important;
+  font-weight: 500 !important;
+
+  &:hover,
+  &:focus {
+    color: #002199 !important;
+  }
+}
+
+:global([data-theme='dark'])
+  :global(ul)
+  :global(li)
+  :global(a:not(.btn):not(.magazine-btn)) {
+  color: #ffd54f !important;
+
+  &:hover,
+  &:focus {
+    color: #ffe082 !important;
+  }
+}
+
+/* Footer text */
+:global(footer) :global(.text-center) :global(p) {
+  color: #000000 !important;
+  font-weight: 500 !important;
+}
+
+:global([data-theme='dark']) :global(footer) :global(.text-center) :global(p) {
+  color: #ffffff !important;
+}
+
+/* Vision grid text */
+:global(.vision-grid) :global(.vision-item) :global(p) {
+  color: #000000 !important;
+  font-weight: 500 !important;
+}
+
+:global([data-theme='dark'])
+  :global(.vision-grid)
+  :global(.vision-item)
+  :global(p) {
+  color: #ffffff !important;
+}
+
+/* =================================================================
+ * Global Overrides for Astro Scoped Elements
+ * ================================================================= */
+
+/* Override any Astro scoped styles that might have contrast issues */
+:global([class*='astro-']) :global(p),
+:global([data-astro-cid]) {
+  /* Ensure minimum contrast */
+  color: #212121 !important;
+}
+
+:global([data-theme='dark']) {
+  :global([class*='astro-']) :global(p),
+  :global([data-astro-cid]) {
+    color: #f5f5f5 !important;
+  }
+}
+
+/* Character-specific text elements */
+:global(.character-name) {
+  /* Preserve brand color but ensure contrast */
+  color: #4527a0 !important; /* Darker purple for better contrast */
+}
+
+:global([data-theme='dark']) :global(.character-name) {
+  color: #9575cd !important; /* Lighter purple for dark theme */
 }

@@ -24,7 +24,7 @@
 
   --madfam-purple: #663399;
   --madfam-purple-light: #9575cd;
-  --madfam-purple-dark: #4527a0;
+  --madfam-purple-dark: #4527a0; /* WCAG AA compliant - 7.16:1 on white */
   --madfam-purple-rgb: 102, 51, 153;
 
   --madfam-blue: #2196f3;
@@ -98,7 +98,9 @@
 
   /* Colores de texto */
   --color-text-primary: var(--madfam-black);
-  --color-text-secondary: var(--madfam-gray-800);
+  --color-text-secondary: var(
+    --madfam-gray-900
+  ); /* Changed from gray-800 for better contrast */
   --color-text-disabled: var(--madfam-gray-600);
   --color-text-hint: var(--madfam-gray-700);
   --color-text-on-primary: var(--madfam-black);

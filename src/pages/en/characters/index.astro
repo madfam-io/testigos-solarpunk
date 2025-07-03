@@ -25,6 +25,7 @@ const characters: CollectionEntry<'characters'>[] =
 
   <section class="filters-section">
     <div class="container">
+      <h2 class="visually-hidden">Filter characters by category</h2>
       <div class="filter-buttons">
         <button class="filter-btn active" data-filter="todos"
           >{t('characters.filters.all')}</button
@@ -189,6 +190,19 @@ const characters: CollectionEntry<'characters'>[] =
     z-index: 10;
     font-size: 1.2rem;
     filter: drop-shadow(2px 2px 4px var(--cutout-shadow-dark));
+  }
+
+  /* Visually hidden but accessible to screen readers */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>
 
