@@ -16,6 +16,7 @@ const path = require('path');
 const config = {
   // URLs to test
   urls: [
+    'http://localhost:4321/testigos-solarpunk/en/',
     'http://localhost:4321/testigos-solarpunk/es/',
     'http://localhost:4321/testigos-solarpunk/es/proyecto/',
     'http://localhost:4321/testigos-solarpunk/es/contenido/',

@@ -5,52 +5,85 @@
  * identified by Lighthouse CI audits.
  * 
  * These rules ensure all interactive elements meet or exceed
- * WCAG AAA standards (7:1 for normal text, 4.5:1 for large text)
+ * WCAG AA standards (4.5:1 for normal text, 3:1 for large text)
  */
 
 /* =================================================================
  * Button Link Color Inheritance Fixes
  * ================================================================= */
 
-/* Ensure button links use proper button text colors, not link colors */
-a.btn,
-a.btn:visited,
-a.btn:hover,
-a.btn:focus,
-a.btn:active {
-  /* Reset link color inheritance */
-  color: inherit;
+/* Critical: Override ALL link styles for buttons with maximum specificity */
+html body a.btn,
+html body a.btn:link,
+html body a.btn:visited,
+html body a.btn:hover,
+html body a.btn:focus,
+html body a.btn:active,
+html body .btn:is(a),
+html body .btn:is(a):link,
+html body .btn:is(a):visited,
+html body .btn:is(a):hover,
+html body .btn:is(a):focus,
+html body .btn:is(a):active {
+  /* Block ALL link color inheritance */
+  color: inherit !important;
 }
 
-/* Primary buttons - black text on yellow background */
-a.btn.btn-primary,
-.card-footer a.btn.btn-primary,
-.magazine-card a.btn.btn-primary,
-.cta-section a.btn.btn-primary {
+/* Primary buttons - FORCE black text on ALL themes */
+html body a.btn.btn-primary,
+html body .btn.btn-primary:is(a),
+html body .card-footer a.btn.btn-primary,
+html body .magazine-card a.btn.btn-primary,
+html body .cta-section a.btn.btn-primary,
+html body .hero-actions a.btn.btn-primary,
+html body article a.btn.btn-primary,
+html body section a.btn.btn-primary {
   color: #000000 !important;
+  background-color: #ffc107 !important; /* Ensure yellow background */
 }
 
-a.btn.btn-primary:hover,
-.card-footer a.btn.btn-primary:hover {
+/* Primary button hover states */
+html body a.btn.btn-primary:hover,
+html body .btn.btn-primary:is(a):hover,
+html body .card-footer a.btn.btn-primary:hover,
+html body .magazine-card a.btn.btn-primary:hover {
   color: #000000 !important;
+  background-color: #ffca2c !important; /* Slightly lighter yellow */
 }
 
-/* Secondary buttons - ensure proper contrast */
-a.btn.btn-secondary,
-.card-footer a.btn.btn-secondary,
-.magazine-card a.btn.btn-secondary {
+/* Secondary buttons - LIGHT THEME - dark text on light backgrounds */
+html body a.btn.btn-secondary,
+html body .btn.btn-secondary:is(a),
+html body .card-footer a.btn.btn-secondary,
+html body .magazine-card a.btn.btn-secondary,
+html body .cta-section a.btn.btn-secondary,
+html body article a.btn.btn-secondary,
+html body section a.btn.btn-secondary {
+  color: #000000 !important; /* Black text for light backgrounds */
+  background-color: #e0e0e0 !important; /* Light gray background */
+}
+
+/* Secondary button hover - light theme */
+html body a.btn.btn-secondary:hover,
+html body .btn.btn-secondary:is(a):hover {
+  color: #000000 !important;
+  background-color: #d5d5d5 !important;
+}
+
+/* Dark theme - ALL secondary buttons need proper colors */
+html body[data-theme='dark'] a.btn.btn-secondary,
+html body[data-theme='dark'] .btn.btn-secondary:is(a),
+html body[data-theme='dark'] .card-footer a.btn.btn-secondary,
+html body[data-theme='dark'] .magazine-card a.btn.btn-secondary,
+html body[data-theme='dark'] section a.btn.btn-secondary,
+html body[data-theme='dark'] article a.btn.btn-secondary {
+  background-color: #1b5e20 !important; /* Very dark green for contrast */
   color: #ffffff !important;
 }
 
-/* Dark theme - green secondary buttons need white text */
-[data-theme='dark'] a.btn.btn-secondary,
-[data-theme='dark'] .card-footer a.btn.btn-secondary {
-  background-color: #2e7d32 !important; /* Darker green for contrast */
-  color: #ffffff !important;
-}
-
-[data-theme='dark'] a.btn.btn-secondary:hover {
-  background-color: #388e3c !important;
+html body[data-theme='dark'] a.btn.btn-secondary:hover,
+html body[data-theme='dark'] .btn.btn-secondary:is(a):hover {
+  background-color: #2e7d32 !important;
   color: #ffffff !important;
 }
 
@@ -58,54 +91,109 @@ a.btn.btn-secondary,
  * Phase Status Badge Contrast Fixes
  * ================================================================= */
 
-/* Active phase - darker green for better contrast */
-[data-theme='dark'] .fase-status.active {
-  background-color: #2e7d32 !important; /* WCAG AAA compliant green */
-  color: #ffffff !important;
-  filter: none !important; /* Remove brightness reduction */
-}
+/* CRITICAL: Force phase status colors with maximum specificity */
 
-/* Upcoming phase - darker blue for better contrast */
-[data-theme='dark'] .fase-status.upcoming {
-  background-color: #1565c0 !important; /* WCAG AAA compliant blue */
+/* Active phase - WCAG AA compliant green (4.5:1 ratio) */
+html body .fase-status.active,
+html body .magazine-card .fase-status.active,
+html body .card-footer .fase-status.active,
+html body article .fase-status.active {
+  background-color: #1b5e20 !important; /* Very dark green - 7.54:1 ratio */
   color: #ffffff !important;
   filter: none !important;
 }
 
-/* Development phase - ensure proper contrast */
-[data-theme='dark'] .fase-status.development {
-  background-color: #d84315 !important; /* Darker orange */
-  color: #ffffff !important; /* White text for better contrast */
+/* Upcoming phase - WCAG AA compliant blue (4.5:1 ratio) */
+html body .fase-status.upcoming,
+html body .magazine-card .fase-status.upcoming,
+html body .card-footer .fase-status.upcoming,
+html body article .fase-status.upcoming {
+  background-color: #0d47a1 !important; /* Very dark blue - 8.59:1 ratio */
+  color: #ffffff !important;
   filter: none !important;
 }
 
-/* Light theme phase badges */
-.fase-status.active {
-  background-color: #2e7d32; /* Dark green */
-  color: #ffffff;
+/* Development phase - WCAG AA compliant orange */
+html body .fase-status.development,
+html body .magazine-card .fase-status.development,
+html body .card-footer .fase-status.development,
+html body article .fase-status.development {
+  background-color: #bf360c !important; /* Very dark orange - 5.37:1 ratio */
+  color: #ffffff !important;
+  filter: none !important;
 }
 
-.fase-status.upcoming {
-  background-color: #1565c0; /* Dark blue */
-  color: #ffffff;
+/* Dark theme - same colors work for both themes */
+html body[data-theme='dark'] .fase-status.active,
+html body[data-theme='dark'] .magazine-card .fase-status.active,
+html body[data-theme='dark'] .card-footer .fase-status.active {
+  background-color: #1b5e20 !important;
+  color: #ffffff !important;
+  filter: none !important;
 }
 
-.fase-status.development {
-  background-color: #d84315; /* Dark orange */
-  color: #ffffff;
+html body[data-theme='dark'] .fase-status.upcoming,
+html body[data-theme='dark'] .magazine-card .fase-status.upcoming,
+html body[data-theme='dark'] .card-footer .fase-status.upcoming {
+  background-color: #0d47a1 !important;
+  color: #ffffff !important;
+  filter: none !important;
+}
+
+html body[data-theme='dark'] .fase-status.development,
+html body[data-theme='dark'] .magazine-card .fase-status.development,
+html body[data-theme='dark'] .card-footer .fase-status.development {
+  background-color: #bf360c !important;
+  color: #ffffff !important;
+  filter: none !important;
 }
 
 /* =================================================================
  * Magazine Card Theme Contrast Fixes
  * ================================================================= */
 
+/* Magazine buttons - special styling buttons */
+html body .magazine-btn,
+html body a.magazine-btn,
+html body .magazine-btn:is(a) {
+  /* Block link color inheritance */
+  color: inherit !important;
+}
+
+html body .magazine-btn.primary,
+html body a.magazine-btn.primary {
+  color: #000000 !important; /* Black on yellow */
+  background-color: #ffc107 !important;
+}
+
+html body .magazine-btn.secondary,
+html body a.magazine-btn.secondary {
+  color: #000000 !important; /* Black on light gray */
+  background-color: #e0e0e0 !important;
+}
+
+/* Dark theme magazine buttons */
+html body[data-theme='dark'] .magazine-btn.primary,
+html body[data-theme='dark'] a.magazine-btn.primary {
+  color: #000000 !important; /* Keep black on yellow */
+  background-color: #ffc107 !important;
+}
+
+html body[data-theme='dark'] .magazine-btn.secondary,
+html body[data-theme='dark'] a.magazine-btn.secondary {
+  color: #ffffff !important; /* White on dark green */
+  background-color: #1b5e20 !important;
+}
+
 /* Ensure all themed magazine cards have proper button contrast */
-[data-theme='dark'] .magazine-card.theme-solar .btn,
-[data-theme='dark'] .magazine-card.theme-green .btn,
-[data-theme='dark'] .magazine-card.theme-purple .btn,
-[data-theme='dark'] .magazine-card.theme-community .btn,
-[data-theme='dark'] .magazine-card.theme-tech .btn {
-  color: #000000 !important; /* Black text on light backgrounds */
+html body .magazine-card .btn,
+html body .magazine-card a.btn,
+html body .magazine-card.theme-solar .btn,
+html body .magazine-card.theme-green .btn,
+html body .magazine-card.theme-purple .btn,
+html body .magazine-card.theme-community .btn,
+html body .magazine-card.theme-tech .btn {
+  /* These are handled by button rules above */
 }
 
 /* =================================================================
@@ -113,32 +201,80 @@ a.btn.btn-secondary,
  * ================================================================= */
 
 /* Ensure meta text has sufficient contrast */
-[data-theme='dark'] .character-meta,
-[data-theme='dark'] .meta-item,
-[data-theme='dark'] .text-muted {
-  color: rgba(255, 255, 255, 0.87) !important;
+html body .character-meta,
+html body .meta-item,
+html body .text-muted {
+  color: #424242 !important; /* Dark gray for light theme */
+}
+
+html body[data-theme='dark'] .character-meta,
+html body[data-theme='dark'] .meta-item,
+html body[data-theme='dark'] .text-muted {
+  color: #e0e0e0 !important; /* Light gray for dark theme */
 }
 
 /* Card description text */
-[data-theme='dark'] .card-description,
-[data-theme='dark'] .card p {
-  color: rgba(255, 255, 255, 0.87) !important;
+html body .card-description,
+html body .card p,
+html body .magazine-card p {
+  color: #212121 !important; /* Very dark gray for light theme */
+}
+
+html body[data-theme='dark'] .card-description,
+html body[data-theme='dark'] .card p,
+html body[data-theme='dark'] .magazine-card p {
+  color: #f5f5f5 !important; /* Very light gray for dark theme */
 }
 
 /* Ensure all interactive elements are clearly visible */
-[data-theme='dark'] a:not(.btn) {
-  color: #64b5f6 !important; /* Lighter blue for better contrast */
+html body a:not(.btn):not(.magazine-btn) {
+  color: #1565c0 !important; /* Dark blue for light theme */
 }
 
-[data-theme='dark'] a:not(.btn):hover {
+html body a:not(.btn):not(.magazine-btn):hover {
+  color: #0d47a1 !important;
+}
+
+html body[data-theme='dark'] a:not(.btn):not(.magazine-btn) {
+  color: #64b5f6 !important; /* Light blue for dark theme */
+}
+
+html body[data-theme='dark'] a:not(.btn):not(.magazine-btn):hover {
   color: #90caf9 !important;
 }
 
 /* Footer links specific override */
-[data-theme='dark'] footer a:not(.btn) {
-  color: #ffd54f !important; /* Yellow for footer links */
+html body footer a:not(.btn):not(.magazine-btn) {
+  color: #0d47a1 !important; /* Very dark blue for light theme */
 }
 
-[data-theme='dark'] footer a:not(.btn):hover {
+html body[data-theme='dark'] footer a:not(.btn):not(.magazine-btn) {
+  color: #ffd54f !important; /* Yellow for dark theme footer */
+}
+
+html body[data-theme='dark'] footer a:not(.btn):not(.magazine-btn):hover {
   color: #ffe082 !important;
+}
+
+/* =================================================================
+ * Critical Override: Force ALL button text colors
+ * ================================================================= */
+
+/* This section uses !important with maximum specificity to ensure
+   NO button can inherit link colors */
+
+html body .btn,
+html body .btn:link,
+html body .btn:visited,
+html body .btn:hover,
+html body .btn:focus,
+html body .btn:active,
+html body a[class*='btn'],
+html body a[class*='btn']:link,
+html body a[class*='btn']:visited,
+html body a[class*='btn']:hover,
+html body a[class*='btn']:focus,
+html body a[class*='btn']:active {
+  /* Never inherit link colors */
+  color: inherit !important;
 }

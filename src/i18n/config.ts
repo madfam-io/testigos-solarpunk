@@ -1399,7 +1399,7 @@ export const routes = {
     'cta.listen': 'Listen to Podcast',
     'cta.join': 'Join MADLAB',
     'cta.explore': 'Explore',
-    'cta.learn': 'Learn More',
+    'cta.learn': 'Learn About Podcast',
     'cta.discover': 'Discover',
     'cta.participate': 'Participate',
     'cta.connect': 'Connect',
