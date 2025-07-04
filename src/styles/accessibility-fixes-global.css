@@ -14,8 +14,9 @@
   --madfam-gray-800: #212121 !important;
   --madfam-gray-700: #424242 !important;
   --madfam-gray-600: #595959 !important;
-  --color-text-secondary: #212121 !important;
-  --texto-secundario: #212121 !important;
+  --color-text-secondary: #424242 !important;
+  --texto-secundario: #424242 !important;
+  --text-secondary: #424242 !important;
 
   /* Fix primary colors when used as text */
   --azul-tecnologico: #0d47a1 !important;
@@ -24,6 +25,13 @@
   --madfam-purple: #4527a0 !important;
   --verde-sostenible: #1b5e20 !important;
   --madfam-green-dark: #1b5e20 !important;
+}
+
+/* Dark theme overrides */
+[data-theme='dark'] {
+  --color-text-secondary: #e0e0e0 !important;
+  --texto-secundario: #e0e0e0 !important;
+  --text-secondary: #e0e0e0 !important;
 }
 
 /* =================================================================
@@ -208,7 +216,50 @@ span[data-astro-cid][class*='fase-status'][class*='development'] {
 }
 
 /* =================================================================
- * PHASE 8: Helper Classes
+ * PHASE 8: Production-Specific Text Color Overrides
+ * ================================================================= */
+
+/* Target specific classes that use texto-secundario variable */
+.hero-description,
+.metric-highlight p,
+.demo-item li,
+.persona-item li,
+.metric-row span,
+.platform-insights li,
+.behavior-item p,
+.economic-item p,
+.environmental-item p,
+.opportunity-metric span,
+.opportunity-benefits li {
+  color: #424242 !important;
+}
+
+/* Dark theme production overrides */
+[data-theme='dark'] .hero-description,
+[data-theme='dark'] .metric-highlight p,
+[data-theme='dark'] .demo-item li,
+[data-theme='dark'] .persona-item li,
+[data-theme='dark'] .metric-row span,
+[data-theme='dark'] .platform-insights li,
+[data-theme='dark'] .behavior-item p,
+[data-theme='dark'] .economic-item p,
+[data-theme='dark'] .environmental-item p,
+[data-theme='dark'] .opportunity-metric span,
+[data-theme='dark'] .opportunity-benefits li {
+  color: #e0e0e0 !important;
+}
+
+/* Generic text-muted override */
+.text-muted {
+  color: #424242 !important;
+}
+
+[data-theme='dark'] .text-muted {
+  color: #e0e0e0 !important;
+}
+
+/* =================================================================
+ * PHASE 9: Helper Classes
  * ================================================================= */
 
 .sr-only {

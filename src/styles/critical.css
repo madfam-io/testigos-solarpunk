@@ -44,7 +44,7 @@
   --bg-tertiary: #eeeeee;
   --bg-elevated: #e0e0e0;
   --text-primary: #212121;
-  --text-secondary: rgba(0, 0, 0, 0.87);
+  --text-secondary: #424242; /* Solid color for WCAG AA compliance */
   --border-subtle: rgba(0, 0, 0, 0.3);
   --cutout-shadow: var(--cutout-shadow);
   --tape-color: rgba(255, 193, 7, 0.7);
@@ -90,7 +90,7 @@
   --bg-tertiary: #1c1c1f;
   --bg-elevated: #242428;
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.9);
+  --text-secondary: #e0e0e0; /* Solid color for WCAG AA compliance */
   --border-subtle: rgba(255, 255, 255, 0.5);
   --cutout-shadow: var(--cutout-shadow-dark);
   --tape-color: rgba(255, 213, 79, 0.8);
