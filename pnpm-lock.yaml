@@ -97,9 +97,6 @@ devDependencies:
   prettier-plugin-astro:
     specifier: ^0.13.0
     version: 0.13.0
-  rollup-plugin-analyzer:
-    specifier: ^4.0.0
-    version: 4.0.0
   rollup-plugin-visualizer:
     specifier: ^6.0.3
     version: 6.0.3
@@ -7416,11 +7413,6 @@ packages:
   /robots-parser@3.0.1:
     resolution: {integrity: sha512-s+pyvQeIKIZ0dx5iJiQk1tPLJAWln39+MI5jtM8wnyws+G5azk+dMnMX0qfbqNetKKNgcWWOdi0sfm+FbQbgdQ==}
     engines: {node: '>=10.0.0'}
-    dev: true
-
-  /rollup-plugin-analyzer@4.0.0:
-    resolution: {integrity: sha512-LL9GEt3bkXp6Wa19SNR5MWcvHNMvuTFYg+eYBZN2OIFhSWN+pEJUQXEKu5BsOeABob3x9PDaLKW7w5iOJnsESQ==}
-    engines: {node: '>=8.0.0'}
     dev: true
 
   /rollup-plugin-visualizer@6.0.3:
