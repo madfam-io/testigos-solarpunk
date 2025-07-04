@@ -18,6 +18,7 @@ import '../styles/nav-theme-fix.css';
 import '../styles/accessibility-fixes.css';
 import '../styles/accessibility-fixes-global.css';
 import '../styles/accessibility-fixes-final.css';
+import '../styles/accessibility-fixes-desktop.css';
 
 export interface Props {
   title: string;
@@ -339,6 +340,26 @@ const isTouchDevice = isMobileDevice || isTablet;
 
       /* Desktop-specific overrides for Lighthouse CI */
       @media (min-width: 768px) {
+        /* Remove ALL opacity from text elements */
+        * {
+          opacity: 1 !important;
+        }
+
+        /* Hero elements - force maximum contrast */
+        .hero-title,
+        .hero-subtitle,
+        .hero-description {
+          opacity: 1 !important;
+          color: #000000 !important;
+          font-weight: 600 !important;
+        }
+
+        [data-theme='dark'] .hero-title,
+        [data-theme='dark'] .hero-subtitle,
+        [data-theme='dark'] .hero-description {
+          color: #ffffff !important;
+        }
+
         /* Override any remaining low contrast text */
         p,
         span,
@@ -350,6 +371,17 @@ const isTouchDevice = isMobileDevice || isTablet;
         /* Force solid colors on desktop */
         [style*='color: rgba'] {
           color: #424242 !important;
+        }
+
+        /* Character page CTA section fix */
+        .cta-section p,
+        .cta-section .text-muted {
+          color: #000000 !important;
+        }
+
+        [data-theme='dark'] .cta-section p,
+        [data-theme='dark'] .cta-section .text-muted {
+          color: #ffffff !important;
         }
 
         /* Ensure links are visible */

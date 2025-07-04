@@ -1,0 +1,298 @@
+/**
+ * Desktop-Specific Accessibility Fixes for Lighthouse CI
+ * Targets remaining color contrast failures on desktop viewports
+ */
+
+/* ========================================
+   DESKTOP-ONLY OVERRIDES (768px and up)
+   ======================================== */
+
+@media (min-width: 768px) {
+  /* Remove ALL opacity from text elements */
+  *:not(img):not(svg):not(video):not(button):not(input) {
+    opacity: 1 !important;
+  }
+
+  /* Hero elements - maximum contrast */
+  .hero-title,
+  .hero-subtitle,
+  .hero-description,
+  .hero-section p,
+  .hero-section span,
+  .hero-section small,
+  [class*='hero'] p,
+  [class*='hero'] span,
+  [class*='hero'] small {
+    opacity: 1 !important;
+    color: #000000 !important;
+    font-weight: 500 !important;
+    text-shadow: none !important;
+  }
+
+  /* Dark theme hero elements */
+  html[data-theme='dark'] .hero-title,
+  html[data-theme='dark'] .hero-subtitle,
+  html[data-theme='dark'] .hero-description,
+  html[data-theme='dark'] .hero-section p,
+  html[data-theme='dark'] .hero-section span,
+  html[data-theme='dark'] [class*='hero'] p {
+    color: #ffffff !important;
+  }
+
+  /* Lead text */
+  .lead,
+  .subtitle,
+  .description,
+  [class*='lead'],
+  [class*='subtitle'],
+  [class*='description'] {
+    opacity: 1 !important;
+    color: #000000 !important;
+    font-weight: 500 !important;
+  }
+
+  html[data-theme='dark'] .lead,
+  html[data-theme='dark'] .subtitle,
+  html[data-theme='dark'] .description {
+    color: #ffffff !important;
+  }
+
+  /* Character page specific */
+  .character-grid p,
+  .character-card p,
+  .character-card span,
+  .character-description,
+  .character-meta,
+  .persona-card p,
+  .persona-description,
+  .cta-section p,
+  .cta-content p,
+  [class*='character'] p,
+  [class*='persona'] p,
+  [class*='cta'] p {
+    opacity: 1 !important;
+    color: #000000 !important;
+    font-weight: 500 !important;
+  }
+
+  html[data-theme='dark'] .character-card p,
+  html[data-theme='dark'] .persona-card p,
+  html[data-theme='dark'] .cta-section p,
+  html[data-theme='dark'] [class*='character'] p,
+  html[data-theme='dark'] [class*='cta'] p {
+    color: #ffffff !important;
+  }
+
+  /* Text muted override */
+  .text-muted,
+  .text-secondary,
+  .text-gray,
+  [class*='text-muted'],
+  [class*='text-secondary'],
+  [class*='text-gray'] {
+    opacity: 1 !important;
+    color: #424242 !important;
+    font-weight: 500 !important;
+  }
+
+  html[data-theme='dark'] .text-muted,
+  html[data-theme='dark'] .text-secondary,
+  html[data-theme='dark'] .text-gray {
+    color: #e0e0e0 !important;
+  }
+
+  /* Override any inline styles with opacity */
+  [style*='opacity'] {
+    opacity: 1 !important;
+  }
+
+  /* Override any inline styles with rgba colors */
+  [style*='rgba'] {
+    opacity: 1 !important;
+  }
+
+  /* Specific fixes for homepage */
+  .home .hero-description,
+  .index .hero-description,
+  [class*='home'] .hero-description,
+  [class*='index'] .hero-description {
+    opacity: 1 !important;
+    color: #000000 !important;
+    font-weight: 600 !important;
+  }
+
+  html[data-theme='dark'] .home .hero-description,
+  html[data-theme='dark'] .index .hero-description {
+    color: #ffffff !important;
+  }
+
+  /* Nuclear option for any remaining issues */
+  p,
+  span,
+  li,
+  small,
+  time,
+  address,
+  figcaption,
+  blockquote,
+  q,
+  cite,
+  em,
+  strong,
+  b,
+  i,
+  u,
+  mark,
+  del,
+  ins,
+  sub,
+  sup {
+    opacity: 1 !important;
+  }
+
+  /* Ensure all text in main content areas has proper contrast */
+  main p,
+  main span,
+  main li,
+  article p,
+  article span,
+  article li,
+  section p,
+  section span,
+  section li {
+    opacity: 1 !important;
+  }
+}
+
+/* ========================================
+   LARGE DESKTOP OVERRIDES (1024px and up)
+   ======================================== */
+
+@media (min-width: 1024px) {
+  /* Even more aggressive overrides for large screens */
+  body * {
+    text-shadow: none !important;
+  }
+
+  /* Force all paragraph text to maximum contrast */
+  p {
+    opacity: 1 !important;
+    color: #000000 !important;
+  }
+
+  html[data-theme='dark'] p {
+    color: #ffffff !important;
+  }
+
+  /* Hero description specific for large screens */
+  .hero-description {
+    opacity: 1 !important;
+    color: #000000 !important;
+    font-weight: 600 !important;
+    line-height: 1.6 !important;
+  }
+
+  html[data-theme='dark'] .hero-description {
+    color: #ffffff !important;
+  }
+}
+
+/* ========================================
+   ULTRA-SPECIFIC DESKTOP FIXES
+   ======================================== */
+
+/* Target hero sections with data attributes */
+@media (min-width: 768px) {
+  [data-astro-cid] .hero-description,
+  [data-astro-cid] .hero-subtitle,
+  [data-astro-cid] p {
+    opacity: 1 !important;
+  }
+
+  /* Homepage hero with any Astro component ID */
+  .hero-section[data-astro-cid] .hero-description {
+    opacity: 1 !important;
+    color: #000000 !important;
+    font-weight: 600 !important;
+  }
+
+  html[data-theme='dark'] .hero-section[data-astro-cid] .hero-description {
+    color: #ffffff !important;
+  }
+
+  /* Character page CTA section */
+  .cta-section[data-astro-cid] p,
+  .cta-section[data-astro-cid] .text-muted {
+    opacity: 1 !important;
+    color: #000000 !important;
+  }
+
+  html[data-theme='dark'] .cta-section[data-astro-cid] p,
+  html[data-theme='dark'] .cta-section[data-astro-cid] .text-muted {
+    color: #ffffff !important;
+  }
+}
+
+/* ========================================
+   INLINE STYLE OVERRIDES
+   ======================================== */
+
+@media (min-width: 768px) {
+  /* Override any inline opacity styles */
+  [style*='opacity: 0.9'] {
+    opacity: 1 !important;
+  }
+  [style*='opacity:0.9'] {
+    opacity: 1 !important;
+  }
+  [style*='opacity: 0.95'] {
+    opacity: 1 !important;
+  }
+  [style*='opacity:0.95'] {
+    opacity: 1 !important;
+  }
+
+  /* Override specific color values that might fail contrast */
+  [style*='color: #666'] {
+    color: #424242 !important;
+  }
+  [style*='color:#666'] {
+    color: #424242 !important;
+  }
+  [style*='color: #999'] {
+    color: #424242 !important;
+  }
+  [style*='color:#999'] {
+    color: #424242 !important;
+  }
+  [style*='color: #aaa'] {
+    color: #424242 !important;
+  }
+  [style*='color:#aaa'] {
+    color: #424242 !important;
+  }
+}
+
+/* ========================================
+   ASTRO COMPONENT OVERRIDES
+   ======================================== */
+
+@media (min-width: 768px) {
+  /* Target Astro's dynamic component IDs */
+  [class*='astro-'] p,
+  [class*='astro-'] span,
+  [class*='astro-'] .hero-description,
+  [class*='astro-'] .text-muted {
+    opacity: 1 !important;
+  }
+
+  /* Specific component patterns */
+  .astro-[class*='hero'] .hero-description {
+    opacity: 1 !important;
+    color: #000000 !important;
+  }
+
+  html[data-theme='dark'] .astro-[class*='hero'] .hero-description {
+    color: #ffffff !important;
+  }
+}
