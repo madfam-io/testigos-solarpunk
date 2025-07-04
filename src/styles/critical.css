@@ -284,7 +284,7 @@ h2 {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  opacity: 0.95;
+  /* opacity: 0.95; removed for WCAG contrast compliance */
   line-height: 1.6;
 }
 

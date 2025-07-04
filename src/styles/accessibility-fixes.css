@@ -247,9 +247,12 @@ span[data-astro-cid-7pewbour].fase-status.development {
 .cta-section p,
 .cta-section .text-muted,
 .cta-section p[data-astro-cid-7pewbour],
-.cta-section p[data-astro-cid-7pewbour].text-muted {
+.cta-section p[data-astro-cid-7pewbour].text-muted,
+.cta-section p[class*='astro-'],
+.cta-section .text-muted[class*='astro-'] {
   color: #ffffff !important; /* White text on dark background */
   font-weight: 500 !important;
+  opacity: 1 !important;
 }
 
 /* Character metadata */
@@ -356,6 +359,38 @@ h2 {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+
+/* =================================================================
+ * DESKTOP-SPECIFIC CONTRAST FIXES
+ * ================================================================= */
+
+/* Ensure no opacity affects text on desktop viewports */
+@media (min-width: 768px) {
+  .hero-description,
+  .hero-subtitle,
+  .lead,
+  p {
+    opacity: 1 !important;
+  }
+
+  /* Strengthen CTA section contrast on desktop */
+  .cta-section p,
+  .cta-section .text-muted {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  /* Ensure proper contrast for all text elements */
+  .text-muted {
+    color: #424242 !important;
+    opacity: 1 !important;
+  }
+
+  [data-theme='dark'] .text-muted {
+    color: #e0e0e0 !important;
+    opacity: 1 !important;
+  }
 }
 
 /* =================================================================
