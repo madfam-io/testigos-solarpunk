@@ -259,6 +259,44 @@ const isTouchDevice = isMobileDevice || isTablet;
 
     <!-- Font files will be loaded dynamically by Google Fonts CSS -->
 
+    <!-- Critical Accessibility Styles - Inline for immediate application -->
+    <style is:inline>
+      /* Critical color contrast fixes for WCAG AA compliance */
+      :root {
+        --texto-secundario: #424242 !important;
+        --text-secondary: #424242 !important;
+        --color-text-secondary: #424242 !important;
+      }
+      [data-theme='dark'] {
+        --texto-secundario: #e0e0e0 !important;
+        --text-secondary: #e0e0e0 !important;
+        --color-text-secondary: #e0e0e0 !important;
+      }
+      /* Force contrast for common failing elements */
+      .hero-description,
+      .text-muted,
+      .text-secondary,
+      .metric-highlight p,
+      .demo-item li,
+      .persona-item li,
+      .metric-row span,
+      [class*='text-gray'],
+      [class*='text-secondary'] {
+        color: #424242 !important;
+      }
+      [data-theme='dark'] .hero-description,
+      [data-theme='dark'] .text-muted,
+      [data-theme='dark'] .text-secondary,
+      [data-theme='dark'] .metric-highlight p,
+      [data-theme='dark'] .demo-item li,
+      [data-theme='dark'] .persona-item li,
+      [data-theme='dark'] .metric-row span,
+      [data-theme='dark'] [class*='text-gray'],
+      [data-theme='dark'] [class*='text-secondary'] {
+        color: #e0e0e0 !important;
+      }
+    </style>
+
     <!-- JSON-LD Structured Data -->
     <script
       type="application/ld+json"

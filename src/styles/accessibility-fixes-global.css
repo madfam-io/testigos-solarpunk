@@ -259,7 +259,107 @@ span[data-astro-cid][class*='fase-status'][class*='development'] {
 }
 
 /* =================================================================
- * PHASE 9: Helper Classes
+ * PHASE 9: Additional Production Overrides
+ * ================================================================= */
+
+/* Force all text elements to have proper contrast */
+body * {
+  /* Ensure minimum contrast for all text */
+}
+
+/* Common text elements that might fail */
+.text-secondary,
+.text-gray-600,
+.text-gray-700,
+[class*='text-gray'],
+[class*='text-secondary'] {
+  color: #424242 !important;
+}
+
+/* Specific page elements that may fail */
+.hero-subtitle,
+.section-subtitle,
+.card-description,
+.feature-description,
+.metric-description,
+.testimonial-text,
+.timeline-description {
+  color: #424242 !important;
+}
+
+/* Dark theme versions */
+[data-theme='dark'] .text-secondary,
+[data-theme='dark'] .text-gray-600,
+[data-theme='dark'] .text-gray-700,
+[data-theme='dark'] [class*='text-gray'],
+[data-theme='dark'] [class*='text-secondary'],
+[data-theme='dark'] .hero-subtitle,
+[data-theme='dark'] .section-subtitle,
+[data-theme='dark'] .card-description,
+[data-theme='dark'] .feature-description,
+[data-theme='dark'] .metric-description,
+[data-theme='dark'] .testimonial-text,
+[data-theme='dark'] .timeline-description {
+  color: #e0e0e0 !important;
+}
+
+/* Small text elements */
+small,
+.small,
+.text-sm,
+.text-xs {
+  color: #424242 !important;
+  font-size: 0.875rem !important; /* Ensure minimum size */
+}
+
+[data-theme='dark'] small,
+[data-theme='dark'] .small,
+[data-theme='dark'] .text-sm,
+[data-theme='dark'] .text-xs {
+  color: #e0e0e0 !important;
+}
+
+/* Badge and pill elements */
+.badge,
+.pill,
+.tag,
+[class*='badge'],
+[class*='pill'],
+[class*='tag'] {
+  /* Ensure badges have sufficient contrast */
+  font-weight: 500 !important;
+}
+
+/* Link hover states */
+a:hover {
+  opacity: 1 !important; /* Prevent opacity changes that reduce contrast */
+}
+
+/* Placeholder text */
+::placeholder {
+  color: #666666 !important;
+  opacity: 1 !important;
+}
+
+/* =================================================================
+ * PHASE 10: Inline Style Overrides
+ * ================================================================= */
+
+/* Override inline styles using CSS variables */
+[style*='color: var(--texto-secundario)'],
+[style*='color: var(--text-secondary)'],
+[style*='color: var(--color-text-secondary)'] {
+  color: #424242 !important;
+}
+
+[data-theme='dark'] [style*='color: var(--texto-secundario)'],
+[data-theme='dark'] [style*='color: var(--text-secondary)'],
+[data-theme='dark'] [style*='color: var(--color-text-secondary)'] {
+  color: #e0e0e0 !important;
+}
+
+/* =================================================================
+ * PHASE 11: Helper Classes
  * ================================================================= */
 
 .sr-only {
