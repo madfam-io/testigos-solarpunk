@@ -63,7 +63,6 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "@fullhuman/postcss-purgecss": "^7.0.2",
     "@lhci/cli": "^0.15.1",
     "@types/fs-extra": "^11.0.4",
     "@types/jsdom": "^21.1.7",
@@ -91,8 +90,6 @@
     "playwright": "^1.48.2",
     "prettier": "^3.2.4",
     "prettier-plugin-astro": "^0.13.0",
-    "purgecss": "^7.0.2",
-    "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-visualizer": "^6.0.3",
     "terser": "^5.43.1",
     "tsx": "^4.20.3",
