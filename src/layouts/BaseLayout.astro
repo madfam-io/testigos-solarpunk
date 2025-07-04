@@ -17,6 +17,7 @@ import '../styles/magazine-cutout-utilities.css';
 import '../styles/nav-theme-fix.css';
 import '../styles/accessibility-fixes.css';
 import '../styles/accessibility-fixes-global.css';
+import '../styles/accessibility-fixes-final.css';
 
 export interface Props {
   title: string;
@@ -294,6 +295,46 @@ const isTouchDevice = isMobileDevice || isTablet;
       [data-theme='dark'] [class*='text-gray'],
       [data-theme='dark'] [class*='text-secondary'] {
         color: #e0e0e0 !important;
+      }
+
+      /* Mobile-specific overrides for Lighthouse CI */
+      @media (max-width: 768px) {
+        /* Force all text to be fully opaque on mobile */
+        * {
+          opacity: 1 !important;
+        }
+
+        /* Magazine subtitle hero fix */
+        .magazine-subtitle-hero .subtitle-text {
+          background: #000000 !important;
+          color: #ffffff !important;
+        }
+
+        /* Override any gray/muted text on mobile */
+        .hero-subtitle,
+        .hero-description,
+        .lead,
+        p,
+        span,
+        small,
+        [class*='gray'],
+        [class*='muted'],
+        [class*='secondary'] {
+          opacity: 1 !important;
+          color: #000000 !important;
+        }
+
+        [data-theme='dark'] .hero-subtitle,
+        [data-theme='dark'] .hero-description,
+        [data-theme='dark'] .lead,
+        [data-theme='dark'] p,
+        [data-theme='dark'] span,
+        [data-theme='dark'] small,
+        [data-theme='dark'] [class*='gray'],
+        [data-theme='dark'] [class*='muted'],
+        [data-theme='dark'] [class*='secondary'] {
+          color: #ffffff !important;
+        }
       }
 
       /* Desktop-specific overrides for Lighthouse CI */
