@@ -373,3 +373,93 @@ a:hover {
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+/* =================================================================
+ * PHASE 12: Desktop-Specific Overrides
+ * ================================================================= */
+
+/* Additional inline style overrides */
+[style*='color: rgba'] {
+  color: #424242 !important;
+}
+
+[data-theme='dark'] [style*='color: rgba'] {
+  color: #e0e0e0 !important;
+}
+
+/* Desktop-specific overrides (768px and up) */
+@media (min-width: 768px) {
+  /* Fix common desktop contrast issues */
+  .hero-description,
+  .hero-subtitle,
+  .lead,
+  .text-muted,
+  .text-secondary {
+    color: #424242 !important;
+  }
+
+  /* Project page specifics */
+  .project-description,
+  .fase-descripcion,
+  .strategy-description {
+    color: #424242 !important;
+  }
+
+  /* Content page specifics */
+  .content-description,
+  .fase-label,
+  .content-meta {
+    color: #424242 !important;
+  }
+
+  /* Community page specifics */
+  .persona-description,
+  .behavior-text,
+  .community-description {
+    color: #424242 !important;
+  }
+
+  /* Character page specifics */
+  .character-description,
+  .character-meta,
+  .character-trait {
+    color: #424242 !important;
+  }
+
+  /* Fix any remaining text with opacity */
+  p,
+  span,
+  li,
+  div {
+    opacity: 1 !important;
+  }
+
+  /* Ensure all text meets contrast */
+  * {
+    text-shadow: none !important;
+  }
+}
+
+/* Large desktop overrides (1024px and up) */
+@media (min-width: 1024px) {
+  /* Additional large screen fixes */
+  .section-description,
+  .feature-description,
+  .benefit-text {
+    color: #424242 !important;
+  }
+
+  /* Force contrast on all secondary text */
+  [class*='secondary'],
+  [class*='muted'],
+  [class*='gray'] {
+    color: #424242 !important;
+  }
+
+  /* Dark theme desktop overrides */
+  [data-theme='dark'] [class*='secondary'],
+  [data-theme='dark'] [class*='muted'],
+  [data-theme='dark'] [class*='gray'] {
+    color: #e0e0e0 !important;
+  }
+}

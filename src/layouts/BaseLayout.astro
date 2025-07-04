@@ -295,6 +295,40 @@ const isTouchDevice = isMobileDevice || isTablet;
       [data-theme='dark'] [class*='text-secondary'] {
         color: #e0e0e0 !important;
       }
+
+      /* Desktop-specific overrides for Lighthouse CI */
+      @media (min-width: 768px) {
+        /* Override any remaining low contrast text */
+        p,
+        span,
+        li,
+        small {
+          opacity: 1 !important;
+        }
+
+        /* Force solid colors on desktop */
+        [style*='color: rgba'] {
+          color: #424242 !important;
+        }
+
+        /* Ensure links are visible */
+        a:not(.btn) {
+          text-decoration: underline !important;
+        }
+
+        /* Fix specific desktop elements that might fail */
+        .lead,
+        .section-subtitle,
+        .card-description {
+          color: #424242 !important;
+        }
+
+        [data-theme='dark'] .lead,
+        [data-theme='dark'] .section-subtitle,
+        [data-theme='dark'] .card-description {
+          color: #e0e0e0 !important;
+        }
+      }
     </style>
 
     <!-- JSON-LD Structured Data -->
