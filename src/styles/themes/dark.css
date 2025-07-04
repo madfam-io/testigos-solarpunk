@@ -1,0 +1,248 @@
+/**
+ * Dark Theme - Testigos de Solarpunk
+ * Unified dark theme with accessibility-first approach
+ * Replaces the old unified-dark-theme.css with simplified structure
+ */
+
+/* =================================================================
+ * Dark Theme Color Overrides
+ * ================================================================= */
+
+[data-theme='dark'] {
+  /* Background colors */
+  --bg-primary: #0a0a0b;
+  --bg-secondary: #141416;
+  --bg-tertiary: #1c1c1f;
+  --bg-overlay: rgba(255, 255, 255, 0.1);
+  --bg-overlay-light: rgba(255, 255, 255, 0.05);
+
+  /* Text colors */
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-tertiary: #bdbdbd;
+  --text-disabled: #757575;
+  --text-on-light: var(--madfam-gray-900);
+  --text-on-dark: var(--madfam-white);
+
+  /* Border colors */
+  --border-light: #424242;
+  --border-default: #616161;
+  --border-strong: #757575;
+
+  /* Brand colors adjusted for dark mode */
+  --accent-primary: var(--madfam-yellow-light);
+  --accent-secondary: var(--madfam-green-light);
+  --accent-tertiary: var(--madfam-purple-light);
+  --accent-quaternary: var(--madfam-blue-light);
+
+  /* Link colors for dark mode */
+  --link-default: #90caf9;
+  --link-visited: #b39ddb;
+  --link-hover: #bbdefb;
+  --link-active: #c5cae9;
+
+  /* Enhanced shadows for dark mode */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0, 0.2);
+
+  /* Focus color for dark mode */
+  --focus-color: #90caf9;
+  --focus-shadow: 0 0 0 4px rgba(144, 202, 249, 0.25);
+
+  /* State colors for dark mode */
+  --color-success: var(--madfam-green-light);
+  --color-warning: #ffb74d;
+  --color-error: #ef5350;
+  --color-info: var(--madfam-blue-light);
+}
+
+/* =================================================================
+ * Dark Mode Specific Adjustments
+ * ================================================================= */
+
+[data-theme='dark'] .hero-title,
+[data-theme='dark'] .hero-subtitle,
+[data-theme='dark'] .hero-description {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .character-name {
+  color: var(--accent-tertiary);
+}
+
+[data-theme='dark'] .character-meta {
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] .character-description {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .section-title {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .section-subtitle {
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] footer h2 {
+  color: var(--accent-primary);
+}
+
+/* =================================================================
+ * Dark Mode Form Elements
+ * ================================================================= */
+
+[data-theme='dark'] input,
+[data-theme='dark'] select,
+[data-theme='dark'] textarea {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-default);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] input:focus,
+[data-theme='dark'] select:focus,
+[data-theme='dark'] textarea:focus {
+  border-color: var(--focus-color);
+  box-shadow: var(--focus-shadow);
+}
+
+[data-theme='dark'] input::placeholder,
+[data-theme='dark'] textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* =================================================================
+ * Dark Mode Button Adjustments
+ * ================================================================= */
+
+[data-theme='dark'] .btn-primary {
+  background-color: var(--accent-primary);
+  color: var(--madfam-black);
+  border-color: var(--accent-primary);
+}
+
+[data-theme='dark'] .btn-primary:hover {
+  background-color: var(--madfam-yellow);
+  border-color: var(--madfam-yellow);
+}
+
+[data-theme='dark'] .btn-secondary {
+  background-color: var(--accent-secondary);
+  color: var(--madfam-black);
+  border-color: var(--accent-secondary);
+}
+
+[data-theme='dark'] .btn-secondary:hover {
+  background-color: var(--madfam-green);
+  border-color: var(--madfam-green);
+}
+
+[data-theme='dark'] .btn-outline {
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+[data-theme='dark'] .btn-outline:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-strong);
+}
+
+/* =================================================================
+ * Dark Mode Magazine Cutout Adjustments
+ * ================================================================= */
+
+[data-theme='dark'] .magazine-cutout,
+[data-theme='dark'] .emoji-cutout {
+  filter: sepia(0.05) contrast(1.02) brightness(1.1);
+}
+
+[data-theme='dark'] .magazine-card {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-default);
+}
+
+[data-theme='dark'] .magazine-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(255, 220, 100, 0.4);
+}
+
+[data-theme='dark'] .letter-cutout {
+  /* Letter cutouts use the same colors but with better visibility */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] .quote-block {
+  background-color: var(--bg-tertiary);
+  border-left-color: var(--accent-primary);
+}
+
+/* =================================================================
+ * Dark Mode Navigation
+ * ================================================================= */
+
+[data-theme='dark'] nav {
+  background-color: var(--bg-secondary);
+  border-bottom-color: var(--border-light);
+}
+
+[data-theme='dark'] nav.nav-compact {
+  background-color: rgba(20, 20, 22, 0.95);
+}
+
+[data-theme='dark'] .nav-brand a {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .nav-brand a:hover {
+  color: var(--accent-primary);
+}
+
+[data-theme='dark'] .nav-menu a {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .nav-menu a:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--accent-secondary);
+}
+
+[data-theme='dark'] .nav-menu a.active {
+  background-color: var(--accent-secondary);
+  color: var(--madfam-black);
+}
+
+[data-theme='dark'] .nav-dropdown-menu {
+  background-color: var(--bg-primary);
+  border-color: var(--border-light);
+}
+
+[data-theme='dark'] .mobile-menu-toggle span {
+  background-color: var(--text-primary);
+}
+
+[data-theme='dark'] .mobile-menu-close {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .mobile-menu-close:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* =================================================================
+ * Dark Mode Print Styles
+ * ================================================================= */
+
+@media print {
+  [data-theme='dark'] * {
+    background: transparent !important;
+    color: black !important;
+  }
+}

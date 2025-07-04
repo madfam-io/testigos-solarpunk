@@ -1,18 +1,18 @@
 /* Content Strategy Styles - MADFAM 3-Phase Integration */
 
 :root {
-  /* Phase Colors */
-  --fase-1-primary: #ffc107; /* Amarillo Solar - Atracción */
-  --fase-1-secondary: #ffd54f;
-  --fase-1-accent: #ffa000;
+  /* Phase Colors - using unified design tokens */
+  --fase-1-primary: var(--accent-primary); /* Amarillo Solar - Atracción */
+  --fase-1-secondary: var(--madfam-yellow-light);
+  --fase-1-accent: var(--madfam-yellow-dark);
 
-  --fase-2-primary: #663399; /* Púrpura - Conexión */
-  --fase-2-secondary: #7e57c2;
-  --fase-2-accent: #512da8;
+  --fase-2-primary: var(--accent-tertiary); /* Púrpura - Conexión */
+  --fase-2-secondary: var(--madfam-purple-light);
+  --fase-2-accent: var(--madfam-purple-dark);
 
-  --fase-3-primary: #4caf50; /* Verde - Conversión */
-  --fase-3-secondary: #66bb6a;
-  --fase-3-accent: #388e3c;
+  --fase-3-primary: var(--accent-secondary); /* Verde - Conversión */
+  --fase-3-secondary: var(--madfam-green-light);
+  --fase-3-accent: var(--madfam-green-dark);
 
   /* Visual Elements from PDF */
   --gradient-solar: radial-gradient(

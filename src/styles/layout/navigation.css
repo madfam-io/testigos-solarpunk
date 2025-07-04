@@ -1,0 +1,495 @@
+/**
+ * Navigation Layout - Testigos de Solarpunk
+ * Accessible navigation with Magazine Cutout aesthetic
+ */
+
+/* =================================================================
+ * Navigation Container
+ * ================================================================= */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(8px);
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--touch-target-comfortable);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+}
+
+/* Compact navigation state */
+nav.nav-compact {
+  background-color: rgba(var(--bg-secondary-rgb, 245, 245, 245), 0.95);
+  backdrop-filter: blur(12px);
+}
+
+nav.nav-compact .container {
+  min-height: var(--touch-target-min);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+
+/* =================================================================
+ * Brand Section
+ * ================================================================= */
+
+.nav-brand {
+  flex-shrink: 0;
+}
+
+.nav-brand a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  transition: var(--transition-fast);
+}
+
+.nav-brand a:hover {
+  color: var(--accent-primary);
+}
+
+.nav-brand a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  border-radius: var(--radius-md);
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+  transition: height var(--transition-normal);
+}
+
+nav.nav-compact .nav-logo {
+  height: 32px;
+}
+
+/* =================================================================
+ * Navigation Actions (Theme + Language + Mobile Toggle)
+ * ================================================================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  order: 2;
+}
+
+@media (max-width: 768px) {
+  .nav-actions {
+    gap: var(--space-2);
+  }
+}
+
+/* =================================================================
+ * Desktop Navigation Menu
+ * ================================================================= */
+
+@media (min-width: 769px) {
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    order: 1;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-menu li {
+    margin: 0;
+  }
+
+  .nav-menu a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: var(--touch-target-min);
+    padding: var(--space-2) var(--space-4);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-md);
+    transition: var(--transition-fast);
+  }
+
+  .nav-menu a:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--accent-secondary);
+  }
+
+  .nav-menu a:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+    background-color: var(--accent-primary);
+    color: var(--text-on-primary);
+  }
+
+  .nav-menu a.active {
+    background-color: var(--accent-secondary);
+    color: var(--text-on-success);
+  }
+
+  /* Hide mobile-specific elements on desktop */
+  .mobile-menu-close,
+  .mobile-theme-toggle,
+  .mobile-language-toggle {
+    display: none;
+  }
+}
+
+/* =================================================================
+ * Dropdown Navigation
+ * ================================================================= */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > a::after {
+  content: '▼';
+  font-size: 0.75em;
+  transition: transform var(--transition-fast);
+  margin-left: var(--space-1);
+}
+
+.nav-dropdown:hover > a::after,
+.nav-dropdown[aria-expanded='true'] > a::after {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all var(--transition-fast);
+  z-index: var(--z-dropdown);
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 769px) {
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.nav-dropdown-menu a {
+  display: flex !important;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4) !important;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+  background-color: var(--bg-secondary);
+  color: var(--accent-secondary);
+}
+
+.nav-dropdown-menu a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* =================================================================
+ * Mobile Navigation
+ * ================================================================= */
+
+@media (max-width: 768px) {
+  /* Hide desktop menu */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: var(--bg-primary);
+    border-left: 1px solid var(--border-light);
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-lg);
+    overflow-y: auto;
+    transition: right var(--transition-normal);
+    z-index: var(--z-modal);
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu li {
+    margin: 0;
+  }
+
+  .nav-menu a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: var(--touch-target-comfortable);
+    padding: var(--space-4) var(--space-5);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid transparent;
+    transition: var(--transition-fast);
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a:focus-visible {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-default);
+  }
+
+  .nav-menu a.active {
+    background-color: var(--accent-secondary);
+    color: var(--text-on-success);
+  }
+
+  /* Mobile close button */
+  .mobile-menu-close {
+    position: absolute;
+    top: var(--space-5);
+    right: var(--space-5);
+    background: none;
+    border: none;
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+    min-height: var(--touch-target-min);
+    min-width: var(--touch-target-min);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu-close:hover,
+  .mobile-menu-close:focus-visible {
+    background-color: var(--bg-secondary);
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+  }
+
+  /* Mobile dropdown behavior */
+  .nav-dropdown > a {
+    position: relative;
+  }
+
+  .nav-dropdown .nav-dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: var(--space-2) 0 0 var(--space-6);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+  }
+
+  .nav-dropdown.active .nav-dropdown-menu {
+    max-height: 300px;
+  }
+
+  .nav-dropdown-menu a {
+    font-size: var(--font-size-base) !important;
+    padding: var(--space-3) var(--space-4) !important;
+  }
+
+  /* Mobile theme and language toggles */
+  .mobile-theme-toggle,
+  .mobile-language-toggle {
+    display: block;
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .language-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .language-options a {
+    padding: var(--space-3) var(--space-4) !important;
+    font-size: var(--font-size-base) !important;
+  }
+}
+
+/* =================================================================
+ * Mobile Menu Toggle Button
+ * ================================================================= */
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  gap: 3px;
+  transition: var(--transition-fast);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
+
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus-visible {
+  background-color: var(--bg-tertiary);
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 1px;
+  transition: all var(--transition-fast);
+  transform-origin: center;
+}
+
+/* Hamburger animation */
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* =================================================================
+ * Mobile Menu Overlay
+ * ================================================================= */
+
+@media (max-width: 768px) {
+  body.mobile-menu-open {
+    overflow: hidden;
+  }
+
+  body.mobile-menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-overlay);
+    z-index: calc(var(--z-modal) - 1);
+    opacity: 1;
+    transition: opacity var(--transition-normal);
+  }
+}
+
+/* =================================================================
+ * Accessibility Enhancements
+ * ================================================================= */
+
+/* Skip navigation link */
+.skip-nav {
+  position: absolute;
+  top: -100px;
+  left: var(--space-md);
+  z-index: var(--z-skiplink);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--madfam-black);
+  color: var(--madfam-white);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  transition: top var(--transition-fast);
+}
+
+.skip-nav:focus {
+  top: var(--space-md);
+}
+
+/* Ensure proper focus order */
+.nav-menu a[tabindex='-1'] {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  nav {
+    border-bottom: 2px solid currentColor;
+  }
+
+  .nav-menu a,
+  .mobile-menu-toggle {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  nav,
+  .nav-menu,
+  .nav-dropdown-menu,
+  .mobile-menu-toggle span {
+    transition: none;
+  }
+
+  .nav-dropdown > a::after {
+    transition: none;
+  }
+}

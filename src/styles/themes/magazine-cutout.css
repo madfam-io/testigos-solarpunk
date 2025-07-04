@@ -1,0 +1,445 @@
+/**
+ * Magazine Cutout Theme System - Testigos de Solarpunk
+ * DIY magazine aesthetic with accessibility-first approach
+ * Consolidates emoji-magazine-cutout system into unified theme
+ */
+
+/* =================================================================
+ * Magazine Cutout Theme Tokens
+ * ================================================================= */
+
+:root {
+  /* Magazine aesthetic variables */
+  --magazine-paper-texture: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 1px,
+    rgba(255, 255, 255, 0.02) 1px,
+    rgba(255, 255, 255, 0.02) 2px
+  );
+
+  --magazine-torn-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --magazine-cutout-glow: 0 0 10px rgba(255, 193, 7, 0.3);
+
+  /* Theme colors for cutouts */
+  --cutout-solar: var(--accent-primary);
+  --cutout-green: var(--accent-secondary);
+  --cutout-purple: var(--accent-tertiary);
+  --cutout-blue: var(--accent-quaternary);
+  --cutout-community: #ff6b35;
+}
+
+[data-theme='dark'] {
+  --magazine-paper-texture: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 1px,
+    rgba(0, 0, 0, 0.05) 1px,
+    rgba(0, 0, 0, 0.05) 2px
+  );
+
+  --magazine-torn-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --magazine-cutout-glow: 0 0 10px rgba(255, 220, 100, 0.4);
+}
+
+/* =================================================================
+ * Base Magazine Cutout Effect
+ * ================================================================= */
+
+.magazine-cutout,
+.emoji-cutout {
+  position: relative;
+  display: inline-block;
+  filter: sepia(0.1) contrast(1.05) brightness(1.02);
+  transition: all var(--transition-normal);
+
+  /* Paper texture background */
+  background-image: var(--magazine-paper-texture);
+  background-size: 4px 4px;
+
+  /* Default torn edge effect */
+  clip-path: polygon(
+    1% 0%,
+    99% 2%,
+    98% 15%,
+    100% 25%,
+    97% 40%,
+    99% 55%,
+    96% 70%,
+    100% 85%,
+    98% 100%,
+    85% 99%,
+    70% 98%,
+    55% 100%,
+    40% 97%,
+    25% 100%,
+    10% 98%,
+    0% 95%,
+    2% 80%,
+    0% 65%,
+    3% 50%,
+    0% 35%,
+    2% 20%,
+    0% 5%
+  );
+}
+
+.magazine-cutout:hover,
+.emoji-cutout:hover {
+  transform: rotate(0.5deg) scale(1.02);
+  filter: sepia(0.2) contrast(1.1) brightness(1.05);
+  box-shadow: var(--magazine-cutout-glow);
+}
+
+/* =================================================================
+ * Size Variations
+ * ================================================================= */
+
+.magazine-cutout-xs,
+.emoji-xs {
+  font-size: 0.875rem;
+  padding: var(--space-1) var(--space-2);
+}
+
+.magazine-cutout-sm,
+.emoji-sm {
+  font-size: 1rem;
+  padding: var(--space-2) var(--space-3);
+}
+
+.magazine-cutout-md,
+.emoji-md {
+  font-size: 1.25rem;
+  padding: var(--space-3) var(--space-4);
+}
+
+.magazine-cutout-lg,
+.emoji-lg {
+  font-size: 1.5rem;
+  padding: var(--space-4) var(--space-5);
+}
+
+.magazine-cutout-xl,
+.emoji-xl {
+  font-size: 2rem;
+  padding: var(--space-5) var(--space-6);
+}
+
+/* =================================================================
+ * Theme Color Variations
+ * ================================================================= */
+
+.magazine-cutout.theme-solar,
+.emoji-cutout.theme-solar {
+  background-color: var(--cutout-solar);
+  color: var(--text-on-primary);
+}
+
+.magazine-cutout.theme-green,
+.emoji-cutout.theme-green {
+  background-color: var(--cutout-green);
+  color: var(--text-on-success);
+}
+
+.magazine-cutout.theme-purple,
+.emoji-cutout.theme-purple {
+  background-color: var(--cutout-purple);
+  color: var(--text-on-dark);
+}
+
+.magazine-cutout.theme-blue,
+.emoji-cutout.theme-blue {
+  background-color: var(--cutout-blue);
+  color: var(--text-on-dark);
+}
+
+.magazine-cutout.theme-community,
+.emoji-cutout.theme-community {
+  background-color: var(--cutout-community);
+  color: var(--text-on-dark);
+}
+
+/* =================================================================
+ * Context-Specific Styles
+ * ================================================================= */
+
+/* Navigation context */
+.magazine-cutout.context-nav,
+.emoji-cutout.emoji-nav {
+  font-size: 1rem;
+  padding: var(--space-1) var(--space-2);
+  margin-right: var(--space-2);
+  vertical-align: middle;
+}
+
+/* Hero context */
+.magazine-cutout.context-hero,
+.emoji-cutout.emoji-hero {
+  font-size: 2rem;
+  padding: var(--space-4) var(--space-5);
+  display: inline-block;
+  margin: var(--space-2);
+}
+
+/* Card context */
+.magazine-cutout.context-card,
+.emoji-cutout.emoji-card {
+  font-size: 1.25rem;
+  padding: var(--space-3) var(--space-4);
+  margin: var(--space-2) 0;
+}
+
+/* Button context */
+.magazine-cutout.context-button,
+.emoji-cutout.emoji-button {
+  font-size: 1rem;
+  padding: var(--space-2) var(--space-3);
+  margin-right: var(--space-2);
+  vertical-align: middle;
+}
+
+/* =================================================================
+ * Animation Effects
+ * ================================================================= */
+
+@keyframes magazine-flutter {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(0.5deg) scale(1.01);
+  }
+  75% {
+    transform: rotate(-0.3deg) scale(1.02);
+  }
+}
+
+.magazine-cutout.flutter,
+.emoji-cutout.flutter {
+  animation: magazine-flutter 3s ease-in-out infinite;
+}
+
+@keyframes magazine-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(0.5deg);
+  }
+}
+
+.magazine-cutout.bounce,
+.emoji-cutout.bounce {
+  animation: magazine-bounce 2s ease-in-out infinite;
+}
+
+/* =================================================================
+ * Magazine Cards
+ * ================================================================= */
+
+.magazine-card {
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  position: relative;
+  transition: var(--transition-normal);
+
+  /* Magazine paper texture */
+  background-image: var(--magazine-paper-texture);
+  background-size: 6px 6px;
+
+  /* Torn paper effect */
+  clip-path: polygon(
+    2% 0%,
+    98% 1%,
+    100% 6%,
+    98% 94%,
+    100% 98%,
+    94% 100%,
+    6% 99%,
+    0% 94%,
+    2% 6%
+  );
+}
+
+.magazine-card:hover {
+  transform: translateY(-2px) rotate(0.3deg);
+  box-shadow: var(--magazine-torn-shadow), var(--magazine-cutout-glow);
+  border-color: var(--accent-primary);
+}
+
+.magazine-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 193, 7, 0.1) 50%,
+    transparent 70%
+  );
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.magazine-card:hover::before {
+  opacity: 1;
+}
+
+/* =================================================================
+ * Magazine Subtitle Effect
+ * ================================================================= */
+
+.magazine-subtitle {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.magazine-subtitle .subtitle-text {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  font-weight: var(--font-weight-semibold);
+  transform: rotate(-1deg);
+  clip-path: polygon(
+    5% 0%,
+    95% 2%,
+    98% 25%,
+    96% 75%,
+    100% 98%,
+    90% 100%,
+    10% 98%,
+    0% 75%,
+    2% 25%,
+    5% 0%
+  );
+}
+
+/* =================================================================
+ * Letter Cutouts
+ * ================================================================= */
+
+.letter-cutout {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  margin: 0 var(--space-1);
+  background-color: var(--accent-primary);
+  color: var(--text-on-primary);
+  font-weight: var(--font-weight-bold);
+  transform: rotate(calc(var(--rotation, 0) * 1deg));
+  transition: all var(--transition-fast);
+
+  /* Unique torn edge for each letter */
+  clip-path: polygon(
+    calc(2% + var(--edge-variation-1, 0%) * 1%) 0%,
+    calc(98% + var(--edge-variation-2, 0%) * 1%)
+      calc(1% + var(--edge-variation-3, 0%) * 1%),
+    100% calc(15% + var(--edge-variation-4, 0%) * 1%),
+    calc(97% + var(--edge-variation-5, 0%) * 1%)
+      calc(85% + var(--edge-variation-6, 0%) * 1%),
+    calc(100% + var(--edge-variation-7, 0%) * 1%) 98%,
+    calc(85% + var(--edge-variation-8, 0%) * 1%) 100%,
+    calc(15% + var(--edge-variation-9, 0%) * 1%)
+      calc(99% + var(--edge-variation-10, 0%) * 1%),
+    0% calc(85% + var(--edge-variation-11, 0%) * 1%),
+    calc(2% + var(--edge-variation-12, 0%) * 1%)
+      calc(15% + var(--edge-variation-13, 0%) * 1%)
+  );
+}
+
+.letter-cutout:hover {
+  transform: rotate(calc(var(--rotation, 0) * 1deg + 2deg)) scale(1.1);
+  box-shadow: var(--magazine-cutout-glow);
+}
+
+/* Add variety to letter cutouts */
+.letter-cutout:nth-child(3n) {
+  background-color: var(--cutout-green);
+  color: var(--text-on-success);
+  --rotation: -2;
+}
+
+.letter-cutout:nth-child(5n) {
+  background-color: var(--cutout-purple);
+  color: var(--text-on-dark);
+  --rotation: 1.5;
+}
+
+.letter-cutout:nth-child(7n) {
+  background-color: var(--cutout-blue);
+  color: var(--text-on-dark);
+  --rotation: -1;
+}
+
+.letter-cutout:nth-child(11n) {
+  background-color: var(--cutout-community);
+  color: var(--text-on-dark);
+  --rotation: 2.5;
+}
+
+/* =================================================================
+ * Reduced Motion Support
+ * ================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .magazine-cutout,
+  .emoji-cutout {
+    transition: none;
+    animation: none;
+  }
+
+  .magazine-cutout:hover,
+  .emoji-cutout:hover {
+    transform: none;
+  }
+
+  .magazine-cutout.flutter,
+  .emoji-cutout.flutter,
+  .magazine-cutout.bounce,
+  .emoji-cutout.bounce {
+    animation: none;
+  }
+
+  .magazine-card:hover {
+    transform: none;
+  }
+
+  .letter-cutout:hover {
+    transform: none;
+  }
+}
+
+/* =================================================================
+ * High Contrast Mode Support
+ * ================================================================= */
+
+@media (prefers-contrast: high) {
+  .magazine-cutout,
+  .emoji-cutout {
+    filter: none;
+    background-image: none;
+    clip-path: none;
+    border: 2px solid currentColor;
+  }
+
+  .magazine-card {
+    background-image: none;
+    clip-path: none;
+    border: 2px solid currentColor;
+  }
+
+  .letter-cutout {
+    clip-path: none;
+    border: 1px solid currentColor;
+  }
+}

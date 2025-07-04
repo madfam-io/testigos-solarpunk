@@ -1,0 +1,445 @@
+/**
+ * Main Stylesheet - Testigos de Solarpunk
+ * Unified CSS architecture with accessibility-first design
+ * 
+ * Import order is critical for proper cascade:
+ * 1. Reset - Browser normalization
+ * 2. Tokens - Design system variables
+ * 3. Base - Typography, forms, layout utilities
+ * 4. Themes - Magazine cutout aesthetic
+ * 5. Layout - Navigation, grid systems
+ * 6. Components - Reusable UI components
+ */
+
+/* =================================================================
+ * CSS Layers for Proper Cascade Control
+ * ================================================================= */
+
+@layer reset, tokens, base, themes, layout, components, utilities;
+
+/* =================================================================
+ * Core Foundation
+ * ================================================================= */
+
+@layer reset {
+  @import './core/reset.css';
+}
+
+@layer tokens {
+  @import './core/tokens.css';
+}
+
+@layer base {
+  @import './core/base.css';
+}
+
+/* =================================================================
+ * Theme System
+ * ================================================================= */
+
+@layer themes {
+  @import './themes/magazine-cutout.css';
+  @import './themes/dark.css';
+}
+
+/* =================================================================
+ * Layout Systems
+ * ================================================================= */
+
+@layer layout {
+  @import './layout/navigation.css';
+}
+
+/* =================================================================
+ * Component Styles
+ * ================================================================= */
+
+@layer components {
+  /* Character Cards */
+  .character-card {
+    @apply magazine-card;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+  }
+
+  .character-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg))
+      var(--space-md);
+  }
+
+  .character-role {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background-color: var(--accent-secondary);
+    color: var(--text-on-success);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    box-shadow: var(--shadow-md);
+  }
+
+  .character-name {
+    color: var(--accent-tertiary);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-sm);
+    line-height: var(--line-height-tight);
+  }
+
+  .character-meta {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-md);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .character-description {
+    margin-bottom: var(--space-lg);
+    line-height: var(--line-height-normal);
+    color: var(--text-primary);
+  }
+
+  /* Hero Sections */
+  .hero-section {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    background: linear-gradient(
+      135deg,
+      var(--bg-primary) 0%,
+      var(--bg-secondary) 100%
+    );
+  }
+
+  .hero-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+    line-height: var(--line-height-tight);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+    line-height: var(--line-height-normal);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .hero-description {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: var(--space-2xl) 0;
+    margin-top: var(--space-2xl);
+    border-top: 1px solid var(--border-light);
+  }
+
+  footer h2 {
+    color: var(--accent-primary);
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  footer li {
+    margin-bottom: var(--space-sm);
+  }
+
+  footer a {
+    color: var(--link-default);
+    transition: color var(--transition-fast);
+  }
+
+  footer a:hover {
+    color: var(--link-hover);
+  }
+
+  /* Content Sections */
+  .content-section {
+    padding: var(--space-xl) 0;
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+    text-align: center;
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Quote Blocks */
+  .quote-block {
+    background-color: var(--bg-secondary);
+    border-left: 4px solid var(--accent-primary);
+    padding: var(--space-lg);
+    margin: var(--space-xl) 0;
+    font-style: italic;
+    position: relative;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .quote-block::before {
+    content: '"';
+    font-size: var(--font-size-4xl);
+    color: var(--accent-primary);
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    opacity: 0.3;
+    font-family: serif;
+    line-height: 1;
+  }
+
+  .quote-block p {
+    margin: 0;
+    padding-left: var(--space-xl);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+  }
+}
+
+/* =================================================================
+ * Utility Classes
+ * ================================================================= */
+
+@layer utilities {
+  /* Responsive utilities */
+  .hidden-mobile {
+    @media (max-width: 768px) {
+      display: none !important;
+    }
+  }
+
+  .hidden-desktop {
+    @media (min-width: 769px) {
+      display: none !important;
+    }
+  }
+
+  .visible-mobile {
+    display: none !important;
+    @media (max-width: 768px) {
+      display: block !important;
+    }
+  }
+
+  .visible-desktop {
+    display: none !important;
+    @media (min-width: 769px) {
+      display: block !important;
+    }
+  }
+
+  /* Text utilities */
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--accent-secondary) 0%,
+      var(--accent-quaternary) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Focus utilities */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    --tw-ring-color: var(--focus-color);
+  }
+}
+
+/* =================================================================
+ * Critical Inline Styles Override
+ * These replace the massive inline style blocks in BaseLayout.astro
+ * ================================================================= */
+
+@layer utilities {
+  /* Ensure all text has proper contrast */
+  .hero-description,
+  .text-muted,
+  .text-secondary,
+  .metric-highlight p,
+  .demo-item li,
+  .persona-item li,
+  .metric-row span,
+  [class*='text-gray'],
+  [class*='text-secondary'] {
+    color: var(--text-secondary) !important;
+    opacity: 1 !important;
+  }
+
+  /* Character and persona cards */
+  .character-card p,
+  .character-card span,
+  .persona-card p,
+  .persona-card span,
+  .character-description,
+  .persona-description,
+  .character-meta,
+  .persona-meta {
+    color: var(--text-primary) !important;
+    opacity: 1 !important;
+  }
+
+  /* Navigation elements */
+  .nav-link,
+  .nav-item,
+  nav a,
+  nav span {
+    opacity: 1 !important;
+  }
+
+  /* Card elements */
+  .card p,
+  .card span,
+  .card-description,
+  .card-meta,
+  .card-subtitle {
+    color: var(--text-primary) !important;
+    opacity: 1 !important;
+  }
+
+  /* Links should always be underlined for accessibility */
+  a:not(.btn):not(.nav-brand a) {
+    text-decoration: underline !important;
+  }
+
+  /* Remove all opacity from text elements */
+  p,
+  span,
+  li,
+  small,
+  dd,
+  dt,
+  td,
+  th,
+  blockquote,
+  figcaption,
+  time,
+  address {
+    opacity: 1 !important;
+  }
+
+  /* Force proper contrast on any remaining problematic elements */
+  [style*='opacity: 0'],
+  [style*='opacity:0'] {
+    opacity: 1 !important;
+  }
+
+  [style*='color: rgba'] {
+    color: var(--text-primary) !important;
+  }
+}
+
+/* =================================================================
+ * Mobile Specific Overrides
+ * ================================================================= */
+
+@media (max-width: 768px) {
+  @layer utilities {
+    /* Force maximum opacity on mobile */
+    * {
+      opacity: 1 !important;
+    }
+
+    /* Hero sections on mobile */
+    .hero-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .hero-subtitle,
+    .hero-description {
+      color: var(--text-primary) !important;
+      font-weight: var(--font-weight-medium) !important;
+    }
+
+    /* Magazine cutout mobile adjustments */
+    .magazine-subtitle-hero .subtitle-text {
+      background: var(--text-primary) !important;
+      color: var(--bg-primary) !important;
+      padding: var(--space-2) !important;
+    }
+  }
+}
+
+/* =================================================================
+ * Print Styles
+ * ================================================================= */
+
+@media print {
+  @layer base {
+    * {
+      background: transparent !important;
+      color: black !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    .magazine-cutout,
+    .emoji-cutout {
+      clip-path: none !important;
+      filter: none !important;
+      background: transparent !important;
+    }
+
+    .skip-link,
+    nav,
+    .mobile-menu-toggle,
+    .theme-selector,
+    .language-toggle {
+      display: none !important;
+    }
+  }
+}
